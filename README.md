@@ -7,6 +7,6 @@
 
 #### 二，~~[CodingPages](http://leeze.coding.me)~~
 
-#### 三，[CodingPages](https://leeze.gitee.io/)
+#### 三，[GiteePages](https://leeze.gitee.io/)
 
 
