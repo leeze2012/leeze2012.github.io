@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.1.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="baidu-site-verification" content="WZilU4QiSZ">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="//cdn.bootcdn.net/ajax/libs/font-awesome/5.13.1/css/all.css">
+  
+  <link rel="stylesheet" href="/lib/animate-css/animate.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"blog.xiaosige.com","root":"/","scheme":"Gemini","version":"8.0.0-rc.5","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"livere","storage":true,"lazyload":true,"nav":null,"activeClass":"livere"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}};
+  </script>
+
+  <meta name="description" content="正确的安装和使用nvm前言&amp;emsp;&amp;emsp;目前主流的node版本管理工具有两种，nvm和n。两者差异挺大的。 &amp;emsp;&amp;emsp;总的来说，nvm有点类似于 Python 的 virtualenv 或者 Ruby 的 rvm，每个node版本的模块都会被安装在各自版本的沙箱里面（因此切换版本后模块需重新安装），因此考虑到需要时常对node版本进行切换测试兼容性和一些模块对node版本的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Mac正确的安装和使用nvm">
+<meta property="og:url" content="https://blog.xiaosige.com/post/undefined.html">
+<meta property="og:site_name" content="leeze">
+<meta property="og:description" content="正确的安装和使用nvm前言&amp;emsp;&amp;emsp;目前主流的node版本管理工具有两种，nvm和n。两者差异挺大的。 &amp;emsp;&amp;emsp;总的来说，nvm有点类似于 Python 的 virtualenv 或者 Ruby 的 rvm，每个node版本的模块都会被安装在各自版本的沙箱里面（因此切换版本后模块需重新安装），因此考虑到需要时常对node版本进行切换测试兼容性和一些模块对node版本的">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-08-24T10:51:19.000Z">
+<meta property="article:modified_time" content="2020-08-24T12:15:23.203Z">
+<meta property="article:author" content="leeze">
+<meta property="article:tag" content="Nvm">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://blog.xiaosige.com/post/undefined.html">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Mac正确的安装和使用nvm | leeze</title>
+  
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?373a855f47c8e41e6de9a6e411fe871a";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <main class="main">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+        <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">leeze</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">心之所愿，无所不至！</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">20</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">16</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">48</span></a>
+
+  </li>
+        <li class="menu-item menu-item-welfare">
+
+    <a href="/welfare" rel="section"><i class="fa fa-coffee fa-fw"></i>福利</a>
+
+  </li>
+        <li class="menu-item menu-item-photos">
+
+    <a href="/photos" rel="section"><i class="fa fa-camera-retro fa-fw"></i>相册</a>
+
+  </li>
+        <li class="menu-item menu-item-links">
+
+    <a href="/links" rel="section"><i class="fa fa-link fa-fw"></i>友链</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <section class="post-toc-wrap sidebar-panel">
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AD%A3%E7%A1%AE%E7%9A%84%E5%AE%89%E8%A3%85%E5%92%8C%E4%BD%BF%E7%94%A8nvm"><span class="nav-number">1.</span> <span class="nav-text">正确的安装和使用nvm</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85"><span class="nav-number">1.2.</span> <span class="nav-text">安装</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%B8%8D%E6%8E%A8%E8%8D%90%E7%9A%84%E5%AE%89%E8%A3%85%E6%96%B9%E6%B3%95"><span class="nav-number">1.2.0.1.</span> <span class="nav-text">不推荐的安装方法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%8E%A8%E8%8D%90%E7%9A%84%E5%AE%89%E8%A3%85%E6%96%B9%E6%B3%95"><span class="nav-number">1.2.0.2.</span> <span class="nav-text">推荐的安装方法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#nvm%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="nav-number">1.2.0.3.</span> <span class="nav-text">nvm常用命令</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%99%84-MAC-%E7%9A%84-bash-profile"><span class="nav-number">1.2.0.4.</span> <span class="nav-text">附:MAC 的 .bash_profile</span></a></li></ol></li></ol></li></ol></li></ol></div>
+      </section>
+      <!--/noindex-->
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="leeze"
+      src="/images/leeze_ava_2_1.png">
+  <p class="site-author-name" itemprop="name">leeze</p>
+  <div class="site-description" itemprop="description">因上努力，果上随缘！</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">48</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/leeze2012" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;leeze2012" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:leeze0216@163.com" title="E-Mail → mailto:leeze0216@163.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://blog.csdn.net/lileeze" title="CSDN&amp;nbsp;&amp;nbsp; → https:&#x2F;&#x2F;blog.csdn.net&#x2F;lileeze" rel="noopener" target="_blank"><i class="fa fa-crosshairs fa-fw"></i>CSDN&nbsp;&nbsp;</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.jianshu.com/u/e4c5daf92fa6" title="简书&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; → https:&#x2F;&#x2F;www.jianshu.com&#x2F;u&#x2F;e4c5daf92fa6" rel="noopener" target="_blank"><i class="fab fa-telegram fa-fw"></i>简书&nbsp;&nbsp;&nbsp;&nbsp;</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://gitee.com/leeze" title="码云&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; → https:&#x2F;&#x2F;gitee.com&#x2F;leeze" rel="noopener" target="_blank"><i class="fab fa-gg fa-fw"></i>码云&nbsp;&nbsp;&nbsp;&nbsp;</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://dev.tencent.com/u/leeze" title="腾讯云&amp;nbsp; → https:&#x2F;&#x2F;dev.tencent.com&#x2F;u&#x2F;leeze" rel="noopener" target="_blank"><i class="fab fa-jsfiddle fa-fw"></i>腾讯云&nbsp;</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://codeup.aliyun.com/" title="Codeup → https:&#x2F;&#x2F;codeup.aliyun.com" rel="noopener" target="_blank"><i class="fab fa-envira fa-fw"></i>Codeup</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </section>
+        <div class="back-to-top animated">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </header>
+
+      
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div id="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+      <div class="main-inner">
+        
+
+        <div class="content post posts-expand">
+          
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.xiaosige.com/post/undefined.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/leeze_ava_2_1.png">
+      <meta itemprop="name" content="leeze">
+      <meta itemprop="description" content="因上努力，果上随缘！">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="leeze">
+    </span>
+
+    
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Mac正确的安装和使用nvm
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-08-24 18:51:19 / 修改时间：20:15:23" itemprop="dateCreated datePublished" datetime="2020-08-24T18:51:19+08:00">2020-08-24</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Mac/" itemprop="url" rel="index"><span itemprop="name">Mac</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>4.7k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>4 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h2 id="正确的安装和使用nvm"><a href="#正确的安装和使用nvm" class="headerlink" title="正确的安装和使用nvm"></a>正确的安装和使用nvm</h2><h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>&emsp;&emsp;目前主流的node版本管理工具有两种，nvm和n。两者差异挺大的。</p>
+<p>&emsp;&emsp;总的来说，nvm有点类似于 Python 的 virtualenv 或者 Ruby 的 rvm，每个node版本的模块都会被安装在各自版本的沙箱里面（因此切换版本后模块需重新安装），因此考虑到需要时常对node版本进行切换测试兼容性和一些模块对node版本的限制，我选择了使用nvm作为管理工具，下面就来说说nvm的安装和使用过程。</p>
+<a id="more"></a>
+
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>&emsp;&emsp;这里主要介绍mac的安装(linux可以参照),windows系统的话可以参考<a target="_blank" rel="noopener" href="https://cnodejs.org/topic/5338c5db7cbade005b023c98">windows</a></p>
+<h5 id="不推荐的安装方法"><a href="#不推荐的安装方法" class="headerlink" title="不推荐的安装方法"></a>不推荐的安装方法</h5><p>&emsp;&emsp;一开始我是使用homebrew来安装的,安装命令如下:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install nvm</span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;安装完后，为了让你可以直接在shell使用nvm指令，必须在你的<code> .bash_profile</code> 加入以下这行（习惯把设定放在.bashrc的人可以把以下的.bash_profile改成.bashrc）(注:如果没有这个文件,可以touch创建)</p>
+<figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source <span class="constructor">$(<span class="params">brew</span> --<span class="params">prefix</span> <span class="params">nvm</span>)</span>/nvm.sh</span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;或者直接输入以下这行来加入</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">echo</span> <span class="string">&quot;source <span class="subst">$(brew --prefix nvm)</span>/nvm.sh&quot;</span> &gt;&gt; .bash_profile</span></span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;记得重新source你的 .bash_profile 来让设定生效</p>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>. ~<span class="regexp">/.bash_profile</span></span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;OK，以上就完成了nvm的安裝。</p>
+<p>&emsp;&emsp;我们来装一下 node v5.12.0</p>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nvm install <span class="number">5</span></span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;安装成功后,使用nvm use 来切换版本</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">nvm</span> use v<span class="number">5</span>.<span class="number">12</span>.<span class="number">0</span></span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;如，出现错误如下:</p>
+ <div class="note danger no-icon"><p>nvm is not compatible with the npm config “prefix” option: currently set to “/Users/fabian/.nvm/versions/node/v0.12.7”<br>Run <code>nvm use --delete-prefix v4.6.2</code> to unset it.</p>
+</div>
+
+<p>&emsp;&emsp;所以只能安装提示,使用</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">nvm</span> use --delete-prefix v<span class="number">4</span>.<span class="number">6</span>.<span class="number">2</span></span><br></pre></td></tr></table></figure>
+
+<p>&emsp;&emsp;成功切换。</p>
+<p>&emsp;&emsp;至于为什么用homebrew安装会出现上面的问题,可参考Github上的一个<a target="_blank" rel="noopener" href="https://github.com/nvm-sh/nvm/issues/855">issue</a>。</p>
+<p>&emsp;&emsp;查看<a target="_blank" rel="noopener" href="https://github.com/nvm-sh/nvm">nvm文档</a>发现:文档中Installation 那一小节倒数第二行有一句Homebrew installation is not supported.，由此可见，没事儿还是要多看看文档。</p>
+<h5 id="推荐的安装方法"><a href="#推荐的安装方法" class="headerlink" title="推荐的安装方法"></a>推荐的安装方法</h5><p><font color=LightCoral size=4>一、</font> <strong><em>卸载已安装到全局的 node/npm</em></strong></p>
+<p>&emsp;&emsp;如果之前是在官网下载的 node 安装包，运行后会自动安装在全局目录，其中</p>
+<p>&emsp;&emsp;node 命令在 <code>/usr/local/bin/node</code> ，</p>
+<p>&emsp;&emsp;npm 命令在全局 <code>node_modules</code> 目录中，具体路径为 <code>/usr/local/lib/node_modules/npm</code></p>
+<p>&emsp;&emsp;安装 nvm 之后最好先删除下已安装的 node 和全局 node 模块：</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">npm ls -g --depth=<span class="number">0</span> <span class="comment">#查看已经安装在全局的模块，以便删除这些全局模块后再按照不同的 node 版本重新进行全局安装</span></span><br><span class="line"></span><br><span class="line">sudo rm -rf <span class="regexp">/usr/</span>local<span class="regexp">/lib/</span>node_modules <span class="comment">#删除全局 node_modules 目录</span></span><br><span class="line">sudo rm <span class="regexp">/usr/</span>local<span class="regexp">/bin/</span>node <span class="comment">#删除 node</span></span><br><span class="line">cd  <span class="regexp">/usr/</span>local<span class="regexp">/bin &amp;&amp; ls -l | grep &quot;../</span>lib<span class="regexp">/node_modules/</span><span class="string">&quot; | awk &#x27;&#123;print $9&#125;&#x27;| xargs rm #删除全局 node 模块注册的软链</span></span><br></pre></td></tr></table></figure>
+
+<p><font color=LightCoral size=4>二、</font> <strong><em>安装 nvm</em></strong></p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -o- https:<span class="regexp">//</span>raw.githubusercontent.com<span class="regexp">/nvm-sh/</span>nvm<span class="regexp">/v0.35.3/i</span>nstall.sh | bash</span><br></pre></td></tr></table></figure>
+
+<p>&emsp;&emsp;<code>如果报错</code>，解决办法：通过修改hosts解决此问题。</p>
+<p>&emsp;&emsp;查询真实IP，在 <a target="_blank" rel="noopener" href="https://www.ipaddress.com/">https://www.ipaddress.com/</a> 查询 raw.githubusercontent.com 的真实IP。</p>
+<figure class="highlight accesslog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#修改hosts</span><br><span class="line">sudo vim /etc/hosts</span><br><span class="line"></span><br><span class="line">#添加如下内容：</span><br><span class="line"><span class="number">199.232.28.133</span> raw.githubusercontent.com</span><br></pre></td></tr></table></figure>
+
+<p>&emsp;&emsp;安装完成后请重新打开终端环境，Mac 下推荐使用 oh-my-zsh 代替默认的 bash shell。 安装完成后,发现使用nvm install stable 安装node速度很慢,原因嘛,大概大家都知道我大天朝的国情。 接下来介绍如何使用国内镜像快速安装node: 把环境变量 <code>NVM_NODEJS_ORG_MIRROR</code>, 那么我建议你加入到 .bash_profile 文件中:</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># nvm</span></span><br><span class="line">export NVM_NODEJS_ORG_MIRROR=https:<span class="regexp">//</span>npm.taobao.org<span class="regexp">/mirrors/</span>node</span><br></pre></td></tr></table></figure>
+
+<p>&emsp;&emsp;然后你可以继续非常方便地安装各个版本的 node 了.</p>
+<p><mark>查看 node 版本 </mark></p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nvm <span class="built_in">ls</span><span class="literal">-remote</span>     <span class="comment"># 远端版本</span></span><br><span class="line">nvm <span class="built_in">ls</span>            <span class="comment"># 本地已安装的版本</span></span><br></pre></td></tr></table></figure>
+
+
+<p><mark>安装 node </mark></p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">nvm</span> install node                            # 安装最新版本</span><br><span class="line"><span class="attribute">nvm</span> install <span class="number">6</span>.<span class="number">14</span>.<span class="number">4</span> # or <span class="number">10</span>.<span class="number">10</span>.<span class="number">0</span>, <span class="number">8</span>.<span class="number">9</span>.<span class="number">1</span>, etc # 安装指定版本</span><br></pre></td></tr></table></figure>
+
+
+<p><mark>使用 node </mark></p>
+<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nvm use <span class="keyword">node</span> <span class="title"># 使用最新版本</span></span><br><span class="line"><span class="title">nvm</span> use <span class="number">12.13</span>.<span class="number">0</span> <span class="comment"># 使用指定版本</span></span><br></pre></td></tr></table></figure>
+
+<p><mark>查看 node 版本安装位置 </mark></p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">nvm</span> which <span class="number">5</span>.<span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+<p><font color=LightCoral size=4>三、</font> <strong><em>使用 cnpm 加速 npm</em></strong></p>
+<p>&emsp;&emsp;同理 nvm , npm 默认是从国外的源获取和下载包信息, 不慢才奇怪. 可以通过简单的 —registry 参数, 使用国内的镜像 <a target="_blank" rel="noopener" href="https://registry.npm.taobao.org/">https://registry.npm.taobao.org</a> :</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm --registry=https:<span class="regexp">//</span>registry.npm.taobao.org install koa</span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;于是屏幕又哗啦哗啦地一大片输出</p>
+<blockquote>
+<p>$ npm –registry=<a target="_blank" rel="noopener" href="https://registry.npm.taobao.org/">https://registry.npm.taobao.org</a> install koa<br>npm http GET <a target="_blank" rel="noopener" href="https://registry.npm.taobao.org/koa">https://registry.npm.taobao.org/koa</a><br>npm http 200 <a target="_blank" rel="noopener" href="https://registry.npm.taobao.org/koa">https://registry.npm.taobao.org/koa</a><br>…<br>npm http 200 <a target="_blank" rel="noopener" href="https://registry.npm.taobao.org/negotiator">https://registry.npm.taobao.org/negotiator</a><br>npm http 200 <a target="_blank" rel="noopener" href="https://registry.npm.taobao.org/keygrip">https://registry.npm.taobao.org/keygrip</a><br>koa<a href="/user/0">@0</a>.5.2 node_modules/koa<br>├── koa-compose<a href="/user/2">@2</a>.2.0<br>├── statuses<a href="/user/1">@1</a>.0.2<br>├── finished<a href="/user/1">@1</a>.1.1<br>├── escape-html<a href="/user/1">@1</a>.0.1<br>├── only<a href="/user/0">@0</a>.0.2<br>├── debug<a href="/user/0">@0</a>.8.0<br>├── fresh<a href="/user/0">@0</a>.2.2<br>├── type-is<a href="/user/1">@1</a>.0.1<br>├── delegates<a href="/user/0">@0</a>.0.3<br>├── mime<a href="/user/1">@1</a>.2.11<br>├── co<a href="/user/3">@3</a>.0.5<br>├── accepts<a href="/user/1">@1</a>.0.1 (negotiator<a href="/user/0">@0</a>.4.2)<br>└── cookies<a href="/user/0">@0</a>.4.0 (keygrip<a href="/user/1">@1</a>.0.0)</p>
+</blockquote>
+<p>&emsp;&emsp;但是毕竟镜像跟官方的 npm 源还是会有一个同步时间差异, 目前 cnpm 的默认同步时间间隔是 15 分钟. 如果你是模块发布者, 或者你想马上同步一个模块, 那么推荐你安装 cnpm cli:</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm --registry=https:<span class="regexp">//</span>registry.npm.taobao.org install cnpm -g</span><br></pre></td></tr></table></figure>
+
+<p>&emsp;&emsp;通过 cnpm 命令行, 你可以快速同步任意模块:</p>
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cnpm sync koa <span class="built_in">connect</span> mocha</span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;呃, 我就是不想安装 cnpm cli 怎么办? 哈哈, 早就想到你会这么懒了, 于是我们还有一个 web 页面:</p>
+<p>&emsp;&emsp;例如我想马上同步 koa, 直接打开浏览器: <a target="_blank" rel="noopener" href="https://npm.taobao.org/sync/koa">https://npm.taobao.org/sync/koa</a></p>
+<p>&emsp;&emsp;或者你是命令行控, 通过 open 命令打开:</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ open https:<span class="regexp">//</span>npm.taobao.org<span class="regexp">/sync/</span>koa</span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;如果你安装的模块依赖了 C++ 模块, 需要编译, 肯定会通过 node-gyp 来编译, node-gyp 在第一次编译的时候, 需要依赖 node 源代码, 于是又会去 node dist 下载, 于是大家又会吐槽, 怎么 npm 安装这么慢…</p>
+<p>&emsp;&emsp;好吧, 于是又要提到 <code>--disturl</code> 参数, 通过七牛的镜像来下载:</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm --registry=https:<span class="regexp">//</span>registry.npm.taobao.org --disturl=https:<span class="regexp">//</span>npm.taobao.org<span class="regexp">/mirrors/</span>node install microtime</span><br></pre></td></tr></table></figure>
+
+<p>&emsp;&emsp;再次要提到 cnpm cli, 它已经默认将 –registry 和 –disturl 都配置好了, 谁用谁知道 如果不想使用cnpm cli，可以</p>
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm <span class="built_in">config</span> <span class="built_in">set</span> registry https:<span class="comment">//registry.npm.taobao.org --global</span></span><br><span class="line">npm <span class="built_in">config</span> <span class="built_in">set</span> disturl https:<span class="comment">//npm.taobao.org/dist --global</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm<span class="built_in"> config </span>ls # npm的配置</span><br></pre></td></tr></table></figure>
+
+<h5 id="nvm常用命令"><a href="#nvm常用命令" class="headerlink" title="nvm常用命令"></a>nvm常用命令</h5><ol>
+<li>nvm install <version> ## 安装指定版本，可模糊安装，如：安装v4.4.0，既可nvm install v4.4.0，又可nvm install 4.4</li>
+<li>nvm uninstall <version> ## 删除已安装的指定版本，语法与install类似</li>
+<li>nvm use <version> ## 切换使用指定的版本node</li>
+<li>nvm ls ## 列出所有安装的版本</li>
+<li>nvm ls-remote ## 列出所以远程服务器的版本（官方node version list）</li>
+<li>nvm current ## 显示当前的版本</li>
+<li>nvm alias <name> <version> ## 给不同的版本号添加别名</li>
+<li>nvm unalias <name> ## 删除已定义的别名</li>
+<li>nvm reinstall-packages <version> ## 在当前版本node环境下，重新全局安装指定版本号的npm包</li>
+</ol>
+<h5 id="附-MAC-的-bash-profile"><a href="#附-MAC-的-bash-profile" class="headerlink" title="附:MAC 的 .bash_profile"></a>附:MAC 的 <code>.bash_profile</code></h5><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="builtin-name">export</span> <span class="attribute">NVM_DIR</span>=<span class="string">&quot;<span class="variable">$HOME</span>/.nvm&quot;</span></span><br><span class="line">[ -s <span class="string">&quot;<span class="variable">$NVM_DIR</span>/nvm.sh&quot;</span> ] &amp;&amp; \. <span class="string">&quot;<span class="variable">$NVM_DIR</span>/nvm.sh&quot;</span>  # This loads nvm</span><br><span class="line">[ -s <span class="string">&quot;<span class="variable">$NVM_DIR</span>/bash_completion&quot;</span> ] &amp;&amp; \. <span class="string">&quot;<span class="variable">$NVM_DIR</span>/bash_completion&quot;</span>  # This loads nvm bash_completi    on</span><br><span class="line"> </span><br><span class="line"><span class="comment"># nvm 改为国内node镜像</span></span><br><span class="line"><span class="builtin-name">export</span> <span class="attribute">NVM_NODEJS_ORG_MIRROR</span>=https://npm.taobao.org/mirrors/node</span><br></pre></td></tr></table></figure>
+    </div>
+
+    
+    
+    
+<div>
+    
+
+    <div style="height: 1px;margin-top: 60px;text-align: center;border-top: 1px solid #e2e2e2;">
+      <span style="position: relative;top:-18px;background: #fff;display: inline-block;color: #ccc;font-size:14px;">本文结束---<i class="fa fa-paw magic-color"></i>---感谢您的阅读</span>
+    </div>
+
+    <div style="margin-top: 30px;">
+      <img id="wechat_subscriber_qcode" src="/images/leeze_ava_4.png" alt="leeze wechat" style="width: 200px; max-width: 100%;">
+    </div>
+
+    <p id="hitokoto" style="text-align:center;margin-top: 30px;font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, STKaiti, KaiTi, SimKai, DFKai-SB, 'Lato', 'PingFang SC', 'Microsoft YaHei', sans-serif;font-weight: bold;color: #999;">
+     正在加载一言...
+    </p>
+
+    <hr>
+
+    <div style="margin-top: 30px;">
+      <img id="wechat_subscriber_qcode" src="/images/reward-container-back.png" alt="leeze wechat" style="max-width: 100%;">
+    </div>
+
+    
+</div>
+
+
+        <div class="reward-container">
+  <div></div>
+  <button onclick="document.getElementById('post-reward').classList.toggle('active');">
+    赞赏
+  </button>
+  <div id="post-reward">
+      
+      <div>
+        <img src="/images/wechatpay.png" alt="leeze 微信">
+        <p>微信</p>
+      </div>
+      
+      <div>
+        <img src="/images/alipay.png" alt="leeze 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>leeze
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://blog.xiaosige.com/post/undefined.html" title="Mac正确的安装和使用nvm">https://blog.xiaosige.com/post/undefined.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Nvm/" rel="tag"><i class="fa fa-tag"></i> Nvm</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/post/afccf6ff.html" rel="prev" title="SpringBoot项目添加外部Jar包">
+      <i class="fa fa-chevron-left"></i> SpringBoot项目添加外部Jar包
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+        </div>
+        
+    
+  <div class="comments">
+    <div id="lv-container" data-id="city" data-uid="MTAyMC80NjMzMy8yMjg0NA=="></div>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2019 – 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">小四儿(Leeze)工作室</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+      <span class="post-meta-item-text">站点总字数：</span>
+    <span title="站点总字数">79k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">1:12</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+<div>
+<!-- 网站运行时间的设置 -->
+<span id="timeDate">载入天数...</span>
+<span id="times">载入时分秒...</span>
+<script>
+    var now = new Date();
+    function createtime() {
+        var grt= new Date("08/26/2019 13:14:21");//此处修改你的建站时间或者网站上线时间
+        now.setTime(now.getTime()+250);
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days);
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours);
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;}
+        document.getElementById("timeDate").innerHTML = "本站已安全运行 "+dnum+" 天 ";
+        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+    }
+setInterval("createtime()",250);
+</script>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        总访客数： <span id="busuanzi_value_site_uv"></span> 人
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        总访问量： <span id="busuanzi_value_site_pv"></span> 次
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script size="300" alpha="0.6" zIndex="-1" src="//cdn.jsdelivr.net/gh/theme-next/theme-next-canvas-ribbon@1/canvas-ribbon.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+<script>
+document.querySelectorAll('.pdfobject-container').forEach(element => {
+  let url = element.dataset.target;
+  let pdfOpenParams = {
+    navpanes : 0,
+    toolbar  : 0,
+    statusbar: 0,
+    pagemode : 'thumbs',
+    view     : 'FitH'
+  };
+  let pdfOpenFragment = '#' + Object.entries(pdfOpenParams).map(([key, value]) => `${key}=${encodeURIComponent(value)}`).join('&');
+  let fullURL = `/lib/pdf/web/viewer.html?file=${encodeURIComponent(url)}${pdfOpenFragment}`;
+
+  if (NexT.utils.supportsPDFs()) {
+    element.innerHTML = `<embed class="pdfobject" src="${url + pdfOpenFragment}" type="application/pdf" style="height: ${element.dataset.height};">`;
+  } else {
+    element.innerHTML = `<iframe src="${fullURL}" style="height: ${element.dataset.height};" frameborder="0"></iframe>`;
+  }
+});
+</script>
+
+
+
+
+  
+
+  
+
+<script>
+NexT.utils.loadComments('#lv-container', () => {
+  window.livereOptions = {
+    refer: location.pathname.replace(CONFIG.root, '').replace('index.html', '')
+  };
+  (function(d, s) {
+    var j, e = d.getElementsByTagName(s)[0];
+    if (typeof LivereTower === 'function') { return; }
+    j = d.createElement(s);
+    j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+    j.async = true;
+    e.parentNode.insertBefore(j, e);
+  })(document, 'script');
+});
+</script>
+
+
+
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+  <meting-js server="netease" type="playlist" id="571183770" fixed="true" autoplay="false" order="random" lrc-type=1  theme="#eb7aab"></meting-js>
+  <!-- leeze -->
+  <script type="text/javascript">
+  WIDGET = {FID: 'XUy3fu0v0v'}
+  </script>
+  <script type="text/javascript" src="https://apip.weatherdt.com/float/static/js/r.js?v=1111"></script>
+  <script>
+  function magicColor(mode,t){
+      t=t||10;
+      let elem=document.getElementsByClassName("magic-color");
+      if(!elem){
+          setTimeout(function(){
+              magicColor(mode,t-1);
+          },400);
+          return;
+      }
+      if(window.mcHandler==undefined){
+          window.mcHandler={elements:[]};
+          window.mcHandler.colorIndex=0;
+          window.mcHandler.run=function(mode){
+              let color=mode=="random"?("rgb("+Math.floor(Math.random()*256)+","+Math.floor(Math.random()*256)+","+Math.floor(Math.random()*256)+",1)"):["#CC0000","#9999CC","#CC3366","#669999","#FFCC00","#00CCCC","#CC00CC"][(window.mcHandler.colorIndex++)%7];
+              for(var i=0,L=window.mcHandler.elements.length;i<L;i++)window.mcHandler.elements[i].style.color=color;
+          }
+      }
+      window.mcHandler.elements=elem;
+      if(window.mcHandler.timer==undefined){
+          window.mcHandler.timer=setInterval(()=>{window.mcHandler.run(mode)},500);
+      }
+  }
+  magicColor("random");//random为随机颜色，否则为固定颜色随机；上方“闪烁（变色）”字样为固定颜色随机
+  </script>
+  <!-- 一言API -->
+  <!-- 现代写法，推荐 -->
+  <!-- 兼容低版本浏览器 (包括 IE)，可移除 -->
+  <script src="https://cdn.jsdelivr.net/npm/bluebird@3/js/browser/bluebird.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/whatwg-fetch@2.0.3/fetch.min.js"></script>
+  <!--End-->
+  <script>
+    fetch('https://v1.hitokoto.cn')
+      .then(function (res){
+        return res.json();
+      })
+      .then(function (data) {
+        var hitokoto = document.getElementById('hitokoto');
+        if(hitokoto){
+          hitokoto.innerHTML = "<i class='fa fa-volume-up' style='margin-right:6px;'></i>" + data.hitokoto + '——【' + data.from + '】';
+        }
+      })
+      .catch(function (err) {
+        console.error(err);
+      })
+  </script>
+
+</body>
+</html>
