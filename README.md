@@ -1,7 +1,7 @@
 ## 个人博客
-### GithubPages + CodingPages + 域名
+### GithubPages + GiteePages + 域名
 
-> GithubPages 在国内较慢，百度不收录，而CodingPages 在国外较快。所以在方案二的基础上，添加CodingPages。 
+> GithubPages 在国内较慢，百度不收录，而GiteePages国内相对好些。
 
 #### 一，[GithubPages](https://leeze2012.github.io)
 
