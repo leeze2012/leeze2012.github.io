@@ -106,7 +106,7 @@
 <figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">git clone <span class="tag">&lt;<span class="name">版本库的网址</span>&gt;</span> <span class="tag">&lt;<span class="name">本地目录名</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">cd</span> <span class="string">bolg</span></span><br><span class="line"><span class="attr">hexo</span> <span class="string">init</span></span><br><span class="line"><span class="attr">...</span></span><br><span class="line"><span class="attr">npm</span> <span class="string">install</span></span><br></pre></td></tr></table></figure>
 <p>安装相应插件</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">npm <span class="keyword">install</span> hexo-deployer-git <span class="comment">--save</span></span><br><span class="line">npm <span class="keyword">install</span> hexo-generator-searchdb <span class="comment">--save</span></span><br><span class="line">npm <span class="keyword">install</span> valine <span class="comment">--save</span></span><br><span class="line">npm <span class="keyword">install</span> hexo-symbols-<span class="keyword">count</span>-<span class="built_in">time</span> <span class="comment">--save</span></span><br><span class="line">npm <span class="keyword">install</span> hexo-tag-aplayer <span class="comment">--save</span></span><br><span class="line">npm <span class="keyword">install</span> hexo-tag-dplayer <span class="comment">--save</span></span><br><span class="line">npm <span class="keyword">install</span> hexo-baidu-<span class="keyword">url</span>-submit <span class="comment">--save</span></span><br><span class="line">npm <span class="keyword">install</span> hexo-abbrlink <span class="comment">--save</span></span><br><span class="line">npm <span class="keyword">install</span> hexo-blog-<span class="keyword">encrypt</span> <span class="comment">--save</span></span><br><span class="line"></span><br><span class="line">npm <span class="keyword">uninstall</span> hexo-generator-<span class="keyword">index</span> <span class="comment">--save</span></span><br><span class="line">npm <span class="keyword">install</span> hexo-generator-<span class="keyword">index</span>-pin-top <span class="comment">--save</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">npm <span class="keyword">install</span> hexo-deployer-git <span class="comment">--save</span></span><br><span class="line">npm <span class="keyword">install</span> hexo-generator-searchdb <span class="comment">--save</span></span><br><span class="line">npm <span class="keyword">install</span> valine <span class="comment">--save</span></span><br><span class="line">npm <span class="keyword">install</span> hexo-symbols-<span class="keyword">count</span>-<span class="built_in">time</span> <span class="comment">--save</span></span><br><span class="line">npm <span class="keyword">install</span> hexo-tag-aplayer <span class="comment">--save</span></span><br><span class="line">npm <span class="keyword">install</span> hexo-tag-dplayer <span class="comment">--save</span></span><br><span class="line">npm <span class="keyword">install</span> hexo-baidu-<span class="keyword">url</span>-submit <span class="comment">--save</span></span><br><span class="line">npm <span class="keyword">install</span> hexo-abbrlink <span class="comment">--save</span></span><br><span class="line">npm <span class="keyword">install</span> hexo-blog-<span class="keyword">encrypt</span> <span class="comment">--save</span></span><br><span class="line"></span><br><span class="line">npm <span class="keyword">uninstall</span> hexo-generator-<span class="keyword">index</span> <span class="comment">--save</span></span><br><span class="line">npm <span class="keyword">install</span> hexo-generator-<span class="keyword">index</span>-pin-top <span class="comment">--save</span></span><br><span class="line"></span><br><span class="line">npm <span class="keyword">install</span> hexo-asset-image <span class="comment">--save  (推荐这个,得修改 /node_modules/hexo-asset-image/index.js)</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <p><strong><code>一些东西摘自网上，未亲自验证。</code></strong></p>
 <br>
@@ -130,7 +130,7 @@
   <entry>
     <title>Mac正确的安装和使用nvm</title>
     <url>/post/c0a81ac4.html</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>&emsp;&emsp;目前主流的node版本管理工具有两种，nvm和n。两者差异挺大的。</p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><h4 id="了解nvm"><a href="#了解nvm" class="headerlink" title="了解nvm"></a>了解nvm</h4><p>&emsp;&emsp;目前主流的node版本管理工具有两种，nvm和n。两者差异挺大的。</p>
 <p>&emsp;&emsp;总的来说，nvm有点类似于 Python 的 virtualenv 或者 Ruby 的 rvm，每个node版本的模块都会被安装在各自版本的沙箱里面（因此切换版本后模块需重新安装），因此考虑到需要时常对node版本进行切换测试兼容性和一些模块对node版本的限制，我选择了使用nvm作为管理工具，下面就来说说nvm的安装和使用过程。</p>
 <a id="more"></a>
 
@@ -205,9 +205,9 @@
 <h5 id="使用-cnpm-加速-npm"><a href="#使用-cnpm-加速-npm" class="headerlink" title="使用 cnpm 加速 npm"></a><strong><em>使用 cnpm 加速 npm</em></strong></h5><p>&emsp;&emsp;同理 nvm , npm 默认是从国外的源获取和下载包信息, 不慢才奇怪. 可以通过简单的 —registry 参数, 使用国内的镜像 <a href="https://registry.npm.taobao.org/">https://registry.npm.taobao.org</a> :</p>
 <figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">$ npm --registry=https:<span class="regexp">//</span>registry.npm.taobao.org install koa</span><br></pre></td></tr></table></figure>
 <p>&emsp;&emsp;于是屏幕又哗啦哗啦地一大片输出</p>
-<blockquote>
-<p>$ npm –registry=<a href="https://registry.npm.taobao.org/">https://registry.npm.taobao.org</a> install koa<br>npm http GET <a href="https://registry.npm.taobao.org/koa">https://registry.npm.taobao.org/koa</a><br>npm http 200 <a href="https://registry.npm.taobao.org/koa">https://registry.npm.taobao.org/koa</a><br>…<br>npm http 200 <a href="https://registry.npm.taobao.org/negotiator">https://registry.npm.taobao.org/negotiator</a><br>npm http 200 <a href="https://registry.npm.taobao.org/keygrip">https://registry.npm.taobao.org/keygrip</a><br>koa<a href="/user/0">@0</a>.5.2 node_modules/koa<br>├── koa-compose<a href="/user/2">@2</a>.2.0<br>├── statuses<a href="/user/1">@1</a>.0.2<br>├── finished<a href="/user/1">@1</a>.1.1<br>├── escape-html<a href="/user/1">@1</a>.0.1<br>├── only<a href="/user/0">@0</a>.0.2<br>├── debug<a href="/user/0">@0</a>.8.0<br>├── fresh<a href="/user/0">@0</a>.2.2<br>├── type-is<a href="/user/1">@1</a>.0.1<br>├── delegates<a href="/user/0">@0</a>.0.3<br>├── mime<a href="/user/1">@1</a>.2.11<br>├── co<a href="/user/3">@3</a>.0.5<br>├── accepts<a href="/user/1">@1</a>.0.1 (negotiator<a href="/user/0">@0</a>.4.2)<br>└── cookies<a href="/user/0">@0</a>.4.0 (keygrip<a href="/user/1">@1</a>.0.0)</p>
-</blockquote>
+<div class="note default no-icon"><p>$ npm –registry=<a href="https://registry.npm.taobao.org/">https://registry.npm.taobao.org</a> install koa<br>npm http GET <a href="https://registry.npm.taobao.org/koa">https://registry.npm.taobao.org/koa</a><br>npm http 200 <a href="https://registry.npm.taobao.org/koa">https://registry.npm.taobao.org/koa</a><br>…<br>npm http 200 <a href="https://registry.npm.taobao.org/negotiator">https://registry.npm.taobao.org/negotiator</a><br>npm http 200 <a href="https://registry.npm.taobao.org/keygrip">https://registry.npm.taobao.org/keygrip</a><br>koa<a href="/user/0">@0</a>.5.2 node_modules/koa<br>├── koa-compose<a href="/user/2">@2</a>.2.0<br>├── statuses<a href="/user/1">@1</a>.0.2<br>├── finished<a href="/user/1">@1</a>.1.1<br>├── escape-html<a href="/user/1">@1</a>.0.1<br>├── only<a href="/user/0">@0</a>.0.2<br>├── debug<a href="/user/0">@0</a>.8.0<br>├── fresh<a href="/user/0">@0</a>.2.2<br>├── type-is<a href="/user/1">@1</a>.0.1<br>├── delegates<a href="/user/0">@0</a>.0.3<br>├── mime<a href="/user/1">@1</a>.2.11<br>├── co<a href="/user/3">@3</a>.0.5<br>├── accepts<a href="/user/1">@1</a>.0.1 (negotiator<a href="/user/0">@0</a>.4.2)<br>└── cookies<a href="/user/0">@0</a>.4.0 (keygrip<a href="/user/1">@1</a>.0.0)</p>
+</div>
+
 <p>&emsp;&emsp;但是毕竟镜像跟官方的 npm 源还是会有一个同步时间差异, 目前 cnpm 的默认同步时间间隔是 15 分钟. 如果你是模块发布者, 或者你想马上同步一个模块, 那么推荐你安装 cnpm cli:</p>
 <figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">$ npm --registry=https:<span class="regexp">//</span>registry.npm.taobao.org install cnpm -g</span><br></pre></td></tr></table></figure>
 
@@ -360,7 +360,7 @@
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#页面热加载</span></span><br><span class="line">spring.thymeleaf.cache = <span class="literal">true</span></span><br></pre></td></tr></table></figure>
 
 <p>点击<code>File</code> -&gt; <code>Settings</code> -&gt; <code>Build-Execution-Deplyment</code> -&gt; <code>Compiler</code>，选中打勾 <code>Build project</code></p>
-<img src="/post/springbootstatic.png" style="margin-left:10px;">]]></content>
+<img src="/post/f3f7b1c5/springbootstatic.png" class title="设置开启实时生效">]]></content>
       <categories>
         <category>SpringBoot</category>
       </categories>
@@ -427,7 +427,8 @@
 </ol>
 <figure class="highlight n1ql"><table><tr><td class="code"><pre><span class="line">mysql&gt;use mysql; </span><br><span class="line">mysql&gt;<span class="keyword">select</span> <span class="keyword">user</span>, host, plugin <span class="keyword">from</span> <span class="keyword">user</span></span><br></pre></td></tr></table></figure>
 <br>
-<img src="/post/mysqlpassword1.png" style="margin-left:10px;">
+
+<img src="/post/170d9336/mysqlpassword1.png" class title="USER">
 
 <ol start="2">
 <li>修改加密规则为“mysql_native_password”</li>
@@ -443,7 +444,7 @@
 <figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line">ALTER<span class="built_in"> USER </span><span class="string">&#x27;root&#x27;</span>@<span class="string">&#x27;%&#x27;</span> IDENTIFIED BY <span class="string">&#x27;password&#x27;</span> PASSWORD EXPIRE NEVER;</span><br><span class="line">ALTER<span class="built_in"> USER </span><span class="string">&#x27;root&#x27;</span>@<span class="string">&#x27;%&#x27;</span> IDENTIFIED WITH mysql_native_password BY <span class="string">&#x27;password&#x27;</span>;</span><br></pre></td></tr></table></figure>
 <p>之后就好了.</p>
 <p>完成后效果如下：</p>
-<img src="/post/mysqlpassword2.png" style="margin-left:10px;">
+<img src="/post/170d9336/mysqlpassword2.png" class title="PASS">
 
 <h3 id="更为优雅的解决方案"><a href="#更为优雅的解决方案" class="headerlink" title="更为优雅的解决方案"></a>更为优雅的解决方案</h3><p> &emsp;&emsp;&emsp;&emsp;又重新回到了 MySQL 官方在docker的仓库中，仔细的阅读了一遍官方的说明。<br> 其实，我们在启动MySQL 容器的时候，是可以修改一些设置的。主要有2种方式。</p>
 <ol>
@@ -484,7 +485,8 @@
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><div class="note success no-icon"><p>&emsp;以前就很想给网站加上一个背景音乐播放器！并且这个播放器要简洁大气，Meting完美的阐释了这句话！</p>
 </div>
 
-<p><img src="/post/meting.png"></p>
+<img src="/post/c1dab809/meting.png" class title="Meting">
+
 <a id="more"></a>
 
 <!-- require APlayer -->
@@ -1197,7 +1199,7 @@ ok，完成！
     <url>/post/5f2bf15a.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h4 id="记录一下，以防遗忘。"><a href="#记录一下，以防遗忘。" class="headerlink" title="记录一下，以防遗忘。"></a>记录一下，以防遗忘。</h4><a id="more"></a>
 
-<p><img src="/post/shell.jpg"></p>
+<img src="/post/5f2bf15a/shell.jpg" class title="部署脚本示例图">
 ]]></content>
       <categories>
         <category>Jenkins</category>
@@ -1213,8 +1215,7 @@ ok，完成！
 <a id="more"></a>
 
 
-<p><img src="/post/jkp.jpeg"></p>
-]]></content>
+<img src="/post/4995ab80/jkp.jpeg" class title="相对路径示例图">]]></content>
       <categories>
         <category>Jenkins</category>
       </categories>
@@ -1520,13 +1521,11 @@ ok，完成！
   <a id="more"></a>
 
 
-  <img src="/post/em_svn_1.png" style="margin-left:10px;">
+  <img src="/post/ddb18259/em_svn_1.png" class title="第一步">
 
-  <img src="/post/em_svn_2.png" style="margin-left:10px;">
-  点击Install开始安装
-  <img src="/post/em_svn_3.png" style="margin-left:10px;">
-  一步一步往下点，然后接受协议，安装完成后重启eclipse即可生效。
+  <img src="/post/ddb18259/em_svn_2.png" class title="第二步">
 
+<p>  点击Install开始安装<br>  <img src="/post/ddb18259/em_svn_3.png" class title="第三步"><br>  一步一步往下点，然后接受协议，安装完成后重启eclipse即可生效。</p>
 <h4 id="方式二：通过Install-New-Software在线安装"><a href="#方式二：通过Install-New-Software在线安装" class="headerlink" title="方式二：通过Install New Software在线安装"></a><font color="red">方式二：通过Install New Software在线安装</font></h4><p>  Help -&gt; Install New Software</p>
 <p>  点击add按钮，在弹出窗口中，输入name(自己为变量命的名)和插件的URL，然后点击add</p>
 <p>  SVN插件与Subversion版本的对应关系如下：</p>
@@ -1534,20 +1533,20 @@ ok，完成！
 <p>  <a href="http://subclipse.tigris.org/update_1.8.x/">http://subclipse.tigris.org/update_1.8.x/</a> （Subversion 1.7.x）</p>
 <p>  <a href="http://subclipse.tigris.org/update_1.10.x/">http://subclipse.tigris.org/update_1.10.x/</a> （Subversion 1.8.x）</p>
 <p>  <a href="https://dl.bintray.com/subclipse/releases/subclipse/4.2.x/">https://dl.bintray.com/subclipse/releases/subclipse/4.2.x/</a> （Subversion 1.9.x）</p>
-  <img src="/post/em_svn_4.png" style="margin-left:10px;">
+  <img src="/post/ddb18259/em_svn_4.png" class title="第四步">
 
 <p>  全部勾选，然后点击Next</p>
-  <img src="/post/em_svn_5.png" style="margin-left:10px;">
+  <img src="/post/ddb18259/em_svn_5.png" class title="第五步">
 
 <p>  一步一步往下点，然后接受协议，安装完成后重启eclipse即可生效。</p>
 <h4 id="方式三：通过下载插件，离线安装"><a href="#方式三：通过下载插件，离线安装" class="headerlink" title="方式三：通过下载插件，离线安装"></a><font color="red">方式三：通过下载插件，离线安装</font></h4><p>   1、下载需要的插件包，<a href="https://github.com/subclipse/subclipse/wiki">https://github.com/subclipse/subclipse/wiki</a></p>
-   <img src="/post/em_svn_6.png" style="margin-left:10px;">
+   <img src="/post/ddb18259/em_svn_6.png" class title="第一步">
 
 <p>   这里有最新版的插件下载地址，也有旧版本的插件下载地址，根据自己的需要选择下载。</p>
-   <img src="/post/em_svn_7.png" style="margin-left:10px;">
+   <img src="/post/ddb18259/em_svn_7.png" class title="第二步">
 
 <p>   下载的包里会有”plugins”和”features”两个文件夹</p>
-   <img src="/post/em_svn_8.png" style="margin-left:10px;">
+   <img src="/post/ddb18259/em_svn_8.png" class title="第三步">
 
 <p>   2、找到eclipse目录下”plugins”和”features”文件夹，将下载好的的svn插件对应名称文件夹下的内容复制到eclipse的同名文件夹中</p>
 <p>   3、重启eclipse即可生效</p>
@@ -1692,9 +1691,11 @@ Node.js</code></pre>
 
 </blockquote>
 
-<h4 id="插入图片"><a href="#插入图片" class="headerlink" title="插入图片"></a>插入图片</h4><figure class="highlight less"><table><tr><td class="code"><pre><span class="line">!<span class="selector-attr">[]</span>(images/<span class="number">1</span>.jpg)</span><br></pre></td></tr></table></figure>
+<h4 id="插入图片"><a href="#插入图片" class="headerlink" title="插入图片"></a>插入图片</h4><figure class="highlight gcode"><table><tr><td class="code"><pre><span class="line">![]<span class="comment">(/post/1.jpg)</span></span><br><span class="line"></span><br><span class="line">&#123;<span class="meta">%</span> asset_img jkp.jpeg 相对路径示例图 <span class="meta">%</span>&#125;  推荐</span><br></pre></td></tr></table></figure>
 
 <p><img src="/post/child01.jpg" alt="小女孩"></p>
+<img src="/post/9c39465b/child01.jpg" class title="小女孩">
+
 <h4 id="分页显示"><a href="#分页显示" class="headerlink" title="分页显示"></a>分页显示</h4><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">escape</span>&gt;</span><span class="comment">&lt;!-- more --&gt;</span><span class="tag">&lt;/<span class="name">escape</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <h4 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h4><ol>
   <li>文字链接</li>

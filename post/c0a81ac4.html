@@ -24,16 +24,16 @@
     var CONFIG = {"hostname":"blog.xiaosige.com","root":"/","scheme":"Gemini","version":"8.0.0-rc.5","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"livere","storage":true,"lazyload":true,"nav":null,"activeClass":"livere"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}};
   </script>
 
-  <meta name="description" content="前言&amp;emsp;&amp;emsp;目前主流的node版本管理工具有两种，nvm和n。两者差异挺大的。 &amp;emsp;&amp;emsp;总的来说，nvm有点类似于 Python 的 virtualenv 或者 Ruby 的 rvm，每个node版本的模块都会被安装在各自版本的沙箱里面（因此切换版本后模块需重新安装），因此考虑到需要时常对node版本进行切换测试兼容性和一些模块对node版本的限制，我选择了使用nv">
+  <meta name="description" content="前言了解nvm&amp;emsp;&amp;emsp;目前主流的node版本管理工具有两种，nvm和n。两者差异挺大的。 &amp;emsp;&amp;emsp;总的来说，nvm有点类似于 Python 的 virtualenv 或者 Ruby 的 rvm，每个node版本的模块都会被安装在各自版本的沙箱里面（因此切换版本后模块需重新安装），因此考虑到需要时常对node版本进行切换测试兼容性和一些模块对node版本的限制，我选择">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Mac正确的安装和使用nvm">
 <meta property="og:url" content="https://blog.xiaosige.com/post/c0a81ac4.html">
 <meta property="og:site_name" content="leeze">
-<meta property="og:description" content="前言&amp;emsp;&amp;emsp;目前主流的node版本管理工具有两种，nvm和n。两者差异挺大的。 &amp;emsp;&amp;emsp;总的来说，nvm有点类似于 Python 的 virtualenv 或者 Ruby 的 rvm，每个node版本的模块都会被安装在各自版本的沙箱里面（因此切换版本后模块需重新安装），因此考虑到需要时常对node版本进行切换测试兼容性和一些模块对node版本的限制，我选择了使用nv">
+<meta property="og:description" content="前言了解nvm&amp;emsp;&amp;emsp;目前主流的node版本管理工具有两种，nvm和n。两者差异挺大的。 &amp;emsp;&amp;emsp;总的来说，nvm有点类似于 Python 的 virtualenv 或者 Ruby 的 rvm，每个node版本的模块都会被安装在各自版本的沙箱里面（因此切换版本后模块需重新安装），因此考虑到需要时常对node版本进行切换测试兼容性和一些模块对node版本的限制，我选择">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://blog.xiaosige.com/post/c0a81ac4/nvmMac001.png">
 <meta property="article:published_time" content="2020-08-24T10:51:19.000Z">
-<meta property="article:modified_time" content="2020-08-24T13:33:12.958Z">
+<meta property="article:modified_time" content="2020-08-24T14:10:38.475Z">
 <meta property="article:author" content="leeze">
 <meta property="article:tag" content="Nvm">
 <meta name="twitter:card" content="summary">
@@ -238,7 +238,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#nvm%E3%80%81node%E3%80%81npm%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB%E5%92%8C%E5%8C%BA%E5%88%AB"><span class="nav-number">1.1.</span> <span class="nav-text">nvm、node、npm之间的关系和区别</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%8C%BA%E5%88%AB"><span class="nav-number">1.1.1.</span> <span class="nav-text">区别</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%85%B3%E7%B3%BB"><span class="nav-number">1.1.2.</span> <span class="nav-text">关系</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85"><span class="nav-number">2.</span> <span class="nav-text">安装</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%8D%E6%8E%A8%E8%8D%90%E7%9A%84%E5%AE%89%E8%A3%85%E6%96%B9%E6%B3%95"><span class="nav-number">2.1.</span> <span class="nav-text">不推荐的安装方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8E%A8%E8%8D%90%E7%9A%84%E5%AE%89%E8%A3%85%E6%96%B9%E6%B3%95"><span class="nav-number">2.2.</span> <span class="nav-text">推荐的安装方法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%8D%B8%E8%BD%BD%E5%B7%B2%E5%AE%89%E8%A3%85%E5%88%B0%E5%85%A8%E5%B1%80%E7%9A%84-node-npm"><span class="nav-number">2.2.1.</span> <span class="nav-text">卸载已安装到全局的 node&#x2F;npm</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-nvm"><span class="nav-number">2.2.2.</span> <span class="nav-text">安装 nvm</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8-cnpm-%E5%8A%A0%E9%80%9F-npm"><span class="nav-number">2.2.3.</span> <span class="nav-text">使用 cnpm 加速 npm</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#nvm%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="nav-number">3.</span> <span class="nav-text">nvm常用命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%99%84-MAC-%E7%9A%84-bash-profile"><span class="nav-number">4.</span> <span class="nav-text">附: MAC 的 .bash_profile</span></a></li></ol></div>
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BA%86%E8%A7%A3nvm"><span class="nav-number">1.1.</span> <span class="nav-text">了解nvm</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#nvm%E3%80%81node%E3%80%81npm%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB%E5%92%8C%E5%8C%BA%E5%88%AB"><span class="nav-number">1.2.</span> <span class="nav-text">nvm、node、npm之间的关系和区别</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%8C%BA%E5%88%AB"><span class="nav-number">1.2.1.</span> <span class="nav-text">区别</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%85%B3%E7%B3%BB"><span class="nav-number">1.2.2.</span> <span class="nav-text">关系</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85"><span class="nav-number">2.</span> <span class="nav-text">安装</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%8D%E6%8E%A8%E8%8D%90%E7%9A%84%E5%AE%89%E8%A3%85%E6%96%B9%E6%B3%95"><span class="nav-number">2.1.</span> <span class="nav-text">不推荐的安装方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8E%A8%E8%8D%90%E7%9A%84%E5%AE%89%E8%A3%85%E6%96%B9%E6%B3%95"><span class="nav-number">2.2.</span> <span class="nav-text">推荐的安装方法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%8D%B8%E8%BD%BD%E5%B7%B2%E5%AE%89%E8%A3%85%E5%88%B0%E5%85%A8%E5%B1%80%E7%9A%84-node-npm"><span class="nav-number">2.2.1.</span> <span class="nav-text">卸载已安装到全局的 node&#x2F;npm</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-nvm"><span class="nav-number">2.2.2.</span> <span class="nav-text">安装 nvm</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8-cnpm-%E5%8A%A0%E9%80%9F-npm"><span class="nav-number">2.2.3.</span> <span class="nav-text">使用 cnpm 加速 npm</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#nvm%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="nav-number">3.</span> <span class="nav-text">nvm常用命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%99%84-MAC-%E7%9A%84-bash-profile"><span class="nav-number">4.</span> <span class="nav-text">附: MAC 的 .bash_profile</span></a></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -357,7 +357,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2020-08-24 18:51:19 / 修改时间：21:33:12" itemprop="dateCreated datePublished" datetime="2020-08-24T18:51:19+08:00">2020-08-24</time>
+              <time title="创建时间：2020-08-24 18:51:19 / 修改时间：22:10:38" itemprop="dateCreated datePublished" datetime="2020-08-24T18:51:19+08:00">2020-08-24</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -399,7 +399,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>&emsp;&emsp;目前主流的node版本管理工具有两种，nvm和n。两者差异挺大的。</p>
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><h4 id="了解nvm"><a href="#了解nvm" class="headerlink" title="了解nvm"></a>了解nvm</h4><p>&emsp;&emsp;目前主流的node版本管理工具有两种，nvm和n。两者差异挺大的。</p>
 <p>&emsp;&emsp;总的来说，nvm有点类似于 Python 的 virtualenv 或者 Ruby 的 rvm，每个node版本的模块都会被安装在各自版本的沙箱里面（因此切换版本后模块需重新安装），因此考虑到需要时常对node版本进行切换测试兼容性和一些模块对node版本的限制，我选择了使用nvm作为管理工具，下面就来说说nvm的安装和使用过程。</p>
 <a id="more"></a>
 
@@ -474,9 +474,9 @@
 <h5 id="使用-cnpm-加速-npm"><a href="#使用-cnpm-加速-npm" class="headerlink" title="使用 cnpm 加速 npm"></a><strong><em>使用 cnpm 加速 npm</em></strong></h5><p>&emsp;&emsp;同理 nvm , npm 默认是从国外的源获取和下载包信息, 不慢才奇怪. 可以通过简单的 —registry 参数, 使用国内的镜像 <a target="_blank" rel="noopener" href="https://registry.npm.taobao.org/">https://registry.npm.taobao.org</a> :</p>
 <figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm --registry=https:<span class="regexp">//</span>registry.npm.taobao.org install koa</span><br></pre></td></tr></table></figure>
 <p>&emsp;&emsp;于是屏幕又哗啦哗啦地一大片输出</p>
-<blockquote>
-<p>$ npm –registry=<a target="_blank" rel="noopener" href="https://registry.npm.taobao.org/">https://registry.npm.taobao.org</a> install koa<br>npm http GET <a target="_blank" rel="noopener" href="https://registry.npm.taobao.org/koa">https://registry.npm.taobao.org/koa</a><br>npm http 200 <a target="_blank" rel="noopener" href="https://registry.npm.taobao.org/koa">https://registry.npm.taobao.org/koa</a><br>…<br>npm http 200 <a target="_blank" rel="noopener" href="https://registry.npm.taobao.org/negotiator">https://registry.npm.taobao.org/negotiator</a><br>npm http 200 <a target="_blank" rel="noopener" href="https://registry.npm.taobao.org/keygrip">https://registry.npm.taobao.org/keygrip</a><br>koa<a href="/user/0">@0</a>.5.2 node_modules/koa<br>├── koa-compose<a href="/user/2">@2</a>.2.0<br>├── statuses<a href="/user/1">@1</a>.0.2<br>├── finished<a href="/user/1">@1</a>.1.1<br>├── escape-html<a href="/user/1">@1</a>.0.1<br>├── only<a href="/user/0">@0</a>.0.2<br>├── debug<a href="/user/0">@0</a>.8.0<br>├── fresh<a href="/user/0">@0</a>.2.2<br>├── type-is<a href="/user/1">@1</a>.0.1<br>├── delegates<a href="/user/0">@0</a>.0.3<br>├── mime<a href="/user/1">@1</a>.2.11<br>├── co<a href="/user/3">@3</a>.0.5<br>├── accepts<a href="/user/1">@1</a>.0.1 (negotiator<a href="/user/0">@0</a>.4.2)<br>└── cookies<a href="/user/0">@0</a>.4.0 (keygrip<a href="/user/1">@1</a>.0.0)</p>
-</blockquote>
+<div class="note default no-icon"><p>$ npm –registry=<a target="_blank" rel="noopener" href="https://registry.npm.taobao.org/">https://registry.npm.taobao.org</a> install koa<br>npm http GET <a target="_blank" rel="noopener" href="https://registry.npm.taobao.org/koa">https://registry.npm.taobao.org/koa</a><br>npm http 200 <a target="_blank" rel="noopener" href="https://registry.npm.taobao.org/koa">https://registry.npm.taobao.org/koa</a><br>…<br>npm http 200 <a target="_blank" rel="noopener" href="https://registry.npm.taobao.org/negotiator">https://registry.npm.taobao.org/negotiator</a><br>npm http 200 <a target="_blank" rel="noopener" href="https://registry.npm.taobao.org/keygrip">https://registry.npm.taobao.org/keygrip</a><br>koa<a href="/user/0">@0</a>.5.2 node_modules/koa<br>├── koa-compose<a href="/user/2">@2</a>.2.0<br>├── statuses<a href="/user/1">@1</a>.0.2<br>├── finished<a href="/user/1">@1</a>.1.1<br>├── escape-html<a href="/user/1">@1</a>.0.1<br>├── only<a href="/user/0">@0</a>.0.2<br>├── debug<a href="/user/0">@0</a>.8.0<br>├── fresh<a href="/user/0">@0</a>.2.2<br>├── type-is<a href="/user/1">@1</a>.0.1<br>├── delegates<a href="/user/0">@0</a>.0.3<br>├── mime<a href="/user/1">@1</a>.2.11<br>├── co<a href="/user/3">@3</a>.0.5<br>├── accepts<a href="/user/1">@1</a>.0.1 (negotiator<a href="/user/0">@0</a>.4.2)<br>└── cookies<a href="/user/0">@0</a>.4.0 (keygrip<a href="/user/1">@1</a>.0.0)</p>
+</div>
+
 <p>&emsp;&emsp;但是毕竟镜像跟官方的 npm 源还是会有一个同步时间差异, 目前 cnpm 的默认同步时间间隔是 15 分钟. 如果你是模块发布者, 或者你想马上同步一个模块, 那么推荐你安装 cnpm cli:</p>
 <figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm --registry=https:<span class="regexp">//</span>registry.npm.taobao.org install cnpm -g</span><br></pre></td></tr></table></figure>
 
@@ -653,7 +653,7 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">79k</span>
+    <span title="站点总字数">80k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
