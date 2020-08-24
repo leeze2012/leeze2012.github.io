@@ -24,15 +24,15 @@
     var CONFIG = {"hostname":"blog.xiaosige.com","root":"/","scheme":"Gemini","version":"8.0.0-rc.5","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"livere","storage":true,"lazyload":true,"nav":null,"activeClass":"livere"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}};
   </script>
 
-  <meta name="description" content="Libevent 是一个用C语言编写的、轻量级的开源高性能I&#x2F;O框架，支持多种 I&#x2F;O 多路复用技术： epoll、 poll、 dev&#x2F;poll、 select 和 kqueue 等；支持 I&#x2F;O，定时器和信号等事件；注册事件优先级。PHP提供了对应的扩展 libevent、 Event 。 相比 libevent ext, event ext 拥有更好的性能表现和更全面的API，可以让我们更友">
+  <meta name="description" content="&amp;emsp;&amp;emsp;Libevent 是一个用C语言编写的、轻量级的开源高性能I&#x2F;O框架，支持多种 I&#x2F;O 多路复用技术： epoll、 poll、 dev&#x2F;poll、 select 和 kqueue 等；支持 I&#x2F;O，定时器和信号等事件；注册事件优先级。PHP提供了对应的扩展 libevent、 Event 。 &amp;emsp;&amp;emsp;相比 libevent ext, event ext 拥">
 <meta property="og:type" content="article">
 <meta property="og:title" content="PHP7 安装 event 扩展">
 <meta property="og:url" content="https://blog.xiaosige.com/post/c42ce648.html">
 <meta property="og:site_name" content="leeze">
-<meta property="og:description" content="Libevent 是一个用C语言编写的、轻量级的开源高性能I&#x2F;O框架，支持多种 I&#x2F;O 多路复用技术： epoll、 poll、 dev&#x2F;poll、 select 和 kqueue 等；支持 I&#x2F;O，定时器和信号等事件；注册事件优先级。PHP提供了对应的扩展 libevent、 Event 。 相比 libevent ext, event ext 拥有更好的性能表现和更全面的API，可以让我们更友">
+<meta property="og:description" content="&amp;emsp;&amp;emsp;Libevent 是一个用C语言编写的、轻量级的开源高性能I&#x2F;O框架，支持多种 I&#x2F;O 多路复用技术： epoll、 poll、 dev&#x2F;poll、 select 和 kqueue 等；支持 I&#x2F;O，定时器和信号等事件；注册事件优先级。PHP提供了对应的扩展 libevent、 Event 。 &amp;emsp;&amp;emsp;相比 libevent ext, event ext 拥">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-02-16T20:06:22.000Z">
-<meta property="article:modified_time" content="2020-08-01T19:16:29.537Z">
+<meta property="article:modified_time" content="2020-08-24T15:42:58.599Z">
 <meta property="article:author" content="leeze">
 <meta property="article:tag" content="PHP">
 <meta name="twitter:card" content="summary">
@@ -361,7 +361,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-08-02 03:16:29" itemprop="dateModified" datetime="2020-08-02T03:16:29+08:00">2020-08-02</time>
+                <time title="修改时间：2020-08-24 23:42:58" itemprop="dateModified" datetime="2020-08-24T23:42:58+08:00">2020-08-24</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -386,7 +386,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.7k</span>
+              <span>1.8k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -403,30 +403,31 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <div class="note success no-icon"><p>Libevent 是一个用C语言编写的、轻量级的开源高性能I/O框架，支持多种 I/O 多路复用技术： epoll、 poll、 dev/poll、 select 和 kqueue 等；支持 I/O，定时器和信号等事件；注册事件优先级。PHP提供了对应的扩展 libevent、 Event 。</p>
-<p>相比 libevent ext, event ext 拥有更好的性能表现和更全面的API，可以让我们更友好的使用 Libevent。</p>
+        <div class="note success no-icon"><p>&emsp;&emsp;Libevent 是一个用C语言编写的、轻量级的开源高性能I/O框架，支持多种 I/O 多路复用技术： epoll、 poll、 dev/poll、 select 和 kqueue 等；支持 I/O，定时器和信号等事件；注册事件优先级。PHP提供了对应的扩展 libevent、 Event 。</p>
+<p>&emsp;&emsp;相比 libevent ext, event ext 拥有更好的性能表现和更全面的API，可以让我们更友好的使用 Libevent。</p>
 </div>
 
 <a id="more"></a>
 
-<h4 id="安装-Libevent-库"><a href="#安装-Libevent-库" class="headerlink" title="安装 Libevent 库"></a>安装 Libevent 库</h4><p>php event 扩展 依赖 Libevent 库，需要先编译安装（注意是 Libevent 库，非 libevent 扩展）。</p>
+<h4 id="安装-Libevent-库"><a href="#安装-Libevent-库" class="headerlink" title="安装 Libevent 库"></a>安装 Libevent 库</h4><p>&emsp;&emsp; php event 扩展 依赖 Libevent 库，需要先编译安装（注意是 Libevent 库，非 libevent 扩展）。</p>
 <figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">git clone --depth=<span class="number">1</span> https:<span class="regexp">//gi</span>thub.com<span class="regexp">/nmathewson/</span>Libevent.git</span><br><span class="line">cd Libevent</span><br><span class="line">./autogen.sh</span><br><span class="line"></span><br><span class="line">.<span class="regexp">/configure --prefix=/u</span>sr<span class="regexp">/local/</span>libevent</span><br><span class="line">make &amp;&amp; make install</span><br></pre></td></tr></table></figure>
 
-<h4 id="安装-Event-扩展"><a href="#安装-Event-扩展" class="headerlink" title="安装 Event 扩展"></a>安装 Event 扩展</h4><p>可以直接使用 pecl 安装</p>
+<h4 id="安装-Event-扩展"><a href="#安装-Event-扩展" class="headerlink" title="安装 Event 扩展"></a>安装 Event 扩展</h4><p>&emsp;&emsp; 可以直接使用 pecl 安装</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">pecl <span class="keyword">install</span> <span class="keyword">event</span></span><br><span class="line">downloading <span class="keyword">event</span><span class="number">-2.5</span><span class="number">.3</span>.tgz ...</span><br><span class="line"><span class="keyword">Starting</span> <span class="keyword">to</span> download <span class="keyword">event</span><span class="number">-2.5</span><span class="number">.3</span>.tgz (<span class="number">140</span>,<span class="number">913</span> <span class="keyword">bytes</span>)</span><br><span class="line">..............................done: <span class="number">140</span>,<span class="number">913</span> <span class="keyword">bytes</span></span><br><span class="line"><span class="number">50</span> <span class="keyword">source</span> files, building</span><br><span class="line">running: phpize</span><br><span class="line">Configuring <span class="keyword">for</span>:</span><br><span class="line">PHP Api <span class="keyword">Version</span>:         <span class="number">20180731</span></span><br><span class="line">Zend <span class="keyword">Module</span> Api <span class="keyword">No</span>:      <span class="number">20180731</span></span><br><span class="line">Zend Extension Api <span class="keyword">No</span>:   <span class="number">320180731</span></span><br><span class="line"><span class="keyword">Enable</span> internal debugging <span class="keyword">in</span> <span class="keyword">Event</span> [<span class="keyword">no</span>] : </span><br><span class="line"><span class="keyword">Enable</span> sockets support <span class="keyword">in</span> <span class="keyword">Event</span> [yes] : </span><br><span class="line">libevent installation prefix [/usr] : /usr/<span class="keyword">local</span>/libevent</span><br><span class="line">...</span><br><span class="line"><span class="keyword">Build</span> process completed successfully</span><br><span class="line">Installing <span class="string">&#x27;/usr/local/php/lib/php/extensions/no-debug-non-zts-20180731/event.so&#x27;</span></span><br><span class="line"><span class="keyword">install</span> ok: channel://pecl.php.net/<span class="keyword">event</span><span class="number">-2.5</span><span class="number">.3</span></span><br><span class="line">Extension <span class="keyword">event</span> enabled <span class="keyword">in</span> php.ini</span><br></pre></td></tr></table></figure>
 
 
 
-<p>查看安装结果</p>
+<p>&emsp;&emsp; 查看安装结果</p>
 <figure class="highlight elm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# php <span class="comment">--ri event</span></span><br><span class="line"></span><br><span class="line"><span class="title">event</span></span><br><span class="line"></span><br><span class="line"><span class="type">Event</span> sup<span class="keyword">port</span> =&gt; enabled</span><br><span class="line"><span class="type">Sockets</span> sup<span class="keyword">port</span> =&gt; enabled</span><br><span class="line"><span class="type">Debug</span> sup<span class="keyword">port</span> =&gt; disabled</span><br><span class="line"><span class="type">Extra</span> functionality sup<span class="keyword">port</span> including HTTP, DNS, and RPC =&gt; enabled</span><br><span class="line"><span class="type">OpenSSL</span> sup<span class="keyword">port</span> =&gt; enabled</span><br><span class="line"><span class="type">Thread</span> safety sup<span class="keyword">port</span> =&gt; disabled</span><br><span class="line"><span class="type">Extension</span> version =&gt; <span class="number">2.5</span><span class="number">.3</span></span><br><span class="line"><span class="title">libevent2</span> headers version =&gt; <span class="number">2.2</span><span class="number">.0</span>-alpha-dev</span><br></pre></td></tr></table></figure>
 
-<h4 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h4><p>1,<code>问题</code>，<code>pecl install event</code>连不上，下载失败。</p>
+<h4 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h4><p>&emsp;&emsp; 1,<code>问题</code>，<code>pecl install event</code>连不上，下载失败。</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">pecl</span> <span class="selector-tag">channel-update</span> <span class="selector-tag">pecl</span><span class="selector-class">.php</span><span class="selector-class">.net</span></span><br></pre></td></tr></table></figure>
 
-<p>2,<code>问题</code>，<code>pecl channel-update pecl.php.net 失败</code></p>
+<p>&emsp;&emsp; 2,<code>问题</code>，<code>pecl channel-update pecl.php.net 失败</code></p>
 <figure class="highlight subunit"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">pecl channel-update pecl.php.net</span><br><span class="line"></span><br><span class="line">Updating channel &quot;pecl.php.net&quot;</span><br><span class="line"><span class="keyword">Error: </span>No version number found in &lt;channel&gt; tag</span><br><span class="line">Invalid channel.xml file</span><br></pre></td></tr></table></figure>
+<br>
+&emsp;&emsp; 解决方案：
 
-<p>解决方案：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pecl channel-update https://pecl.php.net/channel.xml</span><br></pre></td></tr></table></figure>
 
     </div>
@@ -577,13 +578,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">80k</span>
+    <span title="站点总字数">81k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">1:12</span>
+    <span title="站点阅读时长">1:14</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
