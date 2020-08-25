@@ -86,6 +86,75 @@
       </tags>
   </entry>
   <entry>
+    <title>linux搭建GitLab</title>
+    <url>/post/73879c7f.html</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="1-初始GitLab"><a href="#1-初始GitLab" class="headerlink" title="1.初始GitLab"></a>1.初始GitLab</h3><p>&emsp;&emsp;GitLab是利用Ruby on Rails一个开源的版本管理系统，实现一个自托管的Git项目仓库，可通过Web界面进行访问公开的或者私人项目。<br>&emsp;&emsp;与Github类似，GitLab能够浏览源代码，管理缺陷和注释。可以管理团队对仓库的访问，它非常易于浏览提交过的版本并提供一个文件历史库。团队成员可以利用内置的简单聊天程序(Wall)进行交流。<br>&emsp;&emsp;它还提供一个代码片段收集功能可以轻松实现代码复用，便于日后有需要的时候进行查找。</p>
+<a id="more"></a>
+
+
+<h3 id="2-准备安装GitLab"><a href="#2-准备安装GitLab" class="headerlink" title="2.准备安装GitLab"></a>2.准备安装GitLab</h3><p>&emsp;&emsp;<code>yum install -y postfix sshd policycoreutils-python</code></p>
+<ul>
+<li><code>postfix</code> 邮件通知</li>
+<li><code>sshd</code> ssh服务(一般系统已经有了,可以不装)</li>
+<li><code>policycoreutils-python</code> GitLab必备依赖</li>
+</ul>
+<p>&emsp;&emsp;设置postfix开机自启: <code>chkconfig --add postfix</code></p>
+<h3 id="3-开始安装GitLab"><a href="#3-开始安装GitLab" class="headerlink" title="3.开始安装GitLab"></a>3.开始安装GitLab</h3><p>&emsp;&emsp;官方下载地址：<a href="https://packages.gitlab.com/gitlab/gitlab-ce">https://packages.gitlab.com/gitlab/gitlab-ce</a><br>&emsp;&emsp;国内镜像：<a href="https://mirrors.tuna.tsinghua.edu.cn/gitlab-ce/yum/el6/">https://mirrors.tuna.tsinghua.edu.cn/gitlab-ce/yum/el6/</a></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">wget https://mirrors.tuna.tsinghua.edu.cn/gitlab-ce/yum/el6/gitlab-ce-12.7.6-ce.0.el6.x86_64.rpm</span><br><span class="line">yum install -y gitlab-ce-12.7.6-ce.0.el6.x86_64.rpm</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="4-配置GitLab"><a href="#4-配置GitLab" class="headerlink" title="4.配置GitLab"></a>4.配置GitLab</h3><p>&emsp;&emsp;主要配置两个地方: 访问GitLab的IP地址和发送邮件的账号配置</p>
+<p>&emsp;&emsp;<code>vim /etc/gitlab/gitlab.rb</code></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">external_url <span class="string">&#x27;http://192.168.183.200&#x27;</span> <span class="comment"># 你自己的IP</span></span><br><span class="line"></span><br><span class="line"><span class="comment">### Email Settings</span></span><br><span class="line">gitlab_rails[<span class="string">&#x27;gitlab_email_enabled&#x27;</span>] = <span class="literal">true</span></span><br><span class="line">gitlab_rails[<span class="string">&#x27;gitlab_email_from&#x27;</span>] = <span class="string">&#x27;你的邮箱&#x27;</span></span><br><span class="line">gitlab_rails[<span class="string">&#x27;gitlab_email_display_name&#x27;</span>] = <span class="string">&#x27;邮件名字&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">### GitLab email server settings</span></span><br><span class="line"><span class="comment">### 这里邮件服务器使用的是QQ企业邮箱,163自行修改</span></span><br><span class="line">gitlab_rails[<span class="string">&#x27;smtp_enable&#x27;</span>] = <span class="literal">true</span></span><br><span class="line">gitlab_rails[<span class="string">&#x27;smtp_address&#x27;</span>] = <span class="string">&quot;smtp.exmail.qq.com&quot;</span></span><br><span class="line">gitlab_rails[<span class="string">&#x27;smtp_port&#x27;</span>] = 465</span><br><span class="line">gitlab_rails[<span class="string">&#x27;smtp_user_name&#x27;</span>] = <span class="string">&quot;你的邮箱&quot;</span></span><br><span class="line">gitlab_rails[<span class="string">&#x27;smtp_password&#x27;</span>] = <span class="string">&quot;邮箱密码&quot;</span></span><br><span class="line">gitlab_rails[<span class="string">&#x27;smtp_authentication&#x27;</span>] = <span class="string">&quot;login&quot;</span></span><br><span class="line">gitlab_rails[<span class="string">&#x27;smtp_enable_starttls_auto&#x27;</span>] = <span class="literal">true</span></span><br><span class="line">gitlab_rails[<span class="string">&#x27;smtp_tls&#x27;</span>] = <span class="literal">true</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>&emsp;&emsp;ESC保存并退出 :<code>wq</code></p>
+<h3 id="5-更改gitlab默认端口"><a href="#5-更改gitlab默认端口" class="headerlink" title="5.更改gitlab默认端口"></a>5.更改gitlab默认端口</h3><p>&emsp;&emsp;若linux服务器的80和8080端口都已经被使用，则需修改gitlab监听的端口</p>
+<p>&emsp;&emsp;修改路径文件：<code>vim /etc/gitlab/gitlab.rb</code></p>
+<p>&emsp;&emsp;1、修改<code>external_url</code>  （将前面的#注释符号去掉）,我改成了8099</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">## GitLab URL</span></span><br><span class="line"><span class="comment">##! URL on which GitLab will be reachable.</span></span><br><span class="line"><span class="comment">##! For more details on configuring external_url see:</span></span><br><span class="line"><span class="comment">##! https://docs.gitlab.com/omnibus/settings/configuration.html#configuring-the-external-url-for-gitlab</span></span><br><span class="line"><span class="comment">##!</span></span><br><span class="line"><span class="comment">##! Note: During installation/upgrades, the value of the environment variable</span></span><br><span class="line"><span class="comment">##! EXTERNAL_URL will be used to populate/replace this value.</span></span><br><span class="line"><span class="comment">##! On AWS EC2 instances, we also attempt to fetch the public hostname/IP</span></span><br><span class="line"><span class="comment">##! address from AWS. For more details, see:</span></span><br><span class="line"><span class="comment">##! https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instancedata-data-retrieval.html</span></span><br><span class="line">external_url <span class="string">&#x27;http://10.211.55.61:8099&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>&emsp;&emsp;2、找到Advanced settings 下的8080端口 将端口改成自己备用端口号<br>&emsp;&emsp;（<code>不能和上面url端口号相同，会冲突占用！</code>），我改的28080</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">### Advanced settings</span></span><br><span class="line"><span class="comment"># unicorn[&#x27;listen&#x27;] = &#x27;localhost&#x27;</span></span><br><span class="line"> unicorn[<span class="string">&#x27;port&#x27;</span>] = 28080</span><br><span class="line"><span class="comment"># unicorn[&#x27;socket&#x27;] = &#x27;/var/opt/gitlab/gitlab-rails/sockets/gitlab.socket&#x27;</span></span><br><span class="line"><span class="comment"># unicorn[&#x27;pidfile&#x27;] = &#x27;/opt/gitlab/var/unicorn/unicorn.pid&#x27;</span></span><br><span class="line"><span class="comment"># unicorn[&#x27;tcp_nopush&#x27;] = true</span></span><br><span class="line"><span class="comment"># unicorn[&#x27;backlog_socket&#x27;] = 1024</span></span><br></pre></td></tr></table></figure>
+
+<p>&emsp;&emsp;3、运行下面命令</p>
+<pre><code>     sudo gitlab-ctl stop --停止服务
+     sudo gitlab-ctl reconfigure --启动服务
+     sudo gitlab-ctl start --启动所有gitlab组件</code></pre>
+<p>&emsp;&emsp;4、若访问不了gitlab，尝试关闭或开放防火墙</p>
+<h3 id="6-启动GitLab"><a href="#6-启动GitLab" class="headerlink" title="6.启动GitLab"></a>6.启动GitLab</h3><p>&emsp;&emsp;刷新配置: <code>gitlab-ctl reconfigure</code><br>&emsp;&emsp;重启服务: <code>gitlab-ctl restart</code></p>
+<h3 id="7-访问GitLab"><a href="#7-访问GitLab" class="headerlink" title="7.访问GitLab"></a>7.访问GitLab</h3><p>&emsp;&emsp;此时还不能访问,需要关闭防火墙 <code>service iptables stop</code> 或者 在防火墙中开放8099端口:</p>
+<p>&emsp;&emsp;编辑iptables <code>vi /etc/sysconfig/iptables</code></p>
+<p>&emsp;&emsp;添加配置 <code>-A INPUT -m state --state NEW -m tcp -p tcp --dport 8099 -j ACCEPT</code></p>
+<p>&emsp;&emsp;重启防火墙 <code>service iptables restart</code></p>
+<p>&emsp;&emsp;访问 <a href="http://10.211.55.61:8099/">http://10.211.55.61:8099/</a></p>
+<p>&emsp;&emsp;第一次登录需要修改<code>root</code>密码, 密码8位以上,修改完就可以登录</p>
+<h3 id="8-Linux下Gitlab个人界面汉化"><a href="#8-Linux下Gitlab个人界面汉化" class="headerlink" title="8.Linux下Gitlab个人界面汉化"></a>8.Linux下Gitlab个人界面汉化</h3><p>&emsp;&emsp;1.进入个人用户界面<br>&emsp;&emsp;点击右上角<code>个人头像-&gt;settings-&gt;profile-&gt;Preferred language</code><br>&emsp;&emsp;2.默认是english,可以切换中文<br>&emsp;&emsp;3.再刷新一下，我们看见语言变成中文了<br>&emsp;&emsp;4.不过其它账号登录依然是英文，只有当前账号登录才会显示成功切换的语言</p>
+<h3 id="9-GitLab基本操作"><a href="#9-GitLab基本操作" class="headerlink" title="9.GitLab基本操作"></a>9.GitLab基本操作</h3><p>&emsp;&emsp;添加用户2种方式: root后台添加和自己注册</p>
+<p>&emsp;&emsp;用户权限:</p>
+<pre><code>Regular: 可以访问自己组和项目
+Admin: 可以访问所有组和项目</code></pre>
+<p>&emsp;&emsp;添加组</p>
+<p>&emsp;&emsp;组权限</p>
+<pre><code>Private: 私用,只允许组成员可见
+Internal: 内部,所有登录用户可见
+Public: 公共,所有人可见</code></pre>
+<p>&emsp;&emsp;创建仓库和添加成员到组,很简单,不再赘述. 重点说下仓库成员权限,</p>
+<pre><code>Guest：可以创建issue、发表评论，不能读写版本库
+Reporter：可以克隆代码，不能提交，QA、PM可以赋予这个权限
+Developer：可以克隆代码、开发、提交、push，RD可以赋予这个权限
+Master：可以创建项目、添加tag、保护分支、添加项目成员、编辑项目，核心RD负责人可以赋予这个权限
+Owner：可以设置项目访问权限 - Visibility Level、删除项目、迁移项目、管理组成员，开发组leader可以赋予这个权限</code></pre>
+<h3 id="10-Gitlab相关操作及说明"><a href="#10-Gitlab相关操作及说明" class="headerlink" title="10.Gitlab相关操作及说明"></a>10.Gitlab相关操作及说明</h3><figure class="highlight awk"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="regexp">/etc/gi</span>tlab/gitlab.rb          <span class="comment">#gitlab配置文件</span></span><br><span class="line"><span class="regexp">/opt/gi</span>tlab                    <span class="comment">#gitlab的程序安装目录</span></span><br><span class="line"><span class="regexp">/var/</span>opt/gitlab                <span class="comment">#gitlab目录数据目录</span></span><br><span class="line"><span class="regexp">/var/</span>opt<span class="regexp">/gitlab/gi</span>t-data       <span class="comment">#存放仓库数据</span></span><br><span class="line">gitlab-ctl reconfigure         <span class="comment">#重新加载配置</span></span><br><span class="line">gitlab-ctl status              <span class="comment">#查看当前gitlab所有服务运行状态</span></span><br><span class="line">gitlab-ctl stop                <span class="comment">#停止gitlab服务</span></span><br><span class="line">gitlab-ctl stop nginx          <span class="comment">#单独停止某个服务</span></span><br><span class="line">gitlab-ctl tail                <span class="comment">#查看所有服务的日志</span></span><br><span class="line"></span><br><span class="line">Gitlab的服务构成：</span><br><span class="line">nginx：                 静态web服务器</span><br><span class="line">gitlab-workhorse        轻量级反向代理服务器</span><br><span class="line">logrotate              日志文件管理工具</span><br><span class="line">postgresql             数据库</span><br><span class="line">redis                  缓存数据库</span><br><span class="line">sidekiq                用于在后台执行队列任务（异步执行）</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>GitLab</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Markdown 编辑器日常使用语法记录</title>
     <url>/post/9c39465b.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h4 id="段首缩进"><a href="#段首缩进" class="headerlink" title="段首缩进"></a>段首缩进</h4><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="symbol">&amp;emsp;</span><span class="symbol">&amp;emsp;</span></span><br></pre></td></tr></table></figure>
@@ -295,75 +364,6 @@
       </tags>
   </entry>
   <entry>
-    <title>linux搭建GitLab</title>
-    <url>/post/73879c7f.html</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="1-初始GitLab"><a href="#1-初始GitLab" class="headerlink" title="1.初始GitLab"></a>1.初始GitLab</h3><p>&emsp;&emsp;GitLab是利用Ruby on Rails一个开源的版本管理系统，实现一个自托管的Git项目仓库，可通过Web界面进行访问公开的或者私人项目。<br>&emsp;&emsp;与Github类似，GitLab能够浏览源代码，管理缺陷和注释。可以管理团队对仓库的访问，它非常易于浏览提交过的版本并提供一个文件历史库。团队成员可以利用内置的简单聊天程序(Wall)进行交流。<br>&emsp;&emsp;它还提供一个代码片段收集功能可以轻松实现代码复用，便于日后有需要的时候进行查找。</p>
-<a id="more"></a>
-
-
-<h3 id="2-准备安装GitLab"><a href="#2-准备安装GitLab" class="headerlink" title="2.准备安装GitLab"></a>2.准备安装GitLab</h3><p>&emsp;&emsp;<code>yum install -y postfix sshd policycoreutils-python</code></p>
-<ul>
-<li><code>postfix</code> 邮件通知</li>
-<li><code>sshd</code> ssh服务(一般系统已经有了,可以不装)</li>
-<li><code>policycoreutils-python</code> GitLab必备依赖</li>
-</ul>
-<p>&emsp;&emsp;设置postfix开机自启: <code>chkconfig --add postfix</code></p>
-<h3 id="3-开始安装GitLab"><a href="#3-开始安装GitLab" class="headerlink" title="3.开始安装GitLab"></a>3.开始安装GitLab</h3><p>&emsp;&emsp;官方下载地址：<a href="https://packages.gitlab.com/gitlab/gitlab-ce">https://packages.gitlab.com/gitlab/gitlab-ce</a><br>&emsp;&emsp;国内镜像：<a href="https://mirrors.tuna.tsinghua.edu.cn/gitlab-ce/yum/el6/">https://mirrors.tuna.tsinghua.edu.cn/gitlab-ce/yum/el6/</a></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">wget https://mirrors.tuna.tsinghua.edu.cn/gitlab-ce/yum/el6/gitlab-ce-12.7.6-ce.0.el6.x86_64.rpm</span><br><span class="line">yum install -y gitlab-ce-12.7.6-ce.0.el6.x86_64.rpm</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h3 id="4-配置GitLab"><a href="#4-配置GitLab" class="headerlink" title="4.配置GitLab"></a>4.配置GitLab</h3><p>&emsp;&emsp;主要配置两个地方: 访问GitLab的IP地址和发送邮件的账号配置</p>
-<p>&emsp;&emsp;<code>vim /etc/gitlab/gitlab.rb</code></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">external_url <span class="string">&#x27;http://192.168.183.200&#x27;</span> <span class="comment"># 你自己的IP</span></span><br><span class="line"></span><br><span class="line"><span class="comment">### Email Settings</span></span><br><span class="line">gitlab_rails[<span class="string">&#x27;gitlab_email_enabled&#x27;</span>] = <span class="literal">true</span></span><br><span class="line">gitlab_rails[<span class="string">&#x27;gitlab_email_from&#x27;</span>] = <span class="string">&#x27;你的邮箱&#x27;</span></span><br><span class="line">gitlab_rails[<span class="string">&#x27;gitlab_email_display_name&#x27;</span>] = <span class="string">&#x27;邮件名字&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">### GitLab email server settings</span></span><br><span class="line"><span class="comment">### 这里邮件服务器使用的是QQ企业邮箱,163自行修改</span></span><br><span class="line">gitlab_rails[<span class="string">&#x27;smtp_enable&#x27;</span>] = <span class="literal">true</span></span><br><span class="line">gitlab_rails[<span class="string">&#x27;smtp_address&#x27;</span>] = <span class="string">&quot;smtp.exmail.qq.com&quot;</span></span><br><span class="line">gitlab_rails[<span class="string">&#x27;smtp_port&#x27;</span>] = 465</span><br><span class="line">gitlab_rails[<span class="string">&#x27;smtp_user_name&#x27;</span>] = <span class="string">&quot;你的邮箱&quot;</span></span><br><span class="line">gitlab_rails[<span class="string">&#x27;smtp_password&#x27;</span>] = <span class="string">&quot;邮箱密码&quot;</span></span><br><span class="line">gitlab_rails[<span class="string">&#x27;smtp_authentication&#x27;</span>] = <span class="string">&quot;login&quot;</span></span><br><span class="line">gitlab_rails[<span class="string">&#x27;smtp_enable_starttls_auto&#x27;</span>] = <span class="literal">true</span></span><br><span class="line">gitlab_rails[<span class="string">&#x27;smtp_tls&#x27;</span>] = <span class="literal">true</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>&emsp;&emsp;ESC保存并退出 :<code>wq</code></p>
-<h3 id="5-更改gitlab默认端口"><a href="#5-更改gitlab默认端口" class="headerlink" title="5.更改gitlab默认端口"></a>5.更改gitlab默认端口</h3><p>&emsp;&emsp;若linux服务器的80和8080端口都已经被使用，则需修改gitlab监听的端口</p>
-<p>&emsp;&emsp;修改路径文件：<code>vim /etc/gitlab/gitlab.rb</code></p>
-<p>&emsp;&emsp;1、修改<code>external_url</code>  （将前面的#注释符号去掉）,我改成了8099</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">## GitLab URL</span></span><br><span class="line"><span class="comment">##! URL on which GitLab will be reachable.</span></span><br><span class="line"><span class="comment">##! For more details on configuring external_url see:</span></span><br><span class="line"><span class="comment">##! https://docs.gitlab.com/omnibus/settings/configuration.html#configuring-the-external-url-for-gitlab</span></span><br><span class="line"><span class="comment">##!</span></span><br><span class="line"><span class="comment">##! Note: During installation/upgrades, the value of the environment variable</span></span><br><span class="line"><span class="comment">##! EXTERNAL_URL will be used to populate/replace this value.</span></span><br><span class="line"><span class="comment">##! On AWS EC2 instances, we also attempt to fetch the public hostname/IP</span></span><br><span class="line"><span class="comment">##! address from AWS. For more details, see:</span></span><br><span class="line"><span class="comment">##! https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instancedata-data-retrieval.html</span></span><br><span class="line">external_url <span class="string">&#x27;http://10.211.55.61:8099&#x27;</span></span><br></pre></td></tr></table></figure>
-
-<p>&emsp;&emsp;2、找到Advanced settings 下的8080端口 将端口改成自己备用端口号<br>&emsp;&emsp;（<code>不能和上面url端口号相同，会冲突占用！</code>），我改的28080</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">### Advanced settings</span></span><br><span class="line"><span class="comment"># unicorn[&#x27;listen&#x27;] = &#x27;localhost&#x27;</span></span><br><span class="line"> unicorn[<span class="string">&#x27;port&#x27;</span>] = 28080</span><br><span class="line"><span class="comment"># unicorn[&#x27;socket&#x27;] = &#x27;/var/opt/gitlab/gitlab-rails/sockets/gitlab.socket&#x27;</span></span><br><span class="line"><span class="comment"># unicorn[&#x27;pidfile&#x27;] = &#x27;/opt/gitlab/var/unicorn/unicorn.pid&#x27;</span></span><br><span class="line"><span class="comment"># unicorn[&#x27;tcp_nopush&#x27;] = true</span></span><br><span class="line"><span class="comment"># unicorn[&#x27;backlog_socket&#x27;] = 1024</span></span><br></pre></td></tr></table></figure>
-
-<p>&emsp;&emsp;3、运行下面命令</p>
-<pre><code>     sudo gitlab-ctl stop --停止服务
-     sudo gitlab-ctl reconfigure --启动服务
-     sudo gitlab-ctl start --启动所有gitlab组件</code></pre>
-<p>&emsp;&emsp;4、若访问不了gitlab，尝试关闭或开放防火墙</p>
-<h3 id="6-启动GitLab"><a href="#6-启动GitLab" class="headerlink" title="6.启动GitLab"></a>6.启动GitLab</h3><p>&emsp;&emsp;刷新配置: <code>gitlab-ctl reconfigure</code><br>&emsp;&emsp;重启服务: <code>gitlab-ctl restart</code></p>
-<h3 id="7-访问GitLab"><a href="#7-访问GitLab" class="headerlink" title="7.访问GitLab"></a>7.访问GitLab</h3><p>&emsp;&emsp;此时还不能访问,需要关闭防火墙 <code>service iptables stop</code> 或者 在防火墙中开放8099端口:</p>
-<p>&emsp;&emsp;编辑iptables <code>vi /etc/sysconfig/iptables</code></p>
-<p>&emsp;&emsp;添加配置 <code>-A INPUT -m state --state NEW -m tcp -p tcp --dport 8099 -j ACCEPT</code></p>
-<p>&emsp;&emsp;重启防火墙 <code>service iptables restart</code></p>
-<p>&emsp;&emsp;访问 <a href="http://10.211.55.61:8099/">http://10.211.55.61:8099/</a></p>
-<p>&emsp;&emsp;第一次登录需要修改<code>root</code>密码, 密码8位以上,修改完就可以登录</p>
-<h3 id="8-Linux下Gitlab个人界面汉化"><a href="#8-Linux下Gitlab个人界面汉化" class="headerlink" title="8.Linux下Gitlab个人界面汉化"></a>8.Linux下Gitlab个人界面汉化</h3><p>&emsp;&emsp;1.进入个人用户界面<br>&emsp;&emsp;点击右上角<code>个人头像-&gt;settings-&gt;profile-&gt;Preferred language</code><br>&emsp;&emsp;2.默认是english,可以切换中文<br>&emsp;&emsp;3.再刷新一下，我们看见语言变成中文了<br>&emsp;&emsp;4.不过其它账号登录依然是英文，只有当前账号登录才会显示成功切换的语言</p>
-<h3 id="9-GitLab基本操作"><a href="#9-GitLab基本操作" class="headerlink" title="9.GitLab基本操作"></a>9.GitLab基本操作</h3><p>&emsp;&emsp;添加用户2种方式: root后台添加和自己注册</p>
-<p>&emsp;&emsp;用户权限:</p>
-<pre><code>Regular: 可以访问自己组和项目
-Admin: 可以访问所有组和项目</code></pre>
-<p>&emsp;&emsp;添加组</p>
-<p>&emsp;&emsp;组权限</p>
-<pre><code>Private: 私用,只允许组成员可见
-Internal: 内部,所有登录用户可见
-Public: 公共,所有人可见</code></pre>
-<p>&emsp;&emsp;创建仓库和添加成员到组,很简单,不再赘述. 重点说下仓库成员权限,</p>
-<pre><code>Guest：可以创建issue、发表评论，不能读写版本库
-Reporter：可以克隆代码，不能提交，QA、PM可以赋予这个权限
-Developer：可以克隆代码、开发、提交、push，RD可以赋予这个权限
-Master：可以创建项目、添加tag、保护分支、添加项目成员、编辑项目，核心RD负责人可以赋予这个权限
-Owner：可以设置项目访问权限 - Visibility Level、删除项目、迁移项目、管理组成员，开发组leader可以赋予这个权限</code></pre>
-<h3 id="10-Gitlab相关操作及说明"><a href="#10-Gitlab相关操作及说明" class="headerlink" title="10.Gitlab相关操作及说明"></a>10.Gitlab相关操作及说明</h3><figure class="highlight awk"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="regexp">/etc/gi</span>tlab/gitlab.rb          <span class="comment">#gitlab配置文件</span></span><br><span class="line"><span class="regexp">/opt/gi</span>tlab                    <span class="comment">#gitlab的程序安装目录</span></span><br><span class="line"><span class="regexp">/var/</span>opt/gitlab                <span class="comment">#gitlab目录数据目录</span></span><br><span class="line"><span class="regexp">/var/</span>opt<span class="regexp">/gitlab/gi</span>t-data       <span class="comment">#存放仓库数据</span></span><br><span class="line">gitlab-ctl reconfigure         <span class="comment">#重新加载配置</span></span><br><span class="line">gitlab-ctl status              <span class="comment">#查看当前gitlab所有服务运行状态</span></span><br><span class="line">gitlab-ctl stop                <span class="comment">#停止gitlab服务</span></span><br><span class="line">gitlab-ctl stop nginx          <span class="comment">#单独停止某个服务</span></span><br><span class="line">gitlab-ctl tail                <span class="comment">#查看所有服务的日志</span></span><br><span class="line"></span><br><span class="line">Gitlab的服务构成：</span><br><span class="line">nginx：                 静态web服务器</span><br><span class="line">gitlab-workhorse        轻量级反向代理服务器</span><br><span class="line">logrotate              日志文件管理工具</span><br><span class="line">postgresql             数据库</span><br><span class="line">redis                  缓存数据库</span><br><span class="line">sidekiq                用于在后台执行队列任务（异步执行）</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-        <tag>GitLab</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>git常用命令</title>
     <url>/post/423abe9e.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h2><h5 id="初始配置"><a href="#初始配置" class="headerlink" title="初始配置"></a>初始配置</h5><figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line">mkdir d:\git_test</span><br><span class="line">git<span class="built_in"> config </span>--global user.name <span class="string">&quot;Your name&quot;</span></span><br><span class="line">git<span class="built_in"> config </span>--global user.email <span class="string">&quot;you@example.com&quot;</span></span><br></pre></td></tr></table></figure>
@@ -521,6 +521,45 @@ Owner：可以设置项目访问权限 - Visibility Level、删除项目、迁�
       </tags>
   </entry>
   <entry>
+    <title>hexo之基本操作</title>
+    <url>/post/343aa4a8.html</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="环境配置"><a href="#环境配置" class="headerlink" title="环境配置"></a>环境配置</h2><pre><code>git
+
+Node.js</code></pre>
+<h4 id="Hexo安装：npm-install-hexo-g"><a href="#Hexo安装：npm-install-hexo-g" class="headerlink" title="Hexo安装：npm install hexo -g"></a>Hexo安装：npm install hexo -g</h4><a id="more"></a>
+
+<p>安装完成后检查：<code>hexo -v</code></p>
+<h6 id="Hexo基本操作"><a href="#Hexo基本操作" class="headerlink" title="Hexo基本操作"></a>Hexo基本操作</h6><p>初始化文件夹：<code>hexo init</code></p>
+<p>开启服务器：<code>hexo s</code></p>
+<p>Ctrl+C为退出服务器，开启服务器后在 <a href="http://localhost:4000/">http://localhost:4000/</a> 中预览博客</p>
+<p>清除缓存：<code>hexo clean</code></p>
+<p>生成页面：<code>hexo g</code></p>
+<p>上传到github：<code>hexo d</code></p>
+<p>查看帮助：<code>hexo help</code></p>
+<p>查看版本：<code>hexo version</code></p>
+<p>新建文章：<code>hexo new &quot;name&quot;</code></p>
+<p>新建页面：<code>hexo new page &quot;name&quot;</code></p>
+<p>安装插件：<code>npm install --save hexo-admin(插件名)</code></p>
+<p>卸载插件：<code>npm uninstall hexo-admin(插件名)</code></p>
+<h6 id="其他配置"><a href="#其他配置" class="headerlink" title="其他配置"></a>其他配置</h6><p>ssh key</p>
+<blockquote>
+<p>hexo主要配置文件：_config.yml</p>
+</blockquote>
+<p>首次上传到github安装插件：<code>npm install hexo-deployer-git --save</code></p>
+<h6 id="添加图片"><a href="#添加图片" class="headerlink" title="添加图片"></a>添加图片</h6><p><code>npm install https://github.com/CodeFalling/hexo-asset-image --save</code></p>
+<blockquote>
+<p>配置文件：post_asset_folder: true</p>
+</blockquote>
+<p>坑点：图片链接要写”/“，不要写”&quot;</p>
+]]></content>
+      <categories>
+        <category>hexo建站</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>hexo之搭建个人博客</title>
     <url>/post/dfea82e5.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>  &emsp;&emsp;Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。hexo 博客在 Linux 系统中搭建是非常简单的，在 WIN 系统中比较复杂，我们接触的手机📱永远要比电脑的时间要多那么我们可以在安卓手机上使用 termux 来搭建，这样随时随地都可以写做和发表文章。</p>
@@ -640,45 +679,6 @@ Owner：可以设置项目访问权限 - Visibility Level、删除项目、迁�
 <blockquote>
 <p>其他相关链接<br><a href="https://www.simon96.online/2018/10/12/hexo-tutorial/">【持续更新】最全Hexo博客搭建+主题优化+插件配置+常用操作+错误分析</a><br><a href="https://github.com/coneycode/hexo-git-backup">hexo-git-backup</a><br><a href="https://www.hojun.cn/2018/01/25/Hexo%E5%8D%9A%E5%AE%A2%E5%A4%87%E4%BB%BD%E2%80%94%E5%A6%88%E5%A6%88%E5%86%8D%E4%B9%9F%E4%B8%8D%E7%94%A8%E6%8B%85%E5%BF%83%E4%BD%A0%E4%BD%BF%E7%94%A8hexo%E5%86%99%E5%8D%9A%E5%AE%A2/">Hexo博客备份</a><br><a href="https://notes.doublemine.me/2015-07-06-%E8%87%AA%E5%8A%A8%E5%A4%87%E4%BB%BDHexo%E5%8D%9A%E5%AE%A2%E6%BA%90%E6%96%87%E4%BB%B6.html">Doublemine</a><br><a href="https://www.dazhuanlan.com/2019/10/25/5db2632c401b8/">大专栏</a></p>
 </blockquote>
-]]></content>
-      <categories>
-        <category>hexo建站</category>
-      </categories>
-      <tags>
-        <tag>hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>hexo之基本操作</title>
-    <url>/post/343aa4a8.html</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="环境配置"><a href="#环境配置" class="headerlink" title="环境配置"></a>环境配置</h2><pre><code>git
-
-Node.js</code></pre>
-<h4 id="Hexo安装：npm-install-hexo-g"><a href="#Hexo安装：npm-install-hexo-g" class="headerlink" title="Hexo安装：npm install hexo -g"></a>Hexo安装：npm install hexo -g</h4><a id="more"></a>
-
-<p>安装完成后检查：<code>hexo -v</code></p>
-<h6 id="Hexo基本操作"><a href="#Hexo基本操作" class="headerlink" title="Hexo基本操作"></a>Hexo基本操作</h6><p>初始化文件夹：<code>hexo init</code></p>
-<p>开启服务器：<code>hexo s</code></p>
-<p>Ctrl+C为退出服务器，开启服务器后在 <a href="http://localhost:4000/">http://localhost:4000/</a> 中预览博客</p>
-<p>清除缓存：<code>hexo clean</code></p>
-<p>生成页面：<code>hexo g</code></p>
-<p>上传到github：<code>hexo d</code></p>
-<p>查看帮助：<code>hexo help</code></p>
-<p>查看版本：<code>hexo version</code></p>
-<p>新建文章：<code>hexo new &quot;name&quot;</code></p>
-<p>新建页面：<code>hexo new page &quot;name&quot;</code></p>
-<p>安装插件：<code>npm install --save hexo-admin(插件名)</code></p>
-<p>卸载插件：<code>npm uninstall hexo-admin(插件名)</code></p>
-<h6 id="其他配置"><a href="#其他配置" class="headerlink" title="其他配置"></a>其他配置</h6><p>ssh key</p>
-<blockquote>
-<p>hexo主要配置文件：_config.yml</p>
-</blockquote>
-<p>首次上传到github安装插件：<code>npm install hexo-deployer-git --save</code></p>
-<h6 id="添加图片"><a href="#添加图片" class="headerlink" title="添加图片"></a>添加图片</h6><p><code>npm install https://github.com/CodeFalling/hexo-asset-image --save</code></p>
-<blockquote>
-<p>配置文件：post_asset_folder: true</p>
-</blockquote>
-<p>坑点：图片链接要写”/“，不要写”&quot;</p>
 ]]></content>
       <categories>
         <category>hexo建站</category>
@@ -1101,7 +1101,7 @@ Node.js</code></pre>
 <p>&emsp;&emsp; 根据Server ID 生成license Key：</p>
 <figure class="highlight awk"><table><tr><td class="code"><pre><span class="line"><span class="regexp">/opt/</span>atlassian<span class="regexp">/jira/</span>jre<span class="regexp">/bin/</span>java -jar <span class="regexp">/home/</span>jira1<span class="regexp">/atlassian-agent.jar -p jira -m jira@jira.com -n jira -o https:/</span><span class="regexp">/jira.com -s BFZ0-PD41-I9AX-YXDP</span></span><br></pre></td></tr></table></figure>
 <br>
-<div class="note default no-icon"><p>-p jira(安装的是jira产品)，具体的可以根据-p进行参考<br>-m <a href="mailto:&#106;&#105;&#x72;&#x61;&#x40;&#x6a;&#105;&#x72;&#x61;&#46;&#99;&#x6f;&#109;">&#106;&#105;&#x72;&#x61;&#x40;&#x6a;&#105;&#x72;&#x61;&#46;&#99;&#x6f;&#109;</a>(随意写)<br>-n jira(随意写)<br>-o <a href="https://jira.com/">https://jira.com</a> (随意写)<br>-s BFZ0-PD41-I9AX-YXDP (即jira显示的服务器ID)</p>
+<div class="note default no-icon"><p>-p jira(安装的是jira产品)，具体的可以根据-p进行参考<br>-m <a href="mailto:&#x6a;&#x69;&#114;&#x61;&#64;&#106;&#x69;&#114;&#x61;&#x2e;&#x63;&#x6f;&#x6d;">&#x6a;&#x69;&#114;&#x61;&#64;&#106;&#x69;&#114;&#x61;&#x2e;&#x63;&#x6f;&#x6d;</a>(随意写)<br>-n jira(随意写)<br>-o <a href="https://jira.com/">https://jira.com</a> (随意写)<br>-s BFZ0-PD41-I9AX-YXDP (即jira显示的服务器ID)</p>
 </div>
 <br>
 
@@ -1130,7 +1130,8 @@ Node.js</code></pre>
 <blockquote>
 <p>JVM_MINIMUM_MEMORY=”768m”<br>  JVM_MAXIMUM_MEMORY=”4096m”</p>
 </blockquote>
-]]></content>
+<h3 id="PS"><a href="#PS" class="headerlink" title="PS"></a>PS</h3><p>&emsp;&emsp; 常用的几个地址路径：</p>
+<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">DB设置：`<span class="regexp">/var/</span>atlassian<span class="regexp">/application-data/</span>jira/dbconfig.xml`</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">启动：<span class="regexp">/opt/</span>atlassian<span class="regexp">/jira/</span>bin/start-jira.sh</span><br><span class="line"></span><br><span class="line">日志：tail -f -n <span class="number">500</span> <span class="regexp">/opt/</span>atlassian<span class="regexp">/jira/</span>logs/catalina.out</span><br><span class="line"></span><br><span class="line"><span class="regexp">/opt/</span>atlassian<span class="regexp">/jira/</span>atlassian-jira<span class="regexp">/WEB-INF/</span>classes/database-defaults</span><br><span class="line"></span><br><span class="line"><span class="regexp">/var/</span>atlassian<span class="regexp">/application-data/</span>jira</span><br><span class="line"></span><br><span class="line">vi <span class="regexp">/opt/</span>atlassian<span class="regexp">/jira/</span>conf/server.xml</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="regexp">/opt/</span>atlassian<span class="regexp">/jira/</span></span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>Linux</category>
       </categories>
