@@ -15,102 +15,175 @@
 
 安装 Node.js
 安装 git</code></pre>
-<h2 id="开始安装"><a href="#开始安装" class="headerlink" title="开始安装"></a>开始安装</h2><h3 id="安装-Hexo"><a href="#安装-Hexo" class="headerlink" title="安装 Hexo"></a>安装 Hexo</h3><h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><figure class="highlight avrasm"><table><tr><td class="code"><pre><span class="line">$ npm install -g hexo-<span class="keyword">cli</span></span><br></pre></td></tr></table></figure>
+<h2 id="开始安装"><a href="#开始安装" class="headerlink" title="开始安装"></a>开始安装</h2><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><ol>
+<li> <mark class="label danger">Node</mark> 环境安装：</li>
 
-<h4 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h4><p>&emsp;&emsp; 安装完成之后，新建一个文件夹(例如: blog)，执行以下命令进行初始化</p>
+<p>&emsp;&emsp; 参考：<a href="/post/c0a81ac4.html" title="Mac正确的安装和使用nvm">Mac正确的安装和使用nvm</a></p>
+<li> <mark class="label danger">Hexo</mark> 环境安装：</li>
+<figure class="highlight avrasm"><table><tr><td class="code"><pre><span class="line">$ npm install -g hexo-<span class="keyword">cli</span></span><br></pre></td></tr></table></figure>
+</ol>
+
+<h3 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h3><p>&emsp;&emsp; 安装完成之后，新建一个文件夹(例如: blog)，执行以下命令进行初始化</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo init &lt;folder&gt;</span><br><span class="line">或</span><br><span class="line">$ <span class="built_in">cd</span> &lt;folder&gt;</span><br><span class="line">$ hexo init</span><br></pre></td></tr></table></figure>
 
-<h4 id="进入文件夹"><a href="#进入文件夹" class="headerlink" title="进入文件夹"></a>进入文件夹</h4><p>&emsp;&emsp; 进入 blog 文件夹</p>
+<h3 id="进入文件夹"><a href="#进入文件夹" class="headerlink" title="进入文件夹"></a>进入文件夹</h3><p>&emsp;&emsp; 进入 blog 文件夹</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> blog</span><br></pre></td></tr></table></figure>
 
-<h4 id="安装核心组件"><a href="#安装核心组件" class="headerlink" title="安装核心组件"></a>安装核心组件</h4><p>&emsp;&emsp; 安装 npm 核心组件支持</p>
+<h3 id="安装核心组件"><a href="#安装核心组件" class="headerlink" title="安装核心组件"></a>安装核心组件</h3><p>&emsp;&emsp; 安装 npm 核心组件支持</p>
 <figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line">npm <span class="keyword">install</span></span><br></pre></td></tr></table></figure>
 
 <p>&emsp;&emsp; 新建完成后，文件夹目录<br> <div class="note primary no-icon"><p>_config.yml 文件是网站的配置文件，可以在其中配置网站的大部分参数。<br>package.json 文件是应用程序的信息。<br>source 是资源文件夹，是用来存放 xxxu 用户资源的地方。<br>themes 是主题文件夹，Hexo 会根据主题来生成不同的静态页面。<br>scaffolds 是模板件夹，当新建文章的时候，Hexo 会根据模板来建立文件。</p>
 </div></p>
-<h3 id="安装-NexT-主题"><a href="#安装-NexT-主题" class="headerlink" title="安装 NexT 主题"></a>安装 NexT 主题</h3><h4 id="下载主题"><a href="#下载主题" class="headerlink" title="下载主题"></a>下载主题</h4><p>&emsp;&emsp; 下载主题，<a href="https://hexo.io/">Hexo</a> 的主题非常丰富可以去<a href="https://hexo.io/themes/">官方主题</a>下载；下面有演示我使用的主题 <a href="https://github.com/theme-next/hexo-theme-next">next</a></p>
+<h3 id="安装-NexT-主题"><a href="#安装-NexT-主题" class="headerlink" title="安装 NexT 主题"></a>安装 NexT 主题</h3><ol>
+
+<li>下载主题：</li>
+
+<p>&emsp;&emsp; <a href="https://hexo.io/">Hexo</a> 的主题非常丰富可以去<a href="https://hexo.io/themes/">官方主题</a>下载；下面有演示我使用的主题 <a href="https://github.com/theme-next/hexo-theme-next">next</a></p>
 <figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">git clone https:<span class="regexp">//gi</span>thub.com<span class="regexp">/theme-next/</span>hexo-theme-<span class="keyword">next</span> themes/<span class="keyword">next</span></span><br></pre></td></tr></table></figure>
 
+<li>配置文件：</li>
 
-<h4 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h4><p>&emsp;&emsp; 在站点配置文件_config.yml 开启 next 主题，修改<code>theme</code>属性，注意 <code>theme: </code>后要加<code>空格</code>，具体的站点和主题信息配置请自行去 <a href="https://hexo.io/zh-cn/">hexo</a> 和 <a href="http://theme-next.iissnan.com/">next 主题</a>文档查看</p>
+
+<p>&emsp;&emsp; 在<code>站点</code>配置文件<code>_config.yml</code> 开启 next 主题，修改<code>theme</code>属性，注意 <code>theme: </code>后要加<code>空格</code>，具体的站点和主题信息配置请自行去 <a href="https://hexo.io/zh-cn/">hexo</a> 和 <a href="http://theme-next.iissnan.com/">next 主题</a>文档查看</p>
 <figure class="highlight autoit"><table><tr><td class="code"><pre><span class="line">theme: <span class="keyword">next</span></span><br></pre></td></tr></table></figure>
 
+</ol>
 
 <h3 id="本地调试"><a href="#本地调试" class="headerlink" title="本地调试"></a>本地调试</h3><figure class="highlight elixir"><table><tr><td class="code"><pre><span class="line"><span class="variable">$ </span>hexo g <span class="comment">#生成静态页面，生成的内容在public文件夹下</span></span><br><span class="line"><span class="variable">$ </span>hexo s <span class="comment">#启动本地服务，进行文章预览调试。hexo s --debug 命令可以用来调试</span></span><br></pre></td></tr></table></figure>
 
 
-<h3 id="配置-ssh-密钥及-github-或者-gitee-部署"><a href="#配置-ssh-密钥及-github-或者-gitee-部署" class="headerlink" title="配置 ssh 密钥及 github 或者 gitee 部署"></a>配置 ssh 密钥及 github 或者 gitee 部署</h3><p>&emsp;&emsp; 配置 git</p>
-<figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line">$ git<span class="built_in"> config </span>--global user.name <span class="string">&quot;your name&quot;</span></span><br><span class="line">$ git<span class="built_in"> config </span>--global user.email <span class="string">&quot;email@email.com&quot;</span></span><br><span class="line">省略。。。</span><br></pre></td></tr></table></figure>
+<h3 id="配置-git"><a href="#配置-git" class="headerlink" title="配置 git"></a>配置 git</h3><p>&emsp;&emsp; 配置 ssh 密钥及 github 或者 gitee 部署</p>
+<figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line"><span class="built_in">..</span><span class="built_in">..</span><span class="built_in">..</span></span><br><span class="line">ssh-key <span class="built_in">..</span><span class="built_in">..</span></span><br><span class="line">省略。。。</span><br><span class="line">$ git<span class="built_in"> config </span>--global user.name <span class="string">&quot;your name&quot;</span></span><br><span class="line">$ git<span class="built_in"> config </span>--global user.email <span class="string">&quot;email@email.com&quot;</span></span><br><span class="line">省略。。。</span><br><span class="line"><span class="built_in">..</span><span class="built_in">..</span><span class="built_in">..</span></span><br></pre></td></tr></table></figure>
 
 
-<h3 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h3><p>&emsp;&emsp; <strong><mark class="label danger">1，</mark></strong> 安装 hexo-deployer-git 插件</p>
+<h3 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h3><ol>
+<li>安装 <font color="LightCoral" size="3">hexo-deployer-git</font> 插件</li>
+
 <figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">$ npm <span class="keyword">install</span> hexo-deployer-git <span class="comment">--save</span></span><br></pre></td></tr></table></figure>
 
+<div style="height: 10px;"></div>
 
-<p>&emsp;&emsp; <strong><mark class="label danger">2，</mark></strong> 打开 Hexo 主文件夹下的_config.yml，设置其中的 deploy 参数</p>
+<li>打开 Hexo 主文件夹下的<font color="LightCoral" size="3">_config.yml</font>，设置其中的 <font color="hotpink" size="3">deploy</font> 参数</li>
+
 <figure class="highlight less"><table><tr><td class="code"><pre><span class="line"><span class="attribute">deploy</span>:</span><br><span class="line">    <span class="attribute">type</span>: git </span><br><span class="line">    <span class="attribute">repo</span>: git<span class="variable">@github</span>.<span class="attribute">com</span>:stiverick610/stiverick610.github.io.git</span><br><span class="line">    <span class="attribute">branch</span>: master</span><br></pre></td></tr></table></figure>
 
-<p>&emsp;&emsp; <strong><mark class="label danger">3，</mark></strong> 安装完成插件之后，使用以下命令部署</p>
+<div style="height: 10px;"></div>
+
+<li>安装完成插件之后，使用以下命令部署</li>
+
 <figure class="highlight elixir"><table><tr><td class="code"><pre><span class="line"><span class="variable">$ </span>hexo d -g <span class="comment">#在部署前先生成</span></span><br></pre></td></tr></table></figure>
 
+</ol>
 
-<h3 id="Next-常用命令"><a href="#Next-常用命令" class="headerlink" title="Next 常用命令"></a>Next 常用命令</h3><p>&emsp;&emsp; 常用命令</p>
+
+<h3 id="Next-常用命令"><a href="#Next-常用命令" class="headerlink" title="Next 常用命令"></a>Next 常用命令</h3><div style="height: 10px;"></div>
+
 <figure class="highlight elixir"><table><tr><td class="code"><pre><span class="line"><span class="variable">$ </span>hexo clean     <span class="comment"># 清理之前生成的内容，即public文件</span></span><br><span class="line"><span class="variable">$ </span>hexo g         <span class="comment"># 生成静态文件</span></span><br><span class="line"><span class="variable">$ </span>hexo d         <span class="comment"># 部署</span></span><br><span class="line"><span class="variable">$ </span>hexo s         <span class="comment"># 启动本地服务，可以通过http://localhost:4000查看</span></span><br><span class="line"><span class="variable">$ </span>hexo s --debug <span class="comment"># 使用debug模式启动服务</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="备份"><a href="#备份" class="headerlink" title="备份"></a>备份</h2><p>&emsp;&emsp; <strong><mark class="label danger">1，</mark></strong> 在 github 新建一个叫 blog 的仓库。</p>
-<p>&emsp;&emsp; <strong><mark class="label danger">2，</mark></strong> 在本地博客文件夹创建 git 版本库，如果没有安装 git 必须先安装 git。</p>
-<p>&emsp;&emsp; <strong><mark class="label danger">3，</mark></strong> 进入需要备份 blog 目录。</p>
-<p>&emsp;&emsp; <strong><mark class="label danger">4，</mark></strong> 创建版本库。</p>
+<h2 id="备份"><a href="#备份" class="headerlink" title="备份"></a>备份</h2><ol>
+
+<li>在 github 新建一个叫 blog 的仓库。</li>
+
+<li>在本地博客文件夹创建 git 版本库，如果没有安装 git 必须先安装 git。</li>
+
+<li>进入需要备份 blog 目录。</li>
+
+<li>创建版本库。</li>
+
 <figure class="highlight ebnf"><table><tr><td class="code"><pre><span class="line"><span class="attribute">git init</span></span><br></pre></td></tr></table></figure>
-<p>&emsp;&emsp; 这个时候 blog 的版本库已经创建好了。<br>&emsp;&emsp; 验证是否成功，如果有一个.git 的隐藏文件就说明创建成功。<br>&emsp;&emsp; 查看隐藏文件</p>
+
+<div style="height: 10px;"></div>
+
+<p>这个时候 blog 的版本库已经创建好了。<br>验证是否成功，如果有一个 <font color="hotpink" size="4"> .git </font> 的隐藏文件就说明创建成功。<br>查看隐藏文件</p>
 <figure class="highlight ebnf"><table><tr><td class="code"><pre><span class="line"><span class="attribute">ls -a</span></span><br></pre></td></tr></table></figure>
-<p>&emsp;&emsp; <strong><mark class="label danger">5，</mark></strong> 连接上面 github 创建的仓库</p>
+
+<div style="height: 10px;"></div>
+
+<li> 连接上面 github 创建的仓库</li>
+
 <figure class="highlight armasm"><table><tr><td class="code"><pre><span class="line"><span class="symbol">git</span> remote <span class="keyword">add</span> origin git<span class="comment">@github.com:you name/blog.git</span></span><br></pre></td></tr></table></figure>
 
-<p>&emsp;&emsp; <strong><mark class="label danger">6，</mark></strong> 添加备份文件 source/themes/ _config.yml scaffolds/package.json .gitignore 这些文件需要备份</p>
-<figure class="highlight gradle"><table><tr><td class="code"><pre><span class="line">git add <span class="keyword">source</span><span class="regexp">/ themes/</span> _config.yml scaffolds/ <span class="keyword">package</span>.json .gitignore</span><br></pre></td></tr></table></figure>
+<div style="height: 10px;"></div>
 
-<p>&emsp;&emsp; 或</p>
-<p>&emsp;&emsp; 修改.gitignore文件（如果没有请手动创建一个），在里面加入<code>*.log</code> 和 <code>public/</code> 以及<code>.deploy*/</code></p>
+<li> 添加备份文件 </li>
+
+<p><code>source/</code> <code>scripts/</code> <code>themes/</code> <code>_config.yml</code> <code>_config.next.yml</code> <code>scaffolds/</code> <code>package.json</code> <code>.gitignore</code> 这些文件需要备份</p>
+<figure class="highlight gradle"><table><tr><td class="code"><pre><span class="line">git add <span class="keyword">source</span><span class="regexp">/ scripts/</span> themes<span class="regexp">/ _config.yml _config.next.yml scaffolds/</span> <span class="keyword">package</span>.json .gitignore</span><br></pre></td></tr></table></figure>
+
+<div style="height: 10px;"></div>
+
+<p>修改.gitignore文件（如果没有请手动创建一个），在里面加入<code>*.log</code> 和 <code>public/</code> 以及<code>.deploy*/</code></p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vi .gitignore</span><br><span class="line"></span><br><span class="line">   .DS_Store</span><br><span class="line">   themes/</span><br><span class="line">   db.json</span><br><span class="line">   *.<span class="built_in">log</span></span><br><span class="line">   node_modules/</span><br><span class="line">   public/</span><br><span class="line">   .deploy*/</span><br><span class="line">   .idea/</span><br><span class="line"></span><br><span class="line">git add .</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<p>&emsp;&emsp; <strong><mark class="label danger">7，</mark></strong> 注释备份内容，明确的注释可以回退版本</p>
+<div style="height: 10px;"></div>
+
+<li> 注释备份内容，明确的注释可以回退版本</li>
+
 <figure class="highlight nginx"><table><tr><td class="code"><pre><span class="line"><span class="attribute">git</span> commit -m <span class="string">&quot;博客备份&quot;</span></span><br></pre></td></tr></table></figure>
 
-<p>&emsp;&emsp; <strong><mark class="label danger">8，</mark></strong> 第一次强制上传文件到 github 仓库</p>
+<div style="height: 10px;"></div>
+
+<li> 第一次强制上传文件到 github 仓库</li>
+
 <figure class="highlight maxima"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">push</span> -u <span class="built_in">origin</span> master</span><br></pre></td></tr></table></figure>
 
-<p>&emsp;&emsp; 这样博客就备份成功了，之后备份直接前面 6 、7 步，第 8 部直接使用下面命令就可以了</p>
+<div style="height: 10px;"></div>
+这样博客就备份成功了，之后备份直接前面 <mark class="label danger">6</mark> 、<mark class="label danger">7</mark> 步，第 <font color="green" size="4">8</font> 部直接使用下面命令就可以了
+
 <figure class="highlight maxima"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">push</span> <span class="built_in">origin</span> master</span><br></pre></td></tr></table></figure>
 
-<p>&emsp;&emsp; <strong><mark class="label danger">9，</mark></strong> 安装<code>shelljs</code>模块,实现自动备份。</p>
-<p>&emsp;&emsp; 要实现这个自动备份功能，需要依赖NodeJs的一个<code>shelljs</code>模块,该模块重新包装了<code>child_process</code>,调用系统命令更加的方便。（其实就是因为博主懒( ╯▽╰)）该模块需要安装后使用。</p>
-<p>&emsp;&emsp; 在命令中键入以下命令，完成<code>shelljs</code>模块的安装：</p>
+<div style="height: 10px;"></div>
+
+<li> 安装<font color="LightCoral" size="4">shelljs</font>模块,实现自动备份。</li>
+
+<div style="height: 10px;"></div>
+
+<p>&emsp;&emsp;要实现这个自动备份功能，需要依赖NodeJs的一个<code>shelljs</code>模块,该模块重新包装了<code>child_process</code>,调用系统命令更加的方便。（其实就是因为博主懒( ╯▽╰)）该模块需要安装后使用。</p>
+<p>在命令中键入以下命令，完成<code>shelljs</code>模块的安装：</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install --save shelljs</span><br></pre></td></tr></table></figure>
 
-<p>&emsp;&emsp; 编写自动备份脚本</p>
-<p>&emsp;&emsp; 待到模块安装完成，在<code>Hexo根目录</code>的<code>scripts</code>文件夹下新建一个<code>js文件</code>，文件名<code>随意取</code>。</p>
-<p>&emsp;&emsp; 如果没有<code>scripts</code>目录，请新建一个。</p>
-<p>&emsp;&emsp; 然后在脚本中，写入以下内容：</p>
+<div style="height: 10px;"></div>
+编写自动备份脚本
+
+<p>待到模块安装完成，在<code>Hexo根目录</code>的<code>scripts</code>文件夹下新建一个<code>js文件</code>，文件名<code>随意取</code>。</p>
+<p>如果没有<code>scripts</code>目录，请新建一个。</p>
+<p>然后在脚本中，写入以下内容：</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">require(<span class="string">&#x27;shelljs/global&#x27;</span>);</span><br><span class="line"></span><br><span class="line">try &#123;</span><br><span class="line">	hexo.on(<span class="string">&#x27;deployAfter&#x27;</span>, <span class="function"><span class="title">function</span></span>() &#123;//当deploy完成后执行备份</span><br><span class="line">		run();</span><br><span class="line">	&#125;);</span><br><span class="line">&#125; catch (e) &#123;</span><br><span class="line">	console.log(<span class="string">&quot;产生了一个错误&lt;(￣3￣)&gt; !，错误详情为：&quot;</span> + e.toString());</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">run</span></span>() &#123;</span><br><span class="line">	<span class="keyword">if</span> (!<span class="built_in">which</span>(<span class="string">&#x27;git&#x27;</span>)) &#123;</span><br><span class="line">		<span class="built_in">echo</span>(<span class="string">&#x27;Sorry, this script requires git&#x27;</span>);</span><br><span class="line">		<span class="built_in">exit</span>(1);</span><br><span class="line">	&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">		<span class="built_in">echo</span>(<span class="string">&quot;======================Auto Backup Begin===========================&quot;</span>);</span><br><span class="line">		<span class="built_in">cd</span>(<span class="string">&#x27;~/git/blog&#x27;</span>);    //此处修改为Hexo根目录路径</span><br><span class="line">		<span class="keyword">if</span> (<span class="built_in">exec</span>(<span class="string">&#x27;git add --all&#x27;</span>).code !== 0) &#123;</span><br><span class="line">			<span class="built_in">echo</span>(<span class="string">&#x27;Error: Git add failed&#x27;</span>);</span><br><span class="line">			<span class="built_in">exit</span>(1);</span><br><span class="line"></span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span> (<span class="built_in">exec</span>(<span class="string">&#x27;git commit -am &quot;Form auto backup script\&#x27;</span>s commit<span class="string">&quot;&#x27;).code !== 0) &#123;</span></span><br><span class="line"><span class="string">			echo(&#x27;Error: Git commit failed&#x27;);</span></span><br><span class="line"><span class="string">			exit(1);</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">		&#125;</span></span><br><span class="line"><span class="string">		if (exec(&#x27;git push origin master&#x27;).code !== 0) &#123;</span></span><br><span class="line"><span class="string">			echo(&#x27;Error: Git push failed&#x27;);</span></span><br><span class="line"><span class="string">			exit(1);</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">		&#125;</span></span><br><span class="line"><span class="string">		echo(&quot;</span>==================Auto Backup Complete============================<span class="string">&quot;)</span></span><br><span class="line"><span class="string">	&#125;</span></span><br><span class="line"><span class="string">&#125;</span></span><br></pre></td></tr></table></figure>
 
+<div style="height: 10px;"></div>
+
 <ul>
-<li>其中，需要修改第<code>17</code>行的<code>~/git/blog</code>路径为Hexo的根目录路径。（脚本中的路径为博主的Hexo路径）</li>
-<li>如果你的Git远程仓库名称不为<code>origin</code>的话，还需要修改第<code>28</code>行执行的push命令，修改成自己的远程仓库名和相应的分支名。</li>
+<li><p>其中，需要修改第<code>17</code>行的<code>~/git/blog</code>路径为Hexo的根目录路径。（脚本中的路径为博主的Hexo路径）</p>
+</li>
+<li><p>如果你的Git远程仓库名称不为<code>origin</code>的话，还需要修改第<code>28</code>行执行的push命令，修改成自己的远程仓库名和相应的分支名。</p>
+</li>
+<li><p>保存脚本并退出，然后执行hexo deploy命令，将会得到类似以下结果:</p>
+</li>
 </ul>
-<p>&emsp;&emsp; 保存脚本并退出，然后执行hexo deploy命令，将会得到类似以下结果:</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">INFO  Deploying: git</span><br><span class="line">INFO  Clearing .deploy_git folder...</span><br><span class="line">INFO  Copying files from public folder...</span><br><span class="line">INFO  Copying files from extend <span class="built_in">dirs</span>...</span><br><span class="line">[master 2fd18b4] Site updated: 2020-03-02 13:46:34</span><br><span class="line"> 4 files changed, 42 insertions(+), 4 deletions(-)</span><br><span class="line">枚举对象: 19, 完成.</span><br><span class="line">对象计数中: 100% (19/19), 完成.</span><br><span class="line">使用 8 个线程进行压缩</span><br><span class="line">压缩对象中: 100% (8/8), 完成.</span><br><span class="line">写入对象中: 100% (10/10), 4.25 KiB | 1.06 MiB/s, 完成.</span><br><span class="line">总共 10 （差异 7），复用 0 （差异 0）</span><br><span class="line">remote: Resolving deltas: 100% (7/7), completed with 7 <span class="built_in">local</span> objects.</span><br><span class="line">To github.com:leeze2012/leeze2012.github.io.git</span><br><span class="line">   42f1ef1..2fd18b4  HEAD -&gt; master</span><br><span class="line">分支 <span class="string">&#x27;master&#x27;</span> 设置为跟踪来自 <span class="string">&#x27;git@github.com:leeze2012/leeze2012.github.io.git&#x27;</span> 的远程分支 <span class="string">&#x27;master&#x27;</span>。</span><br><span class="line">INFO  Deploy <span class="keyword">done</span>: git</span><br><span class="line">INFO  Deploying: baidu_url_submitter</span><br><span class="line">INFO  Submitting urls</span><br><span class="line">https://blog.xiaosige.com/post/c1dab809.html</span><br><span class="line">https://blog.xiaosige.com/post/73879c7f.html</span><br><span class="line">&#123;<span class="string">&quot;remain&quot;</span>:99984,<span class="string">&quot;success&quot;</span>:2&#125;</span><br><span class="line">INFO  Deploy <span class="keyword">done</span>: baidu_url_submitter</span><br><span class="line">======================Auto Backup Begin===========================</span><br><span class="line">[master af0e0a8] Form auto backup script<span class="string">&#x27;s commit</span></span><br><span class="line"><span class="string"> 2 files changed, 75 insertions(+)</span></span><br><span class="line"><span class="string"> create mode 100644 scripts/.bc.js.swo</span></span><br><span class="line"><span class="string">To github.com:leeze2012/blog.git</span></span><br><span class="line"><span class="string">   49dd62c..af0e0a8  master -&gt; master</span></span><br><span class="line"><span class="string">==================Auto Backup Complete============================</span></span><br></pre></td></tr></table></figure>
 
-<p>&emsp;&emsp; 这样子，每次更新博文并<code>deploy</code>到服务器上之后，备份就自动启动并完成备份啦</p>
-<h2 id="恢复"><a href="#恢复" class="headerlink" title="恢复"></a>恢复</h2><p>&emsp;&emsp; git clone 自己备份的博客源代码克隆备份的 bolg 源文件地址是你自己的地址这里不做演示</p>
+<div style="height: 10px;"></div>
+
+<p>这样子，每次更新博文并<code>deploy</code>到服务器上之后，备份就自动启动并完成备份啦</p>
+</ol>
+
+<h2 id="恢复"><a href="#恢复" class="headerlink" title="恢复"></a>恢复</h2><ol>
+
+<li> git clone 自己备份的博客源代码克隆备份的 bolg 源文件地址是你自己的地址这里不做演示</li>
+
 <figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">git clone <span class="tag">&lt;<span class="name">版本库的网址</span>&gt;</span> <span class="tag">&lt;<span class="name">本地目录名</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">cd</span> <span class="string">bolg</span></span><br><span class="line"><span class="attr">hexo</span> <span class="string">init</span></span><br><span class="line"><span class="attr">...</span></span><br><span class="line"><span class="attr">npm</span> <span class="string">install</span></span><br></pre></td></tr></table></figure>
-<p>&emsp;&emsp; 安装相应插件</p>
+<li> 安装相应插件</li>
+
 <figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">npm <span class="keyword">install</span> hexo-deployer-git <span class="comment">--save</span></span><br><span class="line">npm <span class="keyword">install</span> hexo-generator-searchdb <span class="comment">--save</span></span><br><span class="line">npm <span class="keyword">install</span> valine <span class="comment">--save</span></span><br><span class="line">npm <span class="keyword">install</span> hexo-symbols-<span class="keyword">count</span>-<span class="built_in">time</span> <span class="comment">--save</span></span><br><span class="line">npm <span class="keyword">install</span> hexo-tag-aplayer <span class="comment">--save</span></span><br><span class="line">npm <span class="keyword">install</span> hexo-tag-dplayer <span class="comment">--save</span></span><br><span class="line">npm <span class="keyword">install</span> hexo-baidu-<span class="keyword">url</span>-submit <span class="comment">--save</span></span><br><span class="line">npm <span class="keyword">install</span> hexo-abbrlink <span class="comment">--save</span></span><br><span class="line">npm <span class="keyword">install</span> hexo-blog-<span class="keyword">encrypt</span> <span class="comment">--save</span></span><br><span class="line"></span><br><span class="line">npm <span class="keyword">uninstall</span> hexo-generator-<span class="keyword">index</span> <span class="comment">--save</span></span><br><span class="line">npm <span class="keyword">install</span> hexo-generator-<span class="keyword">index</span>-pin-top <span class="comment">--save</span></span><br><span class="line"></span><br><span class="line">npm <span class="keyword">install</span> hexo-asset-image <span class="comment">--save  (推荐这个) </span></span><br><span class="line"></span><br><span class="line">npm <span class="keyword">install</span> hexo-deployer-git <span class="comment">--save</span></span><br></pre></td></tr></table></figure>
 
-<p>&emsp;&emsp; <strong><code>注：</code></strong> ，<code>hexo-asset-image</code>参考：<a href="/post/172c7c2b.html" title="hexo之图片问题">hexo之图片问题</a></p>
-<p>&emsp;&emsp; <strong><code>一些东西摘自网上，未亲自验证。</code></strong></p>
-<br>
+<div style="height: 10px;"></div>
+
+<p><strong><code>注：</code></strong> ，使用<code>hexo-asset-image</code>，参考：<a href="/post/172c7c2b.html" title="hexo之图片问题">hexo之图片问题</a></p>
+<p><strong><code>一些东西摘自网上，未亲自验证。</code></strong></p>
+</ol>
+
+<hr>
 
 <blockquote>
 <p>其他博客<br><a href="https://www.simon96.online/">遇见西门</a><br><a href="https://zhousiwei.gitee.io/">試毅-思伟</a><br><a href="https://blog.dlzhang.com/">班班碎碎念</a><br><a href="https://me.idealli.com/">小红鸡</a></p>
@@ -118,7 +191,7 @@
 <hr>
 
 <blockquote>
-<p>其他相关链接<br><a href="https://www.simon96.online/2018/10/12/hexo-tutorial/">【持续更新】最全Hexo博客搭建+主题优化+插件配置+常用操作+错误分析</a><br><a href="https://github.com/coneycode/hexo-git-backup">hexo-git-backup</a><br><a href="https://www.hojun.cn/2018/01/25/Hexo%E5%8D%9A%E5%AE%A2%E5%A4%87%E4%BB%BD%E2%80%94%E5%A6%88%E5%A6%88%E5%86%8D%E4%B9%9F%E4%B8%8D%E7%94%A8%E6%8B%85%E5%BF%83%E4%BD%A0%E4%BD%BF%E7%94%A8hexo%E5%86%99%E5%8D%9A%E5%AE%A2/">Hexo博客备份</a><br><a href="https://notes.doublemine.me/2015-07-06-%E8%87%AA%E5%8A%A8%E5%A4%87%E4%BB%BDHexo%E5%8D%9A%E5%AE%A2%E6%BA%90%E6%96%87%E4%BB%B6.html">Doublemine</a><br><a href="https://www.dazhuanlan.com/2019/10/25/5db2632c401b8/">大专栏</a></p>
+<p>其他相关链接<br><a href="https://www.simon96.online/2018/10/12/hexo-tutorial/">[持续更新]最全Hexo博客搭建+主题优化+插件配置+常用操作+错误分析</a><br><a href="https://github.com/coneycode/hexo-git-backup">hexo-git-backup</a><br><a href="https://www.hojun.cn/2018/01/25/Hexo%E5%8D%9A%E5%AE%A2%E5%A4%87%E4%BB%BD%E2%80%94%E5%A6%88%E5%A6%88%E5%86%8D%E4%B9%9F%E4%B8%8D%E7%94%A8%E6%8B%85%E5%BF%83%E4%BD%A0%E4%BD%BF%E7%94%A8hexo%E5%86%99%E5%8D%9A%E5%AE%A2/">Hexo博客备份</a><br><a href="https://notes.doublemine.me/2015-07-06-%E8%87%AA%E5%8A%A8%E5%A4%87%E4%BB%BDHexo%E5%8D%9A%E5%AE%A2%E6%BA%90%E6%96%87%E4%BB%B6.html">Doublemine</a><br><a href="https://www.dazhuanlan.com/2019/10/25/5db2632c401b8/">大专栏</a></p>
 </blockquote>
 ]]></content>
       <categories>
@@ -208,7 +281,7 @@
 <p>&emsp;&emsp; 根据Server ID 生成license Key：</p>
 <figure class="highlight awk"><table><tr><td class="code"><pre><span class="line"><span class="regexp">/opt/</span>atlassian<span class="regexp">/jira/</span>jre<span class="regexp">/bin/</span>java -jar <span class="regexp">/home/</span>jira1<span class="regexp">/atlassian-agent.jar -p jira -m jira@jira.com -n jira -o https:/</span><span class="regexp">/jira.com -s BFZ0-PD41-I9AX-YXDP</span></span><br></pre></td></tr></table></figure>
 <br>
-<div class="note default no-icon"><p>-p jira(安装的是jira产品)，具体的可以根据-p进行参考<br>-m <a href="mailto:&#x6a;&#x69;&#x72;&#97;&#64;&#x6a;&#105;&#x72;&#97;&#46;&#99;&#111;&#x6d;">&#x6a;&#x69;&#x72;&#97;&#64;&#x6a;&#105;&#x72;&#97;&#46;&#99;&#111;&#x6d;</a>(随意写)<br>-n jira(随意写)<br>-o <a href="https://jira.com/">https://jira.com</a> (随意写)<br>-s BFZ0-PD41-I9AX-YXDP (即jira显示的服务器ID)</p>
+<div class="note default no-icon"><p>-p jira(安装的是jira产品)，具体的可以根据-p进行参考<br>-m <a href="mailto:&#106;&#105;&#114;&#97;&#x40;&#x6a;&#105;&#x72;&#x61;&#46;&#x63;&#x6f;&#109;">&#106;&#105;&#114;&#97;&#x40;&#x6a;&#105;&#x72;&#x61;&#46;&#x63;&#x6f;&#109;</a>(随意写)<br>-n jira(随意写)<br>-o <a href="https://jira.com/">https://jira.com</a> (随意写)<br>-s BFZ0-PD41-I9AX-YXDP (即jira显示的服务器ID)</p>
 </div>
 <br>
 
