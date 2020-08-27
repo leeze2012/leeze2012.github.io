@@ -32,7 +32,7 @@
 <meta property="og:description" content="介绍  &amp;emsp;&amp;emsp;Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。hexo 博客在 Linux 系统中搭建是非常简单的，在 WIN 系统中比较复杂，我们接触的手机📱永远要比电脑的时间要多那么我们可以在安卓手机上使用 termux 来搭建，这样随时随地都可以写做和发表文章。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2019-08-26T04:23:00.000Z">
-<meta property="article:modified_time" content="2020-08-26T09:48:24.138Z">
+<meta property="article:modified_time" content="2020-08-27T10:37:43.112Z">
 <meta property="article:author" content="leeze">
 <meta property="article:tag" content="hexo">
 <meta name="twitter:card" content="summary">
@@ -364,7 +364,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-08-26 17:48:24" itemprop="dateModified" datetime="2020-08-26T17:48:24+08:00">2020-08-26</time>
+                <time title="修改时间：2020-08-27 18:37:43" itemprop="dateModified" datetime="2020-08-27T18:37:43+08:00">2020-08-27</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -389,14 +389,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>5.6k</span>
+              <span>7.4k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>5 分钟</span>
+              <span>7 分钟</span>
             </span>
 
         </div>
@@ -576,14 +576,30 @@
 
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone <span class="tag">&lt;<span class="name">版本库的网址</span>&gt;</span> <span class="tag">&lt;<span class="name">本地目录名</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">cd</span> <span class="string">bolg</span></span><br><span class="line"><span class="attr">hexo</span> <span class="string">init</span></span><br><span class="line"><span class="attr">...</span></span><br><span class="line"><span class="attr">npm</span> <span class="string">install</span></span><br></pre></td></tr></table></figure>
-<li> 安装相应插件</li>
 
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">npm <span class="keyword">install</span> hexo-deployer-git <span class="comment">--save</span></span><br><span class="line">npm <span class="keyword">install</span> hexo-generator-searchdb <span class="comment">--save</span></span><br><span class="line">npm <span class="keyword">install</span> valine <span class="comment">--save</span></span><br><span class="line">npm <span class="keyword">install</span> hexo-symbols-<span class="keyword">count</span>-<span class="built_in">time</span> <span class="comment">--save</span></span><br><span class="line">npm <span class="keyword">install</span> hexo-tag-aplayer <span class="comment">--save</span></span><br><span class="line">npm <span class="keyword">install</span> hexo-tag-dplayer <span class="comment">--save</span></span><br><span class="line">npm <span class="keyword">install</span> hexo-baidu-<span class="keyword">url</span>-submit <span class="comment">--save</span></span><br><span class="line">npm <span class="keyword">install</span> hexo-abbrlink <span class="comment">--save</span></span><br><span class="line">npm <span class="keyword">install</span> hexo-blog-<span class="keyword">encrypt</span> <span class="comment">--save</span></span><br><span class="line"></span><br><span class="line">npm <span class="keyword">uninstall</span> hexo-generator-<span class="keyword">index</span> <span class="comment">--save</span></span><br><span class="line">npm <span class="keyword">install</span> hexo-generator-<span class="keyword">index</span>-pin-top <span class="comment">--save</span></span><br><span class="line"></span><br><span class="line">npm <span class="keyword">install</span> hexo-asset-image <span class="comment">--save  (推荐这个) </span></span><br><span class="line"></span><br><span class="line">npm <span class="keyword">install</span> hexo-deployer-git <span class="comment">--save</span></span><br></pre></td></tr></table></figure>
+<div style="height: 10px;"></div>
+
+<li> 安装相应插件：</li>
+
+<p>&emsp;&emsp; 本人<code>package.json</code>，<a href="#pkJson">参考</a></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">npm <span class="keyword">install</span> hexo-deployer-git <span class="comment">--save</span></span><br><span class="line">npm <span class="keyword">install</span> hexo-generator-searchdb <span class="comment">--save</span></span><br><span class="line">npm <span class="keyword">install</span> valine <span class="comment">--save</span></span><br><span class="line">npm <span class="keyword">install</span> hexo-symbols-<span class="keyword">count</span>-<span class="built_in">time</span> <span class="comment">--save</span></span><br><span class="line">npm <span class="keyword">install</span> hexo-tag-aplayer <span class="comment">--save</span></span><br><span class="line">npm <span class="keyword">install</span> hexo-tag-dplayer <span class="comment">--save</span></span><br><span class="line">npm <span class="keyword">install</span> hexo-baidu-<span class="keyword">url</span>-submit <span class="comment">--save</span></span><br><span class="line">npm <span class="keyword">install</span> hexo-abbrlink <span class="comment">--save</span></span><br><span class="line">npm <span class="keyword">install</span> hexo-blog-<span class="keyword">encrypt</span> <span class="comment">--save</span></span><br><span class="line"></span><br><span class="line">npm <span class="keyword">uninstall</span> hexo-generator-<span class="keyword">index</span> <span class="comment">--save</span></span><br><span class="line">npm <span class="keyword">install</span> hexo-generator-<span class="keyword">index</span>-pin-top <span class="comment">--save</span></span><br><span class="line"></span><br><span class="line">npm <span class="keyword">install</span> hexo-asset-image <span class="comment">--save  (推荐这个) </span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <div style="height: 10px;"></div>
 
 <p><strong><code>注：</code></strong> ，使用<code>hexo-asset-image</code>，参考：<a href="/post/172c7c2b.html" title="hexo之图片问题">hexo之图片问题</a></p>
-<p><strong><code>一些东西摘自网上，未亲自验证。</code></strong></p>
+<div class="note warning no-icon"><p><strong>在 npm 5 之前的版本</strong></p>
+<p>&emsp;&emsp; 使用 <code>npm install</code> 默认选项安装包时，仅仅会把包下载到 <code>node_modules/</code> 中，并<code>不会</code>同时修改 <code>package.json</code>。而使用 <code>--save</code> 选项就可以在安装包的同时，<code>修改</code> <code>package.json</code> 文件。</p>
+<p><strong>在 npm 5 之后的版本</strong></p>
+<p>&emsp;&emsp; <code>npm install</code> 安装包时，默认便<code>会修改</code> <code>package.json</code> 文件，所以 <code>--save</code> 选项已经<code>不再需要</code>了。</p>
+</div>
+
+<p><strong><em><font color="orangered" size="4">注：一些东西摘自网上，未亲自验证。</font></em></strong></p>
+<li> package.json：</li>
+
+<div id="pkJson"></div>
+
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">&quot;name&quot;</span>: <span class="string">&quot;hexo-site&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;version&quot;</span>: <span class="string">&quot;0.0.0&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;private&quot;</span>: <span class="literal">true</span>,</span><br><span class="line">  <span class="attr">&quot;scripts&quot;</span>: &#123;</span><br><span class="line">    <span class="attr">&quot;build&quot;</span>: <span class="string">&quot;hexo generate&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;clean&quot;</span>: <span class="string">&quot;hexo clean&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;deploy&quot;</span>: <span class="string">&quot;hexo deploy&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;server&quot;</span>: <span class="string">&quot;hexo server&quot;</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">&quot;hexo&quot;</span>: &#123;</span><br><span class="line">    <span class="attr">&quot;version&quot;</span>: <span class="string">&quot;5.1.1&quot;</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">&quot;dependencies&quot;</span>: &#123;</span><br><span class="line">    <span class="attr">&quot;hexo&quot;</span>: <span class="string">&quot;^5.0.0&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;hexo-abbrlink&quot;</span>: <span class="string">&quot;^2.2.1&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;hexo-asset-image&quot;</span>: <span class="string">&quot;^1.0.0&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;hexo-baidu-url-submit&quot;</span>: <span class="string">&quot;0.0.6&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;hexo-blog-encrypt&quot;</span>: <span class="string">&quot;^3.0.13&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;hexo-deployer-git&quot;</span>: <span class="string">&quot;^2.1.0&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;hexo-generator-archive&quot;</span>: <span class="string">&quot;^1.0.0&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;hexo-generator-category&quot;</span>: <span class="string">&quot;^1.0.0&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;hexo-generator-index-pin-top&quot;</span>: <span class="string">&quot;^0.2.2&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;hexo-generator-searchdb&quot;</span>: <span class="string">&quot;^1.3.2&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;hexo-generator-tag&quot;</span>: <span class="string">&quot;^1.0.0&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;hexo-renderer-ejs&quot;</span>: <span class="string">&quot;^1.0.0&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;hexo-renderer-marked&quot;</span>: <span class="string">&quot;^3.0.0&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;hexo-renderer-stylus&quot;</span>: <span class="string">&quot;^2.0.0&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;hexo-server&quot;</span>: <span class="string">&quot;^2.0.0&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;hexo-symbols-count-time&quot;</span>: <span class="string">&quot;^0.7.1&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;hexo-tag-aplayer&quot;</span>: <span class="string">&quot;^3.0.4&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;hexo-tag-dplayer&quot;</span>: <span class="string">&quot;^0.3.3&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;hexo-tag-friends&quot;</span>: <span class="string">&quot;^0.3.3&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;hexo-theme-next&quot;</span>: <span class="string">&quot;^8.0.0-rc.5&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;shelljs&quot;</span>: <span class="string">&quot;^0.8.4&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;valine&quot;</span>: <span class="string">&quot;^1.4.14&quot;</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 </ol>
 
 <hr>
@@ -745,13 +761,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">84k</span>
+    <span title="站点总字数">86k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">1:17</span>
+    <span title="站点阅读时长">1:18</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
