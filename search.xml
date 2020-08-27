@@ -6,15 +6,19 @@
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>  &emsp;&emsp;Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。hexo 博客在 Linux 系统中搭建是非常简单的，在 WIN 系统中比较复杂，我们接触的手机📱永远要比电脑的时间要多那么我们可以在安卓手机上使用 termux 来搭建，这样随时随地都可以写做和发表文章。</p>
   <a id="more"></a> 
 
-<h2 id="前期工作"><a href="#前期工作" class="headerlink" title="前期工作"></a>前期工作</h2><pre><code>注册 github 账号
-添加 username.github.io 仓库
-本地搭建 git 环境
-配置 ssh
-本地连接 github
+<h2 id="前期工作"><a href="#前期工作" class="headerlink" title="前期工作"></a>前期工作</h2><div class="note success no-icon"><ol>
+<li> 注册 <font color="LightCoral" size="4">github</font> 账号 </li>
+<li> 添加 <font color="LightCoral" size="4">username.github.io</font> 仓库 </li>
+<li> 搭建 <font color="LightCoral" size="4">git</font> 环境 </li>
+<li> 配置 <font color="LightCoral" size="4">ssh</font> </li>
+<li> 连接 <font color="LightCoral" size="4">github</font> </li>
+<li> 安装 <font color="LightCoral" size="4">Node.js</font> </li>
+<li> 搭建 <font color="LightCoral" size="4">Hexo</font> 环境 </li>
+</ol>
+</div>
 
 
-安装 Node.js
-安装 git</code></pre>
+
 <h2 id="开始安装"><a href="#开始安装" class="headerlink" title="开始安装"></a>开始安装</h2><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><ol>
 <li> <mark class="label danger">Node</mark> 环境安装：</li>
 
@@ -23,33 +27,35 @@
 <figure class="highlight avrasm"><table><tr><td class="code"><pre><span class="line">$ npm install -g hexo-<span class="keyword">cli</span></span><br></pre></td></tr></table></figure>
 </ol>
 
-<h3 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h3><p>&emsp;&emsp; 安装完成之后，新建一个文件夹(例如: blog)，执行以下命令进行初始化</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo init &lt;folder&gt;</span><br><span class="line">或</span><br><span class="line">$ <span class="built_in">cd</span> &lt;folder&gt;</span><br><span class="line">$ hexo init</span><br></pre></td></tr></table></figure>
-
-<h3 id="进入文件夹"><a href="#进入文件夹" class="headerlink" title="进入文件夹"></a>进入文件夹</h3><p>&emsp;&emsp; 进入 blog 文件夹</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> blog</span><br></pre></td></tr></table></figure>
+<h3 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h3><p>&emsp;&emsp; 安装完成之后，新建一个文件夹(例如: <code>blog</code>)，执行以下命令进行初始化：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> blog</span><br><span class="line">$ hexo init</span><br></pre></td></tr></table></figure>
 
 <h3 id="安装核心组件"><a href="#安装核心组件" class="headerlink" title="安装核心组件"></a>安装核心组件</h3><p>&emsp;&emsp; 安装 npm 核心组件支持</p>
-<figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line">npm <span class="keyword">install</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">cd</span> <span class="string">blog</span></span><br><span class="line"><span class="attr">npm</span> <span class="string">install</span></span><br></pre></td></tr></table></figure>
 
-<p>&emsp;&emsp; 新建完成后，文件夹目录<br> <div class="note primary no-icon"><p>_config.yml 文件是网站的配置文件，可以在其中配置网站的大部分参数。<br>package.json 文件是应用程序的信息。<br>source 是资源文件夹，是用来存放 xxxu 用户资源的地方。<br>themes 是主题文件夹，Hexo 会根据主题来生成不同的静态页面。<br>scaffolds 是模板件夹，当新建文章的时候，Hexo 会根据模板来建立文件。</p>
+<p>&emsp;&emsp; 新建完成后，<code>cd blog</code>，查看文件夹目录<br> <div class="note primary no-icon"><p>_config.yml 文件是网站的配置文件，可以在其中配置网站的大部分参数。<br>package.json 文件是应用程序的信息。<br>source 是资源文件夹，是用来存放 xxxu 用户资源的地方。<br>themes 是主题文件夹，Hexo 会根据主题来生成不同的静态页面。<br>scaffolds 是模板件夹，当新建文章的时候，Hexo 会根据模板来建立文件。</p>
 </div></p>
 <h3 id="安装-NexT-主题"><a href="#安装-NexT-主题" class="headerlink" title="安装 NexT 主题"></a>安装 NexT 主题</h3><ol>
 
 <li>下载主题：</li>
 
 <p>&emsp;&emsp; <a href="https://hexo.io/">Hexo</a> 的主题非常丰富可以去<a href="https://hexo.io/themes/">官方主题</a>下载；下面有演示我使用的主题 <a href="https://github.com/theme-next/hexo-theme-next">next</a></p>
-<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">git clone https:<span class="regexp">//gi</span>thub.com<span class="regexp">/theme-next/</span>hexo-theme-<span class="keyword">next</span> themes/<span class="keyword">next</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">cd blog</span><br><span class="line">git clone https:<span class="regexp">//gi</span>thub.com<span class="regexp">/theme-next/</span>hexo-theme-<span class="keyword">next</span> themes/<span class="keyword">next</span></span><br></pre></td></tr></table></figure>
 
-<li>配置文件：</li>
+<li>修改主配置文件：</li>
 
 
 <p>&emsp;&emsp; 在<code>站点</code>配置文件<code>_config.yml</code> 开启 next 主题，修改<code>theme</code>属性，注意 <code>theme: </code>后要加<code>空格</code>，具体的站点和主题信息配置请自行去 <a href="https://hexo.io/zh-cn/">hexo</a> 和 <a href="http://theme-next.iissnan.com/">next 主题</a>文档查看</p>
-<figure class="highlight autoit"><table><tr><td class="code"><pre><span class="line">theme: <span class="keyword">next</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight mipsasm"><table><tr><td class="code"><pre><span class="line">cd <span class="keyword">blog</span></span><br><span class="line"><span class="keyword">vi </span>_<span class="built_in">config</span>.yml</span><br><span class="line"></span><br><span class="line"><span class="symbol">theme:</span> next <span class="comment"># 找到 theme</span></span><br></pre></td></tr></table></figure>
+
+<li>修改主题配置文件：</li>
+
+<p>&emsp;&emsp; 在<code>blog</code>文件夹下，新建<code>_config.next.yml</code>，存放主题修改内容。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> blog</span><br><span class="line">touch _config.next.yml  <span class="comment"># themes/next/_config.yml 中需要修改的，放在这里。</span></span><br></pre></td></tr></table></figure>
 
 </ol>
 
-<h3 id="本地调试"><a href="#本地调试" class="headerlink" title="本地调试"></a>本地调试</h3><figure class="highlight elixir"><table><tr><td class="code"><pre><span class="line"><span class="variable">$ </span>hexo g <span class="comment">#生成静态页面，生成的内容在public文件夹下</span></span><br><span class="line"><span class="variable">$ </span>hexo s <span class="comment">#启动本地服务，进行文章预览调试。hexo s --debug 命令可以用来调试</span></span><br></pre></td></tr></table></figure>
+<h3 id="本地调试"><a href="#本地调试" class="headerlink" title="本地调试"></a>本地调试</h3><figure class="highlight elixir"><table><tr><td class="code"><pre><span class="line"><span class="variable">$ </span>hexo g <span class="comment"># 生成静态页面，生成的内容在public文件夹下</span></span><br><span class="line"><span class="variable">$ </span>hexo s <span class="comment"># 启动本地服务，进行文章预览调试。hexo s --debug 命令可以用来调试</span></span><br></pre></td></tr></table></figure>
 
 
 <h3 id="配置-git"><a href="#配置-git" class="headerlink" title="配置 git"></a>配置 git</h3><p>&emsp;&emsp; 配置 ssh 密钥及 github 或者 gitee 部署</p>
@@ -59,19 +65,19 @@
 <h3 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h3><ol>
 <li>安装 <font color="LightCoral" size="3">hexo-deployer-git</font> 插件</li>
 
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">$ npm <span class="keyword">install</span> hexo-deployer-git <span class="comment">--save</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="variable">$</span> <span class="built_in">cd</span> blog</span><br><span class="line"><span class="variable">$</span> npm install hexo<span class="literal">-deployer</span><span class="literal">-git</span> -<span class="literal">-save</span></span><br></pre></td></tr></table></figure>
 
 <div style="height: 10px;"></div>
 
 <li>打开 Hexo 主文件夹下的<font color="LightCoral" size="3">_config.yml</font>，设置其中的 <font color="hotpink" size="3">deploy</font> 参数</li>
 
-<figure class="highlight less"><table><tr><td class="code"><pre><span class="line"><span class="attribute">deploy</span>:</span><br><span class="line">    <span class="attribute">type</span>: git </span><br><span class="line">    <span class="attribute">repo</span>: git<span class="variable">@github</span>.<span class="attribute">com</span>:stiverick610/stiverick610.github.io.git</span><br><span class="line">    <span class="attribute">branch</span>: master</span><br></pre></td></tr></table></figure>
+<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">cd</span> <span class="string">blog</span></span><br><span class="line"><span class="attr">vi</span> <span class="string">_config.yml</span></span><br><span class="line"></span><br><span class="line"><span class="attr">deploy</span>:<span class="string"></span></span><br><span class="line">    <span class="attr">type</span>: <span class="string">git </span></span><br><span class="line">    <span class="attr">repo</span>: <span class="string">git@github.com:leeze2012/leeze2012.github.io.git</span></span><br><span class="line">    <span class="attr">branch</span>: <span class="string">master</span></span><br></pre></td></tr></table></figure>
 
 <div style="height: 10px;"></div>
 
-<li>安装完成插件之后，使用以下命令部署</li>
+<li>安装完成插件之后，<font color="LightCoral" size="3">blog</font> 目录下使用以下命令部署</li>
 
-<figure class="highlight elixir"><table><tr><td class="code"><pre><span class="line"><span class="variable">$ </span>hexo d -g <span class="comment">#在部署前先生成</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight elixir"><table><tr><td class="code"><pre><span class="line"><span class="variable">$ </span>hexo d -g <span class="comment"># 在部署前先生成</span></span><br></pre></td></tr></table></figure>
 
 </ol>
 
@@ -90,7 +96,7 @@
 
 <li>创建版本库。</li>
 
-<figure class="highlight ebnf"><table><tr><td class="code"><pre><span class="line"><span class="attribute">git init</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">cd</span> <span class="string">blog</span></span><br><span class="line"><span class="attr">git</span> <span class="string">init</span></span><br></pre></td></tr></table></figure>
 
 <div style="height: 10px;"></div>
 
@@ -101,7 +107,7 @@
 
 <li> 连接上面 github 创建的仓库</li>
 
-<figure class="highlight armasm"><table><tr><td class="code"><pre><span class="line"><span class="symbol">git</span> remote <span class="keyword">add</span> origin git<span class="comment">@github.com:you name/blog.git</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight dockerfile"><table><tr><td class="code"><pre><span class="line">git remote <span class="keyword">add</span><span class="bash"> origin github.com:leeze2012/blog.git</span></span><br></pre></td></tr></table></figure>
 
 <div style="height: 10px;"></div>
 
@@ -140,7 +146,7 @@
 
 <p>&emsp;&emsp;要实现这个自动备份功能，需要依赖NodeJs的一个<code>shelljs</code>模块,该模块重新包装了<code>child_process</code>,调用系统命令更加的方便。（其实就是因为博主懒( ╯▽╰)）该模块需要安装后使用。</p>
 <p>在命令中键入以下命令，完成<code>shelljs</code>模块的安装：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install --save shelljs</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install shelljs --save</span><br></pre></td></tr></table></figure>
 
 <div style="height: 10px;"></div>
 编写自动备份脚本
@@ -297,7 +303,7 @@
 <p>&emsp;&emsp; 根据Server ID 生成license Key：</p>
 <figure class="highlight awk"><table><tr><td class="code"><pre><span class="line"><span class="regexp">/opt/</span>atlassian<span class="regexp">/jira/</span>jre<span class="regexp">/bin/</span>java -jar <span class="regexp">/home/</span>jira1<span class="regexp">/atlassian-agent.jar -p jira -m jira@jira.com -n jira -o https:/</span><span class="regexp">/jira.com -s BFZ0-PD41-I9AX-YXDP</span></span><br></pre></td></tr></table></figure>
 <br>
-<div class="note default no-icon"><p>-p jira(安装的是jira产品)，具体的可以根据-p进行参考<br>-m <a href="mailto:&#x6a;&#105;&#x72;&#97;&#x40;&#x6a;&#105;&#114;&#97;&#46;&#x63;&#x6f;&#x6d;">&#x6a;&#105;&#x72;&#97;&#x40;&#x6a;&#105;&#114;&#97;&#46;&#x63;&#x6f;&#x6d;</a>(随意写)<br>-n jira(随意写)<br>-o <a href="https://jira.com/">https://jira.com</a> (随意写)<br>-s BFZ0-PD41-I9AX-YXDP (即jira显示的服务器ID)</p>
+<div class="note default no-icon"><p>-p jira(安装的是jira产品)，具体的可以根据-p进行参考<br>-m <a href="mailto:&#106;&#x69;&#114;&#97;&#x40;&#106;&#105;&#x72;&#97;&#46;&#99;&#111;&#109;">&#106;&#x69;&#114;&#97;&#x40;&#106;&#105;&#x72;&#97;&#46;&#99;&#111;&#109;</a>(随意写)<br>-n jira(随意写)<br>-o <a href="https://jira.com/">https://jira.com</a> (随意写)<br>-s BFZ0-PD41-I9AX-YXDP (即jira显示的服务器ID)</p>
 </div>
 <br>
 
