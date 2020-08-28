@@ -3103,6 +3103,7 @@ pre {
 .site-author-image {
   border: initial !important;
   border-radius: initial !important;
+  padding-bottom: 12px;
 }
 /*************************侧栏样式****************************/
 .links-of-blogroll-title {
