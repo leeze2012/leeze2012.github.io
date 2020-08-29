@@ -224,6 +224,107 @@
       </tags>
   </entry>
   <entry>
+    <title>ssh-key生成密钥及SSH无密码登录</title>
+    <url>/post/16d9a840.html</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><h3 id="首先什么是SSH"><a href="#首先什么是SSH" class="headerlink" title="首先什么是SSH"></a>首先什么是SSH</h3>  <div class="note success no-icon"><p>&emsp;&emsp;Secure Shell (SSH) 是一个允许两台电脑之间通过安全的连接进行数据交换的网络协议。通过加密保证了数据的保密性和完整性。SSH采用公钥加密技术来验证远程主机，以及(必要时)允许远程主机验证用户。</p>
+</div>
+
+  <a id="more"></a>
+
+<h3 id="SSH的好处"><a href="#SSH的好处" class="headerlink" title="SSH的好处"></a>SSH的好处</h3>  <div class="note success no-icon"><ul>
+<li>传统的FTP、Telnet是再网络中明文传送数据、用户帐号和密码，很容易受到中间人攻击。而通过使用SSH，你可以把所有传输的数据进行加密，这样“中间人”这种攻击方式就不可能实现了， 而且也能够防止DNS和IP欺骗。</li>
+<li>传输的数据是经过压缩的，所以可以加快传输的速度。 </li>
+</ul>
+</div>
+<h3 id="怎么实现SSH的好处呢？【怎么才能做到加密】"><a href="#怎么实现SSH的好处呢？【怎么才能做到加密】" class="headerlink" title="怎么实现SSH的好处呢？【怎么才能做到加密】"></a>怎么实现SSH的好处呢？【怎么才能做到加密】</h3>  <div class="note success no-icon"><p>&emsp;&emsp;SSH利用SSH Key来进行前面提到的基于密钥的安全验证。</p>
+</div>
+<h3 id="SSH-Key是什么？"><a href="#SSH-Key是什么？" class="headerlink" title="SSH-Key是什么？"></a>SSH-Key是什么？</h3>  <div class="note success no-icon"><ul>
+<li><p>SSH-Key 就是一对密钥对。【一个是公钥，一个是私钥】</p>
+</li>
+<li><p>公钥是给别人用的。私钥是给自己用的。</p>
+</li>
+<li><p>别人是谁？可以是GitLab服务器。<br> 自己是谁？可以是本地。</p>
+</li>
+<li><p>举个例子</p>
+<ul>
+<li>本地想要使用git从gitHub/gitlab上拉取代码。</li>
+<li>给GitHub/GitLab配置公钥，公钥就可以作为一个加密的箱子，将代码放在箱子里。</li>
+<li>被本地拉取到后，使用私钥将加密的箱子打开。就能拿到代码了。</li>
+<li>整个过程中，都没有用户名/密码在网络中传输，所以不会给他人拦截到，破解你的数据</li>
+</ul>
+</li>
+<li><p>所以，SSH-Key的直观作用，就是【让你方便的登录到 SSH 服务器，而无需输入密码】</p>
+</li>
+</ul>
+</div>
+<h3 id="SSH-Key的密钥类型"><a href="#SSH-Key的密钥类型" class="headerlink" title="SSH-Key的密钥类型"></a>SSH-Key的密钥类型</h3>  <div class="note success no-icon"><p>&emsp;&emsp;有RSA和DSA两种认证密钥。</p>
+</div>
+
+<h2 id="SSH-Key生成"><a href="#SSH-Key生成" class="headerlink" title="SSH-Key生成"></a>SSH-Key生成</h2><h3 id="是否已存在SSH-Key"><a href="#是否已存在SSH-Key" class="headerlink" title="是否已存在SSH-Key"></a>是否已存在SSH-Key</h3>  <figure class="highlight jboss-cli"><table><tr><td class="code"><pre><span class="line"><span class="keyword">ls</span> -al ~<span class="string">/.ssh</span> <span class="comment"># 用户目录.ssh文件,是否有id_rsa/id_rsa.pub</span></span><br></pre></td></tr></table></figure>
+
+  <div style="height: 10px;"></div>
+
+<p>  &emsp;&emsp; id_rsa （私钥，要保存好，放在本地，私钥可以生产公钥，反之不行。）<br>  &emsp;&emsp; id_rsa.pub (公钥，可以用于发送到其他服务器，或者git上。)</p>
+<h3 id="新生成SSH-key"><a href="#新生成SSH-key" class="headerlink" title="新生成SSH-key"></a>新生成SSH-key</h3>  <figure class="highlight diff"><table><tr><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;leeze0216@163.com&quot;</span><br><span class="line"></span><br><span class="line"><span class="deletion">-b：指定密钥长度；</span></span><br><span class="line"><span class="deletion">-e：读取openssh的私钥或者公钥文件；</span></span><br><span class="line"><span class="deletion">-C：添加注释；</span></span><br><span class="line"><span class="deletion">-f：指定用来保存密钥的文件名；</span></span><br><span class="line"><span class="deletion">-i：读取未加密的ssh-v2兼容的私钥/公钥文件，然后在标准输出设备上显示openssh兼容的私钥/公钥；</span></span><br><span class="line"><span class="deletion">-l：显示公钥文件的指纹数据；</span></span><br><span class="line"><span class="deletion">-N：提供一个新密语；</span></span><br><span class="line"><span class="deletion">-P：提供（旧）密语；</span></span><br><span class="line"><span class="deletion">-q：静默模式；</span></span><br><span class="line"><span class="deletion">-t：指定要创建的密钥类型（如：rsa,dsa)。</span></span><br></pre></td></tr></table></figure>
+<p>  &emsp;&emsp; 键入命令后，会让你输入密码用来保护你的密钥等，总共三次需要输入的，你都直接三次回车就好！！<br>  &emsp;&emsp;【关键是，设置了你自己以后忘了就得重新生成】<br>  &emsp;&emsp;【-C 是给你的密钥设置注释，你不想设置为邮箱，设置成别的也行】</p>
+<p>  &emsp;&emsp; 生成后，当前用户的目录下，生成一个<code>.ssh</code>隐藏目录，目录中会有【<code>id_rsa</code>】和【<code>id_rsa.pub</code>】两个文件，一个是<code>私钥</code>，一个是<code>公钥</code>。你现在就可以复制使用了。</p>
+<h3 id="上传公钥到服务器"><a href="#上传公钥到服务器" class="headerlink" title="上传公钥到服务器"></a>上传公钥到服务器</h3>  <div class="note no-icon"><p>id_rsa.pub （公钥）内容，写到服务器上的用户目录下<code>.ssh</code>目录下去了</p>
+</div>
+
+
+  <figure class="highlight jboss-cli"><table><tr><td class="code"><pre><span class="line"><span class="keyword">cd</span> ~<span class="string">/.ssh</span></span><br><span class="line">vim authorized_keys</span><br></pre></td></tr></table></figure>
+
+  <ol>
+  <li>上传方式</li>
+
+<p>  方式一：<br>  &emsp;&emsp; 这里测试用的服务器地址为：10.211.55.61<br>  &emsp;&emsp; 用户为：root<br>  <figure class="highlight angelscript"><table><tr><td class="code"><pre><span class="line">ssh-copy-id -i ~/.ssh/id_rsa.pub <span class="symbol">root@</span><span class="number">10.211</span><span class="number">.55</span><span class="number">.61</span></span><br></pre></td></tr></table></figure></p>
+<p>  方式二：<br>  &emsp;&emsp; 将之前在本地生成的公钥<code>id_rsa.pub</code>,发送到需要无密码登录的服务器，然后将id_rsa.pub的内容追加到服务器的<code>~/.ssh/authorized_keys</code>文件中即可。</p>
+  <figure class="highlight arcade"><table><tr><td class="code"><pre><span class="line">$ cat ~<span class="regexp">/.ssh/i</span>d_rsa.pub &gt;&gt; ~<span class="regexp">/.ssh/</span>authorized_keys</span><br></pre></td></tr></table></figure>
+
+  <li>重启SSH服务 </li>
+
+  <figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line">$<span class="built_in"> service </span>sshd restart</span><br></pre></td></tr></table></figure>
+
+  <li> 测试免密登录服务器</li>
+
+  <figure class="highlight angelscript"><table><tr><td class="code"><pre><span class="line">ssh <span class="symbol">root@</span><span class="number">10.211</span><span class="number">.55</span><span class="number">.61</span></span><br></pre></td></tr></table></figure>
+
+  <li> 设置ssh无密码访问git仓库</li>
+
+  <div class="note no-icon"><p>将本地<code>id_rsa.pub</code>的内容添加到git仓库的 <code>SSH公钥 </code>中。</p>
+</div>
+
+<p>  测试ssh无密码访问git仓库</p>
+  <figure class="highlight nginx"><table><tr><td class="code"><pre><span class="line"><span class="attribute">ssh</span> -T git<span class="variable">@gitee</span>.com</span><br></pre></td></tr></table></figure>
+  </ol>
+
+<h2 id="Git配置多个SSH-Key"><a href="#Git配置多个SSH-Key" class="headerlink" title="Git配置多个SSH-Key"></a>Git配置多个SSH-Key</h2><ol>
+
+<li> 生成 gitee SSH-Key </li>
+
+<figure class="highlight arcade"><table><tr><td class="code"><pre><span class="line">$ ssh-keygen -t rsa -C <span class="string">&#x27;git@gitee.com&#x27;</span> -f ~<span class="regexp">/.ssh/gi</span>tee_id_rsa</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<li> 生成 github SSH-Key </li>
+
+<figure class="highlight arcade"><table><tr><td class="code"><pre><span class="line">$ ssh-keygen -t rsa -C <span class="string">&#x27;git@github.com&#x27;</span> -f ~<span class="regexp">/.ssh/gi</span>thub_id_rsa</span><br></pre></td></tr></table></figure>
+
+<li> 添加配置文件，在 ~/.ssh 目录下新建一个 config 文件 </li>
+
+<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="comment"># gitee</span></span><br><span class="line"><span class="attr">Host</span> <span class="string">gitee.com</span></span><br><span class="line"><span class="attr">HostName</span> <span class="string">gitee.com</span></span><br><span class="line"><span class="attr">PreferredAuthentications</span> <span class="string">publickey</span></span><br><span class="line"><span class="attr">IdentityFile</span> <span class="string">~/.ssh/gitee_id_rsa</span></span><br><span class="line"><span class="comment"># github</span></span><br><span class="line"><span class="attr">Host</span> <span class="string">github.com</span></span><br><span class="line"><span class="attr">HostName</span> <span class="string">github.com</span></span><br><span class="line"><span class="attr">PreferredAuthentications</span> <span class="string">publickey</span></span><br><span class="line"><span class="attr">IdentityFile</span> <span class="string">~/.ssh/github_id_rsa</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight vala"><table><tr><td class="code"><pre><span class="line"><span class="meta"># 配置文件参数</span></span><br><span class="line"><span class="meta"># Host : Host可以看作是一个你要识别的模式，对识别的模式，进行配置对应的的主机名和ssh文件（可以直接填写ip地址）</span></span><br><span class="line"><span class="meta"># HostName : 要登录主机的主机名（建议与Host一致）</span></span><br><span class="line"><span class="meta"># User : 登录名（如gitlab的username）</span></span><br><span class="line"><span class="meta"># IdentityFile : 指明上面User对应的identityFile路径</span></span><br><span class="line"><span class="meta"># Port: 端口号（如果不是默认22号端口则需要指定）</span></span><br></pre></td></tr></table></figure>
+
+<li> 测试 </li>
+
+<figure class="highlight elixir"><table><tr><td class="code"><pre><span class="line"><span class="variable">$ </span>ssh -T git<span class="variable">@gitee</span>.com</span><br><span class="line"><span class="variable">$ </span>ssh -T git<span class="variable">@github</span>.com</span><br></pre></td></tr></table></figure>
+</ol>]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>ssh</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Jira8.x版本安装与破解</title>
     <url>/post/afb30e04.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>&emsp;&emsp; JIRA 是 Atlassian 公司出品的项目与事务跟踪工具，被广泛应用于缺陷跟踪、客户服务、需求收集、流程审批、任务跟踪、项目跟踪和敏捷管理等工作领域。</p>
@@ -303,7 +404,7 @@
 <p>&emsp;&emsp; 根据Server ID 生成license Key：</p>
 <figure class="highlight awk"><table><tr><td class="code"><pre><span class="line"><span class="regexp">/opt/</span>atlassian<span class="regexp">/jira/</span>jre<span class="regexp">/bin/</span>java -jar <span class="regexp">/home/</span>jira1<span class="regexp">/atlassian-agent.jar -p jira -m jira@jira.com -n jira -o https:/</span><span class="regexp">/jira.com -s BFZ0-PD41-I9AX-YXDP</span></span><br></pre></td></tr></table></figure>
 <br>
-<div class="note default no-icon"><p>-p jira(安装的是jira产品)，具体的可以根据-p进行参考<br>-m <a href="mailto:&#106;&#105;&#114;&#97;&#x40;&#106;&#x69;&#114;&#97;&#x2e;&#99;&#111;&#x6d;">&#106;&#105;&#114;&#97;&#x40;&#106;&#x69;&#114;&#97;&#x2e;&#99;&#111;&#x6d;</a>(随意写)<br>-n jira(随意写)<br>-o <a href="https://jira.com/">https://jira.com</a> (随意写)<br>-s BFZ0-PD41-I9AX-YXDP (即jira显示的服务器ID)</p>
+<div class="note default no-icon"><p>-p jira(安装的是jira产品)，具体的可以根据-p进行参考<br>-m <a href="mailto:&#106;&#105;&#x72;&#97;&#x40;&#x6a;&#x69;&#114;&#97;&#x2e;&#99;&#x6f;&#109;">&#106;&#105;&#x72;&#97;&#x40;&#x6a;&#x69;&#114;&#97;&#x2e;&#99;&#x6f;&#109;</a>(随意写)<br>-n jira(随意写)<br>-o <a href="https://jira.com/">https://jira.com</a> (随意写)<br>-s BFZ0-PD41-I9AX-YXDP (即jira显示的服务器ID)</p>
 </div>
 <br>
 
