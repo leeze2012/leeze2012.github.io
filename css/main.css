@@ -3146,7 +3146,6 @@ pre {
   -o-transform: rotate(360deg);
   -ms-transform: rotate(360deg);
   transform: rotate(360deg);
-  left: -18px;
   background: #49b1f5;
   color: #fff;
   cursor: pointer;
@@ -3196,23 +3195,6 @@ pre {
   -o-transition: all 0.3s ease-out;
   -ms-transition: all 0.3s ease-out;
   transition: all 0.3s ease-out;
-}
-.post-body h1::before,
-.post-body h2::before,
-.post-body h3::before,
-.post-body h4::before,
-.post-body h5::before,
-.post-body h6::before {
-  position: absolute;
-  top: calc(50% - 0.35rem);
-  color: #49b1f5;
-  content: '\f0e7';
-  line-height: 1;
-  -webkit-transition: all 0.2s ease-out;
-  -moz-transition: all 0.2s ease-out;
-  -o-transition: all 0.2s ease-out;
-  -ms-transition: all 0.2s ease-out;
-  transition: all 0.2s ease-out;
 }
 .site-brand-container {
   background-image: linear-gradient(-225deg, #2cd8d5 0%, #c5c1ff 56%, #ffbac3 100%, #ddd6f3 0%);
