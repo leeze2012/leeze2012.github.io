@@ -3114,7 +3114,7 @@ pre {
   font-size: 14px;
   font-weight: bold;
 }
-/*******************ol li **********************/
+/*******************ol li *******start***************/
 .posts-expand .post-body ol {
   counter-reset: counter;
 }
@@ -3139,6 +3139,33 @@ pre {
   left: -27px;
   top: 5px;
 }
+.post-body ol li:hover::before,
+.post-body ul li:hover::before {
+  -webkit-transform: rotate(360deg);
+  -moz-transform: rotate(360deg);
+  -o-transform: rotate(360deg);
+  -ms-transform: rotate(360deg);
+  transform: rotate(360deg);
+  left: -18px;
+  background: #49b1f5;
+  color: #fff;
+  cursor: pointer;
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+  -ms-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+}
+.post-body ol li:hover {
+  padding-left: 10px;
+  cursor: pointer;
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+  -ms-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+}
+/*******************ol li *******end***************/
 .post-body p a {
   color: #0593d3;
   border-bottom: none;
@@ -3148,6 +3175,44 @@ pre {
   color: #fc6423;
   border-bottom: none;
   border-bottom: 1px solid #fc6423;
+}
+.post-body h1:hover,
+.post-body h2:hover,
+.post-body h3:hover,
+.post-body h4:hover,
+.post-body h5:hover,
+.post-body h6:hover {
+  padding-left: 10px;
+}
+.post-body h1,
+.post-body h2,
+.post-body h3,
+.post-body h4,
+.post-body h5,
+.post-body h6 {
+  cursor: pointer;
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+  -ms-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+}
+.post-body h1::before,
+.post-body h2::before,
+.post-body h3::before,
+.post-body h4::before,
+.post-body h5::before,
+.post-body h6::before {
+  position: absolute;
+  top: calc(50% - 0.35rem);
+  color: #49b1f5;
+  content: '\f0e7';
+  line-height: 1;
+  -webkit-transition: all 0.2s ease-out;
+  -moz-transition: all 0.2s ease-out;
+  -o-transition: all 0.2s ease-out;
+  -ms-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
 }
 .site-brand-container {
   background-image: linear-gradient(-225deg, #2cd8d5 0%, #c5c1ff 56%, #ffbac3 100%, #ddd6f3 0%);

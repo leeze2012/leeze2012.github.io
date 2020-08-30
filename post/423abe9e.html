@@ -32,7 +32,7 @@
 <meta property="og:description" content="命令初始配置123mkdir d:\git_testgit config --global user.name &quot;Your name&quot;git config --global user.email &quot;you@example.com&quot;">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2019-09-03T15:16:00.000Z">
-<meta property="article:modified_time" content="2020-08-01T19:16:29.515Z">
+<meta property="article:modified_time" content="2020-08-30T18:27:45.648Z">
 <meta property="article:tag" content="Git">
 <meta name="twitter:card" content="summary">
 
@@ -360,7 +360,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-08-02 03:16:29" itemprop="dateModified" datetime="2020-08-02T03:16:29+08:00">2020-08-02</time>
+                <time title="修改时间：2020-08-31 02:27:45" itemprop="dateModified" datetime="2020-08-31T02:27:45+08:00">2020-08-31</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -421,48 +421,42 @@
 
 <p>该命令执行后，会隐藏掉Github库中的被撤销掉的记录，但是指定到该被隐藏掉的记录来访问，依旧可以访问。</p>
 <h5 id="GitHub更新自己fork的代码"><a href="#GitHub更新自己fork的代码" class="headerlink" title="GitHub更新自己fork的代码"></a>GitHub更新自己fork的代码</h5><ol>
-<li>clone已经fork到自己账号的代码</li>
-</ol>
+<li> clone已经fork到自己账号的代码 </li>
+
 <figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git clone https:<span class="regexp">//gi</span>thub.com<span class="regexp">/shadow000902/</span>ApiTestEngine.git</span><br><span class="line">cd ApiTestEngine</span><br></pre></td></tr></table></figure>
 
-<ol start="2">
-<li>查看远程分支列表</li>
-</ol>
+<li> 查看远程分支列表 </li>
+
 <figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">╭─taoyi at TaoYi-Mac <span class="keyword">in</span> ~<span class="regexp">/git_projects/</span>GitHub/ApiTestEngine on master✔ using ‹› <span class="number">17</span>-<span class="number">08</span>-<span class="number">23</span> - <span class="number">15</span>:<span class="number">01</span>:<span class="number">23</span></span><br><span class="line">╰─○ git remote -v</span><br><span class="line">debugtalk	https:<span class="regexp">//gi</span>thub.com<span class="regexp">/debugtalk/</span>ApiTestEngine.git (fetch)</span><br><span class="line">debugtalk	https:<span class="regexp">//gi</span>thub.com<span class="regexp">/debugtalk/</span>ApiTestEngine.git (push)</span><br><span class="line">origin	https:<span class="regexp">//gi</span>thub.com<span class="regexp">/shadow000902/</span>ApiTestEngine.git (fetch)</span><br><span class="line">origin	https:<span class="regexp">//gi</span>thub.com<span class="regexp">/shadow000902/</span>ApiTestEngine.git (push)</span><br></pre></td></tr></table></figure>
 
-<ol start="3">
-<li>fetch原始源代码的新版本到本地</li>
-</ol>
+<li> fetch原始源代码的新版本到本地 </li>
+
 <figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">git fetch debugtalk</span></span><br></pre></td></tr></table></figure>
 
-<ol start="4">
-<li>合并两个版本的代码</li>
-</ol>
+<li> 合并两个版本的代码 </li>
+
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">merge</span> debugtalk/<span class="keyword">master</span></span><br></pre></td></tr></table></figure>
 
-<ol start="5">
-<li><p>如果合并代码后有冲突，解决冲突</p>
-</li>
-<li><p>把合并好的最新的代码提交到自己的GitHub账号上</p>
-</li>
-</ol>
+<li> 如果合并代码后有冲突，解决冲突 </li>
+
+<li> 把合并好的最新的代码提交到自己的GitHub账号上 </li>
+
 <figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">push</span> <span class="built_in">origin</span> master</span><br></pre></td></tr></table></figure>
+</ol>
 
 <h5 id="git撤销最后一次commit"><a href="#git撤销最后一次commit" class="headerlink" title="git撤销最后一次commit"></a>git撤销最后一次commit</h5><ol>
-<li>使用git log查看commit记录</li>
-</ol>
+<li> 使用git log查看commit记录 </li>
+
 <figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">commit</span>-id<span class="number">1</span></span><br><span class="line"><span class="attribute">commit</span>-id<span class="number">2</span></span><br><span class="line"><span class="attribute">commit</span>-id<span class="number">3</span></span><br></pre></td></tr></table></figure>
 <p>如果想要撤销commit-id1的话，就要选择commit-id2</p>
-<ol start="2">
-<li>使用命令撤销提交</li>
-</ol>
+<li> 使用命令撤销提交 </li>
+
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">reset</span> <span class="keyword">commit</span>-id2				<span class="comment"># 只是撤销提交，修改的内容不变</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight dsconfig"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">git </span><span class="string">reset </span><span class="built_in">--hard</span> <span class="string">commit-id2	</span>		<span class="comment"># 撤销提交，并撤销修改的内容</span></span><br><span class="line"><span class="string">git </span><span class="string">push </span><span class="string">origin </span><span class="string">HARD </span><span class="built_in">--force</span>		<span class="comment"># 撤销后，强制提交并push到远程分支</span></span><br></pre></td></tr></table></figure>
-<ol start="3">
-<li>修改最新一次已提交但未 push 的 message</li>
-</ol>
-<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">commit</span> <span class="comment">--amend -m &quot;your new message&quot;</span></span><br></pre></td></tr></table></figure>
+<li> 修改最新一次已提交但未 push 的 message </li>
 
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">commit</span> <span class="comment">--amend -m &quot;your new message&quot;</span></span><br></pre></td></tr></table></figure>
+</ol>
     </div>
 
     
