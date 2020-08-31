@@ -3196,6 +3196,27 @@ pre {
   -ms-transition: all 0.3s ease-out;
   transition: all 0.3s ease-out;
 }
+.post-body h1:before,
+.post-body h2:before,
+.post-body h3:before,
+.post-body h4:before,
+.post-body h5:before,
+.post-body h6:before {
+  content: "\f1d8";
+  font-family: 'Font Awesome 5 Free';
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  color: #fc7237;
+  margin-right: 6px;
+}
+.post-body h1:hover:before,
+.post-body h2:hover:before,
+.post-body h3:hover:before,
+.post-body h4:hover:before,
+.post-body h5:hover:before,
+.post-body h6:hover:before {
+  color: #00c4b6;
+}
 .site-brand-container {
   background-image: linear-gradient(-225deg, #2cd8d5 0%, #c5c1ff 56%, #ffbac3 100%, #ddd6f3 0%);
   background-size: 400% 400%;
