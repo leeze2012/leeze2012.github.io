@@ -396,7 +396,7 @@
 <p>&emsp;&emsp; 根据Server ID 生成license Key：</p>
 <figure class="highlight awk"><table><tr><td class="code"><pre><span class="line"><span class="regexp">/opt/</span>atlassian<span class="regexp">/jira/</span>jre<span class="regexp">/bin/</span>java -jar <span class="regexp">/home/</span>jira1<span class="regexp">/atlassian-agent.jar -p jira -m jira@jira.com -n jira -o https:/</span><span class="regexp">/jira.com -s BFZ0-PD41-I9AX-YXDP</span></span><br></pre></td></tr></table></figure>
 <br>
-<div class="note default no-icon"><p>-p jira(安装的是jira产品)，具体的可以根据-p进行参考<br>-m <a href="mailto:&#x6a;&#x69;&#x72;&#97;&#x40;&#106;&#x69;&#114;&#x61;&#x2e;&#99;&#x6f;&#x6d;">&#x6a;&#x69;&#x72;&#97;&#x40;&#106;&#x69;&#114;&#x61;&#x2e;&#99;&#x6f;&#x6d;</a>(随意写)<br>-n jira(随意写)<br>-o <a href="https://jira.com/">https://jira.com</a> (随意写)<br>-s BFZ0-PD41-I9AX-YXDP (即jira显示的服务器ID)</p>
+<div class="note default no-icon"><p>-p jira(安装的是jira产品)，具体的可以根据-p进行参考<br>-m <a href="mailto:&#106;&#x69;&#x72;&#x61;&#64;&#106;&#105;&#114;&#97;&#46;&#x63;&#111;&#109;">&#106;&#x69;&#x72;&#x61;&#64;&#106;&#105;&#114;&#97;&#46;&#x63;&#111;&#109;</a>(随意写)<br>-n jira(随意写)<br>-o <a href="https://jira.com/">https://jira.com</a> (随意写)<br>-s BFZ0-PD41-I9AX-YXDP (即jira显示的服务器ID)</p>
 </div>
 <br>
 
@@ -588,22 +588,31 @@
   <entry>
     <title>js实现高精度计算</title>
     <url>/post/26f63a55.html</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h4 id="js实现高精度计算，金钱价格计算，避免数字计算精度丢失问题"><a href="#js实现高精度计算，金钱价格计算，避免数字计算精度丢失问题" class="headerlink" title="js实现高精度计算，金钱价格计算，避免数字计算精度丢失问题"></a>js实现高精度计算，金钱价格计算，避免数字计算精度丢失问题</h4><p>下载地址：<a href="/download/js-big-decimal.min.js">js-big-decimal.min.js</a></p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h4 id="js实现高精度计算，金钱价格计算，避免数字计算精度丢失问题"><a href="#js实现高精度计算，金钱价格计算，避免数字计算精度丢失问题" class="headerlink" title="js实现高精度计算，金钱价格计算，避免数字计算精度丢失问题"></a>js实现高精度计算，金钱价格计算，避免数字计算精度丢失问题</h4><p>&emsp;&emsp; 下载地址：<a href="/download/js-big-decimal.min.js">js-big-decimal.min.js</a></p>
 <a id="more"></a>
 
-<p>使用方法：</p>
+<p>&emsp;&emsp; 使用方法：</p>
+<ol>
 <figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;../js/js-big-decimal.min.js&quot;</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</ol>
 
 <br>
 
-<p>1，加法：</p>
+<h5 id="加法："><a href="#加法：" class="headerlink" title="加法："></a>加法：</h5><ol>
 <figure class="highlight reasonml"><table><tr><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="constructor">BigDecimal(<span class="string">&quot;3.059&quot;</span>)</span>.add(<span class="keyword">new</span> <span class="constructor">BigDecimal(<span class="string">&quot;7.559595&quot;</span>)</span>).set<span class="constructor">Scale(2, MathContext.ROUND_HALF_UP)</span>.<span class="keyword">to</span><span class="constructor">String()</span>;</span><br></pre></td></tr></table></figure>
-<p>2，减法：</p>
+</ol>
+
+<h5 id="减法："><a href="#减法：" class="headerlink" title="减法："></a>减法：</h5><ol>
 <figure class="highlight haxe"><table><tr><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="type">BigDecimal</span>(<span class="string">&quot;2.123123213120&quot;</span>).subtract(<span class="keyword">new</span> <span class="type">BigDecimal</span>(<span class="string">&quot;2.55555555&quot;</span>))</span><br></pre></td></tr></table></figure>
-<p>3，乘法：</p>
+</ol>
+
+<h5 id="乘法："><a href="#乘法：" class="headerlink" title="乘法："></a>乘法：</h5><ol>
 <figure class="highlight haxe"><table><tr><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="type">BigDecimal</span>(<span class="string">&quot;2.21312312312&quot;</span>).multiply(<span class="keyword">new</span> <span class="type">BigDecimal</span>(<span class="string">&quot;123123&quot;</span>))</span><br></pre></td></tr></table></figure>
-<p>4，除法：</p>
-<figure class="highlight haxe"><table><tr><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="type">BigDecimal</span>(<span class="string">&quot;2.4123123&quot;</span>).divide(<span class="keyword">new</span> <span class="type">BigDecimal</span>(<span class="string">&quot;1231231232&quot;</span>), def)</span><br></pre></td></tr></table></figure>]]></content>
+</ol>
+
+<h5 id="除法："><a href="#除法：" class="headerlink" title="除法："></a>除法：</h5><ol>
+<figure class="highlight haxe"><table><tr><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="type">BigDecimal</span>(<span class="string">&quot;2.4123123&quot;</span>).divide(<span class="keyword">new</span> <span class="type">BigDecimal</span>(<span class="string">&quot;1231231232&quot;</span>), def)</span><br></pre></td></tr></table></figure>
+</ol>]]></content>
       <categories>
         <category>JavaScript</category>
       </categories>
