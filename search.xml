@@ -396,7 +396,7 @@
 <p>&emsp;&emsp; 根据Server ID 生成license Key：</p>
 <figure class="highlight awk"><table><tr><td class="code"><pre><span class="line"><span class="regexp">/opt/</span>atlassian<span class="regexp">/jira/</span>jre<span class="regexp">/bin/</span>java -jar <span class="regexp">/home/</span>jira1<span class="regexp">/atlassian-agent.jar -p jira -m jira@jira.com -n jira -o https:/</span><span class="regexp">/jira.com -s BFZ0-PD41-I9AX-YXDP</span></span><br></pre></td></tr></table></figure>
 <br>
-<div class="note default no-icon"><p>-p jira(安装的是jira产品)，具体的可以根据-p进行参考<br>-m <a href="mailto:&#106;&#x69;&#x72;&#x61;&#64;&#106;&#105;&#114;&#97;&#46;&#x63;&#111;&#109;">&#106;&#x69;&#x72;&#x61;&#64;&#106;&#105;&#114;&#97;&#46;&#x63;&#111;&#109;</a>(随意写)<br>-n jira(随意写)<br>-o <a href="https://jira.com/">https://jira.com</a> (随意写)<br>-s BFZ0-PD41-I9AX-YXDP (即jira显示的服务器ID)</p>
+<div class="note default no-icon"><p>-p jira(安装的是jira产品)，具体的可以根据-p进行参考<br>-m <a href="mailto:&#106;&#105;&#x72;&#97;&#x40;&#106;&#105;&#114;&#x61;&#46;&#99;&#111;&#109;">&#106;&#105;&#x72;&#97;&#x40;&#106;&#105;&#114;&#x61;&#46;&#99;&#111;&#109;</a>(随意写)<br>-n jira(随意写)<br>-o <a href="https://jira.com/">https://jira.com</a> (随意写)<br>-s BFZ0-PD41-I9AX-YXDP (即jira显示的服务器ID)</p>
 </div>
 <br>
 
@@ -623,26 +623,36 @@
   <entry>
     <title>linux下mongo启动关闭重启方法</title>
     <url>/post/91eed2.html</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h4 id="1-启动"><a href="#1-启动" class="headerlink" title="1.  启动"></a>1.  启动</h4><p>&emsp;&emsp;启动<code>mongodb</code>首先要指定mongo的<code>数据</code>目录和<code>日志</code>文件路径，如:  <code>/data/mongodb/</code>,<code>/var/log/mongodb/mongodb.log</code><br>&emsp;&emsp;启动命令： </p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h4 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h4><p>&emsp;&emsp;启动<code>mongodb</code>首先要指定mongo的<code>数据</code>目录和<code>日志</code>文件路径，如:  <code>/data/mongodb/</code>,<code>/var/log/mongodb/mongodb.log</code><br>&emsp;&emsp;启动命令： </p>
 <figure class="highlight awk"><table><tr><td class="code"><pre><span class="line"><span class="regexp">/usr/</span>local<span class="regexp">/mongdb/</span>bin<span class="regexp">/mongod -port 27017 --dbpath /</span>data<span class="regexp">/mongodb/</span> --logpath <span class="regexp">/var/m</span>ongodb/mongodb.log</span><br></pre></td></tr></table></figure>
 
 <a id="more"></a>
 
-<h4 id="2-通过配置文件配置："><a href="#2-通过配置文件配置：" class="headerlink" title="2.  通过配置文件配置："></a>2.  通过配置文件配置：</h4><p>&emsp;&emsp;<code>vim mongodb.conf </code>   </p>
+<h4 id="通过配置文件配置："><a href="#通过配置文件配置：" class="headerlink" title="通过配置文件配置："></a>通过配置文件配置：</h4><p>&emsp;&emsp;<code>vim mongodb.conf </code>   </p>
 <figure class="highlight ini"><table><tr><td class="code"><pre><span class="line"><span class="comment">#数据库路径</span></span><br><span class="line"><span class="attr">dbpath</span>=/usr/local/mongodb/data/</span><br><span class="line"></span><br><span class="line"><span class="comment">#日志输出文件路径</span></span><br><span class="line"><span class="attr">logpath</span>=/usr/local/mongodb/log/mongodb.log</span><br><span class="line"></span><br><span class="line"><span class="comment">#错误日志采用追加模式，配置这个选项后mongodb的日志会追加到现有的日志文件，而不是从新创建一个新文件</span></span><br><span class="line"><span class="attr">logappend</span>=<span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#启用日志文件，默认启用</span></span><br><span class="line"><span class="attr">journal</span>=<span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#这个选项可以过滤掉一些无用的日志信息，若需要调试使用请设置为false</span></span><br><span class="line"><span class="attr">quiet</span>=<span class="literal">false</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#是否后台启动，有这个参数，就可以实现后台运行</span></span><br><span class="line"><span class="attr">fork</span>=<span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#端口号 默认为27017</span></span><br><span class="line"><span class="attr">port</span>=<span class="number">27017</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#远程连接</span></span><br><span class="line"><span class="attr">bind_ip</span> = <span class="number">0.0</span>.<span class="number">0.0</span></span><br></pre></td></tr></table></figure>
 
 <p>&emsp;&emsp;启动命令： </p>
 <figure class="highlight awk"><table><tr><td class="code"><pre><span class="line"><span class="regexp">/usr/</span>loca<span class="regexp">/mongodb/</span>bin/mongod -f mongodb.conf</span><br></pre></td></tr></table></figure>
 
-<h4 id="3-后台启动"><a href="#3-后台启动" class="headerlink" title="3. 后台启动"></a>3. 后台启动</h4><p>&emsp;&emsp;1，使用<code>--fork</code> 选项将会通知 mongod 在后台运行    </p>
+<h4 id="后台启动"><a href="#后台启动" class="headerlink" title="后台启动"></a>后台启动</h4><ol>
+<li> 使用<font color="LightCoral" size="4"><b>--fork</b></font> 选项将会通知 mongod 在后台运行   </li> 
+
 <figure class="highlight awk"><table><tr><td class="code"><pre><span class="line"><span class="regexp">/usr/</span>local<span class="regexp">/mongodb/</span>bin<span class="regexp">/mongod  -port 10001 --dbpath /</span>data<span class="regexp">/mongodb/</span> --logpath <span class="regexp">/var/m</span>ongodb/mongodb.log --fork  </span><br></pre></td></tr></table></figure>
 
 
-<p>&emsp;&emsp;2，使用<code>&amp;</code>后台启动      </p>
-<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line"><span class="regexp">/usr/</span>local<span class="regexp">/mongodb/</span>bin<span class="regexp">/mongod  -port 10001 --dbpath /</span>data<span class="regexp">/mongodb/</span> --logpath <span class="regexp">/var/m</span>ongodb/mongodb.log &amp;</span><br></pre></td></tr></table></figure>
+<li> 使用<font color="LightCoral" size="4"><b>&</b></font>后台启动      </li>
 
-<h4 id="4-关闭"><a href="#4-关闭" class="headerlink" title="4. 关闭"></a>4. 关闭</h4><p>&emsp;&emsp; pkill mongod</p>
-<p>&emsp;&emsp; 进入mongo shell ：运行 db.shuidownServer()</p>
+<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line"><span class="regexp">/usr/</span>local<span class="regexp">/mongodb/</span>bin<span class="regexp">/mongod  -port 10001 --dbpath /</span>data<span class="regexp">/mongodb/</span> --logpath <span class="regexp">/var/m</span>ongodb/mongodb.log &amp;</span><br></pre></td></tr></table></figure>
+</ol>
+
+<h4 id="关闭"><a href="#关闭" class="headerlink" title="关闭"></a>关闭</h4><ol>
+<li> pkill mongod</li>
+
+<li> 进入mongo shell，运行： </li>
+
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">db</span><span class="selector-class">.shuidownServer</span>()</span><br></pre></td></tr></table></figure>
+
+</ol>
 ]]></content>
       <categories>
         <category>Linux</category>

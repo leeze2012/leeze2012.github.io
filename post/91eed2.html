@@ -24,15 +24,15 @@
     var CONFIG = {"hostname":"blog.xiaosige.com","root":"/","scheme":"Gemini","version":"8.0.0-rc.5","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"livere","storage":true,"lazyload":true,"nav":null,"activeClass":"livere"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}};
   </script>
 
-  <meta name="description" content="1.  启动&amp;emsp;&amp;emsp;启动mongodb首先要指定mongo的数据目录和日志文件路径，如:  &#x2F;data&#x2F;mongodb&#x2F;,&#x2F;var&#x2F;log&#x2F;mongodb&#x2F;mongodb.log&amp;emsp;&amp;emsp;启动命令：  1&#x2F;usr&#x2F;local&#x2F;mongdb&#x2F;bin&#x2F;mongod -port 27017 --dbpath &#x2F;data&#x2F;mongodb&#x2F; --logpath &#x2F;var&#x2F;mon">
+  <meta name="description" content="启动&amp;emsp;&amp;emsp;启动mongodb首先要指定mongo的数据目录和日志文件路径，如:  &#x2F;data&#x2F;mongodb&#x2F;,&#x2F;var&#x2F;log&#x2F;mongodb&#x2F;mongodb.log&amp;emsp;&amp;emsp;启动命令：  1&#x2F;usr&#x2F;local&#x2F;mongdb&#x2F;bin&#x2F;mongod -port 27017 --dbpath &#x2F;data&#x2F;mongodb&#x2F; --logpath &#x2F;var&#x2F;mongodb">
 <meta property="og:type" content="article">
 <meta property="og:title" content="linux下mongo启动关闭重启方法">
 <meta property="og:url" content="https://blog.xiaosige.com/post/91eed2.html">
 <meta property="og:site_name" content="小四哥">
-<meta property="og:description" content="1.  启动&amp;emsp;&amp;emsp;启动mongodb首先要指定mongo的数据目录和日志文件路径，如:  &#x2F;data&#x2F;mongodb&#x2F;,&#x2F;var&#x2F;log&#x2F;mongodb&#x2F;mongodb.log&amp;emsp;&amp;emsp;启动命令：  1&#x2F;usr&#x2F;local&#x2F;mongdb&#x2F;bin&#x2F;mongod -port 27017 --dbpath &#x2F;data&#x2F;mongodb&#x2F; --logpath &#x2F;var&#x2F;mon">
+<meta property="og:description" content="启动&amp;emsp;&amp;emsp;启动mongodb首先要指定mongo的数据目录和日志文件路径，如:  &#x2F;data&#x2F;mongodb&#x2F;,&#x2F;var&#x2F;log&#x2F;mongodb&#x2F;mongodb.log&amp;emsp;&amp;emsp;启动命令：  1&#x2F;usr&#x2F;local&#x2F;mongdb&#x2F;bin&#x2F;mongod -port 27017 --dbpath &#x2F;data&#x2F;mongodb&#x2F; --logpath &#x2F;var&#x2F;mongodb">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-08-01T17:13:58.000Z">
-<meta property="article:modified_time" content="2020-08-24T15:29:16.888Z">
+<meta property="article:modified_time" content="2020-08-31T15:48:39.903Z">
 <meta property="article:tag" content="Mongo">
 <meta name="twitter:card" content="summary">
 
@@ -235,7 +235,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E5%90%AF%E5%8A%A8"><span class="nav-number">1.</span> <span class="nav-text">1.  启动</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E9%80%9A%E8%BF%87%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E9%85%8D%E7%BD%AE%EF%BC%9A"><span class="nav-number">2.</span> <span class="nav-text">2.  通过配置文件配置：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-%E5%90%8E%E5%8F%B0%E5%90%AF%E5%8A%A8"><span class="nav-number">3.</span> <span class="nav-text">3. 后台启动</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-%E5%85%B3%E9%97%AD"><span class="nav-number">4.</span> <span class="nav-text">4. 关闭</span></a></li></ol></div>
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%90%AF%E5%8A%A8"><span class="nav-number">1.</span> <span class="nav-text">启动</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%80%9A%E8%BF%87%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E9%85%8D%E7%BD%AE%EF%BC%9A"><span class="nav-number">2.</span> <span class="nav-text">通过配置文件配置：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%90%8E%E5%8F%B0%E5%90%AF%E5%8A%A8"><span class="nav-number">3.</span> <span class="nav-text">后台启动</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%B3%E9%97%AD"><span class="nav-number">4.</span> <span class="nav-text">关闭</span></a></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -360,7 +360,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-08-24 23:29:16" itemprop="dateModified" datetime="2020-08-24T23:29:16+08:00">2020-08-24</time>
+                <time title="修改时间：2020-08-31 23:48:39" itemprop="dateModified" datetime="2020-08-31T23:48:39+08:00">2020-08-31</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -385,7 +385,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>983</span>
+              <span>921</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -402,26 +402,36 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h4 id="1-启动"><a href="#1-启动" class="headerlink" title="1.  启动"></a>1.  启动</h4><p>&emsp;&emsp;启动<code>mongodb</code>首先要指定mongo的<code>数据</code>目录和<code>日志</code>文件路径，如:  <code>/data/mongodb/</code>,<code>/var/log/mongodb/mongodb.log</code><br>&emsp;&emsp;启动命令： </p>
+        <h4 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h4><p>&emsp;&emsp;启动<code>mongodb</code>首先要指定mongo的<code>数据</code>目录和<code>日志</code>文件路径，如:  <code>/data/mongodb/</code>,<code>/var/log/mongodb/mongodb.log</code><br>&emsp;&emsp;启动命令： </p>
 <figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="regexp">/usr/</span>local<span class="regexp">/mongdb/</span>bin<span class="regexp">/mongod -port 27017 --dbpath /</span>data<span class="regexp">/mongodb/</span> --logpath <span class="regexp">/var/m</span>ongodb/mongodb.log</span><br></pre></td></tr></table></figure>
 
 <a id="more"></a>
 
-<h4 id="2-通过配置文件配置："><a href="#2-通过配置文件配置：" class="headerlink" title="2.  通过配置文件配置："></a>2.  通过配置文件配置：</h4><p>&emsp;&emsp;<code>vim mongodb.conf </code>   </p>
+<h4 id="通过配置文件配置："><a href="#通过配置文件配置：" class="headerlink" title="通过配置文件配置："></a>通过配置文件配置：</h4><p>&emsp;&emsp;<code>vim mongodb.conf </code>   </p>
 <figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#数据库路径</span></span><br><span class="line"><span class="attr">dbpath</span>=/usr/local/mongodb/data/</span><br><span class="line"></span><br><span class="line"><span class="comment">#日志输出文件路径</span></span><br><span class="line"><span class="attr">logpath</span>=/usr/local/mongodb/log/mongodb.log</span><br><span class="line"></span><br><span class="line"><span class="comment">#错误日志采用追加模式，配置这个选项后mongodb的日志会追加到现有的日志文件，而不是从新创建一个新文件</span></span><br><span class="line"><span class="attr">logappend</span>=<span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#启用日志文件，默认启用</span></span><br><span class="line"><span class="attr">journal</span>=<span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#这个选项可以过滤掉一些无用的日志信息，若需要调试使用请设置为false</span></span><br><span class="line"><span class="attr">quiet</span>=<span class="literal">false</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#是否后台启动，有这个参数，就可以实现后台运行</span></span><br><span class="line"><span class="attr">fork</span>=<span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#端口号 默认为27017</span></span><br><span class="line"><span class="attr">port</span>=<span class="number">27017</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#远程连接</span></span><br><span class="line"><span class="attr">bind_ip</span> = <span class="number">0.0</span>.<span class="number">0.0</span></span><br></pre></td></tr></table></figure>
 
 <p>&emsp;&emsp;启动命令： </p>
 <figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="regexp">/usr/</span>loca<span class="regexp">/mongodb/</span>bin/mongod -f mongodb.conf</span><br></pre></td></tr></table></figure>
 
-<h4 id="3-后台启动"><a href="#3-后台启动" class="headerlink" title="3. 后台启动"></a>3. 后台启动</h4><p>&emsp;&emsp;1，使用<code>--fork</code> 选项将会通知 mongod 在后台运行    </p>
+<h4 id="后台启动"><a href="#后台启动" class="headerlink" title="后台启动"></a>后台启动</h4><ol>
+<li> 使用<font color="LightCoral" size="4"><b>--fork</b></font> 选项将会通知 mongod 在后台运行   </li> 
+
 <figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="regexp">/usr/</span>local<span class="regexp">/mongodb/</span>bin<span class="regexp">/mongod  -port 10001 --dbpath /</span>data<span class="regexp">/mongodb/</span> --logpath <span class="regexp">/var/m</span>ongodb/mongodb.log --fork  </span><br></pre></td></tr></table></figure>
 
 
-<p>&emsp;&emsp;2，使用<code>&amp;</code>后台启动      </p>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="regexp">/usr/</span>local<span class="regexp">/mongodb/</span>bin<span class="regexp">/mongod  -port 10001 --dbpath /</span>data<span class="regexp">/mongodb/</span> --logpath <span class="regexp">/var/m</span>ongodb/mongodb.log &amp;</span><br></pre></td></tr></table></figure>
+<li> 使用<font color="LightCoral" size="4"><b>&</b></font>后台启动      </li>
 
-<h4 id="4-关闭"><a href="#4-关闭" class="headerlink" title="4. 关闭"></a>4. 关闭</h4><p>&emsp;&emsp; pkill mongod</p>
-<p>&emsp;&emsp; 进入mongo shell ：运行 db.shuidownServer()</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="regexp">/usr/</span>local<span class="regexp">/mongodb/</span>bin<span class="regexp">/mongod  -port 10001 --dbpath /</span>data<span class="regexp">/mongodb/</span> --logpath <span class="regexp">/var/m</span>ongodb/mongodb.log &amp;</span><br></pre></td></tr></table></figure>
+</ol>
+
+<h4 id="关闭"><a href="#关闭" class="headerlink" title="关闭"></a>关闭</h4><ol>
+<li> pkill mongod</li>
+
+<li> 进入mongo shell，运行： </li>
+
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">db</span><span class="selector-class">.shuidownServer</span>()</span><br></pre></td></tr></table></figure>
+
+</ol>
 
     </div>
 
