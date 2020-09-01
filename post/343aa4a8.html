@@ -506,6 +506,11 @@ Node.js</code></pre>
           </div>
 
         
+  <div class="post-widgets">
+    <div class="wp_rating">
+      <div id="wpac-rating"></div>
+    </div>
+  </div>
 
           <div class="post-nav">
             <div class="post-nav-item">
@@ -656,6 +661,26 @@ setInterval("createtime()",250);
 
 
 
+  <script>
+  if (CONFIG.page.isPost) {
+    wpac_init = window.wpac_init || [];
+    wpac_init.push({
+      widget: 'Rating',
+      id    : 13cc917f4aa19e4b800d2b0a67c65c9a4edc7faa2298e41b184f8e4ca772acfa,
+      el    : 'wpac-rating',
+      color : 'fc6423'
+    });
+    (function() {
+      if ('WIDGETPACK_LOADED' in window) return;
+      WIDGETPACK_LOADED = true;
+      var mc = document.createElement('script');
+      mc.type = 'text/javascript';
+      mc.async = true;
+      mc.src = '//embed.widgetpack.com/widget.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+    })();
+  }
+  </script>
 
   <script src="/js/local-search.js"></script>
 
@@ -663,6 +688,7 @@ setInterval("createtime()",250);
 
 
 
+  <script src="//code.tidio.co/2l9ohydfktntb5ms6jopvdvsl70vckil.js"></script>
 
 
 
