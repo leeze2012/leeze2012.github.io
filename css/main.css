@@ -2994,9 +2994,19 @@ body {
 .powered-by a:hover {
   color: #0593d3;
 }
+.menu-item-active {
+  border-right-color: #009d92;
+  background: #00c4b6 !important;
+  color: #fff;
+}
+.post-block,
 .comments {
   border-radius: 20px !important;
   padding: 20px 30px 20px 30px;
+  background: rgba(255,255,255,0.8) none repeat scroll !important;
+}
+.pagination {
+  border-radius: 20px !important;
   background: rgba(255,255,255,0.8) none repeat scroll !important;
 }
 .post-body {
