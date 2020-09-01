@@ -2958,7 +2958,7 @@ body {
 .site-brand-container {
   background-image: linear-gradient(-225deg, #2cd8d5 0%, #c5c1ff 56%, #ffbac3 100%, #ddd6f3 0%);
   background-size: 400% 400%;
-  animation: gradient 10s ease infinite;
+  animation: gradient 30s ease infinite;
 }
 .site-brand-container {
   background: url("../images/header-bg.jpg");
