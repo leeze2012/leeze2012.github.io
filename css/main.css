@@ -3142,6 +3142,12 @@ code {
   margin: 2px;
   width: 100%;
 }
+.links-of-author-item {
+  text-align: left;
+}
+.links-of-author {
+  margin-left: 15px;
+}
 @-moz-keyframes gradient {
   0% {
     background-position: 0% 50%;
