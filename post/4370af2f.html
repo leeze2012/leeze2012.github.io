@@ -24,20 +24,21 @@
     var CONFIG = {"hostname":"blog.xiaosige.com","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"livere","storage":true,"lazyload":true,"nav":null,"activeClass":"livere"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}};
   </script>
 
-  <meta name="description" content="&amp;emsp;&amp;emsp;由于 next 主题经常更新，自己又在本地大量修改主题，更新中会有很多问题，经过很多次折腾及网络上其他朋友的教程，我找到了不错的处理方法。">
+  <meta name="description" content="Git介绍&amp;emsp;&amp;emsp;Git — The stupid content tracker, 傻瓜内容跟踪器。Linus Torvalds 是这样给我们介绍 Git 的。&amp;emsp;&amp;emsp;Git 是用于 Linux内核开发的版本控制工具。与常用的版本控制工具 CVS, Subversion 等不同，它采用了分布式版本库的方式，不必服务器端软件支持（wingeddevil注：这得分是用">
 <meta property="og:type" content="article">
-<meta property="og:title" content="hexo之主题更新问题处理">
-<meta property="og:url" content="https://blog.xiaosige.com/post/58bb50d8.html">
+<meta property="og:title" content="Linux安装Git-两种方式详细教程">
+<meta property="og:url" content="https://blog.xiaosige.com/post/4370af2f.html">
 <meta property="og:site_name" content="小四哥">
-<meta property="og:description" content="&amp;emsp;&amp;emsp;由于 next 主题经常更新，自己又在本地大量修改主题，更新中会有很多问题，经过很多次折腾及网络上其他朋友的教程，我找到了不错的处理方法。">
+<meta property="og:description" content="Git介绍&amp;emsp;&amp;emsp;Git — The stupid content tracker, 傻瓜内容跟踪器。Linus Torvalds 是这样给我们介绍 Git 的。&amp;emsp;&amp;emsp;Git 是用于 Linux内核开发的版本控制工具。与常用的版本控制工具 CVS, Subversion 等不同，它采用了分布式版本库的方式，不必服务器端软件支持（wingeddevil注：这得分是用">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2019-10-11T14:30:39.000Z">
-<meta property="article:modified_time" content="2020-08-01T19:16:29.537Z">
-<meta property="article:tag" content="hexo">
+<meta property="article:published_time" content="2020-09-15T18:04:14.000Z">
+<meta property="article:modified_time" content="2020-09-15T18:48:22.825Z">
+<meta property="article:tag" content="Linux">
+<meta property="article:tag" content="Git">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://blog.xiaosige.com/post/58bb50d8.html">
+<link rel="canonical" href="https://blog.xiaosige.com/post/4370af2f.html">
 
 
 <script class="page-configurations">
@@ -50,7 +51,7 @@
   };
 </script>
 
-  <title>hexo之主题更新问题处理 | 小四哥</title>
+  <title>Linux安装Git-两种方式详细教程 | 小四哥</title>
   
 
 
@@ -230,7 +231,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%9B%E5%85%A5%E4%B8%BB%E9%A2%98%E7%9B%AE%E5%BD%95%E5%B9%B6%E6%9B%B4%E6%96%B0"><span class="nav-number">1.</span> <span class="nav-text">进入主题目录并更新</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%80%EF%BC%8C%E8%A7%A3%E5%86%B3%E6%9B%B4%E6%96%B0"><span class="nav-number">1.1.</span> <span class="nav-text">一，解决更新</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1%EF%BC%8C%E5%B0%86%E4%BF%AE%E6%94%B9%E5%82%A8%E8%97%8F%E5%88%B0%E6%9A%82%E5%AD%98%E5%8C%BA"><span class="nav-number">1.1.1.</span> <span class="nav-text">1，将修改储藏到暂存区</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2%EF%BC%8C%E6%89%A7%E8%A1%8C%E6%9B%B4%E6%96%B0"><span class="nav-number">1.1.2.</span> <span class="nav-text">2，执行更新</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3%EF%BC%8C%E4%BB%8E%E6%9A%82%E5%AD%98%E5%8C%BA%E5%8F%96%E5%87%BA%E4%BF%AE%E6%94%B9"><span class="nav-number">1.1.3.</span> <span class="nav-text">3，从暂存区取出修改</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BA%8C%EF%BC%8C%E6%8A%A5%E9%94%99"><span class="nav-number">1.2.</span> <span class="nav-text">二，报错</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1%EF%BC%8C%E8%BF%9B%E5%85%A5%E6%96%87%E4%BB%B6"><span class="nav-number">1.2.1.</span> <span class="nav-text">1，进入文件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2%EF%BC%8C%E6%8F%90%E4%BA%A4%E8%AE%B0%E5%BD%95"><span class="nav-number">1.2.2.</span> <span class="nav-text">2，提交记录</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3%EF%BC%8C%E5%9C%A8%E6%9B%B4%E6%96%B0"><span class="nav-number">1.2.3.</span> <span class="nav-text">3，在更新</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Git%E4%BB%8B%E7%BB%8D"><span class="nav-number">1.</span> <span class="nav-text">Git介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#yun%E5%AE%89%E8%A3%85"><span class="nav-number">2.</span> <span class="nav-text">yun安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%8Egithub%E4%B8%8A%E4%B8%8B%E8%BD%BD%E6%9C%80%E6%96%B0%E7%9A%84%E6%BA%90%E7%A0%81%E7%BC%96%E8%AF%91%E5%90%8E%E5%AE%89%E8%A3%85"><span class="nav-number">3.</span> <span class="nav-text">从github上下载最新的源码编译后安装</span></a></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -334,7 +335,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.xiaosige.com/post/58bb50d8.html">
+    <link itemprop="mainEntityOfPage" href="https://blog.xiaosige.com/post/4370af2f.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/leeze_ava_2_1.png">
@@ -350,7 +351,7 @@
     
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          hexo之主题更新问题处理
+          Linux安装Git-两种方式详细教程
         </h1>
 
         <div class="post-meta-container">
@@ -360,23 +361,17 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
+      
 
-      <time title="创建时间：2019-10-11 22:30:39" itemprop="dateCreated datePublished" datetime="2019-10-11T22:30:39+08:00">2019-10-11</time>
+      <time title="创建时间：2020-09-16 02:04:14 / 修改时间：02:48:22" itemprop="dateCreated datePublished" datetime="2020-09-16T02:04:14+08:00">2020-09-16</time>
     </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-08-02 03:16:29" itemprop="dateModified" datetime="2020-08-02T03:16:29+08:00">2020-08-02</time>
-      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/hexo%E5%BB%BA%E7%AB%99/" itemprop="url" rel="index"><span itemprop="name">hexo建站</span></a>
+          <a href="/categories/Git/" itemprop="url" rel="index"><span itemprop="name">Git</span></a>
         </span>
     </span>
 
@@ -395,7 +390,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>634</span>
+      <span>1.4k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -413,31 +408,44 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p>&emsp;&emsp;由于 next 主题经常更新，自己又在本地大量修改主题，更新中会有很多问题，经过很多次折腾及网络上其他朋友的教程，我找到了不错的处理方法。</p>
+        <h3 id="Git介绍"><a href="#Git介绍" class="headerlink" title="Git介绍"></a>Git介绍</h3><p>&emsp;&emsp;Git — The stupid content tracker, 傻瓜内容跟踪器。Linus Torvalds 是这样给我们介绍 Git 的。<br>&emsp;&emsp;Git 是用于 Linux内核开发的版本控制工具。与常用的版本控制工具 CVS, Subversion 等不同，它采用了分布式版本库的方式，不必服务器端软件支持（wingeddevil注：这得分是用什么样的服务端，使用http协议或者git协议等不太一样。并且在push和pull的时候和服务器端还是有交互的。），使源代码的发布和交流极其方便。 Git 的速度很快，这对于诸如 Linux kernel 这样的大项目来说自然很重要。 Git 最为出色的是它的合并跟踪（merge tracing）能力。</p>
 <a id="more"></a>
 
-<h3 id="进入主题目录并更新"><a href="#进入主题目录并更新" class="headerlink" title="进入主题目录并更新"></a>进入主题目录并更新</h3><figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">cd</span> <span class="string">themes/next</span></span><br><span class="line"><span class="attr">git</span> <span class="string">pull</span></span><br></pre></td></tr></table></figure>
-<p>&emsp;&emsp;因为修改了很多的配置项目，所以更新<code>失败</code>了</p>
-<h4 id="一，解决更新"><a href="#一，解决更新" class="headerlink" title="一，解决更新"></a>一，解决更新</h4><h5 id="1，将修改储藏到暂存区"><a href="#1，将修改储藏到暂存区" class="headerlink" title="1，将修改储藏到暂存区"></a>1，将修改储藏到暂存区</h5><p>&emsp;&emsp;我们可以通过 <code>git stash</code> 这句命令将对主题文件的修改储存到本地的暂存区：</p>
-<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">git stash</span></span><br></pre></td></tr></table></figure>
+<h3 id="yun安装"><a href="#yun安装" class="headerlink" title="yun安装"></a>yun安装</h3><ol>
+<li>在Linux上是有yum安装Git，非常简单，只需要一行命令<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum <span class="keyword">install</span> curl-devel expat-devel gettext-devel openssl-devel zlib-devel perl-devel</span><br><span class="line">yum -y <span class="keyword">install</span> git</span><br></pre></td></tr></table></figure></li>
+<li>输入 git –version查看Git是否安装完成以及查看其版本号<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="comment">--version</span></span><br></pre></td></tr></table></figure></li>
+<li>yum安装git被安装在<code>/usr/libexec/git-core</code>目录下</li>
+</ol>
+<h3 id="从github上下载最新的源码编译后安装"><a href="#从github上下载最新的源码编译后安装" class="headerlink" title="从github上下载最新的源码编译后安装"></a>从github上下载最新的源码编译后安装</h3><p>&emsp;&emsp;yum安装简单，但版本太旧，你不好控制。如果想要使用最新版的git，那还是得自己下载源码安装。</p>
+<ol>
+<li><p>首先我们需要删除旧的Git</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y <span class="builtin-name">remove</span> git</span><br></pre></td></tr></table></figure></li>
+<li><p>进入<code>git</code>在<code>GitHub</code>上发布版本页面<code>https://github.com/git/git/releases</code> ，这个页面我们可以找到所有git已发布的版本。这里我们选择最新版的<code>tar.gz</code>包。</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https:<span class="regexp">//gi</span>thub.com<span class="regexp">/git/gi</span>t/releases</span><br></pre></td></tr></table></figure></li>
+<li><p>下载最新版本的tar.gz的Git到本地电脑上，利用Xftp工具将压缩包上传至Linux服务器的<code>/usr/local</code>目录下</p>
+</li>
+<li><p>进入<code>/usr/local</code> 目录解压git文件</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">tar</span> <span class="selector-tag">-zxvf</span> <span class="selector-tag">git-2</span><span class="selector-class">.28</span><span class="selector-class">.0</span><span class="selector-class">.tar</span><span class="selector-class">.gz</span></span><br></pre></td></tr></table></figure></li>
+<li><p>拿到解压后的源码以后我们需要编译源码了，不过在此之前需要安装编译所需要的依赖。</p>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum <span class="keyword">install</span> curl-devel expat-devel gettext-devel openssl-devel zlib-devel gcc perl-ExtUtils-MakeMaker</span><br></pre></td></tr></table></figure>
+<p>6、提示，安装编译源码所需依赖的时候，yum自动帮你安装了git，这时候你需要先卸载这个旧版的git。</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y <span class="builtin-name">remove</span> git</span><br></pre></td></tr></table></figure></li>
+<li><p>编译git源码，进入cd <code>/usr/local/git-2.28.0.tar.gz</code> 目录</p>
+<figure class="highlight arcade"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make prefix=<span class="regexp">/usr/</span>local/git all</span><br></pre></td></tr></table></figure></li>
+<li><p>安装git至/usr/local/git路径</p>
+<figure class="highlight arcade"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make prefix=<span class="regexp">/usr/</span>local/git install</span><br></pre></td></tr></table></figure></li>
+<li><p>配置环境变量</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">vi /etc<span class="built_in">/profile </span></span><br><span class="line"></span><br><span class="line">在底部加上如下</span><br><span class="line"></span><br><span class="line"><span class="builtin-name">export</span> <span class="attribute">PATH</span>=<span class="variable">$PATH</span>:/usr/bin/git/bin</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>刷新环境变量</p>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">source</span> <span class="regexp">/etc/</span>profile</span><br></pre></td></tr></table></figure></li>
+<li><p>查看Git是否安装完成</p>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">whereis</span> <span class="string">git</span></span><br><span class="line"><span class="attr">git</span> <span class="string">--version</span></span><br></pre></td></tr></table></figure>
 
-<h5 id="2，执行更新"><a href="#2，执行更新" class="headerlink" title="2，执行更新"></a>2，执行更新</h5><p>&emsp;&emsp;我们现在需要再次使用 git pull 命令来获取最新的主题文件，别担心，这次不会再有上面的错误了</p>
-<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">git pull</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>&emsp;&emsp;至此，从github上下载最新的源码编译后安装git完成。</p>
 
-<h5 id="3，从暂存区取出修改"><a href="#3，从暂存区取出修改" class="headerlink" title="3，从暂存区取出修改"></a>3，从暂存区取出修改</h5><p>&emsp;&emsp;我们现在要通过执行 git stash pop 这句命令来从暂存区取出修改。</p>
-<figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git stash <span class="keyword">pop</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="二，报错"><a href="#二，报错" class="headerlink" title="二，报错"></a>二，报错</h4><p>&emsp;&emsp;如果报错如下内容需要进入提示的文件修改</p>
-<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git stash pop</span><br><span class="line">Auto-merging _config.yml</span><br><span class="line"><span class="keyword">CONFLICT</span> (content): Merge <span class="keyword">conflict</span> <span class="keyword">in</span> _config.yml</span><br></pre></td></tr></table></figure>
-
-<h5 id="1，进入文件"><a href="#1，进入文件" class="headerlink" title="1，进入文件"></a>1，进入文件</h5><p>&emsp;&emsp;可以看到文中 &lt;&lt;&lt;&lt;&lt;&gt;&gt;&gt;&gt;&gt;b8e436 中间是你自己的分支，删掉一个就可以了</p>
-<h5 id="2，提交记录"><a href="#2，提交记录" class="headerlink" title="2，提交记录"></a>2，提交记录</h5><figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">add</span><span class="bash"> _config.yml</span></span><br><span class="line">git commit -m <span class="string">&quot;冲突处理&quot;</span></span><br></pre></td></tr></table></figure>
-
-<h5 id="3，在更新"><a href="#3，在更新" class="headerlink" title="3，在更新"></a>3，在更新</h5><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">git pull</span></span><br></pre></td></tr></table></figure>
-<blockquote class="blockquote-center">
-<p>主题升级成功。</p>
-
-</blockquote>
     </div>
 
     
@@ -497,7 +505,7 @@
   </li>
   <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="https://blog.xiaosige.com/post/58bb50d8.html" title="hexo之主题更新问题处理">https://blog.xiaosige.com/post/58bb50d8.html</a>
+      <a href="https://blog.xiaosige.com/post/4370af2f.html" title="Linux安装Git-两种方式详细教程">https://blog.xiaosige.com/post/4370af2f.html</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -506,21 +514,19 @@
 </div>
 
           <div class="post-tags">
-              <a href="/tags/hexo/" rel="tag"><i class="fa fa-tag"></i> hexo</a>
+              <a href="/tags/Linux/" rel="tag"><i class="fa fa-tag"></i> Linux</a>
+              <a href="/tags/Git/" rel="tag"><i class="fa fa-tag"></i> Git</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/post/2cf589fe.html" rel="prev" title="Linux之hosts主机名不对">
-                  <i class="fa fa-chevron-left"></i> Linux之hosts主机名不对
+                <a href="/post/16d9a840.html" rel="prev" title="ssh-key生成密钥及SSH无密码登录">
+                  <i class="fa fa-chevron-left"></i> ssh-key生成密钥及SSH无密码登录
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/post/2c523943.html" rel="next" title="hexo之永久链接">
-                  hexo之永久链接 <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
     </footer>
@@ -694,7 +700,7 @@ document.querySelectorAll('.pdfobject-container').forEach(element => {
 <script>
 NexT.utils.loadComments('#lv-container', () => {
   window.livereOptions = {
-    refer: "post/58bb50d8.html"
+    refer: "post/4370af2f.html"
   };
   (function(d, s) {
     var j, e = d.getElementsByTagName(s)[0];

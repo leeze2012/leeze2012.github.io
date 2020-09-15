@@ -224,6 +224,55 @@
       </tags>
   </entry>
   <entry>
+    <title>Linux安装Git-两种方式详细教程</title>
+    <url>/post/4370af2f.html</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="Git介绍"><a href="#Git介绍" class="headerlink" title="Git介绍"></a>Git介绍</h3><p>&emsp;&emsp;Git — The stupid content tracker, 傻瓜内容跟踪器。Linus Torvalds 是这样给我们介绍 Git 的。<br>&emsp;&emsp;Git 是用于 Linux内核开发的版本控制工具。与常用的版本控制工具 CVS, Subversion 等不同，它采用了分布式版本库的方式，不必服务器端软件支持（wingeddevil注：这得分是用什么样的服务端，使用http协议或者git协议等不太一样。并且在push和pull的时候和服务器端还是有交互的。），使源代码的发布和交流极其方便。 Git 的速度很快，这对于诸如 Linux kernel 这样的大项目来说自然很重要。 Git 最为出色的是它的合并跟踪（merge tracing）能力。</p>
+<a id="more"></a>
+
+<h3 id="yun安装"><a href="#yun安装" class="headerlink" title="yun安装"></a>yun安装</h3><ol>
+<li>在Linux上是有yum安装Git，非常简单，只需要一行命令<figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line">yum <span class="keyword">install</span> curl-devel expat-devel gettext-devel openssl-devel zlib-devel perl-devel</span><br><span class="line">yum -y <span class="keyword">install</span> git</span><br></pre></td></tr></table></figure></li>
+<li>输入 git –version查看Git是否安装完成以及查看其版本号<figure class="highlight ada"><table><tr><td class="code"><pre><span class="line">git <span class="comment">--version</span></span><br></pre></td></tr></table></figure></li>
+<li>yum安装git被安装在<code>/usr/libexec/git-core</code>目录下</li>
+</ol>
+<h3 id="从github上下载最新的源码编译后安装"><a href="#从github上下载最新的源码编译后安装" class="headerlink" title="从github上下载最新的源码编译后安装"></a>从github上下载最新的源码编译后安装</h3><p>&emsp;&emsp;yum安装简单，但版本太旧，你不好控制。如果想要使用最新版的git，那还是得自己下载源码安装。</p>
+<ol>
+<li><p>首先我们需要删除旧的Git</p>
+<figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line">yum -y <span class="builtin-name">remove</span> git</span><br></pre></td></tr></table></figure></li>
+<li><p>进入<code>git</code>在<code>GitHub</code>上发布版本页面<code>https://github.com/git/git/releases</code> ，这个页面我们可以找到所有git已发布的版本。这里我们选择最新版的<code>tar.gz</code>包。</p>
+<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">https:<span class="regexp">//gi</span>thub.com<span class="regexp">/git/gi</span>t/releases</span><br></pre></td></tr></table></figure></li>
+<li><p>下载最新版本的tar.gz的Git到本地电脑上，利用Xftp工具将压缩包上传至Linux服务器的<code>/usr/local</code>目录下</p>
+</li>
+<li><p>进入<code>/usr/local</code> 目录解压git文件</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">tar</span> <span class="selector-tag">-zxvf</span> <span class="selector-tag">git-2</span><span class="selector-class">.28</span><span class="selector-class">.0</span><span class="selector-class">.tar</span><span class="selector-class">.gz</span></span><br></pre></td></tr></table></figure></li>
+<li><p>拿到解压后的源码以后我们需要编译源码了，不过在此之前需要安装编译所需要的依赖。</p>
+<figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line">yum <span class="keyword">install</span> curl-devel expat-devel gettext-devel openssl-devel zlib-devel gcc perl-ExtUtils-MakeMaker</span><br></pre></td></tr></table></figure>
+<p>6、提示，安装编译源码所需依赖的时候，yum自动帮你安装了git，这时候你需要先卸载这个旧版的git。</p>
+<figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line">yum -y <span class="builtin-name">remove</span> git</span><br></pre></td></tr></table></figure></li>
+<li><p>编译git源码，进入cd <code>/usr/local/git-2.28.0.tar.gz</code> 目录</p>
+<figure class="highlight arcade"><table><tr><td class="code"><pre><span class="line">make prefix=<span class="regexp">/usr/</span>local/git all</span><br></pre></td></tr></table></figure></li>
+<li><p>安装git至/usr/local/git路径</p>
+<figure class="highlight arcade"><table><tr><td class="code"><pre><span class="line">make prefix=<span class="regexp">/usr/</span>local/git install</span><br></pre></td></tr></table></figure></li>
+<li><p>配置环境变量</p>
+<figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line">vi /etc<span class="built_in">/profile </span></span><br><span class="line"></span><br><span class="line">在底部加上如下</span><br><span class="line"></span><br><span class="line"><span class="builtin-name">export</span> <span class="attribute">PATH</span>=<span class="variable">$PATH</span>:/usr/bin/git/bin</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>刷新环境变量</p>
+<figure class="highlight gradle"><table><tr><td class="code"><pre><span class="line"><span class="keyword">source</span> <span class="regexp">/etc/</span>profile</span><br></pre></td></tr></table></figure></li>
+<li><p>查看Git是否安装完成</p>
+<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">whereis</span> <span class="string">git</span></span><br><span class="line"><span class="attr">git</span> <span class="string">--version</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<p>&emsp;&emsp;至此，从github上下载最新的源码编译后安装git完成。</p>
+]]></content>
+      <categories>
+        <category>Git</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>Git</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>ssh-key生成密钥及SSH无密码登录</title>
     <url>/post/16d9a840.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><h3 id="首先什么是SSH"><a href="#首先什么是SSH" class="headerlink" title="首先什么是SSH"></a>首先什么是SSH</h3>  <div class="note success no-icon"><p>&emsp;&emsp;Secure Shell (SSH) 是一个允许两台电脑之间通过安全的连接进行数据交换的网络协议。通过加密保证了数据的保密性和完整性。SSH采用公钥加密技术来验证远程主机，以及(必要时)允许远程主机验证用户。</p>
@@ -396,7 +445,7 @@
 <p>&emsp;&emsp; 根据Server ID 生成license Key：</p>
 <figure class="highlight awk"><table><tr><td class="code"><pre><span class="line"><span class="regexp">/opt/</span>atlassian<span class="regexp">/jira/</span>jre<span class="regexp">/bin/</span>java -jar <span class="regexp">/home/</span>jira1<span class="regexp">/atlassian-agent.jar -p jira -m jira@jira.com -n jira -o https:/</span><span class="regexp">/jira.com -s BFZ0-PD41-I9AX-YXDP</span></span><br></pre></td></tr></table></figure>
 <br>
-<div class="note default no-icon"><p>-p jira(安装的是jira产品)，具体的可以根据-p进行参考<br>-m <a href="mailto:&#x6a;&#105;&#114;&#97;&#x40;&#x6a;&#x69;&#114;&#97;&#46;&#99;&#111;&#109;">&#x6a;&#105;&#114;&#97;&#x40;&#x6a;&#x69;&#114;&#97;&#46;&#99;&#111;&#109;</a>(随意写)<br>-n jira(随意写)<br>-o <a href="https://jira.com/">https://jira.com</a> (随意写)<br>-s BFZ0-PD41-I9AX-YXDP (即jira显示的服务器ID)</p>
+<div class="note default no-icon"><p>-p jira(安装的是jira产品)，具体的可以根据-p进行参考<br>-m <a href="mailto:&#106;&#x69;&#x72;&#x61;&#x40;&#x6a;&#x69;&#114;&#x61;&#46;&#x63;&#x6f;&#109;">&#106;&#x69;&#x72;&#x61;&#x40;&#x6a;&#x69;&#114;&#x61;&#46;&#x63;&#x6f;&#109;</a>(随意写)<br>-n jira(随意写)<br>-o <a href="https://jira.com/">https://jira.com</a> (随意写)<br>-s BFZ0-PD41-I9AX-YXDP (即jira显示的服务器ID)</p>
 </div>
 <br>
 
