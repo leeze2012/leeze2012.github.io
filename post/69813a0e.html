@@ -1,0 +1,1284 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.1.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="baidu-site-verification" content="WZilU4QiSZ">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="//cdn.bootcdn.net/ajax/libs/font-awesome/5.13.1/css/all.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"blog.xiaosige.com","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"livere","storage":true,"lazyload":true,"nav":null,"activeClass":"livere"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}};
+  </script>
+
+  <meta name="description" content="介绍&amp;emsp;&amp;emsp;Nginx是一个高性能的Web和反向代理服务器,它具有有很多非常优越的特性:">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux安装Nginx--两种方式">
+<meta property="og:url" content="https://blog.xiaosige.com/post/69813a0e.html">
+<meta property="og:site_name" content="小四哥">
+<meta property="og:description" content="介绍&amp;emsp;&amp;emsp;Nginx是一个高性能的Web和反向代理服务器,它具有有很多非常优越的特性:">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://blog.xiaosige.com/post/69813a0e/nginx-001.png">
+<meta property="og:image" content="https://blog.xiaosige.com/post/69813a0e/nginx-002.png">
+<meta property="article:published_time" content="2020-09-15T20:26:11.000Z">
+<meta property="article:modified_time" content="2020-09-16T20:34:54.488Z">
+<meta property="article:tag" content="Nginx">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog.xiaosige.com/post/69813a0e/nginx-001.png">
+
+
+<link rel="canonical" href="https://blog.xiaosige.com/post/69813a0e.html">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Linux安装Nginx--两种方式 | 小四哥</title>
+  
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?373a855f47c8e41e6de9a6e411fe871a";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">小四哥</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">心之所愿，无所不至！</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">23</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">18</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">53</span></a>
+
+  </li>
+        <li class="menu-item menu-item-welfare">
+
+    <a href="/welfare" rel="section"><i class="fa fa-coffee fa-fw"></i>福利</a>
+
+  </li>
+        <li class="menu-item menu-item-photos">
+
+    <a href="/photos" rel="section"><i class="fa fa-camera-retro fa-fw"></i>相册</a>
+
+  </li>
+        <li class="menu-item menu-item-links">
+
+    <a href="/links" rel="section"><i class="fa fa-link fa-fw"></i>友链</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <section class="post-toc-wrap sidebar-panel">
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%8B%E7%BB%8D"><span class="nav-number">1.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#yum%E5%AE%89%E8%A3%85"><span class="nav-number">2.</span> <span class="nav-text">yum安装</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#yum%E4%BB%93%E5%BA%93%E9%85%8D%E7%BD%AE"><span class="nav-number">2.1.</span> <span class="nav-text">yum仓库配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%89%E8%A3%85nginx"><span class="nav-number">2.2.</span> <span class="nav-text">安装nginx</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%A6%81%E6%AD%A2%E6%9B%B4%E6%96%B0"><span class="nav-number">2.3.</span> <span class="nav-text">禁止更新</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9B%B4%E6%96%B0Nginx"><span class="nav-number">2.4.</span> <span class="nav-text">更新Nginx</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%91%BD%E4%BB%A4%E7%AE%A1%E7%90%86"><span class="nav-number">2.5.</span> <span class="nav-text">命令管理</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%BA%90%E4%BB%A3%E7%A0%81%E5%AE%89%E8%A3%85"><span class="nav-number">3.</span> <span class="nav-text">源代码安装</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%BA%90%E7%A0%81%E4%B8%8B%E8%BD%BD"><span class="nav-number">3.1.</span> <span class="nav-text">源码下载</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%B0%E5%A2%9E%E7%94%A8%E6%88%B7"><span class="nav-number">3.2.</span> <span class="nav-text">新增用户</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E4%BE%9D%E8%B5%96%E7%8E%AF%E5%A2%83"><span class="nav-number">3.3.</span> <span class="nav-text">安装依赖环境</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BF%9B%E8%A1%8C%E9%85%8D%E7%BD%AE"><span class="nav-number">3.4.</span> <span class="nav-text">进行配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85nginx"><span class="nav-number">3.5.</span> <span class="nav-text">编译安装nginx</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E5%BC%80%E6%9C%BA%E5%90%AF%E5%8A%A8"><span class="nav-number">4.</span> <span class="nav-text">设置开机启动</span></a></li></ol></div>
+      </section>
+      <!--/noindex-->
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt=""
+      src="/images/leeze_ava_2_1.png">
+  <p class="site-author-name" itemprop="name"></p>
+  <div class="site-description" itemprop="description">因上努力，果上随缘！</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">53</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/leeze2012" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;leeze2012" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.teambition.com/" title="Teambition → https:&#x2F;&#x2F;www.teambition.com" rel="noopener" target="_blank"><i class="fab fa-mixcloud fa-fw"></i>Teambition</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://gitee.com/leeze" title="Gitee → https:&#x2F;&#x2F;gitee.com&#x2F;leeze" rel="noopener" target="_blank"><i class="fab fa-gg fa-fw"></i>Gitee</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://quqi.com/" title="曲奇云盘 → https:&#x2F;&#x2F;quqi.com" rel="noopener" target="_blank"><i class="fas fa-cloud-upload-alt fa-fw"></i>曲奇云盘</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://dev.tencent.com/u/leeze" title="腾讯云 → https:&#x2F;&#x2F;dev.tencent.com&#x2F;u&#x2F;leeze" rel="noopener" target="_blank"><i class="fab fa-jsfiddle fa-fw"></i>腾讯云</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://pan.bitqiu.com/" title="比特球云盘 → https:&#x2F;&#x2F;pan.bitqiu.com" rel="noopener" target="_blank"><i class="fa fa-cloud fa-fw"></i>比特球云盘</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://codeup.aliyun.com/" title="Codeup → https:&#x2F;&#x2F;codeup.aliyun.com" rel="noopener" target="_blank"><i class="fab fa-envira fa-fw"></i>Codeup</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:leeze0216@163.com" title="E-Mail → mailto:leeze0216@163.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://blog.csdn.net/lileeze" title="CSDN → https:&#x2F;&#x2F;blog.csdn.net&#x2F;lileeze" rel="noopener" target="_blank"><i class="fa fa-crosshairs fa-fw"></i>CSDN</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.jianshu.com/u/e4c5daf92fa6" title="简书 → https:&#x2F;&#x2F;www.jianshu.com&#x2F;u&#x2F;e4c5daf92fa6" rel="noopener" target="_blank"><i class="fab fa-telegram fa-fw"></i>简书</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.upyun.com/" title="又拍云 → https:&#x2F;&#x2F;www.upyun.com" rel="noopener" target="_blank"><i class="fab fa-jsfiddle fa-fw"></i>又拍云</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </section>
+        <div class="back-to-top animated">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+      
+
+      
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.xiaosige.com/post/69813a0e.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/leeze_ava_2_1.png">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="因上努力，果上随缘！">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小四哥">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Linux安装Nginx--两种方式
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-09-16 04:26:11" itemprop="dateCreated datePublished" datetime="2020-09-16T04:26:11+08:00">2020-09-16</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2020-09-17 04:34:54" itemprop="dateModified" datetime="2020-09-17T04:34:54+08:00">2020-09-17</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Nginx/" itemprop="url" rel="index"><span itemprop="name">Nginx</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>15k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>14 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>&emsp;&emsp;Nginx是一个高性能的Web和反向代理服务器,它具有有很多非常优越的特性: </p>
+<a id="more"></a>
+<p>&emsp;&emsp;<b>作为Web服务器</b>: 相比Apache，Nginx 使用更少的资源，支持更多 的并发连接，体现更高的效率，这点使Nginx尤其受到虚拟主机提供商的欢迎。能够支持高达50,000个并发连接数的响应，感谢Nginx为我们选择了epoll and kqueue作为开发模型.<br>&emsp;&emsp;<b>作为负载均衡服务器</b>: Nginx 既可以在内部直接支持Rails和PHP，也可以支持作为HTTP代理服务器对外进行服务。Nginx 用C编写,不论是系统资源开销还是CPU使用效率都比Perlbal要好的多。<br>&emsp;&emsp;<b>作为邮件代理服务器</b>: Nginx 同时也是一个非常优秀的邮件代理服务器(最早开发这个产品的目的之一也是作为邮件代理服务器)，Last.fm 描述了成功并且美妙的使用经验。<br>&emsp;&emsp;<b>Nginx安装非常的简单，配置文件非常简洁(还能够支持perl语法)，Bugs非常少的服务器</b>: Nginx启动特别容易，并且几乎可以做到7*24不间断运行，即使运行数个月也不需要重新启动。你还能够在不间断服务的情况下进行软件版本的升级。</p>
+<h3 id="yum安装"><a href="#yum安装" class="headerlink" title="yum安装"></a>yum安装</h3><h4 id="yum仓库配置"><a href="#yum仓库配置" class="headerlink" title="yum仓库配置"></a>yum仓库配置</h4><p>&emsp;&emsp;在<code>/etc/yum.repos.d/</code>下新建一个nginx.repo，加入<a target="_blank" rel="noopener" href="http://nginx.org/en/linux_packages.html">nginx官方提供的源</a> , <a target="_blank" rel="noopener" href="https://docs.nginx.com/nginx/admin-guide/installing-nginx/installing-nginx-open-source/">Installing NGINX Open Source</a></p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[nginx]</span></span><br><span class="line"><span class="attr">name</span>=nginx repo</span><br><span class="line"><span class="attr">baseurl</span>=http://nginx.org/packages/&lt;OS&gt;/&lt;OSRELEASE&gt;/<span class="variable">$basearch</span>/</span><br><span class="line"><span class="attr">gpgcheck</span>=<span class="number">0</span></span><br><span class="line"><span class="attr">enabled</span>=<span class="number">1</span></span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;注意其中的<code>&lt;OS&gt;</code> 为系统名，<code>&lt;OSRELEASE&gt;</code>为系统大版本</p>
+<ol>
+<li>CentOS7<br><code>vi /etc/yum.repos.d/nginx.repo</code><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[nginx]</span></span><br><span class="line"><span class="attr">name</span>=nginx repo</span><br><span class="line"><span class="attr">baseurl</span>=http://nginx.org/packages/centos/<span class="number">7</span>/<span class="variable">$basearch</span>/</span><br><span class="line"><span class="attr">gpgcheck</span>=<span class="number">0</span></span><br><span class="line"><span class="attr">enabled</span>=<span class="number">1</span></span><br></pre></td></tr></table></figure></li>
+<li>CentOS6<br><code>vi /etc/yum.repos.d/nginx.repo</code><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[nginx]</span></span><br><span class="line"><span class="attr">name</span>=nginx repo</span><br><span class="line"><span class="attr">baseurl</span>=http://nginx.org/packages/centos/<span class="number">6</span>/<span class="variable">$basearch</span>/</span><br><span class="line"><span class="attr">gpgcheck</span>=<span class="number">0</span></span><br><span class="line"><span class="attr">enabled</span>=<span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h4 id="安装nginx"><a href="#安装nginx" class="headerlink" title="安装nginx"></a>安装nginx</h4><ol>
+<li>直接安装会安装当前的最新版本<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum <span class="keyword">install</span> -y nginx</span><br></pre></td></tr></table></figure></li>
+<li>该源仓库下有多个版本的nginx可供安装，可以用如下命令查看<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum <span class="built_in">list</span> nginx <span class="comment">--show-duplicates</span></span><br></pre></td></tr></table></figure></li>
+<li>选择其中一个版本安装<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">yum</span> install -y nginx-版本号</span><br><span class="line"><span class="comment"># 如下</span></span><br><span class="line"><span class="attribute">yum</span> install -y nginx-<span class="number">17</span>.<span class="number">6</span>-<span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h4 id="禁止更新"><a href="#禁止更新" class="headerlink" title="禁止更新"></a>禁止更新</h4><p>&emsp;&emsp;我们在安装之后，为了能够正常运行，我们一般会禁止Nginx进行更新。因为在yum更新了Nginx之后，Nginx会自动重启。这对于我们来说是没有必要的，所以我们可以屏蔽更新。我们可以这样，将下列指定放到你的<code>/etc/yum.conf</code>文件中：</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">exclude</span>=nginx</span><br></pre></td></tr></table></figure>
+<h4 id="更新Nginx"><a href="#更新Nginx" class="headerlink" title="更新Nginx"></a>更新Nginx</h4><p>&emsp;&emsp;一般在生产环境，我们都是禁用更新的。所以说，这里只是作为一个参考<br>&emsp;&emsp;我们需要执行的命令就是：</p>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">yum update nginx</span></span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;<code> 注意： 在使用 yum 更新之后，Nginx会自动重启。</code></p>
+<h4 id="命令管理"><a href="#命令管理" class="headerlink" title="命令管理"></a>命令管理</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">systemctl <span class="keyword">start</span> nginx   <span class="comment"># 启动</span></span><br><span class="line">systemctl restart nginx <span class="comment"># 重启</span></span><br><span class="line">nginx -t                <span class="comment"># 测试配置文件语法是否正确</span></span><br><span class="line">systemctl reload nginx  <span class="comment"># 重载配置文件</span></span><br><span class="line">systemctl <span class="keyword">stop</span> nginx    <span class="comment"># 停止</span></span><br><span class="line">systemctl <span class="keyword">enable</span> nginx  <span class="comment"># 启动开机启动</span></span><br><span class="line">systemctl diasble nginx <span class="comment"># 禁止开机启动</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="源代码安装"><a href="#源代码安装" class="headerlink" title="源代码安装"></a>源代码安装</h3><p>&emsp;&emsp;如果已安装，则remove掉<code>yum remove nginx</code></p>
+<h4 id="源码下载"><a href="#源码下载" class="headerlink" title="源码下载"></a>源码下载</h4><p>&emsp;&emsp;安装wget并下载nginx源码包， 去 <a target="_blank" rel="noopener" href="http://nginx.org/download/">http://nginx.org/download/</a> 可以找到历史版本的包</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">yum</span> install -y wget &amp;&amp; wget http://nginx.org/download/nginx-<span class="number">1</span>.<span class="number">19</span>.<span class="number">2</span>.tar.gz</span><br><span class="line"></span><br><span class="line"><span class="attribute">tar</span> -zxvf nginx-<span class="number">1</span>.<span class="number">19</span>.<span class="number">2</span>.tar.gz</span><br></pre></td></tr></table></figure>
+<h4 id="新增用户"><a href="#新增用户" class="headerlink" title="新增用户"></a>新增用户</h4><figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">groupadd</span> <span class="string">www</span></span><br><span class="line"><span class="attr">useradd</span> <span class="string">-g www www</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p> useradd -g www -s /sbin/nologin -M www</p>
+</blockquote>
+<h4 id="安装依赖环境"><a href="#安装依赖环境" class="headerlink" title="安装依赖环境"></a>安装依赖环境</h4><ol>
+<li>安装gcc<br>安装 nginx 需要先将官网下载的源码进行编译，编译依赖 gcc 环境。安装指令如下：<br>安装gcc<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y install gcc <span class="built_in">auto</span>make <span class="built_in">auto</span>conf libtool make</span><br></pre></td></tr></table></figure>
+安装g++<figure class="highlight brainfuck"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">yum</span> <span class="comment">install</span> <span class="comment">gcc</span> <span class="comment">gcc</span><span class="literal">-</span><span class="comment">c</span>++</span><br></pre></td></tr></table></figure></li>
+<li>安装PCRE pcre-devel<br>Nginx的Rewrite模块和HTTP核心模块会使用到PCRE正则表达式语法。这里需要安装两个安装包pcre和pcre-devel。第一个安装包提供编译版本的库，而第二个提供开发阶段的头文件和编译项目的源代码。安装指令如下：<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum <span class="keyword">install</span> -y pcre pcre-devel</span><br></pre></td></tr></table></figure></li>
+<li>安装zlib<br>zlib库提供了开发人员的压缩算法，在Nginx的各种模块中需要使用gzip压缩。安装指令如下:<figure class="highlight nsis"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y <span class="literal">zlib</span> <span class="literal">zlib</span>-devel</span><br></pre></td></tr></table></figure></li>
+<li>安装Open SSL<br>nginx不仅支持 http协议，还支持 https（即在 ssl 协议上传输 http），如果使用了 https，需要安装 OpenSSL 库。安装指令如下：<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum <span class="keyword">install</span> -y openssl openssl-devel</span><br></pre></td></tr></table></figure>
+环境结束.</li>
+</ol>
+<h4 id="进行配置"><a href="#进行配置" class="headerlink" title="进行配置"></a>进行配置</h4><p>没有特别配置，直接<code>./configure</code>就好了。安装完成后可以通过<code>nginx -V</code>查看选择的模块。</p>
+<p>部分编译参数说明</p>
+<table>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+<tr>
+<td>--prefix</td>
+<td>定义nginx安装路径</td>
+</tr>
+<tr>
+<td>--sbin-path</td>
+<td>定义nginx可执行文件路径</td>
+</tr>
+<tr>
+<td>--modules-path</td>
+<td>nginx模块路径</td>
+</tr>
+<tr>
+<td>--conf-path</td>
+<td>nginx配置文件路径</td>
+</tr>
+<tr>
+<td>--error-log-path、--http-log-path</td>
+<td>错误和访问日志路径</td>
+</tr>
+<tr>
+<td>--with-openssl</td>
+<td>定义编译使用的openssl，默认为系统自带openssl</td>
+</tr>
+<tr>
+<td>--with-http_ssl_module</td>
+<td>ssl模块</td>
+</tr>
+</table>
+
+<figure class="highlight livescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]<span class="comment"># ./configure --prefix=/usr/local/nginx \</span></span><br><span class="line">--sbin-path=/usr/sbin/nginx <span class="string">\</span></span><br><span class="line">--modules-path=/usr/lib64/nginx/modules <span class="string">\</span></span><br><span class="line">--conf-path=/usr/local/nginx/nginx.conf <span class="string">\</span></span><br><span class="line">--error-log-path=/usr/local/nginx/error.log <span class="string">\</span></span><br><span class="line">--http-log-path=/usr/local/nginx/access.log <span class="string">\</span></span><br><span class="line">--pid-path=/usr/local/nginx/nginx.pid <span class="string">\</span></span><br><span class="line">--lock-path=/usr/local/nginx/nginx.lock <span class="string">\</span></span><br><span class="line">--http-client-body-temp-path=/usr/local/nginx/client_temp <span class="string">\</span></span><br><span class="line">--http-proxy-temp-path=/usr/local/nginx/proxy_temp <span class="string">\</span></span><br><span class="line">--http-fastcgi-temp-path=/usr/local/nginx/fastcgi_temp <span class="string">\</span></span><br><span class="line">--http-uwsgi-temp-path=/usr/local/nginx/uwsgi_temp <span class="string">\</span></span><br><span class="line">--http-scgi-temp-path=/usr/local/nginx/scgi_temp <span class="string">\</span></span><br><span class="line">--user=www <span class="string">\</span></span><br><span class="line">--group=www <span class="string">\</span></span><br><span class="line">--<span class="keyword">with</span>-compat <span class="string">\</span></span><br><span class="line">--<span class="keyword">with</span>-file-aio <span class="string">\</span></span><br><span class="line">--<span class="keyword">with</span>-threads <span class="string">\</span></span><br><span class="line">--<span class="keyword">with</span>-http_addition_module <span class="string">\</span></span><br><span class="line">--<span class="keyword">with</span>-http_auth_request_module <span class="string">\</span></span><br><span class="line">--<span class="keyword">with</span>-http_dav_module <span class="string">\</span></span><br><span class="line">--<span class="keyword">with</span>-http_flv_module <span class="string">\</span></span><br><span class="line">--<span class="keyword">with</span>-http_gunzip_module <span class="string">\</span></span><br><span class="line">--<span class="keyword">with</span>-http_gzip_static_module <span class="string">\</span></span><br><span class="line">--<span class="keyword">with</span>-http_mp4_module <span class="string">\</span></span><br><span class="line">--<span class="keyword">with</span>-http_random_index_module <span class="string">\</span></span><br><span class="line">--<span class="keyword">with</span>-http_realip_module <span class="string">\</span></span><br><span class="line">--<span class="keyword">with</span>-http_secure_link_module <span class="string">\</span></span><br><span class="line">--<span class="keyword">with</span>-http_slice_module <span class="string">\</span></span><br><span class="line">--<span class="keyword">with</span>-http_ssl_module <span class="string">\</span></span><br><span class="line">--<span class="keyword">with</span>-http_stub_status_module <span class="string">\</span></span><br><span class="line">--<span class="keyword">with</span>-http_sub_module <span class="string">\</span></span><br><span class="line">--<span class="keyword">with</span>-http_v2_module <span class="string">\</span></span><br><span class="line">--<span class="keyword">with</span>-mail <span class="string">\</span></span><br><span class="line">--<span class="keyword">with</span>-mail_ssl_module <span class="string">\</span></span><br><span class="line">--<span class="keyword">with</span>-stream <span class="string">\</span></span><br><span class="line">--<span class="keyword">with</span>-stream_realip_module <span class="string">\</span></span><br><span class="line">--<span class="keyword">with</span>-stream_ssl_module <span class="string">\</span></span><br><span class="line">--<span class="keyword">with</span>-stream_ssl_preread_module</span><br></pre></td></tr></table></figure>
+<img src="/post/69813a0e/nginx-001.png" class title="nginx编译输出">
+
+<p>上面的编译是使用了系统默认的openssl，如果想使用更高版本的openssl进行编译的话。可以加上<code>--with-openssl=openssl安装路径</code>来自定义。高版本的openssl安装可以参考 <a target="_blank" rel="noopener" href="https://www.jianshu.com/p/bf5a55a0a814">这篇文章</a>。</p>
+<p><code>--with-openssl</code> 参数虽然可以指定 OpenSSL 路径，但只支持 OpenSSL 的源代码，不支持已编译好的 OpenSSL。每回更新 nginx 都要重新编译 OpenSSL 很麻烦 。以下是解决方案<br>打开nginx源码解压目录下的<code>auto/lib/openssl/conf</code>,找到所有带<code>.openssl</code>的行</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">CORE_INCS</span>=<span class="string">&quot;<span class="variable">$CORE_INCS</span> <span class="variable">$OPENSSL</span>/.openssl/include&quot;</span></span><br><span class="line"><span class="attribute">CORE_DEPS</span>=<span class="string">&quot;<span class="variable">$CORE_DEPS</span> <span class="variable">$OPENSSL</span>/.openssl/include/openssl/ssl.h&quot;</span></span><br><span class="line"><span class="attribute">CORE_LIBS</span>=<span class="string">&quot;<span class="variable">$CORE_LIBS</span> <span class="variable">$OPENSSL</span>/.openssl/lib/libssl.a&quot;</span></span><br><span class="line"><span class="attribute">CORE_LIBS</span>=<span class="string">&quot;<span class="variable">$CORE_LIBS</span> <span class="variable">$OPENSSL</span>/.openssl/lib/libcrypto.a&quot;</span></span><br></pre></td></tr></table></figure>
+<p>改成下面的样子，去掉<code>.openssl/</code></p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">CORE_INCS</span>=<span class="string">&quot;<span class="variable">$CORE_INCS</span> <span class="variable">$OPENSSL</span>/include&quot;</span></span><br><span class="line"><span class="attribute">CORE_DEPS</span>=<span class="string">&quot;<span class="variable">$CORE_DEPS</span> <span class="variable">$OPENSSL</span>/include/openssl/ssl.h&quot;</span></span><br><span class="line"><span class="attribute">CORE_LIBS</span>=<span class="string">&quot;<span class="variable">$CORE_LIBS</span> <span class="variable">$OPENSSL</span>/lib/libssl.a&quot;</span></span><br><span class="line"><span class="attribute">CORE_LIBS</span>=<span class="string">&quot;<span class="variable">$CORE_LIBS</span> <span class="variable">$OPENSSL</span>/lib/libcrypto.a&quot;</span></span><br></pre></td></tr></table></figure>
+<p>进行编译</p>
+<figure class="highlight livescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]<span class="comment"># ./configure --prefix=/usr/local/nginx \</span></span><br><span class="line">--sbin-path=/usr/sbin/nginx <span class="string">\</span></span><br><span class="line">--modules-path=/usr/lib64/nginx/modules <span class="string">\</span></span><br><span class="line">--conf-path=/usr/local/nginx/nginx.conf <span class="string">\</span></span><br><span class="line">--error-log-path=/usr/local/nginx/error.log <span class="string">\</span></span><br><span class="line">--http-log-path=/usr/local/nginx/access.log <span class="string">\</span></span><br><span class="line">--pid-path=/usr/local/nginx/nginx.pid <span class="string">\</span></span><br><span class="line">--lock-path=/usr/local/nginx/nginx.lock <span class="string">\</span></span><br><span class="line">--http-client-body-temp-path=/usr/local/nginx/client_temp <span class="string">\</span></span><br><span class="line">--http-proxy-temp-path=/usr/local/nginx/proxy_temp <span class="string">\</span></span><br><span class="line">--http-fastcgi-temp-path=/usr/local/nginx/fastcgi_temp <span class="string">\</span></span><br><span class="line">--http-uwsgi-temp-path=/usr/local/nginx/uwsgi_temp <span class="string">\</span></span><br><span class="line">--http-scgi-temp-path=/usr/local/nginx/scgi_temp <span class="string">\</span></span><br><span class="line">--user=www <span class="string">\</span></span><br><span class="line">--group=www <span class="string">\</span></span><br><span class="line">--<span class="keyword">with</span>-compat <span class="string">\</span></span><br><span class="line">--<span class="keyword">with</span>-file-aio <span class="string">\</span></span><br><span class="line">--<span class="keyword">with</span>-threads <span class="string">\</span></span><br><span class="line">--<span class="keyword">with</span>-http_addition_module <span class="string">\</span></span><br><span class="line">--<span class="keyword">with</span>-http_auth_request_module <span class="string">\</span></span><br><span class="line">--<span class="keyword">with</span>-http_dav_module <span class="string">\</span></span><br><span class="line">--<span class="keyword">with</span>-http_flv_module <span class="string">\</span></span><br><span class="line">--<span class="keyword">with</span>-http_gunzip_module <span class="string">\</span></span><br><span class="line">--<span class="keyword">with</span>-http_gzip_static_module <span class="string">\</span></span><br><span class="line">--<span class="keyword">with</span>-http_mp4_module <span class="string">\</span></span><br><span class="line">--<span class="keyword">with</span>-http_random_index_module <span class="string">\</span></span><br><span class="line">--<span class="keyword">with</span>-http_realip_module <span class="string">\</span></span><br><span class="line">--<span class="keyword">with</span>-http_secure_link_module <span class="string">\</span></span><br><span class="line">--<span class="keyword">with</span>-http_slice_module <span class="string">\</span></span><br><span class="line">--<span class="keyword">with</span>-http_ssl_module <span class="string">\</span></span><br><span class="line">--<span class="keyword">with</span>-http_stub_status_module <span class="string">\</span></span><br><span class="line">--<span class="keyword">with</span>-http_sub_module <span class="string">\</span></span><br><span class="line">--<span class="keyword">with</span>-http_v2_module <span class="string">\</span></span><br><span class="line">--<span class="keyword">with</span>-mail <span class="string">\</span></span><br><span class="line">--<span class="keyword">with</span>-mail_ssl_module <span class="string">\</span></span><br><span class="line">--<span class="keyword">with</span>-stream <span class="string">\</span></span><br><span class="line">--<span class="keyword">with</span>-stream_realip_module <span class="string">\</span></span><br><span class="line">--<span class="keyword">with</span>-stream_ssl_module <span class="string">\</span></span><br><span class="line">--<span class="keyword">with</span>-openssl=/usr/local/openssl <span class="string">\</span></span><br><span class="line">--<span class="keyword">with</span>-stream_ssl_preread_module</span><br></pre></td></tr></table></figure>
+<img src="/post/69813a0e/nginx-002.png" class title="nginx编译输出">
+
+
+<p>部分编译参数说明</p>
+<table>
+<tr>
+<th>参数选项</th>
+<th>基本解释</th>
+</tr>
+<tr>
+<td>–help</td>
+<td>打印帮助信息</td>
+</tr>
+<tr>
+<td>–prefix=PATH</td>
+<td>Nginx安装部署后的根目录 默认为/usr/local/nginx目录。注意：这个目标的设置会影响其他参数中的相对目录。例如，如果设置了–sbin-path=sbin/nginx，那么实际上可执行文件会被放到/usr/local/nginx/sbin/nginx中</td>
+</tr>
+<tr>
+<td>–sbin-path=PATH</td>
+<td>可执行文件的放置路径 &lt;prefix&gt;/sbin/nginx </td>
+</tr>
+<tr>
+<td>–conf-path=PATH</td>
+<td>配置文件的放置路径 &lt;prefix&gt;/conf/nginx.conf</td>
+</tr>
+<tr>
+<td>–error-log-path=PATH</td>
+<td>error日志文件的放置路径。error日志用于定位问题，可输出多种级别（包括debug调试级别）的日志。它的配置非常灵活，可以在nginx.conf里配置为不同请求的日志并输出到不同的log文件中。这里是默认的Nginx核心日志路径 &lt;prefix&gt;/logs/error.log</td>
+</tr>
+<tr>
+<td>–pid-path=PATH</td>
+<td>pid文件的存放路径。这个文件里仅以ASC II码存放着Nginx master的进程ID，有了这个进程ID，在使用命令行（例如nginx -s reload）通过读取master进程ID向master进程发送信号时，才能对运行中的Nginx服务产生作用 &lt;prefix&gt;/logs/nginx.pid</td>
+</tr>
+<tr>
+<td>–lock-path=PATH</td>
+<td>lock文件的放置路径 &lt;prefix&gt;/logs/nginx.lock</td>
+</tr>
+<tr>
+<td>–user=USER</td>
+<td>指定Nginx worker进程运行时所属的用户。注意：不要将启动worker进程的用户设为root，在worker进程出问题时master进程要具备停止/启动worker进程的能力</td>
+</tr>
+<tr>
+<td>–group=GROUP</td>
+<td>指定Nginx worker进程运行时所属的组</td>
+</tr>
+<tr>
+<td>–build=NAME</td>
+<td>configure执行时与编译期间产生的临时文件名称</td>
+</tr>
+<tr>
+<td>–builddir=DIR</td>
+<td>configure执行时与编译期间产生的临时文件放置的目录，包括产生的Makefile、C源文件、目标文件、可执行文件等 &lt;nginx source path&gt;/objs</td>
+</tr>
+<tr>
+<td>–with-rtsig_module</td>
+<td>使用rtsig module处理事件驱动 默认情况下，Nginx是不安装rtsig module的，即不会把rtsig module编译进最终的Nginx二进制程序中</td>
+</tr>
+<tr>
+<td>–with-select_module</td>
+<td>使用select module处理事件驱动 select是Linux提供的一种多路复用机制，在epoll调用没有诞生前，例如在Linux 2.4及其之前的内核中，select用于支持服务器提供高并发连接 默认情况下，Nginx是不安装select module的，但如果没有找到其他更好的事件模块，该模块将会被安装</td>
+</tr>
+<tr>
+<td>–without-select_module</td>
+<td>不安装select module</td>
+</tr>
+<tr>
+<td>–with-poll_module</td>
+<td>使用poll module处理事件驱动 poll的性能与select类似，在大量并发连接下性能都远不如epoll。默认情况下，Nginx是不安装poll</td>
+</tr>
+<tr>
+<td>–without-poll_module</td>
+<td>不安装poll module</td>
+</tr>
+<tr>
+<td>–with-file-aio</td>
+<td>使用AIO方式处理事件驱动 (IO异步大幅度提升性能，需要内核 2.6.22 以上的版本)</td>
+</tr>
+<tr>
+<td>–with-ipv6</td>
+<td>使Nginx支持IPv6</td>
+</tr>
+<tr>
+<td>–with-https_ssl_module</td>
+<td>安装https ssl module。该模块使Nginx支持SSL协议，提供HTTPS服务。 注意：该模块的安装依赖于OpenSSL开源软件，即首先应确保已经在之前的参数中配置了OpenSSL需要安装 OpenSSL library yum install openssl-devel | # apt-get install libssl-dev</td>
+</tr>
+<tr>
+<td>–with-https_spdy_module</td>
+<td>开启 ngx_https_spdy_module 模块。是Google开发的基于TCP的应用层协议，用以最小化网络延迟，提升网络速度，优化用户的网络使用体验。SPDY并不是一种用于替代HTTP的协议，而是对HTTP协议的增强</td>
+</tr>
+<tr>
+<td>–with-https_realip_module</td>
+<td>开启 ngx_https_realip_module 模块 。此模块支持显示真实来源IP地址，主要用于NGINX做前端负载均衡服务器使用。</td>
+</tr>
+<tr>
+<td>–with-https_addition_module</td>
+<td>开启 https addtion module。该模块可以在返回客户端的HTTP包体头部或者尾部增加内容。作为一个输出过滤器，支持不完全缓冲，分部分响应请求，游戏服务器不必安装，门户网站可以安装，有利于被搜索引擎收录页面信息。</td>
+</tr>
+<tr>
+<td>–with-https_xslt_module</td>
+<td>开启 ngx_https_xslt_module 模块 这个模块可以使XML格式的数据在发给客户端前加入XSL渲染，0.7.8后面版本才可以使用。</td>
+</tr>
+<tr>
+<td>–with-https_image_filter_module</td>
+<td>开启 ngx_https_image_filter_module 模块 。这个模块将符合配置的图片实时压缩为指定大小（width*height）的缩略图再发送给用户，目前支持JPEG、PNG、GIF格式。 注意：这个模块依赖于开源的libgd库，在安装前确保操作系统已经安装了libgd，是nginx提供的集成图片处理模块，支持nginx-0.7.54以后的版本，在网站访问量不是很高磁盘有限不想生成多余的图片文件的前提下可，就可以用它实时缩放图片，旋转图片，验证图片有效性以及获取图片宽高以及图片类型信息，由于是即时计算的结果，所以网站访问量大的话，不建议使用。</td>
+</tr>
+<tr>
+<td>–with-https_geoip_module</td>
+<td>开启 ngx_https_geoip_module 模块，这个模块基于客户端的IP地址创建一些ngx_https_geoip_module变量，并与MaxMindGeoIP文件进行匹配，该模块仅用于0.7.63和0.8.6版本之后。 需要安装 yum install geoip-devel | apt-get install geoip-bin geoip-database libgeoip-dev</td>
+</tr>
+<tr>
+<td>–with-https_sub_module</td>
+<td>开启 ngx_https_sub_module 。该模块可以在Nginx返回客户端的HTTP响应包中将指定的字符串替换为自己需要的字符串 例如，在HTML的返回中，将替换为<script language="”javascript”" src="”$script”"></script></td>
+</tr>
+<tr>
+<td>–with-https_dav_module</td>
+<td>开启 ngx_https_dav_module 模块。这个模块可以让Nginx支持Webdav标准，如支持Webdav协议中的PUT、DELETE、COPY、MOVE、MKCOL等请求 默认情况下为关闭，需编译开启,如果开启WebDAV扩展动作模块，（可为文件和目录指定权限）</td>
+</tr>
+<tr>
+<td>–with-https_flv_module</td>
+<td>开启 ngx_https_flv_module 模块 ，这个模块可以在向客户端返回响应时，对FLV格式的视频文件在header头做一些处理，使得客户端可以观看、拖动FLV视频</td>
+</tr>
+<tr>
+<td>–with-https_mp4_module</td>
+<td>开启 ngx_https_mp4_module 模块，该模块使客户端可以观看、拖动MP4视频</td>
+</tr>
+<tr>
+<td>–with-https_gunzip_module</td>
+<td>开启 ngx_https_gunzip_module 模块，是一个过滤器， 它为不支持“gzip”编码方法的客户端解压具有“Content-Encoding: gzip”头的响应。 当希望存储压缩后的数据以节省空间和减少I/O开销，又不希望对那些不支持gzip压缩的客户端造成不利影响时， 此模块会派上用途</td>
+</tr>
+<tr>
+<td>–with-https_gzip_static_module</td>
+<td>开启 ngx_https_gzip_static_module 模块 ，允许发送以“.gz”作为文件扩展名的预压缩文件，防止文件被重复压缩，以替代发送普通文件。如果采用gzip模块把一些文档进行gzip格式压缩后再返回给客户端，那么对同一个文件每次都会重新压缩，这是比较消耗服务器CPU资源的。</td>
+</tr>
+<tr>
+<td>–with-https_auth_request_module</td>
+<td>开启 ngx_https_auth_request_module 模块</td>
+</tr>
+<tr>
+<td>–with-https_random_index_module</td>
+<td>开启 ngx_https_random_index_module 模块 ，该模块在客户端访问某个目录时，随机返回该目录下的索引文件</td>
+</tr>
+<tr>
+<td>–with-https_secure_link_module</td>
+<td>开启 ngx_https_secure_link_module ，该模块提供一种验证请求是否有效的机制。例如，它会验证URL中需要加入的token参数是否属于特定客户端发来的，以及检查时间戳是否过期（计算和检查要求所需的安全链接网址（防盗链））</td>
+</tr>
+<tr>
+<td>–with-https_degradation_module</td>
+<td>开启 ngx_https_degradation_module 模块，该模块针对一些特殊的系统调用（如sbrk）做一些优化，允许在内存不足的情况下返回204或444码。</td>
+</tr>
+<tr>
+<td>–with-https_stub_status_module</td>
+<td>开启 ngx_https_stub_status_module 模块，该模块可以让运行中的Nginx提供性能统计页面，获取相关的并发连接、请求的信息</td>
+</tr>
+<tr>
+<td>–without-https_charset_module</td>
+<td>关闭 https charset module。这个模块可以将服务器发出的HTTP响应重编码</td>
+</tr>
+<tr>
+<td>–without-https_gzip_module</td>
+<td>关闭 ngx_https_gzip_module模块，在服务器发出的HTTP响应包中，这个模块可以按照配置文件指定的content-type对特定大小的HTTP响应包体执行gzip压缩</td>
+</tr>
+<tr>
+<td>–without-https_ssi_module</td>
+<td>关闭 ngx_https_ssi_module模块，该模块可以在向用户返回的HTTP响应包体中加入特定的内容，如HTML文件中固定的页头和页尾</td>
+</tr>
+<tr>
+<td>–without-https_userid_module</td>
+<td>关闭 ngx_https_userid_module模块，这个模块可以通过HTTP请求头部信息里的一些字段认证用户信息，以确定请求是否合法</td>
+</tr>
+<tr>
+<td>–without-https_access_module</td>
+<td>关闭 访问模块，这个模块可以根据IP地址限制能够访问服务器的客户端</td>
+</tr>
+<tr>
+<td>–without-https_auth_basic_module</td>
+<td>禁用基本的认证模块，这个模块可以提供最简单的用户名/密码认证</td>
+</tr>
+<tr>
+<td>–without-https_autoindex_module</td>
+<td>禁用自动索引模块，该模块提供简单的目录浏览功能</td>
+</tr>
+<tr>
+<td>–without-https_geo_module</td>
+<td>禁用Geo模块，这个模块可以定义一些变量，这些变量的值将与客户端IP地址关联，这样Nginx针对不同的地区的客户端（根据IP地址判断）返回不一样的结果，例如不同地区显示不同语言的网页</td>
+</tr>
+<tr>
+<td>–without-https_map_module</td>
+<td>禁用Map模块，这个模块可以建立一个key/value映射表，不同的key得到相应的value，这样可以针对不同的URL做特殊处理。例如，返回302重定向响应时，可以期望URL不同时返回的Location字段也不一样</td>
+</tr>
+<tr>
+<td>–without-https_split_clients_module</td>
+<td>切割客户端IP，该模块会根据客户端的信息，例如IP地址、header头、cookie等，来区分处理，nginx 的 Split Clients（切割客户端IP）的作用是使用 MurmurHash2 哈希算法对客户端的IP进行运算，得到一个32位的整数，这个数值范围从 0~4294967296，匹配不同的区间位置，得到不同的值赋予某个变量。最后根据这变量的不同，作不同的逻辑处理。</td>
+</tr>
+<tr>
+<td>–without-https_referer_module</td>
+<td>该模块可以根据请求中的referer字段来拒绝请求</td>
+</tr>
+<tr>
+<td>–without-https_rewrite_module</td>
+<td>禁用Rewrite模块，该模块提供HTTP请求在Nginx服务内部的重定向功能，依赖PCRE库</td>
+</tr>
+<tr>
+<td>–without-https_proxy_module</td>
+<td>禁用代理模块。该模块提供基本的HTTP反向代理功能</td>
+</tr>
+<tr>
+<td>–without-https_fastcgi_module</td>
+<td>禁用FastCGI模块。该模块提供FastCGI功能</td>
+</tr>
+<tr>
+<td>–without-https_uwsgi_module</td>
+<td>禁用uwsgi模块。该模块提供uWSGI功能</td>
+</tr>
+<tr>
+<td>–without-https_scgi_module</td>
+<td>禁用scqi模块。该模块提供SCGI功能</td>
+</tr>
+<tr>
+<td>–without-https_memcached_module</td>
+<td>禁用Memcached模块。该模块可以使得Nginx直接由上游的memcached服务读取数据，并简单地适配成HTTP响应返回给客户端</td>
+</tr>
+<tr>
+<td>–without-https_limit_conn_module</td>
+<td>禁用limit_conn_zone模块，该模块针对某个IP地址限制并发连接数。例如，使Nginx对一个IP地址仅允许一个连接。</td>
+</tr>
+<tr>
+<td>–without-https_limit_req_module</td>
+<td>禁用Limit Requests模块。该模块针对某个IP地址限制并发请求数</td>
+</tr>
+<tr>
+<td>–without-https_empty_gif_module</td>
+<td>禁用Empty Gif模块。该模块可以使得Nginx在收到无效请求时，立刻返回内存中的1×1像素的GIF图片。这种好处在于，对于明显的无效请求不会去试图浪费服务器资源</td>
+</tr>
+<tr>
+<td>–without-https_browser_module</td>
+<td>禁用Browser 模块。该模块会根据HTTP请求中的user-agent字段（该字段通常由浏览器填写）来识别浏览器</td>
+</tr>
+<tr>
+<td>–without-https_upstream_hash_module</td>
+<td>禁用Upstream模块。该模块用于配置负载均衡结构</td>
+</tr>
+<tr>
+<td>–without-https_upstream_ip_hash_module</td>
+<td>禁用Upstream模块 该模块提供当Nginx与后端server建立连接时，会根据IP做散列运算来决定与后端哪台server通信，这样可以实现负载均衡</td>
+</tr>
+<tr>
+<td>–without-https_upstream_least_conn_module</td>
+<td>禁用Upstream模块 中的 least 负载均衡算法</td>
+</tr>
+<tr>
+<td>–without-https_upstream_keepalive_module</td>
+<td>禁用Upstream模块 中的 keepalive 负载均衡算法</td>
+</tr>
+<tr>
+<td>–with-https_perl_module</td>
+<td>需要安装 perl # yum install perl-ExtUtils-Embed | # apt-get install libperl-dev</td>
+</tr>
+<tr>
+<td>–with-perl_modules_path=PATH</td>
+<td>perl module放置的路径。只有使用了第三方的perl module，才需要配置这个路径</td>
+</tr>
+<tr>
+<td>–with-perl=PATH</td>
+<td>perl binary放置的路径。如果配置的Nginx会执行Perl脚本，那么就必须要设置此路径</td>
+</tr>
+<tr>
+<td>–https-log-path=PATH</td>
+<td>access日志放置的位置。每个HTTP请求到结束时都会记录 &lt;prefix&gt;/logs/access.log</td>
+</tr>
+<tr>
+<td>–https-client-body-temp-path=PATH</td>
+<td> 处理HTTP请求时如果请求的包体需要暂时存放到临时磁盘文件中，则把这样的临时文件放置到该路径下 &lt;prefix&gt;/client_body_temp </td>
+</tr>
+<tr>
+<td>–https-proxy-temp-path=PATH</td>
+<td>Nginx作为HTTP反向代理服务器时，上游服务器产生的HTTP包体在需要临时存放到磁盘文件时，这样的临时文件将放到该路径下 &lt;prefix&gt;/proxy_temp </td>
+</tr>
+<tr>
+<td>–https-fastcgi-temp-path=PATH</td>
+<td>Fastcgi所使用临时文件的放置目录 &lt;prefix&gt;/fastcgi_temp</td>
+</tr>
+<tr>
+<td>–https-uwsgi-temp-path=PATH</td>
+<td>uWSGI所使用临时文件的放置目录 &lt;prefix&gt;/uwsgi_temp</td>
+</tr>
+<tr>
+<td>–https-scgi-temp-path=PATH</td>
+<td>SCGI所使用临时文件的放置目录 &lt;prefix&gt;/scgi_temp</td>
+</tr>
+<tr>
+<td>–without-https</td>
+<td>禁用HTTP服务</td>
+</tr>
+<tr>
+<td>–without-https-cache</td>
+<td>禁用HTTP 缓冲功能</td>
+</tr>
+<tr>
+<td>–with-mail</td>
+<td>开启邮件服务代理(mail server proxy)模块,支 持POP3, IMAP4和SMTP。该功能默认禁用</td>
+</tr>
+<tr>
+<td>–with-mail_ssl_module</td>
+<td>开启邮件代理服务对SSL的支持。该功能默认禁用</td>
+</tr>
+<tr>
+<td>–without-mail_pop3_module</td>
+<td>在邮件代理下禁用POP3功能。在开启邮件代理模块后该功能默认启用</td>
+</tr>
+<tr>
+<td>–without-mail_imap_module</td>
+<td>对邮件代理服务器禁用IMAP4模块，在开启邮件代理模块后该功能默认启用</td>
+</tr>
+<tr>
+<td>–without-mail_smtp_module</td>
+<td>对于邮件代理服务器禁用SMTP模块，在开启邮件代理模块后该功能默认启用</td>
+</tr>
+<tr>
+<td>–with-google_perftools_module</td>
+<td>Google的针对nginx性能调优的工具，需要安装：yum install gperftools gperftools-devel</td>
+</tr>
+<tr>
+<td>–with-cpp_test_module</td>
+<td>C预编译器测试模块</td>
+</tr>
+<tr>
+<td>–add-module=PATH</td>
+<td>当在Nginx里加入第三方模块时，通过这个参数指定第三方模块的路径</td>
+</tr>
+<tr>
+<td>–with-cc=PATH</td>
+<td>C编译器的路径</td>
+</tr>
+<tr>
+<td>–with-cpp=PATH</td>
+<td>C预编译器的路径</td>
+</tr>
+<tr>
+<td>–with-cc-opt=OPTIONS</td>
+<td>如果希望在Nginx编译期间指定加入一些编译选项，如指定宏或者使用-I加入某些需要包含的目录，这时可以使用该参数达成目的</td>
+</tr>
+<tr>
+<td>–with-ld-opt=OPTIONS</td>
+<td>最终的二进制可执行文件是由编译后生成的目标文件与一些第三方库链接生成的，在执行链接操作时可能会需要指定链接参数，–with-ld-opt就是用于加入链接时的参数。例如，如果我们希望将某个库链接到Nginx程序中，需要在这里加入–with-ld-opt=-llibraryName -LlibraryPath，其中libraryName是目标库的名称，libraryPath则是目标库所在的路径</td>
+</tr>
+<tr>
+<td>–with-cpu-opt=CPU</td>
+<td>指定CPU处理器架构，只能从以下取值中选择：pentium、pentiumpro、pentium3、pentium4、athlon、opteron、sparc32、sparc64、ppc64</td>
+</tr>
+<tr>
+<td>–without-pcre</td>
+<td>如果确认Nginx不用解析正则表达式，也就是说，nginx.conf配置文件中不会出现正则表达式，那么可以使用这个参数</td>
+</tr>
+<tr>
+<td>–with-pcre</td>
+<td>强制使用PCRE库</td>
+</tr>
+<tr>
+<td>–with-pcre=DIR</td>
+<td>指定PCRE库的源码位置，在编译Nginx时会进入该目录编译PCRE源码</td>
+</tr>
+<tr>
+<td>–with-pcre-opt=OPTIONS</td>
+<td>编译PCRE源码时希望加入的编译选项</td>
+</tr>
+<tr>
+<td>–with-pcre-jit</td>
+<td>编译PCRE库支持及时编译</td>
+</tr>
+<tr>
+<td>–with-md5=DIR</td>
+<td>指定SHA1库的源码位置，在编译Nginx时会进入该目录编译SHA1源码。 注意：OpenSSL中已经有了SHA1算法的实现。如果已经安装了OpenSSL，那么完全可以使用OpenSSL实现的SHA1算法</td>
+</tr>
+<tr>
+<td>–with-md5-opt=OPTIONS</td>
+<td>编译MD5源码时希望加入的编译选项</td>
+</tr>
+<tr>
+<td>–with-md5-asm</td>
+<td>使用MD5的汇编源码</td>
+</tr>
+<tr>
+<td>–with-sha1=DIR</td>
+<td>指定SHA1库的源码位置，在编译Nginx时会进入该目录编译SHA1源码。 注意：OpenSSL中已经有了SHA1算法的实现。如果已经安装了OpenSSL，那么完全可以使用OpenSSL实现的SHA1算法</td>
+</tr>
+<tr>
+<td>–with-sha1-opt=OPTIONS</td>
+<td>编译SHA1源码时希望加入的编译选项</td>
+</tr>
+<tr>
+<td>–with-sha1-asm</td>
+<td>使用SHA1的汇编源码</td>
+</tr>
+<tr>
+<td>–with-zlib=DIR</td>
+<td>指定zlib库的源码位置，在编译Nginx时会进入该目录编译zlib源码。如果使用了gzip压缩功能，就需要zlib库的支持</td>
+</tr>
+<tr>
+<td>–with-zlib-opt=OPTIONS</td>
+<td>编译zlib源码时希望加入的编译选项</td>
+</tr>
+<tr>
+<td>–with-zlib-asm=CPU</td>
+<td>指定对特定的CPU使用zlib库的汇编优化功能，目前仅支持两种架构：pentium和pentiumpro</td>
+</tr>
+<tr>
+<td>–with-libatomic</td>
+<td>强制使用atomic库。atomic库是CPU架构独立的一种原子操作的实现。它支持以下体系架构：x86（包括i386和x86_64）、PPC64、Sparc64（v9或更高版本）或者安装了GCC 4.1.0及更高版本的架构。</td>
+</tr>
+<tr>
+<td>–with-libatomic=DIR</td>
+<td>atomic库所在的位置</td>
+</tr>
+<tr>
+<td>–with-openssl=DIR</td>
+<td>指定OpenSSL库的源码位置，在编译Nginx时会进入该目录编译OpenSSL源码。注意：如果Web服务器支持HTTPS，也就是SSL协议，Nginx要求必须使用OpenSSL。</td>
+</tr>
+<tr>
+<td>–with-openssl-opt=OPTIONS</td>
+<td>编译OpenSSL源码时希望加入的编译选项</td>
+</tr>
+<tr>
+<td>–with-debug</td>
+<td>将Nginx需要打印debug调试级别日志的代码编译进Nginx。这样可以在Nginx运行时通过修改配置文件来使其打印调试日志，这对于研究、定位Nginx问题非常有帮助</td>
+</tr>
+
+</table>
+
+<h4 id="编译安装nginx"><a href="#编译安装nginx" class="headerlink" title="编译安装nginx"></a>编译安装nginx</h4><p>这里和redis的编译安装比较类似，首先在当前目录（/usr/local/nginx-1.19.2）进行编译。输入make即可</p>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">make</span></span><br></pre></td></tr></table></figure>
+<p>编译成功之后，就可以安装了，输入以下指令：</p>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make <span class="keyword">install</span></span><br></pre></td></tr></table></figure>
+<p>ok，安装成功。</p>
+<blockquote>
+<p> make &amp;&amp; make install</p>
+</blockquote>
+<h3 id="设置开机启动"><a href="#设置开机启动" class="headerlink" title="设置开机启动"></a>设置开机启动</h3><p>设置nginx开机启动，只需在rc.local增加启动代码即可。</p>
+<p><code>vim /etc/rc.local</code></p>
+<p>然后在底部增加<code>/usr/local/nginx/sbin/nginx</code></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+<div>
+    
+
+    <div style="height: 1px;margin-top: 60px;text-align: center;border-top: 1px solid #e2e2e2;">
+      <span style="position: relative;top:-18px;background: #fff;display: inline-block;color: #ccc;font-size:14px;">本文结束---<i class="fa fa-paw magic-color"></i>---感谢您的阅读</span>
+    </div>
+
+    <div style="margin-top: 30px;">
+      <img id="wechat_subscriber_qcode" src="/images/leeze_ava_4.png" alt="leeze wechat" style="width: 200px; max-width: 100%;">
+    </div>
+
+    <p id="hitokoto" style="text-align:center;margin-top: 30px;font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, STKaiti, KaiTi, SimKai, DFKai-SB, 'Lato', 'PingFang SC', 'Microsoft YaHei', sans-serif;font-weight: bold;color: #999;">
+     正在加载一言...
+    </p>
+
+    <hr>
+
+    <div style="margin-top: 30px;">
+      <img id="wechat_subscriber_qcode" src="/images/reward-container-back.png" alt="leeze wechat" style="max-width: 100%;">
+    </div>
+
+    
+</div>
+
+
+          <div class="reward-container">
+  <div></div>
+  <button onclick="document.querySelector('.post-reward').classList.toggle('active');">
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt=" 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.png" alt=" 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>原作者： </strong>leeze
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://blog.xiaosige.com/post/69813a0e.html" title="Linux安装Nginx--两种方式">https://blog.xiaosige.com/post/69813a0e.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/Nginx/" rel="tag"><i class="fa fa-tag"></i> Nginx</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/post/4370af2f.html" rel="prev" title="Linux安装Git-两种方式详细教程">
+                  <i class="fa fa-chevron-left"></i> Linux安装Git-两种方式详细教程
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/post/a81ceb57.html" rel="next" title="Linux下Nginx的配置">
+                  Linux下Nginx的配置 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+  
+  
+  
+
+
+
+      
+    
+  <div class="comments">
+    <div id="lv-container" data-id="city" data-uid="MTAyMC80NjMzMy8yMjg0NA=="></div>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      
+
+      
+
+<div class="copyright">
+  
+  &copy; 2019 – 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">小四哥</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">112k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">1:42</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+<div style="text-align:center;">
+    本网站由
+    <a target="_blank" rel="nofollow noopener" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral" style="border-bottom:none;">
+        <img src="/images/ypy_logo.png" style="display:inline-block;margin-bottom:-7px;height: 25px;">
+    </a>
+    提供CDN加速/云存储服务
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script size="300" alpha="0.6" zIndex="-1" src="//cdn.jsdelivr.net/gh/theme-next/theme-next-canvas-ribbon@1/canvas-ribbon.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+  <script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+<script>
+document.querySelectorAll('.pdfobject-container').forEach(element => {
+  const url = element.dataset.target;
+  const pdfOpenParams = {
+    navpanes : 0,
+    toolbar  : 0,
+    statusbar: 0,
+    pagemode : 'thumbs',
+    view     : 'FitH'
+  };
+  const pdfOpenFragment = '#' + Object.entries(pdfOpenParams).map(([key, value]) => `${key}=${encodeURIComponent(value)}`).join('&');
+  const fullURL = `/lib/pdf/web/viewer.html?file=${encodeURIComponent(url)}${pdfOpenFragment}`;
+
+  if (NexT.utils.supportsPDFs()) {
+    element.innerHTML = `<embed class="pdfobject" src="${url + pdfOpenFragment}" type="application/pdf" style="height: ${element.dataset.height};">`;
+  } else {
+    element.innerHTML = `<iframe src="${fullURL}" style="height: ${element.dataset.height};" frameborder="0"></iframe>`;
+  }
+});
+</script>
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+
+
+
+  
+
+  
+
+<script>
+NexT.utils.loadComments('#lv-container', () => {
+  window.livereOptions = {
+    refer: "post/69813a0e.html"
+  };
+  (function(d, s) {
+    var j, e = d.getElementsByTagName(s)[0];
+    if (typeof LivereTower === 'function') { return; }
+    j = d.createElement(s);
+    j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+    j.async = true;
+    e.parentNode.insertBefore(j, e);
+  })(document, 'script');
+});
+</script>
+
+
+
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+  <meting-js server="netease" type="playlist" id="571183770" fixed="true" autoplay="false" order="random" lrc-type=1  theme="#eb7aab"></meting-js>
+  <!-- 樱花特效 -->
+  <!-- 下雪 -->
+  <!-- leeze -->
+  <script type="text/javascript">
+  WIDGET = {FID: 'XUy3fu0v0v'}
+  </script>
+  <script type="text/javascript" src="https://apip.weatherdt.com/float/static/js/r.js?v=1111"></script>
+  <script>
+  function magicColor(mode,t){
+      t=t||10;
+      let elem=document.getElementsByClassName("magic-color");
+      if(!elem){
+          setTimeout(function(){
+              magicColor(mode,t-1);
+          },400);
+          return;
+      }
+      if(window.mcHandler==undefined){
+          window.mcHandler={elements:[]};
+          window.mcHandler.colorIndex=0;
+          window.mcHandler.run=function(mode){
+              let color=mode=="random"?("rgb("+Math.floor(Math.random()*256)+","+Math.floor(Math.random()*256)+","+Math.floor(Math.random()*256)+",1)"):["#CC0000","#9999CC","#CC3366","#669999","#FFCC00","#00CCCC","#CC00CC"][(window.mcHandler.colorIndex++)%7];
+              for(var i=0,L=window.mcHandler.elements.length;i<L;i++)window.mcHandler.elements[i].style.color=color;
+          }
+      }
+      window.mcHandler.elements=elem;
+      if(window.mcHandler.timer==undefined){
+          window.mcHandler.timer=setInterval(()=>{window.mcHandler.run(mode)},500);
+      }
+  }
+  magicColor("random");//random为随机颜色，否则为固定颜色随机；上方“闪烁（变色）”字样为固定颜色随机
+  </script>
+  <!-- 一言API -->
+  <!-- 现代写法，推荐 -->
+  <!-- 兼容低版本浏览器 (包括 IE)，可移除 -->
+  <script src="https://cdn.jsdelivr.net/npm/bluebird@3/js/browser/bluebird.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/whatwg-fetch@2.0.3/fetch.min.js"></script>
+  <!--End-->
+  <script>
+    fetch('https://v1.hitokoto.cn')
+      .then(function (res){
+        return res.json();
+      })
+      .then(function (data) {
+        var hitokoto = document.getElementById('hitokoto');
+        if(hitokoto){
+          hitokoto.innerHTML = "<i class='fa fa-volume-up' style='margin-right:6px;'></i>" + data.hitokoto + '——【' + data.from + '】';
+        }
+      })
+      .catch(function (err) {
+        console.error(err);
+      })
+  </script>
+
+
+</body>
+</html>

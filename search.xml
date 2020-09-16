@@ -224,6 +224,712 @@
       </tags>
   </entry>
   <entry>
+    <title>Linux下Nginx的配置</title>
+    <url>/post/a81ceb57.html</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="配置文件语法"><a href="#配置文件语法" class="headerlink" title="配置文件语法"></a>配置文件语法</h3><p>&emsp;&emsp;nginx是模块化的系统，整个系统是分成一个个模块的。每个模块负责不同的功能。如果不用某个模块的话，也可以去掉，可以让nginx更加轻量化。</p>
+<a id="more"></a>
+
+<p>&emsp;&emsp;要用的模块已经被编译进nginx了，成为nginx的一部分了，那要怎么用这些模块呢？那就得通过配置文件，这跟传统的linux服务差不多，都是通过配置文件来改变功能。nginx的模块是通过一个叫指令(directive)的东西来用的。整个配置文件都是由指令来控制的。nginx也有自己内置的指令，比如events, http, server, 和 location等，下面会进行详细解释。</p>
+<p>&emsp;&emsp;如果是包管理方式安装的，配置文件默认在<code>/etc/nginx/nginx.conf</code>；如果是源码安装的，配置文件则在<code>configure</code>的时候指定的<code>--conf-path</code>下。</p>
+<p>&emsp;&emsp;nginx的配置文件分为两类。一类是主配置文件，用来设定nginx的基本和通用配置。域名的配置文件放在指定的目录下，避免主配置文件逻辑过于复杂，也方便对域名的配置文件进行管理。</p>
+<h3 id="配置文件变量详解"><a href="#配置文件变量详解" class="headerlink" title="配置文件变量详解"></a>配置文件变量详解</h3><table>
+<tr>
+<th>变量</th>
+<th>解释</th>
+</tr>
+<tr>
+<td>$remote_addr</td>
+<td>获取客户端ip</td>
+</tr>
+<tr>
+<td>$binary_remote_addr</td>
+<td>客户端ip（二进制)</td>
+</tr>
+<tr>
+<td>$remote_port</td>
+<td>客户端port，如：50472</td>
+</tr>
+<tr>
+<td>$remote_user</td>
+<td>已经经过Auth Basic Module验证的用户名</td>
+</tr>
+<tr>
+<td>$host</td>
+<td>请求主机头字段，否则为服务器名称，如:blog.xiaosige.com</td>
+</tr>
+<tr>
+<td>$request</td>
+<td>用户请求信息，如：GET ?a=1&b=2 HTTP/1.1</td>
+</tr>
+<tr>
+<td>$request_filename</td>
+<td>当前请求的文件的路径名，由root或alias和URI request组合而成，如：/2013/81.html</td>
+</tr>
+<tr>
+<td>$status</td>
+<td>请求的响应状态码,如:200</td>
+</tr>
+<tr>
+<td>$body_bytes_sent</td>
+<td>响应时送出的body字节数数量。即使连接中断，这个数据也是精确的,如：40</td>
+</tr>
+<tr>
+<td>$content_length</td>
+<td>等于请求行的“Content_Length”的值</td>
+</tr>
+<tr>
+<td>$content_type</td>
+<td>等于请求行的“Content_Type”的值</td>
+</tr>
+<tr>
+<td>$http_referer</td>
+<td>引用地址</td>
+</tr>
+<tr>
+<td>$http_user_agent</td>
+<td>客户端agent信息,如：Mozilla/5.0 (Windows NT 5.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/29.0.1547.76 Safari/537.36</td>
+</tr>
+<tr>
+<td>$args</td>
+<td>与$query_string相同 等于当中URL的参数(GET)，如a=1&b=2</td>
+</tr>
+<tr>
+<td>$document_uri</td>
+<td>与uri相同 这个变量指当前的请求URI，不包括任何参数(见args) 如:/2013/81.html</td>
+</tr>
+<tr>
+<td>$document_root</td>
+<td>针对当前请求的根路径设置值</td>
+</tr>
+<tr>
+<td>$hostname</td>
+<td>如：centos53.localdomain</td>
+</tr>
+<tr>
+<td>$http_cookie</td>
+<td>客户端cookie信息</td>
+</tr>
+<tr>
+<td>$cookie_COOKIE</td>
+<td>cookie COOKIE变量的值</td>
+</tr>
+<tr>
+<td>$is_args</td>
+<td>如果有$args参数，这个变量等于”?”，否则等于”"，空值，如?</td>
+</tr>
+<tr>
+<td>$limit_rate</td>
+<td>这个变量可以限制连接速率，0表示不限速</td>
+</tr>
+<tr>
+<td>$query_string</td>
+<td>与$args相同 等于当中URL的参数(GET)，如a=1&b=2</td>
+</tr>
+<tr>
+<td>$request_body</td>
+<td>记录POST过来的数据信息</td>
+</tr>
+<tr>
+<td>$request_body_file</td>
+<td>客户端请求主体信息的临时文件名</td>
+</tr>
+<tr>
+<td>$request_method</td>
+<td>客户端请求的动作，通常为GET或POST,如：GET</td>
+</tr>
+<tr>
+<td>$request_uri</td>
+<td>包含请求参数的原始URI，不包含主机名，如：/2013/81.html?a=1&b=2</td>
+</tr>
+<tr>
+<td>$scheme</td>
+<td>HTTP方法（如http，https）,如：http</td>
+</tr>
+<tr>
+<td>$uri</td>
+<td>这个变量指当前的请求URI，不包括任何参数(见$args) 如:/2013/81.html</td>
+</tr>
+<tr>
+<td>$request_completion</td>
+<td>如果请求结束，设置为OK. 当请求未结束或如果该请求不是请求链串的最后一个时，为空(Empty)，如：OK</td>
+</tr>
+<tr>
+<td>$server_protocol</td>
+<td>请求使用的协议，通常是HTTP/1.0或HTTP/1.1，如：HTTP/1.1</td>
+</tr>
+<tr>
+<td>$server_addr</td>
+<td>服务器IP地址，在完成一次系统调用后可以确定这个值</td>
+</tr>
+<tr>
+<td>$server_name</td>
+<td>服务器名称，如：blog.xiaosige.com</td>
+</tr>
+<tr>
+<td>$server_port</td>
+<td>请求到达服务器的端口号,如：80</td>
+</tr>
+</table>
+
+<h3 id="主配置文件总览"><a href="#主配置文件总览" class="headerlink" title="主配置文件总览"></a>主配置文件总览</h3><figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="comment">#定义运行nginx的用户</span></span><br><span class="line"><span class="attr">user</span> <span class="string">nobody;</span></span><br><span class="line"><span class="comment">#启动进程,通常设置成和cpu的数量相等</span></span><br><span class="line"><span class="attr">worker_processes</span>  <span class="string">1;</span></span><br><span class="line"> </span><br><span class="line"><span class="comment">#全局错误日志及PID文件</span></span><br><span class="line"><span class="comment">#日志的级别debug info notice warn error crit alert emerg 递增--&gt;</span></span><br><span class="line"><span class="comment">#error_log  logs/error.log;</span></span><br><span class="line"><span class="comment">#error_log  logs/error.log  notice;</span></span><br><span class="line"><span class="comment">#error_log  logs/error.log  info;</span></span><br><span class="line"> </span><br><span class="line"><span class="comment">#pid        logs/nginx.pid;</span></span><br><span class="line"> </span><br><span class="line"><span class="comment">#工作模式及连接数上限</span></span><br><span class="line"><span class="attr">events</span> <span class="string">&#123;</span></span><br><span class="line"><span class="comment">    #epoll是多路复用IO(I/O Multiplexing)中的一种方式,</span></span><br><span class="line"><span class="comment">    #仅用于linux2.6以上内核,可以大大提高nginx的性能</span></span><br><span class="line">    <span class="attr">use</span>   <span class="string">epoll; </span></span><br><span class="line"> </span><br><span class="line"><span class="comment">    #单个后台worker process进程的最大并发链接数    </span></span><br><span class="line">    <span class="attr">worker_connections</span>  <span class="string">1024;</span></span><br><span class="line"> </span><br><span class="line"><span class="comment">    # 并发总数是 worker_processes 和 worker_connections 的乘积</span></span><br><span class="line"><span class="comment">    # 即 max_clients = worker_processes * worker_connections</span></span><br><span class="line"><span class="comment">    # 在设置了反向代理的情况下，max_clients = worker_processes * worker_connections / 4  为什么</span></span><br><span class="line"><span class="comment">    # 为什么上面反向代理要除以4，应该说是一个经验值</span></span><br><span class="line"><span class="comment">    # 根据以上条件，正常情况下的Nginx Server可以应付的最大连接数为：4 * 8000 = 32000</span></span><br><span class="line"><span class="comment">    # worker_connections 值的设置跟物理内存大小有关</span></span><br><span class="line"><span class="comment">    # 因为并发受IO约束，max_clients的值须小于系统可以打开的最大文件数</span></span><br><span class="line"><span class="comment">    # 而系统可以打开的最大文件数和内存大小成正比，一般1GB内存的机器上可以打开的文件数大约是10万左右</span></span><br><span class="line"><span class="comment">    # 我们来看看360M内存的VPS可以打开的文件句柄数是多少：</span></span><br><span class="line"><span class="comment">    # $ cat /proc/sys/fs/file-max</span></span><br><span class="line"><span class="comment">    # 输出 34336</span></span><br><span class="line"><span class="comment">    # 32000 &lt; 34336，即并发连接总数小于系统可以打开的文件句柄总数，这样就在操作系统可以承受的范围之内</span></span><br><span class="line"><span class="comment">    # 所以，worker_connections 的值需根据 worker_processes 进程数目和系统可以打开的最大文件总数进行适当地进行设置</span></span><br><span class="line"><span class="comment">    # 使得并发总数小于操作系统可以打开的最大文件数目</span></span><br><span class="line"><span class="comment">    # 其实质也就是根据主机的物理CPU和内存进行配置</span></span><br><span class="line"><span class="comment">    # 当然，理论上的并发总数可能会和实际有所偏差，因为主机还有其他的工作进程需要消耗系统资源。</span></span><br><span class="line"><span class="comment">    # ulimit -SHn 65535</span></span><br><span class="line"> </span><br><span class="line"><span class="attr">&#125;</span></span><br><span class="line"> </span><br><span class="line"><span class="comment">#负责HTTP服务器相关属性的配置 </span></span><br><span class="line"><span class="attr">http</span> <span class="string">&#123;</span></span><br><span class="line"><span class="comment">    #设定mime类型,类型由mime.type文件定义</span></span><br><span class="line">    <span class="attr">include</span>    <span class="string">mime.types;</span></span><br><span class="line">    <span class="attr">default_type</span>  <span class="string">application/octet-stream;</span></span><br><span class="line"><span class="comment">    #设定日志格式</span></span><br><span class="line">    <span class="attr">(默认格式)</span></span><br><span class="line">    <span class="attr">log_format</span>  <span class="string">main  &#x27;$remote_addr - $remote_user [$time_local] &quot;$request&quot; &#x27;</span></span><br><span class="line">                      <span class="meta">&#x27;$status</span> <span class="string">$body_bytes_sent &quot;$http_referer&quot; &#x27;</span></span><br><span class="line">                      <span class="meta">&#x27;&quot;$http_user_agent&quot;</span> <span class="string">&quot;$http_x_forwarded_for&quot;&#x27;;</span></span><br><span class="line"> </span><br><span class="line">    <span class="attr">access_log</span>  <span class="string">logs/access.log  main;</span></span><br><span class="line"> </span><br><span class="line"><span class="comment">    #sendfile 指令指定 nginx 是否调用 sendfile 函数（zero copy 方式）来输出文件，</span></span><br><span class="line"><span class="comment">    #对于普通应用，必须设为 on,</span></span><br><span class="line"><span class="comment">    #如果用来进行下载等应用磁盘IO重负载应用，可设置为 off，</span></span><br><span class="line"><span class="comment">    #以平衡磁盘与网络I/O处理速度，降低系统的uptime.</span></span><br><span class="line">    <span class="attr">sendfile</span>     <span class="string">on;</span></span><br><span class="line"><span class="comment">    #tcp_nopush     on;</span></span><br><span class="line"> </span><br><span class="line"><span class="comment">    #连接超时时间</span></span><br><span class="line"><span class="comment">    #keepalive_timeout  0;</span></span><br><span class="line">    <span class="attr">keepalive_timeout</span>  <span class="string">65;</span></span><br><span class="line">    <span class="attr">tcp_nodelay</span>     <span class="string">on;</span></span><br><span class="line"><span class="comment">    #包含/etc/nginx/sites-enabled下的所有以.conf结尾的配置文件</span></span><br><span class="line">    <span class="attr">include</span> <span class="string">/etc/nginx/sites-enabled/*.conf;</span></span><br><span class="line"><span class="comment">    #包含/etc/nginx/conf.d下的所有配置文件</span></span><br><span class="line">    <span class="attr">include</span> <span class="string">/etc/nginx/conf.d/*;</span></span><br><span class="line"><span class="comment">    #开启gzip压缩</span></span><br><span class="line">    <span class="attr">gzip</span>  <span class="string">on;</span></span><br><span class="line">    <span class="attr">gzip_disable</span> <span class="string">&quot;MSIE [1-6].&quot;;</span></span><br><span class="line"> </span><br><span class="line"><span class="comment">    #设定请求缓冲</span></span><br><span class="line">    <span class="attr">client_header_buffer_size</span>    <span class="string">128k;</span></span><br><span class="line">    <span class="attr">large_client_header_buffers</span>  <span class="string">4 128k;</span></span><br><span class="line"> </span><br><span class="line"><span class="comment">    #负载均衡模块 weight(权重)模式  默认模式</span></span><br><span class="line">    <span class="attr">upstream</span> <span class="string">project1&#123;</span></span><br><span class="line"><span class="comment">        #按权重将请求代理至指定服务的指定端口，weight数值越大接受的请求越多</span></span><br><span class="line">        <span class="attr">server</span> <span class="string">www.do90.cn:82 weight=2;</span></span><br><span class="line">        <span class="attr">server</span> <span class="string">www.do90.com:83 weight=1;</span></span><br><span class="line">        <span class="attr">server</span> <span class="string">blog.do90.cn:84 weight=5;</span></span><br><span class="line">    <span class="attr">&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">    #负载均衡模块 ip_hash模式</span></span><br><span class="line">    <span class="attr">upstream</span> <span class="string">project2&#123;</span></span><br><span class="line"><span class="comment">        #按照ip的hash结果分配服务器，该ip会固定访问同一个后端服务器，可以解决动态网页存在的session共享问题</span></span><br><span class="line">        <span class="attr">ip_hash；</span></span><br><span class="line">        <span class="attr">server</span> <span class="string">www.do90.cn:port1 ;</span></span><br><span class="line"><span class="comment">        # 当前服务暂时不参加负载均衡</span></span><br><span class="line">        <span class="attr">server</span> <span class="string">www.do90.com:port1 down;</span></span><br><span class="line"><span class="comment">        # 作为预留备份机器，当其它机器都忙或者故障的时候才会启用</span></span><br><span class="line">        <span class="attr">server</span> <span class="string">blog.do90.cn:port1 backup;</span></span><br><span class="line"><span class="comment">        # 可定义最大失败次数和失败时间</span></span><br><span class="line">        <span class="attr">server</span> <span class="string">www.do90.cn:port1 max_fails=3  fail_timeout=20s;       </span></span><br><span class="line">    <span class="attr">&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">    #负载均衡模块 fair模式  需要安装upstream_fair模块</span></span><br><span class="line">    <span class="attr">upstream</span> <span class="string">project3&#123;</span></span><br><span class="line">        <span class="attr">fair;</span></span><br><span class="line">        <span class="attr">server</span> <span class="string">www.do90.cn:8080;</span></span><br><span class="line">        <span class="attr">server</span> <span class="string">www.do90.com:8082;</span></span><br><span class="line">    <span class="attr">&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">    #负载均衡模块 url_hash模式  需要安装url_hash模块</span></span><br><span class="line">    <span class="attr">upstream</span> <span class="string">project4&#123;</span></span><br><span class="line">        <span class="attr">server</span> <span class="string">10.0.0.10:7777;</span></span><br><span class="line">        <span class="attr">server</span> <span class="string">10.0.0.11:8888;</span></span><br><span class="line">        <span class="attr">hash</span> <span class="string">$request_uri;</span></span><br><span class="line">        <span class="attr">hash_method</span> <span class="string">crc32;</span></span><br><span class="line">    <span class="attr">&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">    #设定虚拟主机配置</span></span><br><span class="line">    <span class="attr">server</span> <span class="string">&#123;</span></span><br><span class="line"><span class="comment">        #侦听80端口</span></span><br><span class="line">        <span class="attr">listen</span>    <span class="string">80;</span></span><br><span class="line"><span class="comment">        #定义使用 www.do90.cn访问</span></span><br><span class="line">        <span class="attr">server_name</span>  <span class="string">www.do90.cn;</span></span><br><span class="line"> </span><br><span class="line"><span class="comment">        #定义服务器的默认网站根目录位置</span></span><br><span class="line">        <span class="attr">root</span> <span class="string">html;</span></span><br><span class="line"> </span><br><span class="line"><span class="comment">        #设定本虚拟主机的访问日志</span></span><br><span class="line">        <span class="attr">access_log</span>  <span class="string">logs/nginx.access.log  main;</span></span><br><span class="line"> </span><br><span class="line"><span class="comment">        #默认请求</span></span><br><span class="line">        <span class="attr">location</span> <span class="string">/ &#123;</span></span><br><span class="line">            </span><br><span class="line"><span class="comment">            #定义首页索引文件的名称</span></span><br><span class="line">            <span class="attr">index</span> <span class="string">index.php index.html index.htm;   </span></span><br><span class="line"> </span><br><span class="line">        <span class="attr">&#125;</span></span><br><span class="line"> </span><br><span class="line"><span class="comment">        # 定义错误提示页面</span></span><br><span class="line">        <span class="attr">error_page</span>   <span class="string">500 502 503 504 /50x.html;</span></span><br><span class="line">        <span class="attr">location</span> = <span class="string">/50x.html &#123;</span></span><br><span class="line">        <span class="attr">&#125;</span></span><br><span class="line"> </span><br><span class="line"><span class="comment">        #静态文件，nginx自己处理</span></span><br><span class="line">        <span class="attr">location</span> <span class="string">~ ^/(images|javascript|js|css|flash|media|static)/ &#123;</span></span><br><span class="line">            </span><br><span class="line"><span class="comment">            #过期30天，静态文件不怎么更新，过期可以设大一点，</span></span><br><span class="line"><span class="comment">            #如果频繁更新，则可以设置得小一点。</span></span><br><span class="line">            <span class="attr">expires</span> <span class="string">30d;</span></span><br><span class="line">        <span class="attr">&#125;</span></span><br><span class="line"> </span><br><span class="line"><span class="comment">        #PHP 脚本请求全部转发到 FastCGI处理. 使用FastCGI默认配置.</span></span><br><span class="line">        <span class="attr">location</span> <span class="string">~ .php$ &#123;</span></span><br><span class="line">            <span class="attr">fastcgi_pass</span> <span class="string">127.0.0.1:9000;</span></span><br><span class="line">            <span class="attr">fastcgi_index</span> <span class="string">index.php;</span></span><br><span class="line">            <span class="attr">fastcgi_param</span>  <span class="string">SCRIPT_FILENAME  $document_root$fastcgi_script_name;</span></span><br><span class="line">            <span class="attr">include</span> <span class="string">fastcgi_params;</span></span><br><span class="line">        <span class="attr">&#125;</span></span><br><span class="line"> </span><br><span class="line"><span class="comment">        #禁止访问 .htxxx 文件</span></span><br><span class="line">            <span class="attr">location</span> <span class="string">~ /.ht &#123;</span></span><br><span class="line">            <span class="attr">deny</span> <span class="string">all;</span></span><br><span class="line">        <span class="attr">&#125;</span></span><br><span class="line"> </span><br><span class="line">    <span class="attr">&#125;</span></span><br><span class="line"><span class="attr">&#125;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="域名配置文件"><a href="#域名配置文件" class="headerlink" title="域名配置文件"></a>域名配置文件</h3><p>&emsp;&emsp;在主配置文件中会有include参数，include /etc/nginx/sites-enabled/*.conf;这个文件夹中的所有以.conf结尾的，都会被nginx作为配置文件。下方有几个例子。</p>
+<ol>
+<li><p>正常html访问</p>
+<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">server</span><br><span class="line">    &#123;</span><br><span class="line">            listen    <span class="number">80</span>;</span><br><span class="line">            server_name  example.com;</span><br><span class="line">              index   index.html;</span><br><span class="line">              root  <span class="regexp">/var/</span>www;</span><br><span class="line">          access_log <span class="regexp">/var/</span>log<span class="regexp">/nginx/</span>jdnn_access.log combined;</span><br><span class="line">          error_log <span class="regexp">/var/</span>log<span class="regexp">/nginx/</span>jdnn_error.log warn;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>配置php请求转发</p>
+<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">    listen <span class="number">80</span>;</span><br><span class="line">    server_name m.example.com;</span><br><span class="line">    root <span class="regexp">/var/</span>www/;</span><br><span class="line">    index index.html index.php;</span><br><span class="line">    <span class="keyword">if</span> (!-e <span class="variable">$request_filename</span>) &#123;</span><br><span class="line">        rewrite ^<span class="regexp">/(.*)  /i</span>ndex.php/<span class="variable">$1</span> last;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    location ~ ^(.+\.php)(.*)$</span><br><span class="line">    &#123;</span><br><span class="line">                fastcgi_pass  unix:<span class="regexp">/var/</span>run/php5-fpm.sock;</span><br><span class="line">                fastcgi_index index.php;</span><br><span class="line">                include fastcgi_params;</span><br><span class="line">                fastcgi_param SCRIPT_FILENAME <span class="variable">$document_root</span><span class="variable">$fastcgi_script_name</span>;</span><br><span class="line">                fastcgi_param PATH_INFO <span class="variable">$fastcgi_script_name</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    access_log <span class="regexp">/var/</span>log<span class="regexp">/nginx/</span>admin_access.log combined;</span><br><span class="line">    error_log <span class="regexp">/var/</span>log<span class="regexp">/nginx/</span>admin_error.log warn;</span><br><span class="line"></span><br><span class="line">    listen <span class="number">443</span> ssl http2;</span><br><span class="line">    ssl_certificate <span class="regexp">/etc/</span>letsencrypt<span class="regexp">/live/</span>example.com/fullchain.pem; </span><br><span class="line">    ssl_certificate_key <span class="regexp">/etc/</span>letsencrypt<span class="regexp">/live/</span>pkgame.net/privkey.pem;</span><br><span class="line">    include <span class="regexp">/etc/</span>letsencrypt/options-ssl-nginx.conf;</span><br><span class="line">    ssl_dhparam <span class="regexp">/etc/</span>letsencrypt/ssl-dhparams.pem;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>配置python后端请求转发</p>
+<figure class="highlight nginx"><table><tr><td class="code"><pre><span class="line"><span class="section">server</span> &#123;  </span><br><span class="line">        <span class="attribute">listen</span>       <span class="number">80</span>;  </span><br><span class="line">        <span class="attribute">server_name</span>  www.example.com;</span><br><span class="line">        <span class="attribute">location</span> / &#123;  </span><br><span class="line">        <span class="attribute">root</span>   html;</span><br><span class="line">        <span class="attribute">index</span>  index.html index.htm;</span><br><span class="line">        <span class="attribute">include</span> uwsgi_params;<span class="comment">#加载uWSGI配置参数</span></span><br><span class="line">        <span class="attribute">uwsgi_pass</span> <span class="number">127.0.0.1:3031</span>;<span class="comment">#请求转发至”127.0.0.1:3031″端口上，即uWSGI服务器</span></span><br><span class="line">               &#125;  </span><br><span class="line">    <span class="attribute">access_log</span> /var/log/nginx/www_access.log combined;</span><br><span class="line">    <span class="attribute">error_log</span> /var/log/nginx/www_error.log <span class="literal">warn</span>;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+]]></content>
+      <categories>
+        <category>Nginx</category>
+      </categories>
+      <tags>
+        <tag>Nginx</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Linux安装Nginx--两种方式</title>
+    <url>/post/69813a0e.html</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>&emsp;&emsp;Nginx是一个高性能的Web和反向代理服务器,它具有有很多非常优越的特性: </p>
+<a id="more"></a>
+<p>&emsp;&emsp;<b>作为Web服务器</b>: 相比Apache，Nginx 使用更少的资源，支持更多 的并发连接，体现更高的效率，这点使Nginx尤其受到虚拟主机提供商的欢迎。能够支持高达50,000个并发连接数的响应，感谢Nginx为我们选择了epoll and kqueue作为开发模型.<br>&emsp;&emsp;<b>作为负载均衡服务器</b>: Nginx 既可以在内部直接支持Rails和PHP，也可以支持作为HTTP代理服务器对外进行服务。Nginx 用C编写,不论是系统资源开销还是CPU使用效率都比Perlbal要好的多。<br>&emsp;&emsp;<b>作为邮件代理服务器</b>: Nginx 同时也是一个非常优秀的邮件代理服务器(最早开发这个产品的目的之一也是作为邮件代理服务器)，Last.fm 描述了成功并且美妙的使用经验。<br>&emsp;&emsp;<b>Nginx安装非常的简单，配置文件非常简洁(还能够支持perl语法)，Bugs非常少的服务器</b>: Nginx启动特别容易，并且几乎可以做到7*24不间断运行，即使运行数个月也不需要重新启动。你还能够在不间断服务的情况下进行软件版本的升级。</p>
+<h3 id="yum安装"><a href="#yum安装" class="headerlink" title="yum安装"></a>yum安装</h3><h4 id="yum仓库配置"><a href="#yum仓库配置" class="headerlink" title="yum仓库配置"></a>yum仓库配置</h4><p>&emsp;&emsp;在<code>/etc/yum.repos.d/</code>下新建一个nginx.repo，加入<a href="http://nginx.org/en/linux_packages.html">nginx官方提供的源</a> , <a href="https://docs.nginx.com/nginx/admin-guide/installing-nginx/installing-nginx-open-source/">Installing NGINX Open Source</a></p>
+<figure class="highlight ini"><table><tr><td class="code"><pre><span class="line"><span class="section">[nginx]</span></span><br><span class="line"><span class="attr">name</span>=nginx repo</span><br><span class="line"><span class="attr">baseurl</span>=http://nginx.org/packages/&lt;OS&gt;/&lt;OSRELEASE&gt;/<span class="variable">$basearch</span>/</span><br><span class="line"><span class="attr">gpgcheck</span>=<span class="number">0</span></span><br><span class="line"><span class="attr">enabled</span>=<span class="number">1</span></span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;注意其中的<code>&lt;OS&gt;</code> 为系统名，<code>&lt;OSRELEASE&gt;</code>为系统大版本</p>
+<ol>
+<li>CentOS7<br><code>vi /etc/yum.repos.d/nginx.repo</code><figure class="highlight ini"><table><tr><td class="code"><pre><span class="line"><span class="section">[nginx]</span></span><br><span class="line"><span class="attr">name</span>=nginx repo</span><br><span class="line"><span class="attr">baseurl</span>=http://nginx.org/packages/centos/<span class="number">7</span>/<span class="variable">$basearch</span>/</span><br><span class="line"><span class="attr">gpgcheck</span>=<span class="number">0</span></span><br><span class="line"><span class="attr">enabled</span>=<span class="number">1</span></span><br></pre></td></tr></table></figure></li>
+<li>CentOS6<br><code>vi /etc/yum.repos.d/nginx.repo</code><figure class="highlight ini"><table><tr><td class="code"><pre><span class="line"><span class="section">[nginx]</span></span><br><span class="line"><span class="attr">name</span>=nginx repo</span><br><span class="line"><span class="attr">baseurl</span>=http://nginx.org/packages/centos/<span class="number">6</span>/<span class="variable">$basearch</span>/</span><br><span class="line"><span class="attr">gpgcheck</span>=<span class="number">0</span></span><br><span class="line"><span class="attr">enabled</span>=<span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h4 id="安装nginx"><a href="#安装nginx" class="headerlink" title="安装nginx"></a>安装nginx</h4><ol>
+<li>直接安装会安装当前的最新版本<figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line">yum <span class="keyword">install</span> -y nginx</span><br></pre></td></tr></table></figure></li>
+<li>该源仓库下有多个版本的nginx可供安装，可以用如下命令查看<figure class="highlight applescript"><table><tr><td class="code"><pre><span class="line">yum <span class="built_in">list</span> nginx <span class="comment">--show-duplicates</span></span><br></pre></td></tr></table></figure></li>
+<li>选择其中一个版本安装<figure class="highlight apache"><table><tr><td class="code"><pre><span class="line"><span class="attribute">yum</span> install -y nginx-版本号</span><br><span class="line"><span class="comment"># 如下</span></span><br><span class="line"><span class="attribute">yum</span> install -y nginx-<span class="number">17</span>.<span class="number">6</span>-<span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h4 id="禁止更新"><a href="#禁止更新" class="headerlink" title="禁止更新"></a>禁止更新</h4><p>&emsp;&emsp;我们在安装之后，为了能够正常运行，我们一般会禁止Nginx进行更新。因为在yum更新了Nginx之后，Nginx会自动重启。这对于我们来说是没有必要的，所以我们可以屏蔽更新。我们可以这样，将下列指定放到你的<code>/etc/yum.conf</code>文件中：</p>
+<figure class="highlight ini"><table><tr><td class="code"><pre><span class="line"><span class="attr">exclude</span>=nginx</span><br></pre></td></tr></table></figure>
+<h4 id="更新Nginx"><a href="#更新Nginx" class="headerlink" title="更新Nginx"></a>更新Nginx</h4><p>&emsp;&emsp;一般在生产环境，我们都是禁用更新的。所以说，这里只是作为一个参考<br>&emsp;&emsp;我们需要执行的命令就是：</p>
+<figure class="highlight ebnf"><table><tr><td class="code"><pre><span class="line"><span class="attribute">yum update nginx</span></span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;<code> 注意： 在使用 yum 更新之后，Nginx会自动重启。</code></p>
+<h4 id="命令管理"><a href="#命令管理" class="headerlink" title="命令管理"></a>命令管理</h4><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">systemctl <span class="keyword">start</span> nginx   <span class="comment"># 启动</span></span><br><span class="line">systemctl restart nginx <span class="comment"># 重启</span></span><br><span class="line">nginx -t                <span class="comment"># 测试配置文件语法是否正确</span></span><br><span class="line">systemctl reload nginx  <span class="comment"># 重载配置文件</span></span><br><span class="line">systemctl <span class="keyword">stop</span> nginx    <span class="comment"># 停止</span></span><br><span class="line">systemctl <span class="keyword">enable</span> nginx  <span class="comment"># 启动开机启动</span></span><br><span class="line">systemctl diasble nginx <span class="comment"># 禁止开机启动</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="源代码安装"><a href="#源代码安装" class="headerlink" title="源代码安装"></a>源代码安装</h3><p>&emsp;&emsp;如果已安装，则remove掉<code>yum remove nginx</code></p>
+<h4 id="源码下载"><a href="#源码下载" class="headerlink" title="源码下载"></a>源码下载</h4><p>&emsp;&emsp;安装wget并下载nginx源码包， 去 <a href="http://nginx.org/download/">http://nginx.org/download/</a> 可以找到历史版本的包</p>
+<figure class="highlight apache"><table><tr><td class="code"><pre><span class="line"><span class="attribute">yum</span> install -y wget &amp;&amp; wget http://nginx.org/download/nginx-<span class="number">1</span>.<span class="number">19</span>.<span class="number">2</span>.tar.gz</span><br><span class="line"></span><br><span class="line"><span class="attribute">tar</span> -zxvf nginx-<span class="number">1</span>.<span class="number">19</span>.<span class="number">2</span>.tar.gz</span><br></pre></td></tr></table></figure>
+<h4 id="新增用户"><a href="#新增用户" class="headerlink" title="新增用户"></a>新增用户</h4><figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">groupadd</span> <span class="string">www</span></span><br><span class="line"><span class="attr">useradd</span> <span class="string">-g www www</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p> useradd -g www -s /sbin/nologin -M www</p>
+</blockquote>
+<h4 id="安装依赖环境"><a href="#安装依赖环境" class="headerlink" title="安装依赖环境"></a>安装依赖环境</h4><ol>
+<li>安装gcc<br>安装 nginx 需要先将官网下载的源码进行编译，编译依赖 gcc 环境。安装指令如下：<br>安装gcc<figure class="highlight angelscript"><table><tr><td class="code"><pre><span class="line">yum -y install gcc <span class="built_in">auto</span>make <span class="built_in">auto</span>conf libtool make</span><br></pre></td></tr></table></figure>
+安装g++<figure class="highlight brainfuck"><table><tr><td class="code"><pre><span class="line"><span class="comment">yum</span> <span class="comment">install</span> <span class="comment">gcc</span> <span class="comment">gcc</span><span class="literal">-</span><span class="comment">c</span>++</span><br></pre></td></tr></table></figure></li>
+<li>安装PCRE pcre-devel<br>Nginx的Rewrite模块和HTTP核心模块会使用到PCRE正则表达式语法。这里需要安装两个安装包pcre和pcre-devel。第一个安装包提供编译版本的库，而第二个提供开发阶段的头文件和编译项目的源代码。安装指令如下：<figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line">yum <span class="keyword">install</span> -y pcre pcre-devel</span><br></pre></td></tr></table></figure></li>
+<li>安装zlib<br>zlib库提供了开发人员的压缩算法，在Nginx的各种模块中需要使用gzip压缩。安装指令如下:<figure class="highlight nsis"><table><tr><td class="code"><pre><span class="line">yum install -y <span class="literal">zlib</span> <span class="literal">zlib</span>-devel</span><br></pre></td></tr></table></figure></li>
+<li>安装Open SSL<br>nginx不仅支持 http协议，还支持 https（即在 ssl 协议上传输 http），如果使用了 https，需要安装 OpenSSL 库。安装指令如下：<figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line">yum <span class="keyword">install</span> -y openssl openssl-devel</span><br></pre></td></tr></table></figure>
+环境结束.</li>
+</ol>
+<h4 id="进行配置"><a href="#进行配置" class="headerlink" title="进行配置"></a>进行配置</h4><p>没有特别配置，直接<code>./configure</code>就好了。安装完成后可以通过<code>nginx -V</code>查看选择的模块。</p>
+<p>部分编译参数说明</p>
+<table>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+<tr>
+<td>--prefix</td>
+<td>定义nginx安装路径</td>
+</tr>
+<tr>
+<td>--sbin-path</td>
+<td>定义nginx可执行文件路径</td>
+</tr>
+<tr>
+<td>--modules-path</td>
+<td>nginx模块路径</td>
+</tr>
+<tr>
+<td>--conf-path</td>
+<td>nginx配置文件路径</td>
+</tr>
+<tr>
+<td>--error-log-path、--http-log-path</td>
+<td>错误和访问日志路径</td>
+</tr>
+<tr>
+<td>--with-openssl</td>
+<td>定义编译使用的openssl，默认为系统自带openssl</td>
+</tr>
+<tr>
+<td>--with-http_ssl_module</td>
+<td>ssl模块</td>
+</tr>
+</table>
+
+<figure class="highlight livescript"><table><tr><td class="code"><pre><span class="line">[root@localhost ~]<span class="comment"># ./configure --prefix=/usr/local/nginx \</span></span><br><span class="line">--sbin-path=/usr/sbin/nginx <span class="string">\</span></span><br><span class="line">--modules-path=/usr/lib64/nginx/modules <span class="string">\</span></span><br><span class="line">--conf-path=/usr/local/nginx/nginx.conf <span class="string">\</span></span><br><span class="line">--error-log-path=/usr/local/nginx/error.log <span class="string">\</span></span><br><span class="line">--http-log-path=/usr/local/nginx/access.log <span class="string">\</span></span><br><span class="line">--pid-path=/usr/local/nginx/nginx.pid <span class="string">\</span></span><br><span class="line">--lock-path=/usr/local/nginx/nginx.lock <span class="string">\</span></span><br><span class="line">--http-client-body-temp-path=/usr/local/nginx/client_temp <span class="string">\</span></span><br><span class="line">--http-proxy-temp-path=/usr/local/nginx/proxy_temp <span class="string">\</span></span><br><span class="line">--http-fastcgi-temp-path=/usr/local/nginx/fastcgi_temp <span class="string">\</span></span><br><span class="line">--http-uwsgi-temp-path=/usr/local/nginx/uwsgi_temp <span class="string">\</span></span><br><span class="line">--http-scgi-temp-path=/usr/local/nginx/scgi_temp <span class="string">\</span></span><br><span class="line">--user=www <span class="string">\</span></span><br><span class="line">--group=www <span class="string">\</span></span><br><span class="line">--<span class="keyword">with</span>-compat <span class="string">\</span></span><br><span class="line">--<span class="keyword">with</span>-file-aio <span class="string">\</span></span><br><span class="line">--<span class="keyword">with</span>-threads <span class="string">\</span></span><br><span class="line">--<span class="keyword">with</span>-http_addition_module <span class="string">\</span></span><br><span class="line">--<span class="keyword">with</span>-http_auth_request_module <span class="string">\</span></span><br><span class="line">--<span class="keyword">with</span>-http_dav_module <span class="string">\</span></span><br><span class="line">--<span class="keyword">with</span>-http_flv_module <span class="string">\</span></span><br><span class="line">--<span class="keyword">with</span>-http_gunzip_module <span class="string">\</span></span><br><span class="line">--<span class="keyword">with</span>-http_gzip_static_module <span class="string">\</span></span><br><span class="line">--<span class="keyword">with</span>-http_mp4_module <span class="string">\</span></span><br><span class="line">--<span class="keyword">with</span>-http_random_index_module <span class="string">\</span></span><br><span class="line">--<span class="keyword">with</span>-http_realip_module <span class="string">\</span></span><br><span class="line">--<span class="keyword">with</span>-http_secure_link_module <span class="string">\</span></span><br><span class="line">--<span class="keyword">with</span>-http_slice_module <span class="string">\</span></span><br><span class="line">--<span class="keyword">with</span>-http_ssl_module <span class="string">\</span></span><br><span class="line">--<span class="keyword">with</span>-http_stub_status_module <span class="string">\</span></span><br><span class="line">--<span class="keyword">with</span>-http_sub_module <span class="string">\</span></span><br><span class="line">--<span class="keyword">with</span>-http_v2_module <span class="string">\</span></span><br><span class="line">--<span class="keyword">with</span>-mail <span class="string">\</span></span><br><span class="line">--<span class="keyword">with</span>-mail_ssl_module <span class="string">\</span></span><br><span class="line">--<span class="keyword">with</span>-stream <span class="string">\</span></span><br><span class="line">--<span class="keyword">with</span>-stream_realip_module <span class="string">\</span></span><br><span class="line">--<span class="keyword">with</span>-stream_ssl_module <span class="string">\</span></span><br><span class="line">--<span class="keyword">with</span>-stream_ssl_preread_module</span><br></pre></td></tr></table></figure>
+<img src="/post/69813a0e/nginx-001.png" class title="nginx编译输出">
+
+<p>上面的编译是使用了系统默认的openssl，如果想使用更高版本的openssl进行编译的话。可以加上<code>--with-openssl=openssl安装路径</code>来自定义。高版本的openssl安装可以参考 <a href="https://www.jianshu.com/p/bf5a55a0a814">这篇文章</a>。</p>
+<p><code>--with-openssl</code> 参数虽然可以指定 OpenSSL 路径，但只支持 OpenSSL 的源代码，不支持已编译好的 OpenSSL。每回更新 nginx 都要重新编译 OpenSSL 很麻烦 。以下是解决方案<br>打开nginx源码解压目录下的<code>auto/lib/openssl/conf</code>,找到所有带<code>.openssl</code>的行</p>
+<figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line"><span class="attribute">CORE_INCS</span>=<span class="string">&quot;<span class="variable">$CORE_INCS</span> <span class="variable">$OPENSSL</span>/.openssl/include&quot;</span></span><br><span class="line"><span class="attribute">CORE_DEPS</span>=<span class="string">&quot;<span class="variable">$CORE_DEPS</span> <span class="variable">$OPENSSL</span>/.openssl/include/openssl/ssl.h&quot;</span></span><br><span class="line"><span class="attribute">CORE_LIBS</span>=<span class="string">&quot;<span class="variable">$CORE_LIBS</span> <span class="variable">$OPENSSL</span>/.openssl/lib/libssl.a&quot;</span></span><br><span class="line"><span class="attribute">CORE_LIBS</span>=<span class="string">&quot;<span class="variable">$CORE_LIBS</span> <span class="variable">$OPENSSL</span>/.openssl/lib/libcrypto.a&quot;</span></span><br></pre></td></tr></table></figure>
+<p>改成下面的样子，去掉<code>.openssl/</code></p>
+<figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line"><span class="attribute">CORE_INCS</span>=<span class="string">&quot;<span class="variable">$CORE_INCS</span> <span class="variable">$OPENSSL</span>/include&quot;</span></span><br><span class="line"><span class="attribute">CORE_DEPS</span>=<span class="string">&quot;<span class="variable">$CORE_DEPS</span> <span class="variable">$OPENSSL</span>/include/openssl/ssl.h&quot;</span></span><br><span class="line"><span class="attribute">CORE_LIBS</span>=<span class="string">&quot;<span class="variable">$CORE_LIBS</span> <span class="variable">$OPENSSL</span>/lib/libssl.a&quot;</span></span><br><span class="line"><span class="attribute">CORE_LIBS</span>=<span class="string">&quot;<span class="variable">$CORE_LIBS</span> <span class="variable">$OPENSSL</span>/lib/libcrypto.a&quot;</span></span><br></pre></td></tr></table></figure>
+<p>进行编译</p>
+<figure class="highlight livescript"><table><tr><td class="code"><pre><span class="line">[root@localhost ~]<span class="comment"># ./configure --prefix=/usr/local/nginx \</span></span><br><span class="line">--sbin-path=/usr/sbin/nginx <span class="string">\</span></span><br><span class="line">--modules-path=/usr/lib64/nginx/modules <span class="string">\</span></span><br><span class="line">--conf-path=/usr/local/nginx/nginx.conf <span class="string">\</span></span><br><span class="line">--error-log-path=/usr/local/nginx/error.log <span class="string">\</span></span><br><span class="line">--http-log-path=/usr/local/nginx/access.log <span class="string">\</span></span><br><span class="line">--pid-path=/usr/local/nginx/nginx.pid <span class="string">\</span></span><br><span class="line">--lock-path=/usr/local/nginx/nginx.lock <span class="string">\</span></span><br><span class="line">--http-client-body-temp-path=/usr/local/nginx/client_temp <span class="string">\</span></span><br><span class="line">--http-proxy-temp-path=/usr/local/nginx/proxy_temp <span class="string">\</span></span><br><span class="line">--http-fastcgi-temp-path=/usr/local/nginx/fastcgi_temp <span class="string">\</span></span><br><span class="line">--http-uwsgi-temp-path=/usr/local/nginx/uwsgi_temp <span class="string">\</span></span><br><span class="line">--http-scgi-temp-path=/usr/local/nginx/scgi_temp <span class="string">\</span></span><br><span class="line">--user=www <span class="string">\</span></span><br><span class="line">--group=www <span class="string">\</span></span><br><span class="line">--<span class="keyword">with</span>-compat <span class="string">\</span></span><br><span class="line">--<span class="keyword">with</span>-file-aio <span class="string">\</span></span><br><span class="line">--<span class="keyword">with</span>-threads <span class="string">\</span></span><br><span class="line">--<span class="keyword">with</span>-http_addition_module <span class="string">\</span></span><br><span class="line">--<span class="keyword">with</span>-http_auth_request_module <span class="string">\</span></span><br><span class="line">--<span class="keyword">with</span>-http_dav_module <span class="string">\</span></span><br><span class="line">--<span class="keyword">with</span>-http_flv_module <span class="string">\</span></span><br><span class="line">--<span class="keyword">with</span>-http_gunzip_module <span class="string">\</span></span><br><span class="line">--<span class="keyword">with</span>-http_gzip_static_module <span class="string">\</span></span><br><span class="line">--<span class="keyword">with</span>-http_mp4_module <span class="string">\</span></span><br><span class="line">--<span class="keyword">with</span>-http_random_index_module <span class="string">\</span></span><br><span class="line">--<span class="keyword">with</span>-http_realip_module <span class="string">\</span></span><br><span class="line">--<span class="keyword">with</span>-http_secure_link_module <span class="string">\</span></span><br><span class="line">--<span class="keyword">with</span>-http_slice_module <span class="string">\</span></span><br><span class="line">--<span class="keyword">with</span>-http_ssl_module <span class="string">\</span></span><br><span class="line">--<span class="keyword">with</span>-http_stub_status_module <span class="string">\</span></span><br><span class="line">--<span class="keyword">with</span>-http_sub_module <span class="string">\</span></span><br><span class="line">--<span class="keyword">with</span>-http_v2_module <span class="string">\</span></span><br><span class="line">--<span class="keyword">with</span>-mail <span class="string">\</span></span><br><span class="line">--<span class="keyword">with</span>-mail_ssl_module <span class="string">\</span></span><br><span class="line">--<span class="keyword">with</span>-stream <span class="string">\</span></span><br><span class="line">--<span class="keyword">with</span>-stream_realip_module <span class="string">\</span></span><br><span class="line">--<span class="keyword">with</span>-stream_ssl_module <span class="string">\</span></span><br><span class="line">--<span class="keyword">with</span>-openssl=/usr/local/openssl <span class="string">\</span></span><br><span class="line">--<span class="keyword">with</span>-stream_ssl_preread_module</span><br></pre></td></tr></table></figure>
+<img src="/post/69813a0e/nginx-002.png" class title="nginx编译输出">
+
+
+<p>部分编译参数说明</p>
+<table>
+<tr>
+<th>参数选项</th>
+<th>基本解释</th>
+</tr>
+<tr>
+<td>–help</td>
+<td>打印帮助信息</td>
+</tr>
+<tr>
+<td>–prefix=PATH</td>
+<td>Nginx安装部署后的根目录 默认为/usr/local/nginx目录。注意：这个目标的设置会影响其他参数中的相对目录。例如，如果设置了–sbin-path=sbin/nginx，那么实际上可执行文件会被放到/usr/local/nginx/sbin/nginx中</td>
+</tr>
+<tr>
+<td>–sbin-path=PATH</td>
+<td>可执行文件的放置路径 &lt;prefix&gt;/sbin/nginx </td>
+</tr>
+<tr>
+<td>–conf-path=PATH</td>
+<td>配置文件的放置路径 &lt;prefix&gt;/conf/nginx.conf</td>
+</tr>
+<tr>
+<td>–error-log-path=PATH</td>
+<td>error日志文件的放置路径。error日志用于定位问题，可输出多种级别（包括debug调试级别）的日志。它的配置非常灵活，可以在nginx.conf里配置为不同请求的日志并输出到不同的log文件中。这里是默认的Nginx核心日志路径 &lt;prefix&gt;/logs/error.log</td>
+</tr>
+<tr>
+<td>–pid-path=PATH</td>
+<td>pid文件的存放路径。这个文件里仅以ASC II码存放着Nginx master的进程ID，有了这个进程ID，在使用命令行（例如nginx -s reload）通过读取master进程ID向master进程发送信号时，才能对运行中的Nginx服务产生作用 &lt;prefix&gt;/logs/nginx.pid</td>
+</tr>
+<tr>
+<td>–lock-path=PATH</td>
+<td>lock文件的放置路径 &lt;prefix&gt;/logs/nginx.lock</td>
+</tr>
+<tr>
+<td>–user=USER</td>
+<td>指定Nginx worker进程运行时所属的用户。注意：不要将启动worker进程的用户设为root，在worker进程出问题时master进程要具备停止/启动worker进程的能力</td>
+</tr>
+<tr>
+<td>–group=GROUP</td>
+<td>指定Nginx worker进程运行时所属的组</td>
+</tr>
+<tr>
+<td>–build=NAME</td>
+<td>configure执行时与编译期间产生的临时文件名称</td>
+</tr>
+<tr>
+<td>–builddir=DIR</td>
+<td>configure执行时与编译期间产生的临时文件放置的目录，包括产生的Makefile、C源文件、目标文件、可执行文件等 &lt;nginx source path&gt;/objs</td>
+</tr>
+<tr>
+<td>–with-rtsig_module</td>
+<td>使用rtsig module处理事件驱动 默认情况下，Nginx是不安装rtsig module的，即不会把rtsig module编译进最终的Nginx二进制程序中</td>
+</tr>
+<tr>
+<td>–with-select_module</td>
+<td>使用select module处理事件驱动 select是Linux提供的一种多路复用机制，在epoll调用没有诞生前，例如在Linux 2.4及其之前的内核中，select用于支持服务器提供高并发连接 默认情况下，Nginx是不安装select module的，但如果没有找到其他更好的事件模块，该模块将会被安装</td>
+</tr>
+<tr>
+<td>–without-select_module</td>
+<td>不安装select module</td>
+</tr>
+<tr>
+<td>–with-poll_module</td>
+<td>使用poll module处理事件驱动 poll的性能与select类似，在大量并发连接下性能都远不如epoll。默认情况下，Nginx是不安装poll</td>
+</tr>
+<tr>
+<td>–without-poll_module</td>
+<td>不安装poll module</td>
+</tr>
+<tr>
+<td>–with-file-aio</td>
+<td>使用AIO方式处理事件驱动 (IO异步大幅度提升性能，需要内核 2.6.22 以上的版本)</td>
+</tr>
+<tr>
+<td>–with-ipv6</td>
+<td>使Nginx支持IPv6</td>
+</tr>
+<tr>
+<td>–with-https_ssl_module</td>
+<td>安装https ssl module。该模块使Nginx支持SSL协议，提供HTTPS服务。 注意：该模块的安装依赖于OpenSSL开源软件，即首先应确保已经在之前的参数中配置了OpenSSL需要安装 OpenSSL library yum install openssl-devel | # apt-get install libssl-dev</td>
+</tr>
+<tr>
+<td>–with-https_spdy_module</td>
+<td>开启 ngx_https_spdy_module 模块。是Google开发的基于TCP的应用层协议，用以最小化网络延迟，提升网络速度，优化用户的网络使用体验。SPDY并不是一种用于替代HTTP的协议，而是对HTTP协议的增强</td>
+</tr>
+<tr>
+<td>–with-https_realip_module</td>
+<td>开启 ngx_https_realip_module 模块 。此模块支持显示真实来源IP地址，主要用于NGINX做前端负载均衡服务器使用。</td>
+</tr>
+<tr>
+<td>–with-https_addition_module</td>
+<td>开启 https addtion module。该模块可以在返回客户端的HTTP包体头部或者尾部增加内容。作为一个输出过滤器，支持不完全缓冲，分部分响应请求，游戏服务器不必安装，门户网站可以安装，有利于被搜索引擎收录页面信息。</td>
+</tr>
+<tr>
+<td>–with-https_xslt_module</td>
+<td>开启 ngx_https_xslt_module 模块 这个模块可以使XML格式的数据在发给客户端前加入XSL渲染，0.7.8后面版本才可以使用。</td>
+</tr>
+<tr>
+<td>–with-https_image_filter_module</td>
+<td>开启 ngx_https_image_filter_module 模块 。这个模块将符合配置的图片实时压缩为指定大小（width*height）的缩略图再发送给用户，目前支持JPEG、PNG、GIF格式。 注意：这个模块依赖于开源的libgd库，在安装前确保操作系统已经安装了libgd，是nginx提供的集成图片处理模块，支持nginx-0.7.54以后的版本，在网站访问量不是很高磁盘有限不想生成多余的图片文件的前提下可，就可以用它实时缩放图片，旋转图片，验证图片有效性以及获取图片宽高以及图片类型信息，由于是即时计算的结果，所以网站访问量大的话，不建议使用。</td>
+</tr>
+<tr>
+<td>–with-https_geoip_module</td>
+<td>开启 ngx_https_geoip_module 模块，这个模块基于客户端的IP地址创建一些ngx_https_geoip_module变量，并与MaxMindGeoIP文件进行匹配，该模块仅用于0.7.63和0.8.6版本之后。 需要安装 yum install geoip-devel | apt-get install geoip-bin geoip-database libgeoip-dev</td>
+</tr>
+<tr>
+<td>–with-https_sub_module</td>
+<td>开启 ngx_https_sub_module 。该模块可以在Nginx返回客户端的HTTP响应包中将指定的字符串替换为自己需要的字符串 例如，在HTML的返回中，将替换为<script language="”javascript”" src="”$script”"></script></td>
+</tr>
+<tr>
+<td>–with-https_dav_module</td>
+<td>开启 ngx_https_dav_module 模块。这个模块可以让Nginx支持Webdav标准，如支持Webdav协议中的PUT、DELETE、COPY、MOVE、MKCOL等请求 默认情况下为关闭，需编译开启,如果开启WebDAV扩展动作模块，（可为文件和目录指定权限）</td>
+</tr>
+<tr>
+<td>–with-https_flv_module</td>
+<td>开启 ngx_https_flv_module 模块 ，这个模块可以在向客户端返回响应时，对FLV格式的视频文件在header头做一些处理，使得客户端可以观看、拖动FLV视频</td>
+</tr>
+<tr>
+<td>–with-https_mp4_module</td>
+<td>开启 ngx_https_mp4_module 模块，该模块使客户端可以观看、拖动MP4视频</td>
+</tr>
+<tr>
+<td>–with-https_gunzip_module</td>
+<td>开启 ngx_https_gunzip_module 模块，是一个过滤器， 它为不支持“gzip”编码方法的客户端解压具有“Content-Encoding: gzip”头的响应。 当希望存储压缩后的数据以节省空间和减少I/O开销，又不希望对那些不支持gzip压缩的客户端造成不利影响时， 此模块会派上用途</td>
+</tr>
+<tr>
+<td>–with-https_gzip_static_module</td>
+<td>开启 ngx_https_gzip_static_module 模块 ，允许发送以“.gz”作为文件扩展名的预压缩文件，防止文件被重复压缩，以替代发送普通文件。如果采用gzip模块把一些文档进行gzip格式压缩后再返回给客户端，那么对同一个文件每次都会重新压缩，这是比较消耗服务器CPU资源的。</td>
+</tr>
+<tr>
+<td>–with-https_auth_request_module</td>
+<td>开启 ngx_https_auth_request_module 模块</td>
+</tr>
+<tr>
+<td>–with-https_random_index_module</td>
+<td>开启 ngx_https_random_index_module 模块 ，该模块在客户端访问某个目录时，随机返回该目录下的索引文件</td>
+</tr>
+<tr>
+<td>–with-https_secure_link_module</td>
+<td>开启 ngx_https_secure_link_module ，该模块提供一种验证请求是否有效的机制。例如，它会验证URL中需要加入的token参数是否属于特定客户端发来的，以及检查时间戳是否过期（计算和检查要求所需的安全链接网址（防盗链））</td>
+</tr>
+<tr>
+<td>–with-https_degradation_module</td>
+<td>开启 ngx_https_degradation_module 模块，该模块针对一些特殊的系统调用（如sbrk）做一些优化，允许在内存不足的情况下返回204或444码。</td>
+</tr>
+<tr>
+<td>–with-https_stub_status_module</td>
+<td>开启 ngx_https_stub_status_module 模块，该模块可以让运行中的Nginx提供性能统计页面，获取相关的并发连接、请求的信息</td>
+</tr>
+<tr>
+<td>–without-https_charset_module</td>
+<td>关闭 https charset module。这个模块可以将服务器发出的HTTP响应重编码</td>
+</tr>
+<tr>
+<td>–without-https_gzip_module</td>
+<td>关闭 ngx_https_gzip_module模块，在服务器发出的HTTP响应包中，这个模块可以按照配置文件指定的content-type对特定大小的HTTP响应包体执行gzip压缩</td>
+</tr>
+<tr>
+<td>–without-https_ssi_module</td>
+<td>关闭 ngx_https_ssi_module模块，该模块可以在向用户返回的HTTP响应包体中加入特定的内容，如HTML文件中固定的页头和页尾</td>
+</tr>
+<tr>
+<td>–without-https_userid_module</td>
+<td>关闭 ngx_https_userid_module模块，这个模块可以通过HTTP请求头部信息里的一些字段认证用户信息，以确定请求是否合法</td>
+</tr>
+<tr>
+<td>–without-https_access_module</td>
+<td>关闭 访问模块，这个模块可以根据IP地址限制能够访问服务器的客户端</td>
+</tr>
+<tr>
+<td>–without-https_auth_basic_module</td>
+<td>禁用基本的认证模块，这个模块可以提供最简单的用户名/密码认证</td>
+</tr>
+<tr>
+<td>–without-https_autoindex_module</td>
+<td>禁用自动索引模块，该模块提供简单的目录浏览功能</td>
+</tr>
+<tr>
+<td>–without-https_geo_module</td>
+<td>禁用Geo模块，这个模块可以定义一些变量，这些变量的值将与客户端IP地址关联，这样Nginx针对不同的地区的客户端（根据IP地址判断）返回不一样的结果，例如不同地区显示不同语言的网页</td>
+</tr>
+<tr>
+<td>–without-https_map_module</td>
+<td>禁用Map模块，这个模块可以建立一个key/value映射表，不同的key得到相应的value，这样可以针对不同的URL做特殊处理。例如，返回302重定向响应时，可以期望URL不同时返回的Location字段也不一样</td>
+</tr>
+<tr>
+<td>–without-https_split_clients_module</td>
+<td>切割客户端IP，该模块会根据客户端的信息，例如IP地址、header头、cookie等，来区分处理，nginx 的 Split Clients（切割客户端IP）的作用是使用 MurmurHash2 哈希算法对客户端的IP进行运算，得到一个32位的整数，这个数值范围从 0~4294967296，匹配不同的区间位置，得到不同的值赋予某个变量。最后根据这变量的不同，作不同的逻辑处理。</td>
+</tr>
+<tr>
+<td>–without-https_referer_module</td>
+<td>该模块可以根据请求中的referer字段来拒绝请求</td>
+</tr>
+<tr>
+<td>–without-https_rewrite_module</td>
+<td>禁用Rewrite模块，该模块提供HTTP请求在Nginx服务内部的重定向功能，依赖PCRE库</td>
+</tr>
+<tr>
+<td>–without-https_proxy_module</td>
+<td>禁用代理模块。该模块提供基本的HTTP反向代理功能</td>
+</tr>
+<tr>
+<td>–without-https_fastcgi_module</td>
+<td>禁用FastCGI模块。该模块提供FastCGI功能</td>
+</tr>
+<tr>
+<td>–without-https_uwsgi_module</td>
+<td>禁用uwsgi模块。该模块提供uWSGI功能</td>
+</tr>
+<tr>
+<td>–without-https_scgi_module</td>
+<td>禁用scqi模块。该模块提供SCGI功能</td>
+</tr>
+<tr>
+<td>–without-https_memcached_module</td>
+<td>禁用Memcached模块。该模块可以使得Nginx直接由上游的memcached服务读取数据，并简单地适配成HTTP响应返回给客户端</td>
+</tr>
+<tr>
+<td>–without-https_limit_conn_module</td>
+<td>禁用limit_conn_zone模块，该模块针对某个IP地址限制并发连接数。例如，使Nginx对一个IP地址仅允许一个连接。</td>
+</tr>
+<tr>
+<td>–without-https_limit_req_module</td>
+<td>禁用Limit Requests模块。该模块针对某个IP地址限制并发请求数</td>
+</tr>
+<tr>
+<td>–without-https_empty_gif_module</td>
+<td>禁用Empty Gif模块。该模块可以使得Nginx在收到无效请求时，立刻返回内存中的1×1像素的GIF图片。这种好处在于，对于明显的无效请求不会去试图浪费服务器资源</td>
+</tr>
+<tr>
+<td>–without-https_browser_module</td>
+<td>禁用Browser 模块。该模块会根据HTTP请求中的user-agent字段（该字段通常由浏览器填写）来识别浏览器</td>
+</tr>
+<tr>
+<td>–without-https_upstream_hash_module</td>
+<td>禁用Upstream模块。该模块用于配置负载均衡结构</td>
+</tr>
+<tr>
+<td>–without-https_upstream_ip_hash_module</td>
+<td>禁用Upstream模块 该模块提供当Nginx与后端server建立连接时，会根据IP做散列运算来决定与后端哪台server通信，这样可以实现负载均衡</td>
+</tr>
+<tr>
+<td>–without-https_upstream_least_conn_module</td>
+<td>禁用Upstream模块 中的 least 负载均衡算法</td>
+</tr>
+<tr>
+<td>–without-https_upstream_keepalive_module</td>
+<td>禁用Upstream模块 中的 keepalive 负载均衡算法</td>
+</tr>
+<tr>
+<td>–with-https_perl_module</td>
+<td>需要安装 perl # yum install perl-ExtUtils-Embed | # apt-get install libperl-dev</td>
+</tr>
+<tr>
+<td>–with-perl_modules_path=PATH</td>
+<td>perl module放置的路径。只有使用了第三方的perl module，才需要配置这个路径</td>
+</tr>
+<tr>
+<td>–with-perl=PATH</td>
+<td>perl binary放置的路径。如果配置的Nginx会执行Perl脚本，那么就必须要设置此路径</td>
+</tr>
+<tr>
+<td>–https-log-path=PATH</td>
+<td>access日志放置的位置。每个HTTP请求到结束时都会记录 &lt;prefix&gt;/logs/access.log</td>
+</tr>
+<tr>
+<td>–https-client-body-temp-path=PATH</td>
+<td> 处理HTTP请求时如果请求的包体需要暂时存放到临时磁盘文件中，则把这样的临时文件放置到该路径下 &lt;prefix&gt;/client_body_temp </td>
+</tr>
+<tr>
+<td>–https-proxy-temp-path=PATH</td>
+<td>Nginx作为HTTP反向代理服务器时，上游服务器产生的HTTP包体在需要临时存放到磁盘文件时，这样的临时文件将放到该路径下 &lt;prefix&gt;/proxy_temp </td>
+</tr>
+<tr>
+<td>–https-fastcgi-temp-path=PATH</td>
+<td>Fastcgi所使用临时文件的放置目录 &lt;prefix&gt;/fastcgi_temp</td>
+</tr>
+<tr>
+<td>–https-uwsgi-temp-path=PATH</td>
+<td>uWSGI所使用临时文件的放置目录 &lt;prefix&gt;/uwsgi_temp</td>
+</tr>
+<tr>
+<td>–https-scgi-temp-path=PATH</td>
+<td>SCGI所使用临时文件的放置目录 &lt;prefix&gt;/scgi_temp</td>
+</tr>
+<tr>
+<td>–without-https</td>
+<td>禁用HTTP服务</td>
+</tr>
+<tr>
+<td>–without-https-cache</td>
+<td>禁用HTTP 缓冲功能</td>
+</tr>
+<tr>
+<td>–with-mail</td>
+<td>开启邮件服务代理(mail server proxy)模块,支 持POP3, IMAP4和SMTP。该功能默认禁用</td>
+</tr>
+<tr>
+<td>–with-mail_ssl_module</td>
+<td>开启邮件代理服务对SSL的支持。该功能默认禁用</td>
+</tr>
+<tr>
+<td>–without-mail_pop3_module</td>
+<td>在邮件代理下禁用POP3功能。在开启邮件代理模块后该功能默认启用</td>
+</tr>
+<tr>
+<td>–without-mail_imap_module</td>
+<td>对邮件代理服务器禁用IMAP4模块，在开启邮件代理模块后该功能默认启用</td>
+</tr>
+<tr>
+<td>–without-mail_smtp_module</td>
+<td>对于邮件代理服务器禁用SMTP模块，在开启邮件代理模块后该功能默认启用</td>
+</tr>
+<tr>
+<td>–with-google_perftools_module</td>
+<td>Google的针对nginx性能调优的工具，需要安装：yum install gperftools gperftools-devel</td>
+</tr>
+<tr>
+<td>–with-cpp_test_module</td>
+<td>C预编译器测试模块</td>
+</tr>
+<tr>
+<td>–add-module=PATH</td>
+<td>当在Nginx里加入第三方模块时，通过这个参数指定第三方模块的路径</td>
+</tr>
+<tr>
+<td>–with-cc=PATH</td>
+<td>C编译器的路径</td>
+</tr>
+<tr>
+<td>–with-cpp=PATH</td>
+<td>C预编译器的路径</td>
+</tr>
+<tr>
+<td>–with-cc-opt=OPTIONS</td>
+<td>如果希望在Nginx编译期间指定加入一些编译选项，如指定宏或者使用-I加入某些需要包含的目录，这时可以使用该参数达成目的</td>
+</tr>
+<tr>
+<td>–with-ld-opt=OPTIONS</td>
+<td>最终的二进制可执行文件是由编译后生成的目标文件与一些第三方库链接生成的，在执行链接操作时可能会需要指定链接参数，–with-ld-opt就是用于加入链接时的参数。例如，如果我们希望将某个库链接到Nginx程序中，需要在这里加入–with-ld-opt=-llibraryName -LlibraryPath，其中libraryName是目标库的名称，libraryPath则是目标库所在的路径</td>
+</tr>
+<tr>
+<td>–with-cpu-opt=CPU</td>
+<td>指定CPU处理器架构，只能从以下取值中选择：pentium、pentiumpro、pentium3、pentium4、athlon、opteron、sparc32、sparc64、ppc64</td>
+</tr>
+<tr>
+<td>–without-pcre</td>
+<td>如果确认Nginx不用解析正则表达式，也就是说，nginx.conf配置文件中不会出现正则表达式，那么可以使用这个参数</td>
+</tr>
+<tr>
+<td>–with-pcre</td>
+<td>强制使用PCRE库</td>
+</tr>
+<tr>
+<td>–with-pcre=DIR</td>
+<td>指定PCRE库的源码位置，在编译Nginx时会进入该目录编译PCRE源码</td>
+</tr>
+<tr>
+<td>–with-pcre-opt=OPTIONS</td>
+<td>编译PCRE源码时希望加入的编译选项</td>
+</tr>
+<tr>
+<td>–with-pcre-jit</td>
+<td>编译PCRE库支持及时编译</td>
+</tr>
+<tr>
+<td>–with-md5=DIR</td>
+<td>指定SHA1库的源码位置，在编译Nginx时会进入该目录编译SHA1源码。 注意：OpenSSL中已经有了SHA1算法的实现。如果已经安装了OpenSSL，那么完全可以使用OpenSSL实现的SHA1算法</td>
+</tr>
+<tr>
+<td>–with-md5-opt=OPTIONS</td>
+<td>编译MD5源码时希望加入的编译选项</td>
+</tr>
+<tr>
+<td>–with-md5-asm</td>
+<td>使用MD5的汇编源码</td>
+</tr>
+<tr>
+<td>–with-sha1=DIR</td>
+<td>指定SHA1库的源码位置，在编译Nginx时会进入该目录编译SHA1源码。 注意：OpenSSL中已经有了SHA1算法的实现。如果已经安装了OpenSSL，那么完全可以使用OpenSSL实现的SHA1算法</td>
+</tr>
+<tr>
+<td>–with-sha1-opt=OPTIONS</td>
+<td>编译SHA1源码时希望加入的编译选项</td>
+</tr>
+<tr>
+<td>–with-sha1-asm</td>
+<td>使用SHA1的汇编源码</td>
+</tr>
+<tr>
+<td>–with-zlib=DIR</td>
+<td>指定zlib库的源码位置，在编译Nginx时会进入该目录编译zlib源码。如果使用了gzip压缩功能，就需要zlib库的支持</td>
+</tr>
+<tr>
+<td>–with-zlib-opt=OPTIONS</td>
+<td>编译zlib源码时希望加入的编译选项</td>
+</tr>
+<tr>
+<td>–with-zlib-asm=CPU</td>
+<td>指定对特定的CPU使用zlib库的汇编优化功能，目前仅支持两种架构：pentium和pentiumpro</td>
+</tr>
+<tr>
+<td>–with-libatomic</td>
+<td>强制使用atomic库。atomic库是CPU架构独立的一种原子操作的实现。它支持以下体系架构：x86（包括i386和x86_64）、PPC64、Sparc64（v9或更高版本）或者安装了GCC 4.1.0及更高版本的架构。</td>
+</tr>
+<tr>
+<td>–with-libatomic=DIR</td>
+<td>atomic库所在的位置</td>
+</tr>
+<tr>
+<td>–with-openssl=DIR</td>
+<td>指定OpenSSL库的源码位置，在编译Nginx时会进入该目录编译OpenSSL源码。注意：如果Web服务器支持HTTPS，也就是SSL协议，Nginx要求必须使用OpenSSL。</td>
+</tr>
+<tr>
+<td>–with-openssl-opt=OPTIONS</td>
+<td>编译OpenSSL源码时希望加入的编译选项</td>
+</tr>
+<tr>
+<td>–with-debug</td>
+<td>将Nginx需要打印debug调试级别日志的代码编译进Nginx。这样可以在Nginx运行时通过修改配置文件来使其打印调试日志，这对于研究、定位Nginx问题非常有帮助</td>
+</tr>
+
+</table>
+
+<h4 id="编译安装nginx"><a href="#编译安装nginx" class="headerlink" title="编译安装nginx"></a>编译安装nginx</h4><p>这里和redis的编译安装比较类似，首先在当前目录（/usr/local/nginx-1.19.2）进行编译。输入make即可</p>
+<figure class="highlight ebnf"><table><tr><td class="code"><pre><span class="line"><span class="attribute">make</span></span><br></pre></td></tr></table></figure>
+<p>编译成功之后，就可以安装了，输入以下指令：</p>
+<figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line">make <span class="keyword">install</span></span><br></pre></td></tr></table></figure>
+<p>ok，安装成功。</p>
+<blockquote>
+<p> make &amp;&amp; make install</p>
+</blockquote>
+<h3 id="设置开机启动"><a href="#设置开机启动" class="headerlink" title="设置开机启动"></a>设置开机启动</h3><p>设置nginx开机启动，只需在rc.local增加启动代码即可。</p>
+<p><code>vim /etc/rc.local</code></p>
+<p>然后在底部增加<code>/usr/local/nginx/sbin/nginx</code></p>
+]]></content>
+      <categories>
+        <category>Nginx</category>
+      </categories>
+      <tags>
+        <tag>Nginx</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Linux安装Git-两种方式详细教程</title>
     <url>/post/4370af2f.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="Git介绍"><a href="#Git介绍" class="headerlink" title="Git介绍"></a>Git介绍</h3><p>&emsp;&emsp;Git — The stupid content tracker, 傻瓜内容跟踪器。Linus Torvalds 是这样给我们介绍 Git 的。<br>&emsp;&emsp;Git 是用于 Linux内核开发的版本控制工具。与常用的版本控制工具 CVS, Subversion 等不同，它采用了分布式版本库的方式，不必服务器端软件支持（wingeddevil注：这得分是用什么样的服务端，使用http协议或者git协议等不太一样。并且在push和pull的时候和服务器端还是有交互的。），使源代码的发布和交流极其方便。 Git 的速度很快，这对于诸如 Linux kernel 这样的大项目来说自然很重要。 Git 最为出色的是它的合并跟踪（merge tracing）能力。</p>
@@ -445,7 +1151,7 @@
 <p>&emsp;&emsp; 根据Server ID 生成license Key：</p>
 <figure class="highlight awk"><table><tr><td class="code"><pre><span class="line"><span class="regexp">/opt/</span>atlassian<span class="regexp">/jira/</span>jre<span class="regexp">/bin/</span>java -jar <span class="regexp">/home/</span>jira1<span class="regexp">/atlassian-agent.jar -p jira -m jira@jira.com -n jira -o https:/</span><span class="regexp">/jira.com -s BFZ0-PD41-I9AX-YXDP</span></span><br></pre></td></tr></table></figure>
 <br>
-<div class="note default no-icon"><p>-p jira(安装的是jira产品)，具体的可以根据-p进行参考<br>-m <a href="mailto:&#106;&#x69;&#x72;&#x61;&#x40;&#x6a;&#x69;&#114;&#x61;&#46;&#x63;&#x6f;&#109;">&#106;&#x69;&#x72;&#x61;&#x40;&#x6a;&#x69;&#114;&#x61;&#46;&#x63;&#x6f;&#109;</a>(随意写)<br>-n jira(随意写)<br>-o <a href="https://jira.com/">https://jira.com</a> (随意写)<br>-s BFZ0-PD41-I9AX-YXDP (即jira显示的服务器ID)</p>
+<div class="note default no-icon"><p>-p jira(安装的是jira产品)，具体的可以根据-p进行参考<br>-m <a href="mailto:&#x6a;&#105;&#114;&#97;&#x40;&#106;&#105;&#114;&#x61;&#46;&#99;&#111;&#x6d;">&#x6a;&#105;&#114;&#97;&#x40;&#106;&#105;&#114;&#x61;&#46;&#99;&#111;&#x6d;</a>(随意写)<br>-n jira(随意写)<br>-o <a href="https://jira.com/">https://jira.com</a> (随意写)<br>-s BFZ0-PD41-I9AX-YXDP (即jira显示的服务器ID)</p>
 </div>
 <br>
 
