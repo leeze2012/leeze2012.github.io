@@ -472,7 +472,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2020-09-17 18:45:36 / 修改时间：20:45:32" itemprop="dateCreated datePublished" datetime="2020-09-17T18:45:36+08:00">2020-09-17</time>
+      <time title="创建时间：2020-09-17 18:45:36 / 修改时间：20:49:33" itemprop="dateCreated datePublished" datetime="2020-09-17T18:45:36+08:00">2020-09-17</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -519,55 +519,14 @@
 
 <p>&emsp;&emsp; 参考：<a href="/post/4370af2f.html" title="Linux安装Git-两种方式详细教程">Linux安装Git-两种方式详细教程</a></p>
 </ol>
-
-
-<h3 id="GIT账户-组"><a href="#GIT账户-组" class="headerlink" title="GIT账户/组"></a>GIT账户/组</h3><p>&emsp;&emsp;接下来我们 创建一个git用户组和用户，用来运行git服务：</p>
-<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">groupadd gitgroup</span><br><span class="line">useradd git -g gitgroup</span><br><span class="line">passwd git</span><br><span class="line">&#x27;&#x27;&#x27;&#x27;&#x27;&#x27;</span><br></pre></td></tr></table></figure>
-
-
-<h3 id="禁用shell登录"><a href="#禁用shell登录" class="headerlink" title="禁用shell登录"></a>禁用shell登录</h3><p>&emsp;&emsp;为安全考虑，git用户不允许登录shell.</p>
-<figure class="highlight diff"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/passwd</span><br><span class="line"></span><br><span class="line"><span class="deletion">- git:x:500:500::/home/git:/bin/bash</span></span><br><span class="line"><span class="addition">+ git:x:500:500::/home/git:/usr/local/git/bin/git-shell</span></span><br></pre></td></tr></table></figure>
-<p>&emsp;&emsp;这样用户用git账户ssh连接后只能使用git命令了.<br>&emsp;&emsp;<b><code>各种配置配完再禁</code></b></p>
-<h3 id="创建证书登录"><a href="#创建证书登录" class="headerlink" title="创建证书登录"></a>创建证书登录</h3><p>&emsp;&emsp;首先在用户本地主目录下，看看有没有.ssh目录，如果有，再看看这个目录下有没有<code>id_rsa</code>和<code>id_rsa.pub</code>这两个文件，如果已经有了，可直接跳到下一步。如果没有:</p>
-<figure class="highlight excel"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -<span class="built_in">t</span> rsa -C <span class="string">&quot;aliyun_test_git_id_rsa&quot;</span> -f aliyun_test_git_id_rsa</span><br></pre></td></tr></table></figure>
-<p>&emsp;&emsp;把本地生成的公钥aliyun_test_git_id_rsa.pub，导入到远程服务器<code>/home/git/.ssh/authorized_keys</code>文件里，一行一个。<br>&emsp;&emsp;远程服务器如果没有该文件创建它：</p>
-<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">su git  <span class="comment"># 这步很重要，不切换用户后面会很麻烦</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">cd</span> <span class="string">/home/git/</span></span><br><span class="line">mkdir <span class="string">.ssh</span></span><br><span class="line">chmod 755 <span class="string">.ssh</span></span><br><span class="line">touch <span class="string">.ssh/authorized_keys</span></span><br><span class="line">chmod 644 <span class="string">.ssh/authorized_keys</span></span><br></pre></td></tr></table></figure>
-<p>&emsp;&emsp;把本地公钥复制到远程服务器（<code>确保相应的权限</code>）：</p>
-<figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cat aliyun_test_git_id_rsa.pub &gt;&gt; authorized_keys</span><br><span class="line"><span class="meta"># 确保权限</span></span><br><span class="line"><span class="meta"># chmod 700 ~/.ssh -R;</span></span><br><span class="line"><span class="meta"># chmod 600 ~/.ssh/authorized_keys</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="打开-RSA-认证"><a href="#打开-RSA-认证" class="headerlink" title="打开 RSA 认证"></a>打开 RSA 认证</h3><p>&emsp;&emsp;然后就可以去Git服务器上添加你的公钥用来验证你的信息了。在Git服务器上首先需要将/etc/ssh/sshd_config中将RSA认证打开，即：</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">RSAAuthentication</span> <span class="literal">yes</span></span><br><span class="line"><span class="string">PubkeyAuthentication</span> <span class="literal">yes</span></span><br><span class="line"><span class="string">AuthorizedKeysFile</span> <span class="string">.ssh/authorized_keys</span></span><br></pre></td></tr></table></figure>
-<p>&emsp;&emsp;保存并重启 sshd 服务：</p>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="regexp">/etc/</span>rc.d<span class="regexp">/init.d/</span>sshd restart</span><br></pre></td></tr></table></figure>
-
-<h3 id="设置用户信息"><a href="#设置用户信息" class="headerlink" title="设置用户信息"></a>设置用户信息</h3><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git<span class="built_in"> config </span>--global user.name <span class="string">&quot;leeze&quot;</span></span><br><span class="line">git<span class="built_in"> config </span>--global user.email <span class="string">&quot;leeze0216@163.com&quot;</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="初始化Git仓库"><a href="#初始化Git仓库" class="headerlink" title="初始化Git仓库"></a>初始化Git仓库</h3><p>&emsp;&emsp;<code>su git  # 这步很重要，不切换用户后面会很麻烦</code><br>&emsp;&emsp;首先我们选定一个目录作为Git仓库：</p>
-<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd /<span class="built_in">home</span>/git</span><br><span class="line"><span class="built_in">mkdir</span> gitrepos</span><br><span class="line"><span class="meta"># chown git:gitgroup gitrepo/</span></span><br></pre></td></tr></table></figure>
-<p>&emsp;&emsp;在服务器初始化一个远程 Git 裸仓库 (git init –bare)<br>&emsp;&emsp;裸仓库与 git init 初使化的仓库不太一样，裸仓库其实相当于通过克隆来的仓库里的.git文件夹，整个裸仓库中只有git索引（index），不包含工作目录。要实现 Push to Deploy，首先我们需要一个裸仓库，进入/home/USER/repos/，创建如下：</p>
-<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">cd</span> <span class="string">/home/git/gitrepos</span></span><br><span class="line">git init <span class="params">--bare</span> blog-bare.git <span class="comment"># Git 裸仓库</span></span><br><span class="line"><span class="comment"># chown -R git:git blog-bare.git</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="配置-Git-Hook"><a href="#配置-Git-Hook" class="headerlink" title="配置 Git Hook"></a>配置 Git Hook</h3><ol>
-
-<li> post-update</li>
-
-<p>&emsp;&emsp;将目录切换至 <code>/home/USER/repos/xxx-bare.git/hooks</code>，用 <code>cp post-update.sample post-update</code> 复制并重命名文件后 <code>vim post-update</code> 修改，增加执行脚本:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">unset</span> GIT_DIR</span><br><span class="line">DIR_ONE=/usr/share/nginx/blog/  <span class="comment">#此目录为服务器页面展示目录</span></span><br><span class="line"><span class="built_in">cd</span> <span class="variable">$DIR_ONE</span></span><br><span class="line"></span><br><span class="line">git init</span><br><span class="line">git remote add origin /home/git/gitrepos/blog-bare.git</span><br><span class="line">git clean -df</span><br><span class="line">git pull origin master</span><br></pre></td></tr></table></figure>
-<p><b><code> 注意： 一定要unset GIT_DIR清除变量， 不然会引起remote: fatal: Not a git repository: ‘.’错误。</code></b></p>
-<p>&emsp;&emsp;<code>post-update</code>添加执行权限：</p>
-<figure class="highlight sas"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod +<span class="meta">x</span> post-<span class="meta">update</span></span><br></pre></td></tr></table></figure>
-
-<li> post-receive</li>
-
-<p>&emsp;&emsp;将目录切换至 <code>/home/USER/repos/xxx-bare.git/hooks</code>，用 <code>cp post-receive.sample post-receive</code> 复制并重命名文件后 <code>vim post-receive</code> 修改，增加执行脚本:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line">git --work-tree=/usr/share/nginx/blog/ --git-dir=/home/git/gitrepos/blog-bare.git checkout -f</span><br></pre></td></tr></table></figure>
-</ol>
-
-<h3 id="本地配置"><a href="#本地配置" class="headerlink" title="本地配置"></a>本地配置</h3><p>&emsp;&emsp;修改Hexo博客根目录下<code>_config.yml</code>文件</p>
-<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">deploy</span>:</span><br><span class="line">- <span class="attribute">type</span>: git</span><br><span class="line">  <span class="attribute">repo</span>: git<span class="variable">@aliyun-ip</span>:/home/git/gitrepos/blog-bare.git</span><br><span class="line">  <span class="attribute">branch</span>: master</span><br></pre></td></tr></table></figure>
-
-<p>&emsp;&emsp;<code>hexo clean hexo g hexo d</code>后，网站更新了。</p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/post/dd42c2af.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
