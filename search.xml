@@ -431,8 +431,8 @@
 </ol>
 <h4 id="安装nginx"><a href="#安装nginx" class="headerlink" title="安装nginx"></a>安装nginx</h4><ol>
 <li>直接安装会安装当前的最新版本<figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line">yum <span class="keyword">install</span> -y nginx</span><br></pre></td></tr></table></figure></li>
-<li>该源仓库下有多个版本的nginx可供安装，可以用如下命令查看<figure class="highlight applescript"><table><tr><td class="code"><pre><span class="line">yum <span class="built_in">list</span> nginx <span class="comment">--show-duplicates</span></span><br></pre></td></tr></table></figure></li>
-<li>选择其中一个版本安装<figure class="highlight apache"><table><tr><td class="code"><pre><span class="line"><span class="attribute">yum</span> install -y nginx-版本号</span><br><span class="line"><span class="comment"># 如下</span></span><br><span class="line"><span class="attribute">yum</span> install -y nginx-<span class="number">17</span>.<span class="number">6</span>-<span class="number">1</span></span><br></pre></td></tr></table></figure>
+<li>该源仓库下有多个版本的nginx可供安装，可以用如下命令查看<figure class="highlight ada"><table><tr><td class="code"><pre><span class="line">yum <span class="comment">--showduplicates list nginx</span></span><br></pre></td></tr></table></figure></li>
+<li>选择其中一个版本安装<figure class="highlight apache"><table><tr><td class="code"><pre><span class="line"><span class="attribute">yum</span> install -y nginx-版本号</span><br><span class="line"><span class="comment"># 如下</span></span><br><span class="line"><span class="attribute">yum</span> install -y <span class="number">1</span>.<span class="number">18</span>.<span class="number">0</span>-<span class="number">1</span>.el<span class="number">6</span>.ngx</span><br></pre></td></tr></table></figure>
 
 </li>
 </ol>
@@ -969,7 +969,8 @@
 <figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line">yum -y <span class="builtin-name">remove</span> git</span><br></pre></td></tr></table></figure></li>
 <li><p>进入<code>git</code>在<code>GitHub</code>上发布版本页面<code>https://github.com/git/git/releases</code> ，这个页面我们可以找到所有git已发布的版本。这里我们选择最新版的<code>tar.gz</code>包。</p>
 <figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">https:<span class="regexp">//gi</span>thub.com<span class="regexp">/git/gi</span>t/releases</span><br></pre></td></tr></table></figure></li>
-<li><p>下载最新版本的tar.gz的Git到本地电脑上，利用Xftp工具将压缩包上传至Linux服务器的<code>/usr/local</code>目录下</p>
+<li><p>下载最新版本的tar.gz的Git到本地电脑上，利用ftp工具将压缩包上传至Linux服务器的<code>/usr/local</code>目录下</p>
+<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">wget https:<span class="regexp">//gi</span>thub.com<span class="regexp">/git/gi</span>t<span class="regexp">/archive/</span>v2.<span class="number">28.0</span>.tar.gz</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>进入<code>/usr/local</code> 目录解压git文件</p>
 <figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">tar</span> <span class="selector-tag">-zxvf</span> <span class="selector-tag">git-2</span><span class="selector-class">.28</span><span class="selector-class">.0</span><span class="selector-class">.tar</span><span class="selector-class">.gz</span></span><br></pre></td></tr></table></figure></li>
@@ -982,7 +983,7 @@
 <li><p>安装git至/usr/local/git路径</p>
 <figure class="highlight arcade"><table><tr><td class="code"><pre><span class="line">make prefix=<span class="regexp">/usr/</span>local/git install</span><br></pre></td></tr></table></figure></li>
 <li><p>配置环境变量</p>
-<figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line">vi /etc<span class="built_in">/profile </span></span><br><span class="line"></span><br><span class="line">在底部加上如下</span><br><span class="line"></span><br><span class="line"><span class="builtin-name">export</span> <span class="attribute">PATH</span>=<span class="variable">$PATH</span>:/usr/bin/git/bin</span><br></pre></td></tr></table></figure>
+<figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line">vi /etc<span class="built_in">/profile </span></span><br><span class="line"></span><br><span class="line">在底部加上如下</span><br><span class="line"></span><br><span class="line"><span class="builtin-name">export</span> <span class="attribute">PATH</span>=<span class="variable">$PATH</span>:/usr/local/git/bin</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>刷新环境变量</p>
 <figure class="highlight gradle"><table><tr><td class="code"><pre><span class="line"><span class="keyword">source</span> <span class="regexp">/etc/</span>profile</span><br></pre></td></tr></table></figure></li>
@@ -1174,7 +1175,7 @@
 <p>&emsp;&emsp; 根据Server ID 生成license Key：</p>
 <figure class="highlight awk"><table><tr><td class="code"><pre><span class="line"><span class="regexp">/opt/</span>atlassian<span class="regexp">/jira/</span>jre<span class="regexp">/bin/</span>java -jar <span class="regexp">/home/</span>jira1<span class="regexp">/atlassian-agent.jar -p jira -m jira@jira.com -n jira -o https:/</span><span class="regexp">/jira.com -s BFZ0-PD41-I9AX-YXDP</span></span><br></pre></td></tr></table></figure>
 <br>
-<div class="note default no-icon"><p>-p jira(安装的是jira产品)，具体的可以根据-p进行参考<br>-m <a href="mailto:&#106;&#x69;&#114;&#97;&#x40;&#106;&#x69;&#114;&#97;&#x2e;&#99;&#111;&#x6d;">&#106;&#x69;&#114;&#97;&#x40;&#106;&#x69;&#114;&#97;&#x2e;&#99;&#111;&#x6d;</a>(随意写)<br>-n jira(随意写)<br>-o <a href="https://jira.com/">https://jira.com</a> (随意写)<br>-s BFZ0-PD41-I9AX-YXDP (即jira显示的服务器ID)</p>
+<div class="note default no-icon"><p>-p jira(安装的是jira产品)，具体的可以根据-p进行参考<br>-m <a href="mailto:&#106;&#105;&#x72;&#97;&#x40;&#x6a;&#105;&#x72;&#97;&#x2e;&#99;&#111;&#x6d;">&#106;&#105;&#x72;&#97;&#x40;&#x6a;&#105;&#x72;&#97;&#x2e;&#99;&#111;&#x6d;</a>(随意写)<br>-n jira(随意写)<br>-o <a href="https://jira.com/">https://jira.com</a> (随意写)<br>-s BFZ0-PD41-I9AX-YXDP (即jira显示的服务器ID)</p>
 </div>
 <br>
 
