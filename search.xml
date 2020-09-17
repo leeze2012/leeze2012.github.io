@@ -244,7 +244,9 @@
 <figure class="highlight asciidoc"><table><tr><td class="code"><pre><span class="line">groupadd gitgroup</span><br><span class="line">useradd git -g gitgroup</span><br><span class="line">passwd git</span><br><span class="line">&#x27;&#x27;&#x27;&#x27;&#x27;&#x27;</span><br></pre></td></tr></table></figure>
 
 
-<h3 id="禁用shell登录"><a href="#禁用shell登录" class="headerlink" title="禁用shell登录"></a>禁用shell登录</h3><p>&emsp;&emsp;为安全考虑，git用户不允许登录shell.</p>
+<h3 id="禁用shell登录"><a href="#禁用shell登录" class="headerlink" title="禁用shell登录"></a>禁用shell登录</h3><p>&emsp;&emsp;为安全考虑，git用户不允许登录shell，从而只能用 git clone，git push 等登录。</p>
+<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">cat <span class="regexp">/etc/</span>shells <span class="regexp">//</span> 查看 git-shell 是否在登录方式里面</span><br><span class="line">which git-shell <span class="regexp">//</span> 查看是否安装</span><br><span class="line"></span><br><span class="line">vi <span class="regexp">/etc/</span>shells</span><br><span class="line">添加上<span class="number">2</span>步显示出来的路劲，通常在 <span class="regexp">/usr/</span>bin/git-shell</span><br></pre></td></tr></table></figure>
+<p>修改<code>/etc/passwd</code>中的权限:</p>
 <figure class="highlight diff"><table><tr><td class="code"><pre><span class="line">vi /etc/passwd</span><br><span class="line"></span><br><span class="line"><span class="deletion">- git:x:500:500::/home/git:/bin/bash</span></span><br><span class="line"><span class="addition">+ git:x:500:500::/home/git:/usr/local/git/bin/git-shell</span></span><br></pre></td></tr></table></figure>
 <p>&emsp;&emsp;这样用户用git账户ssh连接后只能使用git命令了.<br>&emsp;&emsp;<b><code>各种配置配完再禁</code></b></p>
 <h3 id="创建证书登录"><a href="#创建证书登录" class="headerlink" title="创建证书登录"></a>创建证书登录</h3><p>&emsp;&emsp;首先在用户本地主目录下，看看有没有.ssh目录，如果有，再看看这个目录下有没有<code>id_rsa</code>和<code>id_rsa.pub</code>这两个文件，如果已经有了，可直接跳到下一步。如果没有:</p>
@@ -259,13 +261,17 @@
 <p>&emsp;&emsp;保存并重启 sshd 服务：</p>
 <figure class="highlight awk"><table><tr><td class="code"><pre><span class="line"><span class="regexp">/etc/</span>rc.d<span class="regexp">/init.d/</span>sshd restart</span><br></pre></td></tr></table></figure>
 
-<h3 id="设置用户信息"><a href="#设置用户信息" class="headerlink" title="设置用户信息"></a>设置用户信息</h3><figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line">git<span class="built_in"> config </span>--global user.name <span class="string">&quot;leeze&quot;</span></span><br><span class="line">git<span class="built_in"> config </span>--global user.email <span class="string">&quot;leeze0216@163.com&quot;</span></span><br></pre></td></tr></table></figure>
+<h3 id="设置用户信息"><a href="#设置用户信息" class="headerlink" title="设置用户信息"></a>设置用户信息</h3><figure class="highlight verilog"><table><tr><td class="code"><pre><span class="line">git <span class="keyword">config</span> --<span class="keyword">global</span> user<span class="variable">.name</span> <span class="string">&quot;leeze&quot;</span></span><br><span class="line">git <span class="keyword">config</span> --<span class="keyword">global</span> user<span class="variable">.email</span> <span class="string">&quot;leeze0216@163.com&quot;</span></span><br><span class="line"></span><br><span class="line">git <span class="keyword">config</span> --<span class="keyword">global</span> core<span class="variable">.autocrlf</span> false  <span class="comment">// 禁用自动转换，这个不设置后面上传时会出现警告，如下</span></span><br></pre></td></tr></table></figure>
+<img src="/post/dd42c2af/git-warning.jpg" class title="warning">
 
 <h3 id="初始化Git仓库"><a href="#初始化Git仓库" class="headerlink" title="初始化Git仓库"></a>初始化Git仓库</h3><p>&emsp;&emsp;<code>su git  # 这步很重要，不切换用户后面会很麻烦</code><br>&emsp;&emsp;首先我们选定一个目录作为Git仓库：</p>
 <figure class="highlight arduino"><table><tr><td class="code"><pre><span class="line">cd /<span class="built_in">home</span>/git</span><br><span class="line"><span class="built_in">mkdir</span> gitrepos</span><br><span class="line"><span class="meta"># chown git:gitgroup gitrepo/</span></span><br></pre></td></tr></table></figure>
 <p>&emsp;&emsp;在服务器初始化一个远程 Git 裸仓库 (git init –bare)<br>&emsp;&emsp;裸仓库与 git init 初使化的仓库不太一样，裸仓库其实相当于通过克隆来的仓库里的.git文件夹，整个裸仓库中只有git索引（index），不包含工作目录。要实现 Push to Deploy，首先我们需要一个裸仓库，进入/home/USER/repos/，创建如下：</p>
 <figure class="highlight jboss-cli"><table><tr><td class="code"><pre><span class="line"><span class="keyword">cd</span> <span class="string">/home/git/gitrepos</span></span><br><span class="line">git init <span class="params">--bare</span> blog-bare.git <span class="comment"># Git 裸仓库</span></span><br><span class="line"><span class="comment"># chown -R git:git blog-bare.git</span></span><br></pre></td></tr></table></figure>
 
+<h3 id="测试git仓库"><a href="#测试git仓库" class="headerlink" title="测试git仓库"></a>测试git仓库</h3><p>&emsp;&emsp;另找空白文件夹，执行：</p>
+<figure class="highlight elixir"><table><tr><td class="code"><pre><span class="line">git clone git<span class="variable">@server_ip</span><span class="symbol">:/home/git/gitrepos/blog-bare</span>.git</span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;如果能把空仓库拉下来，就说明 git 仓库搭建成功了</p>
 <h3 id="配置-Git-Hook"><a href="#配置-Git-Hook" class="headerlink" title="配置 Git Hook"></a>配置 Git Hook</h3><ol>
 
 <li> post-update</li>
@@ -1246,7 +1252,7 @@
 <p>&emsp;&emsp; 根据Server ID 生成license Key：</p>
 <figure class="highlight awk"><table><tr><td class="code"><pre><span class="line"><span class="regexp">/opt/</span>atlassian<span class="regexp">/jira/</span>jre<span class="regexp">/bin/</span>java -jar <span class="regexp">/home/</span>jira1<span class="regexp">/atlassian-agent.jar -p jira -m jira@jira.com -n jira -o https:/</span><span class="regexp">/jira.com -s BFZ0-PD41-I9AX-YXDP</span></span><br></pre></td></tr></table></figure>
 <br>
-<div class="note default no-icon"><p>-p jira(安装的是jira产品)，具体的可以根据-p进行参考<br>-m <a href="mailto:&#106;&#x69;&#114;&#97;&#64;&#106;&#105;&#x72;&#x61;&#x2e;&#99;&#x6f;&#109;">&#106;&#x69;&#114;&#97;&#64;&#106;&#105;&#x72;&#x61;&#x2e;&#99;&#x6f;&#109;</a>(随意写)<br>-n jira(随意写)<br>-o <a href="https://jira.com/">https://jira.com</a> (随意写)<br>-s BFZ0-PD41-I9AX-YXDP (即jira显示的服务器ID)</p>
+<div class="note default no-icon"><p>-p jira(安装的是jira产品)，具体的可以根据-p进行参考<br>-m <a href="mailto:&#x6a;&#x69;&#114;&#97;&#x40;&#x6a;&#x69;&#x72;&#97;&#x2e;&#99;&#111;&#109;">&#x6a;&#x69;&#114;&#97;&#x40;&#x6a;&#x69;&#x72;&#97;&#x2e;&#99;&#111;&#109;</a>(随意写)<br>-n jira(随意写)<br>-o <a href="https://jira.com/">https://jira.com</a> (随意写)<br>-s BFZ0-PD41-I9AX-YXDP (即jira显示的服务器ID)</p>
 </div>
 <br>
 

@@ -31,10 +31,12 @@
 <meta property="og:site_name" content="小四哥">
 <meta property="og:description" content="准备工作  搭建Nginx服务器：  &amp;emsp;&amp;emsp; 参考：Linux安装Nginx--两种方式  搭建Git环境：  &amp;emsp;&amp;emsp; 参考：Linux安装Git-两种方式详细教程">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://blog.xiaosige.com/post/dd42c2af/git-warning.jpg">
 <meta property="article:published_time" content="2020-09-17T10:45:36.000Z">
-<meta property="article:modified_time" content="2020-09-17T13:03:49.422Z">
+<meta property="article:modified_time" content="2020-09-17T13:47:12.830Z">
 <meta property="article:tag" content="hexo">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog.xiaosige.com/post/dd42c2af/git-warning.jpg">
 
 
 <link rel="canonical" href="https://blog.xiaosige.com/post/dd42c2af.html">
@@ -235,7 +237,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C"><span class="nav-number">1.</span> <span class="nav-text">准备工作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#nginx%E9%85%8D%E7%BD%AE"><span class="nav-number">2.</span> <span class="nav-text">nginx配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GIT%E8%B4%A6%E6%88%B7-%E7%BB%84"><span class="nav-number">3.</span> <span class="nav-text">GIT账户&#x2F;组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A6%81%E7%94%A8shell%E7%99%BB%E5%BD%95"><span class="nav-number">4.</span> <span class="nav-text">禁用shell登录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E8%AF%81%E4%B9%A6%E7%99%BB%E5%BD%95"><span class="nav-number">5.</span> <span class="nav-text">创建证书登录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%89%93%E5%BC%80-RSA-%E8%AE%A4%E8%AF%81"><span class="nav-number">6.</span> <span class="nav-text">打开 RSA 认证</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E7%94%A8%E6%88%B7%E4%BF%A1%E6%81%AF"><span class="nav-number">7.</span> <span class="nav-text">设置用户信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96Git%E4%BB%93%E5%BA%93"><span class="nav-number">8.</span> <span class="nav-text">初始化Git仓库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE-Git-Hook"><span class="nav-number">9.</span> <span class="nav-text">配置 Git Hook</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%AC%E5%9C%B0%E9%85%8D%E7%BD%AE"><span class="nav-number">10.</span> <span class="nav-text">本地配置</span></a></li></ol></div>
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C"><span class="nav-number">1.</span> <span class="nav-text">准备工作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#nginx%E9%85%8D%E7%BD%AE"><span class="nav-number">2.</span> <span class="nav-text">nginx配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GIT%E8%B4%A6%E6%88%B7-%E7%BB%84"><span class="nav-number">3.</span> <span class="nav-text">GIT账户&#x2F;组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A6%81%E7%94%A8shell%E7%99%BB%E5%BD%95"><span class="nav-number">4.</span> <span class="nav-text">禁用shell登录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E8%AF%81%E4%B9%A6%E7%99%BB%E5%BD%95"><span class="nav-number">5.</span> <span class="nav-text">创建证书登录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%89%93%E5%BC%80-RSA-%E8%AE%A4%E8%AF%81"><span class="nav-number">6.</span> <span class="nav-text">打开 RSA 认证</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E7%94%A8%E6%88%B7%E4%BF%A1%E6%81%AF"><span class="nav-number">7.</span> <span class="nav-text">设置用户信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96Git%E4%BB%93%E5%BA%93"><span class="nav-number">8.</span> <span class="nav-text">初始化Git仓库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B5%8B%E8%AF%95git%E4%BB%93%E5%BA%93"><span class="nav-number">9.</span> <span class="nav-text">测试git仓库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE-Git-Hook"><span class="nav-number">10.</span> <span class="nav-text">配置 Git Hook</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%AC%E5%9C%B0%E9%85%8D%E7%BD%AE"><span class="nav-number">11.</span> <span class="nav-text">本地配置</span></a></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -367,7 +369,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2020-09-17 18:45:36 / 修改时间：21:03:49" itemprop="dateCreated datePublished" datetime="2020-09-17T18:45:36+08:00">2020-09-17</time>
+      <time title="创建时间：2020-09-17 18:45:36 / 修改时间：21:47:12" itemprop="dateCreated datePublished" datetime="2020-09-17T18:45:36+08:00">2020-09-17</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -395,7 +397,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>3.1k</span>
+      <span>3.4k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -431,7 +433,9 @@
 <figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">groupadd gitgroup</span><br><span class="line">useradd git -g gitgroup</span><br><span class="line">passwd git</span><br><span class="line">&#x27;&#x27;&#x27;&#x27;&#x27;&#x27;</span><br></pre></td></tr></table></figure>
 
 
-<h3 id="禁用shell登录"><a href="#禁用shell登录" class="headerlink" title="禁用shell登录"></a>禁用shell登录</h3><p>&emsp;&emsp;为安全考虑，git用户不允许登录shell.</p>
+<h3 id="禁用shell登录"><a href="#禁用shell登录" class="headerlink" title="禁用shell登录"></a>禁用shell登录</h3><p>&emsp;&emsp;为安全考虑，git用户不允许登录shell，从而只能用 git clone，git push 等登录。</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cat <span class="regexp">/etc/</span>shells <span class="regexp">//</span> 查看 git-shell 是否在登录方式里面</span><br><span class="line">which git-shell <span class="regexp">//</span> 查看是否安装</span><br><span class="line"></span><br><span class="line">vi <span class="regexp">/etc/</span>shells</span><br><span class="line">添加上<span class="number">2</span>步显示出来的路劲，通常在 <span class="regexp">/usr/</span>bin/git-shell</span><br></pre></td></tr></table></figure>
+<p>修改<code>/etc/passwd</code>中的权限:</p>
 <figure class="highlight diff"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/passwd</span><br><span class="line"></span><br><span class="line"><span class="deletion">- git:x:500:500::/home/git:/bin/bash</span></span><br><span class="line"><span class="addition">+ git:x:500:500::/home/git:/usr/local/git/bin/git-shell</span></span><br></pre></td></tr></table></figure>
 <p>&emsp;&emsp;这样用户用git账户ssh连接后只能使用git命令了.<br>&emsp;&emsp;<b><code>各种配置配完再禁</code></b></p>
 <h3 id="创建证书登录"><a href="#创建证书登录" class="headerlink" title="创建证书登录"></a>创建证书登录</h3><p>&emsp;&emsp;首先在用户本地主目录下，看看有没有.ssh目录，如果有，再看看这个目录下有没有<code>id_rsa</code>和<code>id_rsa.pub</code>这两个文件，如果已经有了，可直接跳到下一步。如果没有:</p>
@@ -446,13 +450,17 @@
 <p>&emsp;&emsp;保存并重启 sshd 服务：</p>
 <figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="regexp">/etc/</span>rc.d<span class="regexp">/init.d/</span>sshd restart</span><br></pre></td></tr></table></figure>
 
-<h3 id="设置用户信息"><a href="#设置用户信息" class="headerlink" title="设置用户信息"></a>设置用户信息</h3><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git<span class="built_in"> config </span>--global user.name <span class="string">&quot;leeze&quot;</span></span><br><span class="line">git<span class="built_in"> config </span>--global user.email <span class="string">&quot;leeze0216@163.com&quot;</span></span><br></pre></td></tr></table></figure>
+<h3 id="设置用户信息"><a href="#设置用户信息" class="headerlink" title="设置用户信息"></a>设置用户信息</h3><figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">config</span> --<span class="keyword">global</span> user<span class="variable">.name</span> <span class="string">&quot;leeze&quot;</span></span><br><span class="line">git <span class="keyword">config</span> --<span class="keyword">global</span> user<span class="variable">.email</span> <span class="string">&quot;leeze0216@163.com&quot;</span></span><br><span class="line"></span><br><span class="line">git <span class="keyword">config</span> --<span class="keyword">global</span> core<span class="variable">.autocrlf</span> false  <span class="comment">// 禁用自动转换，这个不设置后面上传时会出现警告，如下</span></span><br></pre></td></tr></table></figure>
+<img src="/post/dd42c2af/git-warning.jpg" class title="warning">
 
 <h3 id="初始化Git仓库"><a href="#初始化Git仓库" class="headerlink" title="初始化Git仓库"></a>初始化Git仓库</h3><p>&emsp;&emsp;<code>su git  # 这步很重要，不切换用户后面会很麻烦</code><br>&emsp;&emsp;首先我们选定一个目录作为Git仓库：</p>
 <figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd /<span class="built_in">home</span>/git</span><br><span class="line"><span class="built_in">mkdir</span> gitrepos</span><br><span class="line"><span class="meta"># chown git:gitgroup gitrepo/</span></span><br></pre></td></tr></table></figure>
 <p>&emsp;&emsp;在服务器初始化一个远程 Git 裸仓库 (git init –bare)<br>&emsp;&emsp;裸仓库与 git init 初使化的仓库不太一样，裸仓库其实相当于通过克隆来的仓库里的.git文件夹，整个裸仓库中只有git索引（index），不包含工作目录。要实现 Push to Deploy，首先我们需要一个裸仓库，进入/home/USER/repos/，创建如下：</p>
 <figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">cd</span> <span class="string">/home/git/gitrepos</span></span><br><span class="line">git init <span class="params">--bare</span> blog-bare.git <span class="comment"># Git 裸仓库</span></span><br><span class="line"><span class="comment"># chown -R git:git blog-bare.git</span></span><br></pre></td></tr></table></figure>
 
+<h3 id="测试git仓库"><a href="#测试git仓库" class="headerlink" title="测试git仓库"></a>测试git仓库</h3><p>&emsp;&emsp;另找空白文件夹，执行：</p>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone git<span class="variable">@server_ip</span><span class="symbol">:/home/git/gitrepos/blog-bare</span>.git</span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;如果能把空仓库拉下来，就说明 git 仓库搭建成功了</p>
 <h3 id="配置-Git-Hook"><a href="#配置-Git-Hook" class="headerlink" title="配置 Git Hook"></a>配置 Git Hook</h3><ol>
 
 <li> post-update</li>
@@ -624,7 +632,7 @@
       <i class="fa fa-coffee"></i>
     </span>
       <span>站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">1:46</span>
+    <span title="站点阅读时长">1:47</span>
   </span>
 </div>
 <div class="busuanzi-count">
