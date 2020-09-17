@@ -224,12 +224,69 @@
       </tags>
   </entry>
   <entry>
+    <title>Hexo博客实现自动部署阿里云服务器</title>
+    <url>/post/dd42c2af.html</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h3><ol>
+<li> 搭建Nginx服务器：</li>
+
+<p>&emsp;&emsp; 参考：<a href="/post/69813a0e.html" title="Linux安装Nginx--两种方式">Linux安装Nginx--两种方式</a></p>
+<li> 搭建Git环境：</li>
+
+<p>&emsp;&emsp; 参考：<a href="/post/4370af2f.html" title="Linux安装Git-两种方式详细教程">Linux安装Git-两种方式详细教程</a></p>
+</ol>
+
+
+<h3 id="GIT账户-组"><a href="#GIT账户-组" class="headerlink" title="GIT账户/组"></a>GIT账户/组</h3><p>&emsp;&emsp;接下来我们 创建一个git用户组和用户，用来运行git服务：</p>
+<figure class="highlight asciidoc"><table><tr><td class="code"><pre><span class="line">groupadd gitgroup</span><br><span class="line">useradd git -g gitgroup</span><br><span class="line">passwd git</span><br><span class="line">&#x27;&#x27;&#x27;&#x27;&#x27;&#x27;</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="禁用shell登录"><a href="#禁用shell登录" class="headerlink" title="禁用shell登录"></a>禁用shell登录</h3><p>&emsp;&emsp;为安全考虑，git用户不允许登录shell.</p>
+<figure class="highlight diff"><table><tr><td class="code"><pre><span class="line">vi /etc/passwd</span><br><span class="line"></span><br><span class="line"><span class="deletion">- git:x:500:500::/home/git:/bin/bash</span></span><br><span class="line"><span class="addition">+ git:x:500:500::/home/git:/usr/local/git/bin/git-shell</span></span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;这样用户用git账户ssh连接后只能使用git命令了.<br>&emsp;&emsp;<b><code>各种配置配完再禁</code></b></p>
+<h3 id="创建证书登录"><a href="#创建证书登录" class="headerlink" title="创建证书登录"></a>创建证书登录</h3><p>&emsp;&emsp;首先在用户本地主目录下，看看有没有.ssh目录，如果有，再看看这个目录下有没有<code>id_rsa</code>和<code>id_rsa.pub</code>这两个文件，如果已经有了，可直接跳到下一步。如果没有:</p>
+<figure class="highlight excel"><table><tr><td class="code"><pre><span class="line">ssh-keygen -<span class="built_in">t</span> rsa -C <span class="string">&quot;aliyun_test_git_id_rsa&quot;</span> -f aliyun_test_git_id_rsa</span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;把本地生成的公钥aliyun_test_git_id_rsa.pub，导入到远程服务器<code>/home/git/.ssh/authorized_keys</code>文件里，一行一个。<br>&emsp;&emsp;远程服务器如果没有该文件创建它：</p>
+<figure class="highlight jboss-cli"><table><tr><td class="code"><pre><span class="line">su git  <span class="comment"># 这步很重要，不切换用户后面会很麻烦</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">cd</span> <span class="string">/home/git/</span></span><br><span class="line">mkdir <span class="string">.ssh</span></span><br><span class="line">chmod 755 <span class="string">.ssh</span></span><br><span class="line">touch <span class="string">.ssh/authorized_keys</span></span><br><span class="line">chmod 644 <span class="string">.ssh/authorized_keys</span></span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;把本地公钥复制到远程服务器（<code>确保相应的权限</code>）：</p>
+<figure class="highlight vala"><table><tr><td class="code"><pre><span class="line">cat aliyun_test_git_id_rsa.pub &gt;&gt; authorized_keys</span><br><span class="line"><span class="meta"># 确保权限</span></span><br><span class="line"><span class="meta"># chmod 700 ~/.ssh -R;</span></span><br><span class="line"><span class="meta"># chmod 600 ~/.ssh/authorized_keys</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="打开-RSA-认证"><a href="#打开-RSA-认证" class="headerlink" title="打开 RSA 认证"></a>打开 RSA 认证</h3><p>&emsp;&emsp;然后就可以去Git服务器上添加你的公钥用来验证你的信息了。在Git服务器上首先需要将/etc/ssh/sshd_config中将RSA认证打开，即：</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">RSAAuthentication</span> <span class="literal">yes</span></span><br><span class="line"><span class="string">PubkeyAuthentication</span> <span class="literal">yes</span></span><br><span class="line"><span class="string">AuthorizedKeysFile</span> <span class="string">.ssh/authorized_keys</span></span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;保存并重启 sshd 服务：</p>
+<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line"><span class="regexp">/etc/</span>rc.d<span class="regexp">/init.d/</span>sshd restart</span><br></pre></td></tr></table></figure>
+
+<h3 id="设置用户信息"><a href="#设置用户信息" class="headerlink" title="设置用户信息"></a>设置用户信息</h3><figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line">git<span class="built_in"> config </span>--global user.name <span class="string">&quot;leeze&quot;</span></span><br><span class="line">git<span class="built_in"> config </span>--global user.email <span class="string">&quot;leeze0216@163.com&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="初始化Git仓库"><a href="#初始化Git仓库" class="headerlink" title="初始化Git仓库"></a>初始化Git仓库</h3><p>&emsp;&emsp;<code>su git  # 这步很重要，不切换用户后面会很麻烦</code><br>&emsp;&emsp;首先我们选定一个目录作为Git仓库：</p>
+<figure class="highlight arduino"><table><tr><td class="code"><pre><span class="line">cd /<span class="built_in">home</span>/git</span><br><span class="line"><span class="built_in">mkdir</span> gitrepos</span><br><span class="line"><span class="meta"># chown git:gitgroup gitrepo/</span></span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;在服务器初始化一个远程 Git 裸仓库 (git init –bare)<br>&emsp;&emsp;裸仓库与 git init 初使化的仓库不太一样，裸仓库其实相当于通过克隆来的仓库里的.git文件夹，整个裸仓库中只有git索引（index），不包含工作目录。要实现 Push to Deploy，首先我们需要一个裸仓库，进入/home/USER/repos/，创建如下：</p>
+<figure class="highlight jboss-cli"><table><tr><td class="code"><pre><span class="line"><span class="keyword">cd</span> <span class="string">/home/git/gitrepos</span></span><br><span class="line">git init <span class="params">--bare</span> blog-bare.git <span class="comment"># Git 裸仓库</span></span><br><span class="line"><span class="comment"># chown -R git:git blog-bare.git</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="配置-Git-Hook"><a href="#配置-Git-Hook" class="headerlink" title="配置 Git Hook"></a>配置 Git Hook</h3><p>&emsp;&emsp;将目录切换至 <code>/home/USER/repos/xxx-bare.git/hooks``，用 </code>cp post-update.sample post-update<code>复制并重命名文件后</code>vim post-update` 修改，增加执行脚本:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">unset</span> GIT_DIR</span><br><span class="line">DIR_ONE=/usr/share/nginx/blog/  <span class="comment">#此目录为服务器页面展示目录</span></span><br><span class="line"><span class="built_in">cd</span> <span class="variable">$DIR_ONE</span></span><br><span class="line"></span><br><span class="line">git init</span><br><span class="line">git remote add origin /home/git/gitrepos/blog-bare.git</span><br><span class="line">git clean -df</span><br><span class="line">git pull origin master</span><br></pre></td></tr></table></figure>
+<p><b><code> 注意： 一定要unset GIT_DIR清除变量， 不然会引起remote: fatal: Not a git repository: ‘.’错误。</code></b></p>
+<p>&emsp;&emsp;post-update添加执行权限：</p>
+<figure class="highlight sas"><table><tr><td class="code"><pre><span class="line">chmod +<span class="meta">x</span> post-<span class="meta">update</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="本地配置"><a href="#本地配置" class="headerlink" title="本地配置"></a>本地配置</h3><p>&emsp;&emsp;修改Hexo博客根目录下<code>_config.yml</code>文件</p>
+<figure class="highlight less"><table><tr><td class="code"><pre><span class="line"><span class="attribute">deploy</span>:</span><br><span class="line">- <span class="attribute">type</span>: git</span><br><span class="line">  <span class="attribute">repo</span>: git<span class="variable">@aliyun-ip</span>:/home/git/gitrepos/blog-bare.git</span><br><span class="line">  <span class="attribute">branch</span>: master</span><br></pre></td></tr></table></figure>
+
+
+]]></content>
+      <categories>
+        <category>hexo建站</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Nginx负载均衡的几种常见策略</title>
     <url>/post/e3076ab.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>&emsp;&emsp;负载均衡也是Nginx常用的一个功能，负载均衡其意思就是分摊到多个操作单元上进行执行，例如Web服务器、FTP服务器、企业关键应用服务器和其它关键任务服务器等，从而共同完成工作任务。<br>&emsp;&emsp;简单而言就是当有2台或以上服务器时，根据规则随机的将请求分发到指定的服务器上处理，负载均衡配置一般都需要同时配置反向代理，通过反向代理跳转到负载均衡。而Nginx目前支持自带3种负载均衡策略，还有2种常用的第三方策略。</p>
 <a id="more"></a>
 
-<h3 id="1-RR-默认"><a href="#1-RR-默认" class="headerlink" title="1. RR(默认)"></a>1. RR(默认)</h3><figure class="highlight nginx"><table><tr><td class="code"><pre><span class="line"><span class="comment">#每个请求按时间顺序逐一分配到不同的后端服务器，如果后端服务器down掉，能自动剔除</span></span><br><span class="line"></span><br><span class="line"><span class="attribute">upstream</span> test &#123;</span><br><span class="line">        <span class="attribute">server</span> localhost:<span class="number">8080</span>;</span><br><span class="line">        <span class="attribute">server</span> localhost:<span class="number">8081</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="section">server</span> &#123;</span><br><span class="line">　　<span class="attribute">listen</span>       <span class="number">81</span>;                                                         </span><br><span class="line">　　<span class="attribute">server_name</span>  localhost;                                               </span><br><span class="line">　　<span class="attribute">client_max_body_size</span> <span class="number">1024M</span>;</span><br><span class="line"></span><br><span class="line">　　<span class="attribute">location</span> / &#123;</span><br><span class="line">　　　　<span class="attribute">proxy_pass</span> http://test;</span><br><span class="line">　　　　<span class="attribute">proxy_set_header</span> Host <span class="variable">$host</span>:<span class="variable">$server_port</span>;</span><br><span class="line">　　&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="RR-默认"><a href="#RR-默认" class="headerlink" title="RR(默认)"></a>RR(默认)</h3><figure class="highlight nginx"><table><tr><td class="code"><pre><span class="line"><span class="comment">#每个请求按时间顺序逐一分配到不同的后端服务器，如果后端服务器down掉，能自动剔除</span></span><br><span class="line"></span><br><span class="line"><span class="attribute">upstream</span> test &#123;</span><br><span class="line">        <span class="attribute">server</span> localhost:<span class="number">8080</span>;</span><br><span class="line">        <span class="attribute">server</span> localhost:<span class="number">8081</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="section">server</span> &#123;</span><br><span class="line">　　<span class="attribute">listen</span>       <span class="number">81</span>;                                                         </span><br><span class="line">　　<span class="attribute">server_name</span>  localhost;                                               </span><br><span class="line">　　<span class="attribute">client_max_body_size</span> <span class="number">1024M</span>;</span><br><span class="line"></span><br><span class="line">　　<span class="attribute">location</span> / &#123;</span><br><span class="line">　　　　<span class="attribute">proxy_pass</span> http://test;</span><br><span class="line">　　　　<span class="attribute">proxy_set_header</span> Host <span class="variable">$host</span>:<span class="variable">$server_port</span>;</span><br><span class="line">　　&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><b><code>Remark:</code></b><br>&emsp;&emsp;这里我配置了2台服务器，实际上也可能只有一台，只是端口不一样而已，如果服务器处于不能访问（服务器挂了），就不会跳转到这台服务器，所以也避免了一台服务器挂了影响使用的情况，由于Nginx默认是RR策略，所以我们不需要其他更多的设置</p>
 <h3 id="权重"><a href="#权重" class="headerlink" title="权重"></a>权重</h3><figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line"><span class="comment">#指定轮询几率，weight和访问比率成正比，用于后端服务器性能不均的情况</span></span><br><span class="line"></span><br><span class="line">upstream test &#123;</span><br><span class="line">       <span class="built_in"> server </span>localhost:8080 <span class="attribute">weight</span>=9;</span><br><span class="line">       <span class="built_in"> server </span>localhost:8081 <span class="attribute">weight</span>=1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="ip-hash"><a href="#ip-hash" class="headerlink" title="ip_hash"></a>ip_hash</h3><figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line">upstream test &#123;</span><br><span class="line">    ip_hash;</span><br><span class="line">   <span class="built_in"> server </span>localhost:8080;</span><br><span class="line">   <span class="built_in"> server </span>localhost:8081;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -1175,7 +1232,7 @@
 <p>&emsp;&emsp; 根据Server ID 生成license Key：</p>
 <figure class="highlight awk"><table><tr><td class="code"><pre><span class="line"><span class="regexp">/opt/</span>atlassian<span class="regexp">/jira/</span>jre<span class="regexp">/bin/</span>java -jar <span class="regexp">/home/</span>jira1<span class="regexp">/atlassian-agent.jar -p jira -m jira@jira.com -n jira -o https:/</span><span class="regexp">/jira.com -s BFZ0-PD41-I9AX-YXDP</span></span><br></pre></td></tr></table></figure>
 <br>
-<div class="note default no-icon"><p>-p jira(安装的是jira产品)，具体的可以根据-p进行参考<br>-m <a href="mailto:&#x6a;&#x69;&#114;&#97;&#x40;&#106;&#105;&#x72;&#97;&#46;&#x63;&#111;&#109;">&#x6a;&#x69;&#114;&#97;&#x40;&#106;&#105;&#x72;&#97;&#46;&#x63;&#111;&#109;</a>(随意写)<br>-n jira(随意写)<br>-o <a href="https://jira.com/">https://jira.com</a> (随意写)<br>-s BFZ0-PD41-I9AX-YXDP (即jira显示的服务器ID)</p>
+<div class="note default no-icon"><p>-p jira(安装的是jira产品)，具体的可以根据-p进行参考<br>-m <a href="mailto:&#106;&#105;&#x72;&#97;&#64;&#106;&#105;&#x72;&#x61;&#46;&#99;&#x6f;&#109;">&#106;&#105;&#x72;&#97;&#64;&#106;&#105;&#x72;&#x61;&#46;&#99;&#x6f;&#109;</a>(随意写)<br>-n jira(随意写)<br>-o <a href="https://jira.com/">https://jira.com</a> (随意写)<br>-s BFZ0-PD41-I9AX-YXDP (即jira显示的服务器ID)</p>
 </div>
 <br>
 
