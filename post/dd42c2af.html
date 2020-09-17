@@ -33,7 +33,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://blog.xiaosige.com/post/dd42c2af/git-warning.jpg">
 <meta property="article:published_time" content="2020-09-17T10:45:36.000Z">
-<meta property="article:modified_time" content="2020-09-17T13:47:12.830Z">
+<meta property="article:modified_time" content="2020-09-17T13:54:34.265Z">
 <meta property="article:tag" content="hexo">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://blog.xiaosige.com/post/dd42c2af/git-warning.jpg">
@@ -369,7 +369,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2020-09-17 18:45:36 / 修改时间：21:47:12" itemprop="dateCreated datePublished" datetime="2020-09-17T18:45:36+08:00">2020-09-17</time>
+      <time title="创建时间：2020-09-17 18:45:36 / 修改时间：21:54:34" itemprop="dateCreated datePublished" datetime="2020-09-17T18:45:36+08:00">2020-09-17</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -397,7 +397,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>3.4k</span>
+      <span>3.5k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -428,14 +428,14 @@
 
 <h3 id="nginx配置"><a href="#nginx配置" class="headerlink" title="nginx配置"></a>nginx配置</h3><p>&emsp;&emsp;在<code>/etc/nginx/vhosts</code>下，新建<code>blog.conf</code>：</p>
 <figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">server&#123;</span><br><span class="line">        listen    <span class="number">80</span>;</span><br><span class="line">        root <span class="regexp">/usr/</span>share<span class="regexp">/nginx/</span>blog;</span><br><span class="line">        server_name aliyun-ip*****;</span><br><span class="line">        index index.html index.htm index.php <span class="keyword">default</span>.html <span class="keyword">default</span>.htm <span class="keyword">default</span>.php;</span><br><span class="line">        location ~ .*\.(ico|gif|jpg|jpeg|png|bmp|swf)$</span><br><span class="line">        &#123;</span><br><span class="line">           access_log   off;</span><br><span class="line">           expires      <span class="number">1</span>d;</span><br><span class="line">        &#125;</span><br><span class="line">        location ~ .*\.(js|css|txt|xml)?$</span><br><span class="line">        &#123;</span><br><span class="line">           access_log   off;</span><br><span class="line">           expires      <span class="number">12</span>h;</span><br><span class="line">        &#125;</span><br><span class="line">        location /&#123;</span><br><span class="line">           try_files $uri $uri/ =<span class="number">404</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        access_log  <span class="regexp">/var/</span>log<span class="regexp">/nginx/</span>blog.access.log combined;</span><br><span class="line">        error_log <span class="regexp">/var/</span>log<span class="regexp">/nginx/</span>blog.error.log warn;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><code>chown -R git:gitgroup blog</code></p>
+<p>&emsp;&emsp;<code>chown -R git:gitgroup blog</code></p>
 <h3 id="GIT账户-组"><a href="#GIT账户-组" class="headerlink" title="GIT账户/组"></a>GIT账户/组</h3><p>&emsp;&emsp;接下来我们 创建一个git用户组和用户，用来运行git服务：</p>
 <figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">groupadd gitgroup</span><br><span class="line">useradd git -g gitgroup</span><br><span class="line">passwd git</span><br><span class="line">&#x27;&#x27;&#x27;&#x27;&#x27;&#x27;</span><br></pre></td></tr></table></figure>
 
 
 <h3 id="禁用shell登录"><a href="#禁用shell登录" class="headerlink" title="禁用shell登录"></a>禁用shell登录</h3><p>&emsp;&emsp;为安全考虑，git用户不允许登录shell，从而只能用 git clone，git push 等登录。</p>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cat <span class="regexp">/etc/</span>shells <span class="regexp">//</span> 查看 git-shell 是否在登录方式里面</span><br><span class="line">which git-shell <span class="regexp">//</span> 查看是否安装</span><br><span class="line"></span><br><span class="line">vi <span class="regexp">/etc/</span>shells</span><br><span class="line">添加上<span class="number">2</span>步显示出来的路劲，通常在 <span class="regexp">/usr/</span>bin/git-shell</span><br></pre></td></tr></table></figure>
-<p>修改<code>/etc/passwd</code>中的权限:</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cat <span class="regexp">/etc/</span>shells <span class="regexp">//</span> 查看 git-shell 是否在登录方式里面</span><br><span class="line">which git-shell <span class="regexp">//</span> 查看是否安装</span><br><span class="line"></span><br><span class="line">vi <span class="regexp">/etc/</span>shells</span><br><span class="line">添加上<span class="number">2</span>步显示出来的路径，通常在 <span class="regexp">/usr/</span>bin/git-shell</span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;修改<code>/etc/passwd</code>中的权限:</p>
 <figure class="highlight diff"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/passwd</span><br><span class="line"></span><br><span class="line"><span class="deletion">- git:x:500:500::/home/git:/bin/bash</span></span><br><span class="line"><span class="addition">+ git:x:500:500::/home/git:/usr/local/git/bin/git-shell</span></span><br></pre></td></tr></table></figure>
 <p>&emsp;&emsp;这样用户用git账户ssh连接后只能使用git命令了.<br>&emsp;&emsp;<b><code>各种配置配完再禁</code></b></p>
 <h3 id="创建证书登录"><a href="#创建证书登录" class="headerlink" title="创建证书登录"></a>创建证书登录</h3><p>&emsp;&emsp;首先在用户本地主目录下，看看有没有.ssh目录，如果有，再看看这个目录下有没有<code>id_rsa</code>和<code>id_rsa.pub</code>这两个文件，如果已经有了，可直接跳到下一步。如果没有:</p>
@@ -445,7 +445,7 @@
 <p>&emsp;&emsp;把本地公钥复制到远程服务器（<code>确保相应的权限</code>）：</p>
 <figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cat aliyun_test_git_id_rsa.pub &gt;&gt; authorized_keys</span><br><span class="line"><span class="meta"># 确保权限</span></span><br><span class="line"><span class="meta"># chmod 700 ~/.ssh -R;</span></span><br><span class="line"><span class="meta"># chmod 600 ~/.ssh/authorized_keys</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="打开-RSA-认证"><a href="#打开-RSA-认证" class="headerlink" title="打开 RSA 认证"></a>打开 RSA 认证</h3><p>&emsp;&emsp;然后就可以去Git服务器上添加你的公钥用来验证你的信息了。在Git服务器上首先需要将/etc/ssh/sshd_config中将RSA认证打开，即：</p>
+<h3 id="打开-RSA-认证"><a href="#打开-RSA-认证" class="headerlink" title="打开 RSA 认证"></a>打开 RSA 认证</h3><p>&emsp;&emsp;然后就可以去Git服务器上添加你的公钥用来验证你的信息了。在Git服务器上首先需要将<code>/etc/ssh/sshd_config</code>中将RSA认证打开，即：</p>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">RSAAuthentication</span> <span class="literal">yes</span></span><br><span class="line"><span class="string">PubkeyAuthentication</span> <span class="literal">yes</span></span><br><span class="line"><span class="string">AuthorizedKeysFile</span> <span class="string">.ssh/authorized_keys</span></span><br></pre></td></tr></table></figure>
 <p>&emsp;&emsp;保存并重启 sshd 服务：</p>
 <figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="regexp">/etc/</span>rc.d<span class="regexp">/init.d/</span>sshd restart</span><br></pre></td></tr></table></figure>
@@ -467,7 +467,7 @@
 
 <p>&emsp;&emsp;将目录切换至 <code>/home/USER/repos/xxx-bare.git/hooks</code>，用 <code>cp post-update.sample post-update</code> 复制并重命名文件后 <code>vim post-update</code> 修改，增加执行脚本:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">unset</span> GIT_DIR</span><br><span class="line">DIR_ONE=/usr/share/nginx/blog/  <span class="comment">#此目录为服务器页面展示目录</span></span><br><span class="line"><span class="built_in">cd</span> <span class="variable">$DIR_ONE</span></span><br><span class="line"></span><br><span class="line">git init</span><br><span class="line">git remote add origin /home/git/gitrepos/blog-bare.git</span><br><span class="line">git clean -df</span><br><span class="line">git pull origin master</span><br></pre></td></tr></table></figure>
-<p><b><code> 注意： 一定要unset GIT_DIR清除变量， 不然会引起remote: fatal: Not a git repository: ‘.’错误。</code></b></p>
+<p>&emsp;&emsp;<b><code> 注意： 一定要unset GIT_DIR清除变量， 不然会引起remote: fatal: Not a git repository: ‘.’错误。</code></b></p>
 <p>&emsp;&emsp;<code>post-update</code>添加执行权限：</p>
 <figure class="highlight sas"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod +<span class="meta">x</span> post-<span class="meta">update</span></span><br></pre></td></tr></table></figure>
 
