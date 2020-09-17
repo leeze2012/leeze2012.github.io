@@ -237,6 +237,9 @@
 
 <a id="more"></a>    
 
+<h3 id="nginx配置"><a href="#nginx配置" class="headerlink" title="nginx配置"></a>nginx配置</h3><p>&emsp;&emsp;在<code>/etc/nginx/vhosts</code>下，新建<code>blog.conf</code>：</p>
+<figure class="highlight gradle"><table><tr><td class="code"><pre><span class="line">server&#123;</span><br><span class="line">        listen    <span class="number">80</span>;</span><br><span class="line">        root <span class="regexp">/usr/</span>share<span class="regexp">/nginx/</span>blog;</span><br><span class="line">        server_name aliyun-ip*****;</span><br><span class="line">        index index.html index.htm index.php <span class="keyword">default</span>.html <span class="keyword">default</span>.htm <span class="keyword">default</span>.php;</span><br><span class="line">        location ~ .*\.(ico|gif|jpg|jpeg|png|bmp|swf)$</span><br><span class="line">        &#123;</span><br><span class="line">           access_log   off;</span><br><span class="line">           expires      <span class="number">1</span>d;</span><br><span class="line">        &#125;</span><br><span class="line">        location ~ .*\.(js|css|txt|xml)?$</span><br><span class="line">        &#123;</span><br><span class="line">           access_log   off;</span><br><span class="line">           expires      <span class="number">12</span>h;</span><br><span class="line">        &#125;</span><br><span class="line">        location /&#123;</span><br><span class="line">           try_files $uri $uri/ =<span class="number">404</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        access_log  <span class="regexp">/var/</span>log<span class="regexp">/nginx/</span>blog.access.log combined;</span><br><span class="line">        error_log <span class="regexp">/var/</span>log<span class="regexp">/nginx/</span>blog.error.log warn;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>chown -R git:gitgroup blog</code></p>
 <h3 id="GIT账户-组"><a href="#GIT账户-组" class="headerlink" title="GIT账户/组"></a>GIT账户/组</h3><p>&emsp;&emsp;接下来我们 创建一个git用户组和用户，用来运行git服务：</p>
 <figure class="highlight asciidoc"><table><tr><td class="code"><pre><span class="line">groupadd gitgroup</span><br><span class="line">useradd git -g gitgroup</span><br><span class="line">passwd git</span><br><span class="line">&#x27;&#x27;&#x27;&#x27;&#x27;&#x27;</span><br></pre></td></tr></table></figure>
 
@@ -1243,7 +1246,7 @@
 <p>&emsp;&emsp; 根据Server ID 生成license Key：</p>
 <figure class="highlight awk"><table><tr><td class="code"><pre><span class="line"><span class="regexp">/opt/</span>atlassian<span class="regexp">/jira/</span>jre<span class="regexp">/bin/</span>java -jar <span class="regexp">/home/</span>jira1<span class="regexp">/atlassian-agent.jar -p jira -m jira@jira.com -n jira -o https:/</span><span class="regexp">/jira.com -s BFZ0-PD41-I9AX-YXDP</span></span><br></pre></td></tr></table></figure>
 <br>
-<div class="note default no-icon"><p>-p jira(安装的是jira产品)，具体的可以根据-p进行参考<br>-m <a href="mailto:&#106;&#105;&#114;&#97;&#x40;&#106;&#x69;&#x72;&#x61;&#x2e;&#x63;&#x6f;&#109;">&#106;&#105;&#114;&#97;&#x40;&#106;&#x69;&#x72;&#x61;&#x2e;&#x63;&#x6f;&#109;</a>(随意写)<br>-n jira(随意写)<br>-o <a href="https://jira.com/">https://jira.com</a> (随意写)<br>-s BFZ0-PD41-I9AX-YXDP (即jira显示的服务器ID)</p>
+<div class="note default no-icon"><p>-p jira(安装的是jira产品)，具体的可以根据-p进行参考<br>-m <a href="mailto:&#106;&#x69;&#114;&#97;&#64;&#106;&#105;&#x72;&#x61;&#x2e;&#99;&#x6f;&#109;">&#106;&#x69;&#114;&#97;&#64;&#106;&#105;&#x72;&#x61;&#x2e;&#99;&#x6f;&#109;</a>(随意写)<br>-n jira(随意写)<br>-o <a href="https://jira.com/">https://jira.com</a> (随意写)<br>-s BFZ0-PD41-I9AX-YXDP (即jira显示的服务器ID)</p>
 </div>
 <br>
 
