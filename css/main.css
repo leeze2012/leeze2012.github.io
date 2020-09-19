@@ -3148,6 +3148,17 @@ code {
 .links-of-author {
   margin-left: 15px;
 }
+.article-topping {
+  display: inline-block;
+  padding: 0 10px;
+  border-radius: 4px;
+  font-style: normal;
+  font-size: 12px;
+  background-color: #ea434a;
+  color: #fff;
+  height: 22px;
+  line-height: 24px;
+}
 @-moz-keyframes gradient {
   0% {
     background-position: 0% 50%;
