@@ -658,7 +658,7 @@ fetch('https://v1.hitokoto.cn')
   .then(function (data) {
     var hitokoto = document.getElementById('hitokoto');
     if(hitokoto){
-      hitokoto.innerHTML = "<i class='fa fa-volume-up' style='margin-right:6px;'></i>" + data.hitokoto + '——【' + data.from + '】';
+      hitokoto.innerHTML = "<i class='fa fa-volume-up magic-color' style='margin-right:6px;'></i>" + data.hitokoto + '——【' + data.from + '】';
     }
   })
   .catch(function (err) {
