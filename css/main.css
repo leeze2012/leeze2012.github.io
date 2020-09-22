@@ -3362,6 +3362,26 @@ code {
     -webkit-transform: translate(1.3px, 1px) rotate(-0.5deg);
   }
 }
+.category-list-link:hover {
+  border-bottom: 1px solid;
+  border-bottom-color: #fc6423;
+  color: #fc6423;
+  font-weight: bold;
+}
+.posts-collapse .post-content .post-header:hover::before {
+  background: #fc6423;
+}
+.posts-collapse .post-content .post-header:hover {
+  border-bottom: 1px dashed #fc6423;
+}
+.posts-collapse .post-content .post-header:hover time,
+.posts-collapse .post-content .post-header:hover a {
+  color: #fc6423;
+  font-weight: bold;
+}
+.posts-collapse .post-content .post-header post-meta-container:hover {
+  color: #fc6423;
+}
 @-moz-keyframes gradient {
   0% {
     background-position: 0% 50%;
