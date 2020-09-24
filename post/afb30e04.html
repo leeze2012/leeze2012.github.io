@@ -504,7 +504,7 @@
 <p>&emsp;&emsp; 根据Server ID 生成license Key：</p>
 <figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="regexp">/opt/</span>atlassian<span class="regexp">/jira/</span>jre<span class="regexp">/bin/</span>java -jar <span class="regexp">/home/</span>jira1<span class="regexp">/atlassian-agent.jar -p jira -m jira@jira.com -n jira -o https:/</span><span class="regexp">/jira.com -s BFZ0-PD41-I9AX-YXDP</span></span><br></pre></td></tr></table></figure>
 <br>
-<div class="note default no-icon"><p>-p jira(安装的是jira产品)，具体的可以根据-p进行参考<br>-m <a href="mailto:&#x6a;&#105;&#114;&#x61;&#64;&#x6a;&#105;&#114;&#x61;&#x2e;&#x63;&#111;&#x6d;">&#x6a;&#105;&#114;&#x61;&#64;&#x6a;&#105;&#114;&#x61;&#x2e;&#x63;&#111;&#x6d;</a>(随意写)<br>-n jira(随意写)<br>-o <a target="_blank" rel="noopener" href="https://jira.com/">https://jira.com</a> (随意写)<br>-s BFZ0-PD41-I9AX-YXDP (即jira显示的服务器ID)</p>
+<div class="note default no-icon"><p>-p jira(安装的是jira产品)，具体的可以根据-p进行参考<br>-m <a href="mailto:&#x6a;&#x69;&#114;&#x61;&#x40;&#x6a;&#x69;&#x72;&#x61;&#x2e;&#99;&#x6f;&#x6d;">&#x6a;&#x69;&#114;&#x61;&#x40;&#x6a;&#x69;&#x72;&#x61;&#x2e;&#99;&#x6f;&#x6d;</a>(随意写)<br>-n jira(随意写)<br>-o <a target="_blank" rel="noopener" href="https://jira.com/">https://jira.com</a> (随意写)<br>-s BFZ0-PD41-I9AX-YXDP (即jira显示的服务器ID)</p>
 </div>
 <br>
 
@@ -790,7 +790,6 @@ NexT.utils.loadComments('#lv-container', () => {
 </script>
 
 
-
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
 <script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
@@ -850,5 +849,101 @@ fetch('https://v1.hitokoto.cn')
 </script>
 
 
+<!-- 代码块自动隐藏 -->
+<script>
+$(function(){
+const CODE_MAX_HEIGHT = 200;
+const containers = [];
+
+// 展开
+$('body').on('click', '.js_unfold_code_btn', function () {
+    $(this).closest('.js_highlight_container').addClass('on');
+});
+// 收起
+$('body').on('click', '.js_retract_code_btn', function () {
+    const $container = $(this).closest('.js_highlight_container').removeClass('on');
+    const winTop = $(window).scrollTop();
+    const offsetTop = $container.offset().top;
+    $(this).css('top', 0);
+    if (winTop > offsetTop) {
+        // 设置滚动条位置
+        $('body, html').animate({
+            scrollTop: $container.offset().top - CODE_MAX_HEIGHT
+        }, 600);
+    }
+});
+// 滚动事件，触发动画效果
+$(window).on('scroll', function () {
+    const scrollTop = $(window).scrollTop();
+    const temp = [];
+    for (let i = 0; i < containers.length; i++) {
+        const item = containers[i];
+        const { $container, height, $hide, hasHorizontalScrollbar } = item;
+        if ($container.closest('body').length === 0) {
+            // 如果 $container 元素已经不在页面上, 则删除该元素
+            // 防止pjax页面跳转之后，元素未删除
+            continue;
+        }
+        temp.push(item);
+        if (!$container.hasClass('on')) {
+            continue;
+        }
+        const offsetTop = $container.offset().top;
+        const hideBtnHeight = $hide.outerHeight();
+        // 减去按钮高度，减去底部滚动条高度
+        const maxTop = parseInt(height - (hasHorizontalScrollbar ? 17 : 0) - hideBtnHeight);
+        let top = parseInt(
+            Math.min(
+                Math.max(scrollTop - offsetTop, 0), // 如果小于 0 ，则取 0
+                maxTop,// 如果大于 height ，则取 height
+            )
+        );
+        // 根据 sin 曲线设置"收起代码"位置
+        const halfHeight = parseInt($(window).height() / 2 * Math.sin((top / maxTop) * 90 * (2 * Math.PI/360)));
+        $hide.css('top', Math.min(top + halfHeight, maxTop));
+    }
+    //containers = temp;
+});
+
+// 添加隐藏容器
+const addCodeWrap = ($node) => {
+    const $container = $node.wrap('<div class="js_highlight_container highlight-container"><div class="highlight-wrap"></div></div>').closest('.js_highlight_container');
+
+    // 底部 "展开代码" 与 侧边栏 "收起代码"
+    const $btn = $(`
+    <div class="highlight-footer">
+      <a class="js_unfold_code_btn show-btn" href="javascript:;">展开代码<i class="fa fa-angle-down fa-lg" aria-hidden="true"></i></a>
+    </div>
+    <a class="js_retract_code_btn hide-btn" href="javascript:;"><i class="fa fa-angle-up fa-lg" aria-hidden="true"></i>收起代码</a>
+  `);
+
+    $container.append($btn);
+    return $container;
+};
+
+    $('.highlight').each(function () {
+        // 防止重复渲染
+        if (this.__render__ === true) {
+            return true;
+        }
+        this.__render__ = true;
+        const $this = $(this);
+        const height = $(this).outerHeight();
+        if (height > CODE_MAX_HEIGHT) {
+            // 添加展开&收起容器
+            const $container = addCodeWrap($this, height);
+            containers.push({
+                $container,
+                height,
+                $hide: $container.find('.js_retract_code_btn'),
+                hasHorizontalScrollbar: this.scrollWidth > this.offsetWidth,
+            });
+        }
+    });
+
+
+
+});
+</script>
 </body>
 </html>
