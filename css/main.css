@@ -3446,7 +3446,7 @@ code {
   left: 0;
   bottom: 0;
   height: 60px;
-  background-image: linear-gradient(-180deg, rgba(255,255,255,0) 0%, highlight-background 65%);
+  background-image: linear-gradient(180deg, rgba(238,238,238,0) 0, #fff 65%);
   text-align: center;
 }
 .highlight-container .show-btn {
@@ -3464,6 +3464,8 @@ code {
 }
 .highlight-container .show-btn:hover {
   text-decoration: none;
+  box-shadow: 0 0 10px #f00;
+  border: 1px solid #008000;
 }
 .highlight-container .hide-btn {
   color: #fff;
@@ -3484,6 +3486,8 @@ code {
 }
 .highlight-container .hide-btn:hover {
   text-decoration: none;
+  box-shadow: 0 0 10px #f00;
+  border: 1px solid #008000;
 }
 .highlight-container .fa-angle-up,
 .highlight-container .fa-angle-down {

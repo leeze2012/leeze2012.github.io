@@ -24,17 +24,22 @@
     var CONFIG = {"hostname":"blog.xiaosige.com","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"livere","storage":true,"lazyload":true,"nav":null,"activeClass":"livere"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}};
   </script>
 
-  <meta name="description" content="命令初始配置123mkdir d:\git_testgit config --global user.name &quot;Your name&quot;git config --global user.email &quot;you@example.com&quot;">
+  <meta name="description" content="命令初始配置 仓库级别 local 【优先级最高】 12git config --local user.name &quot;Your name&quot;git config --local user.email &quot;you@example.com&quot; &amp;emsp;&amp;emsp;git 仓库级别对应的配置文件是当前仓库下的.git&#x2F;config 【在当前目录下.git目录默认是隐藏">
 <meta property="og:type" content="article">
 <meta property="og:title" content="git常用命令">
 <meta property="og:url" content="https://blog.xiaosige.com/post/423abe9e.html">
 <meta property="og:site_name" content="小四儿">
-<meta property="og:description" content="命令初始配置123mkdir d:\git_testgit config --global user.name &quot;Your name&quot;git config --global user.email &quot;you@example.com&quot;">
+<meta property="og:description" content="命令初始配置 仓库级别 local 【优先级最高】 12git config --local user.name &quot;Your name&quot;git config --local user.email &quot;you@example.com&quot; &amp;emsp;&amp;emsp;git 仓库级别对应的配置文件是当前仓库下的.git&#x2F;config 【在当前目录下.git目录默认是隐藏">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://blog.xiaosige.com/post/423abe9e/gitcom-001.png">
+<meta property="og:image" content="https://blog.xiaosige.com/post/423abe9e/gitcom-002.png">
+<meta property="og:image" content="https://blog.xiaosige.com/post/423abe9e/gitcom-003.png">
+<meta property="og:image" content="https://blog.xiaosige.com/post/423abe9e/gitcom-004.png">
 <meta property="article:published_time" content="2019-09-03T15:16:00.000Z">
-<meta property="article:modified_time" content="2020-08-30T18:27:45.648Z">
+<meta property="article:modified_time" content="2020-09-24T20:45:53.780Z">
 <meta property="article:tag" content="Git">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog.xiaosige.com/post/423abe9e/gitcom-001.png">
 
 
 <link rel="canonical" href="https://blog.xiaosige.com/post/423abe9e.html">
@@ -225,7 +230,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%91%BD%E4%BB%A4"><span class="nav-number">1.</span> <span class="nav-text">命令</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%88%9D%E5%A7%8B%E9%85%8D%E7%BD%AE"><span class="nav-number">1.0.0.1.</span> <span class="nav-text">初始配置</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8Dgit%E9%85%8D%E7%BD%AE"><span class="nav-number">1.0.0.2.</span> <span class="nav-text">获取当前git配置</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E6%96%87%E4%BB%B6%E5%B9%B6%E5%86%99%E5%85%A5%E5%86%85%E5%AE%B9"><span class="nav-number">1.0.0.3.</span> <span class="nav-text">创建文件并写入内容</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8"><span class="nav-number">1.0.0.4.</span> <span class="nav-text">使用</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E5%88%86%E6%94%AF"><span class="nav-number">1.0.0.5.</span> <span class="nav-text">创建分支</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8git-stash%E5%91%BD%E4%BB%A4%E4%BF%9D%E5%AD%98%E5%92%8C%E6%81%A2%E5%A4%8D%E8%BF%9B%E5%BA%A6"><span class="nav-number">1.0.0.6.</span> <span class="nav-text">使用git stash命令保存和恢复进度</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%92%A4%E9%94%80%E4%B8%80%E6%AC%A1%E5%B7%B2%E7%BB%8F%E6%8F%90%E4%BA%A4%E5%88%B0Github%E7%9A%84%E5%86%85%E5%AE%B9"><span class="nav-number">1.0.0.7.</span> <span class="nav-text">撤销一次已经提交到Github的内容</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#GitHub%E6%9B%B4%E6%96%B0%E8%87%AA%E5%B7%B1fork%E7%9A%84%E4%BB%A3%E7%A0%81"><span class="nav-number">1.0.0.8.</span> <span class="nav-text">GitHub更新自己fork的代码</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#git%E6%92%A4%E9%94%80%E6%9C%80%E5%90%8E%E4%B8%80%E6%AC%A1commit"><span class="nav-number">1.0.0.9.</span> <span class="nav-text">git撤销最后一次commit</span></a></li></ol></li></ol></li></ol></li></ol></div>
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%91%BD%E4%BB%A4"><span class="nav-number">1.</span> <span class="nav-text">命令</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%88%9D%E5%A7%8B%E9%85%8D%E7%BD%AE"><span class="nav-number">1.0.0.1.</span> <span class="nav-text">初始配置</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8Dgit%E9%85%8D%E7%BD%AE"><span class="nav-number">1.0.0.2.</span> <span class="nav-text">获取当前git配置</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%A2%9E%E5%8A%A0%E9%85%8D%E7%BD%AE%E9%A1%B9"><span class="nav-number">1.0.0.3.</span> <span class="nav-text">增加配置项</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96%E4%B8%80%E4%B8%AA%E9%85%8D%E7%BD%AE%E9%A1%B9"><span class="nav-number">1.0.0.4.</span> <span class="nav-text">获取一个配置项</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%88%A0%E9%99%A4%E4%B8%80%E4%B8%AA%E9%85%8D%E7%BD%AE%E9%A1%B9"><span class="nav-number">1.0.0.5.</span> <span class="nav-text">删除一个配置项</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E6%96%87%E4%BB%B6%E5%B9%B6%E5%86%99%E5%85%A5%E5%86%85%E5%AE%B9"><span class="nav-number">1.0.0.6.</span> <span class="nav-text">创建文件并写入内容</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8"><span class="nav-number">1.0.0.7.</span> <span class="nav-text">使用</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E5%88%86%E6%94%AF"><span class="nav-number">1.0.0.8.</span> <span class="nav-text">创建分支</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8git-stash%E5%91%BD%E4%BB%A4%E4%BF%9D%E5%AD%98%E5%92%8C%E6%81%A2%E5%A4%8D%E8%BF%9B%E5%BA%A6"><span class="nav-number">1.0.0.9.</span> <span class="nav-text">使用git stash命令保存和恢复进度</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%92%A4%E9%94%80%E4%B8%80%E6%AC%A1%E5%B7%B2%E7%BB%8F%E6%8F%90%E4%BA%A4%E5%88%B0Github%E7%9A%84%E5%86%85%E5%AE%B9"><span class="nav-number">1.0.0.10.</span> <span class="nav-text">撤销一次已经提交到Github的内容</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#GitHub%E6%9B%B4%E6%96%B0%E8%87%AA%E5%B7%B1fork%E7%9A%84%E4%BB%A3%E7%A0%81"><span class="nav-number">1.0.0.11.</span> <span class="nav-text">GitHub更新自己fork的代码</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#git%E6%92%A4%E9%94%80%E6%9C%80%E5%90%8E%E4%B8%80%E6%AC%A1commit"><span class="nav-number">1.0.0.12.</span> <span class="nav-text">git撤销最后一次commit</span></a></li></ol></li></ol></li></ol></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -363,7 +368,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-08-31 02:27:45" itemprop="dateModified" datetime="2020-08-31T02:27:45+08:00">2020-08-31</time>
+        <time title="修改时间：2020-09-25 04:45:53" itemprop="dateModified" datetime="2020-09-25T04:45:53+08:00">2020-09-25</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -391,14 +396,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>2.7k</span>
+      <span>4.6k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>2 分钟</span>
+      <span>4 分钟</span>
     </span>
 </div>
 
@@ -409,11 +414,51 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h2 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h2><h5 id="初始配置"><a href="#初始配置" class="headerlink" title="初始配置"></a>初始配置</h5><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkdir d:\git_test</span><br><span class="line">git<span class="built_in"> config </span>--global user.name <span class="string">&quot;Your name&quot;</span></span><br><span class="line">git<span class="built_in"> config </span>--global user.email <span class="string">&quot;you@example.com&quot;</span></span><br></pre></td></tr></table></figure>
-
-<a id="more"></a>
-
+        <h2 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h2><h5 id="初始配置"><a href="#初始配置" class="headerlink" title="初始配置"></a>初始配置</h5><ol>
+<li><p>仓库级别 local 【优先级最高】</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git<span class="built_in"> config </span>--local user.name <span class="string">&quot;Your name&quot;</span></span><br><span class="line">git<span class="built_in"> config </span>--local user.email <span class="string">&quot;you@example.com&quot;</span></span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;git 仓库级别对应的配置文件是当前仓库下的.git/config 【在当前目录下.git目录默认是隐藏的，所以在文件管理器中我们要打开显示以藏文件】</p>
+<a id="more"></a></li>
+<li><p>用户级别 global【优先级次之】</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git<span class="built_in"> config </span>--global user.name <span class="string">&quot;Your name&quot;</span></span><br><span class="line">git<span class="built_in"> config </span>--global user.email <span class="string">&quot;you@example.com&quot;</span></span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;git 用户级别对应的配置文件是用户宿主目录下的~/.gitconfig</p>
+</li>
+<li><p>系统级别 system【优先级最低】</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git<span class="built_in"> config </span>--system user.name <span class="string">&quot;Your name&quot;</span></span><br><span class="line">git<span class="built_in"> config </span>--system user.email <span class="string">&quot;you@example.com&quot;</span></span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;git系统级别对应的配置文件是git安装目录下的 /etc/gitconfig</p>
+</li>
+</ol>
 <h5 id="获取当前git配置"><a href="#获取当前git配置" class="headerlink" title="获取当前git配置"></a>获取当前git配置</h5><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git --version</span><br><span class="line">git<span class="built_in"> config </span>--global user.name         # 获取当前登录的用户</span><br><span class="line">git<span class="built_in"> config </span>--global user.email        # 获取当前登录用户的邮箱</span><br></pre></td></tr></table></figure>
+<p>或者</p>
+<ol>
+<li>git config –local -l 查看仓库配置【必须要进入到具体的目录下，比如要查看TestGit仓库的配置信息】</li>
+<li>git config –global -l 查看用户配置</li>
+<li>git config –system -l 查看系统配置</li>
+<li>git config -l查看所有的配置信息，依次是系统级别、用户级别、仓库级别<img src="/post/423abe9e/gitcom-001.png" class title="示例图"></li>
+<li>git config 常用配置选项<ul>
+<li>git config -e 编辑配置文件 <ul>
+<li>git config –local -e 编辑仓库级别配置文件</li>
+<li>git config –global -e 编辑用户级别配置文件</li>
+<li>git config –system -e 编辑系统级别配置文件</li>
+</ul>
+</li>
+<li>git config 添加配置项目 <ul>
+<li>git config –global user.email “<a href="mailto:&#x79;&#111;&#x75;&#64;&#101;&#x78;&#97;&#109;&#x70;&#x6c;&#x65;&#46;&#x63;&#x6f;&#109;">&#x79;&#111;&#x75;&#64;&#101;&#x78;&#97;&#109;&#x70;&#x6c;&#x65;&#46;&#x63;&#x6f;&#109;</a>”</li>
+<li>git config –global user.name “Your Name”<br>上面的操作表示添加用户级别的配置信息，也就是说修改用户宿主目录下面的配置文件</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>配置文件如何生效的<br>&emsp;&emsp;对于git来说，配置文件的权重是仓库&gt;全局&gt;系统。Git会使用这一系列的配置文件来存储你定义的偏好，它首先会查找/etc/gitconfig文件（系统级），该文件含有对系统上所有用户及他们所拥有的仓库都生效的配置值。接下来Git会查找每个用户的~/.gitconfig文件（全局级）。最后Git会查找由用户定义的各个库中Git目录下的配置文件.git/config（仓库级），该文件中的值只对当前所属仓库有效</li>
+</ol>
+<h5 id="增加配置项"><a href="#增加配置项" class="headerlink" title="增加配置项"></a>增加配置项</h5><p>&emsp;&emsp;参数 –add<br>&emsp;&emsp;格式: git config [–local|–global|–system] –add section.key value(默认是添加在local配置中)<br>&emsp;&emsp;注意add后面的section,key,value一项都不能少，否则添加失败。比如我们执行：git config –add cat.name tom</p>
+<img src="/post/423abe9e/gitcom-002.png" class title="示例图">
+
+<h5 id="获取一个配置项"><a href="#获取一个配置项" class="headerlink" title="获取一个配置项"></a>获取一个配置项</h5><p>&emsp;&emsp;有时候，我们并不需要查看所有配置的值，而是查看某个配置项的值，怎么做呢？<br>&emsp;&emsp;命令参数 –get<br>&emsp;&emsp;格式：git config [–local|–global|–system] –get section.key(默认是获取local配置中内容)<br>&emsp;&emsp;我们先往global配置中写入一个cat.name=Tomcat的配置项，再使用git config –get cat.name看看得到的是什么：</p>
+<img src="/post/423abe9e/gitcom-003.png" class title="示例图">
+<p>&emsp;&emsp;结果就是local中的cat.name=Tom，因此git config –get section.key 等价于git config –local –get section.key<br>&emsp;&emsp;如果获取一个section不存在的key值，不会返回任何值<br>&emsp;&emsp;如果获取一个不存在的section的key值，则会报错</p>
+<h5 id="删除一个配置项"><a href="#删除一个配置项" class="headerlink" title="删除一个配置项"></a>删除一个配置项</h5><p>&emsp;&emsp;命令参数 –unset<br>&emsp;&emsp;格式：git config [–local|–global|–system] –unset section.key<br>&emsp;&emsp;相信有了前两个命令的使用基础，大家举一反三就知道改怎么用了，来，我们试试删除local配置中的cat.name</p>
+<img src="/post/423abe9e/gitcom-004.png" class title="示例图">
 
 <h5 id="创建文件并写入内容"><a href="#创建文件并写入内容" class="headerlink" title="创建文件并写入内容"></a>创建文件并写入内容</h5><p>如果文件不存在，则创建文件</p>
 <figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">echo</span> <span class="string">&quot;hello git&quot;</span></span><br><span class="line">&gt; <span class="built_in">index</span>.html                          # 将<span class="string">&#x27;hello git&#x27;</span>写入到<span class="built_in">index</span>.html中</span><br></pre></td></tr></table></figure>
@@ -464,6 +509,13 @@
 
 <figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">commit</span> <span class="comment">--amend -m &quot;your new message&quot;</span></span><br></pre></td></tr></table></figure>
 </ol>
+
+<br>
+
+<blockquote>
+<p>其他相关链接<br><a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/1664429">Git 常用命令</a></p>
+</blockquote>
+
     </div>
 
     
@@ -588,14 +640,14 @@
       <i class="fa fa-chart-line"></i>
     </span>
       <span>站点总字数：</span>
-    <span title="站点总字数">87k</span>
+    <span title="站点总字数">88k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">1:19</span>
+    <span title="站点阅读时长">1:20</span>
   </span>
 </div>
 <div class="busuanzi-count">
