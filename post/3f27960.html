@@ -781,25 +781,45 @@ const addCodeWrap = ($node) => {
     return $container;
 };
 
-    $('.highlight').each(function () {
-        // 防止重复渲染
-        if (this.__render__ === true) {
-            return true;
-        }
-        this.__render__ = true;
-        const $this = $(this);
-        const height = $(this).outerHeight();
-        if (height > CODE_MAX_HEIGHT) {
-            // 添加展开&收起容器
-            const $container = addCodeWrap($this, height);
-            containers.push({
-                $container,
-                height,
-                $hide: $container.find('.js_retract_code_btn'),
-                hasHorizontalScrollbar: this.scrollWidth > this.offsetWidth,
-            });
-        }
-    });
+$('.highlight').each(function () {
+    // 防止重复渲染
+    if (this.__render__ === true) {
+        return true;
+    }
+    this.__render__ = true;
+    const $this = $(this);
+    const height = $(this).outerHeight();
+    if (height > CODE_MAX_HEIGHT) {
+        // 添加展开&收起容器
+        const $container = addCodeWrap($this, height);
+        containers.push({
+            $container,
+            height,
+            $hide: $container.find('.js_retract_code_btn'),
+            hasHorizontalScrollbar: this.scrollWidth > this.offsetWidth,
+        });
+    }
+});
+
+$('.table-container').each(function () {
+    // 防止重复渲染
+    if (this.__render__ === true) {
+        return true;
+    }
+    this.__render__ = true;
+    const $this = $(this);
+    const height = $(this).outerHeight();
+    if (height > CODE_MAX_HEIGHT) {
+        // 添加展开&收起容器
+        const $container = addCodeWrap($this, height);
+        containers.push({
+            $container,
+            height,
+            $hide: $container.find('.js_retract_code_btn'),
+            hasHorizontalScrollbar: this.scrollWidth > this.offsetWidth,
+        });
+    }
+});
 
 
 

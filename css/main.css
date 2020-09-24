@@ -3456,7 +3456,9 @@ code {
   left: 50%;
   transform: translateX(-50%);
   bottom: 0;
-  line-height: 2.6em;
+  background: #ff6a00;
+  border-radius: 16px;
+  line-height: 1.6em;
   text-decoration: none;
   padding: 0 0.8em;
 }
@@ -3475,7 +3477,7 @@ code {
   text-align: center;
   display: none;
   flex-direction: column;
-  background-color: #262a30;
+  background-color: #ff6a00;
   border-radius: 4px 0 0 4px;
   padding: 0.1em 0 0.6em;
   transition: top ease 0.35s;
@@ -3487,7 +3489,7 @@ code {
 .highlight-container .fa-angle-down {
   font-family: Font Awesome 5 Free;
   font-style: normal;
-  color: #fc7237;
+  color: #00c4b6;
 }
 .highlight-container .fa-angle-up:before {
   content: "\f106";
