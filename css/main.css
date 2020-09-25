@@ -3024,6 +3024,8 @@ body {
 }
 .pagination {
   border-radius: 20px !important;
+  margin-bottom: 50px;
+  margin-top: 50px !important;
 }
 .post-body {
   font-size: 1em;
