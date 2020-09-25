@@ -15,7 +15,7 @@
 <h3 id="url-hash-第三方"><a href="#url-hash-第三方" class="headerlink" title="url_hash(第三方)"></a>url_hash(第三方)</h3><figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line">按访问url的hash结果来分配请求，使每个url定向到同一个后端服务器，后端服务器为缓存时比较有效。 在upstream中加入hash语句，server语句中不能写入weight等其他的参数，hash_method是使用的hash算法</span><br><span class="line"></span><br><span class="line">upstream backend &#123; </span><br><span class="line">        hash <span class="variable">$request_uri</span>; </span><br><span class="line">        hash_method crc32; </span><br><span class="line">       <span class="built_in"> server </span>localhost:8080;</span><br><span class="line">       <span class="built_in"> server </span>localhost:8081;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>&emsp;&emsp;以上5种负载均衡各自适用不同情况下使用，所以可以根据实际情况选择使用哪种策略模式,不过<code>fair</code>和<code>url_hash</code>需要<code>安装第三方模块</code>才能使用</p>
-]]></content>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
       <categories>
         <category>Nginx</category>
       </categories>
@@ -183,7 +183,7 @@
 <li><p>配置python后端请求转发</p>
 <figure class="highlight nginx"><table><tr><td class="code"><pre><span class="line"><span class="section">server</span> &#123;  </span><br><span class="line">        <span class="attribute">listen</span>       <span class="number">80</span>;  </span><br><span class="line">        <span class="attribute">server_name</span>  www.example.com;</span><br><span class="line">        <span class="attribute">location</span> / &#123;  </span><br><span class="line">        <span class="attribute">root</span>   html;</span><br><span class="line">        <span class="attribute">index</span>  index.html index.htm;</span><br><span class="line">        <span class="attribute">include</span> uwsgi_params;<span class="comment">#加载uWSGI配置参数</span></span><br><span class="line">        <span class="attribute">uwsgi_pass</span> <span class="number">127.0.0.1:3031</span>;<span class="comment">#请求转发至”127.0.0.1:3031″端口上，即uWSGI服务器</span></span><br><span class="line">               &#125;  </span><br><span class="line">    <span class="attribute">access_log</span> /var/log/nginx/www_access.log combined;</span><br><span class="line">    <span class="attribute">error_log</span> /var/log/nginx/www_error.log <span class="literal">warn</span>;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure></li>
 </ol>
-]]></content>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
       <categories>
         <category>Nginx</category>
       </categories>
@@ -729,7 +729,7 @@
 <h3 id="设置开机启动"><a href="#设置开机启动" class="headerlink" title="设置开机启动"></a>设置开机启动</h3><p>设置nginx开机启动，只需在rc.local增加启动代码即可。</p>
 <p><code>vim /etc/rc.local</code></p>
 <p>然后在底部增加<code>/usr/local/nginx/sbin/nginx</code></p>
-]]></content>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
       <categories>
         <category>Nginx</category>
       </categories>
@@ -778,7 +778,7 @@
 </li>
 </ol>
 <p>&emsp;&emsp;至此，从github上下载最新的源码编译后安装git完成。</p>
-]]></content>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
       <categories>
         <category>Git</category>
       </categories>
@@ -874,7 +874,7 @@
 <li> 测试 </li>
 
 <figure class="highlight elixir"><table><tr><td class="code"><pre><span class="line"><span class="variable">$ </span>ssh -T git<span class="variable">@gitee</span>.com</span><br><span class="line"><span class="variable">$ </span>ssh -T git<span class="variable">@github</span>.com</span><br></pre></td></tr></table></figure>
-</ol>]]></content>
+</ol><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
       <categories>
         <category>Linux</category>
       </categories>
@@ -963,7 +963,7 @@
 <p>&emsp;&emsp; 根据Server ID 生成license Key：</p>
 <figure class="highlight awk"><table><tr><td class="code"><pre><span class="line"><span class="regexp">/opt/</span>atlassian<span class="regexp">/jira/</span>jre<span class="regexp">/bin/</span>java -jar <span class="regexp">/home/</span>jira1<span class="regexp">/atlassian-agent.jar -p jira -m jira@jira.com -n jira -o https:/</span><span class="regexp">/jira.com -s BFZ0-PD41-I9AX-YXDP</span></span><br></pre></td></tr></table></figure>
 <br>
-<div class="note default no-icon"><p>-p jira(安装的是jira产品)，具体的可以根据-p进行参考<br>-m <a href="mailto:&#106;&#105;&#x72;&#97;&#64;&#106;&#x69;&#114;&#x61;&#46;&#99;&#111;&#x6d;">&#106;&#105;&#x72;&#97;&#64;&#106;&#x69;&#114;&#x61;&#46;&#99;&#111;&#x6d;</a>(随意写)<br>-n jira(随意写)<br>-o <a href="https://jira.com/">https://jira.com</a> (随意写)<br>-s BFZ0-PD41-I9AX-YXDP (即jira显示的服务器ID)</p>
+<div class="note default no-icon"><p>-p jira(安装的是jira产品)，具体的可以根据-p进行参考<br>-m <a href="mailto:&#x6a;&#x69;&#114;&#97;&#x40;&#x6a;&#105;&#114;&#97;&#46;&#x63;&#111;&#109;">&#x6a;&#x69;&#114;&#97;&#x40;&#x6a;&#105;&#114;&#97;&#46;&#x63;&#111;&#109;</a>(随意写)<br>-n jira(随意写)<br>-o <a href="https://jira.com/">https://jira.com</a> (随意写)<br>-s BFZ0-PD41-I9AX-YXDP (即jira显示的服务器ID)</p>
 </div>
 <br>
 
@@ -1000,7 +1000,7 @@
 
 <h3 id="PS"><a href="#PS" class="headerlink" title="PS"></a>PS</h3><div style="height: 10px;"></div>
 
-<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line"><span class="regexp">/var/</span>atlassian<span class="regexp">/application-data/</span>jira/dbconfig.xml    <span class="comment"># DB设置</span></span><br><span class="line"></span><br><span class="line"><span class="regexp">/opt/</span>atlassian<span class="regexp">/jira/</span>bin/start-jira.sh                <span class="comment"># 启动</span></span><br><span class="line"></span><br><span class="line">tail -f -n <span class="number">500</span> <span class="regexp">/opt/</span>atlassian<span class="regexp">/jira/</span>logs/catalina.out <span class="comment"># 日志</span></span><br><span class="line"></span><br><span class="line">vi <span class="regexp">/opt/</span>atlassian<span class="regexp">/jira/</span>conf/server.xml               <span class="comment"># 端口设置</span></span><br><span class="line"></span><br><span class="line"><span class="regexp">/opt/</span>atlassian<span class="regexp">/jira/</span>                                 <span class="comment"># 安装路径</span></span><br><span class="line"></span><br><span class="line"><span class="regexp">/var/</span>atlassian<span class="regexp">/application-data/</span>jira                 <span class="comment"># 数据存放路径</span></span><br><span class="line"></span><br><span class="line"><span class="regexp">/opt/</span>atlassian<span class="regexp">/jira/</span>atlassian-jira<span class="regexp">/WEB-INF/</span>classes/database-defaults</span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
+<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line"><span class="regexp">/var/</span>atlassian<span class="regexp">/application-data/</span>jira/dbconfig.xml    <span class="comment"># DB设置</span></span><br><span class="line"></span><br><span class="line"><span class="regexp">/opt/</span>atlassian<span class="regexp">/jira/</span>bin/start-jira.sh                <span class="comment"># 启动</span></span><br><span class="line"></span><br><span class="line">tail -f -n <span class="number">500</span> <span class="regexp">/opt/</span>atlassian<span class="regexp">/jira/</span>logs/catalina.out <span class="comment"># 日志</span></span><br><span class="line"></span><br><span class="line">vi <span class="regexp">/opt/</span>atlassian<span class="regexp">/jira/</span>conf/server.xml               <span class="comment"># 端口设置</span></span><br><span class="line"></span><br><span class="line"><span class="regexp">/opt/</span>atlassian<span class="regexp">/jira/</span>                                 <span class="comment"># 安装路径</span></span><br><span class="line"></span><br><span class="line"><span class="regexp">/var/</span>atlassian<span class="regexp">/application-data/</span>jira                 <span class="comment"># 数据存放路径</span></span><br><span class="line"></span><br><span class="line"><span class="regexp">/opt/</span>atlassian<span class="regexp">/jira/</span>atlassian-jira<span class="regexp">/WEB-INF/</span>classes/database-defaults</span><br><span class="line"></span><br></pre></td></tr></table></figure><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
       <categories>
         <category>Linux</category>
         <category>项目管理</category>
@@ -1125,7 +1125,7 @@
 <li>nvm unalias <name> ## 删除已定义的别名</name></li>
 <li>nvm reinstall-packages <version> ## 在当前版本node环境下，重新全局安装指定版本号的npm包</version></li>
 </ol>
-<h3 id="附-MAC-的-bash-profile"><a href="#附-MAC-的-bash-profile" class="headerlink" title="附: MAC 的 .bash_profile"></a>附: MAC 的 <code>.bash_profile</code></h3><figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line"><span class="builtin-name">export</span> <span class="attribute">NVM_DIR</span>=<span class="string">&quot;<span class="variable">$HOME</span>/.nvm&quot;</span></span><br><span class="line">[ -s <span class="string">&quot;<span class="variable">$NVM_DIR</span>/nvm.sh&quot;</span> ] &amp;&amp; \. <span class="string">&quot;<span class="variable">$NVM_DIR</span>/nvm.sh&quot;</span>  # This loads nvm</span><br><span class="line">[ -s <span class="string">&quot;<span class="variable">$NVM_DIR</span>/bash_completion&quot;</span> ] &amp;&amp; \. <span class="string">&quot;<span class="variable">$NVM_DIR</span>/bash_completion&quot;</span>  # This loads nvm bash_completi    on</span><br><span class="line"> </span><br><span class="line"><span class="comment"># nvm 改为国内node镜像</span></span><br><span class="line"><span class="builtin-name">export</span> <span class="attribute">NVM_NODEJS_ORG_MIRROR</span>=https://npm.taobao.org/mirrors/node</span><br></pre></td></tr></table></figure>]]></content>
+<h3 id="附-MAC-的-bash-profile"><a href="#附-MAC-的-bash-profile" class="headerlink" title="附: MAC 的 .bash_profile"></a>附: MAC 的 <code>.bash_profile</code></h3><figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line"><span class="builtin-name">export</span> <span class="attribute">NVM_DIR</span>=<span class="string">&quot;<span class="variable">$HOME</span>/.nvm&quot;</span></span><br><span class="line">[ -s <span class="string">&quot;<span class="variable">$NVM_DIR</span>/nvm.sh&quot;</span> ] &amp;&amp; \. <span class="string">&quot;<span class="variable">$NVM_DIR</span>/nvm.sh&quot;</span>  # This loads nvm</span><br><span class="line">[ -s <span class="string">&quot;<span class="variable">$NVM_DIR</span>/bash_completion&quot;</span> ] &amp;&amp; \. <span class="string">&quot;<span class="variable">$NVM_DIR</span>/bash_completion&quot;</span>  # This loads nvm bash_completi    on</span><br><span class="line"> </span><br><span class="line"><span class="comment"># nvm 改为国内node镜像</span></span><br><span class="line"><span class="builtin-name">export</span> <span class="attribute">NVM_NODEJS_ORG_MIRROR</span>=https://npm.taobao.org/mirrors/node</span><br></pre></td></tr></table></figure><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
       <categories>
         <category>Mac</category>
       </categories>
@@ -1144,7 +1144,7 @@
 <p>&emsp;&emsp;这里比较特殊的是<code>systemPath</code>，常见的Maven坐标是没有这个的，这里面直接指定该jar的相对路径（相对项目的根目录），这样Maven在编译的时候就不会从中央仓库里面去下载该jar包了。但只配置这个还不行，还需要配置SpringBoot编译时插件属性<code>includeSystemScope</code>，具体如下：</p>
 <figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-maven-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">includeSystemScope</span>&gt;</span>true<span class="tag">&lt;/<span class="name">includeSystemScope</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>&emsp;&emsp;上面配置完毕，我们就可以直接执行<code>mvn clean install</code>进行打包，然后我们查看打好的jar包里面包含的jar包，会发现ojdbc6.jar这个包已经正确被包含进去了。</p>
-]]></content>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
       <categories>
         <category>SpringBoot</category>
       </categories>
@@ -1179,7 +1179,7 @@
 
 <h5 id="除法："><a href="#除法：" class="headerlink" title="除法："></a>除法：</h5><ol>
 <figure class="highlight haxe"><table><tr><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="type">BigDecimal</span>(<span class="string">&quot;2.4123123&quot;</span>).divide(<span class="keyword">new</span> <span class="type">BigDecimal</span>(<span class="string">&quot;1231231232&quot;</span>), def)</span><br></pre></td></tr></table></figure>
-</ol>]]></content>
+</ol><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
       <categories>
         <category>JavaScript</category>
       </categories>
@@ -1220,7 +1220,7 @@
 <figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">db</span><span class="selector-class">.shuidownServer</span>()</span><br></pre></td></tr></table></figure>
 
 </ol>
-]]></content>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
       <categories>
         <category>Linux</category>
       </categories>
@@ -1245,7 +1245,7 @@
 
 <h4 id="使用JdbcTemplate"><a href="#使用JdbcTemplate" class="headerlink" title="使用JdbcTemplate"></a>使用JdbcTemplate</h4><p>&emsp;&emsp;配置完后，我们可以直接在具体的类中使用了，使用方式如下：</p>
 <figure class="highlight less"><table><tr><td class="code"><pre><span class="line"><span class="variable">@Autowired</span></span><br><span class="line"><span class="variable">@Qualifier</span>(<span class="string">&quot;ds1JdbcTemplate&quot;</span>)</span><br><span class="line">private JdbcTemplate ds1JdbcTemplate;</span><br><span class="line"></span><br><span class="line"><span class="variable">@Autowired</span></span><br><span class="line"><span class="variable">@Qualifier</span>(<span class="string">&quot;ds2JdbcTemplate&quot;</span>)</span><br><span class="line">private JdbcTemplate ds2JdbcTemplate;</span><br></pre></td></tr></table></figure>
-]]></content>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
       <categories>
         <category>SpringBoot</category>
       </categories>
@@ -1266,7 +1266,7 @@
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#页面热加载</span></span><br><span class="line">spring.thymeleaf.cache = <span class="literal">true</span></span><br></pre></td></tr></table></figure>
 
 <p>点击<code>File</code> -&gt; <code>Settings</code> -&gt; <code>Build-Execution-Deplyment</code> -&gt; <code>Compiler</code>，选中打勾 <code>Build project</code></p>
-<img src="/post/f3f7b1c5/springbootstatic.png" class title="设置开启实时生效">]]></content>
+<img src="/post/f3f7b1c5/springbootstatic.png" class title="设置开启实时生效"><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
       <categories>
         <category>SpringBoot</category>
       </categories>
@@ -1286,7 +1286,7 @@
 <figure class="highlight dts"><table><tr><td class="code"><pre><span class="line"><span class="meta">##环境设置</span></span><br><span class="line"><span class="symbol"> profiles:</span></span><br><span class="line"><span class="symbol">   active:</span> dev</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <p>控制台输入彩色,然后去日志存储目录中分表有log_error.log log_info.log log_warn.log 3个文件</p>
-]]></content>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
       <categories>
         <category>SpringBoot</category>
       </categories>
@@ -1309,7 +1309,7 @@
 </ol>
    <figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.maven.plugins<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>maven-surefire-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">skip</span>&gt;</span>true<span class="tag">&lt;/<span class="name">skip</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-]]></content>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
       <categories>
         <category>Maven</category>
       </categories>
@@ -1357,7 +1357,7 @@
 <li>自定义配置文件，并 mount 到 container里。这样在MySQL启动时，会加载我们的配置文件。 </li>
 <li>启动MySQL容器是传入CMD，通过命令修改默认加密规则（下面绿色部分）</li>
 </ol>
-<figure class="highlight gradle"><table><tr><td class="code"><pre><span class="line"># docker run -d -e MYSQL_ROOT_PASSWORD=<span class="number">123456</span> -e MYSQL_DATABASE=weather_db -p <span class="number">3307</span>:<span class="number">3306</span> --name test-mysql --restart always -v  <span class="regexp">/home/</span>ct<span class="regexp">/mysql/</span>data:<span class="regexp">/var/</span>lib/mysql  </span><br><span class="line">mysql:<span class="number">8.0</span>.<span class="number">12</span>  --<span class="keyword">default</span>-authentication-plugin=mysql_native_password</span><br></pre></td></tr></table></figure>]]></content>
+<figure class="highlight gradle"><table><tr><td class="code"><pre><span class="line"># docker run -d -e MYSQL_ROOT_PASSWORD=<span class="number">123456</span> -e MYSQL_DATABASE=weather_db -p <span class="number">3307</span>:<span class="number">3306</span> --name test-mysql --restart always -v  <span class="regexp">/home/</span>ct<span class="regexp">/mysql/</span>data:<span class="regexp">/var/</span>lib/mysql  </span><br><span class="line">mysql:<span class="number">8.0</span>.<span class="number">12</span>  --<span class="keyword">default</span>-authentication-plugin=mysql_native_password</span><br></pre></td></tr></table></figure><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
       <categories>
         <category>MySQL</category>
       </categories>
@@ -1379,7 +1379,7 @@
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">-- 修改Root用户密码</span><br><span class="line">update mysql.user <span class="built_in">set</span> authentication_string=<span class="string">&quot;kanyme_new&quot;</span> WHERE user=<span class="string">&quot;root&quot;</span>;</span><br><span class="line">flush privileges;</span><br></pre></td></tr></table></figure>
 <br>
 <div class="note info no-icon"><p>mysql 5.7.9 之后取消了password 函数，authentication_string=password(“123456”) 会报错</p>
-</div>]]></content>
+</div><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
       <categories>
         <category>MySQL</category>
       </categories>
@@ -1416,7 +1416,7 @@
 <blockquote>
 <p>其他播放器<br><a href="https://yy.mosq.cn/">漫音乐播放器</a><br><a href="https://player.hexiongbiao.cn/">宅音乐播放器</a></p>
 </blockquote>
-]]></content>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
       <categories>
         <category>JavaScript</category>
       </categories>
@@ -1484,7 +1484,7 @@ Master：可以创建项目、添加tag、保护分支、添加项目成员、�
 Owner：可以设置项目访问权限 - Visibility Level、删除项目、迁移项目、管理组成员，开发组leader可以赋予这个权限</code></pre>
 <h3 id="10-Gitlab相关操作及说明"><a href="#10-Gitlab相关操作及说明" class="headerlink" title="10.Gitlab相关操作及说明"></a>10.Gitlab相关操作及说明</h3><figure class="highlight awk"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="regexp">/etc/gi</span>tlab/gitlab.rb          <span class="comment">#gitlab配置文件</span></span><br><span class="line"><span class="regexp">/opt/gi</span>tlab                    <span class="comment">#gitlab的程序安装目录</span></span><br><span class="line"><span class="regexp">/var/</span>opt/gitlab                <span class="comment">#gitlab目录数据目录</span></span><br><span class="line"><span class="regexp">/var/</span>opt<span class="regexp">/gitlab/gi</span>t-data       <span class="comment">#存放仓库数据</span></span><br><span class="line">gitlab-ctl reconfigure         <span class="comment">#重新加载配置</span></span><br><span class="line">gitlab-ctl status              <span class="comment">#查看当前gitlab所有服务运行状态</span></span><br><span class="line">gitlab-ctl stop                <span class="comment">#停止gitlab服务</span></span><br><span class="line">gitlab-ctl stop nginx          <span class="comment">#单独停止某个服务</span></span><br><span class="line">gitlab-ctl tail                <span class="comment">#查看所有服务的日志</span></span><br><span class="line"></span><br><span class="line">Gitlab的服务构成：</span><br><span class="line">nginx：                 静态web服务器</span><br><span class="line">gitlab-workhorse        轻量级反向代理服务器</span><br><span class="line">logrotate              日志文件管理工具</span><br><span class="line">postgresql             数据库</span><br><span class="line">redis                  缓存数据库</span><br><span class="line">sidekiq                用于在后台执行队列任务（异步执行）</span><br></pre></td></tr></table></figure>
 
-]]></content>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
       <categories>
         <category>Linux</category>
       </categories>
@@ -1522,7 +1522,7 @@ Owner：可以设置项目访问权限 - Visibility Level、删除项目、迁�
 &emsp;&emsp; 解决方案：
 
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pecl channel-update https://pecl.php.net/channel.xml</span><br></pre></td></tr></table></figure>
-]]></content>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
       <categories>
         <category>Linux</category>
       </categories>
@@ -1685,7 +1685,7 @@ Owner：可以设置项目访问权限 - Visibility Level、删除项目、迁�
 <li>执行刷新权限</li>
 </ul>
 <figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">FLUSH</span> <span class="keyword">PRIVILEGES</span>;</span><br></pre></td></tr></table></figure>
-]]></content>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
       <categories>
         <category>Linux</category>
       </categories>
@@ -1742,7 +1742,7 @@ Owner：可以设置项目访问权限 - Visibility Level、删除项目、迁�
 
 <p>&emsp;&emsp; 安装完毕后可使用 <a href="http://showdoc.***.com/index.php">http://showdoc.***.com/index.php</a> 访问登录首页，默认账号showdoc（密码：123456）登录，也可以自行注册账户）</p>
 <p>&emsp;&emsp; <code>至此showdoc部署完成，尽情探索吧</code></p>
-]]></content>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
       <categories>
         <category>Linux</category>
         <category>API文档系统</category>
@@ -1784,7 +1784,7 @@ Owner：可以设置项目访问权限 - Visibility Level、删除项目、迁�
 <blockquote>
 <p>以下是我本地使用的百度的UE编辑器的jar</p>
 </blockquote>
-<figure class="highlight dust"><table><tr><td class="code"><pre><span class="line"><span class="xml"><span class="comment">&lt;!-- 百度的编辑器，这个在自己的私服上面，如果要使用的话需要配置 --&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.baidu<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>ueditor<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.1.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;<span class="name">scope</span>&gt;</span>system<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;<span class="name">systemPath</span>&gt;</span>$</span><span class="template-variable">&#123;project.basedir&#125;</span><span class="xml">/libs/ueditor-1.1.2.jar<span class="tag">&lt;/<span class="name">systemPath</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="xml"><span class="comment">&lt;!-- 记得这个地方要添加版本的，反正我很奇怪没有添加版本是正常运行了 --&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">build</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">plugins</span>&gt;</span></span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span></span><br><span class="line"><span class="xml">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.maven.plugins<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span></span><br><span class="line"><span class="xml">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>maven-war-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span></span><br><span class="line"><span class="xml">            <span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span></span><br><span class="line"><span class="xml">                <span class="tag">&lt;<span class="name">webResources</span>&gt;</span></span></span><br><span class="line"><span class="xml">                    <span class="tag">&lt;<span class="name">resource</span>&gt;</span></span></span><br><span class="line"><span class="xml">                        <span class="tag">&lt;<span class="name">directory</span>&gt;</span>$</span><span class="template-variable">&#123;project.basedir&#125;</span><span class="xml">/libs<span class="tag">&lt;/<span class="name">directory</span>&gt;</span></span></span><br><span class="line"><span class="xml">                        <span class="tag">&lt;<span class="name">targetPath</span>&gt;</span>WEB-INF/lib<span class="tag">&lt;/<span class="name">targetPath</span>&gt;</span></span></span><br><span class="line"><span class="xml">                        <span class="tag">&lt;<span class="name">filtering</span>&gt;</span>true<span class="tag">&lt;/<span class="name">filtering</span>&gt;</span></span></span><br><span class="line"><span class="xml">                        <span class="tag">&lt;<span class="name">includes</span>&gt;</span></span></span><br><span class="line"><span class="xml">                            <span class="tag">&lt;<span class="name">include</span>&gt;</span>**/*.jar<span class="tag">&lt;/<span class="name">include</span>&gt;</span></span></span><br><span class="line"><span class="xml">                        <span class="tag">&lt;/<span class="name">includes</span>&gt;</span></span></span><br><span class="line"><span class="xml">                    <span class="tag">&lt;/<span class="name">resource</span>&gt;</span></span></span><br><span class="line"><span class="xml">                <span class="tag">&lt;/<span class="name">webResources</span>&gt;</span></span></span><br><span class="line"><span class="xml">            <span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;/<span class="name">plugins</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">build</span>&gt;</span></span></span><br></pre></td></tr></table></figure>]]></content>
+<figure class="highlight dust"><table><tr><td class="code"><pre><span class="line"><span class="xml"><span class="comment">&lt;!-- 百度的编辑器，这个在自己的私服上面，如果要使用的话需要配置 --&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.baidu<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>ueditor<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.1.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;<span class="name">scope</span>&gt;</span>system<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;<span class="name">systemPath</span>&gt;</span>$</span><span class="template-variable">&#123;project.basedir&#125;</span><span class="xml">/libs/ueditor-1.1.2.jar<span class="tag">&lt;/<span class="name">systemPath</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="xml"><span class="comment">&lt;!-- 记得这个地方要添加版本的，反正我很奇怪没有添加版本是正常运行了 --&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">build</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">plugins</span>&gt;</span></span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span></span><br><span class="line"><span class="xml">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.maven.plugins<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span></span><br><span class="line"><span class="xml">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>maven-war-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span></span><br><span class="line"><span class="xml">            <span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span></span><br><span class="line"><span class="xml">                <span class="tag">&lt;<span class="name">webResources</span>&gt;</span></span></span><br><span class="line"><span class="xml">                    <span class="tag">&lt;<span class="name">resource</span>&gt;</span></span></span><br><span class="line"><span class="xml">                        <span class="tag">&lt;<span class="name">directory</span>&gt;</span>$</span><span class="template-variable">&#123;project.basedir&#125;</span><span class="xml">/libs<span class="tag">&lt;/<span class="name">directory</span>&gt;</span></span></span><br><span class="line"><span class="xml">                        <span class="tag">&lt;<span class="name">targetPath</span>&gt;</span>WEB-INF/lib<span class="tag">&lt;/<span class="name">targetPath</span>&gt;</span></span></span><br><span class="line"><span class="xml">                        <span class="tag">&lt;<span class="name">filtering</span>&gt;</span>true<span class="tag">&lt;/<span class="name">filtering</span>&gt;</span></span></span><br><span class="line"><span class="xml">                        <span class="tag">&lt;<span class="name">includes</span>&gt;</span></span></span><br><span class="line"><span class="xml">                            <span class="tag">&lt;<span class="name">include</span>&gt;</span>**/*.jar<span class="tag">&lt;/<span class="name">include</span>&gt;</span></span></span><br><span class="line"><span class="xml">                        <span class="tag">&lt;/<span class="name">includes</span>&gt;</span></span></span><br><span class="line"><span class="xml">                    <span class="tag">&lt;/<span class="name">resource</span>&gt;</span></span></span><br><span class="line"><span class="xml">                <span class="tag">&lt;/<span class="name">webResources</span>&gt;</span></span></span><br><span class="line"><span class="xml">            <span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;/<span class="name">plugins</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">build</span>&gt;</span></span></span><br></pre></td></tr></table></figure><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
       <categories>
         <category>Maven</category>
       </categories>
@@ -1819,7 +1819,7 @@ Owner：可以设置项目访问权限 - Visibility Level、删除项目、迁�
 
 <p>这个命令实际操作的是 /var/lib/alternatives目录下对应的文件</p>
 <p>alternatives的安装删除显示等操作都是通过读取和修改这个目录下的文件实现的，而且是文本文件，感兴趣的可以取阅读一下</p>
-]]></content>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
       <categories>
         <category>Linux</category>
       </categories>
@@ -1928,7 +1928,7 @@ ok，完成！
   </ol>
 
 <p>  <code>有问题参考：</code><a href="/post/4824a74d.html" title="linux之使用alternatives 切换Java版本">linux之使用alternatives 切换Java版本</a></p>
-]]></content>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
       <categories>
         <category>Linux</category>
       </categories>
@@ -1978,7 +1978,7 @@ ok，完成！
 <figure class="highlight elm"><table><tr><td class="code"><pre><span class="line"><span class="title">content</span>-<span class="keyword">type</span>: html/text</span><br></pre></td></tr></table></figure>
 
 <p>也不太符合 <code>restful</code> 规范.</p>
-]]></content>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
       <categories>
         <category>SpringBoot</category>
       </categories>
@@ -2015,7 +2015,7 @@ ok，完成！
 <h3 id="centos6修改主机名"><a href="#centos6修改主机名" class="headerlink" title="centos6修改主机名"></a>centos6修改主机名</h3><figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line">第一种方式：临时修改</span><br><span class="line">临时修改主机名，但是重启后又会恢复</span><br><span class="line">修改方式如下：</span><br><span class="line">shell#hostname &lt;主机名&gt;</span><br><span class="line">第二种方式：永久修改</span><br><span class="line">修改配置文件，使其永久生效</span><br><span class="line">shell# sed -i “s/<span class="attribute">HOSTNAME</span>=localhost/HOSTNAME=&lt;主机名&gt;/g” /etc/sysconfig/network</span><br><span class="line">意思就是修改配置文件/etc/sysconfig/network文件，将新的主机名加入到配置文件里面</span><br></pre></td></tr></table></figure>
 
 <h3 id="centos7修改主机名"><a href="#centos7修改主机名" class="headerlink" title="centos7修改主机名"></a>centos7修改主机名</h3><figure class="highlight dsconfig"><table><tr><td class="code"><pre><span class="line">第一种方式：临时修改</span><br><span class="line">这个和<span class="string">centos6一</span>样，都是直接在命令行敲<span class="string">hostname </span>+新的主机名，<span class="string">eg：</span><span class="string">hostname </span>&lt;主机名&gt;</span><br><span class="line">第二种方式： 永久修改</span><br><span class="line">这种方式和<span class="string">centos6有</span>所不同，我们看一下如何操作</span><br><span class="line"><span class="string">shell#</span> <span class="string">hostnamectl </span><span class="built_in">set-hostname</span> &lt;主机名&gt;</span><br><span class="line">还可以直接修改配置文件/<span class="string">etc/</span><span class="string">hostname直</span>接将新的主机名加入到配置文件中</span><br></pre></td></tr></table></figure>
-]]></content>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
       <categories>
         <category>Linux</category>
       </categories>
@@ -2029,7 +2029,7 @@ ok，完成！
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h4 id="动态生成行号"><a href="#动态生成行号" class="headerlink" title="动态生成行号"></a>动态生成行号</h4><p>思想：借助bootstrap-table 本身的<code>index</code>属性和<code>options</code>的对象， 巧妙的的通过<code>formatter</code> 实现</p>
 <a id="more"></a>
 
-<figure class="highlight clojure"><table><tr><td class="code"><pre><span class="line">&#123;field: <span class="string">&quot;Number&quot;</span>,title: <span class="string">&quot;序号&quot;</span>,halign: &#x27;center&#x27;,align:&#x27;center&#x27;,</span><br><span class="line">    formatter:function (<span class="name">value</span>, row, index) &#123;</span><br><span class="line">        var options = $table.bootstrapTable(<span class="string">&quot;getOptions&quot;</span>)<span class="comment">;</span></span><br><span class="line">        return (<span class="name">options.pageNumber-1</span>)*(<span class="name">options.pageSize</span>)+index+1;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+<figure class="highlight clojure"><table><tr><td class="code"><pre><span class="line">&#123;field: <span class="string">&quot;Number&quot;</span>,title: <span class="string">&quot;序号&quot;</span>,halign: &#x27;center&#x27;,align:&#x27;center&#x27;,</span><br><span class="line">    formatter:function (<span class="name">value</span>, row, index) &#123;</span><br><span class="line">        var options = $table.bootstrapTable(<span class="string">&quot;getOptions&quot;</span>)<span class="comment">;</span></span><br><span class="line">        return (<span class="name">options.pageNumber-1</span>)*(<span class="name">options.pageSize</span>)+index+1;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
       <categories>
         <category>BootStrap</category>
         <category>table</category>
@@ -2044,7 +2044,7 @@ ok，完成！
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h4 id="记录一下，以防遗忘。"><a href="#记录一下，以防遗忘。" class="headerlink" title="记录一下，以防遗忘。"></a>记录一下，以防遗忘。</h4><a id="more"></a>
 
 <img src="/post/5f2bf15a/shell.jpg" class title="部署脚本示例图">
-]]></content>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
       <categories>
         <category>Jenkins</category>
       </categories>
@@ -2059,7 +2059,7 @@ ok，完成！
 <a id="more"></a>
 
 
-<img src="/post/4995ab80/jkp.jpeg" class title="相对路径示例图">]]></content>
+<img src="/post/4995ab80/jkp.jpeg" class title="相对路径示例图"><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
       <categories>
         <category>Jenkins</category>
       </categories>
@@ -2099,7 +2099,7 @@ ok，完成！
 </ul>
 </li>
 <li>git config 添加配置项目 <ul>
-<li>git config –global user.email “<a href="mailto:&#x79;&#111;&#x75;&#64;&#101;&#x78;&#97;&#109;&#x70;&#x6c;&#x65;&#46;&#x63;&#x6f;&#109;">&#x79;&#111;&#x75;&#64;&#101;&#x78;&#97;&#109;&#x70;&#x6c;&#x65;&#46;&#x63;&#x6f;&#109;</a>”</li>
+<li>git config –global user.email “<a href="mailto:&#121;&#111;&#117;&#64;&#x65;&#x78;&#x61;&#x6d;&#x70;&#x6c;&#101;&#x2e;&#99;&#x6f;&#109;">&#121;&#111;&#117;&#64;&#x65;&#x78;&#x61;&#x6d;&#x70;&#x6c;&#101;&#x2e;&#99;&#x6f;&#109;</a>”</li>
 <li>git config –global user.name “Your Name”<br>上面的操作表示添加用户级别的配置信息，也就是说修改用户宿主目录下面的配置文件</li>
 </ul>
 </li>
@@ -2171,7 +2171,7 @@ ok，完成！
 <blockquote>
 <p>其他相关链接<br><a href="https://cloud.tencent.com/developer/article/1664429">Git 常用命令</a></p>
 </blockquote>
-]]></content>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
       <categories>
         <category>Git</category>
       </categories>
@@ -2215,7 +2215,7 @@ ok，完成！
 
 <p>   2、找到eclipse目录下”plugins”和”features”文件夹，将下载好的的svn插件对应名称文件夹下的内容复制到eclipse的同名文件夹中</p>
 <p>   3、重启eclipse即可生效</p>
-]]></content>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
       <categories>
         <category>Eclipse</category>
       </categories>
@@ -2420,11 +2420,43 @@ ok，完成！
 </blockquote>
 </blockquote>
 </blockquote>
+<h4 id="折叠-显示-隐藏-部分文字"><a href="#折叠-显示-隐藏-部分文字" class="headerlink" title="折叠(显示/隐藏)部分文字"></a>折叠(显示/隐藏)部分文字</h4><p><code>npm install hexo-hide-posts --save</code></p>
+<div class="spoiler collapsed">
+    <div class="spoiler-title">
+        title
+    </div>
+    <div class="spoiler-content">
+        <p>content</p>
+
+    </div>
+</div>
+
+<div class="spoiler collapsed">
+    <div class="spoiler-title">
+        word
+    </div>
+    <div class="spoiler-content">
+        <p>content</p>
+
+    </div>
+</div>
+
+<div class="spoiler collapsed">
+    <div class="spoiler-title">
+        Several spaces in the title
+    </div>
+    <div class="spoiler-content">
+        <p>content</p>
+
+    </div>
+</div>
+
+<p>二选一或者<br><code>npm install hexo-spoiler --save</code></p>
 <h4 id="其他标记"><a href="#其他标记" class="headerlink" title="其他标记"></a>其他标记</h4><p> <del>这是一条删除线</del></p>
 <p> <em>这里不会显示斜体</em></p>
 <p> <code>code</code></p>
 <p> <code>more code</code></p>
-]]></content>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
       <categories>
         <category>Markdown</category>
       </categories>
