@@ -3104,6 +3104,54 @@ body {
   transition: all 0.3s ease-out;
 }
 /*******************ol li *******end***************/
+.post-nav-item a {
+  display: inline;
+}
+.post-nav-item a:hover,
+.post-tags a:hover {
+  color: #fc6423;
+  border-bottom: 1px solid #fc6423;
+}
+.post-tags a::before,
+.post-tags a::after {
+/* display: inline-block; */
+  opacity: 0;
+  -webkit-transition: -webkit-transform 0.3s, opacity 0.2s;
+  -moz-transition: -moz-transform 0.3s, opacity 0.2s;
+  transition: transform 0.3s, opacity 0.2s;
+}
+/* display: inline-block; */
+.post-tags a::before {
+  margin-right: 10px;
+  content: '[';
+  -webkit-transform: translateX(20px);
+  -moz-transform: translateX(20px);
+  transform: translateX(20px);
+}
+.post-tags a::after {
+  margin-left: 10px;
+  content: ']';
+  -webkit-transform: translateX(-20px);
+  -moz-transform: translateX(-20px);
+  transform: translateX(-20px);
+}
+.post-tags a:hover::before,
+.post-tags a:hover::after,
+.post-tags a:focus::before,
+.post-tags a:focus::after {
+  opacity: 1;
+  -webkit-transform: translateX(0px);
+  -moz-transform: translateX(0px);
+  transform: translateX(0px);
+}
+.post-copyright ul {
+  border-style: dashed;
+  border-left-style: solid;
+  border-color: #ff2a2a;
+}
+.post-body img {
+  border: 8px solid #00c4b6;
+}
 .post-body h1:hover,
 .post-body h2:hover,
 .post-body h3:hover,
