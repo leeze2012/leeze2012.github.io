@@ -2944,6 +2944,29 @@ mark.search-keyword {
     padding: 10px 12px;
   }
 }
+/* 渐变色滚动动画 */
+@-webkit-keyframes Gradient {
+  0% {
+    background-position: 0 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0 50%;
+  }
+}
+@-moz-keyframes Gradient {
+  0% {
+    background-position: 0 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0 50%;
+  }
+}
 html {
   background-image: -moz-radial-gradient(-20% 140%, ellipse, rgba(235,167,171,0.6) 30%, rgba(255,255,227,0) 50%), -moz-radial-gradient(60% 40%, ellipse, #d9e3e5 10%, rgba(44,70,76,0) 60%), -moz-linear-gradient(-45deg, rgba(62,70,92,0.8) -10%, rgba(220,230,200,0.8) 80%);
   background-image: -o-radial-gradient(-20% 140%, ellipse, rgba(235,167,171,0.6) 30%, rgba(255,255,227,0) 50%), -o-radial-gradient(60% 40%, ellipse, #d9e3e5 10%, rgba(44,70,76,0) 60%), -o-linear-gradient(-45deg, rgba(62,70,92,0.8) -10%, rgba(220,230,200,0.8) 80%);
@@ -2956,10 +2979,13 @@ body {
   background: none;
   line-height: 2 !important;
 }
+.wobbleTransparentBK {
+  background: none !important;
+}
 .site-brand-container {
   background-image: linear-gradient(-225deg, #2cd8d5 0%, #c5c1ff 56%, #ffbac3 100%, #ddd6f3 0%);
   background-size: 400% 400%;
-  animation: gradient 30s ease infinite;
+  animation: Gradient 30s ease infinite;
 }
 .site-brand-container {
   background: url("../images/header-bg.jpg");
@@ -3433,29 +3459,6 @@ code {
   color: #fc6423;
 }
 /* 页脚footer */
-/* 渐变色滚动动画 */
-@-webkit-keyframes Gradient {
-  0% {
-    background-position: 0 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0 50%;
-  }
-}
-@-moz-keyframes Gradient {
-  0% {
-    background-position: 0 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0 50%;
-  }
-}
 .footer {
   background: linear-gradient(-45deg, #ee7752, #ce3e75, #23a6d5, #23d5ab);
   background-size: 400% 400%;
@@ -3552,48 +3555,48 @@ code {
   content: "\f107";
   margin-left: 0.3em;
 }
-@-moz-keyframes gradient {
+@-moz-keyframes Gradient {
   0% {
-    background-position: 0% 50%;
+    background-position: 0 50%;
   }
   50% {
     background-position: 100% 50%;
   }
   100% {
-    background-position: 0% 50%;
+    background-position: 0 50%;
   }
 }
-@-webkit-keyframes gradient {
+@-webkit-keyframes Gradient {
   0% {
-    background-position: 0% 50%;
+    background-position: 0 50%;
   }
   50% {
     background-position: 100% 50%;
   }
   100% {
-    background-position: 0% 50%;
+    background-position: 0 50%;
   }
 }
-@-o-keyframes gradient {
+@-o-keyframes Gradient {
   0% {
-    background-position: 0% 50%;
+    background-position: 0 50%;
   }
   50% {
     background-position: 100% 50%;
   }
   100% {
-    background-position: 0% 50%;
+    background-position: 0 50%;
   }
 }
-@keyframes gradient {
+@keyframes Gradient {
   0% {
-    background-position: 0% 50%;
+    background-position: 0 50%;
   }
   50% {
     background-position: 100% 50%;
   }
   100% {
-    background-position: 0% 50%;
+    background-position: 0 50%;
   }
 }
 @-moz-keyframes shaky-slow {
@@ -4202,49 +4205,5 @@ code {
   }
   98% {
     transform: translate(1.3px, 1px) rotate(-0.5deg);
-  }
-}
-@-moz-keyframes Gradient {
-  0% {
-    background-position: 0 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0 50%;
-  }
-}
-@-webkit-keyframes Gradient {
-  0% {
-    background-position: 0 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0 50%;
-  }
-}
-@-o-keyframes Gradient {
-  0% {
-    background-position: 0 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0 50%;
-  }
-}
-@keyframes Gradient {
-  0% {
-    background-position: 0 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0 50%;
   }
 }
