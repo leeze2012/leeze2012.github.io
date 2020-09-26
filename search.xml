@@ -963,7 +963,7 @@
 <p>&emsp;&emsp; 根据Server ID 生成license Key：</p>
 <figure class="highlight awk"><table><tr><td class="code"><pre><span class="line"><span class="regexp">/opt/</span>atlassian<span class="regexp">/jira/</span>jre<span class="regexp">/bin/</span>java -jar <span class="regexp">/home/</span>jira1<span class="regexp">/atlassian-agent.jar -p jira -m jira@jira.com -n jira -o https:/</span><span class="regexp">/jira.com -s BFZ0-PD41-I9AX-YXDP</span></span><br></pre></td></tr></table></figure>
 <br>
-<div class="note default no-icon"><p>-p jira(安装的是jira产品)，具体的可以根据-p进行参考<br>-m <a href="mailto:&#x6a;&#105;&#x72;&#97;&#x40;&#x6a;&#x69;&#x72;&#x61;&#46;&#x63;&#x6f;&#109;">&#x6a;&#105;&#x72;&#97;&#x40;&#x6a;&#x69;&#x72;&#x61;&#46;&#x63;&#x6f;&#109;</a>(随意写)<br>-n jira(随意写)<br>-o <a href="https://jira.com/">https://jira.com</a> (随意写)<br>-s BFZ0-PD41-I9AX-YXDP (即jira显示的服务器ID)</p>
+<div class="note default no-icon"><p>-p jira(安装的是jira产品)，具体的可以根据-p进行参考<br>-m <a href="mailto:&#x6a;&#x69;&#x72;&#x61;&#x40;&#x6a;&#105;&#114;&#97;&#x2e;&#x63;&#x6f;&#109;">&#x6a;&#x69;&#x72;&#x61;&#x40;&#x6a;&#105;&#114;&#97;&#x2e;&#x63;&#x6f;&#109;</a>(随意写)<br>-n jira(随意写)<br>-o <a href="https://jira.com/">https://jira.com</a> (随意写)<br>-s BFZ0-PD41-I9AX-YXDP (即jira显示的服务器ID)</p>
 </div>
 <br>
 
@@ -2099,7 +2099,7 @@ ok，完成！
 </ul>
 </li>
 <li>git config 添加配置项目 <ul>
-<li>git config –global user.email “<a href="mailto:&#x79;&#x6f;&#x75;&#64;&#x65;&#120;&#x61;&#109;&#112;&#108;&#101;&#46;&#x63;&#x6f;&#109;">&#x79;&#x6f;&#x75;&#64;&#x65;&#120;&#x61;&#109;&#112;&#108;&#101;&#46;&#x63;&#x6f;&#109;</a>”</li>
+<li>git config –global user.email “<a href="mailto:&#x79;&#111;&#x75;&#64;&#x65;&#x78;&#x61;&#x6d;&#112;&#x6c;&#x65;&#46;&#x63;&#x6f;&#109;">&#x79;&#111;&#x75;&#64;&#x65;&#x78;&#x61;&#x6d;&#112;&#x6c;&#x65;&#46;&#x63;&#x6f;&#109;</a>”</li>
 <li>git config –global user.name “Your Name”<br>上面的操作表示添加用户级别的配置信息，也就是说修改用户宿主目录下面的配置文件</li>
 </ul>
 </li>
