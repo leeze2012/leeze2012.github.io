@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 <meta name="generator" content="Hexo 5.1.1">
@@ -21,7 +21,7 @@
 
 <script class="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"blog.xiaosige.com","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"livere","storage":true,"lazyload":true,"nav":null,"activeClass":"livere"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}};
+    var CONFIG = {"hostname":"blog.xiaosige.com","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"livere","storage":true,"lazyload":true,"nav":null,"activeClass":"livere"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}};
   </script>
 
   <meta name="description" content="Git介绍&amp;emsp;&amp;emsp;Git — The stupid content tracker, 傻瓜内容跟踪器。Linus Torvalds 是这样给我们介绍 Git 的。&amp;emsp;&amp;emsp;Git 是用于 Linux内核开发的版本控制工具。与常用的版本控制工具 CVS, Subversion 等不同，它采用了分布式版本库的方式，不必服务器端软件支持（wingeddevil注：这得分是用">
@@ -33,8 +33,8 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-09-15T18:04:14.000Z">
 <meta property="article:modified_time" content="2020-09-17T09:01:21.723Z">
-<meta property="article:tag" content="Git">
 <meta property="article:tag" content="Linux">
+<meta property="article:tag" content="Git">
 <meta name="twitter:card" content="summary">
 
 
@@ -57,6 +57,8 @@
 
 <!-- https://www.layuicdn.com/layui/css/layui.css -->
 <script src="https://www.layuicdn.com/layui/layui.js"></script>
+
+<link rel="stylesheet" href="/js/prism/prism.css">
 
 
   <title>Linux安装Git-两种方式详细教程 | 小四儿</title>
@@ -109,12 +111,12 @@
   .search-pop-overlay, .sidebar-nav { display: none; }
   .sidebar-panel { display: block; }
   </style>
-</noscript>
+</noscript><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
-  <div class="headband"></div>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="headband"></div>
 
   <main class="main">
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -314,6 +316,7 @@
 
 
 
+
       </section>
         <div class="back-to-top animated">
           <i class="fa fa-arrow-up"></i>
@@ -405,7 +408,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>1.4k</span>
+      <span>1.6k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -427,36 +430,42 @@
 <a id="more"></a>
 
 <h3 id="yun安装"><a href="#yun安装" class="headerlink" title="yun安装"></a>yun安装</h3><ol>
-<li>在Linux上是有yum安装Git，非常简单，只需要一行命令<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum <span class="keyword">install</span> curl-devel expat-devel gettext-devel openssl-devel zlib-devel perl-devel</span><br><span class="line">yum -y <span class="keyword">install</span> git</span><br></pre></td></tr></table></figure></li>
-<li>输入 git –version查看Git是否安装完成以及查看其版本号<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="comment">--version</span></span><br></pre></td></tr></table></figure></li>
+<li>在Linux上是有yum安装Git，非常简单，只需要一行命令<pre class="line-numbers language-none"><code class="language-none">yum install curl-devel expat-devel gettext-devel openssl-devel zlib-devel perl-devel
+yum -y install git<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
+<li>输入 git –version查看Git是否安装完成以及查看其版本号<pre class="line-numbers language-none"><code class="language-none">git --version<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 <li>yum安装git被安装在<code>/usr/libexec/git-core</code>目录下</li>
 </ol>
 <h3 id="从github上下载最新的源码编译后安装"><a href="#从github上下载最新的源码编译后安装" class="headerlink" title="从github上下载最新的源码编译后安装"></a>从github上下载最新的源码编译后安装</h3><p>&emsp;&emsp;yum安装简单，但版本太旧，你不好控制。如果想要使用最新版的git，那还是得自己下载源码安装。</p>
 <ol>
 <li><p>首先我们需要删除旧的Git</p>
-<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y <span class="builtin-name">remove</span> git</span><br></pre></td></tr></table></figure></li>
+<pre class="line-numbers language-none"><code class="language-none">yum -y remove git<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 <li><p>进入<code>git</code>在<code>GitHub</code>上发布版本页面<code>https://github.com/git/git/releases</code> ，这个页面我们可以找到所有git已发布的版本。这里我们选择最新版的<code>tar.gz</code>包。</p>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https:<span class="regexp">//gi</span>thub.com<span class="regexp">/git/gi</span>t/releases</span><br></pre></td></tr></table></figure></li>
+<pre class="line-numbers language-none"><code class="language-none">https:&#x2F;&#x2F;github.com&#x2F;git&#x2F;git&#x2F;releases<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 <li><p>下载最新版本的tar.gz的Git到本地电脑上，利用ftp工具将压缩包上传至Linux服务器的<code>/usr/local</code>目录下</p>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https:<span class="regexp">//gi</span>thub.com<span class="regexp">/git/gi</span>t<span class="regexp">/archive/</span>v2.<span class="number">28.0</span>.tar.gz</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">wget https:&#x2F;&#x2F;github.com&#x2F;git&#x2F;git&#x2F;archive&#x2F;v2.28.0.tar.gz<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 </li>
 <li><p>进入<code>/usr/local</code> 目录解压git文件</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">tar</span> <span class="selector-tag">-zxvf</span> <span class="selector-tag">git-2</span><span class="selector-class">.28</span><span class="selector-class">.0</span><span class="selector-class">.tar</span><span class="selector-class">.gz</span></span><br></pre></td></tr></table></figure></li>
+<pre class="line-numbers language-none"><code class="language-none">tar -zxvf git-2.28.0.tar.gz<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 <li><p>拿到解压后的源码以后我们需要编译源码了，不过在此之前需要安装编译所需要的依赖。</p>
-<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum <span class="keyword">install</span> curl-devel expat-devel gettext-devel openssl-devel zlib-devel gcc perl-ExtUtils-MakeMaker</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">yum install curl-devel expat-devel gettext-devel openssl-devel zlib-devel gcc perl-ExtUtils-MakeMaker<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>6、提示，安装编译源码所需依赖的时候，yum自动帮你安装了git，这时候你需要先卸载这个旧版的git。</p>
-<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y <span class="builtin-name">remove</span> git</span><br></pre></td></tr></table></figure></li>
+<pre class="line-numbers language-none"><code class="language-none">yum -y remove git<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 <li><p>编译git源码，进入cd <code>/usr/local/git-2.28.0.tar.gz</code> 目录</p>
-<figure class="highlight arcade"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make prefix=<span class="regexp">/usr/</span>local/git all</span><br></pre></td></tr></table></figure></li>
+<pre class="line-numbers language-none"><code class="language-none">make prefix&#x3D;&#x2F;usr&#x2F;local&#x2F;git all<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 <li><p>安装git至/usr/local/git路径</p>
-<figure class="highlight arcade"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make prefix=<span class="regexp">/usr/</span>local/git install</span><br></pre></td></tr></table></figure></li>
+<pre class="line-numbers language-none"><code class="language-none">make prefix&#x3D;&#x2F;usr&#x2F;local&#x2F;git install<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 <li><p>配置环境变量</p>
-<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">vi /etc<span class="built_in">/profile </span></span><br><span class="line"></span><br><span class="line">在底部加上如下</span><br><span class="line"></span><br><span class="line"><span class="builtin-name">export</span> <span class="attribute">PATH</span>=<span class="variable">$PATH</span>:/usr/local/git/bin</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">vi &#x2F;etc&#x2F;profile 
+
+在底部加上如下
+
+export PATH&#x3D;$PATH:&#x2F;usr&#x2F;local&#x2F;git&#x2F;bin<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
 <li><p>刷新环境变量</p>
-<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">source</span> <span class="regexp">/etc/</span>profile</span><br></pre></td></tr></table></figure></li>
+<pre class="line-numbers language-none"><code class="language-none">source &#x2F;etc&#x2F;profile<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 <li><p>查看Git是否安装完成</p>
-<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">whereis</span> <span class="string">git</span></span><br><span class="line"><span class="attr">git</span> <span class="string">--version</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">whereis git
+git --version<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 </li>
 </ol>
@@ -508,8 +517,8 @@
 </div>
 
           <div class="post-tags">
-              <a href="/tags/Git/" rel="tag"><i class="fa fa-tag"></i> Git</a>
               <a href="/tags/Linux/" rel="tag"><i class="fa fa-tag"></i> Linux</a>
+              <a href="/tags/Git/" rel="tag"><i class="fa fa-tag"></i> Git</a>
           </div>
 
         
@@ -587,14 +596,14 @@
       <i class="fa fa-chart-line"></i>
     </span>
       <span>站点总字数：</span>
-    <span title="站点总字数">85k</span>
+    <span title="站点总字数">86k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">1:17</span>
+    <span title="站点阅读时长">1:18</span>
   </span>
 </div>
 <div class="busuanzi-count">
@@ -623,6 +632,7 @@
     提供CDN加速/云存储服务
 </div>
 
+<script src="/js/prism/prism.js" async></script>
 
     </div>
   </footer>
@@ -841,6 +851,26 @@ $(function(){
     };
 
     $('.highlight').each(function () {
+        // 防止重复渲染
+        if (this.__render__ === true) {
+            return true;
+        }
+        this.__render__ = true;
+        const $this = $(this);
+        const height = $(this).outerHeight();
+        if (height > CODE_MAX_HEIGHT) {
+            // 添加展开&收起容器
+            const $container = addCodeWrap($this, height);
+            containers.push({
+                $container,
+                height,
+                $hide: $container.find('.js_retract_code_btn'),
+                hasHorizontalScrollbar: this.scrollWidth > this.offsetWidth,
+            });
+        }
+    });
+
+    $('.line-numbers').each(function () {
         // 防止重复渲染
         if (this.__render__ === true) {
             return true;
@@ -1371,7 +1401,7 @@ layui.use(['jquery', 'layer'], function(){
 
 });
 
-</script>
+</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 </body>
 </html>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 <meta name="generator" content="Hexo 5.1.1">
@@ -21,7 +21,7 @@
 
 <script class="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"blog.xiaosige.com","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"livere","storage":true,"lazyload":true,"nav":null,"activeClass":"livere"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}};
+    var CONFIG = {"hostname":"blog.xiaosige.com","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"livere","storage":true,"lazyload":true,"nav":null,"activeClass":"livere"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}};
   </script>
 
   <meta name="description" content="xception in thread “main” java.lang.UnsupportedClassVersionError: M : Unsupported major.minor version 在linux上编译的java程序，在运行的时候报这个错误。">
@@ -56,6 +56,8 @@
 
 <!-- https://www.layuicdn.com/layui/css/layui.css -->
 <script src="https://www.layuicdn.com/layui/layui.js"></script>
+
+<link rel="stylesheet" href="/js/prism/prism.css">
 
 
   <title>linux之使用alternatives 切换Java版本 | 小四儿</title>
@@ -108,12 +110,12 @@
   .search-pop-overlay, .sidebar-nav { display: none; }
   .sidebar-panel { display: block; }
   </style>
-</noscript>
+</noscript><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
-  <div class="headband"></div>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="headband"></div>
 
   <main class="main">
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -312,6 +314,7 @@
 
 
 
+
       </section>
         <div class="back-to-top animated">
           <i class="fa fa-arrow-up"></i>
@@ -403,7 +406,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>1.1k</span>
+      <span>1.3k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -431,17 +434,29 @@
 <p>解决这个问题的方法是使用alternatives 切换默认的java命令</p>
 <p>这个工具的大概原理是</p>
 <p>在/usr/bin目录下创建一个符号链接，指向/etc/alternatives/ 下的的文件，而该文件依然是一个符号链接，举个栗子</p>
-<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@node1 mec]# ll <span class="regexp">/usr/</span>bin/java</span><br><span class="line">lrwxrwxrwx. <span class="number">1</span> root root <span class="number">22</span> <span class="number">4</span>月  <span class="number">16</span> <span class="number">16</span>:<span class="number">06</span> <span class="regexp">/usr/</span>bin<span class="regexp">/java -&gt; /</span>etc<span class="regexp">/alternatives/</span>java</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">[root@node1 mec]# ll &#x2F;usr&#x2F;bin&#x2F;java
+lrwxrwxrwx. 1 root root 22 4月  16 16:06 &#x2F;usr&#x2F;bin&#x2F;java -&gt; &#x2F;etc&#x2F;alternatives&#x2F;java<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
-<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@node1 mec]# ll  <span class="regexp">/etc/</span>alternatives/java</span><br><span class="line">lrwxrwxrwx. <span class="number">1</span> root root <span class="number">26</span> <span class="number">4</span>月  <span class="number">16</span> <span class="number">16</span>:<span class="number">06</span> <span class="regexp">/etc/</span>alternatives<span class="regexp">/java -&gt; /u</span>sr<span class="regexp">/java/</span><span class="keyword">default</span><span class="regexp">/bin/</span>java</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">[root@node1 mec]# ll  &#x2F;etc&#x2F;alternatives&#x2F;java
+lrwxrwxrwx. 1 root root 26 4月  16 16:06 &#x2F;etc&#x2F;alternatives&#x2F;java -&gt; &#x2F;usr&#x2F;java&#x2F;default&#x2F;bin&#x2F;java<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <p>/etc/alternatives/java会指向最终的可执行文件，如果你有3个版本的java</p>
 <p>就需要运行 </p>
-<figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[root@node1 mec]<span class="comment"># alternatives --config java</span></span><br><span class="line"></span><br><span class="line">共有 <span class="number">3</span> 个程序提供“java”。</span><br><span class="line"></span><br><span class="line">  选择    命令</span><br><span class="line">-----------------------------------------------</span><br><span class="line">   <span class="number">1</span>           /usr/<span class="class"><span class="keyword">lib</span>/<span class="title">jvm</span>/<span class="title">jre</span>-1.5.0-<span class="title">gcj</span>/<span class="title">bin</span>/<span class="title">java</span></span></span><br><span class="line">*  <span class="number">2</span>           /usr/<span class="class"><span class="keyword">lib</span>/<span class="title">jvm</span>/<span class="title">jre</span>-1.7.0-<span class="title">openjdk</span>.<span class="title">x86_64</span>/<span class="title">bin</span>/<span class="title">java</span></span></span><br><span class="line"> + <span class="number">3</span>           /usr/java/default/bin/java</span><br><span class="line"></span><br><span class="line">按 Enter 来保存当前选择[+]，或键入选择号码：</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">[root@node1 mec]# alternatives --config java
+
+共有 3 个程序提供“java”。
+
+  选择    命令
+-----------------------------------------------
+   1           &#x2F;usr&#x2F;lib&#x2F;jvm&#x2F;jre-1.5.0-gcj&#x2F;bin&#x2F;java
+*  2           &#x2F;usr&#x2F;lib&#x2F;jvm&#x2F;jre-1.7.0-openjdk.x86_64&#x2F;bin&#x2F;java
+ + 3           &#x2F;usr&#x2F;java&#x2F;default&#x2F;bin&#x2F;java
+
+按 Enter 来保存当前选择[+]，或键入选择号码：<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>然后选择你想要选择的选项保存就好了</p>
 <p>如果这个列表里面没有你想要的而且已经安装了的程序，就需要添加 命令为</p>
-<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alternatives --install <span class="regexp">/usr/</span>bin<span class="regexp">/java java /u</span>sr<span class="regexp">/java/</span><span class="keyword">default</span><span class="regexp">/bin/</span>java <span class="number">500</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">alternatives --install &#x2F;usr&#x2F;bin&#x2F;java java &#x2F;usr&#x2F;java&#x2F;default&#x2F;bin&#x2F;java 500<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>这个命令实际操作的是 /var/lib/alternatives目录下对应的文件</p>
 <p>alternatives的安装删除显示等操作都是通过读取和修改这个目录下的文件实现的，而且是文本文件，感兴趣的可以取阅读一下</p>
@@ -570,14 +585,14 @@
       <i class="fa fa-chart-line"></i>
     </span>
       <span>站点总字数：</span>
-    <span title="站点总字数">85k</span>
+    <span title="站点总字数">86k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">1:17</span>
+    <span title="站点阅读时长">1:18</span>
   </span>
 </div>
 <div class="busuanzi-count">
@@ -606,6 +621,7 @@
     提供CDN加速/云存储服务
 </div>
 
+<script src="/js/prism/prism.js" async></script>
 
     </div>
   </footer>
@@ -824,6 +840,26 @@ $(function(){
     };
 
     $('.highlight').each(function () {
+        // 防止重复渲染
+        if (this.__render__ === true) {
+            return true;
+        }
+        this.__render__ = true;
+        const $this = $(this);
+        const height = $(this).outerHeight();
+        if (height > CODE_MAX_HEIGHT) {
+            // 添加展开&收起容器
+            const $container = addCodeWrap($this, height);
+            containers.push({
+                $container,
+                height,
+                $hide: $container.find('.js_retract_code_btn'),
+                hasHorizontalScrollbar: this.scrollWidth > this.offsetWidth,
+            });
+        }
+    });
+
+    $('.line-numbers').each(function () {
         // 防止重复渲染
         if (this.__render__ === true) {
             return true;
@@ -1354,7 +1390,7 @@ layui.use(['jquery', 'layer'], function(){
 
 });
 
-</script>
+</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 </body>
 </html>

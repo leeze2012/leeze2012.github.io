@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 <meta name="generator" content="Hexo 5.1.1">
@@ -21,7 +21,7 @@
 
 <script class="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"blog.xiaosige.com","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"livere","storage":true,"lazyload":true,"nav":null,"activeClass":"livere"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}};
+    var CONFIG = {"hostname":"blog.xiaosige.com","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"livere","storage":true,"lazyload":true,"nav":null,"activeClass":"livere"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}};
   </script>
 
   <meta name="description" content="&amp;emsp;&amp;emsp;Libevent 是一个用C语言编写的、轻量级的开源高性能I&#x2F;O框架，支持多种 I&#x2F;O 多路复用技术： epoll、 poll、 dev&#x2F;poll、 select 和 kqueue 等；支持 I&#x2F;O，定时器和信号等事件；注册事件优先级。PHP提供了对应的扩展 libevent、 Event 。 &amp;emsp;&amp;emsp;相比 libevent ext, event ext 拥">
@@ -56,6 +56,8 @@
 
 <!-- https://www.layuicdn.com/layui/css/layui.css -->
 <script src="https://www.layuicdn.com/layui/layui.js"></script>
+
+<link rel="stylesheet" href="/js/prism/prism.css">
 
 
   <title>PHP7 安装 event 扩展 | 小四儿</title>
@@ -108,12 +110,12 @@
   .search-pop-overlay, .sidebar-nav { display: none; }
   .sidebar-panel { display: block; }
   </style>
-</noscript>
+</noscript><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
-  <div class="headband"></div>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="headband"></div>
 
   <main class="main">
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -313,6 +315,7 @@
 
 
 
+
       </section>
         <div class="back-to-top animated">
           <i class="fa fa-arrow-up"></i>
@@ -404,7 +407,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>1.8k</span>
+      <span>1.9k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -429,25 +432,62 @@
 <a id="more"></a>
 
 <h4 id="安装-Libevent-库"><a href="#安装-Libevent-库" class="headerlink" title="安装 Libevent 库"></a>安装 Libevent 库</h4><p>&emsp;&emsp; php event 扩展 依赖 Libevent 库，需要先编译安装（注意是 Libevent 库，非 libevent 扩展）。</p>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">git clone --depth=<span class="number">1</span> https:<span class="regexp">//gi</span>thub.com<span class="regexp">/nmathewson/</span>Libevent.git</span><br><span class="line">cd Libevent</span><br><span class="line">./autogen.sh</span><br><span class="line"></span><br><span class="line">.<span class="regexp">/configure --prefix=/u</span>sr<span class="regexp">/local/</span>libevent</span><br><span class="line">make &amp;&amp; make install</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">git clone --depth&#x3D;1 https:&#x2F;&#x2F;github.com&#x2F;nmathewson&#x2F;Libevent.git
+cd Libevent
+.&#x2F;autogen.sh
+
+.&#x2F;configure --prefix&#x3D;&#x2F;usr&#x2F;local&#x2F;libevent
+make &amp;&amp; make install<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h4 id="安装-Event-扩展"><a href="#安装-Event-扩展" class="headerlink" title="安装 Event 扩展"></a>安装 Event 扩展</h4><p>&emsp;&emsp; 可以直接使用 pecl 安装</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">pecl <span class="keyword">install</span> <span class="keyword">event</span></span><br><span class="line">downloading <span class="keyword">event</span><span class="number">-2.5</span><span class="number">.3</span>.tgz ...</span><br><span class="line"><span class="keyword">Starting</span> <span class="keyword">to</span> download <span class="keyword">event</span><span class="number">-2.5</span><span class="number">.3</span>.tgz (<span class="number">140</span>,<span class="number">913</span> <span class="keyword">bytes</span>)</span><br><span class="line">..............................done: <span class="number">140</span>,<span class="number">913</span> <span class="keyword">bytes</span></span><br><span class="line"><span class="number">50</span> <span class="keyword">source</span> files, building</span><br><span class="line">running: phpize</span><br><span class="line">Configuring <span class="keyword">for</span>:</span><br><span class="line">PHP Api <span class="keyword">Version</span>:         <span class="number">20180731</span></span><br><span class="line">Zend <span class="keyword">Module</span> Api <span class="keyword">No</span>:      <span class="number">20180731</span></span><br><span class="line">Zend Extension Api <span class="keyword">No</span>:   <span class="number">320180731</span></span><br><span class="line"><span class="keyword">Enable</span> internal debugging <span class="keyword">in</span> <span class="keyword">Event</span> [<span class="keyword">no</span>] : </span><br><span class="line"><span class="keyword">Enable</span> sockets support <span class="keyword">in</span> <span class="keyword">Event</span> [yes] : </span><br><span class="line">libevent installation prefix [/usr] : /usr/<span class="keyword">local</span>/libevent</span><br><span class="line">...</span><br><span class="line"><span class="keyword">Build</span> process completed successfully</span><br><span class="line">Installing <span class="string">&#x27;/usr/local/php/lib/php/extensions/no-debug-non-zts-20180731/event.so&#x27;</span></span><br><span class="line"><span class="keyword">install</span> ok: channel://pecl.php.net/<span class="keyword">event</span><span class="number">-2.5</span><span class="number">.3</span></span><br><span class="line">Extension <span class="keyword">event</span> enabled <span class="keyword">in</span> php.ini</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">pecl install event
+downloading event-2.5.3.tgz ...
+Starting to download event-2.5.3.tgz (140,913 bytes)
+..............................done: 140,913 bytes
+50 source files, building
+running: phpize
+Configuring for:
+PHP Api Version:         20180731
+Zend Module Api No:      20180731
+Zend Extension Api No:   320180731
+Enable internal debugging in Event [no] : 
+Enable sockets support in Event [yes] : 
+libevent installation prefix [&#x2F;usr] : &#x2F;usr&#x2F;local&#x2F;libevent
+...
+Build process completed successfully
+Installing &#39;&#x2F;usr&#x2F;local&#x2F;php&#x2F;lib&#x2F;php&#x2F;extensions&#x2F;no-debug-non-zts-20180731&#x2F;event.so&#39;
+install ok: channel:&#x2F;&#x2F;pecl.php.net&#x2F;event-2.5.3
+Extension event enabled in php.ini<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
 
 <p>&emsp;&emsp; 查看安装结果</p>
-<figure class="highlight elm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# php <span class="comment">--ri event</span></span><br><span class="line"></span><br><span class="line"><span class="title">event</span></span><br><span class="line"></span><br><span class="line"><span class="type">Event</span> sup<span class="keyword">port</span> =&gt; enabled</span><br><span class="line"><span class="type">Sockets</span> sup<span class="keyword">port</span> =&gt; enabled</span><br><span class="line"><span class="type">Debug</span> sup<span class="keyword">port</span> =&gt; disabled</span><br><span class="line"><span class="type">Extra</span> functionality sup<span class="keyword">port</span> including HTTP, DNS, and RPC =&gt; enabled</span><br><span class="line"><span class="type">OpenSSL</span> sup<span class="keyword">port</span> =&gt; enabled</span><br><span class="line"><span class="type">Thread</span> safety sup<span class="keyword">port</span> =&gt; disabled</span><br><span class="line"><span class="type">Extension</span> version =&gt; <span class="number">2.5</span><span class="number">.3</span></span><br><span class="line"><span class="title">libevent2</span> headers version =&gt; <span class="number">2.2</span><span class="number">.0</span>-alpha-dev</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">[root@localhost ~]# php --ri event
+
+event
+
+Event support &#x3D;&gt; enabled
+Sockets support &#x3D;&gt; enabled
+Debug support &#x3D;&gt; disabled
+Extra functionality support including HTTP, DNS, and RPC &#x3D;&gt; enabled
+OpenSSL support &#x3D;&gt; enabled
+Thread safety support &#x3D;&gt; disabled
+Extension version &#x3D;&gt; 2.5.3
+libevent2 headers version &#x3D;&gt; 2.2.0-alpha-dev<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h4 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h4><p>&emsp;&emsp; 1,<code>问题</code>，<code>pecl install event</code>连不上，下载失败。</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">pecl</span> <span class="selector-tag">channel-update</span> <span class="selector-tag">pecl</span><span class="selector-class">.php</span><span class="selector-class">.net</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">pecl channel-update pecl.php.net<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>&emsp;&emsp; 2,<code>问题</code>，<code>pecl channel-update pecl.php.net 失败</code></p>
-<figure class="highlight subunit"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">pecl channel-update pecl.php.net</span><br><span class="line"></span><br><span class="line">Updating channel &quot;pecl.php.net&quot;</span><br><span class="line"><span class="keyword">Error: </span>No version number found in &lt;channel&gt; tag</span><br><span class="line">Invalid channel.xml file</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">pecl channel-update pecl.php.net
+
+Updating channel &quot;pecl.php.net&quot;
+Error: No version number found in &lt;channel&gt; tag
+Invalid channel.xml file<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <br>
 &emsp;&emsp; 解决方案：
 
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pecl channel-update https://pecl.php.net/channel.xml</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">pecl channel-update https://pecl.php.net/channel.xml<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
     </div>
 
@@ -573,14 +613,14 @@
       <i class="fa fa-chart-line"></i>
     </span>
       <span>站点总字数：</span>
-    <span title="站点总字数">85k</span>
+    <span title="站点总字数">86k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">1:17</span>
+    <span title="站点阅读时长">1:18</span>
   </span>
 </div>
 <div class="busuanzi-count">
@@ -609,6 +649,7 @@
     提供CDN加速/云存储服务
 </div>
 
+<script src="/js/prism/prism.js" async></script>
 
     </div>
   </footer>
@@ -827,6 +868,26 @@ $(function(){
     };
 
     $('.highlight').each(function () {
+        // 防止重复渲染
+        if (this.__render__ === true) {
+            return true;
+        }
+        this.__render__ = true;
+        const $this = $(this);
+        const height = $(this).outerHeight();
+        if (height > CODE_MAX_HEIGHT) {
+            // 添加展开&收起容器
+            const $container = addCodeWrap($this, height);
+            containers.push({
+                $container,
+                height,
+                $hide: $container.find('.js_retract_code_btn'),
+                hasHorizontalScrollbar: this.scrollWidth > this.offsetWidth,
+            });
+        }
+    });
+
+    $('.line-numbers').each(function () {
         // 防止重复渲染
         if (this.__render__ === true) {
             return true;
@@ -1357,7 +1418,7 @@ layui.use(['jquery', 'layer'], function(){
 
 });
 
-</script>
+</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 </body>
 </html>

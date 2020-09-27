@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 <meta name="generator" content="Hexo 5.1.1">
@@ -21,7 +21,7 @@
 
 <script class="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"blog.xiaosige.com","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"livere","storage":true,"lazyload":true,"nav":null,"activeClass":"livere"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}};
+    var CONFIG = {"hostname":"blog.xiaosige.com","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"livere","storage":true,"lazyload":true,"nav":null,"activeClass":"livere"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}};
   </script>
 
   <meta name="description" content="&amp;emsp;&amp;emsp;由于对接的项目比较老，要与其数据库进行交互，而且数据库类型不一致，所以我们的项目需要支持多数据源（接口平台），这个还是非常好配置的，SpringBoot给我们提供了多数据源配置的方案，并且每个数据源对应一个JdbcTemplate，这样就方便很多，具体配置如下：">
@@ -56,6 +56,8 @@
 
 <!-- https://www.layuicdn.com/layui/css/layui.css -->
 <script src="https://www.layuicdn.com/layui/layui.js"></script>
+
+<link rel="stylesheet" href="/js/prism/prism.css">
 
 
   <title>SpringBoot项目配置多数据源 | 小四儿</title>
@@ -108,12 +110,12 @@
   .search-pop-overlay, .sidebar-nav { display: none; }
   .sidebar-panel { display: block; }
   </style>
-</noscript>
+</noscript><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
-  <div class="headband"></div>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="headband"></div>
 
   <main class="main">
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -313,6 +315,7 @@
 
 
 
+
       </section>
         <div class="back-to-top animated">
           <i class="fa fa-arrow-up"></i>
@@ -426,16 +429,118 @@
 <a id="more"></a>
 
 <h4 id="application-properties文件内配置多数据源信息"><a href="#application-properties文件内配置多数据源信息" class="headerlink" title="application.properties文件内配置多数据源信息"></a>application.properties文件内配置多数据源信息</h4><p>&emsp;&emsp;首先在application.properties或者yml文件内配置多数据源信息，具体配置如下：</p>
-<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ds1数据源配置</span></span><br><span class="line"><span class="attr">spring.datasource.ds1.type</span>=com.alibaba.druid.pool.DruidDataSource</span><br><span class="line"><span class="attr">spring.datasource.ds1.driver-class-name</span>=com.mysql.jdbc.Driver</span><br><span class="line"><span class="attr">spring.datasource.ds1.url</span>=jdbc:mysql://localhost:<span class="number">3306</span>/zz?useUnicode=<span class="literal">true</span>&amp;characterEncoding=utf8</span><br><span class="line"><span class="attr">spring.datasource.ds1.username</span>=zz</span><br><span class="line"><span class="attr">spring.datasource.ds1.password</span>=zz</span><br><span class="line"></span><br><span class="line"><span class="comment"># ds2数据源配置</span></span><br><span class="line"><span class="attr">spring.datasource.ds2.driver-class-name</span>=oracle.jdbc.driver.OracleDriver</span><br><span class="line"><span class="attr">spring.datasource.ds2.url</span>=jdbc:oracle:thin:@localhost:<span class="number">1521</span>:orcl</span><br><span class="line"><span class="attr">spring.datasource.ds2.username</span>=system</span><br><span class="line"><span class="attr">spring.datasource.ds2.password</span>=<span class="number">050508</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none"># ds1数据源配置
+spring.datasource.ds1.type&#x3D;com.alibaba.druid.pool.DruidDataSource
+spring.datasource.ds1.driver-class-name&#x3D;com.mysql.jdbc.Driver
+spring.datasource.ds1.url&#x3D;jdbc:mysql:&#x2F;&#x2F;localhost:3306&#x2F;zz?useUnicode&#x3D;true&amp;characterEncoding&#x3D;utf8
+spring.datasource.ds1.username&#x3D;zz
+spring.datasource.ds1.password&#x3D;zz
+
+# ds2数据源配置
+spring.datasource.ds2.driver-class-name&#x3D;oracle.jdbc.driver.OracleDriver
+spring.datasource.ds2.url&#x3D;jdbc:oracle:thin:@localhost:1521:orcl
+spring.datasource.ds2.username&#x3D;system
+spring.datasource.ds2.password&#x3D;050508<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h4 id="指定数据源与配置信息"><a href="#指定数据源与配置信息" class="headerlink" title="指定数据源与配置信息"></a>指定数据源与配置信息</h4><p>&emsp;&emsp;上面我们配置好了数据源，但是已经不是SpringBoot默认的数据源配置信息了，所以我们还要指定不同的数据源实例对应哪个配置信息，配置如下：</p>
-<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 多数据源配置</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="variable">@Configuration</span></span><br><span class="line">public class DataSourceConfig &#123;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">   * ds1数据源配置</span></span><br><span class="line"><span class="comment">   *</span></span><br><span class="line"><span class="comment">   * @return 配置信息</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">  <span class="variable">@Primary</span></span><br><span class="line">  <span class="variable">@Bean</span>(name = <span class="string">&quot;ds1DataSourceProperties&quot;</span>)</span><br><span class="line">  <span class="variable">@ConfigurationProperties</span>(prefix = <span class="string">&quot;spring.datasource.ds1&quot;</span>)</span><br><span class="line">  public DataSourceProperties ds1DataSourceProperties() &#123;</span><br><span class="line">    <span class="selector-tag">return</span> <span class="selector-tag">new</span> <span class="selector-tag">DataSourceProperties</span>();</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">   * ds1数据源</span></span><br><span class="line"><span class="comment">   *</span></span><br><span class="line"><span class="comment">   * @param dataSourceProperties 配置信息</span></span><br><span class="line"><span class="comment">   * @return 数据源实例</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">  @<span class="selector-tag">Primary</span></span><br><span class="line">  @<span class="selector-tag">Bean</span>(name = <span class="string">&quot;ds1DataSource&quot;</span>)</span><br><span class="line">  <span class="selector-tag">public</span> <span class="selector-tag">DataSource</span> <span class="selector-tag">ds1DataSource</span>(<span class="variable">@Qualifier</span>(<span class="string">&quot;ds1DataSourceProperties&quot;</span>) DataSourceProperties dataSourceProperties) &#123;</span><br><span class="line">    <span class="selector-tag">return</span> <span class="selector-tag">dataSourceProperties</span><span class="selector-class">.initializeDataSourceBuilder</span>()<span class="selector-class">.build</span>();</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">   * ds2数据源配置</span></span><br><span class="line"><span class="comment">   *</span></span><br><span class="line"><span class="comment">   * @return 配置信息</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">  @<span class="selector-tag">Primary</span></span><br><span class="line">  @<span class="selector-tag">Bean</span>(name = <span class="string">&quot;ds2DataSourceProperties&quot;</span>)</span><br><span class="line">  @<span class="selector-tag">ConfigurationProperties</span>(prefix = <span class="string">&quot;spring.datasource.ds2&quot;</span>)</span><br><span class="line">  <span class="selector-tag">public</span> <span class="selector-tag">DataSourceProperties</span> <span class="selector-tag">ds2DataSourceProperties</span>() &#123;</span><br><span class="line">    <span class="selector-tag">return</span> <span class="selector-tag">new</span> <span class="selector-tag">DataSourceProperties</span>();</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">   * ds2数据源</span></span><br><span class="line"><span class="comment">   *</span></span><br><span class="line"><span class="comment">   * @param dataSourceProperties 配置信息</span></span><br><span class="line"><span class="comment">   * @return 数据源实例</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">  @<span class="selector-tag">Primary</span></span><br><span class="line">  @<span class="selector-tag">Bean</span>(name = <span class="string">&quot;ds2DataSource&quot;</span>)</span><br><span class="line">  <span class="selector-tag">public</span> <span class="selector-tag">DataSource</span> <span class="selector-tag">ds2DataSource</span>(<span class="variable">@Qualifier</span>(<span class="string">&quot;ds2DataSourceProperties&quot;</span>) DataSourceProperties dataSourceProperties) &#123;</span><br><span class="line">    <span class="selector-tag">return</span> <span class="selector-tag">dataSourceProperties</span><span class="selector-class">.initializeDataSourceBuilder</span>()<span class="selector-class">.build</span>();</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">&#x2F;**
+ * 多数据源配置
+ *&#x2F;
+@Configuration
+public class DataSourceConfig &#123;
+
+  &#x2F;**
+   * ds1数据源配置
+   *
+   * @return 配置信息
+   *&#x2F;
+  @Primary
+  @Bean(name &#x3D; &quot;ds1DataSourceProperties&quot;)
+  @ConfigurationProperties(prefix &#x3D; &quot;spring.datasource.ds1&quot;)
+  public DataSourceProperties ds1DataSourceProperties() &#123;
+    return new DataSourceProperties();
+  &#125;
+
+  &#x2F;**
+   * ds1数据源
+   *
+   * @param dataSourceProperties 配置信息
+   * @return 数据源实例
+   *&#x2F;
+  @Primary
+  @Bean(name &#x3D; &quot;ds1DataSource&quot;)
+  public DataSource ds1DataSource(@Qualifier(&quot;ds1DataSourceProperties&quot;) DataSourceProperties dataSourceProperties) &#123;
+    return dataSourceProperties.initializeDataSourceBuilder().build();
+  &#125;
+
+  &#x2F;**
+   * ds2数据源配置
+   *
+   * @return 配置信息
+   *&#x2F;
+  @Primary
+  @Bean(name &#x3D; &quot;ds2DataSourceProperties&quot;)
+  @ConfigurationProperties(prefix &#x3D; &quot;spring.datasource.ds2&quot;)
+  public DataSourceProperties ds2DataSourceProperties() &#123;
+    return new DataSourceProperties();
+  &#125;
+
+  &#x2F;**
+   * ds2数据源
+   *
+   * @param dataSourceProperties 配置信息
+   * @return 数据源实例
+   *&#x2F;
+  @Primary
+  @Bean(name &#x3D; &quot;ds2DataSource&quot;)
+  public DataSource ds2DataSource(@Qualifier(&quot;ds2DataSourceProperties&quot;) DataSourceProperties dataSourceProperties) &#123;
+    return dataSourceProperties.initializeDataSourceBuilder().build();
+  &#125;
+
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h4 id="配置JdbcTemplate与数据源关系"><a href="#配置JdbcTemplate与数据源关系" class="headerlink" title="配置JdbcTemplate与数据源关系"></a>配置JdbcTemplate与数据源关系</h4><p>&emsp;&emsp;配置完数据源信息，我们想直接用不同的JdbcTemplate来操作不同的数据库，所以我们还要创建几个<code>JdbcTemplate</code>实例，并且这些实例与不同的数据源进行绑定，配置信息如下：</p>
-<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * JdbcTemplate 多数据源配置</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * @author 明山</span></span><br><span class="line"><span class="comment"> * @see DataSourceConfig</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="variable">@Configuration</span></span><br><span class="line">public class JdbcTemplateDataSourceConfig &#123;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">   * ds1 JdbcTemplate 配置</span></span><br><span class="line"><span class="comment">   *</span></span><br><span class="line"><span class="comment">   * @param dataSource 数据源</span></span><br><span class="line"><span class="comment">   * @return JdbcTemplate</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">  <span class="variable">@Primary</span></span><br><span class="line">  <span class="variable">@Bean</span>(name = <span class="string">&quot;ds1JdbcTemplate&quot;</span>)</span><br><span class="line">  public JdbcTemplate jdbcTemplate(<span class="variable">@Qualifier</span>(<span class="string">&quot;ds1DataSource&quot;</span>) DataSource dataSource) &#123;</span><br><span class="line">    <span class="selector-tag">return</span> <span class="selector-tag">new</span> <span class="selector-tag">JdbcTemplate</span>(dataSource);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">   *ds2 JdbcTemplate 配置</span></span><br><span class="line"><span class="comment">   *</span></span><br><span class="line"><span class="comment">   * @param dataSource 数据源</span></span><br><span class="line"><span class="comment">   * @return JdbcTemplate</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">  @<span class="selector-tag">Bean</span>(name = <span class="string">&quot;ds2JdbcTemplate&quot;</span>)</span><br><span class="line">  <span class="selector-tag">public</span> <span class="selector-tag">JdbcTemplate</span> <span class="selector-tag">hdwmsJdbcTemplate</span>(<span class="variable">@Qualifier</span>(<span class="string">&quot;ds2DataSource&quot;</span>) DataSource dataSource) &#123;</span><br><span class="line">    <span class="selector-tag">return</span> <span class="selector-tag">new</span> <span class="selector-tag">JdbcTemplate</span>(dataSource);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">&#x2F;**
+ * JdbcTemplate 多数据源配置
+ *
+ * @author 明山
+ * @see DataSourceConfig
+ *&#x2F;
+@Configuration
+public class JdbcTemplateDataSourceConfig &#123;
+
+  &#x2F;**
+   * ds1 JdbcTemplate 配置
+   *
+   * @param dataSource 数据源
+   * @return JdbcTemplate
+   *&#x2F;
+  @Primary
+  @Bean(name &#x3D; &quot;ds1JdbcTemplate&quot;)
+  public JdbcTemplate jdbcTemplate(@Qualifier(&quot;ds1DataSource&quot;) DataSource dataSource) &#123;
+    return new JdbcTemplate(dataSource);
+  &#125;
+
+  &#x2F;**
+   *ds2 JdbcTemplate 配置
+   *
+   * @param dataSource 数据源
+   * @return JdbcTemplate
+   *&#x2F;
+  @Bean(name &#x3D; &quot;ds2JdbcTemplate&quot;)
+  public JdbcTemplate hdwmsJdbcTemplate(@Qualifier(&quot;ds2DataSource&quot;) DataSource dataSource) &#123;
+    return new JdbcTemplate(dataSource);
+  &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h4 id="使用JdbcTemplate"><a href="#使用JdbcTemplate" class="headerlink" title="使用JdbcTemplate"></a>使用JdbcTemplate</h4><p>&emsp;&emsp;配置完后，我们可以直接在具体的类中使用了，使用方式如下：</p>
-<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">@Autowired</span></span><br><span class="line"><span class="variable">@Qualifier</span>(<span class="string">&quot;ds1JdbcTemplate&quot;</span>)</span><br><span class="line">private JdbcTemplate ds1JdbcTemplate;</span><br><span class="line"></span><br><span class="line"><span class="variable">@Autowired</span></span><br><span class="line"><span class="variable">@Qualifier</span>(<span class="string">&quot;ds2JdbcTemplate&quot;</span>)</span><br><span class="line">private JdbcTemplate ds2JdbcTemplate;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">@Autowired
+@Qualifier(&quot;ds1JdbcTemplate&quot;)
+private JdbcTemplate ds1JdbcTemplate;
+
+@Autowired
+@Qualifier(&quot;ds2JdbcTemplate&quot;)
+private JdbcTemplate ds2JdbcTemplate;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
     </div>
 
@@ -561,14 +666,14 @@
       <i class="fa fa-chart-line"></i>
     </span>
       <span>站点总字数：</span>
-    <span title="站点总字数">85k</span>
+    <span title="站点总字数">86k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">1:17</span>
+    <span title="站点阅读时长">1:18</span>
   </span>
 </div>
 <div class="busuanzi-count">
@@ -597,6 +702,7 @@
     提供CDN加速/云存储服务
 </div>
 
+<script src="/js/prism/prism.js" async></script>
 
     </div>
   </footer>
@@ -815,6 +921,26 @@ $(function(){
     };
 
     $('.highlight').each(function () {
+        // 防止重复渲染
+        if (this.__render__ === true) {
+            return true;
+        }
+        this.__render__ = true;
+        const $this = $(this);
+        const height = $(this).outerHeight();
+        if (height > CODE_MAX_HEIGHT) {
+            // 添加展开&收起容器
+            const $container = addCodeWrap($this, height);
+            containers.push({
+                $container,
+                height,
+                $hide: $container.find('.js_retract_code_btn'),
+                hasHorizontalScrollbar: this.scrollWidth > this.offsetWidth,
+            });
+        }
+    });
+
+    $('.line-numbers').each(function () {
         // 防止重复渲染
         if (this.__render__ === true) {
             return true;
@@ -1345,7 +1471,7 @@ layui.use(['jquery', 'layer'], function(){
 
 });
 
-</script>
+</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 </body>
 </html>

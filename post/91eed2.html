@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 <meta name="generator" content="Hexo 5.1.1">
@@ -21,15 +21,15 @@
 
 <script class="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"blog.xiaosige.com","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"livere","storage":true,"lazyload":true,"nav":null,"activeClass":"livere"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}};
+    var CONFIG = {"hostname":"blog.xiaosige.com","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"livere","storage":true,"lazyload":true,"nav":null,"activeClass":"livere"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}};
   </script>
 
-  <meta name="description" content="启动&amp;emsp;&amp;emsp;启动mongodb首先要指定mongo的数据目录和日志文件路径，如:  &#x2F;data&#x2F;mongodb&#x2F;,&#x2F;var&#x2F;log&#x2F;mongodb&#x2F;mongodb.log&amp;emsp;&amp;emsp;启动命令：  1&#x2F;usr&#x2F;local&#x2F;mongdb&#x2F;bin&#x2F;mongod -port 27017 --dbpath &#x2F;data&#x2F;mongodb&#x2F; --logpath &#x2F;var&#x2F;mongodb">
+  <meta name="description" content="启动&amp;emsp;&amp;emsp;启动mongodb首先要指定mongo的数据目录和日志文件路径，如:  &#x2F;data&#x2F;mongodb&#x2F;,&#x2F;var&#x2F;log&#x2F;mongodb&#x2F;mongodb.log&amp;emsp;&amp;emsp;启动命令：  &#x2F;usr&#x2F;local&#x2F;mongdb&#x2F;bin&#x2F;mongod -port 27017 --dbpath &#x2F;data&amp;#x">
 <meta property="og:type" content="article">
 <meta property="og:title" content="linux下mongo启动关闭重启方法">
 <meta property="og:url" content="https://blog.xiaosige.com/post/91eed2.html">
 <meta property="og:site_name" content="小四儿">
-<meta property="og:description" content="启动&amp;emsp;&amp;emsp;启动mongodb首先要指定mongo的数据目录和日志文件路径，如:  &#x2F;data&#x2F;mongodb&#x2F;,&#x2F;var&#x2F;log&#x2F;mongodb&#x2F;mongodb.log&amp;emsp;&amp;emsp;启动命令：  1&#x2F;usr&#x2F;local&#x2F;mongdb&#x2F;bin&#x2F;mongod -port 27017 --dbpath &#x2F;data&#x2F;mongodb&#x2F; --logpath &#x2F;var&#x2F;mongodb">
+<meta property="og:description" content="启动&amp;emsp;&amp;emsp;启动mongodb首先要指定mongo的数据目录和日志文件路径，如:  &#x2F;data&#x2F;mongodb&#x2F;,&#x2F;var&#x2F;log&#x2F;mongodb&#x2F;mongodb.log&amp;emsp;&amp;emsp;启动命令：  &#x2F;usr&#x2F;local&#x2F;mongdb&#x2F;bin&#x2F;mongod -port 27017 --dbpath &#x2F;data&amp;#x">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-08-01T17:13:58.000Z">
 <meta property="article:modified_time" content="2020-09-26T19:19:17.955Z">
@@ -56,6 +56,8 @@
 
 <!-- https://www.layuicdn.com/layui/css/layui.css -->
 <script src="https://www.layuicdn.com/layui/layui.js"></script>
+
+<link rel="stylesheet" href="/js/prism/prism.css">
 
 
   <title>linux下mongo启动关闭重启方法 | 小四儿</title>
@@ -108,12 +110,12 @@
   .search-pop-overlay, .sidebar-nav { display: none; }
   .sidebar-panel { display: block; }
   </style>
-</noscript>
+</noscript><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
-  <div class="headband"></div>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="headband"></div>
 
   <main class="main">
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -313,6 +315,7 @@
 
 
 
+
       </section>
         <div class="back-to-top animated">
           <i class="fa fa-arrow-up"></i>
@@ -404,7 +407,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>921</span>
+      <span>1.2k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -423,25 +426,47 @@
     
     <div class="post-body" itemprop="articleBody">
         <h4 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h4><p>&emsp;&emsp;启动<code>mongodb</code>首先要指定mongo的<code>数据</code>目录和<code>日志</code>文件路径，如:  <code>/data/mongodb/</code>,<code>/var/log/mongodb/mongodb.log</code><br>&emsp;&emsp;启动命令： </p>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="regexp">/usr/</span>local<span class="regexp">/mongdb/</span>bin<span class="regexp">/mongod -port 27017 --dbpath /</span>data<span class="regexp">/mongodb/</span> --logpath <span class="regexp">/var/m</span>ongodb/mongodb.log</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">&#x2F;usr&#x2F;local&#x2F;mongdb&#x2F;bin&#x2F;mongod -port 27017 --dbpath &#x2F;data&#x2F;mongodb&#x2F; --logpath &#x2F;var&#x2F;mongodb&#x2F;mongodb.log<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <a id="more"></a>
 
 <h4 id="通过配置文件配置："><a href="#通过配置文件配置：" class="headerlink" title="通过配置文件配置："></a>通过配置文件配置：</h4><p>&emsp;&emsp;<code>vim mongodb.conf </code>   </p>
-<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#数据库路径</span></span><br><span class="line"><span class="attr">dbpath</span>=/usr/local/mongodb/data/</span><br><span class="line"></span><br><span class="line"><span class="comment">#日志输出文件路径</span></span><br><span class="line"><span class="attr">logpath</span>=/usr/local/mongodb/log/mongodb.log</span><br><span class="line"></span><br><span class="line"><span class="comment">#错误日志采用追加模式，配置这个选项后mongodb的日志会追加到现有的日志文件，而不是从新创建一个新文件</span></span><br><span class="line"><span class="attr">logappend</span>=<span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#启用日志文件，默认启用</span></span><br><span class="line"><span class="attr">journal</span>=<span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#这个选项可以过滤掉一些无用的日志信息，若需要调试使用请设置为false</span></span><br><span class="line"><span class="attr">quiet</span>=<span class="literal">false</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#是否后台启动，有这个参数，就可以实现后台运行</span></span><br><span class="line"><span class="attr">fork</span>=<span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#端口号 默认为27017</span></span><br><span class="line"><span class="attr">port</span>=<span class="number">27017</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#远程连接</span></span><br><span class="line"><span class="attr">bind_ip</span> = <span class="number">0.0</span>.<span class="number">0.0</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">#数据库路径
+dbpath&#x3D;&#x2F;usr&#x2F;local&#x2F;mongodb&#x2F;data&#x2F;
+
+#日志输出文件路径
+logpath&#x3D;&#x2F;usr&#x2F;local&#x2F;mongodb&#x2F;log&#x2F;mongodb.log
+
+#错误日志采用追加模式，配置这个选项后mongodb的日志会追加到现有的日志文件，而不是从新创建一个新文件
+logappend&#x3D;true
+
+#启用日志文件，默认启用
+journal&#x3D;true
+
+#这个选项可以过滤掉一些无用的日志信息，若需要调试使用请设置为false
+quiet&#x3D;false
+
+#是否后台启动，有这个参数，就可以实现后台运行
+fork&#x3D;true
+
+#端口号 默认为27017
+port&#x3D;27017
+
+#远程连接
+bind_ip &#x3D; 0.0.0.0<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>&emsp;&emsp;启动命令： </p>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="regexp">/usr/</span>loca<span class="regexp">/mongodb/</span>bin/mongod -f mongodb.conf</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">&#x2F;usr&#x2F;loca&#x2F;mongodb&#x2F;bin&#x2F;mongod -f mongodb.conf<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <h4 id="后台启动"><a href="#后台启动" class="headerlink" title="后台启动"></a>后台启动</h4><ol>
 <li> 使用<font color="LightCoral" size="4"><b>--fork</b></font> 选项将会通知 mongod 在后台运行   </li> 
 
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="regexp">/usr/</span>local<span class="regexp">/mongodb/</span>bin<span class="regexp">/mongod  -port 10001 --dbpath /</span>data<span class="regexp">/mongodb/</span> --logpath <span class="regexp">/var/m</span>ongodb/mongodb.log --fork  </span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">&#x2F;usr&#x2F;local&#x2F;mongodb&#x2F;bin&#x2F;mongod  -port 10001 --dbpath &#x2F;data&#x2F;mongodb&#x2F; --logpath &#x2F;var&#x2F;mongodb&#x2F;mongodb.log --fork  <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 
 <li> 使用<font color="LightCoral" size="4"><b>&</b></font>后台启动      </li>
 
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="regexp">/usr/</span>local<span class="regexp">/mongodb/</span>bin<span class="regexp">/mongod  -port 10001 --dbpath /</span>data<span class="regexp">/mongodb/</span> --logpath <span class="regexp">/var/m</span>ongodb/mongodb.log &amp;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">&#x2F;usr&#x2F;local&#x2F;mongodb&#x2F;bin&#x2F;mongod  -port 10001 --dbpath &#x2F;data&#x2F;mongodb&#x2F; --logpath &#x2F;var&#x2F;mongodb&#x2F;mongodb.log &amp;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 </ol>
 
 <h4 id="关闭"><a href="#关闭" class="headerlink" title="关闭"></a>关闭</h4><ol>
@@ -449,7 +474,7 @@
 
 <li> 进入mongo shell，运行： </li>
 
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">db</span><span class="selector-class">.shuidownServer</span>()</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">db.shuidownServer()<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 </ol>
 <link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
@@ -577,14 +602,14 @@
       <i class="fa fa-chart-line"></i>
     </span>
       <span>站点总字数：</span>
-    <span title="站点总字数">85k</span>
+    <span title="站点总字数">86k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">1:17</span>
+    <span title="站点阅读时长">1:18</span>
   </span>
 </div>
 <div class="busuanzi-count">
@@ -613,6 +638,7 @@
     提供CDN加速/云存储服务
 </div>
 
+<script src="/js/prism/prism.js" async></script>
 
     </div>
   </footer>
@@ -831,6 +857,26 @@ $(function(){
     };
 
     $('.highlight').each(function () {
+        // 防止重复渲染
+        if (this.__render__ === true) {
+            return true;
+        }
+        this.__render__ = true;
+        const $this = $(this);
+        const height = $(this).outerHeight();
+        if (height > CODE_MAX_HEIGHT) {
+            // 添加展开&收起容器
+            const $container = addCodeWrap($this, height);
+            containers.push({
+                $container,
+                height,
+                $hide: $container.find('.js_retract_code_btn'),
+                hasHorizontalScrollbar: this.scrollWidth > this.offsetWidth,
+            });
+        }
+    });
+
+    $('.line-numbers').each(function () {
         // 防止重复渲染
         if (this.__render__ === true) {
             return true;
@@ -1361,7 +1407,7 @@ layui.use(['jquery', 'layer'], function(){
 
 });
 
-</script>
+</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 </body>
 </html>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 <meta name="generator" content="Hexo 5.1.1">
@@ -21,7 +21,7 @@
 
 <script class="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"blog.xiaosige.com","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"livere","storage":true,"lazyload":true,"nav":null,"activeClass":"livere"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}};
+    var CONFIG = {"hostname":"blog.xiaosige.com","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"livere","storage":true,"lazyload":true,"nav":null,"activeClass":"livere"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}};
   </script>
 
   <meta name="description" content="现象报错如下： “Authentication plugin ‘caching_sha2_password’ cannot be loaded”。">
@@ -59,6 +59,8 @@
 
 <!-- https://www.layuicdn.com/layui/css/layui.css -->
 <script src="https://www.layuicdn.com/layui/layui.js"></script>
+
+<link rel="stylesheet" href="/js/prism/prism.css">
 
 
   <title>连接 MySQL 8.0 时，加密方式不兼容的解决方法 | 小四儿</title>
@@ -111,12 +113,12 @@
   .search-pop-overlay, .sidebar-nav { display: none; }
   .sidebar-panel { display: block; }
   </style>
-</noscript>
+</noscript><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
-  <div class="headband"></div>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="headband"></div>
 
   <main class="main">
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -316,6 +318,7 @@
 
 
 
+
       </section>
         <div class="back-to-top animated">
           <i class="fa fa-arrow-up"></i>
@@ -436,7 +439,8 @@
 <ol>
 <li>首先找到当前数据库用户root的加密规则</li>
 </ol>
-<figure class="highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt;use mysql; </span><br><span class="line">mysql&gt;<span class="keyword">select</span> <span class="keyword">user</span>, host, plugin <span class="keyword">from</span> <span class="keyword">user</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">mysql&gt;use mysql; 
+mysql&gt;select user, host, plugin from user<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <br>
 
 <img src="/post/170d9336/mysqlpassword1.png" class title="USER">
@@ -444,15 +448,18 @@
 <ol start="2">
 <li>修改加密规则为“mysql_native_password”</li>
 </ol>
-<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER<span class="built_in"> USER </span><span class="string">&#x27;root&#x27;</span>@<span class="string">&#x27;%&#x27;</span> IDENTIFIED WITH mysql_native_password BY <span class="string">&#x27;password&#x27;</span>;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">ALTER USER &#39;root&#39;@&#39;%&#39; IDENTIFIED WITH mysql_native_password BY &#39;password&#39;;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>&emsp;&emsp;<code>注： password 替换为 root 的密码； 或者直接更新这一行 pluggin字段 的值为 “mysql_native_password”</code></p>
 <p>&emsp;&emsp;修改my.cnf配置文件，加入</p>
-<figure class="highlight diff"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="addition">+  default-authentication-plugin=mysql_native_password</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-diff" data-language="diff"><code class="language-diff"><span class="token inserted-sign inserted"><span class="token prefix inserted">+</span><span class="token line">  default-authentication-plugin=mysql_native_password</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>&emsp;&emsp;但是这个配置参数只对新的用户起作用，对于老的，比如root那就要重新设置一下密码</p>
 <p>&emsp;&emsp;对与那个用户使用了哪种认证插件，你可以去mysql的用户表去查看plugin字段</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mysql -u root -p</span><br><span class="line"><span class="keyword">use</span> mysql</span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> <span class="keyword">user</span>;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">mysql -u root -p
+use mysql
+select * from user;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p>&emsp;&emsp;接着我们修改root的认证插件</p>
-<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ALTER<span class="built_in"> USER </span><span class="string">&#x27;root&#x27;</span>@<span class="string">&#x27;%&#x27;</span> IDENTIFIED BY <span class="string">&#x27;password&#x27;</span> PASSWORD EXPIRE NEVER;</span><br><span class="line">ALTER<span class="built_in"> USER </span><span class="string">&#x27;root&#x27;</span>@<span class="string">&#x27;%&#x27;</span> IDENTIFIED WITH mysql_native_password BY <span class="string">&#x27;password&#x27;</span>;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">ALTER USER &#39;root&#39;@&#39;%&#39; IDENTIFIED BY &#39;password&#39; PASSWORD EXPIRE NEVER;
+ALTER USER &#39;root&#39;@&#39;%&#39; IDENTIFIED WITH mysql_native_password BY &#39;password&#39;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p>&emsp;&emsp;之后就好了.</p>
 <p>&emsp;&emsp;完成后效果如下：</p>
 <img src="/post/170d9336/mysqlpassword2.png" class title="PASS">
@@ -462,7 +469,8 @@
 <li>自定义配置文件，并 mount 到 container里。这样在MySQL启动时，会加载我们的配置文件。 </li>
 <li>启动MySQL容器是传入CMD，通过命令修改默认加密规则（下面绿色部分）</li>
 </ol>
-<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># docker run -d -e MYSQL_ROOT_PASSWORD=<span class="number">123456</span> -e MYSQL_DATABASE=weather_db -p <span class="number">3307</span>:<span class="number">3306</span> --name test-mysql --restart always -v  <span class="regexp">/home/</span>ct<span class="regexp">/mysql/</span>data:<span class="regexp">/var/</span>lib/mysql  </span><br><span class="line">mysql:<span class="number">8.0</span>.<span class="number">12</span>  --<span class="keyword">default</span>-authentication-plugin=mysql_native_password</span><br></pre></td></tr></table></figure><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
+<pre class="line-numbers language-none"><code class="language-none"># docker run -d -e MYSQL_ROOT_PASSWORD&#x3D;123456 -e MYSQL_DATABASE&#x3D;weather_db -p 3307:3306 --name test-mysql --restart always -v  &#x2F;home&#x2F;ct&#x2F;mysql&#x2F;data:&#x2F;var&#x2F;lib&#x2F;mysql  
+mysql:8.0.12  --default-authentication-plugin&#x3D;mysql_native_password<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
     </div>
 
     
@@ -587,14 +595,14 @@
       <i class="fa fa-chart-line"></i>
     </span>
       <span>站点总字数：</span>
-    <span title="站点总字数">85k</span>
+    <span title="站点总字数">86k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">1:17</span>
+    <span title="站点阅读时长">1:18</span>
   </span>
 </div>
 <div class="busuanzi-count">
@@ -623,6 +631,7 @@
     提供CDN加速/云存储服务
 </div>
 
+<script src="/js/prism/prism.js" async></script>
 
     </div>
   </footer>
@@ -841,6 +850,26 @@ $(function(){
     };
 
     $('.highlight').each(function () {
+        // 防止重复渲染
+        if (this.__render__ === true) {
+            return true;
+        }
+        this.__render__ = true;
+        const $this = $(this);
+        const height = $(this).outerHeight();
+        if (height > CODE_MAX_HEIGHT) {
+            // 添加展开&收起容器
+            const $container = addCodeWrap($this, height);
+            containers.push({
+                $container,
+                height,
+                $hide: $container.find('.js_retract_code_btn'),
+                hasHorizontalScrollbar: this.scrollWidth > this.offsetWidth,
+            });
+        }
+    });
+
+    $('.line-numbers').each(function () {
         // 防止重复渲染
         if (this.__render__ === true) {
             return true;
@@ -1371,7 +1400,7 @@ layui.use(['jquery', 'layer'], function(){
 
 });
 
-</script>
+</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 </body>
 </html>

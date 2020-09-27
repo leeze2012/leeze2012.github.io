@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 <meta name="generator" content="Hexo 5.1.1">
@@ -21,7 +21,7 @@
 
 <script class="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"blog.xiaosige.com","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"livere","storage":true,"lazyload":true,"nav":null,"activeClass":"livere"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}};
+    var CONFIG = {"hostname":"blog.xiaosige.com","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"livere","storage":true,"lazyload":true,"nav":null,"activeClass":"livere"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}};
   </script>
 
   <meta name="description" content="介绍&amp;emsp;&amp;emsp;Nginx是一个高性能的Web和反向代理服务器,它具有有很多非常优越的特性:&amp;emsp;&amp;emsp;作为Web服务器: 相比Apache，Nginx 使用更少的资源，支持更多 的并发连接，体现更高的效率，这点使Nginx尤其受到虚拟主机提供商的欢迎。能够支持高达50,000个并发连接数的响应，感谢Nginx为我们选择了epoll and kqueue作为开发模型.">
@@ -34,7 +34,7 @@
 <meta property="og:image" content="https://blog.xiaosige.com/post/69813a0e/nginx-001.png">
 <meta property="og:image" content="https://blog.xiaosige.com/post/69813a0e/nginx-002.png">
 <meta property="article:published_time" content="2020-09-15T20:26:11.000Z">
-<meta property="article:modified_time" content="2020-09-24T14:20:36.535Z">
+<meta property="article:modified_time" content="2020-09-27T12:04:52.435Z">
 <meta property="article:tag" content="Nginx">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://blog.xiaosige.com/post/69813a0e/nginx-001.png">
@@ -59,6 +59,8 @@
 
 <!-- https://www.layuicdn.com/layui/css/layui.css -->
 <script src="https://www.layuicdn.com/layui/layui.js"></script>
+
+<link rel="stylesheet" href="/js/prism/prism.css">
 
 
   <title>Linux安装Nginx--两种方式 | 小四儿</title>
@@ -111,12 +113,12 @@
   .search-pop-overlay, .sidebar-nav { display: none; }
   .sidebar-panel { display: block; }
   </style>
-</noscript>
+</noscript><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
-  <div class="headband"></div>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="headband"></div>
 
   <main class="main">
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -316,6 +318,7 @@
 
 
 
+
       </section>
         <div class="back-to-top animated">
           <i class="fa fa-arrow-up"></i>
@@ -379,7 +382,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-09-24 22:20:36" itemprop="dateModified" datetime="2020-09-24T22:20:36+08:00">2020-09-24</time>
+        <time title="修改时间：2020-09-27 20:04:52" itemprop="dateModified" datetime="2020-09-27T20:04:52+08:00">2020-09-27</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -429,41 +432,64 @@
 <a id="more"></a>
 <p>&emsp;&emsp;<b>作为负载均衡服务器</b>: Nginx 既可以在内部直接支持Rails和PHP，也可以支持作为HTTP代理服务器对外进行服务。Nginx 用C编写,不论是系统资源开销还是CPU使用效率都比Perlbal要好的多。<br>&emsp;&emsp;<b>作为邮件代理服务器</b>: Nginx 同时也是一个非常优秀的邮件代理服务器(最早开发这个产品的目的之一也是作为邮件代理服务器)，Last.fm 描述了成功并且美妙的使用经验。<br>&emsp;&emsp;<b>Nginx安装非常的简单，配置文件非常简洁(还能够支持perl语法)，Bugs非常少的服务器</b>: Nginx启动特别容易，并且几乎可以做到7*24不间断运行，即使运行数个月也不需要重新启动。你还能够在不间断服务的情况下进行软件版本的升级。</p>
 <h3 id="yum安装"><a href="#yum安装" class="headerlink" title="yum安装"></a>yum安装</h3><h4 id="yum仓库配置"><a href="#yum仓库配置" class="headerlink" title="yum仓库配置"></a>yum仓库配置</h4><p>&emsp;&emsp;在<code>/etc/yum.repos.d/</code>下新建一个nginx.repo，加入<a target="_blank" rel="noopener" href="http://nginx.org/en/linux_packages.html">nginx官方提供的源</a> , <a target="_blank" rel="noopener" href="https://docs.nginx.com/nginx/admin-guide/installing-nginx/installing-nginx-open-source/">Installing NGINX Open Source</a></p>
-<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[nginx]</span></span><br><span class="line"><span class="attr">name</span>=nginx repo</span><br><span class="line"><span class="attr">baseurl</span>=http://nginx.org/packages/&lt;OS&gt;/&lt;OSRELEASE&gt;/<span class="variable">$basearch</span>/</span><br><span class="line"><span class="attr">gpgcheck</span>=<span class="number">0</span></span><br><span class="line"><span class="attr">enabled</span>=<span class="number">1</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-nginx" data-language="nginx"><code class="language-nginx"><span class="token punctuation">[</span>nginx<span class="token punctuation">]</span>
+name<span class="token operator">=</span>nginx repo
+baseurl<span class="token operator">=</span><span class="token keyword">http</span><span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span>nginx<span class="token punctuation">.</span>org<span class="token operator">/</span>packages<span class="token operator">/</span><span class="token operator">&lt;</span>OS<span class="token operator">></span><span class="token operator">/</span><span class="token operator">&lt;</span>OSRELEASE<span class="token operator">></span><span class="token operator">/</span><span class="token variable">$basearch</span><span class="token operator">/</span>
+gpgcheck<span class="token operator">=</span><span class="token number">0</span>
+enabled<span class="token operator">=</span><span class="token number">1</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>&emsp;&emsp;注意其中的<code>&lt;OS&gt;</code> 为系统名，<code>&lt;OSRELEASE&gt;</code>为系统大版本</p>
 <ol>
-<li>CentOS7<br><code>vi /etc/yum.repos.d/nginx.repo</code><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[nginx]</span></span><br><span class="line"><span class="attr">name</span>=nginx repo</span><br><span class="line"><span class="attr">baseurl</span>=http://nginx.org/packages/centos/<span class="number">7</span>/<span class="variable">$basearch</span>/</span><br><span class="line"><span class="attr">gpgcheck</span>=<span class="number">0</span></span><br><span class="line"><span class="attr">enabled</span>=<span class="number">1</span></span><br></pre></td></tr></table></figure></li>
-<li>CentOS6<br><code>vi /etc/yum.repos.d/nginx.repo</code><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[nginx]</span></span><br><span class="line"><span class="attr">name</span>=nginx repo</span><br><span class="line"><span class="attr">baseurl</span>=http://nginx.org/packages/centos/<span class="number">6</span>/<span class="variable">$basearch</span>/</span><br><span class="line"><span class="attr">gpgcheck</span>=<span class="number">0</span></span><br><span class="line"><span class="attr">enabled</span>=<span class="number">1</span></span><br></pre></td></tr></table></figure>
+<li>CentOS7<br><code>vi /etc/yum.repos.d/nginx.repo</code><pre class="line-numbers language-nginx" data-language="nginx"><code class="language-nginx"><span class="token punctuation">[</span>nginx<span class="token punctuation">]</span>
+name<span class="token operator">=</span>nginx repo
+baseurl<span class="token operator">=</span><span class="token keyword">http</span><span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span>nginx<span class="token punctuation">.</span>org<span class="token operator">/</span>packages<span class="token operator">/</span>centos<span class="token operator">/</span><span class="token number">7</span><span class="token operator">/</span><span class="token variable">$basearch</span><span class="token operator">/</span>
+gpgcheck<span class="token operator">=</span><span class="token number">0</span>
+enabled<span class="token operator">=</span><span class="token number">1</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li>CentOS6<br><code>vi /etc/yum.repos.d/nginx.repo</code><pre class="line-numbers language-nginx" data-language="nginx"><code class="language-nginx"><span class="token punctuation">[</span>nginx<span class="token punctuation">]</span>
+name<span class="token operator">=</span>nginx repo
+baseurl<span class="token operator">=</span><span class="token keyword">http</span><span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span>nginx<span class="token punctuation">.</span>org<span class="token operator">/</span>packages<span class="token operator">/</span>centos<span class="token operator">/</span><span class="token number">6</span><span class="token operator">/</span><span class="token variable">$basearch</span><span class="token operator">/</span>
+gpgcheck<span class="token operator">=</span><span class="token number">0</span>
+enabled<span class="token operator">=</span><span class="token number">1</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 </li>
 </ol>
 <h4 id="安装nginx"><a href="#安装nginx" class="headerlink" title="安装nginx"></a>安装nginx</h4><ol>
-<li>直接安装会安装当前的最新版本<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum <span class="keyword">install</span> -y nginx</span><br></pre></td></tr></table></figure></li>
-<li>该源仓库下有多个版本的nginx可供安装，可以用如下命令查看<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum <span class="comment">--showduplicates list nginx</span></span><br></pre></td></tr></table></figure></li>
-<li>选择其中一个版本安装<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">yum</span> install -y nginx-版本号</span><br><span class="line"><span class="comment"># 如下</span></span><br><span class="line"><span class="attribute">yum</span> install -y <span class="number">1</span>.<span class="number">18</span>.<span class="number">0</span>-<span class="number">1</span>.el<span class="number">6</span>.ngx</span><br></pre></td></tr></table></figure>
+<li>直接安装会安装当前的最新版本<pre class="line-numbers language-none"><code class="language-none">yum install -y nginx<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li>该源仓库下有多个版本的nginx可供安装，可以用如下命令查看<pre class="line-numbers language-none"><code class="language-none">yum --showduplicates list nginx<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li>选择其中一个版本安装<pre class="line-numbers language-none"><code class="language-none">yum install -y nginx-版本号
+# 如下
+yum install -y 1.18.0-1.el6.ngx<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 </li>
 </ol>
 <h4 id="禁止更新"><a href="#禁止更新" class="headerlink" title="禁止更新"></a>禁止更新</h4><p>&emsp;&emsp;我们在安装之后，为了能够正常运行，我们一般会禁止Nginx进行更新。因为在yum更新了Nginx之后，Nginx会自动重启。这对于我们来说是没有必要的，所以我们可以屏蔽更新。我们可以这样，将下列指定放到你的<code>/etc/yum.conf</code>文件中：</p>
-<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">exclude</span>=nginx</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">exclude&#x3D;nginx<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h4 id="更新Nginx"><a href="#更新Nginx" class="headerlink" title="更新Nginx"></a>更新Nginx</h4><p>&emsp;&emsp;一般在生产环境，我们都是禁用更新的。所以说，这里只是作为一个参考<br>&emsp;&emsp;我们需要执行的命令就是：</p>
-<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">yum update nginx</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">yum update nginx<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>&emsp;&emsp;<code> 注意： 在使用 yum 更新之后，Nginx会自动重启。</code></p>
-<h4 id="命令管理"><a href="#命令管理" class="headerlink" title="命令管理"></a>命令管理</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">systemctl <span class="keyword">start</span> nginx   <span class="comment"># 启动</span></span><br><span class="line">systemctl restart nginx <span class="comment"># 重启</span></span><br><span class="line">nginx -t                <span class="comment"># 测试配置文件语法是否正确</span></span><br><span class="line">systemctl reload nginx  <span class="comment"># 重载配置文件</span></span><br><span class="line">systemctl <span class="keyword">stop</span> nginx    <span class="comment"># 停止</span></span><br><span class="line">systemctl <span class="keyword">enable</span> nginx  <span class="comment"># 启动开机启动</span></span><br><span class="line">systemctl diasble nginx <span class="comment"># 禁止开机启动</span></span><br></pre></td></tr></table></figure>
+<h4 id="命令管理"><a href="#命令管理" class="headerlink" title="命令管理"></a>命令管理</h4><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">systemctl start nginx   <span class="token comment"># 启动</span>
+systemctl restart nginx <span class="token comment"># 重启</span>
+nginx -t                <span class="token comment"># 测试配置文件语法是否正确</span>
+systemctl reload nginx  <span class="token comment"># 重载配置文件</span>
+systemctl stop nginx    <span class="token comment"># 停止</span>
+systemctl <span class="token builtin class-name">enable</span> nginx  <span class="token comment"># 启动开机启动</span>
+systemctl diasble nginx <span class="token comment"># 禁止开机启动</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h3 id="源代码安装"><a href="#源代码安装" class="headerlink" title="源代码安装"></a>源代码安装</h3><p>&emsp;&emsp;如果已安装，则remove掉<code>yum remove nginx</code></p>
 <h4 id="源码下载"><a href="#源码下载" class="headerlink" title="源码下载"></a>源码下载</h4><p>&emsp;&emsp;安装wget并下载nginx源码包， 去 <a target="_blank" rel="noopener" href="http://nginx.org/download/">http://nginx.org/download/</a> 可以找到历史版本的包</p>
-<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">yum</span> install -y wget &amp;&amp; wget http://nginx.org/download/nginx-<span class="number">1</span>.<span class="number">19</span>.<span class="number">2</span>.tar.gz</span><br><span class="line"></span><br><span class="line"><span class="attribute">tar</span> -zxvf nginx-<span class="number">1</span>.<span class="number">19</span>.<span class="number">2</span>.tar.gz</span><br></pre></td></tr></table></figure>
-<h4 id="新增用户"><a href="#新增用户" class="headerlink" title="新增用户"></a>新增用户</h4><figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">groupadd</span> <span class="string">www</span></span><br><span class="line"><span class="attr">useradd</span> <span class="string">-g www www</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">yum <span class="token function">install</span> -y <span class="token function">wget</span> <span class="token operator">&amp;&amp;</span> <span class="token function">wget</span> http://nginx.org/download/nginx-1.19.2.tar.gz
+
+<span class="token function">tar</span> -zxvf nginx-1.19.2.tar.gz<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h4 id="新增用户"><a href="#新增用户" class="headerlink" title="新增用户"></a>新增用户</h4><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">groupadd</span> www
+<span class="token function">useradd</span> -g www www<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <blockquote>
 <p> useradd -g www -s /sbin/nologin -M www</p>
 </blockquote>
 <h4 id="安装依赖环境"><a href="#安装依赖环境" class="headerlink" title="安装依赖环境"></a>安装依赖环境</h4><ol>
-<li>安装gcc<br>安装 nginx 需要先将官网下载的源码进行编译，编译依赖 gcc 环境。安装指令如下：<br>安装gcc<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y install gcc <span class="built_in">auto</span>make <span class="built_in">auto</span>conf libtool make</span><br></pre></td></tr></table></figure>
-安装g++<figure class="highlight brainfuck"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">yum</span> <span class="comment">install</span> <span class="comment">gcc</span> <span class="comment">gcc</span><span class="literal">-</span><span class="comment">c</span>++</span><br></pre></td></tr></table></figure></li>
-<li>安装PCRE pcre-devel<br>Nginx的Rewrite模块和HTTP核心模块会使用到PCRE正则表达式语法。这里需要安装两个安装包pcre和pcre-devel。第一个安装包提供编译版本的库，而第二个提供开发阶段的头文件和编译项目的源代码。安装指令如下：<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum <span class="keyword">install</span> -y pcre pcre-devel</span><br></pre></td></tr></table></figure></li>
-<li>安装zlib<br>zlib库提供了开发人员的压缩算法，在Nginx的各种模块中需要使用gzip压缩。安装指令如下:<figure class="highlight nsis"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y <span class="literal">zlib</span> <span class="literal">zlib</span>-devel</span><br></pre></td></tr></table></figure></li>
-<li>安装Open SSL<br>nginx不仅支持 http协议，还支持 https（即在 ssl 协议上传输 http），如果使用了 https，需要安装 OpenSSL 库。安装指令如下：<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum <span class="keyword">install</span> -y openssl openssl-devel</span><br></pre></td></tr></table></figure>
+<li>安装gcc<br>安装 nginx 需要先将官网下载的源码进行编译，编译依赖 gcc 环境。安装指令如下：<br>安装gcc<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">yum -y <span class="token function">install</span> gcc automake autoconf libtool <span class="token function">make</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+安装g++<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">yum <span class="token function">install</span> gcc gcc-c++<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li>安装PCRE pcre-devel<br>Nginx的Rewrite模块和HTTP核心模块会使用到PCRE正则表达式语法。这里需要安装两个安装包pcre和pcre-devel。第一个安装包提供编译版本的库，而第二个提供开发阶段的头文件和编译项目的源代码。安装指令如下：<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">yum <span class="token function">install</span> -y pcre pcre-devel<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li>安装zlib<br>zlib库提供了开发人员的压缩算法，在Nginx的各种模块中需要使用gzip压缩。安装指令如下:<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">yum <span class="token function">install</span> -y zlib zlib-devel<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li>安装Open SSL<br>nginx不仅支持 http协议，还支持 https（即在 ssl 协议上传输 http），如果使用了 https，需要安装 OpenSSL 库。安装指令如下：<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">yum <span class="token function">install</span> -y openssl openssl-devel<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 环境结束.</li>
 </ol>
 <h4 id="进行配置"><a href="#进行配置" class="headerlink" title="进行配置"></a>进行配置</h4><p>没有特别配置，直接<code>./configure</code>就好了。安装完成后可以通过<code>nginx -V</code>查看选择的模块。</p>
@@ -505,7 +531,45 @@
 
 <br>
 
-<figure class="highlight livescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]<span class="comment"># ./configure --prefix=/usr/local/nginx \</span></span><br><span class="line">--sbin-path=/usr/sbin/nginx <span class="string">\</span></span><br><span class="line">--modules-path=/usr/lib64/nginx/modules <span class="string">\</span></span><br><span class="line">--conf-path=/usr/local/nginx/nginx.conf <span class="string">\</span></span><br><span class="line">--error-log-path=/usr/local/nginx/error.log <span class="string">\</span></span><br><span class="line">--http-log-path=/usr/local/nginx/access.log <span class="string">\</span></span><br><span class="line">--pid-path=/usr/local/nginx/nginx.pid <span class="string">\</span></span><br><span class="line">--lock-path=/usr/local/nginx/nginx.lock <span class="string">\</span></span><br><span class="line">--http-client-body-temp-path=/usr/local/nginx/client_temp <span class="string">\</span></span><br><span class="line">--http-proxy-temp-path=/usr/local/nginx/proxy_temp <span class="string">\</span></span><br><span class="line">--http-fastcgi-temp-path=/usr/local/nginx/fastcgi_temp <span class="string">\</span></span><br><span class="line">--http-uwsgi-temp-path=/usr/local/nginx/uwsgi_temp <span class="string">\</span></span><br><span class="line">--http-scgi-temp-path=/usr/local/nginx/scgi_temp <span class="string">\</span></span><br><span class="line">--user=www <span class="string">\</span></span><br><span class="line">--group=www <span class="string">\</span></span><br><span class="line">--<span class="keyword">with</span>-compat <span class="string">\</span></span><br><span class="line">--<span class="keyword">with</span>-file-aio <span class="string">\</span></span><br><span class="line">--<span class="keyword">with</span>-threads <span class="string">\</span></span><br><span class="line">--<span class="keyword">with</span>-http_addition_module <span class="string">\</span></span><br><span class="line">--<span class="keyword">with</span>-http_auth_request_module <span class="string">\</span></span><br><span class="line">--<span class="keyword">with</span>-http_dav_module <span class="string">\</span></span><br><span class="line">--<span class="keyword">with</span>-http_flv_module <span class="string">\</span></span><br><span class="line">--<span class="keyword">with</span>-http_gunzip_module <span class="string">\</span></span><br><span class="line">--<span class="keyword">with</span>-http_gzip_static_module <span class="string">\</span></span><br><span class="line">--<span class="keyword">with</span>-http_mp4_module <span class="string">\</span></span><br><span class="line">--<span class="keyword">with</span>-http_random_index_module <span class="string">\</span></span><br><span class="line">--<span class="keyword">with</span>-http_realip_module <span class="string">\</span></span><br><span class="line">--<span class="keyword">with</span>-http_secure_link_module <span class="string">\</span></span><br><span class="line">--<span class="keyword">with</span>-http_slice_module <span class="string">\</span></span><br><span class="line">--<span class="keyword">with</span>-http_ssl_module <span class="string">\</span></span><br><span class="line">--<span class="keyword">with</span>-http_stub_status_module <span class="string">\</span></span><br><span class="line">--<span class="keyword">with</span>-http_sub_module <span class="string">\</span></span><br><span class="line">--<span class="keyword">with</span>-http_v2_module <span class="string">\</span></span><br><span class="line">--<span class="keyword">with</span>-mail <span class="string">\</span></span><br><span class="line">--<span class="keyword">with</span>-mail_ssl_module <span class="string">\</span></span><br><span class="line">--<span class="keyword">with</span>-stream <span class="string">\</span></span><br><span class="line">--<span class="keyword">with</span>-stream_realip_module <span class="string">\</span></span><br><span class="line">--<span class="keyword">with</span>-stream_ssl_module <span class="string">\</span></span><br><span class="line">--<span class="keyword">with</span>-stream_ssl_preread_module</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># ./configure --prefix=/usr/local/nginx \</span>
+--sbin-path<span class="token operator">=</span>/usr/sbin/nginx <span class="token punctuation">\</span>
+--modules-path<span class="token operator">=</span>/usr/lib64/nginx/modules <span class="token punctuation">\</span>
+--conf-path<span class="token operator">=</span>/usr/local/nginx/nginx.conf <span class="token punctuation">\</span>
+--error-log-path<span class="token operator">=</span>/usr/local/nginx/error.log <span class="token punctuation">\</span>
+--http-log-path<span class="token operator">=</span>/usr/local/nginx/access.log <span class="token punctuation">\</span>
+--pid-path<span class="token operator">=</span>/usr/local/nginx/nginx.pid <span class="token punctuation">\</span>
+--lock-path<span class="token operator">=</span>/usr/local/nginx/nginx.lock <span class="token punctuation">\</span>
+--http-client-body-temp-path<span class="token operator">=</span>/usr/local/nginx/client_temp <span class="token punctuation">\</span>
+--http-proxy-temp-path<span class="token operator">=</span>/usr/local/nginx/proxy_temp <span class="token punctuation">\</span>
+--http-fastcgi-temp-path<span class="token operator">=</span>/usr/local/nginx/fastcgi_temp <span class="token punctuation">\</span>
+--http-uwsgi-temp-path<span class="token operator">=</span>/usr/local/nginx/uwsgi_temp <span class="token punctuation">\</span>
+--http-scgi-temp-path<span class="token operator">=</span>/usr/local/nginx/scgi_temp <span class="token punctuation">\</span>
+--user<span class="token operator">=</span>www <span class="token punctuation">\</span>
+--group<span class="token operator">=</span>www <span class="token punctuation">\</span>
+--with-compat <span class="token punctuation">\</span>
+--with-file-aio <span class="token punctuation">\</span>
+--with-threads <span class="token punctuation">\</span>
+--with-http_addition_module <span class="token punctuation">\</span>
+--with-http_auth_request_module <span class="token punctuation">\</span>
+--with-http_dav_module <span class="token punctuation">\</span>
+--with-http_flv_module <span class="token punctuation">\</span>
+--with-http_gunzip_module <span class="token punctuation">\</span>
+--with-http_gzip_static_module <span class="token punctuation">\</span>
+--with-http_mp4_module <span class="token punctuation">\</span>
+--with-http_random_index_module <span class="token punctuation">\</span>
+--with-http_realip_module <span class="token punctuation">\</span>
+--with-http_secure_link_module <span class="token punctuation">\</span>
+--with-http_slice_module <span class="token punctuation">\</span>
+--with-http_ssl_module <span class="token punctuation">\</span>
+--with-http_stub_status_module <span class="token punctuation">\</span>
+--with-http_sub_module <span class="token punctuation">\</span>
+--with-http_v2_module <span class="token punctuation">\</span>
+--with-mail <span class="token punctuation">\</span>
+--with-mail_ssl_module <span class="token punctuation">\</span>
+--with-stream <span class="token punctuation">\</span>
+--with-stream_realip_module <span class="token punctuation">\</span>
+--with-stream_ssl_module <span class="token punctuation">\</span>
+--with-stream_ssl_preread_module<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <br>
 
@@ -513,11 +577,56 @@
 
 <p>上面的编译是使用了系统默认的openssl，如果想使用更高版本的openssl进行编译的话。可以加上<code>--with-openssl=openssl安装路径</code>来自定义。高版本的openssl安装可以参考 <a target="_blank" rel="noopener" href="https://www.jianshu.com/p/bf5a55a0a814">这篇文章</a>。</p>
 <p><code>--with-openssl</code> 参数虽然可以指定 OpenSSL 路径，但只支持 OpenSSL 的源代码，不支持已编译好的 OpenSSL。每回更新 nginx 都要重新编译 OpenSSL 很麻烦 。以下是解决方案<br>打开nginx源码解压目录下的<code>auto/lib/openssl/conf</code>,找到所有带<code>.openssl</code>的行</p>
-<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">CORE_INCS</span>=<span class="string">&quot;<span class="variable">$CORE_INCS</span> <span class="variable">$OPENSSL</span>/.openssl/include&quot;</span></span><br><span class="line"><span class="attribute">CORE_DEPS</span>=<span class="string">&quot;<span class="variable">$CORE_DEPS</span> <span class="variable">$OPENSSL</span>/.openssl/include/openssl/ssl.h&quot;</span></span><br><span class="line"><span class="attribute">CORE_LIBS</span>=<span class="string">&quot;<span class="variable">$CORE_LIBS</span> <span class="variable">$OPENSSL</span>/.openssl/lib/libssl.a&quot;</span></span><br><span class="line"><span class="attribute">CORE_LIBS</span>=<span class="string">&quot;<span class="variable">$CORE_LIBS</span> <span class="variable">$OPENSSL</span>/.openssl/lib/libcrypto.a&quot;</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token assign-left variable">CORE_INCS</span><span class="token operator">=</span><span class="token string">"<span class="token variable">$CORE_INCS</span> <span class="token variable">$OPENSSL</span>/.openssl/include"</span>
+<span class="token assign-left variable">CORE_DEPS</span><span class="token operator">=</span><span class="token string">"<span class="token variable">$CORE_DEPS</span> <span class="token variable">$OPENSSL</span>/.openssl/include/openssl/ssl.h"</span>
+<span class="token assign-left variable">CORE_LIBS</span><span class="token operator">=</span><span class="token string">"<span class="token variable">$CORE_LIBS</span> <span class="token variable">$OPENSSL</span>/.openssl/lib/libssl.a"</span>
+<span class="token assign-left variable">CORE_LIBS</span><span class="token operator">=</span><span class="token string">"<span class="token variable">$CORE_LIBS</span> <span class="token variable">$OPENSSL</span>/.openssl/lib/libcrypto.a"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <p>改成下面的样子，去掉<code>.openssl/</code></p>
-<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">CORE_INCS</span>=<span class="string">&quot;<span class="variable">$CORE_INCS</span> <span class="variable">$OPENSSL</span>/include&quot;</span></span><br><span class="line"><span class="attribute">CORE_DEPS</span>=<span class="string">&quot;<span class="variable">$CORE_DEPS</span> <span class="variable">$OPENSSL</span>/include/openssl/ssl.h&quot;</span></span><br><span class="line"><span class="attribute">CORE_LIBS</span>=<span class="string">&quot;<span class="variable">$CORE_LIBS</span> <span class="variable">$OPENSSL</span>/lib/libssl.a&quot;</span></span><br><span class="line"><span class="attribute">CORE_LIBS</span>=<span class="string">&quot;<span class="variable">$CORE_LIBS</span> <span class="variable">$OPENSSL</span>/lib/libcrypto.a&quot;</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token assign-left variable">CORE_INCS</span><span class="token operator">=</span><span class="token string">"<span class="token variable">$CORE_INCS</span> <span class="token variable">$OPENSSL</span>/include"</span>
+<span class="token assign-left variable">CORE_DEPS</span><span class="token operator">=</span><span class="token string">"<span class="token variable">$CORE_DEPS</span> <span class="token variable">$OPENSSL</span>/include/openssl/ssl.h"</span>
+<span class="token assign-left variable">CORE_LIBS</span><span class="token operator">=</span><span class="token string">"<span class="token variable">$CORE_LIBS</span> <span class="token variable">$OPENSSL</span>/lib/libssl.a"</span>
+<span class="token assign-left variable">CORE_LIBS</span><span class="token operator">=</span><span class="token string">"<span class="token variable">$CORE_LIBS</span> <span class="token variable">$OPENSSL</span>/lib/libcrypto.a"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <p>进行编译</p>
-<figure class="highlight livescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]<span class="comment"># ./configure --prefix=/usr/local/nginx \</span></span><br><span class="line">--sbin-path=/usr/sbin/nginx <span class="string">\</span></span><br><span class="line">--modules-path=/usr/lib64/nginx/modules <span class="string">\</span></span><br><span class="line">--conf-path=/usr/local/nginx/nginx.conf <span class="string">\</span></span><br><span class="line">--error-log-path=/usr/local/nginx/error.log <span class="string">\</span></span><br><span class="line">--http-log-path=/usr/local/nginx/access.log <span class="string">\</span></span><br><span class="line">--pid-path=/usr/local/nginx/nginx.pid <span class="string">\</span></span><br><span class="line">--lock-path=/usr/local/nginx/nginx.lock <span class="string">\</span></span><br><span class="line">--http-client-body-temp-path=/usr/local/nginx/client_temp <span class="string">\</span></span><br><span class="line">--http-proxy-temp-path=/usr/local/nginx/proxy_temp <span class="string">\</span></span><br><span class="line">--http-fastcgi-temp-path=/usr/local/nginx/fastcgi_temp <span class="string">\</span></span><br><span class="line">--http-uwsgi-temp-path=/usr/local/nginx/uwsgi_temp <span class="string">\</span></span><br><span class="line">--http-scgi-temp-path=/usr/local/nginx/scgi_temp <span class="string">\</span></span><br><span class="line">--user=www <span class="string">\</span></span><br><span class="line">--group=www <span class="string">\</span></span><br><span class="line">--<span class="keyword">with</span>-compat <span class="string">\</span></span><br><span class="line">--<span class="keyword">with</span>-file-aio <span class="string">\</span></span><br><span class="line">--<span class="keyword">with</span>-threads <span class="string">\</span></span><br><span class="line">--<span class="keyword">with</span>-http_addition_module <span class="string">\</span></span><br><span class="line">--<span class="keyword">with</span>-http_auth_request_module <span class="string">\</span></span><br><span class="line">--<span class="keyword">with</span>-http_dav_module <span class="string">\</span></span><br><span class="line">--<span class="keyword">with</span>-http_flv_module <span class="string">\</span></span><br><span class="line">--<span class="keyword">with</span>-http_gunzip_module <span class="string">\</span></span><br><span class="line">--<span class="keyword">with</span>-http_gzip_static_module <span class="string">\</span></span><br><span class="line">--<span class="keyword">with</span>-http_mp4_module <span class="string">\</span></span><br><span class="line">--<span class="keyword">with</span>-http_random_index_module <span class="string">\</span></span><br><span class="line">--<span class="keyword">with</span>-http_realip_module <span class="string">\</span></span><br><span class="line">--<span class="keyword">with</span>-http_secure_link_module <span class="string">\</span></span><br><span class="line">--<span class="keyword">with</span>-http_slice_module <span class="string">\</span></span><br><span class="line">--<span class="keyword">with</span>-http_ssl_module <span class="string">\</span></span><br><span class="line">--<span class="keyword">with</span>-http_stub_status_module <span class="string">\</span></span><br><span class="line">--<span class="keyword">with</span>-http_sub_module <span class="string">\</span></span><br><span class="line">--<span class="keyword">with</span>-http_v2_module <span class="string">\</span></span><br><span class="line">--<span class="keyword">with</span>-mail <span class="string">\</span></span><br><span class="line">--<span class="keyword">with</span>-mail_ssl_module <span class="string">\</span></span><br><span class="line">--<span class="keyword">with</span>-stream <span class="string">\</span></span><br><span class="line">--<span class="keyword">with</span>-stream_realip_module <span class="string">\</span></span><br><span class="line">--<span class="keyword">with</span>-stream_ssl_module <span class="string">\</span></span><br><span class="line">--<span class="keyword">with</span>-openssl=/usr/local/openssl <span class="string">\</span></span><br><span class="line">--<span class="keyword">with</span>-stream_ssl_preread_module</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># ./configure --prefix=/usr/local/nginx \</span>
+--sbin-path<span class="token operator">=</span>/usr/sbin/nginx <span class="token punctuation">\</span>
+--modules-path<span class="token operator">=</span>/usr/lib64/nginx/modules <span class="token punctuation">\</span>
+--conf-path<span class="token operator">=</span>/usr/local/nginx/nginx.conf <span class="token punctuation">\</span>
+--error-log-path<span class="token operator">=</span>/usr/local/nginx/error.log <span class="token punctuation">\</span>
+--http-log-path<span class="token operator">=</span>/usr/local/nginx/access.log <span class="token punctuation">\</span>
+--pid-path<span class="token operator">=</span>/usr/local/nginx/nginx.pid <span class="token punctuation">\</span>
+--lock-path<span class="token operator">=</span>/usr/local/nginx/nginx.lock <span class="token punctuation">\</span>
+--http-client-body-temp-path<span class="token operator">=</span>/usr/local/nginx/client_temp <span class="token punctuation">\</span>
+--http-proxy-temp-path<span class="token operator">=</span>/usr/local/nginx/proxy_temp <span class="token punctuation">\</span>
+--http-fastcgi-temp-path<span class="token operator">=</span>/usr/local/nginx/fastcgi_temp <span class="token punctuation">\</span>
+--http-uwsgi-temp-path<span class="token operator">=</span>/usr/local/nginx/uwsgi_temp <span class="token punctuation">\</span>
+--http-scgi-temp-path<span class="token operator">=</span>/usr/local/nginx/scgi_temp <span class="token punctuation">\</span>
+--user<span class="token operator">=</span>www <span class="token punctuation">\</span>
+--group<span class="token operator">=</span>www <span class="token punctuation">\</span>
+--with-compat <span class="token punctuation">\</span>
+--with-file-aio <span class="token punctuation">\</span>
+--with-threads <span class="token punctuation">\</span>
+--with-http_addition_module <span class="token punctuation">\</span>
+--with-http_auth_request_module <span class="token punctuation">\</span>
+--with-http_dav_module <span class="token punctuation">\</span>
+--with-http_flv_module <span class="token punctuation">\</span>
+--with-http_gunzip_module <span class="token punctuation">\</span>
+--with-http_gzip_static_module <span class="token punctuation">\</span>
+--with-http_mp4_module <span class="token punctuation">\</span>
+--with-http_random_index_module <span class="token punctuation">\</span>
+--with-http_realip_module <span class="token punctuation">\</span>
+--with-http_secure_link_module <span class="token punctuation">\</span>
+--with-http_slice_module <span class="token punctuation">\</span>
+--with-http_ssl_module <span class="token punctuation">\</span>
+--with-http_stub_status_module <span class="token punctuation">\</span>
+--with-http_sub_module <span class="token punctuation">\</span>
+--with-http_v2_module <span class="token punctuation">\</span>
+--with-mail <span class="token punctuation">\</span>
+--with-mail_ssl_module <span class="token punctuation">\</span>
+--with-stream <span class="token punctuation">\</span>
+--with-stream_realip_module <span class="token punctuation">\</span>
+--with-stream_ssl_module <span class="token punctuation">\</span>
+--with-openssl<span class="token operator">=</span>/usr/local/openssl <span class="token punctuation">\</span>
+--with-stream_ssl_preread_module<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <br>
 
@@ -950,9 +1059,9 @@
 </table>
 
 <h4 id="编译安装nginx"><a href="#编译安装nginx" class="headerlink" title="编译安装nginx"></a>编译安装nginx</h4><p>这里和redis的编译安装比较类似，首先在当前目录（/usr/local/nginx-1.19.2）进行编译。输入make即可</p>
-<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">make</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c">make<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>编译成功之后，就可以安装了，输入以下指令：</p>
-<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make <span class="keyword">install</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c">make install<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>ok，安装成功。</p>
 <blockquote>
 <p> make &amp;&amp; make install</p>
@@ -1085,14 +1194,14 @@
       <i class="fa fa-chart-line"></i>
     </span>
       <span>站点总字数：</span>
-    <span title="站点总字数">85k</span>
+    <span title="站点总字数">86k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">1:17</span>
+    <span title="站点阅读时长">1:18</span>
   </span>
 </div>
 <div class="busuanzi-count">
@@ -1121,6 +1230,7 @@
     提供CDN加速/云存储服务
 </div>
 
+<script src="/js/prism/prism.js" async></script>
 
     </div>
   </footer>
@@ -1339,6 +1449,26 @@ $(function(){
     };
 
     $('.highlight').each(function () {
+        // 防止重复渲染
+        if (this.__render__ === true) {
+            return true;
+        }
+        this.__render__ = true;
+        const $this = $(this);
+        const height = $(this).outerHeight();
+        if (height > CODE_MAX_HEIGHT) {
+            // 添加展开&收起容器
+            const $container = addCodeWrap($this, height);
+            containers.push({
+                $container,
+                height,
+                $hide: $container.find('.js_retract_code_btn'),
+                hasHorizontalScrollbar: this.scrollWidth > this.offsetWidth,
+            });
+        }
+    });
+
+    $('.line-numbers').each(function () {
         // 防止重复渲染
         if (this.__render__ === true) {
             return true;
@@ -1869,7 +1999,7 @@ layui.use(['jquery', 'layer'], function(){
 
 });
 
-</script>
+</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 </body>
 </html>

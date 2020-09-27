@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 <meta name="generator" content="Hexo 5.1.1">
@@ -21,15 +21,15 @@
 
 <script class="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"blog.xiaosige.com","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"livere","storage":true,"lazyload":true,"nav":null,"activeClass":"livere"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}};
+    var CONFIG = {"hostname":"blog.xiaosige.com","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"livere","storage":true,"lazyload":true,"nav":null,"activeClass":"livere"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}};
   </script>
 
-  <meta name="description" content="段首缩进1&amp;emsp;&amp;emsp; 下面用菜根谭中一段做例&amp;emsp;&amp;emsp;好丑心太明，则物不契；贤愚心太明，则人不亲。士君子须是内精明而外浑厚，使好丑两得其平，贤愚共受其益，才是生成的德量。">
+  <meta name="description" content="段首缩进&amp;emsp;&amp;emsp; 下面用菜根谭中一段做例&amp;emsp;&amp;emsp;好丑心太明，则物不契；贤愚心太明，则人不亲。士君子须是内精明而外浑厚，使好丑两得其平，贤愚共受其益，才是生成的德量。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Markdown 编辑器日常使用语法记录">
 <meta property="og:url" content="https://blog.xiaosige.com/post/9c39465b.html">
 <meta property="og:site_name" content="小四儿">
-<meta property="og:description" content="段首缩进1&amp;emsp;&amp;emsp; 下面用菜根谭中一段做例&amp;emsp;&amp;emsp;好丑心太明，则物不契；贤愚心太明，则人不亲。士君子须是内精明而外浑厚，使好丑两得其平，贤愚共受其益，才是生成的德量。">
+<meta property="og:description" content="段首缩进&amp;emsp;&amp;emsp; 下面用菜根谭中一段做例&amp;emsp;&amp;emsp;好丑心太明，则物不契；贤愚心太明，则人不亲。士君子须是内精明而外浑厚，使好丑两得其平，贤愚共受其益，才是生成的德量。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://blog.xiaosige.com/post/child01.jpg">
 <meta property="og:image" content="https://blog.xiaosige.com/post/9c39465b/child01.jpg">
@@ -63,6 +63,8 @@
 
 <!-- https://www.layuicdn.com/layui/css/layui.css -->
 <script src="https://www.layuicdn.com/layui/layui.js"></script>
+
+<link rel="stylesheet" href="/js/prism/prism.css">
 
 
   <title>Markdown 编辑器日常使用语法记录 | 小四儿</title>
@@ -115,12 +117,12 @@
   .search-pop-overlay, .sidebar-nav { display: none; }
   .sidebar-panel { display: block; }
   </style>
-</noscript>
+</noscript><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
-  <div class="headband"></div>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="headband"></div>
 
   <main class="main">
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -320,6 +322,7 @@
 
 
 
+
       </section>
         <div class="back-to-top animated">
           <i class="fa fa-arrow-up"></i>
@@ -411,7 +414,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>5.6k</span>
+      <span>5.9k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -429,7 +432,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h4 id="段首缩进"><a href="#段首缩进" class="headerlink" title="段首缩进"></a>段首缩进</h4><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">&amp;emsp;</span><span class="symbol">&amp;emsp;</span></span><br></pre></td></tr></table></figure>
+        <h4 id="段首缩进"><a href="#段首缩进" class="headerlink" title="段首缩进"></a>段首缩进</h4><pre class="line-numbers language-none"><code class="language-none">&amp;emsp;&amp;emsp;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>下面用菜根谭中一段做例<br>&emsp;&emsp;好丑心太明，则物不契；贤愚心太明，则人不亲。士君子须是内精明而外浑厚，使好丑两得其平，贤愚共受其益，才是生成的德量。</p>
 <a id="more"></a>
 
@@ -438,25 +441,29 @@
 
 </blockquote>
 
-<h4 id="插入图片"><a href="#插入图片" class="headerlink" title="插入图片"></a>插入图片</h4><figure class="highlight gcode"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">![]<span class="comment">(/post/1.jpg)</span></span><br><span class="line"></span><br><span class="line">&#123;<span class="meta">%</span> asset_img jkp.jpeg 相对路径示例图 <span class="meta">%</span>&#125;  推荐</span><br></pre></td></tr></table></figure>
+<h4 id="插入图片"><a href="#插入图片" class="headerlink" title="插入图片"></a>插入图片</h4><pre class="line-numbers language-none"><code class="language-none">![](&#x2F;post&#x2F;1.jpg)
+
+&#123;% asset_img jkp.jpeg 相对路径示例图 %&#125;  推荐<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <p><img src="/post/child01.jpg" alt="小女孩"></p>
 <img src="/post/9c39465b/child01.jpg" class title="小女孩">
 
-<h4 id="分页显示"><a href="#分页显示" class="headerlink" title="分页显示"></a>分页显示</h4><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">escape</span>&gt;</span><span class="comment">&lt;!-- more --&gt;</span><span class="tag">&lt;/<span class="name">escape</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="分页显示"><a href="#分页显示" class="headerlink" title="分页显示"></a>分页显示</h4><pre class="line-numbers language-none"><code class="language-none">&lt;escape&gt;&lt;!-- more --&gt;&lt;&#x2F;escape&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h4 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h4><ol>
   <li>文字链接</li>
 
-  <figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="string">github</span>](<span class="link">www.github.com</span>)</span><br></pre></td></tr></table></figure>
+  <pre class="line-numbers language-none"><code class="language-none">[github](www.github.com)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
   <li>网址链接</li>
 
-  <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="selector-tag">www</span><span class="selector-class">.Google</span><span class="selector-class">.hk</span>&gt;</span><br></pre></td></tr></table></figure>
+  <pre class="line-numbers language-none"><code class="language-none">&lt;www.Google.hk&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 </ol>
 
 
 
 
-<h4 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h4><figure class="highlight gherkin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">|<span class="string"> 姓名 </span>|<span class="string"> 性别 </span>|<span class="string"> 电话 </span>|</span><br><span class="line">|<span class="string"> :--- </span>|<span class="string"> :----: </span>|<span class="string"> ----: </span>|</span><br><span class="line">|<span class="string"> 张三 </span>|<span class="string"> 男 </span>|<span class="string"> 123456789123 </span>|</span><br></pre></td></tr></table></figure>
+<h4 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h4><pre class="line-numbers language-none"><code class="language-none">| 姓名 | 性别 | 电话 |
+| :--- | :----: | ----: |
+| 张三 | 男 | 123456789123 |<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <table>
 <thead>
@@ -472,74 +479,136 @@
 <td align="right">123456789123</td>
 </tr>
 </tbody></table>
-<h4 id="图片墙"><a href="#图片墙" class="headerlink" title="图片墙"></a>图片墙</h4><figure class="highlight mel"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;% grouppicture [<span class="keyword">group</span>]-[<span class="keyword">layout</span>] %&#125;&#123;% endgrouppicture %&#125;</span><br><span class="line">&#123;% gp [<span class="keyword">group</span>]-[<span class="keyword">layout</span>] %&#125;&#123;% endgp %&#125;</span><br><span class="line"></span><br><span class="line">[<span class="keyword">group</span>]  : 要在组中添加的图片总数。</span><br><span class="line">[<span class="keyword">layout</span>] : 要显示的组下的默认图片。</span><br></pre></td></tr></table></figure>
+<h4 id="图片墙"><a href="#图片墙" class="headerlink" title="图片墙"></a>图片墙</h4><pre class="line-numbers language-none"><code class="language-none">&#123;% grouppicture [group]-[layout] %&#125;&#123;% endgrouppicture %&#125;
+&#123;% gp [group]-[layout] %&#125;&#123;% endgp %&#125;
+
+[group]  : 要在组中添加的图片总数。
+[layout] : 要显示的组下的默认图片。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
-<figure class="highlight arcade"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;% gp <span class="number">4</span><span class="number">-4</span> %&#125;</span><br><span class="line">  ![](<span class="regexp">/photos/im</span>ages/<span class="number">1.</span>jpg)</span><br><span class="line">  ![](<span class="regexp">/photos/im</span>ages/<span class="number">2.</span>jpg)</span><br><span class="line">  ![](<span class="regexp">/photos/im</span>ages/<span class="number">3.</span>jpg)</span><br><span class="line">  ![](<span class="regexp">/photos/im</span>ages/<span class="number">4.</span>jpg)</span><br><span class="line">&#123;% endgp %&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">&#123;% gp 4-4 %&#125;
+  ![](&#x2F;photos&#x2F;images&#x2F;1.jpg)
+  ![](&#x2F;photos&#x2F;images&#x2F;2.jpg)
+  ![](&#x2F;photos&#x2F;images&#x2F;3.jpg)
+  ![](&#x2F;photos&#x2F;images&#x2F;4.jpg)
+&#123;% endgp %&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <div class="group-picture"><div class="group-picture-row"><div class="group-picture-column"><img src="/photos/images/1.jpg"></div><div class="group-picture-column"><img src="/photos/images/2.jpg"></div><div class="group-picture-column"><img src="/photos/images/3.jpg"></div></div><div class="group-picture-row"><div class="group-picture-column"><img src="/photos/images/10.jpg"></div></div></div>
 
 
-<h4 id="按钮"><a href="#按钮" class="headerlink" title="按钮"></a>按钮</h4><figure class="highlight django"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="template-tag">&#123;% <span class="name">button</span> #, 开始 %&#125;</span></span><br></pre></td></tr></table></figure>
+<h4 id="按钮"><a href="#按钮" class="headerlink" title="按钮"></a>按钮</h4><pre class="line-numbers language-none"><code class="language-none">&#123;% button #, 开始 %&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <a class="btn" href="#">开始</a>
 
-<figure class="highlight django"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="template-tag">&#123;% <span class="name">btn</span> #, Text %&#125;</span><span class="xml"> </span><span class="template-tag">&#123;% <span class="name">btn</span> #, 取消,, Title %&#125;</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">&#123;% btn #, Text %&#125; &#123;% btn #, 取消,, Title %&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <a class="btn" href="#">Text</a> <a class="btn" href="#" title="Title">取消</a>
 
 
-<figure class="highlight django"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="template-tag">&#123;% <span class="name">button</span> url, text, icon [class], [title] %&#125;</span></span><br><span class="line"><span class="xml"><span class="comment">&lt;!-- 标签别名 --&gt;</span></span></span><br><span class="line"><span class="template-tag">&#123;% <span class="name">btn</span> url, text, icon [class], [title] %&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="xml">url     : 绝对或相对URL</span></span><br><span class="line"><span class="xml">text    : 按钮文字，如果未指定图标则为必须</span></span><br><span class="line"><span class="xml">icon    : FontAwesome图标名称（开头没有&#x27;fa-&#x27;）。如果未指定文本，则为必需</span></span><br><span class="line"><span class="xml">[class] : FontAwesome类：fa-fw | fa-lg | fa-2x | fa-3x | fa-4x | fa-5X ，可选参数。</span></span><br><span class="line"><span class="xml">[title] : 鼠标悬停时的工具提示，可选参数。</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">&#123;% button url, text, icon [class], [title] %&#125;
+&lt;!-- 标签别名 --&gt;
+&#123;% btn url, text, icon [class], [title] %&#125;
+
+url     : 绝对或相对URL
+text    : 按钮文字，如果未指定图标则为必须
+icon    : FontAwesome图标名称（开头没有&#39;fa-&#39;）。如果未指定文本，则为必需
+[class] : FontAwesome类：fa-fw | fa-lg | fa-2x | fa-3x | fa-4x | fa-5X ，可选参数。
+[title] : 鼠标悬停时的工具提示，可选参数。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>使用：</p>
 <p>最好添加<code>&lt;div&gt;标签</code>，测试时没加div，下面显示不完全，加上非常美观。</p>
-<figure class="highlight django"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span><span class="template-tag">&#123;% <span class="name">btn</span> https://www.zhyong.cn ,首页,home fa-2x,这是YouForever的首页%&#125;</span><span class="xml"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">&lt;div&gt;&#123;% btn https:&#x2F;&#x2F;www.zhyong.cn ,首页,home fa-2x,这是YouForever的首页%&#125;&lt;&#x2F;div&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>显示：</p>
 <div><a class="btn" href="https://blog.xiaosige.com/" title="这是leeze的首页"><i class="fa fa-home fa-fw"></i>首页</a></div>
 
 
-<h4 id="标签"><a href="#标签" class="headerlink" title="标签"></a>标签</h4><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;% label [class]@Text %&#125;</span><br><span class="line"></span><br><span class="line">[class] :<span class="built_in"> default </span>| primary | success | <span class="builtin-name">info</span> | <span class="builtin-name">warning</span> | danger.</span><br><span class="line">          <span class="string">&#x27;@Text&#x27;</span> 可以指定是否有空格</span><br><span class="line">          例如。 <span class="string">&#x27;success @text&#x27;</span>类似于<span class="string">&#x27;success @ text&#x27;</span>。</span><br><span class="line">          如果未指定，则将选择默认类。</span><br></pre></td></tr></table></figure>
+<h4 id="标签"><a href="#标签" class="headerlink" title="标签"></a>标签</h4><pre class="line-numbers language-none"><code class="language-none">&#123;% label [class]@Text %&#125;
 
-<figure class="highlight django"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml">Lorem </span><span class="template-tag">&#123;% <span class="name">label</span> @ipsum %&#125;</span><span class="xml"> </span><span class="template-tag">&#123;% <span class="name">label</span> primary@dolor sit %&#125;</span><span class="xml"> amet, consectetur </span><span class="template-tag">&#123;% <span class="name">label</span> success@adipiscing elit, %&#125;</span><span class="xml"> sed </span><span class="template-tag">&#123;% <span class="name">label</span> info@do eiusmod %&#125;</span><span class="xml"> tempor incididunt ut labore et dolore magna aliqua.</span></span><br><span class="line"></span><br><span class="line"><span class="xml">Ut enim *</span><span class="template-tag">&#123;% <span class="name">label</span> warning @ad %&#125;</span><span class="xml">* minim veniam, quis **</span><span class="template-tag">&#123;% <span class="name">label</span> danger@nostrud %&#125;</span><span class="xml">** exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</span></span><br><span class="line"></span><br><span class="line"><span class="xml">Duis aute irure dolor in reprehenderit in voluptate ~~</span><span class="template-tag">&#123;% <span class="name">label</span> default @velit %&#125;</span><span class="xml">~~ <span class="tag">&lt;<span class="name">mark</span>&gt;</span>esse<span class="tag">&lt;/<span class="name">mark</span>&gt;</span> cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</span></span><br></pre></td></tr></table></figure>
+[class] : default | primary | success | info | warning | danger.
+          &#39;@Text&#39; 可以指定是否有空格
+          例如。 &#39;success @text&#39;类似于&#39;success @ text&#39;。
+          如果未指定，则将选择默认类。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-none"><code class="language-none">Lorem &#123;% label @ipsum %&#125; &#123;% label primary@dolor sit %&#125; amet, consectetur &#123;% label success@adipiscing elit, %&#125; sed &#123;% label info@do eiusmod %&#125; tempor incididunt ut labore et dolore magna aliqua.
+
+Ut enim *&#123;% label warning @ad %&#125;* minim veniam, quis **&#123;% label danger@nostrud %&#125;** exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+
+Duis aute irure dolor in reprehenderit in voluptate ~~&#123;% label default @velit %&#125;~~ &lt;mark&gt;esse&lt;&#x2F;mark&gt; cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>Lorem <mark class="label ">ipsum</mark> <mark class="label primary">dolor sit</mark> amet, consectetur <mark class="label success">adipiscing elit,</mark> sed <mark class="label info">do eiusmod</mark> tempor incididunt ut labore et dolore magna aliqua.</p>
 <p>Ut enim <em><mark class="label warning">ad</mark></em> minim veniam, quis <strong><mark class="label danger">nostrud</mark></strong> exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
 <p>Duis aute irure dolor in reprehenderit in voluptate <del><mark class="label default">velit</mark></del> <mark>esse</mark> cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-<h4 id="标注"><a href="#标注" class="headerlink" title="标注"></a>标注</h4><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;%<span class="built_in"> note </span>[class] [no-icon] %&#125;</span><br><span class="line">任何内容（支持内联标签）</span><br><span class="line">&#123;% endnote %&#125;</span><br><span class="line"></span><br><span class="line">[class]   :<span class="built_in"> default </span>| primary | success | <span class="builtin-name">info</span> | <span class="builtin-name">warning</span> | danger.</span><br><span class="line">[no-icon] : 禁用备注中的图标</span><br><span class="line"></span><br><span class="line">所有参数都是可选的。</span><br></pre></td></tr></table></figure>
+<h4 id="标注"><a href="#标注" class="headerlink" title="标注"></a>标注</h4><pre class="line-numbers language-none"><code class="language-none">&#123;% note [class] [no-icon] %&#125;
+任何内容（支持内联标签）
+&#123;% endnote %&#125;
 
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&#123;% note %&#125;</span><br><span class="line">无任何样式</span><br><span class="line">&#123;% endnote %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% note success %&#125;</span><br><span class="line">成功的笔记</span><br><span class="line">&#123;% endnote %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% note primary %&#125;</span><br><span class="line"><span class="section">#### Primary Header</span></span><br><span class="line"><span class="strong">**Welcome**</span> to [<span class="string">Hexo!</span>](<span class="link">https://hexo.io</span>)</span><br><span class="line">&#123;% endnote %&#125;</span><br></pre></td></tr></table></figure>
+[class]   : default | primary | success | info | warning | danger.
+[no-icon] : 禁用备注中的图标
+
+所有参数都是可选的。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-none"><code class="language-none">&#123;% note %&#125;
+无任何样式
+&#123;% endnote %&#125;
+
+&#123;% note success %&#125;
+成功的笔记
+&#123;% endnote %&#125;
+
+&#123;% note primary %&#125;
+#### Primary Header
+**Welcome** to [Hexo!](https:&#x2F;&#x2F;hexo.io)
+&#123;% endnote %&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <div class="note primary"><h5 id="Primary-Header"><a href="#Primary-Header" class="headerlink" title="Primary Header"></a>Primary Header</h5><p><strong>Welcome</strong> to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo!</a></p>
 </div>
 
 <h4 id="pdf-文件"><a href="#pdf-文件" class="headerlink" title="pdf 文件"></a>pdf 文件</h4><p>1,第一方法</p>
-<figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;iframe src=<span class="string">&quot;http://lc-0ww4yxjs.cn-n1.lcfile.com/510df791fa9b2590c109/Python%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B%EF%BC%88%E7%AC%AC3%E7%89%88%EF%BC%89.pdf&quot;</span> width=<span class="string">&quot;830&quot;</span> height=<span class="string">&quot;800&quot;</span> scroll=<span class="string">&quot;no&quot;</span>&gt;&lt;<span class="regexp">/iframe&gt;</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">&lt;iframe src&#x3D;&quot;http:&#x2F;&#x2F;lc-0ww4yxjs.cn-n1.lcfile.com&#x2F;510df791fa9b2590c109&#x2F;Python%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B%EF%BC%88%E7%AC%AC3%E7%89%88%EF%BC%89.pdf&quot; width&#x3D;&quot;830&quot; height&#x3D;&quot;800&quot; scroll&#x3D;&quot;no&quot;&gt;&lt;&#x2F;iframe&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>2,第二方法</p>
-<figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;embed src=<span class="string">&quot;http://lc-0ww4yxjs.cn-n1.lcfile.com/510df791fa9b2590c109/Python%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B%EF%BC%88%E7%AC%AC3%E7%89%88%EF%BC%89.pdf&quot;</span> width=<span class="string">&quot;840&quot;</span> height=<span class="string">&quot;800&quot;</span>&gt;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">&lt;embed src&#x3D;&quot;http:&#x2F;&#x2F;lc-0ww4yxjs.cn-n1.lcfile.com&#x2F;510df791fa9b2590c109&#x2F;Python%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B%EF%BC%88%E7%AC%AC3%E7%89%88%EF%BC%89.pdf&quot; width&#x3D;&quot;840&quot; height&#x3D;&quot;800&quot;&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>这两种方法效果是一样的，但是不够完美，pdf 文件不能随窗口大小变化，后读发现方法在更新。</p>
 <p>启用PDF标签插件：<a target="_blank" rel="noopener" href="https://github.com/theme-next/theme-next-pdf">https://github.com/theme-next/theme-next-pdf</a></p>
 <p>官方教程<br><a target="_blank" rel="noopener" href="https://theme-next.org/docs/tag-plugins/pdf">https://theme-next.org/docs/tag-plugins/pdf</a></p>
 <p>使用：</p>
-<figure class="highlight prolog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;<span class="comment">% pdf url [height] %&#125;</span></span><br><span class="line"></span><br><span class="line">[url]    : 相对路径</span><br><span class="line">[height] : 可选参数，pdf展示的高度, e.g. <span class="number">800</span>px.</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">&#123;% pdf url [height] %&#125;
+
+[url]    : 相对路径
+[height] : 可选参数，pdf展示的高度, e.g. 800px.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <p>示例1：</p>
-<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% pdf http<span class="variable">s:</span>//zhyong-<span class="keyword">cn</span>-<span class="keyword">file</span>.oss-<span class="keyword">cn</span>-shanghai.aliyuncs.<span class="keyword">com</span>/books%<span class="number">2</span>Fbyte-of-<span class="keyword">python</span>-chinese-edition.pdf %&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">&#123;% pdf https:&#x2F;&#x2F;zhyong-cn-file.oss-cn-shanghai.aliyuncs.com&#x2F;books%2Fbyte-of-python-chinese-edition.pdf %&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <div class="pdfobject-container" data-target="https://zhyong-cn-file.oss-cn-shanghai.aliyuncs.com/books%2Fbyte-of-python-chinese-edition.pdf" data-height="500px"></div>
 
 <p>示例2：</p>
-<figure class="highlight llvm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% pdf http://lc<span class="number">-0</span>ww<span class="number">4</span>yxjs.cn-n<span class="number">1</span>.lcfile.com/<span class="number">510</span>df<span class="number">791</span>fa<span class="number">9</span>b<span class="number">2590</span><span class="keyword">c</span><span class="number">109</span>/Python<span class="symbol">%E5</span><span class="symbol">%9</span>F<span class="symbol">%BA</span><span class="symbol">%E7</span><span class="symbol">%A1</span><span class="symbol">%80</span><span class="symbol">%E6</span><span class="symbol">%95</span><span class="symbol">%99</span><span class="symbol">%E7</span><span class="symbol">%A8</span><span class="symbol">%8</span>B<span class="symbol">%EF</span><span class="symbol">%BC</span><span class="symbol">%88</span><span class="symbol">%E7</span><span class="symbol">%AC</span><span class="symbol">%AC3</span><span class="symbol">%E7</span><span class="symbol">%89</span><span class="symbol">%88</span><span class="symbol">%EF</span><span class="symbol">%BC</span><span class="symbol">%89</span>.pdf %&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">&#123;% pdf http:&#x2F;&#x2F;lc-0ww4yxjs.cn-n1.lcfile.com&#x2F;510df791fa9b2590c109&#x2F;Python%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B%EF%BC%88%E7%AC%AC3%E7%89%88%EF%BC%89.pdf %&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <div class="pdfobject-container" data-target="http://lc-0ww4yxjs.cn-n1.lcfile.com/510df791fa9b2590c109/Python%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B%EF%BC%88%E7%AC%AC3%E7%89%88%EF%BC%89.pdf" data-height="500px"></div>
 
 <h4 id="锚点"><a href="#锚点" class="headerlink" title="锚点"></a>锚点</h4><p>用于页内跳转。其中定义id地方，虽然不太美观，不过只能写HTML。<br>语法</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[<span class="string">点击我跳转到锚点</span>](<span class="link">#jump</span>)</span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span> = <span class="string">&quot;jump&quot;</span>&gt;</span></span>我是一个锚点，跳到我这里来<span class="xml"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">[点击我跳转到锚点](#jump)
+&lt;div id &#x3D; &quot;jump&quot;&gt;我是一个锚点，跳到我这里来&lt;&#x2F;div&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <h4 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h4><p>使用 # 号可标记1 - 6级标题，一级标题对应 1 个 # 号，二级标题对应 2 个 # 号，以此类推。</p>
-<figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># 一级标题</span><br><span class="line">## 二级标题</span><br><span class="line">### 三级标题</span><br><span class="line">#### 四级标题</span><br><span class="line">##### 五级标题</span><br><span class="line">###### 六级标题</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none"># 一级标题
+## 二级标题
+### 三级标题
+#### 四级标题
+##### 五级标题
+###### 六级标题
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h4 id="字体"><a href="#字体" class="headerlink" title="字体"></a>字体</h4><figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">*斜体文本*</span><br><span class="line"><span class="symbol">_</span>斜体文本<span class="symbol">_</span></span><br><span class="line">**粗体文本**</span><br><span class="line"><span class="symbol">__</span>粗体文本<span class="symbol">__</span></span><br><span class="line">***粗斜体文本***</span><br><span class="line">___粗斜体文本___</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h4 id="字体"><a href="#字体" class="headerlink" title="字体"></a>字体</h4><pre class="line-numbers language-none"><code class="language-none">
+*斜体文本*
+_斜体文本_
+**粗体文本**
+__粗体文本__
+***粗斜体文本***
+___粗斜体文本___
+
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>显示效果如下：</p>
 <p><em>斜体文本</em></p>
@@ -548,27 +617,57 @@
 <p><strong>粗体文本</strong></p>
 <p><strong><em>粗斜体文本</em></strong></p>
 <p><strong><em>粗斜体文本</em></strong></p>
-<h4 id="字号及颜色"><a href="#字号及颜色" class="headerlink" title="字号及颜色"></a>字号及颜色</h4><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">font</span> <span class="attr">size</span>=<span class="string">1</span>&gt;</span>大小为1的字体<span class="tag">&lt;/<span class="name">font</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">font</span> <span class="attr">size</span>=<span class="string">6</span>&gt;</span>大小为6的字体<span class="tag">&lt;/<span class="name">font</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">font</span> <span class="attr">color</span>=<span class="string">gray</span> <span class="attr">size</span>=<span class="string">4</span>&gt;</span>gray颜色的字<span class="tag">&lt;/<span class="name">font</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">font</span> <span class="attr">color</span>=<span class="string">green</span> <span class="attr">size</span>=<span class="string">4</span>&gt;</span>green颜色的字<span class="tag">&lt;/<span class="name">font</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">font</span> <span class="attr">color</span>=<span class="string">hotpink</span> <span class="attr">size</span>=<span class="string">4</span>&gt;</span>hotpink颜色的字<span class="tag">&lt;/<span class="name">font</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">font</span> <span class="attr">color</span>=<span class="string">LightCoral</span> <span class="attr">size</span>=<span class="string">4</span>&gt;</span>LightCoral颜色的字<span class="tag">&lt;/<span class="name">font</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">font</span> <span class="attr">color</span>=<span class="string">LightSlateGray</span> <span class="attr">size</span>=<span class="string">4</span>&gt;</span>LightSlateGray颜色的字<span class="tag">&lt;/<span class="name">font</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">font</span> <span class="attr">color</span>=<span class="string">orangered</span> <span class="attr">size</span>=<span class="string">4</span>&gt;</span>orangered颜色的字<span class="tag">&lt;/<span class="name">font</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">font</span> <span class="attr">color</span>=<span class="string">red</span> <span class="attr">size</span>=<span class="string">4</span>&gt;</span>red颜色的字<span class="tag">&lt;/<span class="name">font</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">font</span> <span class="attr">color</span>=<span class="string">springgreen</span> <span class="attr">size</span>=<span class="string">4</span>&gt;</span>springgreen颜色的字<span class="tag">&lt;/<span class="name">font</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">font</span> <span class="attr">color</span>=<span class="string">Turquoise</span> <span class="attr">size</span>=<span class="string">4</span>&gt;</span>Turquoise颜色的字<span class="tag">&lt;/<span class="name">font</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h4 id="字号及颜色"><a href="#字号及颜色" class="headerlink" title="字号及颜色"></a>字号及颜色</h4><pre class="line-numbers language-none"><code class="language-none">&lt;font size&#x3D;1&gt;大小为1的字体&lt;&#x2F;font&gt;
+&lt;font size&#x3D;6&gt;大小为6的字体&lt;&#x2F;font&gt;
+
+&lt;font color&#x3D;gray size&#x3D;4&gt;gray颜色的字&lt;&#x2F;font&gt;
+&lt;font color&#x3D;green size&#x3D;4&gt;green颜色的字&lt;&#x2F;font&gt;
+&lt;font color&#x3D;hotpink size&#x3D;4&gt;hotpink颜色的字&lt;&#x2F;font&gt;
+&lt;font color&#x3D;LightCoral size&#x3D;4&gt;LightCoral颜色的字&lt;&#x2F;font&gt;
+&lt;font color&#x3D;LightSlateGray size&#x3D;4&gt;LightSlateGray颜色的字&lt;&#x2F;font&gt;
+&lt;font color&#x3D;orangered size&#x3D;4&gt;orangered颜色的字&lt;&#x2F;font&gt;
+&lt;font color&#x3D;red size&#x3D;4&gt;red颜色的字&lt;&#x2F;font&gt;
+&lt;font color&#x3D;springgreen size&#x3D;4&gt;springgreen颜色的字&lt;&#x2F;font&gt;
+&lt;font color&#x3D;Turquoise size&#x3D;4&gt;Turquoise颜色的字&lt;&#x2F;font&gt;
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
 <p><font size="1">大小为1的字体</font><br><br><font size="6">大小为6的字体</font><br><br><font color="gray" size="4">gray颜色的字</font><br><br><font color="green" size="4">green颜色的字</font><br><br><font color="hotpink" size="4">hotpink颜色的字</font><br><br><font color="LightCoral" size="4">LightCoral颜色的字</font><br><br><font color="LightSlateGray" size="4">LightSlateGray颜色的字</font><br><br><font color="orangered" size="4">orangered颜色的字</font><br><br><font color="red" size="4">red颜色的字</font><br><br><font color="springgreen" size="4">springgreen颜色的字</font><br><br><font color="Turquoise" size="4">Turquoise颜色的字</font></p>
 <h4 id="分隔线"><a href="#分隔线" class="headerlink" title="分隔线"></a>分隔线</h4><p>有多种方法都可以建立分隔线：3个以上的星号，3个以上的减号，3个以上的下划线，也可以在星号、减号、下划线中间插入空格，这几种方式都可以建立分隔线。</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="strong">**<span class="emphasis">*</span></span></span><br><span class="line"><span class="strong"><span class="emphasis">*</span> <span class="emphasis">* *</span></span></span><br><span class="line"><span class="strong">**</span><span class="strong">****</span></span><br><span class="line"><span class="bullet">-</span> - -</span><br><span class="line"><span class="emphasis">_ _</span> <span class="emphasis">_</span></span><br><span class="line"><span class="emphasis"></span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">
+***
+* * *
+******
+- - -
+_ _ _
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>显示效果如下：</p>
 <hr>
 <hr>
 <hr>
 <hr>
 <hr>
-<h4 id="删除线"><a href="#删除线" class="headerlink" title="删除线"></a>删除线</h4><figure class="highlight haml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">我没有删除线</span><br><span class="line">我也没有删除线</span><br><span class="line">~~我有删除线~~</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h4 id="删除线"><a href="#删除线" class="headerlink" title="删除线"></a>删除线</h4><pre class="line-numbers language-none"><code class="language-none">我没有删除线
+我也没有删除线
+~~我有删除线~~
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p>显示效果如下：</p>
 <p>我没有删除线<br>我也没有删除线<br><del>我有删除线</del></p>
 <h4 id="下划线"><a href="#下划线" class="headerlink" title="下划线"></a>下划线</h4><p>Markdown中并无下划线的原生语法，可以通过HTML的<u>标签来实现。</u></p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">u</span>&gt;</span>我带下划线<span class="tag">&lt;/<span class="name">u</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">&lt;u&gt;我带下划线&lt;&#x2F;u&gt;
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>显示效果如下：</p>
 <p><u>我带下划线</u></p>
 <h4 id="无序列表"><a href="#无序列表" class="headerlink" title="无序列表"></a>无序列表</h4><p>无序列表使用星号，加号或是减号作为标记。</p>
-<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">* 列表项<span class="number">1</span></span><br><span class="line">* 列表项<span class="number">2</span></span><br><span class="line"></span><br><span class="line">+ 列表项<span class="number">1</span></span><br><span class="line">+ 列表项<span class="number">2</span></span><br><span class="line"></span><br><span class="line">- 列表项<span class="number">1</span></span><br><span class="line">- 列表项<span class="number">2</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">* 列表项1
+* 列表项2
+
++ 列表项1
++ 列表项2
+
+- 列表项1
+- 列表项2
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>显示效果如下：</p>
 <ul>
 <li>列表项1</li>
@@ -583,14 +682,22 @@
 <li>列表项2</li>
 </ul>
 <h4 id="有序列表"><a href="#有序列表" class="headerlink" title="有序列表"></a>有序列表</h4><p>有序列表使用数字加上 . 号来表示，注意 . 号和实际内容之间需要加一个空格。</p>
-<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span> 有序列表项<span class="number">1</span></span><br><span class="line"><span class="number">2.</span> 有序列表项<span class="number">2</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">1. 有序列表项1
+2. 有序列表项2
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p>显示效果如下：</p>
 <ol>
 <li>有序列表项1</li>
 <li>有序列表项2</li>
 </ol>
 <h4 id="列表嵌套"><a href="#列表嵌套" class="headerlink" title="列表嵌套"></a>列表嵌套</h4><p>列表嵌套只需要在子列表选项的前面添加 4 个空格即可。</p>
-<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">* 无序列表<span class="number">1</span></span><br><span class="line">    <span class="number">1.</span> 有序列表<span class="number">1.1</span></span><br><span class="line">    <span class="number">2.</span> 有序列表<span class="number">1.2</span></span><br><span class="line">* 无序列表<span class="number">2</span></span><br><span class="line">    - 无序列表<span class="number">2.1</span></span><br><span class="line">    - 无序列表<span class="number">2.2</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">* 无序列表1
+    1. 有序列表1.1
+    2. 有序列表1.2
+* 无序列表2
+    - 无序列表2.1
+    - 无序列表2.2
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <ul>
 <li>无序列表1<ol>
@@ -605,14 +712,20 @@
 </li>
 </ul>
 <h4 id="Markdown区块"><a href="#Markdown区块" class="headerlink" title="Markdown区块"></a>Markdown区块</h4><p>区块使用 &gt; 符号，后面加上一个空格。</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="quote">&gt; 区块</span></span><br><span class="line"><span class="quote">&gt; Markdown</span></span><br><span class="line"><span class="quote">&gt; 用Markdown写文章，爽！</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">&gt; 区块
+&gt; Markdown
+&gt; 用Markdown写文章，爽！
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <p>显示效果如下：</p>
 <blockquote>
 <p> 区块 Markdown 用Markdown写文章，爽！</p>
 </blockquote>
 <p>区块嵌套：每一层嵌套加上 &gt; 符号和空格</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="quote">&gt; 区块</span></span><br><span class="line"><span class="quote">&gt; &gt; 嵌套1</span></span><br><span class="line"><span class="quote">&gt; &gt; &gt; 嵌套2</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">&gt; 区块
+&gt; &gt; 嵌套1
+&gt; &gt; &gt; 嵌套2
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <blockquote>
 <p>区块</p>
@@ -776,14 +889,14 @@
       <i class="fa fa-chart-line"></i>
     </span>
       <span>站点总字数：</span>
-    <span title="站点总字数">85k</span>
+    <span title="站点总字数">86k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">1:17</span>
+    <span title="站点阅读时长">1:18</span>
   </span>
 </div>
 <div class="busuanzi-count">
@@ -812,6 +925,7 @@
     提供CDN加速/云存储服务
 </div>
 
+<script src="/js/prism/prism.js" async></script>
 
     </div>
   </footer>
@@ -1015,6 +1129,26 @@ $(function(){
     };
 
     $('.highlight').each(function () {
+        // 防止重复渲染
+        if (this.__render__ === true) {
+            return true;
+        }
+        this.__render__ = true;
+        const $this = $(this);
+        const height = $(this).outerHeight();
+        if (height > CODE_MAX_HEIGHT) {
+            // 添加展开&收起容器
+            const $container = addCodeWrap($this, height);
+            containers.push({
+                $container,
+                height,
+                $hide: $container.find('.js_retract_code_btn'),
+                hasHorizontalScrollbar: this.scrollWidth > this.offsetWidth,
+            });
+        }
+    });
+
+    $('.line-numbers').each(function () {
         // 防止重复渲染
         if (this.__render__ === true) {
             return true;
@@ -1545,7 +1679,7 @@ layui.use(['jquery', 'layer'], function(){
 
 });
 
-</script>
+</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 </body>
 </html>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 <meta name="generator" content="Hexo 5.1.1">
@@ -21,7 +21,7 @@
 
 <script class="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"blog.xiaosige.com","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"livere","storage":true,"lazyload":true,"nav":null,"activeClass":"livere"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}};
+    var CONFIG = {"hostname":"blog.xiaosige.com","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"livere","storage":true,"lazyload":true,"nav":null,"activeClass":"livere"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}};
   </script>
 
   <meta name="description" content="准备工作  搭建Nginx服务器：  &amp;emsp;&amp;emsp; 参考：Linux安装Nginx--两种方式  搭建Git环境：  &amp;emsp;&amp;emsp; 参考：Linux安装Git-两种方式详细教程">
@@ -58,6 +58,8 @@
 
 <!-- https://www.layuicdn.com/layui/css/layui.css -->
 <script src="https://www.layuicdn.com/layui/layui.js"></script>
+
+<link rel="stylesheet" href="/js/prism/prism.css">
 
 
   <title>Hexo博客实现自动部署阿里云服务器 | 小四儿</title><meta name="robots" content="noindex">
@@ -110,12 +112,12 @@
   .search-pop-overlay, .sidebar-nav { display: none; }
   .sidebar-panel { display: block; }
   </style>
-</noscript>
+</noscript><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
-  <div class="headband"></div>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="headband"></div>
 
   <main class="main">
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -315,6 +317,7 @@
 
 
 
+
       </section>
         <div class="back-to-top animated">
           <i class="fa fa-arrow-up"></i>
@@ -406,7 +409,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>3.5k</span>
+      <span>3.8k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -436,60 +439,121 @@
 <a id="more"></a>    
 
 <h3 id="nginx配置"><a href="#nginx配置" class="headerlink" title="nginx配置"></a>nginx配置</h3><p>&emsp;&emsp;在<code>/etc/nginx/vhosts</code>下，新建<code>blog.conf</code>：</p>
-<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">server&#123;</span><br><span class="line">        listen    <span class="number">80</span>;</span><br><span class="line">        root <span class="regexp">/usr/</span>share<span class="regexp">/nginx/</span>blog;</span><br><span class="line">        server_name aliyun-ip*****;</span><br><span class="line">        index index.html index.htm index.php <span class="keyword">default</span>.html <span class="keyword">default</span>.htm <span class="keyword">default</span>.php;</span><br><span class="line">        location ~ .*\.(ico|gif|jpg|jpeg|png|bmp|swf)$</span><br><span class="line">        &#123;</span><br><span class="line">           access_log   off;</span><br><span class="line">           expires      <span class="number">1</span>d;</span><br><span class="line">        &#125;</span><br><span class="line">        location ~ .*\.(js|css|txt|xml)?$</span><br><span class="line">        &#123;</span><br><span class="line">           access_log   off;</span><br><span class="line">           expires      <span class="number">12</span>h;</span><br><span class="line">        &#125;</span><br><span class="line">        location /&#123;</span><br><span class="line">           try_files $uri $uri/ =<span class="number">404</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        access_log  <span class="regexp">/var/</span>log<span class="regexp">/nginx/</span>blog.access.log combined;</span><br><span class="line">        error_log <span class="regexp">/var/</span>log<span class="regexp">/nginx/</span>blog.error.log warn;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">server&#123;
+        listen    80;
+        root &#x2F;usr&#x2F;share&#x2F;nginx&#x2F;blog;
+        server_name aliyun-ip*****;
+        index index.html index.htm index.php default.html default.htm default.php;
+        location ~ .*\.(ico|gif|jpg|jpeg|png|bmp|swf)$
+        &#123;
+           access_log   off;
+           expires      1d;
+        &#125;
+        location ~ .*\.(js|css|txt|xml)?$
+        &#123;
+           access_log   off;
+           expires      12h;
+        &#125;
+        location &#x2F;&#123;
+           try_files $uri $uri&#x2F; &#x3D;404;
+        &#125;
+        access_log  &#x2F;var&#x2F;log&#x2F;nginx&#x2F;blog.access.log combined;
+        error_log &#x2F;var&#x2F;log&#x2F;nginx&#x2F;blog.error.log warn;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>&emsp;&emsp;<code>chown -R git:gitgroup blog</code></p>
 <h3 id="GIT账户-组"><a href="#GIT账户-组" class="headerlink" title="GIT账户/组"></a>GIT账户/组</h3><p>&emsp;&emsp;接下来我们 创建一个git用户组和用户，用来运行git服务：</p>
-<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">groupadd gitgroup</span><br><span class="line">useradd git -g gitgroup</span><br><span class="line">passwd git</span><br><span class="line">&#x27;&#x27;&#x27;&#x27;&#x27;&#x27;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">groupadd gitgroup
+useradd git -g gitgroup
+passwd git
+&#39;&#39;&#39;&#39;&#39;&#39;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
 
 <h3 id="禁用shell登录"><a href="#禁用shell登录" class="headerlink" title="禁用shell登录"></a>禁用shell登录</h3><p>&emsp;&emsp;为安全考虑，git用户不允许登录shell，从而只能用 git clone，git push 等登录。</p>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cat <span class="regexp">/etc/</span>shells <span class="regexp">//</span> 查看 git-shell 是否在登录方式里面</span><br><span class="line">which git-shell <span class="regexp">//</span> 查看是否安装</span><br><span class="line"></span><br><span class="line">vi <span class="regexp">/etc/</span>shells</span><br><span class="line">添加上<span class="number">2</span>步显示出来的路径，通常在 <span class="regexp">/usr/</span>bin/git-shell</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">cat &#x2F;etc&#x2F;shells &#x2F;&#x2F; 查看 git-shell 是否在登录方式里面
+which git-shell &#x2F;&#x2F; 查看是否安装
+
+vi &#x2F;etc&#x2F;shells
+添加上2步显示出来的路径，通常在 &#x2F;usr&#x2F;bin&#x2F;git-shell<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>&emsp;&emsp;修改<code>/etc/passwd</code>中的权限:</p>
-<figure class="highlight diff"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/passwd</span><br><span class="line"></span><br><span class="line"><span class="deletion">- git:x:500:500::/home/git:/bin/bash</span></span><br><span class="line"><span class="addition">+ git:x:500:500::/home/git:/usr/local/git/bin/git-shell</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-diff" data-language="diff"><code class="language-diff">vi /etc/passwd
+
+<span class="token deleted-sign deleted"><span class="token prefix deleted">-</span><span class="token line"> git:x:500:500::/home/git:/bin/bash
+</span></span><span class="token inserted-sign inserted"><span class="token prefix inserted">+</span><span class="token line"> git:x:500:500::/home/git:/usr/local/git/bin/git-shell</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <p>&emsp;&emsp;这样用户用git账户ssh连接后只能使用git命令了.<br>&emsp;&emsp;<b><code>各种配置配完再禁</code></b></p>
 <h3 id="创建证书登录"><a href="#创建证书登录" class="headerlink" title="创建证书登录"></a>创建证书登录</h3><p>&emsp;&emsp;首先在用户本地主目录下，看看有没有.ssh目录，如果有，再看看这个目录下有没有<code>id_rsa</code>和<code>id_rsa.pub</code>这两个文件，如果已经有了，可直接跳到下一步。如果没有:</p>
-<figure class="highlight excel"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -<span class="built_in">t</span> rsa -C <span class="string">&quot;aliyun_test_git_id_rsa&quot;</span> -f aliyun_test_git_id_rsa</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">ssh-keygen -t rsa -C &quot;aliyun_test_git_id_rsa&quot; -f aliyun_test_git_id_rsa<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>&emsp;&emsp;把本地生成的公钥aliyun_test_git_id_rsa.pub，导入到远程服务器<code>/home/git/.ssh/authorized_keys</code>文件里，一行一个。<br>&emsp;&emsp;远程服务器如果没有该文件创建它：</p>
-<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">su git  <span class="comment"># 这步很重要，不切换用户后面会很麻烦</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">cd</span> <span class="string">/home/git/</span></span><br><span class="line">mkdir <span class="string">.ssh</span></span><br><span class="line">chmod 755 <span class="string">.ssh</span></span><br><span class="line">touch <span class="string">.ssh/authorized_keys</span></span><br><span class="line">chmod 644 <span class="string">.ssh/authorized_keys</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">su git  # 这步很重要，不切换用户后面会很麻烦
+
+cd &#x2F;home&#x2F;git&#x2F;
+mkdir .ssh
+chmod 755 .ssh
+touch .ssh&#x2F;authorized_keys
+chmod 644 .ssh&#x2F;authorized_keys<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>&emsp;&emsp;把本地公钥复制到远程服务器（<code>确保相应的权限</code>）：</p>
-<figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cat aliyun_test_git_id_rsa.pub &gt;&gt; authorized_keys</span><br><span class="line"><span class="meta"># 确保权限</span></span><br><span class="line"><span class="meta"># chmod 700 ~/.ssh -R;</span></span><br><span class="line"><span class="meta"># chmod 600 ~/.ssh/authorized_keys</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">cat aliyun_test_git_id_rsa.pub &gt;&gt; authorized_keys
+# 确保权限
+# chmod 700 ~&#x2F;.ssh -R;
+# chmod 600 ~&#x2F;.ssh&#x2F;authorized_keys<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h3 id="打开-RSA-认证"><a href="#打开-RSA-认证" class="headerlink" title="打开 RSA 认证"></a>打开 RSA 认证</h3><p>&emsp;&emsp;然后就可以去Git服务器上添加你的公钥用来验证你的信息了。在Git服务器上首先需要将<code>/etc/ssh/sshd_config</code>中将RSA认证打开，即：</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">RSAAuthentication</span> <span class="literal">yes</span></span><br><span class="line"><span class="string">PubkeyAuthentication</span> <span class="literal">yes</span></span><br><span class="line"><span class="string">AuthorizedKeysFile</span> <span class="string">.ssh/authorized_keys</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">RSAAuthentication yes
+PubkeyAuthentication yes
+AuthorizedKeysFile .ssh&#x2F;authorized_keys<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p>&emsp;&emsp;保存并重启 sshd 服务：</p>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="regexp">/etc/</span>rc.d<span class="regexp">/init.d/</span>sshd restart</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">&#x2F;etc&#x2F;rc.d&#x2F;init.d&#x2F;sshd restart<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<h3 id="设置用户信息"><a href="#设置用户信息" class="headerlink" title="设置用户信息"></a>设置用户信息</h3><figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">config</span> --<span class="keyword">global</span> user<span class="variable">.name</span> <span class="string">&quot;leeze&quot;</span></span><br><span class="line">git <span class="keyword">config</span> --<span class="keyword">global</span> user<span class="variable">.email</span> <span class="string">&quot;leeze0216@163.com&quot;</span></span><br><span class="line"></span><br><span class="line">git <span class="keyword">config</span> --<span class="keyword">global</span> core<span class="variable">.autocrlf</span> false  <span class="comment">// 禁用自动转换，这个不设置后面上传时会出现警告，如下</span></span><br></pre></td></tr></table></figure>
+<h3 id="设置用户信息"><a href="#设置用户信息" class="headerlink" title="设置用户信息"></a>设置用户信息</h3><pre class="line-numbers language-none"><code class="language-none">git config --global user.name &quot;leeze&quot;
+git config --global user.email &quot;leeze0216@163.com&quot;
+
+git config --global core.autocrlf false  &#x2F;&#x2F; 禁用自动转换，这个不设置后面上传时会出现警告，如下<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <img src="/post/dd42c2af/git-warning.jpg" class title="warning">
 
 <h3 id="初始化Git仓库"><a href="#初始化Git仓库" class="headerlink" title="初始化Git仓库"></a>初始化Git仓库</h3><p>&emsp;&emsp;<code>su git  # 这步很重要，不切换用户后面会很麻烦</code><br>&emsp;&emsp;首先我们选定一个目录作为Git仓库：</p>
-<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd /<span class="built_in">home</span>/git</span><br><span class="line"><span class="built_in">mkdir</span> gitrepos</span><br><span class="line"><span class="meta"># chown git:gitgroup gitrepo/</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">cd &#x2F;home&#x2F;git
+mkdir gitrepos
+# chown git:gitgroup gitrepo&#x2F;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p>&emsp;&emsp;在服务器初始化一个远程 Git 裸仓库 (git init –bare)<br>&emsp;&emsp;裸仓库与 git init 初使化的仓库不太一样，裸仓库其实相当于通过克隆来的仓库里的.git文件夹，整个裸仓库中只有git索引（index），不包含工作目录。要实现 Push to Deploy，首先我们需要一个裸仓库，进入/home/USER/repos/，创建如下：</p>
-<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">cd</span> <span class="string">/home/git/gitrepos</span></span><br><span class="line">git init <span class="params">--bare</span> blog-bare.git <span class="comment"># Git 裸仓库</span></span><br><span class="line"><span class="comment"># chown -R git:gitgroup blog-bare.git</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">cd &#x2F;home&#x2F;git&#x2F;gitrepos
+git init --bare blog-bare.git # Git 裸仓库
+# chown -R git:gitgroup blog-bare.git<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <h3 id="测试git仓库"><a href="#测试git仓库" class="headerlink" title="测试git仓库"></a>测试git仓库</h3><p>&emsp;&emsp;另找空白文件夹，执行：</p>
-<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone git<span class="variable">@server_ip</span><span class="symbol">:/home/git/gitrepos/blog-bare</span>.git</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">git clone git@server_ip:&#x2F;home&#x2F;git&#x2F;gitrepos&#x2F;blog-bare.git<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>&emsp;&emsp;如果能把空仓库拉下来，就说明 git 仓库搭建成功了</p>
 <h3 id="配置-Git-Hook"><a href="#配置-Git-Hook" class="headerlink" title="配置 Git Hook"></a>配置 Git Hook</h3><ol>
 
 <li> post-update</li>
 
 <p>&emsp;&emsp;将目录切换至 <code>/home/USER/repos/xxx-bare.git/hooks</code>，用 <code>cp post-update.sample post-update</code> 复制并重命名文件后 <code>vim post-update</code> 修改，增加执行脚本:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">unset</span> GIT_DIR</span><br><span class="line">DIR_ONE=/usr/share/nginx/blog/  <span class="comment">#此目录为服务器页面展示目录</span></span><br><span class="line"><span class="built_in">cd</span> <span class="variable">$DIR_ONE</span></span><br><span class="line"></span><br><span class="line">git init</span><br><span class="line">git remote add origin /home/git/gitrepos/blog-bare.git</span><br><span class="line">git clean -df</span><br><span class="line">git pull origin master</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">#!&#x2F;bin&#x2F;sh
+
+unset GIT_DIR
+DIR_ONE&#x3D;&#x2F;usr&#x2F;share&#x2F;nginx&#x2F;blog&#x2F;  #此目录为服务器页面展示目录
+cd $DIR_ONE
+
+git init
+git remote add origin &#x2F;home&#x2F;git&#x2F;gitrepos&#x2F;blog-bare.git
+git clean -df
+git pull origin master<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>&emsp;&emsp;<b><code> 注意： 一定要unset GIT_DIR清除变量， 不然会引起remote: fatal: Not a git repository: ‘.’错误。</code></b></p>
 <p>&emsp;&emsp;<code>post-update</code>添加执行权限：</p>
-<figure class="highlight sas"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod +<span class="meta">x</span> post-<span class="meta">update</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">chmod +x post-update<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <li> post-receive</li>
 
 <p>&emsp;&emsp;将目录切换至 <code>/home/USER/repos/xxx-bare.git/hooks</code>，用 <code>cp post-receive.sample post-receive</code> 复制并重命名文件后 <code>vim post-receive</code> 修改，增加执行脚本:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line">git --work-tree=/usr/share/nginx/blog/ --git-dir=/home/git/gitrepos/blog-bare.git checkout -f</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">#!&#x2F;bin&#x2F;sh
+git --work-tree&#x3D;&#x2F;usr&#x2F;share&#x2F;nginx&#x2F;blog&#x2F; --git-dir&#x3D;&#x2F;home&#x2F;git&#x2F;gitrepos&#x2F;blog-bare.git checkout -f<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p>&emsp;&emsp;<code>post-receive</code>添加执行权限：</p>
-<figure class="highlight erlang"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod +x post-<span class="keyword">receive</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">chmod +x post-receive<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 </ol>
 
 <h3 id="本地配置"><a href="#本地配置" class="headerlink" title="本地配置"></a>本地配置</h3><p>&emsp;&emsp;修改Hexo博客根目录下<code>_config.yml</code>文件</p>
-<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">deploy</span>:</span><br><span class="line">- <span class="attribute">type</span>: git</span><br><span class="line">  <span class="attribute">repo</span>: git<span class="variable">@aliyun-ip</span>:/home/git/gitrepos/blog-bare.git</span><br><span class="line">  <span class="attribute">branch</span>: master</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">deploy:
+- type: git
+  repo: git@aliyun-ip:&#x2F;home&#x2F;git&#x2F;gitrepos&#x2F;blog-bare.git
+  branch: master<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>&emsp;&emsp;<code>hexo clean hexo g hexo d</code>后，网站更新了。</p>
 <!-- flag of hidden posts --><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
@@ -605,14 +669,14 @@
       <i class="fa fa-chart-line"></i>
     </span>
       <span>站点总字数：</span>
-    <span title="站点总字数">85k</span>
+    <span title="站点总字数">86k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">1:17</span>
+    <span title="站点阅读时长">1:18</span>
   </span>
 </div>
 <div class="busuanzi-count">
@@ -641,6 +705,7 @@
     提供CDN加速/云存储服务
 </div>
 
+<script src="/js/prism/prism.js" async></script>
 
     </div>
   </footer>
@@ -859,6 +924,26 @@ $(function(){
     };
 
     $('.highlight').each(function () {
+        // 防止重复渲染
+        if (this.__render__ === true) {
+            return true;
+        }
+        this.__render__ = true;
+        const $this = $(this);
+        const height = $(this).outerHeight();
+        if (height > CODE_MAX_HEIGHT) {
+            // 添加展开&收起容器
+            const $container = addCodeWrap($this, height);
+            containers.push({
+                $container,
+                height,
+                $hide: $container.find('.js_retract_code_btn'),
+                hasHorizontalScrollbar: this.scrollWidth > this.offsetWidth,
+            });
+        }
+    });
+
+    $('.line-numbers').each(function () {
         // 防止重复渲染
         if (this.__render__ === true) {
             return true;
@@ -1389,7 +1474,7 @@ layui.use(['jquery', 'layer'], function(){
 
 });
 
-</script>
+</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 </body>
 </html>

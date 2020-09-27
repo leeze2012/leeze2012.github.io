@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 <meta name="generator" content="Hexo 5.1.1">
@@ -21,7 +21,7 @@
 
 <script class="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"blog.xiaosige.com","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"livere","storage":true,"lazyload":true,"nav":null,"activeClass":"livere"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}};
+    var CONFIG = {"hostname":"blog.xiaosige.com","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"livere","storage":true,"lazyload":true,"nav":null,"activeClass":"livere"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}};
   </script>
 
   <meta name="description" content="介绍首先什么是SSH  &amp;emsp;&amp;emsp;Secure Shell (SSH) 是一个允许两台电脑之间通过安全的连接进行数据交换的网络协议。通过加密保证了数据的保密性和完整性。SSH采用公钥加密技术来验证远程主机，以及(必要时)允许远程主机验证用户。">
@@ -57,6 +57,8 @@
 
 <!-- https://www.layuicdn.com/layui/css/layui.css -->
 <script src="https://www.layuicdn.com/layui/layui.js"></script>
+
+<link rel="stylesheet" href="/js/prism/prism.css">
 
 
   <title>ssh-key生成密钥及SSH无密码登录 | 小四儿</title>
@@ -109,12 +111,12 @@
   .search-pop-overlay, .sidebar-nav { display: none; }
   .sidebar-panel { display: block; }
   </style>
-</noscript>
+</noscript><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
-  <div class="headband"></div>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="headband"></div>
 
   <main class="main">
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -314,6 +316,7 @@
 
 
 
+
       </section>
         <div class="back-to-top animated">
           <i class="fa fa-arrow-up"></i>
@@ -452,12 +455,23 @@
 <h3 id="SSH-Key的密钥类型"><a href="#SSH-Key的密钥类型" class="headerlink" title="SSH-Key的密钥类型"></a>SSH-Key的密钥类型</h3>  <div class="note success no-icon"><p>&emsp;&emsp;有<code>RSA</code>和<code>DSA</code>两种认证密钥。</p>
 </div>
 
-<h2 id="SSH-Key生成"><a href="#SSH-Key生成" class="headerlink" title="SSH-Key生成"></a>SSH-Key生成</h2><h3 id="是否已存在SSH-Key"><a href="#是否已存在SSH-Key" class="headerlink" title="是否已存在SSH-Key"></a>是否已存在SSH-Key</h3>  <figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ls</span> -al ~<span class="string">/.ssh</span> <span class="comment"># 用户目录.ssh文件,是否有id_rsa/id_rsa.pub</span></span><br></pre></td></tr></table></figure>
+<h2 id="SSH-Key生成"><a href="#SSH-Key生成" class="headerlink" title="SSH-Key生成"></a>SSH-Key生成</h2><h3 id="是否已存在SSH-Key"><a href="#是否已存在SSH-Key" class="headerlink" title="是否已存在SSH-Key"></a>是否已存在SSH-Key</h3>  <pre class="line-numbers language-none"><code class="language-none">ls -al ~&#x2F;.ssh # 用户目录.ssh文件,是否有id_rsa&#x2F;id_rsa.pub<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
   <div style="height: 10px;"></div>
 
 <p>  &emsp;&emsp; <code>id_rsa</code> （私钥，要保存好，放在本地，私钥可以生产公钥，反之不行。）<br>  &emsp;&emsp; <code>id_rsa.pub</code> (公钥，可以用于发送到其他服务器，或者git上。)</p>
-<h3 id="新生成SSH-key"><a href="#新生成SSH-key" class="headerlink" title="新生成SSH-key"></a>新生成SSH-key</h3>  <figure class="highlight diff"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;leeze0216@163.com&quot;</span><br><span class="line"></span><br><span class="line"><span class="deletion">-b：指定密钥长度；</span></span><br><span class="line"><span class="deletion">-e：读取openssh的私钥或者公钥文件；</span></span><br><span class="line"><span class="deletion">-C：添加注释；</span></span><br><span class="line"><span class="deletion">-f：指定用来保存密钥的文件名；</span></span><br><span class="line"><span class="deletion">-i：读取未加密的ssh-v2兼容的私钥/公钥文件，然后在标准输出设备上显示openssh兼容的私钥/公钥；</span></span><br><span class="line"><span class="deletion">-l：显示公钥文件的指纹数据；</span></span><br><span class="line"><span class="deletion">-N：提供一个新密语；</span></span><br><span class="line"><span class="deletion">-P：提供（旧）密语；</span></span><br><span class="line"><span class="deletion">-q：静默模式；</span></span><br><span class="line"><span class="deletion">-t：指定要创建的密钥类型（如：rsa,dsa)。</span></span><br></pre></td></tr></table></figure>
+<h3 id="新生成SSH-key"><a href="#新生成SSH-key" class="headerlink" title="新生成SSH-key"></a>新生成SSH-key</h3>  <pre class="line-numbers language-none"><code class="language-none">ssh-keygen -t rsa -C &quot;leeze0216@163.com&quot;
+
+-b：指定密钥长度；
+-e：读取openssh的私钥或者公钥文件；
+-C：添加注释；
+-f：指定用来保存密钥的文件名；
+-i：读取未加密的ssh-v2兼容的私钥&#x2F;公钥文件，然后在标准输出设备上显示openssh兼容的私钥&#x2F;公钥；
+-l：显示公钥文件的指纹数据；
+-N：提供一个新密语；
+-P：提供（旧）密语；
+-q：静默模式；
+-t：指定要创建的密钥类型（如：rsa,dsa)。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>  &emsp;&emsp; 键入命令后，会让你输入密码用来保护你的密钥等，总共三次需要输入的，你都直接三次回车就好！！<br>  &emsp;&emsp;【关键是，设置了你自己以后忘了就得重新生成】<br>  &emsp;&emsp;【-C 是给你的密钥设置注释，你不想设置为邮箱，设置成别的也行】</p>
 <p>  &emsp;&emsp; 生成后，当前<code>用户的目录</code>下，生成一个<code>.ssh</code>隐藏目录，目录中会有【<code>id_rsa</code>】和【<code>id_rsa.pub</code>】两个文件，一个是<code>私钥</code>，一个是<code>公钥</code>。你现在就可以复制使用了。</p>
 <h3 id="上传公钥到服务器"><a href="#上传公钥到服务器" class="headerlink" title="上传公钥到服务器"></a>上传公钥到服务器</h3>  <div class="note no-icon"><p>把<code>id_rsa.pub （公钥）</code>内容，写到服务器上的<code>~/.ssh/authorized_keys</code>文件里</p>
@@ -467,17 +481,17 @@
 
   <li>上传方式</li>
 
-<p>  <strong><mark class="label danger">方式一：</mark></strong><br>  &emsp;&emsp; 这里测试用的服务器地址为：<code>10.211.55.61</code>，用户为：<code>root</code><br>  <figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-copy-id -i ~/.ssh/id_rsa.pub <span class="symbol">root@</span><span class="number">10.211</span><span class="number">.55</span><span class="number">.61</span></span><br></pre></td></tr></table></figure></p>
+<p>  <strong><mark class="label danger">方式一：</mark></strong><br>  &emsp;&emsp; 这里测试用的服务器地址为：<code>10.211.55.61</code>，用户为：<code>root</code><br>  <pre class="line-numbers language-none"><code class="language-none">ssh-copy-id -i ~&#x2F;.ssh&#x2F;id_rsa.pub root@10.211.55.61<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></p>
 <p>  <strong><mark class="label danger">方式二：</mark></strong><br>  &emsp;&emsp; 将之前在本地生成的公钥<code>id_rsa.pub</code>,发送到需要<code>无密码登录的服务器</code>，然后将id_rsa.pub的内容追加到服务器的<code>~/.ssh/authorized_keys</code>文件中即可。</p>
-  <figure class="highlight arcade"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cat ~<span class="regexp">/.ssh/i</span>d_rsa.pub &gt;&gt; ~<span class="regexp">/.ssh/</span>authorized_keys</span><br></pre></td></tr></table></figure>
+  <pre class="line-numbers language-none"><code class="language-none">$ cat ~&#x2F;.ssh&#x2F;id_rsa.pub &gt;&gt; ~&#x2F;.ssh&#x2F;authorized_keys<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
   <li>重启SSH服务 </li>
 
-  <figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$<span class="built_in"> service </span>sshd restart</span><br></pre></td></tr></table></figure>
+  <pre class="line-numbers language-none"><code class="language-none">$ service sshd restart<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
   <li> 测试免密登录服务器</li>
 
-  <figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh <span class="symbol">root@</span><span class="number">10.211</span><span class="number">.55</span><span class="number">.61</span></span><br></pre></td></tr></table></figure>
+  <pre class="line-numbers language-none"><code class="language-none">ssh root@10.211.55.61<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
   <li> 设置ssh无密码访问git仓库</li>
 
@@ -490,23 +504,39 @@
 
 <li> 生成 gitee SSH-Key </li>
 
-<figure class="highlight arcade"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-keygen -t rsa -C <span class="string">&#x27;git@gitee.com&#x27;</span> -f ~<span class="regexp">/.ssh/gi</span>tee_id_rsa</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">$ ssh-keygen -t rsa -C &#39;git@gitee.com&#39; -f ~&#x2F;.ssh&#x2F;gitee_id_rsa
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <li> 生成 github SSH-Key </li>
 
-<figure class="highlight arcade"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-keygen -t rsa -C <span class="string">&#x27;git@github.com&#x27;</span> -f ~<span class="regexp">/.ssh/gi</span>thub_id_rsa</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">$ ssh-keygen -t rsa -C &#39;git@github.com&#39; -f ~&#x2F;.ssh&#x2F;github_id_rsa<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <li> 添加配置文件，在 ~/.ssh 目录下新建一个 config 文件 </li>
 
-<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># gitee</span></span><br><span class="line"><span class="attr">Host</span> <span class="string">gitee.com</span></span><br><span class="line"><span class="attr">HostName</span> <span class="string">gitee.com</span></span><br><span class="line"><span class="attr">PreferredAuthentications</span> <span class="string">publickey</span></span><br><span class="line"><span class="attr">IdentityFile</span> <span class="string">~/.ssh/gitee_id_rsa</span></span><br><span class="line"><span class="comment"># github</span></span><br><span class="line"><span class="attr">Host</span> <span class="string">github.com</span></span><br><span class="line"><span class="attr">HostName</span> <span class="string">github.com</span></span><br><span class="line"><span class="attr">PreferredAuthentications</span> <span class="string">publickey</span></span><br><span class="line"><span class="attr">IdentityFile</span> <span class="string">~/.ssh/github_id_rsa</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none"># gitee
+Host gitee.com
+HostName gitee.com
+PreferredAuthentications publickey
+IdentityFile ~&#x2F;.ssh&#x2F;gitee_id_rsa
+# github
+Host github.com
+HostName github.com
+PreferredAuthentications publickey
+IdentityFile ~&#x2F;.ssh&#x2F;github_id_rsa<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <br>
 
-<figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># 配置文件参数</span></span><br><span class="line"><span class="meta"># Host : Host可以看作是一个你要识别的模式，对识别的模式，进行配置对应的的主机名和ssh文件（可以直接填写ip地址）</span></span><br><span class="line"><span class="meta"># HostName : 要登录主机的主机名（建议与Host一致）</span></span><br><span class="line"><span class="meta"># User : 登录名（如gitlab的username）</span></span><br><span class="line"><span class="meta"># IdentityFile : 指明上面User对应的identityFile路径</span></span><br><span class="line"><span class="meta"># Port: 端口号（如果不是默认22号端口则需要指定）</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none"># 配置文件参数
+# Host : Host可以看作是一个你要识别的模式，对识别的模式，进行配置对应的的主机名和ssh文件（可以直接填写ip地址）
+# HostName : 要登录主机的主机名（建议与Host一致）
+# User : 登录名（如gitlab的username）
+# IdentityFile : 指明上面User对应的identityFile路径
+# Port: 端口号（如果不是默认22号端口则需要指定）<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <li> 测试 </li>
 
-<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>ssh -T git<span class="variable">@gitee</span>.com</span><br><span class="line"><span class="variable">$ </span>ssh -T git<span class="variable">@github</span>.com</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">$ ssh -T git@gitee.com
+$ ssh -T git@github.com<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 </ol><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
     </div>
 
@@ -633,14 +663,14 @@
       <i class="fa fa-chart-line"></i>
     </span>
       <span>站点总字数：</span>
-    <span title="站点总字数">85k</span>
+    <span title="站点总字数">86k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">1:17</span>
+    <span title="站点阅读时长">1:18</span>
   </span>
 </div>
 <div class="busuanzi-count">
@@ -669,6 +699,7 @@
     提供CDN加速/云存储服务
 </div>
 
+<script src="/js/prism/prism.js" async></script>
 
     </div>
   </footer>
@@ -887,6 +918,26 @@ $(function(){
     };
 
     $('.highlight').each(function () {
+        // 防止重复渲染
+        if (this.__render__ === true) {
+            return true;
+        }
+        this.__render__ = true;
+        const $this = $(this);
+        const height = $(this).outerHeight();
+        if (height > CODE_MAX_HEIGHT) {
+            // 添加展开&收起容器
+            const $container = addCodeWrap($this, height);
+            containers.push({
+                $container,
+                height,
+                $hide: $container.find('.js_retract_code_btn'),
+                hasHorizontalScrollbar: this.scrollWidth > this.offsetWidth,
+            });
+        }
+    });
+
+    $('.line-numbers').each(function () {
         // 防止重复渲染
         if (this.__render__ === true) {
             return true;
@@ -1417,7 +1468,7 @@ layui.use(['jquery', 'layer'], function(){
 
 });
 
-</script>
+</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 </body>
 </html>

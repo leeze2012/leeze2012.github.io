@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 <meta name="generator" content="Hexo 5.1.1">
@@ -21,7 +21,7 @@
 
 <script class="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"blog.xiaosige.com","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"livere","storage":true,"lazyload":true,"nav":null,"activeClass":"livere"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}};
+    var CONFIG = {"hostname":"blog.xiaosige.com","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"livere","storage":true,"lazyload":true,"nav":null,"activeClass":"livere"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}};
   </script>
 
   <meta name="description" content="&amp;emsp;&amp;emsp;SpringBoot 中可以基于 ControllerAdvice 和 HttpMessageConverter 实现对数据返回的包装。 &amp;emsp;&amp;emsp;实现如下，先来写一个 POJO 来定义一下返回格式：">
@@ -56,6 +56,8 @@
 
 <!-- https://www.layuicdn.com/layui/css/layui.css -->
 <script src="https://www.layuicdn.com/layui/layui.js"></script>
+
+<link rel="stylesheet" href="/js/prism/prism.css">
 
 
   <title>SpringBoot之统一包装响应 | 小四儿</title>
@@ -108,12 +110,12 @@
   .search-pop-overlay, .sidebar-nav { display: none; }
   .sidebar-panel { display: block; }
   </style>
-</noscript>
+</noscript><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
-  <div class="headband"></div>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="headband"></div>
 
   <main class="main">
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -312,6 +314,7 @@
 
 
 
+
       </section>
         <div class="back-to-top animated">
           <i class="fa fa-arrow-up"></i>
@@ -403,7 +406,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>4.9k</span>
+      <span>4.7k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -426,14 +429,97 @@
 <a id="more"></a>
 
 
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> com.example.demo.common.exception.base.ErrorCode;</span><br><span class="line"><span class="keyword">import</span> lombok.AllArgsConstructor;</span><br><span class="line"><span class="keyword">import</span> lombok.Getter;</span><br><span class="line"><span class="keyword">import</span> org.springframework.http.HttpStatus;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Getter</span></span><br><span class="line"><span class="meta">@AllArgsConstructor</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Response</span>&lt;<span class="type">T</span>&gt; </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> int code = HttpStatus.OK.value();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> String msg = <span class="string">&quot;success&quot;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> T <span class="keyword">data</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> Response(T <span class="keyword">data</span>) &#123;</span><br><span class="line">        <span class="keyword">this</span>.<span class="keyword">data</span> = <span class="keyword">data</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> Response(int code, String msg) &#123;</span><br><span class="line">        <span class="keyword">this</span>.code = code;</span><br><span class="line">        <span class="keyword">this</span>.msg = msg;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> Response(int code, T <span class="keyword">data</span>) &#123;</span><br><span class="line">        <span class="keyword">this</span>.code = code;</span><br><span class="line">        <span class="keyword">this</span>.<span class="keyword">data</span> = <span class="keyword">data</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> Response(ErrorCode errorCode) &#123;</span><br><span class="line">        <span class="keyword">this</span>.code = errorCode.getCode();</span><br><span class="line">        <span class="keyword">this</span>.msg = errorCode.getMessage();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> Response(ErrorCode errorCode, T <span class="keyword">data</span>) &#123;</span><br><span class="line">        <span class="keyword">this</span>.code = errorCode.getCode();</span><br><span class="line">        <span class="keyword">this</span>.msg = errorCode.getMessage();</span><br><span class="line">        <span class="keyword">this</span>.<span class="keyword">data</span> = <span class="keyword">data</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">import com.example.demo.common.exception.base.ErrorCode;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import org.springframework.http.HttpStatus;
+
+@Getter
+@AllArgsConstructor
+public class Response&lt;T&gt; &#123;
+
+    private int code &#x3D; HttpStatus.OK.value();
+
+    private String msg &#x3D; &quot;success&quot;;
+
+    private T data;
+
+    public Response(T data) &#123;
+        this.data &#x3D; data;
+    &#125;
+
+    public Response(int code, String msg) &#123;
+        this.code &#x3D; code;
+        this.msg &#x3D; msg;
+    &#125;
+
+    public Response(int code, T data) &#123;
+        this.code &#x3D; code;
+        this.data &#x3D; data;
+    &#125;
+
+    public Response(ErrorCode errorCode) &#123;
+        this.code &#x3D; errorCode.getCode();
+        this.msg &#x3D; errorCode.getMessage();
+    &#125;
+
+    public Response(ErrorCode errorCode, T data) &#123;
+        this.code &#x3D; errorCode.getCode();
+        this.msg &#x3D; errorCode.getMessage();
+        this.data &#x3D; data;
+    &#125;
+&#125;
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <br>
 
 
 <pre><code>这里用到了lombok，lombok的使用介绍不在本文范围内。</code></pre>
 <p>用一个 ResponseBodyAdvice 类的实现包装 Controller 的返回值：<br>以下是我以前的实现方式：</p>
-<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"><span class="meta-keyword">import</span> com.example.demo.common.RequestContextHolder;</span></span><br><span class="line"><span class="meta"><span class="meta-keyword">import</span> com.fasterxml.jackson.databind.ObjectMapper;</span></span><br><span class="line"><span class="meta"><span class="meta-keyword">import</span> org.slf4j.Logger;</span></span><br><span class="line"><span class="meta"><span class="meta-keyword">import</span> org.slf4j.LoggerFactory;</span></span><br><span class="line"><span class="meta"><span class="meta-keyword">import</span> org.springframework.beans.factory.annotation.Autowired;</span></span><br><span class="line"><span class="meta"><span class="meta-keyword">import</span> org.springframework.core.MethodParameter;</span></span><br><span class="line"><span class="meta"><span class="meta-keyword">import</span> org.springframework.core.annotation.Order;</span></span><br><span class="line"><span class="meta"><span class="meta-keyword">import</span> org.springframework.http.MediaType;</span></span><br><span class="line"><span class="meta"><span class="meta-keyword">import</span> org.springframework.http.server.ServerHttpRequest;</span></span><br><span class="line"><span class="meta"><span class="meta-keyword">import</span> org.springframework.http.server.ServerHttpResponse;</span></span><br><span class="line"><span class="meta"><span class="meta-keyword">import</span> org.springframework.web.bind.annotation.ControllerAdvice;</span></span><br><span class="line"><span class="meta"><span class="meta-keyword">import</span> org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;</span></span><br><span class="line"></span><br><span class="line">@ControllerAdvice</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FormatResponseBodyAdvice</span> <span class="keyword">implements</span> <span class="title">ResponseBodyAdvice</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Logger logger = LoggerFactory.getLogger(FormatResponseBodyAdvice.class);</span><br><span class="line"></span><br><span class="line">    @Autowired</span><br><span class="line">    <span class="keyword">private</span> ObjectMapper objectMapper;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    <span class="keyword">public</span> boolean supports(MethodParameter returnType, Class converterType) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    <span class="keyword">public</span> Object beforeBodyWrite(Object body, MethodParameter returnType, MediaType selectedContentType, Class selectedConverterType, ServerHttpRequest request, ServerHttpResponse response) &#123;</span><br><span class="line"></span><br><span class="line">        Object wrapperBody = body;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (!(body <span class="keyword">instanceof</span> Response)) &#123;</span><br><span class="line">                <span class="keyword">if</span> (body <span class="keyword">instanceof</span> String) &#123;</span><br><span class="line">                    wrapperBody = objectMapper.writeValueAsString(<span class="keyword">new</span> Response&lt;&gt;(body));</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    wrapperBody = <span class="keyword">new</span> Response&lt;&gt;(body);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            logger.error(<span class="string">&quot;request uri path: &#123;&#125;, format response body error&quot;</span>, request.getURI().getPath(), e);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> wrapperBody;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">import com.example.demo.common.RequestContextHolder;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.MethodParameter;
+import org.springframework.core.annotation.Order;
+import org.springframework.http.MediaType;
+import org.springframework.http.server.ServerHttpRequest;
+import org.springframework.http.server.ServerHttpResponse;
+import org.springframework.web.bind.annotation.ControllerAdvice;
+import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
+
+@ControllerAdvice
+public class FormatResponseBodyAdvice implements ResponseBodyAdvice &#123;
+    private static Logger logger &#x3D; LoggerFactory.getLogger(FormatResponseBodyAdvice.class);
+
+    @Autowired
+    private ObjectMapper objectMapper;
+
+    @Override
+    public boolean supports(MethodParameter returnType, Class converterType) &#123;
+        return true;
+    &#125;
+
+    @Override
+    public Object beforeBodyWrite(Object body, MethodParameter returnType, MediaType selectedContentType, Class selectedConverterType, ServerHttpRequest request, ServerHttpResponse response) &#123;
+
+        Object wrapperBody &#x3D; body;
+        try &#123;
+            if (!(body instanceof Response)) &#123;
+                if (body instanceof String) &#123;
+                    wrapperBody &#x3D; objectMapper.writeValueAsString(new Response&lt;&gt;(body));
+                &#125; else &#123;
+                    wrapperBody &#x3D; new Response&lt;&gt;(body);
+                &#125;
+            &#125;
+        &#125; catch (Exception e) &#123;
+            logger.error(&quot;request uri path: &#123;&#125;, format response body error&quot;, request.getURI().getPath(), e);
+        &#125;
+        return wrapperBody;
+    &#125;
+
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <div class="note primary no-icon"><p>为什么要对返回类型是 String 时进行特殊处理呢？因为如果直接返回 new Response&lt;&gt;(body) 的话，在使用时返回 String 类型的话，会报类型转换异常，当时也没有理解什么原因导致的，所以最后使用了 jackson 对 Response 又做了一次序列化。</p>
 </div>
 
@@ -441,23 +527,77 @@
 <div class="note primary no-icon"><p>因为在所有的 HttpMessageConverter 实例集合中，StringHttpMessageConverter 要比其它的 Converter 排得靠前一些。我们需要将处理 Object 类型的 HttpMessageConverter 放得靠前一些，这可以在 Configuration 类中完成：</p>
 </div>
 
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">import</span> <span class="selector-tag">org</span><span class="selector-class">.springframework</span><span class="selector-class">.context</span><span class="selector-class">.annotation</span><span class="selector-class">.Configuration</span>;</span><br><span class="line"><span class="selector-tag">import</span> <span class="selector-tag">org</span><span class="selector-class">.springframework</span><span class="selector-class">.http</span><span class="selector-class">.converter</span><span class="selector-class">.HttpMessageConverter</span>;</span><br><span class="line"><span class="selector-tag">import</span> <span class="selector-tag">org</span><span class="selector-class">.springframework</span><span class="selector-class">.http</span><span class="selector-class">.converter</span><span class="selector-class">.json</span><span class="selector-class">.MappingJackson2HttpMessageConverter</span>;</span><br><span class="line"><span class="selector-tag">import</span> <span class="selector-tag">org</span><span class="selector-class">.springframework</span><span class="selector-class">.web</span><span class="selector-class">.servlet</span><span class="selector-class">.config</span><span class="selector-class">.annotation</span><span class="selector-class">.WebMvcConfigurer</span>;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">import</span> <span class="selector-tag">java</span><span class="selector-class">.util</span><span class="selector-class">.List</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@Configuration</span></span><br><span class="line">public class WebConfiguration implements WebMvcConfigurer &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">@Override</span></span><br><span class="line">    public void configureMessageConverters(List&lt;HttpMessageConverter&lt;?&gt;&gt; converters) &#123;</span><br><span class="line">        <span class="selector-tag">converters</span><span class="selector-class">.add</span>(0, <span class="selector-tag">new</span> <span class="selector-tag">MappingJackson2HttpMessageConverter</span>());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">import org.springframework.context.annotation.Configuration;
+import org.springframework.http.converter.HttpMessageConverter;
+import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+
+import java.util.List;
+
+@Configuration
+public class WebConfiguration implements WebMvcConfigurer &#123;
+
+    @Override
+    public void configureMessageConverters(List&lt;HttpMessageConverter&lt;?&gt;&gt; converters) &#123;
+        converters.add(0, new MappingJackson2HttpMessageConverter());
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>然后 FormatResponseBodyAdvice 就可以修改为如下实现：</p>
-<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"><span class="meta-keyword">import</span> org.springframework.core.MethodParameter;</span></span><br><span class="line"><span class="meta"><span class="meta-keyword">import</span> org.springframework.http.MediaType;</span></span><br><span class="line"><span class="meta"><span class="meta-keyword">import</span> org.springframework.http.server.ServerHttpRequest;</span></span><br><span class="line"><span class="meta"><span class="meta-keyword">import</span> org.springframework.http.server.ServerHttpResponse;</span></span><br><span class="line"><span class="meta"><span class="meta-keyword">import</span> org.springframework.http.server.ServletServerHttpRequest;</span></span><br><span class="line"><span class="meta"><span class="meta-keyword">import</span> org.springframework.web.bind.annotation.ControllerAdvice;</span></span><br><span class="line"><span class="meta"><span class="meta-keyword">import</span> org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">@ControllerAdvice</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FormatResponseBodyAdvice</span> <span class="keyword">implements</span> <span class="title">ResponseBodyAdvice</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    <span class="keyword">public</span> boolean supports(MethodParameter returnType, Class converterType) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    <span class="keyword">public</span> Object beforeBodyWrite(Object body, MethodParameter returnType, MediaType selectedContentType,</span><br><span class="line">                                  Class selectedConverterType, ServerHttpRequest request, ServerHttpResponse response) &#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (!(body <span class="keyword">instanceof</span> Response)) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> Response&lt;&gt;(body);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> body;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">import org.springframework.core.MethodParameter;
+import org.springframework.http.MediaType;
+import org.springframework.http.server.ServerHttpRequest;
+import org.springframework.http.server.ServerHttpResponse;
+import org.springframework.http.server.ServletServerHttpRequest;
+import org.springframework.web.bind.annotation.ControllerAdvice;
+import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
+
+
+@ControllerAdvice
+public class FormatResponseBodyAdvice implements ResponseBodyAdvice &#123;
+
+    @Override
+    public boolean supports(MethodParameter returnType, Class converterType) &#123;
+        return true;
+    &#125;
+
+    @Override
+    public Object beforeBodyWrite(Object body, MethodParameter returnType, MediaType selectedContentType,
+                                  Class selectedConverterType, ServerHttpRequest request, ServerHttpResponse response) &#123;
+
+        if (!(body instanceof Response)) &#123;
+            return new Response&lt;&gt;(body);
+        &#125;
+
+        return body;
+
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>比之前的实现方式优雅了很多而且不用再处理 jackson 的异常了。</p>
 <p>写一个 Controller 来尝试一下：</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloController</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@GetMapping(<span class="meta-string">&quot;/hello&quot;</span>)</span></span><br><span class="line">    <span class="keyword">public</span> String hello() &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;hello world!&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">@RestController
+public class HelloController &#123;
+
+    @GetMapping(&quot;&#x2F;hello&quot;)
+    public String hello() &#123;
+        return &quot;hello world!&quot;;
+    &#125;
+
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>请求这个端点得到结果：</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">&quot;code&quot;</span>: <span class="number">200</span>,</span><br><span class="line">    <span class="attr">&quot;msg&quot;</span>: <span class="string">&quot;success&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;data&quot;</span>: <span class="string">&quot;hello world!&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">&#123;
+    &quot;code&quot;: 200,
+    &quot;msg&quot;: &quot;success&quot;,
+    &quot;data&quot;: &quot;hello world!&quot;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>说明我们的配置是成功的，同时可以在相应头中看到：</p>
-<figure class="highlight elm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">content</span>-<span class="keyword">type</span>: application/json;charset=<span class="type">UTF</span>-8</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">content-type: application&#x2F;json;charset&#x3D;UTF-8<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>如果是之前的实现方式，这里的值就是：</p>
-<figure class="highlight elm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">content</span>-<span class="keyword">type</span>: html/text</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">content-type: html&#x2F;text<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>也不太符合 <code>restful</code> 规范.</p>
 <link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
@@ -585,14 +725,14 @@
       <i class="fa fa-chart-line"></i>
     </span>
       <span>站点总字数：</span>
-    <span title="站点总字数">85k</span>
+    <span title="站点总字数">86k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">1:17</span>
+    <span title="站点阅读时长">1:18</span>
   </span>
 </div>
 <div class="busuanzi-count">
@@ -621,6 +761,7 @@
     提供CDN加速/云存储服务
 </div>
 
+<script src="/js/prism/prism.js" async></script>
 
     </div>
   </footer>
@@ -839,6 +980,26 @@ $(function(){
     };
 
     $('.highlight').each(function () {
+        // 防止重复渲染
+        if (this.__render__ === true) {
+            return true;
+        }
+        this.__render__ = true;
+        const $this = $(this);
+        const height = $(this).outerHeight();
+        if (height > CODE_MAX_HEIGHT) {
+            // 添加展开&收起容器
+            const $container = addCodeWrap($this, height);
+            containers.push({
+                $container,
+                height,
+                $hide: $container.find('.js_retract_code_btn'),
+                hasHorizontalScrollbar: this.scrollWidth > this.offsetWidth,
+            });
+        }
+    });
+
+    $('.line-numbers').each(function () {
         // 防止重复渲染
         if (this.__render__ === true) {
             return true;
@@ -1369,7 +1530,7 @@ layui.use(['jquery', 'layer'], function(){
 
 });
 
-</script>
+</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 </body>
 </html>

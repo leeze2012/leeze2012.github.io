@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 <meta name="generator" content="Hexo 5.1.1">
@@ -21,7 +21,7 @@
 
 <script class="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"blog.xiaosige.com","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"livere","storage":true,"lazyload":true,"nav":null,"activeClass":"livere"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}};
+    var CONFIG = {"hostname":"blog.xiaosige.com","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"livere","storage":true,"lazyload":true,"nav":null,"activeClass":"livere"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}};
   </script>
 
   <meta name="description" content="文章加密访问下载 hexo-blog-encrypt，它将会被存储在本地浏览器的localStorage中：">
@@ -56,6 +56,8 @@
 
 <!-- https://www.layuicdn.com/layui/css/layui.css -->
 <script src="https://www.layuicdn.com/layui/layui.js"></script>
+
+<link rel="stylesheet" href="/js/prism/prism.css">
 
 
   <title>Hexo之文章加密访问 | 小四儿</title><meta name="robots" content="noindex">
@@ -108,12 +110,12 @@
   .search-pop-overlay, .sidebar-nav { display: none; }
   .sidebar-panel { display: block; }
   </style>
-</noscript>
+</noscript><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
-  <div class="headband"></div>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="headband"></div>
 
   <main class="main">
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -313,6 +315,7 @@
 
 
 
+
       </section>
         <div class="back-to-top animated">
           <i class="fa fa-arrow-up"></i>
@@ -425,14 +428,40 @@
         <h2 id="文章加密访问"><a href="#文章加密访问" class="headerlink" title="文章加密访问"></a>文章加密访问</h2><p>下载 <code>hexo-blog-encrypt</code>，它将会被存储在本地浏览器的localStorage中：</p>
 <a id="more"></a>
 
-<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm <span class="keyword">install </span>--save hexo-<span class="keyword">blog-encrypt</span></span><br><span class="line"><span class="keyword"></span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">npm install --save hexo-blog-encrypt
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<h5 id="文章信息头，将-password-字段添加到文章信息头："><a href="#文章信息头，将-password-字段添加到文章信息头：" class="headerlink" title="文章信息头，将 password 字段添加到文章信息头："></a>文章信息头，将 <code>password</code> 字段添加到文章信息头：</h5><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">title:</span> <span class="string">Hello</span> <span class="string">World</span></span><br><span class="line"><span class="attr">date:</span> <span class="number">2016-03-30 21:18:02</span></span><br><span class="line"><span class="attr">password:</span> <span class="string">abcd1234xxx</span></span><br><span class="line"><span class="meta">---</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h5 id="文章信息头，将-password-字段添加到文章信息头："><a href="#文章信息头，将-password-字段添加到文章信息头：" class="headerlink" title="文章信息头，将 password 字段添加到文章信息头："></a>文章信息头，将 <code>password</code> 字段添加到文章信息头：</h5><pre class="line-numbers language-none"><code class="language-none">title: Hello World
+date: 2016-03-30 21:18:02
+password: abcd1234xxx
+---
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">title:</span> <span class="string">Hello</span> <span class="string">World</span></span><br><span class="line"><span class="attr">tags:</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">加密文章tag</span></span><br><span class="line"><span class="attr">date:</span> <span class="number">2019-10-26 20:22:58</span></span><br><span class="line"><span class="attr">password:</span> <span class="string">mikemessi</span></span><br><span class="line"><span class="attr">abstract:</span> <span class="string">该文章已加密,</span> <span class="string">请输入密码查看。</span></span><br><span class="line"><span class="attr">message:</span> <span class="string">该文章已加密,</span> <span class="string">请输入密码查看。</span></span><br><span class="line"><span class="attr">wrong_pass_message:</span> <span class="string">密码不正确，请重新输入！</span></span><br><span class="line"><span class="attr">wrong_hash_message:</span> <span class="string">文章不能被校验,</span> <span class="string">不过您还是能看看解密后的内容！</span></span><br><span class="line"><span class="meta">---</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">title: Hello World
+tags:
+- 加密文章tag
+date: 2019-10-26 20:22:58
+password: mikemessi
+abstract: 该文章已加密, 请输入密码查看。
+message: 该文章已加密, 请输入密码查看。
+wrong_pass_message: 密码不正确，请重新输入！
+wrong_hash_message: 文章不能被校验, 不过您还是能看看解密后的内容！
+---
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>再使用<code>hexo clean &amp;&amp; hexo g &amp;&amp; hexo s</code>在本地预览加密的文章。</p>
-<h5 id="或者-修改-config-yml"><a href="#或者-修改-config-yml" class="headerlink" title="或者,修改_config.yml"></a><code>或者</code>,修改<code>_config.yml</code></h5><figure class="highlight handlebars"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="xml"># Security</span></span><br><span class="line"><span class="xml">encrypt: # hexo-blog-encrypt</span></span><br><span class="line"><span class="xml">  abstract: 有东西被加密了, 请输入密码查看.</span></span><br><span class="line"><span class="xml">  message: 您好, 这里需要密码.</span></span><br><span class="line"><span class="xml">  tags:</span></span><br><span class="line"><span class="xml">  - &#123;name: tagName, password: 密码A&#125;</span></span><br><span class="line"><span class="xml">  - &#123;name: tagName, password: 密码B&#125;</span></span><br><span class="line"><span class="xml">  template: <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;hexo-blog-encrypt&quot;</span> <span class="attr">data-wpm</span>=<span class="string">&quot;</span></span></span><span class="template-variable">&#123;&#123;<span class="name">hbeWrongPassMessage</span>&#125;&#125;</span><span class="xml"><span class="tag"><span class="string">&quot;</span> <span class="attr">data-whm</span>=<span class="string">&quot;</span></span></span><span class="template-variable">&#123;&#123;<span class="name">hbeWrongHashMessage</span>&#125;&#125;</span><span class="xml"><span class="tag"><span class="string">&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;hbe-input-container&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;password&quot;</span> <span class="attr">id</span>=<span class="string">&quot;hbePass&quot;</span> <span class="attr">placeholder</span>=<span class="string">&quot;</span></span></span><span class="template-variable">&#123;&#123;<span class="name">hbeMessage</span>&#125;&#125;</span><span class="xml"><span class="tag"><span class="string">&quot;</span> /&gt;</span><span class="tag">&lt;<span class="name">label</span>&gt;</span></span><span class="template-variable">&#123;&#123;<span class="name">hbeMessage</span>&#125;&#125;</span><span class="xml"><span class="tag">&lt;/<span class="name">label</span>&gt;</span><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;bottom-line&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;<span class="name">script</span> <span class="attr">id</span>=<span class="string">&quot;hbeData&quot;</span> <span class="attr">type</span>=<span class="string">&quot;hbeData&quot;</span> <span class="attr">data-hmacdigest</span>=<span class="string">&quot;</span></span></span><span class="template-variable">&#123;&#123;<span class="name">hbeHmacDigest</span>&#125;&#125;</span><span class="xml"><span class="tag"><span class="string">&quot;</span>&gt;</span></span><span class="template-variable">&#123;&#123;<span class="name">hbeEncryptedData</span>&#125;&#125;</span><span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml">  wrong_pass_message: 抱歉, 这个密码看着不太对, 请再试试.</span></span><br><span class="line"><span class="xml">  wrong_hash_message: 抱歉, 这个文章不能被校验, 不过您还是能看看解密后的内容.</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h5 id="或者-修改-config-yml"><a href="#或者-修改-config-yml" class="headerlink" title="或者,修改_config.yml"></a><code>或者</code>,修改<code>_config.yml</code></h5><pre class="line-numbers language-none"><code class="language-none">
+# Security
+encrypt: # hexo-blog-encrypt
+  abstract: 有东西被加密了, 请输入密码查看.
+  message: 您好, 这里需要密码.
+  tags:
+  - &#123;name: tagName, password: 密码A&#125;
+  - &#123;name: tagName, password: 密码B&#125;
+  template: &lt;div id&#x3D;&quot;hexo-blog-encrypt&quot; data-wpm&#x3D;&quot;&#123;&#123;hbeWrongPassMessage&#125;&#125;&quot; data-whm&#x3D;&quot;&#123;&#123;hbeWrongHashMessage&#125;&#125;&quot;&gt;&lt;div class&#x3D;&quot;hbe-input-container&quot;&gt;&lt;input type&#x3D;&quot;password&quot; id&#x3D;&quot;hbePass&quot; placeholder&#x3D;&quot;&#123;&#123;hbeMessage&#125;&#125;&quot; &#x2F;&gt;&lt;label&gt;&#123;&#123;hbeMessage&#125;&#125;&lt;&#x2F;label&gt;&lt;div class&#x3D;&quot;bottom-line&quot;&gt;&lt;&#x2F;div&gt;&lt;&#x2F;div&gt;&lt;script id&#x3D;&quot;hbeData&quot; type&#x3D;&quot;hbeData&quot; data-hmacdigest&#x3D;&quot;&#123;&#123;hbeHmacDigest&#125;&#125;&quot;&gt;&#123;&#123;hbeEncryptedData&#125;&#125;&lt;&#x2F;script&gt;&lt;&#x2F;div&gt;
+  wrong_pass_message: 抱歉, 这个密码看着不太对, 请再试试.
+  wrong_hash_message: 抱歉, 这个文章不能被校验, 不过您还是能看看解密后的内容.
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>注：若文章中采用<code>_config.yml</code>中的全局配置，则文章的tags只能有一个，若有多个tags，则失效。</p>
 <p>注：<code>文章信息头</code> &gt;<code> _config.yml</code> (站点根目录下的) &gt; 默认配置</p>
@@ -549,14 +578,14 @@
       <i class="fa fa-chart-line"></i>
     </span>
       <span>站点总字数：</span>
-    <span title="站点总字数">85k</span>
+    <span title="站点总字数">86k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">1:17</span>
+    <span title="站点阅读时长">1:18</span>
   </span>
 </div>
 <div class="busuanzi-count">
@@ -585,6 +614,7 @@
     提供CDN加速/云存储服务
 </div>
 
+<script src="/js/prism/prism.js" async></script>
 
     </div>
   </footer>
@@ -803,6 +833,26 @@ $(function(){
     };
 
     $('.highlight').each(function () {
+        // 防止重复渲染
+        if (this.__render__ === true) {
+            return true;
+        }
+        this.__render__ = true;
+        const $this = $(this);
+        const height = $(this).outerHeight();
+        if (height > CODE_MAX_HEIGHT) {
+            // 添加展开&收起容器
+            const $container = addCodeWrap($this, height);
+            containers.push({
+                $container,
+                height,
+                $hide: $container.find('.js_retract_code_btn'),
+                hasHorizontalScrollbar: this.scrollWidth > this.offsetWidth,
+            });
+        }
+    });
+
+    $('.line-numbers').each(function () {
         // 防止重复渲染
         if (this.__render__ === true) {
             return true;
@@ -1333,7 +1383,7 @@ layui.use(['jquery', 'layer'], function(){
 
 });
 
-</script>
+</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 </body>
 </html>

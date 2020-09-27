@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 <meta name="generator" content="Hexo 5.1.1">
@@ -21,7 +21,7 @@
 
 <script class="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"blog.xiaosige.com","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"livere","storage":true,"lazyload":true,"nav":null,"activeClass":"livere"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}};
+    var CONFIG = {"hostname":"blog.xiaosige.com","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"livere","storage":true,"lazyload":true,"nav":null,"activeClass":"livere"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}};
   </script>
 
   <meta name="description" content="一、Linux下JDK安装yum安装通过yum安装的默认路径为：&#x2F;usr&#x2F;lib&#x2F;jvm">
@@ -56,6 +56,8 @@
 
 <!-- https://www.layuicdn.com/layui/css/layui.css -->
 <script src="https://www.layuicdn.com/layui/layui.js"></script>
+
+<link rel="stylesheet" href="/js/prism/prism.css">
 
 
   <title>Linux之安装jdk及环境配置 | 小四儿</title>
@@ -108,12 +110,12 @@
   .search-pop-overlay, .sidebar-nav { display: none; }
   .sidebar-panel { display: block; }
   </style>
-</noscript>
+</noscript><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
-  <div class="headband"></div>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="headband"></div>
 
   <main class="main">
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -313,6 +315,7 @@
 
 
 
+
       </section>
         <div class="back-to-top animated">
           <i class="fa fa-arrow-up"></i>
@@ -404,7 +407,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>2k</span>
+      <span>2.4k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -428,69 +431,79 @@
 <ol>
 <li>首先执行以下命令查看可安装的jdk版本</li>
 
-<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">yum -y list <span class="keyword">java*</span></span><br><span class="line"><span class="keyword">or</span></span><br><span class="line"><span class="keyword">yum </span>search <span class="keyword">jdk</span></span><br><span class="line"><span class="keyword"></span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">yum -y list java*
+or
+yum search jdk
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 
 <li>选择自己需要的jdk版本进行安装，比如这里安装1.8，执行以下命令：</li>
-<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">yum</span> install -y java-<span class="number">1</span>.<span class="number">8</span>.<span class="number">0</span>-openjdk-devel.x<span class="number">86</span>_<span class="number">64</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">yum install -y java-1.8.0-openjdk-devel.x86_64
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 等待安装完成即可。
 
 <li>安装完成之后，查看安装的jdk版本，输入以下指令：</li>
-<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">java -<span class="built_in">version</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">java -version
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 此处便可以看到自己安装的jdk版本信息。
 你如果好奇这个自动安装把jdk安装到哪里去了，其实你可以在usr/lib/jvm下找到它们。
 ok，完成！
 
 <li>卸载</li>
 
-<p> 检测是否已经安装JDK<br> <figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rpm -<span class="keyword">qa</span> | <span class="keyword">grep</span> jdk</span><br></pre></td></tr></table></figure></p>
+<p> 检测是否已经安装JDK<br> <pre class="line-numbers language-none"><code class="language-none">rpm -qa | grep jdk<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></p>
 <p> 卸载系统自带jdk</p>
 <p> 删除系统自带JDK的命令，两种方法都可以：</p>
- <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">rpm</span> <span class="selector-tag">-e</span> –<span class="selector-tag">nodeps</span> <span class="selector-tag">java-1</span><span class="selector-class">.6</span><span class="selector-class">.0-openjdk-1</span><span class="selector-class">.6</span><span class="selector-class">.0</span><span class="selector-class">.0-1</span><span class="selector-class">.41</span><span class="selector-class">.1</span><span class="selector-class">.10</span><span class="selector-class">.4</span><span class="selector-class">.e16</span><span class="selector-class">.x86_64</span></span><br><span class="line"><span class="selector-tag">OR</span></span><br><span class="line"><span class="selector-tag">yum</span> <span class="selector-tag">-y</span> <span class="selector-tag">remove</span>  <span class="selector-tag">java-1</span><span class="selector-class">.6</span><span class="selector-class">.0-openjdk-1</span><span class="selector-class">.6</span><span class="selector-class">.0</span><span class="selector-class">.0-1</span><span class="selector-class">.41</span><span class="selector-class">.1</span><span class="selector-class">.10</span><span class="selector-class">.4</span><span class="selector-class">.el6</span><span class="selector-class">.x86_64</span></span><br></pre></td></tr></table></figure>
+ <pre class="line-numbers language-none"><code class="language-none">rpm -e –nodeps java-1.6.0-openjdk-1.6.0.0-1.41.1.10.4.e16.x86_64
+OR
+yum -y remove  java-1.6.0-openjdk-1.6.0.0-1.41.1.10.4.el6.x86_64<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <p> 继续用第一步的命令检测，或者用：</p>
- <figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rpm -<span class="keyword">qa</span> | <span class="keyword">grep</span> gcj</span><br></pre></td></tr></table></figure>
+ <pre class="line-numbers language-none"><code class="language-none">rpm -qa | grep gcj<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p> 然后再用上面删除的方法把libgcj和java-gcj的文件删掉.</p>
 </ol>
 
 <h5 id="rpm安装"><a href="#rpm安装" class="headerlink" title="rpm安装"></a>rpm安装</h5><ol>
 <li>获取文件权限</li>
 
-<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">chmod</span> -R <span class="number">777</span>    /storage/sdc-data/software/jdk-<span class="number">8</span>u<span class="number">65</span>-linux-x<span class="number">64</span>.rpm</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">chmod -R 777    &#x2F;storage&#x2F;sdc-data&#x2F;software&#x2F;jdk-8u65-linux-x64.rpm<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <li>安装JDK</li>
 
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rpm -ivh  <span class="regexp">/storage/</span>sdc-data<span class="regexp">/software/</span>jdk-<span class="number">8</span>u65-linux-x64.rpm</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">rpm -ivh  &#x2F;storage&#x2F;sdc-data&#x2F;software&#x2F;jdk-8u65-linux-x64.rpm<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>该命令默认将jdk安装到了/usr/java目录下。</p>
 <li>移动安装目录</li>
 
 <p> 将jdk安装目录，重命名并且移动到目录/usr/local/下。并查看是否移动成功。</p>
- <figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">mv</span> /usr/java/jdk<span class="number">1</span>.<span class="number">8</span>.<span class="number">0</span>_<span class="number">45</span> /usr/local/jdk<span class="number">1</span>.<span class="number">8</span></span><br></pre></td></tr></table></figure>
+ <pre class="line-numbers language-none"><code class="language-none">mv &#x2F;usr&#x2F;java&#x2F;jdk1.8.0_45 &#x2F;usr&#x2F;local&#x2F;jdk1.8<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
  <li>rpm包的卸载</li>
 
-<p>   输入命令查看rpm包安装信息，如果第一条未出现信息，可以使用第二条命令查看，如果都没  有可能是未安装或者是tar包安装的<br>  <figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rpm -<span class="keyword">qa</span> | <span class="keyword">grep</span> jdk</span><br></pre></td></tr></table></figure><br>  我用上述rpm包安装之后，用命令查看，提示如下：<br>  <figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[<span class="symbol">root@</span>master100 local]# rpm -qa | grep jdk</span><br><span class="line">jdk1<span class="number">.8</span><span class="number">-1.8</span><span class="number">.0</span>_181-fcs.x86_64</span><br></pre></td></tr></table></figure><br>  知道安装的rpm包名后就可以卸载了，卸载命令如下：<br>  <figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">rpm</span> -e --nodeps jdk<span class="number">1</span>.<span class="number">8</span>-<span class="number">1</span>.<span class="number">8</span>.<span class="number">0</span>_<span class="number">181</span>-fcs.x<span class="number">86</span>_<span class="number">64</span></span><br></pre></td></tr></table></figure><br>  卸载完成后删除环境变量<br>  <figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/profile</span><br><span class="line">source /etc/profile</span><br></pre></td></tr></table></figure><br> </p></ol><p></p>
+<p>   输入命令查看rpm包安装信息，如果第一条未出现信息，可以使用第二条命令查看，如果都没  有可能是未安装或者是tar包安装的<br>  <pre class="line-numbers language-none"><code class="language-none">rpm -qa | grep jdk<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><br>  我用上述rpm包安装之后，用命令查看，提示如下：<br>  <pre class="line-numbers language-none"><code class="language-none">[root@master100 local]# rpm -qa | grep jdk
+jdk1.8-1.8.0_181-fcs.x86_64<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><br>  知道安装的rpm包名后就可以卸载了，卸载命令如下：<br>  <pre class="line-numbers language-none"><code class="language-none">rpm -e --nodeps jdk1.8-1.8.0_181-fcs.x86_64<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><br>  卸载完成后删除环境变量<br>  <pre class="line-numbers language-none"><code class="language-none">vi &#x2F;etc&#x2F;profile
+source &#x2F;etc&#x2F;profile<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><br> </p></ol><p></p>
 <h5 id="tar包安装"><a href="#tar包安装" class="headerlink" title="tar包安装"></a>tar包安装</h5> <ol>
 
  <li>下载 jdk-8u231-linux-x64.tar.gz</li>
 
- <figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">wget</span> https://download.oracle.com/otn/java/jdk/<span class="number">8</span>u<span class="number">231</span>-b<span class="number">11</span>/<span class="number">5</span>b<span class="number">13</span>a<span class="number">193868</span>b<span class="number">4</span>bf<span class="number">28</span>bcb<span class="number">45</span>c<span class="number">792</span>fce<span class="number">896</span>/jdk-<span class="number">8</span>u<span class="number">231</span>-linux-x<span class="number">64</span>.tar.gz</span><br></pre></td></tr></table></figure>
+ <pre class="line-numbers language-none"><code class="language-none">wget https:&#x2F;&#x2F;download.oracle.com&#x2F;otn&#x2F;java&#x2F;jdk&#x2F;8u231-b11&#x2F;5b13a193868b4bf28bcb45c792fce896&#x2F;jdk-8u231-linux-x64.tar.gz<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
  <li>解压文件，命令如下，输入后会出现一长串的提示：</li>
 
- <figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">tar</span> -zxvf /usr/local/jdk-<span class="number">8</span>u<span class="number">231</span>-linux-x<span class="number">64</span>.tar.gz</span><br></pre></td></tr></table></figure>
+ <pre class="line-numbers language-none"><code class="language-none">tar -zxvf &#x2F;usr&#x2F;local&#x2F;jdk-8u231-linux-x64.tar.gz<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
  <li>解压后文件夹名为：jdk1.8.0_231</li>
 
 <p> 在这里修改一下文件名，将jdk1.8.0_231改成java，方便我们后面配置环境变量，在这也可以不修改，在配置环境变量时要注意文件名不能写错，修改文件名命令如下：</p>
- <figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">mv <span class="regexp">/usr/</span>local<span class="regexp">/jdk1.8.0_231 /u</span>sr<span class="regexp">/local/</span>java</span><br></pre></td></tr></table></figure>
+ <pre class="line-numbers language-none"><code class="language-none">
+mv &#x2F;usr&#x2F;local&#x2F;jdk1.8.0_231 &#x2F;usr&#x2F;local&#x2F;java<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
  <li>tar包的卸载</li>
 
 <p> 将安装包删除，然后把配置文件内添加的环境变量删除</p>
 <p> 删除安装包的命令如下：</p>
- <figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm -rf <span class="regexp">/usr/</span>local/java</span><br></pre></td></tr></table></figure>
+ <pre class="line-numbers language-none"><code class="language-none">rm -rf &#x2F;usr&#x2F;local&#x2F;java<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p> 修改配置文件的方法和上述配置环境变量一样</p>
  </ol>
 
@@ -498,24 +511,30 @@ ok，完成！
 
   <li>用vi命令 打开文件,打开后默认是命令模式,输入a或i可进入编辑模式</li>
 
-  <figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi <span class="regexp">/etc/</span>profile</span><br></pre></td></tr></table></figure>
+  <pre class="line-numbers language-none"><code class="language-none">vi &#x2F;etc&#x2F;profile<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
   <li>在文件最后配置如下变量,编辑完成按ESC键退出编辑,然后输入:wq或者:x保存退出.</li>
 
-  <figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">set java environment</span><br><span class="line">JAVA_HOME=<span class="regexp">/usr/</span>local<span class="regexp">/java/</span>jdk1.<span class="number">8.0</span>_231        </span><br><span class="line">JRE_HOME=<span class="regexp">/usr/</span>local<span class="regexp">/java/</span>jdk1.<span class="number">8.0</span>_231/jre     </span><br><span class="line">CLASS_PATH=.:<span class="variable">$JAVA_HOME</span><span class="regexp">/lib/</span>dt.jar:<span class="variable">$JAVA_HOME</span><span class="regexp">/lib/</span>tools.jar:<span class="variable">$JRE_HOME</span>/lib</span><br><span class="line">PATH=<span class="variable">$PATH</span>:<span class="variable">$JAVA_HOME</span><span class="regexp">/bin:$JRE_HOME/</span>bin</span><br><span class="line">export JAVA_HOME JRE_HOME CLASS_PATH PATH</span><br></pre></td></tr></table></figure>
+  <pre class="line-numbers language-none"><code class="language-none">set java environment
+JAVA_HOME&#x3D;&#x2F;usr&#x2F;local&#x2F;java&#x2F;jdk1.8.0_231        
+JRE_HOME&#x3D;&#x2F;usr&#x2F;local&#x2F;java&#x2F;jdk1.8.0_231&#x2F;jre     
+CLASS_PATH&#x3D;.:$JAVA_HOME&#x2F;lib&#x2F;dt.jar:$JAVA_HOME&#x2F;lib&#x2F;tools.jar:$JRE_HOME&#x2F;lib
+PATH&#x3D;$PATH:$JAVA_HOME&#x2F;bin:$JRE_HOME&#x2F;bin
+export JAVA_HOME JRE_HOME CLASS_PATH PATH<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
   <li>然后输入source /etc/profile命令，使配置文件生效。</li>
 
-   <figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">source /etc/profile</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+   <pre class="line-numbers language-none"><code class="language-none">source &#x2F;etc&#x2F;profile
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
    <li>建立软连接</li>
 
 <p>   <code>tar形式</code></p>
-   <figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ln -s <span class="regexp">/usr/</span>local<span class="regexp">/java/</span>jdk1.<span class="number">8.0</span>_231<span class="regexp">/bin/</span>java <span class="regexp">/usr/</span>bin/java</span><br></pre></td></tr></table></figure>
+   <pre class="line-numbers language-none"><code class="language-none">ln -s &#x2F;usr&#x2F;local&#x2F;java&#x2F;jdk1.8.0_231&#x2F;bin&#x2F;java &#x2F;usr&#x2F;bin&#x2F;java<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
   <li>检测配置是否成功</li>
 
-   <figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -<span class="built_in">version</span></span><br></pre></td></tr></table></figure>
+   <pre class="line-numbers language-none"><code class="language-none">java -version<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
   </ol>
 
@@ -645,14 +664,14 @@ ok，完成！
       <i class="fa fa-chart-line"></i>
     </span>
       <span>站点总字数：</span>
-    <span title="站点总字数">85k</span>
+    <span title="站点总字数">86k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">1:17</span>
+    <span title="站点阅读时长">1:18</span>
   </span>
 </div>
 <div class="busuanzi-count">
@@ -681,6 +700,7 @@ ok，完成！
     提供CDN加速/云存储服务
 </div>
 
+<script src="/js/prism/prism.js" async></script>
 
     </div>
   </footer>
@@ -899,6 +919,26 @@ $(function(){
     };
 
     $('.highlight').each(function () {
+        // 防止重复渲染
+        if (this.__render__ === true) {
+            return true;
+        }
+        this.__render__ = true;
+        const $this = $(this);
+        const height = $(this).outerHeight();
+        if (height > CODE_MAX_HEIGHT) {
+            // 添加展开&收起容器
+            const $container = addCodeWrap($this, height);
+            containers.push({
+                $container,
+                height,
+                $hide: $container.find('.js_retract_code_btn'),
+                hasHorizontalScrollbar: this.scrollWidth > this.offsetWidth,
+            });
+        }
+    });
+
+    $('.line-numbers').each(function () {
         // 防止重复渲染
         if (this.__render__ === true) {
             return true;
@@ -1429,7 +1469,7 @@ layui.use(['jquery', 'layer'], function(){
 
 });
 
-</script>
+</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 </body>
 </html>

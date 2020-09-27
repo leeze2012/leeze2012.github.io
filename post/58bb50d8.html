@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 <meta name="generator" content="Hexo 5.1.1">
@@ -21,7 +21,7 @@
 
 <script class="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"blog.xiaosige.com","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"livere","storage":true,"lazyload":true,"nav":null,"activeClass":"livere"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}};
+    var CONFIG = {"hostname":"blog.xiaosige.com","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"livere","storage":true,"lazyload":true,"nav":null,"activeClass":"livere"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}};
   </script>
 
   <meta name="description" content="&amp;emsp;&amp;emsp;由于 next 主题经常更新，自己又在本地大量修改主题，更新中会有很多问题，经过很多次折腾及网络上其他朋友的教程，我找到了不错的处理方法。">
@@ -56,6 +56,8 @@
 
 <!-- https://www.layuicdn.com/layui/css/layui.css -->
 <script src="https://www.layuicdn.com/layui/layui.js"></script>
+
+<link rel="stylesheet" href="/js/prism/prism.css">
 
 
   <title>hexo之主题更新问题处理 | 小四儿</title><meta name="robots" content="noindex">
@@ -108,12 +110,12 @@
   .search-pop-overlay, .sidebar-nav { display: none; }
   .sidebar-panel { display: block; }
   </style>
-</noscript>
+</noscript><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
-  <div class="headband"></div>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="headband"></div>
 
   <main class="main">
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -313,6 +315,7 @@
 
 
 
+
       </section>
         <div class="back-to-top animated">
           <i class="fa fa-arrow-up"></i>
@@ -404,7 +407,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>634</span>
+      <span>628</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -425,24 +428,28 @@
         <p>&emsp;&emsp;由于 next 主题经常更新，自己又在本地大量修改主题，更新中会有很多问题，经过很多次折腾及网络上其他朋友的教程，我找到了不错的处理方法。</p>
 <a id="more"></a>
 
-<h3 id="进入主题目录并更新"><a href="#进入主题目录并更新" class="headerlink" title="进入主题目录并更新"></a>进入主题目录并更新</h3><figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">cd</span> <span class="string">themes/next</span></span><br><span class="line"><span class="attr">git</span> <span class="string">pull</span></span><br></pre></td></tr></table></figure>
+<h3 id="进入主题目录并更新"><a href="#进入主题目录并更新" class="headerlink" title="进入主题目录并更新"></a>进入主题目录并更新</h3><pre class="line-numbers language-none"><code class="language-none">cd themes&#x2F;next
+git pull<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p>&emsp;&emsp;因为修改了很多的配置项目，所以更新<code>失败</code>了</p>
 <h4 id="一，解决更新"><a href="#一，解决更新" class="headerlink" title="一，解决更新"></a>一，解决更新</h4><h5 id="1，将修改储藏到暂存区"><a href="#1，将修改储藏到暂存区" class="headerlink" title="1，将修改储藏到暂存区"></a>1，将修改储藏到暂存区</h5><p>&emsp;&emsp;我们可以通过 <code>git stash</code> 这句命令将对主题文件的修改储存到本地的暂存区：</p>
-<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">git stash</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">git stash<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <h5 id="2，执行更新"><a href="#2，执行更新" class="headerlink" title="2，执行更新"></a>2，执行更新</h5><p>&emsp;&emsp;我们现在需要再次使用 git pull 命令来获取最新的主题文件，别担心，这次不会再有上面的错误了</p>
-<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">git pull</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">git pull<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <h5 id="3，从暂存区取出修改"><a href="#3，从暂存区取出修改" class="headerlink" title="3，从暂存区取出修改"></a>3，从暂存区取出修改</h5><p>&emsp;&emsp;我们现在要通过执行 git stash pop 这句命令来从暂存区取出修改。</p>
-<figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git stash <span class="keyword">pop</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">git stash pop<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <h4 id="二，报错"><a href="#二，报错" class="headerlink" title="二，报错"></a>二，报错</h4><p>&emsp;&emsp;如果报错如下内容需要进入提示的文件修改</p>
-<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git stash pop</span><br><span class="line">Auto-merging _config.yml</span><br><span class="line"><span class="keyword">CONFLICT</span> (content): Merge <span class="keyword">conflict</span> <span class="keyword">in</span> _config.yml</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">$ git stash pop
+Auto-merging _config.yml
+CONFLICT (content): Merge conflict in _config.yml<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <h5 id="1，进入文件"><a href="#1，进入文件" class="headerlink" title="1，进入文件"></a>1，进入文件</h5><p>&emsp;&emsp;可以看到文中 &lt;&lt;&lt;&lt;&lt;&gt;&gt;&gt;&gt;&gt;b8e436 中间是你自己的分支，删掉一个就可以了</p>
-<h5 id="2，提交记录"><a href="#2，提交记录" class="headerlink" title="2，提交记录"></a>2，提交记录</h5><figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">add</span><span class="bash"> _config.yml</span></span><br><span class="line">git commit -m <span class="string">&quot;冲突处理&quot;</span></span><br></pre></td></tr></table></figure>
+<h5 id="2，提交记录"><a href="#2，提交记录" class="headerlink" title="2，提交记录"></a>2，提交记录</h5><pre class="line-numbers language-none"><code class="language-none">git add _config.yml
+git commit -m &quot;冲突处理&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
-<h5 id="3，在更新"><a href="#3，在更新" class="headerlink" title="3，在更新"></a>3，在更新</h5><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">git pull</span></span><br></pre></td></tr></table></figure>
+<h5 id="3，在更新"><a href="#3，在更新" class="headerlink" title="3，在更新"></a>3，在更新</h5><pre class="line-numbers language-none"><code class="language-none">git pull<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <blockquote class="blockquote-center">
 <p>主题升级成功。</p>
 
@@ -559,14 +566,14 @@
       <i class="fa fa-chart-line"></i>
     </span>
       <span>站点总字数：</span>
-    <span title="站点总字数">85k</span>
+    <span title="站点总字数">86k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">1:17</span>
+    <span title="站点阅读时长">1:18</span>
   </span>
 </div>
 <div class="busuanzi-count">
@@ -595,6 +602,7 @@
     提供CDN加速/云存储服务
 </div>
 
+<script src="/js/prism/prism.js" async></script>
 
     </div>
   </footer>
@@ -813,6 +821,26 @@ $(function(){
     };
 
     $('.highlight').each(function () {
+        // 防止重复渲染
+        if (this.__render__ === true) {
+            return true;
+        }
+        this.__render__ = true;
+        const $this = $(this);
+        const height = $(this).outerHeight();
+        if (height > CODE_MAX_HEIGHT) {
+            // 添加展开&收起容器
+            const $container = addCodeWrap($this, height);
+            containers.push({
+                $container,
+                height,
+                $hide: $container.find('.js_retract_code_btn'),
+                hasHorizontalScrollbar: this.scrollWidth > this.offsetWidth,
+            });
+        }
+    });
+
+    $('.line-numbers').each(function () {
         // 防止重复渲染
         if (this.__render__ === true) {
             return true;
@@ -1343,7 +1371,7 @@ layui.use(['jquery', 'layer'], function(){
 
 });
 
-</script>
+</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 </body>
 </html>

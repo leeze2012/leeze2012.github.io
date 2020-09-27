@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 <meta name="generator" content="Hexo 5.1.1">
@@ -21,15 +21,15 @@
 
 <script class="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"blog.xiaosige.com","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"livere","storage":true,"lazyload":true,"nav":null,"activeClass":"livere"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}};
+    var CONFIG = {"hostname":"blog.xiaosige.com","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"livere","storage":true,"lazyload":true,"nav":null,"activeClass":"livere"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}};
   </script>
 
-  <meta name="description" content="一、Linux下MySQL安装(YUM)1、检查并删除已经安装的MySql 检查MariaDB  1234shell&gt; rpm -qa|grep mariadbmariadb-server-5.5.60-1.el7_5.x86_64mariadb-5.5.60-1.el7_5.x86_64mariadb-libs-5.5.60-1.el7_5.x86_64">
+  <meta name="description" content="一、Linux下MySQL安装(YUM)1、检查并删除已经安装的MySql 检查MariaDB  shell&gt; rpm -qa|grep mariadb mariadb-server-5.5.60-1.el7_5.x86_64 mariadb-5.5.60-1.el7_5.x86_64 mariadb-libs-5.5.60-1.el7_5.x86_64">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CentOS 6 安装 MySQL 8.0.+">
 <meta property="og:url" content="https://blog.xiaosige.com/post/577cb4e8.html">
 <meta property="og:site_name" content="小四儿">
-<meta property="og:description" content="一、Linux下MySQL安装(YUM)1、检查并删除已经安装的MySql 检查MariaDB  1234shell&gt; rpm -qa|grep mariadbmariadb-server-5.5.60-1.el7_5.x86_64mariadb-5.5.60-1.el7_5.x86_64mariadb-libs-5.5.60-1.el7_5.x86_64">
+<meta property="og:description" content="一、Linux下MySQL安装(YUM)1、检查并删除已经安装的MySql 检查MariaDB  shell&gt; rpm -qa|grep mariadb mariadb-server-5.5.60-1.el7_5.x86_64 mariadb-5.5.60-1.el7_5.x86_64 mariadb-libs-5.5.60-1.el7_5.x86_64">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-02-14T21:28:30.000Z">
 <meta property="article:modified_time" content="2020-09-24T14:56:19.973Z">
@@ -57,6 +57,8 @@
 
 <!-- https://www.layuicdn.com/layui/css/layui.css -->
 <script src="https://www.layuicdn.com/layui/layui.js"></script>
+
+<link rel="stylesheet" href="/js/prism/prism.css">
 
 
   <title>CentOS 6 安装 MySQL 8.0.+ | 小四儿</title>
@@ -109,12 +111,12 @@
   .search-pop-overlay, .sidebar-nav { display: none; }
   .sidebar-panel { display: block; }
   </style>
-</noscript>
+</noscript><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
-  <div class="headband"></div>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="headband"></div>
 
   <main class="main">
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -314,6 +316,7 @@
 
 
 
+
       </section>
         <div class="back-to-top animated">
           <i class="fa fa-arrow-up"></i>
@@ -405,7 +408,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>4.2k</span>
+      <span>4k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -426,30 +429,35 @@
         <h3 id="一、Linux下MySQL安装-YUM"><a href="#一、Linux下MySQL安装-YUM" class="headerlink" title="一、Linux下MySQL安装(YUM)"></a>一、Linux下MySQL安装(YUM)</h3><h4 id="1、检查并删除已经安装的MySql"><a href="#1、检查并删除已经安装的MySql" class="headerlink" title="1、检查并删除已经安装的MySql"></a>1、检查并删除已经安装的MySql</h4><ul>
 <li>检查MariaDB</li>
 </ul>
-<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">shell</span>&gt; rpm -qa|grep mariadb</span><br><span class="line"><span class="attribute">mariadb</span>-server-<span class="number">5</span>.<span class="number">5</span>.<span class="number">60</span>-<span class="number">1</span>.el<span class="number">7</span>_<span class="number">5</span>.x<span class="number">86</span>_<span class="number">64</span></span><br><span class="line"><span class="attribute">mariadb</span>-<span class="number">5</span>.<span class="number">5</span>.<span class="number">60</span>-<span class="number">1</span>.el<span class="number">7</span>_<span class="number">5</span>.x<span class="number">86</span>_<span class="number">64</span></span><br><span class="line"><span class="attribute">mariadb</span>-libs-<span class="number">5</span>.<span class="number">5</span>.<span class="number">60</span>-<span class="number">1</span>.el<span class="number">7</span>_<span class="number">5</span>.x<span class="number">86</span>_<span class="number">64</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">shell&gt; rpm -qa|grep mariadb
+mariadb-server-5.5.60-1.el7_5.x86_64
+mariadb-5.5.60-1.el7_5.x86_64
+mariadb-libs-5.5.60-1.el7_5.x86_64<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p><escape><a id="more"></a></escape></p>
 <ul>
 <li>删除mariadb</li>
 </ul>
 <p>&emsp;&emsp;如果不存在（上面检查结果返回空）则跳过步骤</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">shell&gt; rpm -e --nodeps mariadb-server</span><br><span class="line">shell&gt; rpm -e --nodeps mariadb</span><br><span class="line">shell&gt; rpm -e --nodeps mariadb-libs</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">shell<span class="token operator">></span> <span class="token function">rpm</span> -e --nodeps mariadb-server
+shell<span class="token operator">></span> <span class="token function">rpm</span> -e --nodeps mariadb
+shell<span class="token operator">></span> <span class="token function">rpm</span> -e --nodeps mariadb-libs<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 
 <p>&emsp;&emsp;其实yum方式安装是可以不用删除mariadb的，安装MySQL会覆盖掉之前已存在的mariadb</p>
 <ul>
 <li>检查MySQL</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">shell&gt; rpm -qa|grep mysql</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">shell<span class="token operator">></span> <span class="token function">rpm</span> -qa<span class="token operator">|</span><span class="token function">grep</span> mysql<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <ul>
 <li>删除MySQL</li>
 </ul>
 <p>&emsp;&emsp;如果不存在（上面检查结果返回空）则跳过步骤</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">shell&gt; rpm -e --nodeps xxx</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">shell<span class="token operator">></span> <span class="token function">rpm</span> -e --nodeps xxx<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>&emsp;&emsp; 或</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rpm -e --nodeps `rpm -qa | grep mysql`</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">rpm</span> -e --nodeps <span class="token variable"><span class="token variable">`</span><span class="token function">rpm</span> -qa <span class="token operator">|</span> <span class="token function">grep</span> mysql<span class="token variable">`</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <h4 id="2、添加MySQL-Yum-Repository"><a href="#2、添加MySQL-Yum-Repository" class="headerlink" title="2、添加MySQL Yum Repository"></a>2、添加MySQL Yum Repository</h4><blockquote>
 <p>从CentOS 7开始，MariaDB成为Yum源中默认的数据库安装包。<br>也就是说在CentOS 7及以上的系统中使用yum安装MySQL默认安装的会是MariaDB（MySQL的一个分支）。<br>如果想安装官方MySQL版本，需要使用MySQL提供的Yum源。</p>
@@ -461,24 +469,31 @@
 <ul>
 <li>查看系统版本：</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">lsb_release -a   查看系统版本</span><br><span class="line">getconf LONG_BIT 查看系统位数</span><br><span class="line"></span><br><span class="line">查看系统版本</span><br><span class="line">cat /etc/redhat-release</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">lsb_release -a   查看系统版本
+getconf LONG_BIT 查看系统位数
+
+查看系统版本
+<span class="token function">cat</span> /etc/redhat-release<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <ul>
 <li>选择对应的版本进行下载</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://repo.mysql.com//mysql80-community-release-el6-3.noarch.rpm</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">wget</span> https://repo.mysql.com//mysql80-community-release-el6-3.noarch.rpm<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <ul>
 <li>安装MySQL源</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rpm -ivh  mysql80-community-release-el6-3.noarch.rpm</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">rpm</span> -ivh  mysql80-community-release-el6-3.noarch.rpm<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <ul>
 <li>检查是否安装成功</li>
 </ul>
 <p>&emsp;&emsp;执行成功后会在<code>/etc/yum.repos.d/</code>目录下生成两个repo文件<code>mysql-community.repo</code>及 <code>mysql-community-source.repo</code></p>
 <p>&emsp;&emsp;并且通过yum repolist可以看到mysql相关资源</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">shell&gt; yum repolist enabled | grep <span class="string">&quot;mysql.*-community.*&quot;</span></span><br><span class="line">!mysql-connectors-community/x86_64 MySQL Connectors Community                108</span><br><span class="line">!mysql-tools-community/x86_64      MySQL Tools Community                      90</span><br><span class="line">!mysql80-community/x86_64          MySQL 8.0 Community Server                113</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">shell<span class="token operator">></span> yum repolist enabled <span class="token operator">|</span> <span class="token function">grep</span> <span class="token string">"mysql.*-community.*"</span>
+<span class="token operator">!</span>mysql-connectors-community/x86_64 MySQL Connectors Community                <span class="token number">108</span>
+<span class="token operator">!</span>mysql-tools-community/x86_64      MySQL Tools Community                      <span class="token number">90</span>
+<span class="token operator">!</span>mysql80-community/x86_64          MySQL <span class="token number">8.0</span> Community Server                <span class="token number">113</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h4 id="3、选择MySQL版本"><a href="#3、选择MySQL版本" class="headerlink" title="3、选择MySQL版本"></a>3、选择MySQL版本</h4><blockquote>
 <p>使用MySQL Yum Repository安装MySQL，<br>默认会选择当前最新的稳定版本，例如通过上面的MySQL源进行安装的话，默安装会选择MySQL 8.0版本，<br>如果就是想要安装该版本，可以直接跳过此步骤，<br>如果不是，比如我这里希望安装MySQL5.7版本，就需要“切换一下版本”：</p>
@@ -486,95 +501,129 @@
 <ul>
 <li>查看当前MySQL Yum Repository中所有MySQL版本（每个版本在不同的子仓库中）</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">shell&gt; yum repolist all | grep mysql</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">shell<span class="token operator">></span> yum repolist all <span class="token operator">|</span> <span class="token function">grep</span> mysql<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <ul>
 <li>切换版本</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">shell&gt; sudo yum-config-manager --<span class="built_in">disable</span> mysql80-community</span><br><span class="line">shell&gt; sudo yum-config-manager --<span class="built_in">enable</span> mysql57-community</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">shell<span class="token operator">></span> <span class="token function">sudo</span> yum-config-manager --disable mysql80-community
+shell<span class="token operator">></span> <span class="token function">sudo</span> yum-config-manager --enable mysql57-community<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <p>&emsp;&emsp;除了使用yum-config-manager之外，还可以直接编辑<code>/etc/yum.repos.d/mysql-community.repo</code>文件</p>
 <p>&emsp;&emsp;enabled=0禁用</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[mysql80-community]</span><br><span class="line">name=MySQL 8.0 Community Server</span><br><span class="line">baseurl=http://repo.mysql.com/yum/mysql-8.0-community/el/7/<span class="variable">$basearch</span>/</span><br><span class="line">enabled=0</span><br><span class="line">gpgcheck=1</span><br><span class="line">gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-mysql</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>mysql80-community<span class="token punctuation">]</span>
+<span class="token assign-left variable">name</span><span class="token operator">=</span>MySQL <span class="token number">8.0</span> Community Server
+<span class="token assign-left variable">baseurl</span><span class="token operator">=</span>http://repo.mysql.com/yum/mysql-8.0-community/el/7/<span class="token variable">$basearch</span>/
+<span class="token assign-left variable">enabled</span><span class="token operator">=</span><span class="token number">0</span>
+<span class="token assign-left variable">gpgcheck</span><span class="token operator">=</span><span class="token number">1</span>
+<span class="token assign-left variable">gpgkey</span><span class="token operator">=</span>file:///etc/pki/rpm-gpg/RPM-GPG-KEY-mysql<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>&emsp;&emsp;enabled=1启用</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Enable to use MySQL 5.7</span></span><br><span class="line">[mysql57-community]</span><br><span class="line">name=MySQL 5.7 Community Server</span><br><span class="line">baseurl=http://repo.mysql.com/yum/mysql-5.7-community/el/7/<span class="variable">$basearch</span>/</span><br><span class="line">enabled=1</span><br><span class="line">gpgcheck=1</span><br><span class="line">gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-mysql</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># Enable to use MySQL 5.7</span>
+<span class="token punctuation">[</span>mysql57-community<span class="token punctuation">]</span>
+<span class="token assign-left variable">name</span><span class="token operator">=</span>MySQL <span class="token number">5.7</span> Community Server
+<span class="token assign-left variable">baseurl</span><span class="token operator">=</span>http://repo.mysql.com/yum/mysql-5.7-community/el/7/<span class="token variable">$basearch</span>/
+<span class="token assign-left variable">enabled</span><span class="token operator">=</span><span class="token number">1</span>
+<span class="token assign-left variable">gpgcheck</span><span class="token operator">=</span><span class="token number">1</span>
+<span class="token assign-left variable">gpgkey</span><span class="token operator">=</span>file:///etc/pki/rpm-gpg/RPM-GPG-KEY-mysql<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <ul>
 <li>检查当前启用的MySQL仓库</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">shell&gt; yum repolist enabled | grep mysql</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">shell<span class="token operator">></span> yum repolist enabled <span class="token operator">|</span> <span class="token function">grep</span> mysql<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>&emsp;&emsp;如果同时启用了多个仓库，安装时会选择最新版本</p>
-<h4 id="4、安装MySQL"><a href="#4、安装MySQL" class="headerlink" title="4、安装MySQL"></a>4、安装MySQL</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">shell&gt; sudo yum install mysql-community-server</span><br></pre></td></tr></table></figure>
+<h4 id="4、安装MySQL"><a href="#4、安装MySQL" class="headerlink" title="4、安装MySQL"></a>4、安装MySQL</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">shell<span class="token operator">></span> <span class="token function">sudo</span> yum <span class="token function">install</span> mysql-community-server<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>&emsp;&emsp;该命令会安装MySQL服务器 (mysql-community-server) 及其所需的依赖、相关组件，包括mysql-community-client、mysql-community-common、mysql-community-libs等</p>
 <p>&emsp;&emsp;如果带宽不够，这个步骤时间会比较长，请耐心等待~</p>
 <p>&emsp;&emsp;或</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install mysql-server</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">yum <span class="token function">install</span> mysql-server<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<h4 id="5、查询是否安装成功"><a href="#5、查询是否安装成功" class="headerlink" title="5、查询是否安装成功"></a>5、查询是否安装成功</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqladmin -V</span><br></pre></td></tr></table></figure>
+<h4 id="5、查询是否安装成功"><a href="#5、查询是否安装成功" class="headerlink" title="5、查询是否安装成功"></a>5、查询是否安装成功</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">mysqladmin -V<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <h4 id="6、启动MySQL"><a href="#6、启动MySQL" class="headerlink" title="6、启动MySQL"></a>6、启动MySQL</h4><p>&emsp;&emsp;启动前<code>最好</code>修改<code>/etc/my.cnf</code>配置文件</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/my.cnf</span><br><span class="line"></span><br><span class="line"> 添加：</span><br><span class="line"></span><br><span class="line"><span class="comment"># leeze</span></span><br><span class="line">port = 3306</span><br><span class="line">character-set-server=utf8</span><br><span class="line"><span class="comment">#忘记密码时使用</span></span><br><span class="line"><span class="comment">#skip-grant-tables</span></span><br><span class="line"><span class="comment">#设置协议认证方式</span></span><br><span class="line">default_authentication_plugin=mysql_native_password</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">vi</span> /etc/my.cnf
+
+ 添加：
+
+<span class="token comment"># leeze</span>
+port <span class="token operator">=</span> <span class="token number">3306</span>
+character-set-server<span class="token operator">=</span>utf8
+<span class="token comment">#忘记密码时使用</span>
+<span class="token comment">#skip-grant-tables</span>
+<span class="token comment">#设置协议认证方式</span>
+<span class="token assign-left variable">default_authentication_plugin</span><span class="token operator">=</span>mysql_native_password<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <br>
 
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">shell&gt; sudo service mysqld start</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">shell<span class="token operator">></span> <span class="token function">sudo</span> <span class="token function">service</span> mysqld start<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <ul>
 <li>其他命令：</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">service mysqld status</span><br><span class="line">service mysqld stop</span><br><span class="line">service mysqld restart</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">service</span> mysqld status
+<span class="token function">service</span> mysqld stop
+<span class="token function">service</span> mysqld restart<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <h4 id="7、修改密码"><a href="#7、修改密码" class="headerlink" title="7、修改密码"></a>7、修改密码</h4><ul>
 <li>初始密码</li>
 </ul>
 <p>&emsp;&emsp;MySQL第一次启动后会创建超级管理员账号root@localhost，初始密码存储在日志文件中：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">shell&gt; sudo grep <span class="string">&#x27;temporary password&#x27;</span> /var/<span class="built_in">log</span>/mysqld.log</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">shell<span class="token operator">></span> <span class="token function">sudo</span> <span class="token function">grep</span> <span class="token string">'temporary password'</span> /var/log/mysqld.log<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <ul>
 <li>修改默认密码</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">shell&gt; mysql -uroot -p</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">shell<span class="token operator">></span> mysql -uroot -p<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <ul>
 <li>修改密码</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER USER <span class="string">&#x27;root&#x27;</span>@<span class="string">&#x27;localhost&#x27;</span> IDENTIFIED BY <span class="string">&#x27;Cn@12345678&#x27;</span>;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">ALTER <span class="token environment constant">USER</span> <span class="token string">'root'</span>@<span class="token string">'localhost'</span> IDENTIFIED BY <span class="token string">'Cn@12345678'</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>&emsp;&emsp;<code>这里会遇到一个问题</code>，mysql默认的密码规则必须包含特殊字符、大写字母、小写字母、数字、一定长度<br>&emsp;&emsp;并且对密码要求严格，至少8位，包含大小写等，</p>
 <p>&emsp;&emsp;密码策略的所有参数</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SHOW</span> <span class="keyword">VARIABLES</span> <span class="keyword">LIKE</span> <span class="string">&#x27;validate_password%&#x27;</span>;</span><br><span class="line"><span class="keyword">show</span> <span class="keyword">variables</span> <span class="keyword">like</span> <span class="string">&#x27;%validate_password.policy%&#x27;</span>;</span><br><span class="line"><span class="keyword">show</span> <span class="keyword">variables</span> <span class="keyword">like</span> <span class="string">&#x27;%validate_password.length%&#x27;</span>;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">SHOW VARIABLES LIKE &#39;validate_password%&#39;;
+show variables like &#39;%validate_password.policy%&#39;;
+show variables like &#39;%validate_password.length%&#39;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <p>&emsp;&emsp;若想设置成123456，则要以下两条命令：</p>
-<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="builtin-name">set</span> global validate_password.<span class="attribute">policy</span>=0;  #设置为弱口令</span><br><span class="line"><span class="builtin-name">set</span> global validate_password.<span class="attribute">length</span>=1;  #密码最小长度为1</span><br><span class="line"></span><br><span class="line">alter<span class="built_in"> user </span>user() identified by <span class="string">&#x27;123456&#x27;</span>;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">set global validate_password.policy&#x3D;0;  #设置为弱口令
+set global validate_password.length&#x3D;1;  #密码最小长度为1
+
+alter user user() identified by &#39;123456&#39;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
 
-<h4 id="8、允许root远程访问"><a href="#8、允许root远程访问" class="headerlink" title="8、允许root远程访问"></a>8、允许root远程访问</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#任何主机</span></span><br><span class="line">mysql&gt;GRANT ALL PRIVILEGES ON *.* TO <span class="string">&#x27;root&#x27;</span>@<span class="string">&#x27;%&#x27;</span> IDENTIFIED BY <span class="string">&#x27;root&#x27;</span> WITH GRANT OPTION;</span><br><span class="line"><span class="comment">#指定主机</span></span><br><span class="line">mysql&gt;GRANT ALL PRIVILEGES ON *.* TO <span class="string">&#x27;xxxx&#x27;</span>@’xx.xx.xx.xx’ IDENTIFIED BY <span class="string">&#x27;xxxx&#x27;</span> WITH GRANT OPTION;</span><br><span class="line"><span class="comment"># 然后刷新权限</span></span><br><span class="line">mysql&gt;flush privileges;</span><br></pre></td></tr></table></figure>
+<h4 id="8、允许root远程访问"><a href="#8、允许root远程访问" class="headerlink" title="8、允许root远程访问"></a>8、允许root远程访问</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment">#任何主机</span>
+mysql<span class="token operator">></span>GRANT ALL PRIVILEGES ON *.* TO <span class="token string">'root'</span>@<span class="token string">'%'</span> IDENTIFIED BY <span class="token string">'root'</span> WITH GRANT OPTION<span class="token punctuation">;</span>
+<span class="token comment">#指定主机</span>
+mysql<span class="token operator">></span>GRANT ALL PRIVILEGES ON *.* TO <span class="token string">'xxxx'</span>@’xx.xx.xx.xx’ IDENTIFIED BY <span class="token string">'xxxx'</span> WITH GRANT OPTION<span class="token punctuation">;</span>
+<span class="token comment"># 然后刷新权限</span>
+mysql<span class="token operator">></span>flush privileges<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <ul>
 <li>首先查看用户表</li>
 </ul>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">user</span>,host,<span class="keyword">plugin</span> <span class="keyword">from</span> <span class="keyword">user</span>;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">select user,host,plugin from user;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>&emsp;&emsp;发现登录主机是localhost，当然不能登录，把root用户的localhost设置为%，这样任意主机都可以连接。</p>
 <p>&emsp;&emsp;修改连接权限(%表示所有ip，如果只指定某台电脑，则改成相应的ip)</p>
-<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">update<span class="built_in"> user </span><span class="builtin-name">set</span> <span class="attribute">host</span>=<span class="string">&#x27;%&#x27;</span> where<span class="built_in"> user </span>=<span class="string">&#x27;root&#x27;</span>;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">update user set host&#x3D;&#39;%&#39; where user &#x3D;&#39;root&#39;;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <ul>
 <li>更改加密方式</li>
 </ul>
-<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">update<span class="built_in"> user </span><span class="builtin-name">set</span> <span class="attribute">plugin</span>=<span class="string">&#x27;mysql_native_password&#x27;</span> where<span class="built_in"> user </span>=<span class="string">&#x27;root&#x27;</span>;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">update user set plugin&#x3D;&#39;mysql_native_password&#39; where user &#x3D;&#39;root&#39;;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <ul>
 <li>授权远程连接</li>
 </ul>
-<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">grant</span> <span class="keyword">all</span> <span class="keyword">privileges</span> <span class="keyword">on</span> *.* <span class="keyword">to</span> root@<span class="string">&#x27;%&#x27;</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">grant all privileges on *.* to root@&#39;%&#39;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <ul>
 <li>执行刷新权限</li>
 </ul>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">FLUSH</span> <span class="keyword">PRIVILEGES</span>;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">FLUSH PRIVILEGES;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
     </div>
 
@@ -701,14 +750,14 @@
       <i class="fa fa-chart-line"></i>
     </span>
       <span>站点总字数：</span>
-    <span title="站点总字数">85k</span>
+    <span title="站点总字数">86k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">1:17</span>
+    <span title="站点阅读时长">1:18</span>
   </span>
 </div>
 <div class="busuanzi-count">
@@ -737,6 +786,7 @@
     提供CDN加速/云存储服务
 </div>
 
+<script src="/js/prism/prism.js" async></script>
 
     </div>
   </footer>
@@ -955,6 +1005,26 @@ $(function(){
     };
 
     $('.highlight').each(function () {
+        // 防止重复渲染
+        if (this.__render__ === true) {
+            return true;
+        }
+        this.__render__ = true;
+        const $this = $(this);
+        const height = $(this).outerHeight();
+        if (height > CODE_MAX_HEIGHT) {
+            // 添加展开&收起容器
+            const $container = addCodeWrap($this, height);
+            containers.push({
+                $container,
+                height,
+                $hide: $container.find('.js_retract_code_btn'),
+                hasHorizontalScrollbar: this.scrollWidth > this.offsetWidth,
+            });
+        }
+    });
+
+    $('.line-numbers').each(function () {
         // 防止重复渲染
         if (this.__render__ === true) {
             return true;
@@ -1485,7 +1555,7 @@ layui.use(['jquery', 'layer'], function(){
 
 });
 
-</script>
+</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 </body>
 </html>

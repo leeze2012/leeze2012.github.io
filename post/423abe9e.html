@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 <meta name="generator" content="Hexo 5.1.1">
@@ -21,15 +21,15 @@
 
 <script class="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"blog.xiaosige.com","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"livere","storage":true,"lazyload":true,"nav":null,"activeClass":"livere"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}};
+    var CONFIG = {"hostname":"blog.xiaosige.com","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"livere","storage":true,"lazyload":true,"nav":null,"activeClass":"livere"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}};
   </script>
 
-  <meta name="description" content="命令初始配置 仓库级别 local 【优先级最高】 12git config --local user.name &quot;Your name&quot;git config --local user.email &quot;you@example.com&quot; &amp;emsp;&amp;emsp;git 仓库级别对应的配置文件是当前仓库下的.git&#x2F;config 【在当前目录下.git目录默认是隐藏">
+  <meta name="description" content="命令初始配置 仓库级别 local 【优先级最高】 git config --local user.name &quot;Your name&quot; git config --local user.email &quot;you@example.com&quot; &amp;emsp;&amp;emsp;git 仓库级别对应的配置文件是当前仓库下的.git&#x2F;config 【在当前目录下.git目录默认是隐藏的">
 <meta property="og:type" content="article">
 <meta property="og:title" content="git常用命令">
 <meta property="og:url" content="https://blog.xiaosige.com/post/423abe9e.html">
 <meta property="og:site_name" content="小四儿">
-<meta property="og:description" content="命令初始配置 仓库级别 local 【优先级最高】 12git config --local user.name &quot;Your name&quot;git config --local user.email &quot;you@example.com&quot; &amp;emsp;&amp;emsp;git 仓库级别对应的配置文件是当前仓库下的.git&#x2F;config 【在当前目录下.git目录默认是隐藏">
+<meta property="og:description" content="命令初始配置 仓库级别 local 【优先级最高】 git config --local user.name &quot;Your name&quot; git config --local user.email &quot;you@example.com&quot; &amp;emsp;&amp;emsp;git 仓库级别对应的配置文件是当前仓库下的.git&#x2F;config 【在当前目录下.git目录默认是隐藏的">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://blog.xiaosige.com/post/423abe9e/gitcom-001.png">
 <meta property="og:image" content="https://blog.xiaosige.com/post/423abe9e/gitcom-002.png">
@@ -61,6 +61,8 @@
 
 <!-- https://www.layuicdn.com/layui/css/layui.css -->
 <script src="https://www.layuicdn.com/layui/layui.js"></script>
+
+<link rel="stylesheet" href="/js/prism/prism.css">
 
 
   <title>git常用命令 | 小四儿</title>
@@ -113,12 +115,12 @@
   .search-pop-overlay, .sidebar-nav { display: none; }
   .sidebar-panel { display: block; }
   </style>
-</noscript>
+</noscript><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
-  <div class="headband"></div>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="headband"></div>
 
   <main class="main">
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -318,6 +320,7 @@
 
 
 
+
       </section>
         <div class="back-to-top animated">
           <i class="fa fa-arrow-up"></i>
@@ -409,7 +412,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>4.6k</span>
+      <span>4.7k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -429,19 +432,24 @@
     <div class="post-body" itemprop="articleBody">
         <h2 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h2><h5 id="初始配置"><a href="#初始配置" class="headerlink" title="初始配置"></a>初始配置</h5><ol>
 <li><p>仓库级别 local 【优先级最高】</p>
-<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git<span class="built_in"> config </span>--local user.name <span class="string">&quot;Your name&quot;</span></span><br><span class="line">git<span class="built_in"> config </span>--local user.email <span class="string">&quot;you@example.com&quot;</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">git config --local user.name &quot;Your name&quot;
+git config --local user.email &quot;you@example.com&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p>&emsp;&emsp;git 仓库级别对应的配置文件是当前仓库下的.git/config 【在当前目录下.git目录默认是隐藏的，所以在文件管理器中我们要打开显示以藏文件】</p>
 <a id="more"></a></li>
 <li><p>用户级别 global【优先级次之】</p>
-<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git<span class="built_in"> config </span>--global user.name <span class="string">&quot;Your name&quot;</span></span><br><span class="line">git<span class="built_in"> config </span>--global user.email <span class="string">&quot;you@example.com&quot;</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">git config --global user.name &quot;Your name&quot;
+git config --global user.email &quot;you@example.com&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p>&emsp;&emsp;git 用户级别对应的配置文件是用户宿主目录下的~/.gitconfig</p>
 </li>
 <li><p>系统级别 system【优先级最低】</p>
-<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git<span class="built_in"> config </span>--system user.name <span class="string">&quot;Your name&quot;</span></span><br><span class="line">git<span class="built_in"> config </span>--system user.email <span class="string">&quot;you@example.com&quot;</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">git config --system user.name &quot;Your name&quot;
+git config --system user.email &quot;you@example.com&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p>&emsp;&emsp;git系统级别对应的配置文件是git安装目录下的 /etc/gitconfig</p>
 </li>
 </ol>
-<h5 id="获取当前git配置"><a href="#获取当前git配置" class="headerlink" title="获取当前git配置"></a>获取当前git配置</h5><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git --version</span><br><span class="line">git<span class="built_in"> config </span>--global user.name         # 获取当前登录的用户</span><br><span class="line">git<span class="built_in"> config </span>--global user.email        # 获取当前登录用户的邮箱</span><br></pre></td></tr></table></figure>
+<h5 id="获取当前git配置"><a href="#获取当前git配置" class="headerlink" title="获取当前git配置"></a>获取当前git配置</h5><pre class="line-numbers language-none"><code class="language-none">git --version
+git config --global user.name         # 获取当前登录的用户
+git config --global user.email        # 获取当前登录用户的邮箱<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p>或者</p>
 <ol>
 <li>git config –local -l 查看仓库配置【必须要进入到具体的目录下，比如要查看TestGit仓库的配置信息】</li>
@@ -456,7 +464,7 @@
 </ul>
 </li>
 <li>git config 添加配置项目 <ul>
-<li>git config –global user.email “<a href="mailto:&#x79;&#111;&#117;&#x40;&#101;&#120;&#97;&#x6d;&#112;&#x6c;&#x65;&#x2e;&#x63;&#111;&#x6d;">&#x79;&#111;&#117;&#x40;&#101;&#120;&#97;&#x6d;&#112;&#x6c;&#x65;&#x2e;&#x63;&#111;&#x6d;</a>”</li>
+<li>git config –global user.email “<a href="mailto:&#x79;&#111;&#117;&#64;&#101;&#x78;&#x61;&#x6d;&#x70;&#108;&#101;&#x2e;&#x63;&#x6f;&#109;">&#x79;&#111;&#117;&#64;&#101;&#x78;&#x61;&#x6d;&#x70;&#108;&#101;&#x2e;&#x63;&#x6f;&#109;</a>”</li>
 <li>git config –global user.name “Your Name”<br>上面的操作表示添加用户级别的配置信息，也就是说修改用户宿主目录下面的配置文件</li>
 </ul>
 </li>
@@ -474,53 +482,93 @@
 <img src="/post/423abe9e/gitcom-004.png" class title="示例图">
 
 <h5 id="创建文件并写入内容"><a href="#创建文件并写入内容" class="headerlink" title="创建文件并写入内容"></a>创建文件并写入内容</h5><p>如果文件不存在，则创建文件</p>
-<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">echo</span> <span class="string">&quot;hello git&quot;</span></span><br><span class="line">&gt; <span class="built_in">index</span>.html                          # 将<span class="string">&#x27;hello git&#x27;</span>写入到<span class="built_in">index</span>.html中</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">echo &quot;hello git&quot;
+&gt; index.html                          # 将&#39;hello git&#39;写入到index.html中<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p>单个<code>&gt;</code>箭头表示写入，<code>&gt;&gt;</code>表示追加</p>
-<h5 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h5><figure class="highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">git init                        # 初始化当前所在目录的这个项目</span><br><span class="line">git status                      # 查看项目状态，有没有添加或者修改文件</span><br><span class="line">git add .                       # 给目前的项目制作一个快照snapshot（快照只是登记留名，快照不等于记录在案，git管快照叫做索引<span class="keyword">index</span>）</span><br><span class="line">git <span class="keyword">commit</span>                      # 将快照里登记的内容永久写入git仓库</span><br><span class="line">git <span class="keyword">commit</span> -a                   # 直接提交所有修改，省去了<span class="symbol">``</span>git add<span class="symbol">``</span>和<span class="symbol">``</span>git diff<span class="symbol">``</span>和<span class="symbol">``</span>git <span class="keyword">commit</span><span class="symbol">``</span>的工序</span><br><span class="line">                                # 无法把新增文件或文件夹加入进来，所以，如果你新增了文件或文件夹，那么就要老老实实的先<span class="symbol">``</span>git add ..<span class="symbol">``</span>，再<span class="symbol">``</span>git <span class="keyword">commit</span><span class="symbol">``</span></span><br><span class="line">git push                        # 把更新推送到远程分支</span><br><span class="line">git <span class="built_in">log</span> -p                      # git不但会给出开发日志，而且会显示每个开发版本的代码区别所在</span><br><span class="line">git <span class="built_in">log</span> --online                # 查看版本</span><br><span class="line">git diff                        # 比较暂存区和工作区的差别</span><br><span class="line">git diff --cached               # 比较暂存区和历史区的差别</span><br><span class="line">git diff master                 # 比较历史区和工作区的差别（修改）</span><br><span class="line">git checkout <span class="keyword">index</span>.html         # 用暂存区中的内容或者版本库中的内容覆盖掉工作区</span><br><span class="line">git reset HEAD <span class="keyword">index</span>.html       # 取消增加到暂存区的内容（添加时）</span><br><span class="line">git rm <span class="keyword">index</span>.html --cached      # 使用--cached表示只删除缓冲区中的内容</span><br><span class="line">git reset --hard HEAD/commit_id # 回滚版本</span><br><span class="line">git reflog                      # 回滚到未来</span><br></pre></td></tr></table></figure>
+<h5 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h5><pre class="line-numbers language-none"><code class="language-none">git init                        # 初始化当前所在目录的这个项目
+git status                      # 查看项目状态，有没有添加或者修改文件
+git add .                       # 给目前的项目制作一个快照snapshot（快照只是登记留名，快照不等于记录在案，git管快照叫做索引index）
+git commit                      # 将快照里登记的内容永久写入git仓库
+git commit -a                   # 直接提交所有修改，省去了&#96;&#96;git add&#96;&#96;和&#96;&#96;git diff&#96;&#96;和&#96;&#96;git commit&#96;&#96;的工序
+                                # 无法把新增文件或文件夹加入进来，所以，如果你新增了文件或文件夹，那么就要老老实实的先&#96;&#96;git add ..&#96;&#96;，再&#96;&#96;git commit&#96;&#96;
+git push                        # 把更新推送到远程分支
+git log -p                      # git不但会给出开发日志，而且会显示每个开发版本的代码区别所在
+git log --online                # 查看版本
+git diff                        # 比较暂存区和工作区的差别
+git diff --cached               # 比较暂存区和历史区的差别
+git diff master                 # 比较历史区和工作区的差别（修改）
+git checkout index.html         # 用暂存区中的内容或者版本库中的内容覆盖掉工作区
+git reset HEAD index.html       # 取消增加到暂存区的内容（添加时）
+git rm index.html --cached      # 使用--cached表示只删除缓冲区中的内容
+git reset --hard HEAD&#x2F;commit_id # 回滚版本
+git reflog                      # 回滚到未来<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>总结：先git add修改过的文件，再git diff并git status查看确认，然后git commit提交，然后输入开发日志，然后git push推送到远程分支，最后git log再次确认。</p>
-<h5 id="创建分支"><a href="#创建分支" class="headerlink" title="创建分支"></a>创建分支</h5><figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">branch </span>                     <span class="comment"># 查看分支列表</span></span><br><span class="line">git <span class="keyword">branch </span>experiment           <span class="comment"># 创建experiment分支</span></span><br><span class="line">git checkout experiment         <span class="comment"># 切换到experiment分支</span></span><br><span class="line">git checkout -<span class="keyword">b </span>experiment      <span class="comment"># 创建分支并切换分支</span></span><br><span class="line">git commit -a                   <span class="comment"># 在分支上提交工作</span></span><br><span class="line">git checkout master             <span class="comment"># 切换到主干道</span></span><br><span class="line">git merge experiment            <span class="comment"># 合并分支到主干道</span></span><br><span class="line">git <span class="keyword">branch </span>-d experiment        <span class="comment"># -d，表示“在分支已经合并到主干后删除分支”。如果使用大写的-D的话，则表示“不论如何都删除分支”</span></span><br></pre></td></tr></table></figure>
+<h5 id="创建分支"><a href="#创建分支" class="headerlink" title="创建分支"></a>创建分支</h5><pre class="line-numbers language-none"><code class="language-none">git branch                      # 查看分支列表
+git branch experiment           # 创建experiment分支
+git checkout experiment         # 切换到experiment分支
+git checkout -b experiment      # 创建分支并切换分支
+git commit -a                   # 在分支上提交工作
+git checkout master             # 切换到主干道
+git merge experiment            # 合并分支到主干道
+git branch -d experiment        # -d，表示“在分支已经合并到主干后删除分支”。如果使用大写的-D的话，则表示“不论如何都删除分支”<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h5 id="使用git-stash命令保存和恢复进度"><a href="#使用git-stash命令保存和恢复进度" class="headerlink" title="使用git stash命令保存和恢复进度"></a>使用git stash命令保存和恢复进度</h5><figure class="highlight gauss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">git stash                       <span class="meta"># 保留当前工作区进度，会把暂存区和工作区的改动保存起来</span></span><br><span class="line">git stash <span class="keyword">save</span> &#x27;message...&#x27;     <span class="meta"># 保存当前工作区，并添加备注</span></span><br><span class="line">git stash list                  <span class="meta"># 显示保存进度的列表。也就意味着，git stash命令可以多次执行。</span></span><br><span class="line">git stash <span class="keyword">pop</span>                   <span class="meta"># 恢复最新的进度到工作区并删除。git默认会把工作区和缓存区的改动都恢复到工作区。</span></span><br><span class="line">git stash apply                 <span class="meta"># 恢复最新的进度到工作区不删除</span></span><br><span class="line">git stash <span class="built_in">drop</span> [stash_id]       <span class="meta"># 删除一个存储的进度，如果不指定stash_id，则默认删除最新的存储进度，stash_id从git stash list获取</span></span><br><span class="line">git stash <span class="keyword">clear</span>                 <span class="meta"># 删除所有存储的进度</span></span><br></pre></td></tr></table></figure>
+<h5 id="使用git-stash命令保存和恢复进度"><a href="#使用git-stash命令保存和恢复进度" class="headerlink" title="使用git stash命令保存和恢复进度"></a>使用git stash命令保存和恢复进度</h5><pre class="line-numbers language-none"><code class="language-none">git stash                       # 保留当前工作区进度，会把暂存区和工作区的改动保存起来
+git stash save &#39;message...&#39;     # 保存当前工作区，并添加备注
+git stash list                  # 显示保存进度的列表。也就意味着，git stash命令可以多次执行。
+git stash pop                   # 恢复最新的进度到工作区并删除。git默认会把工作区和缓存区的改动都恢复到工作区。
+git stash apply                 # 恢复最新的进度到工作区不删除
+git stash drop [stash_id]       # 删除一个存储的进度，如果不指定stash_id，则默认删除最新的存储进度，stash_id从git stash list获取
+git stash clear                 # 删除所有存储的进度<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h5 id="撤销一次已经提交到Github的内容"><a href="#撤销一次已经提交到Github的内容" class="headerlink" title="撤销一次已经提交到Github的内容"></a>撤销一次已经提交到Github的内容</h5><figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">reset</span> <span class="comment">--hard HEAD~1</span></span><br><span class="line">git push <span class="comment">--force</span></span><br></pre></td></tr></table></figure>
+<h5 id="撤销一次已经提交到Github的内容"><a href="#撤销一次已经提交到Github的内容" class="headerlink" title="撤销一次已经提交到Github的内容"></a>撤销一次已经提交到Github的内容</h5><pre class="line-numbers language-none"><code class="language-none">git reset --hard HEAD~1
+git push --force<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <p>该命令执行后，会隐藏掉Github库中的被撤销掉的记录，但是指定到该被隐藏掉的记录来访问，依旧可以访问。</p>
 <h5 id="GitHub更新自己fork的代码"><a href="#GitHub更新自己fork的代码" class="headerlink" title="GitHub更新自己fork的代码"></a>GitHub更新自己fork的代码</h5><ol>
 <li> clone已经fork到自己账号的代码 </li>
 
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git clone https:<span class="regexp">//gi</span>thub.com<span class="regexp">/shadow000902/</span>ApiTestEngine.git</span><br><span class="line">cd ApiTestEngine</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">git clone https:&#x2F;&#x2F;github.com&#x2F;shadow000902&#x2F;ApiTestEngine.git
+cd ApiTestEngine<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <li> 查看远程分支列表 </li>
 
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">╭─taoyi at TaoYi-Mac <span class="keyword">in</span> ~<span class="regexp">/git_projects/</span>GitHub/ApiTestEngine on master✔ using ‹› <span class="number">17</span>-<span class="number">08</span>-<span class="number">23</span> - <span class="number">15</span>:<span class="number">01</span>:<span class="number">23</span></span><br><span class="line">╰─○ git remote -v</span><br><span class="line">debugtalk	https:<span class="regexp">//gi</span>thub.com<span class="regexp">/debugtalk/</span>ApiTestEngine.git (fetch)</span><br><span class="line">debugtalk	https:<span class="regexp">//gi</span>thub.com<span class="regexp">/debugtalk/</span>ApiTestEngine.git (push)</span><br><span class="line">origin	https:<span class="regexp">//gi</span>thub.com<span class="regexp">/shadow000902/</span>ApiTestEngine.git (fetch)</span><br><span class="line">origin	https:<span class="regexp">//gi</span>thub.com<span class="regexp">/shadow000902/</span>ApiTestEngine.git (push)</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">╭─taoyi at TaoYi-Mac in ~&#x2F;git_projects&#x2F;GitHub&#x2F;ApiTestEngine on master✔ using ‹› 17-08-23 - 15:01:23
+╰─○ git remote -v
+debugtalk	https:&#x2F;&#x2F;github.com&#x2F;debugtalk&#x2F;ApiTestEngine.git (fetch)
+debugtalk	https:&#x2F;&#x2F;github.com&#x2F;debugtalk&#x2F;ApiTestEngine.git (push)
+origin	https:&#x2F;&#x2F;github.com&#x2F;shadow000902&#x2F;ApiTestEngine.git (fetch)
+origin	https:&#x2F;&#x2F;github.com&#x2F;shadow000902&#x2F;ApiTestEngine.git (push)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <li> fetch原始源代码的新版本到本地 </li>
 
-<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">git fetch debugtalk</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">git fetch debugtalk<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <li> 合并两个版本的代码 </li>
 
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">merge</span> debugtalk/<span class="keyword">master</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">git merge debugtalk&#x2F;master<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <li> 如果合并代码后有冲突，解决冲突 </li>
 
 <li> 把合并好的最新的代码提交到自己的GitHub账号上 </li>
 
-<figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">push</span> <span class="built_in">origin</span> master</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">git push origin master<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 </ol>
 
 <h5 id="git撤销最后一次commit"><a href="#git撤销最后一次commit" class="headerlink" title="git撤销最后一次commit"></a>git撤销最后一次commit</h5><ol>
 <li> 使用git log查看commit记录 </li>
 
-<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">commit</span>-id<span class="number">1</span></span><br><span class="line"><span class="attribute">commit</span>-id<span class="number">2</span></span><br><span class="line"><span class="attribute">commit</span>-id<span class="number">3</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">commit-id1
+commit-id2
+commit-id3<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p>如果想要撤销commit-id1的话，就要选择commit-id2</p>
 <li> 使用命令撤销提交 </li>
 
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">reset</span> <span class="keyword">commit</span>-id2				<span class="comment"># 只是撤销提交，修改的内容不变</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight dsconfig"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">git </span><span class="string">reset </span><span class="built_in">--hard</span> <span class="string">commit-id2	</span>		<span class="comment"># 撤销提交，并撤销修改的内容</span></span><br><span class="line"><span class="string">git </span><span class="string">push </span><span class="string">origin </span><span class="string">HARD </span><span class="built_in">--force</span>		<span class="comment"># 撤销后，强制提交并push到远程分支</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">git reset commit-id2				# 只是撤销提交，修改的内容不变<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-none"><code class="language-none">git reset --hard commit-id2			# 撤销提交，并撤销修改的内容
+git push origin HARD --force		# 撤销后，强制提交并push到远程分支<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <li> 修改最新一次已提交但未 push 的 message </li>
 
-<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">commit</span> <span class="comment">--amend -m &quot;your new message&quot;</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">git commit --amend -m &quot;your new message&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 </ol>
 
 <br>
@@ -653,14 +701,14 @@
       <i class="fa fa-chart-line"></i>
     </span>
       <span>站点总字数：</span>
-    <span title="站点总字数">85k</span>
+    <span title="站点总字数">86k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">1:17</span>
+    <span title="站点阅读时长">1:18</span>
   </span>
 </div>
 <div class="busuanzi-count">
@@ -689,6 +737,7 @@
     提供CDN加速/云存储服务
 </div>
 
+<script src="/js/prism/prism.js" async></script>
 
     </div>
   </footer>
@@ -907,6 +956,26 @@ $(function(){
     };
 
     $('.highlight').each(function () {
+        // 防止重复渲染
+        if (this.__render__ === true) {
+            return true;
+        }
+        this.__render__ = true;
+        const $this = $(this);
+        const height = $(this).outerHeight();
+        if (height > CODE_MAX_HEIGHT) {
+            // 添加展开&收起容器
+            const $container = addCodeWrap($this, height);
+            containers.push({
+                $container,
+                height,
+                $hide: $container.find('.js_retract_code_btn'),
+                hasHorizontalScrollbar: this.scrollWidth > this.offsetWidth,
+            });
+        }
+    });
+
+    $('.line-numbers').each(function () {
         // 防止重复渲染
         if (this.__render__ === true) {
             return true;
@@ -1437,7 +1506,7 @@ layui.use(['jquery', 'layer'], function(){
 
 });
 
-</script>
+</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 </body>
 </html>

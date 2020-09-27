@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 <meta name="generator" content="Hexo 5.1.1">
@@ -21,7 +21,7 @@
 
 <script class="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"blog.xiaosige.com","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"livere","storage":true,"lazyload":true,"nav":null,"activeClass":"livere"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}};
+    var CONFIG = {"hostname":"blog.xiaosige.com","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"livere","storage":true,"lazyload":true,"nav":null,"activeClass":"livere"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}};
   </script>
 
   <meta name="description" content="1.初始GitLab&amp;emsp;&amp;emsp;GitLab是利用Ruby on Rails一个开源的版本管理系统，实现一个自托管的Git项目仓库，可通过Web界面进行访问公开的或者私人项目。&amp;emsp;&amp;emsp;与Github类似，GitLab能够浏览源代码，管理缺陷和注释。可以管理团队对仓库的访问，它非常易于浏览提交过的版本并提供一个文件历史库。团队成员可以利用内置的简单聊天程序(Wall)进行">
@@ -57,6 +57,8 @@
 
 <!-- https://www.layuicdn.com/layui/css/layui.css -->
 <script src="https://www.layuicdn.com/layui/layui.js"></script>
+
+<link rel="stylesheet" href="/js/prism/prism.css">
 
 
   <title>linux搭建GitLab | 小四儿</title>
@@ -109,12 +111,12 @@
   .search-pop-overlay, .sidebar-nav { display: none; }
   .sidebar-panel { display: block; }
   </style>
-</noscript>
+</noscript><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
-  <div class="headband"></div>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="headband"></div>
 
   <main class="main">
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -314,6 +316,7 @@
 
 
 
+
       </section>
         <div class="back-to-top animated">
           <i class="fa fa-arrow-up"></i>
@@ -405,7 +408,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>4.4k</span>
+      <span>4.1k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -435,20 +438,56 @@
 </ul>
 <p>&emsp;&emsp;设置postfix开机自启: <code>chkconfig --add postfix</code></p>
 <h3 id="3-开始安装GitLab"><a href="#3-开始安装GitLab" class="headerlink" title="3.开始安装GitLab"></a>3.开始安装GitLab</h3><p>&emsp;&emsp;官方下载地址：<a target="_blank" rel="noopener" href="https://packages.gitlab.com/gitlab/gitlab-ce">https://packages.gitlab.com/gitlab/gitlab-ce</a><br>&emsp;&emsp;国内镜像：<a target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/gitlab-ce/yum/el6/">https://mirrors.tuna.tsinghua.edu.cn/gitlab-ce/yum/el6/</a></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">wget https://mirrors.tuna.tsinghua.edu.cn/gitlab-ce/yum/el6/gitlab-ce-12.7.6-ce.0.el6.x86_64.rpm</span><br><span class="line">yum install -y gitlab-ce-12.7.6-ce.0.el6.x86_64.rpm</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">
+<span class="token function">wget</span> https://mirrors.tuna.tsinghua.edu.cn/gitlab-ce/yum/el6/gitlab-ce-12.7.6-ce.0.el6.x86_64.rpm
+yum <span class="token function">install</span> -y gitlab-ce-12.7.6-ce.0.el6.x86_64.rpm
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <h3 id="4-配置GitLab"><a href="#4-配置GitLab" class="headerlink" title="4.配置GitLab"></a>4.配置GitLab</h3><p>&emsp;&emsp;主要配置两个地方: 访问GitLab的IP地址和发送邮件的账号配置</p>
 <p>&emsp;&emsp;<code>vim /etc/gitlab/gitlab.rb</code></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">external_url <span class="string">&#x27;http://192.168.183.200&#x27;</span> <span class="comment"># 你自己的IP</span></span><br><span class="line"></span><br><span class="line"><span class="comment">### Email Settings</span></span><br><span class="line">gitlab_rails[<span class="string">&#x27;gitlab_email_enabled&#x27;</span>] = <span class="literal">true</span></span><br><span class="line">gitlab_rails[<span class="string">&#x27;gitlab_email_from&#x27;</span>] = <span class="string">&#x27;你的邮箱&#x27;</span></span><br><span class="line">gitlab_rails[<span class="string">&#x27;gitlab_email_display_name&#x27;</span>] = <span class="string">&#x27;邮件名字&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">### GitLab email server settings</span></span><br><span class="line"><span class="comment">### 这里邮件服务器使用的是QQ企业邮箱,163自行修改</span></span><br><span class="line">gitlab_rails[<span class="string">&#x27;smtp_enable&#x27;</span>] = <span class="literal">true</span></span><br><span class="line">gitlab_rails[<span class="string">&#x27;smtp_address&#x27;</span>] = <span class="string">&quot;smtp.exmail.qq.com&quot;</span></span><br><span class="line">gitlab_rails[<span class="string">&#x27;smtp_port&#x27;</span>] = 465</span><br><span class="line">gitlab_rails[<span class="string">&#x27;smtp_user_name&#x27;</span>] = <span class="string">&quot;你的邮箱&quot;</span></span><br><span class="line">gitlab_rails[<span class="string">&#x27;smtp_password&#x27;</span>] = <span class="string">&quot;邮箱密码&quot;</span></span><br><span class="line">gitlab_rails[<span class="string">&#x27;smtp_authentication&#x27;</span>] = <span class="string">&quot;login&quot;</span></span><br><span class="line">gitlab_rails[<span class="string">&#x27;smtp_enable_starttls_auto&#x27;</span>] = <span class="literal">true</span></span><br><span class="line">gitlab_rails[<span class="string">&#x27;smtp_tls&#x27;</span>] = <span class="literal">true</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">external_url <span class="token string">'http://192.168.183.200'</span> <span class="token comment"># 你自己的IP</span>
+
+<span class="token comment">### Email Settings</span>
+gitlab_rails<span class="token punctuation">[</span><span class="token string">'gitlab_email_enabled'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">true</span>
+gitlab_rails<span class="token punctuation">[</span><span class="token string">'gitlab_email_from'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">'你的邮箱'</span>
+gitlab_rails<span class="token punctuation">[</span><span class="token string">'gitlab_email_display_name'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">'邮件名字'</span>
+
+<span class="token comment">### GitLab email server settings</span>
+<span class="token comment">### 这里邮件服务器使用的是QQ企业邮箱,163自行修改</span>
+gitlab_rails<span class="token punctuation">[</span><span class="token string">'smtp_enable'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">true</span>
+gitlab_rails<span class="token punctuation">[</span><span class="token string">'smtp_address'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">"smtp.exmail.qq.com"</span>
+gitlab_rails<span class="token punctuation">[</span><span class="token string">'smtp_port'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">465</span>
+gitlab_rails<span class="token punctuation">[</span><span class="token string">'smtp_user_name'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">"你的邮箱"</span>
+gitlab_rails<span class="token punctuation">[</span><span class="token string">'smtp_password'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">"邮箱密码"</span>
+gitlab_rails<span class="token punctuation">[</span><span class="token string">'smtp_authentication'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">"login"</span>
+gitlab_rails<span class="token punctuation">[</span><span class="token string">'smtp_enable_starttls_auto'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">true</span>
+gitlab_rails<span class="token punctuation">[</span><span class="token string">'smtp_tls'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">true</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>&emsp;&emsp;ESC保存并退出 :<code>wq</code></p>
 <h3 id="5-更改gitlab默认端口"><a href="#5-更改gitlab默认端口" class="headerlink" title="5.更改gitlab默认端口"></a>5.更改gitlab默认端口</h3><p>&emsp;&emsp;若linux服务器的80和8080端口都已经被使用，则需修改gitlab监听的端口</p>
 <p>&emsp;&emsp;修改路径文件：<code>vim /etc/gitlab/gitlab.rb</code></p>
 <p>&emsp;&emsp;1、修改<code>external_url</code>  （将前面的#注释符号去掉）,我改成了8099</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## GitLab URL</span></span><br><span class="line"><span class="comment">##! URL on which GitLab will be reachable.</span></span><br><span class="line"><span class="comment">##! For more details on configuring external_url see:</span></span><br><span class="line"><span class="comment">##! https://docs.gitlab.com/omnibus/settings/configuration.html#configuring-the-external-url-for-gitlab</span></span><br><span class="line"><span class="comment">##!</span></span><br><span class="line"><span class="comment">##! Note: During installation/upgrades, the value of the environment variable</span></span><br><span class="line"><span class="comment">##! EXTERNAL_URL will be used to populate/replace this value.</span></span><br><span class="line"><span class="comment">##! On AWS EC2 instances, we also attempt to fetch the public hostname/IP</span></span><br><span class="line"><span class="comment">##! address from AWS. For more details, see:</span></span><br><span class="line"><span class="comment">##! https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instancedata-data-retrieval.html</span></span><br><span class="line">external_url <span class="string">&#x27;http://10.211.55.61:8099&#x27;</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment">## GitLab URL</span>
+<span class="token comment">##! URL on which GitLab will be reachable.</span>
+<span class="token comment">##! For more details on configuring external_url see:</span>
+<span class="token comment">##! https://docs.gitlab.com/omnibus/settings/configuration.html#configuring-the-external-url-for-gitlab</span>
+<span class="token comment">##!</span>
+<span class="token comment">##! Note: During installation/upgrades, the value of the environment variable</span>
+<span class="token comment">##! EXTERNAL_URL will be used to populate/replace this value.</span>
+<span class="token comment">##! On AWS EC2 instances, we also attempt to fetch the public hostname/IP</span>
+<span class="token comment">##! address from AWS. For more details, see:</span>
+<span class="token comment">##! https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instancedata-data-retrieval.html</span>
+external_url <span class="token string">'http://10.211.55.61:8099'</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>&emsp;&emsp;2、找到Advanced settings 下的8080端口 将端口改成自己备用端口号<br>&emsp;&emsp;（<code>不能和上面url端口号相同，会冲突占用！</code>），我改的28080</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">### Advanced settings</span></span><br><span class="line"><span class="comment"># unicorn[&#x27;listen&#x27;] = &#x27;localhost&#x27;</span></span><br><span class="line"> unicorn[<span class="string">&#x27;port&#x27;</span>] = 28080</span><br><span class="line"><span class="comment"># unicorn[&#x27;socket&#x27;] = &#x27;/var/opt/gitlab/gitlab-rails/sockets/gitlab.socket&#x27;</span></span><br><span class="line"><span class="comment"># unicorn[&#x27;pidfile&#x27;] = &#x27;/opt/gitlab/var/unicorn/unicorn.pid&#x27;</span></span><br><span class="line"><span class="comment"># unicorn[&#x27;tcp_nopush&#x27;] = true</span></span><br><span class="line"><span class="comment"># unicorn[&#x27;backlog_socket&#x27;] = 1024</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment">### Advanced settings</span>
+<span class="token comment"># unicorn['listen'] = 'localhost'</span>
+ unicorn<span class="token punctuation">[</span><span class="token string">'port'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">28080</span>
+<span class="token comment"># unicorn['socket'] = '/var/opt/gitlab/gitlab-rails/sockets/gitlab.socket'</span>
+<span class="token comment"># unicorn['pidfile'] = '/opt/gitlab/var/unicorn/unicorn.pid'</span>
+<span class="token comment"># unicorn['tcp_nopush'] = true</span>
+<span class="token comment"># unicorn['backlog_socket'] = 1024</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>&emsp;&emsp;3、运行下面命令</p>
 <pre><code>     sudo gitlab-ctl stop --停止服务
@@ -478,7 +517,24 @@ Reporter：可以克隆代码，不能提交，QA、PM可以赋予这个权限
 Developer：可以克隆代码、开发、提交、push，RD可以赋予这个权限
 Master：可以创建项目、添加tag、保护分支、添加项目成员、编辑项目，核心RD负责人可以赋予这个权限
 Owner：可以设置项目访问权限 - Visibility Level、删除项目、迁移项目、管理组成员，开发组leader可以赋予这个权限</code></pre>
-<h3 id="10-Gitlab相关操作及说明"><a href="#10-Gitlab相关操作及说明" class="headerlink" title="10.Gitlab相关操作及说明"></a>10.Gitlab相关操作及说明</h3><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="regexp">/etc/gi</span>tlab/gitlab.rb          <span class="comment">#gitlab配置文件</span></span><br><span class="line"><span class="regexp">/opt/gi</span>tlab                    <span class="comment">#gitlab的程序安装目录</span></span><br><span class="line"><span class="regexp">/var/</span>opt/gitlab                <span class="comment">#gitlab目录数据目录</span></span><br><span class="line"><span class="regexp">/var/</span>opt<span class="regexp">/gitlab/gi</span>t-data       <span class="comment">#存放仓库数据</span></span><br><span class="line">gitlab-ctl reconfigure         <span class="comment">#重新加载配置</span></span><br><span class="line">gitlab-ctl status              <span class="comment">#查看当前gitlab所有服务运行状态</span></span><br><span class="line">gitlab-ctl stop                <span class="comment">#停止gitlab服务</span></span><br><span class="line">gitlab-ctl stop nginx          <span class="comment">#单独停止某个服务</span></span><br><span class="line">gitlab-ctl tail                <span class="comment">#查看所有服务的日志</span></span><br><span class="line"></span><br><span class="line">Gitlab的服务构成：</span><br><span class="line">nginx：                 静态web服务器</span><br><span class="line">gitlab-workhorse        轻量级反向代理服务器</span><br><span class="line">logrotate              日志文件管理工具</span><br><span class="line">postgresql             数据库</span><br><span class="line">redis                  缓存数据库</span><br><span class="line">sidekiq                用于在后台执行队列任务（异步执行）</span><br></pre></td></tr></table></figure>
+<h3 id="10-Gitlab相关操作及说明"><a href="#10-Gitlab相关操作及说明" class="headerlink" title="10.Gitlab相关操作及说明"></a>10.Gitlab相关操作及说明</h3><pre class="line-numbers language-none"><code class="language-none">
+&#x2F;etc&#x2F;gitlab&#x2F;gitlab.rb          #gitlab配置文件
+&#x2F;opt&#x2F;gitlab                    #gitlab的程序安装目录
+&#x2F;var&#x2F;opt&#x2F;gitlab                #gitlab目录数据目录
+&#x2F;var&#x2F;opt&#x2F;gitlab&#x2F;git-data       #存放仓库数据
+gitlab-ctl reconfigure         #重新加载配置
+gitlab-ctl status              #查看当前gitlab所有服务运行状态
+gitlab-ctl stop                #停止gitlab服务
+gitlab-ctl stop nginx          #单独停止某个服务
+gitlab-ctl tail                #查看所有服务的日志
+
+Gitlab的服务构成：
+nginx：                 静态web服务器
+gitlab-workhorse        轻量级反向代理服务器
+logrotate              日志文件管理工具
+postgresql             数据库
+redis                  缓存数据库
+sidekiq                用于在后台执行队列任务（异步执行）<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
     </div>
@@ -606,14 +662,14 @@ Owner：可以设置项目访问权限 - Visibility Level、删除项目、迁�
       <i class="fa fa-chart-line"></i>
     </span>
       <span>站点总字数：</span>
-    <span title="站点总字数">85k</span>
+    <span title="站点总字数">86k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">1:17</span>
+    <span title="站点阅读时长">1:18</span>
   </span>
 </div>
 <div class="busuanzi-count">
@@ -642,6 +698,7 @@ Owner：可以设置项目访问权限 - Visibility Level、删除项目、迁�
     提供CDN加速/云存储服务
 </div>
 
+<script src="/js/prism/prism.js" async></script>
 
     </div>
   </footer>
@@ -860,6 +917,26 @@ $(function(){
     };
 
     $('.highlight').each(function () {
+        // 防止重复渲染
+        if (this.__render__ === true) {
+            return true;
+        }
+        this.__render__ = true;
+        const $this = $(this);
+        const height = $(this).outerHeight();
+        if (height > CODE_MAX_HEIGHT) {
+            // 添加展开&收起容器
+            const $container = addCodeWrap($this, height);
+            containers.push({
+                $container,
+                height,
+                $hide: $container.find('.js_retract_code_btn'),
+                hasHorizontalScrollbar: this.scrollWidth > this.offsetWidth,
+            });
+        }
+    });
+
+    $('.line-numbers').each(function () {
         // 防止重复渲染
         if (this.__render__ === true) {
             return true;
@@ -1390,7 +1467,7 @@ layui.use(['jquery', 'layer'], function(){
 
 });
 
-</script>
+</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 </body>
 </html>
