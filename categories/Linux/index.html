@@ -47,9 +47,7 @@
     isPost : false,
     lang   : 'zh-CN'
   };
-</script>
-
-<!-- https://www.layuicdn.com/layui/css/layui.css -->
+</script><!-- https://www.layuicdn.com/layui/css/layui.css -->
 <script src="https://www.layuicdn.com/layui/layui.js"></script>
 
 <link rel="stylesheet" href="/js/prism/prism.css">
@@ -630,6 +628,13 @@
 <script src="/js/prism/prism.js" async></script>
 
 
+<!-- 音乐播放器 -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
+<script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
+<script src="https://unpkg.com/meting@2.0.1/dist/Meting.min.js"></script>
+<meting-js server="netease" type="playlist" id="571183770" fixed="true" autoplay="false" order="random" lrc-type=1  theme="#eb7aab"></meting-js>
+
+
     </div>
   </footer>
 
@@ -738,6 +743,10 @@ document.querySelectorAll('.pdfobject-container').forEach(element => {
   
 
 
+
+<!-- 提示信息 -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-toast-plugin/1.3.2/jquery.toast.min.css" integrity="sha512-wJgJNTBBkLit7ymC6vvzM1EcSWeM9mmOu+1USHaRBbHkm6W9EgM0HY27+UtUaprntaYQJF75rc8gjxllKs5OIQ==" crossorigin="anonymous" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-toast-plugin/1.3.2/jquery.toast.min.js" integrity="sha512-zlWWyZq71UMApAjih4WkaRpikgY9Bz1oXIW5G0fED4vk14JjGlQ1UmkGM392jEULP8jbNMiwLWdM8Z87Hu88Fw==" crossorigin="anonymous"></script>
 
 <!-- 樱花特效 -->
 <!-- 下雪 -->
@@ -1420,11 +1429,6 @@ layui.use(['jquery', 'layer'], function(){
 
 </script>
 
-<!-- 音乐播放器,别移到其他位置，有冲突 -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
-<script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
-<meting-js server="netease" type="playlist" id="571183770" fixed="true" autoplay="false" order="random" lrc-type=1  theme="#eb7aab"></meting-js>
     </div><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 </html>

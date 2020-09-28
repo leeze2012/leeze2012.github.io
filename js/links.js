@@ -1,4 +1,4 @@
-<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script>var link ={
+var link ={
     init: function () {
         var that = this;
         //这里设置的是刚才生成的 json 文件路径

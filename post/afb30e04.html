@@ -64,9 +64,7 @@
     isPost : true,
     lang   : 'zh-CN'
   };
-</script>
-
-<!-- https://www.layuicdn.com/layui/css/layui.css -->
+</script><!-- https://www.layuicdn.com/layui/css/layui.css -->
 <script src="https://www.layuicdn.com/layui/layui.js"></script>
 
 <link rel="stylesheet" href="/js/prism/prism.css">
@@ -526,7 +524,7 @@ flush privileges;<span aria-hidden="true" class="line-numbers-rows"><span></span
 <p>&emsp;&emsp; 根据Server ID 生成license Key：</p>
 <pre class="line-numbers language-none"><code class="language-none">&#x2F;opt&#x2F;atlassian&#x2F;jira&#x2F;jre&#x2F;bin&#x2F;java -jar &#x2F;home&#x2F;jira1&#x2F;atlassian-agent.jar -p jira -m jira@jira.com -n jira -o https:&#x2F;&#x2F;jira.com -s BFZ0-PD41-I9AX-YXDP<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <br>
-<div class="note default no-icon"><p>-p jira(安装的是jira产品)，具体的可以根据-p进行参考<br>-m <a href="mailto:&#106;&#105;&#114;&#97;&#x40;&#106;&#105;&#x72;&#97;&#46;&#x63;&#x6f;&#109;">&#106;&#105;&#114;&#97;&#x40;&#106;&#105;&#x72;&#97;&#46;&#x63;&#x6f;&#109;</a>(随意写)<br>-n jira(随意写)<br>-o <a target="_blank" rel="noopener" href="https://jira.com/">https://jira.com</a> (随意写)<br>-s BFZ0-PD41-I9AX-YXDP (即jira显示的服务器ID)</p>
+<div class="note default no-icon"><p>-p jira(安装的是jira产品)，具体的可以根据-p进行参考<br>-m <a href="mailto:&#106;&#105;&#114;&#x61;&#64;&#x6a;&#105;&#x72;&#x61;&#x2e;&#99;&#111;&#x6d;">&#106;&#105;&#114;&#x61;&#64;&#x6a;&#105;&#x72;&#x61;&#x2e;&#99;&#111;&#x6d;</a>(随意写)<br>-n jira(随意写)<br>-o <a target="_blank" rel="noopener" href="https://jira.com/">https://jira.com</a> (随意写)<br>-s BFZ0-PD41-I9AX-YXDP (即jira显示的服务器ID)</p>
 </div>
 <br>
 
@@ -729,6 +727,13 @@ vi &#x2F;opt&#x2F;atlassian&#x2F;jira&#x2F;conf&#x2F;server.xml               # 
 <script src="/js/prism/prism.js" async></script>
 
 
+<!-- 音乐播放器 -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
+<script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
+<script src="https://unpkg.com/meting@2.0.1/dist/Meting.min.js"></script>
+<meting-js server="netease" type="playlist" id="571183770" fixed="true" autoplay="false" order="random" lrc-type=1  theme="#eb7aab"></meting-js>
+
+
     </div>
   </footer>
 
@@ -852,6 +857,10 @@ NexT.utils.loadComments('#lv-container', () => {
 });
 </script>
 
+
+<!-- 提示信息 -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-toast-plugin/1.3.2/jquery.toast.min.css" integrity="sha512-wJgJNTBBkLit7ymC6vvzM1EcSWeM9mmOu+1USHaRBbHkm6W9EgM0HY27+UtUaprntaYQJF75rc8gjxllKs5OIQ==" crossorigin="anonymous" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-toast-plugin/1.3.2/jquery.toast.min.js" integrity="sha512-zlWWyZq71UMApAjih4WkaRpikgY9Bz1oXIW5G0fED4vk14JjGlQ1UmkGM392jEULP8jbNMiwLWdM8Z87Hu88Fw==" crossorigin="anonymous"></script>
 
 <!-- 樱花特效 -->
 <!-- 下雪 -->
@@ -1534,11 +1543,6 @@ layui.use(['jquery', 'layer'], function(){
 
 </script>
 
-<!-- 音乐播放器,别移到其他位置，有冲突 -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
-<script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
-<meting-js server="netease" type="playlist" id="571183770" fixed="true" autoplay="false" order="random" lrc-type=1  theme="#eb7aab"></meting-js>
     </div><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 </html>
