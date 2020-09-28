@@ -19131,7 +19131,7 @@ Prism.hooks.add('before-sanity-check', function (env) {
         $.toast({
           icon: 'success',
           text: '复制成功.',
-          position: 'top-center',
+          position: 'bottom-right',
           stack: false
         });
 

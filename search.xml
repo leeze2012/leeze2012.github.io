@@ -3133,7 +3133,7 @@ git config --global user.email        # 获取当前登录用户的邮箱<span a
 </ul>
 </li>
 <li>git config 添加配置项目 <ul>
-<li>git config –global user.email “<a href="mailto:&#x79;&#x6f;&#117;&#64;&#x65;&#120;&#97;&#109;&#112;&#108;&#x65;&#x2e;&#99;&#x6f;&#109;">&#x79;&#x6f;&#117;&#64;&#x65;&#120;&#97;&#109;&#112;&#108;&#x65;&#x2e;&#99;&#x6f;&#109;</a>”</li>
+<li>git config –global user.email “<a href="mailto:&#121;&#x6f;&#117;&#64;&#101;&#120;&#x61;&#x6d;&#112;&#108;&#x65;&#x2e;&#99;&#x6f;&#109;">&#121;&#x6f;&#117;&#64;&#101;&#120;&#x61;&#x6d;&#112;&#108;&#x65;&#x2e;&#99;&#x6f;&#109;</a>”</li>
 <li>git config –global user.name “Your Name”<br>上面的操作表示添加用户级别的配置信息，也就是说修改用户宿主目录下面的配置文件</li>
 </ul>
 </li>
