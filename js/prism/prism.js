@@ -19122,7 +19122,12 @@ Prism.hooks.add('before-sanity-check', function (env) {
 
 			clip.on('success', function() {
 				linkCopy.textContent = '已复制!';
-        layer.tips('复制成功', linkCopy,{tips: 2,icon: 5});
+        layer.msg('复制成功',{
+          offset: 't',
+          icon: 1,
+          time: 2000,
+          anim: 6
+        });
 
 				resetText();
 			});
