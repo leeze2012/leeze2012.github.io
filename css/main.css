@@ -3124,7 +3124,7 @@ html {
 body {
   background: none;
 }
-.code-toolbar .line-numbers ::selection {
+.code-toolbar ::selection {
   background: #7ebeee;
   color: #f7f7f7;
 }
@@ -3709,6 +3709,32 @@ code {
 .highlight-container .fa-angle-down:before {
   content: "\f107";
   margin-left: 0.3em;
+}
+.endlan {
+  position: relative;
+  height: 1.875rem;
+  line-height: 1.875rem;
+  margin: 0 auto;
+  text-align: center;
+}
+.endlan i {
+  display: block;
+  height: 1px;
+  background: #e1e1e1;
+  position: absolute;
+  top: 1rem;
+  width: 100%;
+}
+.endlan p {
+  display: inline-block;
+  font-size: 14px;
+  color: #ccc;
+  background: #fff;
+/*padding:0 1.875rem;*/
+  text-align: center;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
 }
 @-moz-keyframes Gradient {
   0% {
