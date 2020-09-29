@@ -36,7 +36,7 @@
 <meta property="og:image" content="https://blog.xiaosige.com/images/avatar_post_end.png">
 <meta property="og:image" content="https://blog.xiaosige.com/images/wechatpay.png">
 <meta property="article:published_time" content="2019-08-26T06:43:04.000Z">
-<meta property="article:modified_time" content="2020-09-22T10:06:14.533Z">
+<meta property="article:modified_time" content="2020-09-29T14:15:44.680Z">
 <meta property="article:author" content="leeze">
 <meta property="article:tag" content="小四儿 leeze">
 <meta name="twitter:card" content="summary">
@@ -681,6 +681,9 @@
 <img src="/images/avatar_post_end.png" style="border:none;width:100px; max-width: 100%;">
 
 <script>
+layui.use(['jquery', 'layer'], function(){
+
+  var $ = layui.$,layer = layui.layer;
 
   $("#wechat").mouseover(function(){
 
@@ -695,7 +698,7 @@
       layer.closeAll('tips');
   });            
 
-
+});
 </script>
 <script>
         document.querySelectorAll('.github-emoji')
@@ -830,7 +833,6 @@
   </footer>
 
   
-  <script size="300" alpha="0.6" zIndex="-1" src="//cdn.jsdelivr.net/gh/theme-next/theme-next-canvas-ribbon@1/canvas-ribbon.js"></script>
   <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/@next-theme/pjax@0.4.0/pjax.min.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

@@ -3084,16 +3084,39 @@ mark.search-keyword {
     background-position: 0 50%;
   }
 }
+/*
 html {
-  background-image: -moz-radial-gradient(-20% 140%, ellipse, rgba(235,167,171,0.6) 30%, rgba(255,255,227,0) 50%), -moz-radial-gradient(60% 40%, ellipse, #d9e3e5 10%, rgba(44,70,76,0) 60%), -moz-linear-gradient(-45deg, rgba(62,70,92,0.8) -10%, rgba(220,230,200,0.8) 80%);
-  background-image: -o-radial-gradient(-20% 140%, ellipse, rgba(235,167,171,0.6) 30%, rgba(255,255,227,0) 50%), -o-radial-gradient(60% 40%, ellipse, #d9e3e5 10%, rgba(44,70,76,0) 60%), -o-linear-gradient(-45deg, rgba(62,70,92,0.8) -10%, rgba(220,230,200,0.8) 80%);
-  background-image: -ms-radial-gradient(-20% 140%, ellipse, rgba(235,167,171,0.6) 30%, rgba(255,255,227,0) 50%), -ms-radial-gradient(60% 40%, ellipse, #d9e3e5 10%, rgba(44,70,76,0) 60%), -ms-linear-gradient(-45deg, rgba(62,70,92,0.8) -10%, rgba(220,230,200,0.8) 80%);
-  background-image: -webkit-radial-gradient(-20% 140%, ellipse, rgba(235,167,171,0.6) 30%, rgba(255,255,227,0) 50%), -webkit-radial-gradient(60% 40%, ellipse, #d9e3e5 10%, rgba(44,70,76,0) 60%), -webkit-linear-gradient(-45deg, rgba(62,70,92,0.8) -10%, rgba(220,230,200,0.8) 80%);
+  background-image:
+          -moz-radial-gradient(-20% 140%, ellipse , rgba(235,167,171,.6) 30%,rgba(255,255,227,0) 50%),
+          -moz-radial-gradient(60% 40%,ellipse, #d9e3e5 10%,rgba(44,70,76,.0) 60%),
+          -moz-linear-gradient(-45deg, rgba(62,70,92,.8) -10%,rgba(220,230,200,.8) 80% );
+  background-image:
+          -o-radial-gradient(-20% 140%, ellipse , rgba(235,167,171,.6) 30%,rgba(255,255,227,0) 50%),
+          -o-radial-gradient(60% 40%,ellipse, #d9e3e5 10%,rgba(44,70,76,.0) 60%),
+          -o-linear-gradient(-45deg, rgba(62,70,92,.8) -10%,rgba(220,230,200,.8) 80% );
+  background-image:
+          -ms-radial-gradient(-20% 140%, ellipse , rgba(235,167,171,.6) 30%,rgba(255,255,227,0) 50%),
+          -ms-radial-gradient(60% 40%,ellipse, #d9e3e5 10%,rgba(44,70,76,.0) 60%),
+          -ms-linear-gradient(-45deg, rgba(62,70,92,.8) -10%,rgba(220,230,200,.8) 80% );
+  background-image:
+          -webkit-radial-gradient(-20% 140%, ellipse , rgba(235,167,171,.6) 30%,rgba(255,255,227,0) 50%),
+          -webkit-radial-gradient(60% 40%,ellipse, #d9e3e5 10%,rgba(44,70,76,.0) 60%),
+          -webkit-linear-gradient(-45deg, rgba(62,70,92,.8) -10%,rgba(220,230,200,.8) 80% );
   background-attachment: fixed;
   background-size: cover;
 }
+*/
+*
 body {
-  background: none;
+  background: url("https://source.unsplash.com/collection/30327996/2000x1000");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: 50% 50%;
+}
+@media (min-width: 768px) {
+  body {
+    background-size: cover;
+  }
 }
 .code-toolbar ::selection {
   background: #7ebeee;
