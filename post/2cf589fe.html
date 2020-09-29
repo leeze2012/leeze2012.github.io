@@ -1759,6 +1759,87 @@ layui.use(['jquery', 'layer'], function(){
 
 </script>
 
+
+<!-- 每隔 5 分钟，再次刷新页面才会切换背景 -->
+<script>
+
+// 缓存的编程模型，就是三个指针 localStorage记录点 cache() getnewimgurl()
+// cache()函数轮询，到了加载时间就去加载图片，更新localStorage记录点
+// 用户刷新后，时间间隔如果没有超过新一轮的refreshtime时间，就去加载cache缓存的图片，超过了执行getnewimgurl()，加载新图片，cache重新开始计时。
+// getnewimgurl()会在缓存过期或失败后加载图片
+
+// localStorage记录点 cache() getnewimgurl()
+// cache() getnewimgurl() 这个时间段中打开着网页，就能成功cache
+
+// cache不起作用，到8分钟必然换背景。cache起作用，到4分钟，就下载新图片，更新ocalStorage记录点，使用新图片。
+bgrefresh ={
+	refreshtime: 8,//分钟
+	url: 'https://source.unsplash.com/collection/30327996/2000x1000',
+	cacheinterval: null,
+	init: function () {
+		if(!localStorage.hasOwnProperty('lastvisitedtime')){// 第一次访问网站，需要刷新图片
+			this.getnewimgurl(this.url,false);
+		}else if(this.checktime(this.refreshtime)) {// 时间超过了refreshtime
+			this.getnewimgurl(this.url,false);
+		}else{// 时间没有超过refreshtime
+			this.cache();
+			this.render();
+		}
+	},
+	// checktime 执行完并没有刷新localStorage中的lastvisitedtime。
+	// 放到render函数中，记录的是上一次刷新的时间。
+	// 放到getnewimgurl函数中，记录的是上一次获取新图片的时间。也就是每隔refreshtime分钟就刷新背景。
+	checktime: function(interval){
+		var lastvisitedtime = localStorage.getItem("lastvisitedtime"); // 超过了refreshtime，需要刷新图片
+		if(Math.floor((new Date().getTime()-lastvisitedtime)/(60*1000))>=interval){
+			return true;
+		}else{
+			return false;
+		}
+	},
+	getnewimgurl: function(url,cache){ //cache 表示是否是缓存函数调用
+		if(cache==true){
+			clearInterval(this.cacheinterval);
+			//console.log('cache success');
+		}
+		var that = this;
+		var xhr = new XMLHttpRequest();
+		xhr.onreadystatechange = function(e) {
+			if(xhr.readyState==4) { //2 HEADERS_RECEIVED 4 done
+				if (xhr.status == 200 ) {
+					//console.log(xhr.responseURL);
+					localStorage.setItem("imgurl", xhr.responseURL);
+					localStorage.setItem("lastvisitedtime", new Date().getTime());//刷新lastvisitedtime
+					if(!cache) { // 不是缓存调用
+						that.render();
+						that.cache();
+					}
+				}
+			}
+		};
+		xhr.open("GET", url, true);//不用HEAD，直接拿到图片，相当于预加载图片了，图片不会一层层显示，而是一下就显示出来。
+		xhr.send();
+	},
+	render: function () {
+		document.body.style.backgroundImage='url('+ localStorage.getItem("imgurl") +')';
+	},
+	cache : function () {
+		var that = this;
+		//console.log('cache');
+		this.cacheinterval = setInterval(function() {
+			if(that.checktime(that.refreshtime-4)){
+				that.getnewimgurl(that.url,true);
+			}
+		}, 15000);
+		//15s循环一次，时间越短越好，但不要影响页面性能。
+		//同时，如果时间到了该cache的时候，此时刷新页面，
+		//就会下载cache图片，如果时间太小，cache就会立即加载新图片，影响页面加载速度。
+	}
+};
+bgrefresh.init();
+
+</script>
+
     </div><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 </html>
