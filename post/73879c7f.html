@@ -23,18 +23,19 @@
 
 <script class="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"blog.xiaosige.com","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"livere","storage":true,"lazyload":true,"nav":null,"activeClass":"livere"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}};
+    var CONFIG = {"hostname":"blog.xiaosige.com","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"livere","storage":true,"lazyload":true,"nav":null,"activeClass":"livere"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}};
   </script>
 
-  <meta name="description" content="1.初始GitLab&amp;emsp;&amp;emsp;GitLab是利用Ruby on Rails一个开源的版本管理系统，实现一个自托管的Git项目仓库，可通过Web界面进行访问公开的或者私人项目。&amp;emsp;&amp;emsp;与Github类似，GitLab能够浏览源代码，管理缺陷和注释。可以管理团队对仓库的访问，它非常易于浏览提交过的版本并提供一个文件历史库。团队成员可以利用内置的简单聊天程序(Wall)进行">
+  <meta name="description" content="1.初始GitLab  GitLab是利用Ruby on Rails一个开源的版本管理系统，实现一个自托管的Git项目仓库，可通过Web界面进行访问公开的或者私人项目。  与Github类似，GitLab能够浏览源代码，管理缺陷和注释。可以管理团队对仓库的访问，它非常易于浏览提交过的版本并提供一个文件历史库。团队成员可以利用内置的简单聊天程序(Wall)进行交流。  它还提供一个代码片段收集功能可">
 <meta property="og:type" content="article">
 <meta property="og:title" content="linux搭建GitLab">
 <meta property="og:url" content="https://blog.xiaosige.com/post/73879c7f.html">
 <meta property="og:site_name" content="小四儿">
-<meta property="og:description" content="1.初始GitLab&amp;emsp;&amp;emsp;GitLab是利用Ruby on Rails一个开源的版本管理系统，实现一个自托管的Git项目仓库，可通过Web界面进行访问公开的或者私人项目。&amp;emsp;&amp;emsp;与Github类似，GitLab能够浏览源代码，管理缺陷和注释。可以管理团队对仓库的访问，它非常易于浏览提交过的版本并提供一个文件历史库。团队成员可以利用内置的简单聊天程序(Wall)进行">
+<meta property="og:description" content="1.初始GitLab  GitLab是利用Ruby on Rails一个开源的版本管理系统，实现一个自托管的Git项目仓库，可通过Web界面进行访问公开的或者私人项目。  与Github类似，GitLab能够浏览源代码，管理缺陷和注释。可以管理团队对仓库的访问，它非常易于浏览提交过的版本并提供一个文件历史库。团队成员可以利用内置的简单聊天程序(Wall)进行交流。  它还提供一个代码片段收集功能可">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-02-20T14:56:53.000Z">
 <meta property="article:modified_time" content="2020-08-24T15:40:48.769Z">
+<meta property="article:author" content="leeze">
 <meta property="article:tag" content="Linux">
 <meta property="article:tag" content="GitLab">
 <meta name="twitter:card" content="summary">
@@ -107,8 +108,10 @@
   .search-pop-overlay, .sidebar-nav { display: none; }
   .sidebar-panel { display: block; }
   </style>
-</noscript><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</noscript>
 
+<link rel="alternate" href="/atom.xml" title="小四儿" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="小四儿" type="application/rss+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
@@ -151,6 +154,11 @@
     <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
 
   </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
         <li class="menu-item menu-item-tags">
 
     <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">19</span></a>
@@ -164,6 +172,11 @@
         <li class="menu-item menu-item-archives">
 
     <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">31</span></a>
+
+  </li>
+        <li class="menu-item menu-item-welfare">
+
+    <a href="/welfare" rel="section"><i class="fa fa-coffee fa-fw"></i>福利</a>
 
   </li>
         <li class="menu-item menu-item-photos">
@@ -243,9 +256,9 @@
 
       <section class="site-overview-wrap sidebar-panel">
         <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image" alt=""
+    <img class="site-author-image" itemprop="image" alt="leeze"
       src="/images/avatar_post_end.png">
-  <p class="site-author-name" itemprop="name"></p>
+  <p class="site-author-name" itemprop="name">leeze</p>
   <div class="site-description" itemprop="description">因上努力，果上随缘！</div>
 </div>
 <div class="site-state-wrap animated">
@@ -315,7 +328,7 @@
     <div class="cup">
         <div class="cup__mouse"></div>
         <div class="cup__eyes"></div>
-        <div class="cup__label"></div>
+        <div class="cup__label">多喝水</div>
     </div>
     <div class="cup-shadow"></div>
 </div>
@@ -341,8 +354,8 @@
   border-radius: 5px 5px 50px 50px;
   -webkit-transform-origin: bottom center;
           transform-origin: bottom center;
-  -webkit-animation: .4s linear 0s infinite alternate cup;
-          animation: .4s linear 0s infinite alternate cup;
+  -webkit-animation: .6s linear 0s infinite alternate cup;
+          animation: .6s linear 0s infinite alternate cup;
   border: 3px solid #000;
   position: absolute;
   bottom: 0;
@@ -357,8 +370,8 @@
   border-radius: 100%;
   border: 3px solid #000;
   box-shadow: inset 0 20px 0 0 #fff;
-  -webkit-animation: .4s linear 0s infinite alternate water;
-          animation: .4s linear 0s infinite alternate water;
+  -webkit-animation: .6s linear 0s infinite alternate water;
+          animation: .6s linear 0s infinite alternate water;
   position: absolute;
   top: -20px;
   left: -3px;
@@ -401,25 +414,26 @@
   width: 48px;
   height: 35px;
   box-sizing: content-box;
-  padding-top: 15px;
-  background: #C5C7FF;
+  padding-top: 10px;
+  background: #ff7600;
   border: 2px solid #000;
   border-bottom: none;
   -webkit-transform-origin: top center;
           transform-origin: top center;
-  -webkit-animation: .4s linear 0s infinite alternate label;
-          animation: .4s linear 0s infinite alternate label;
+  -webkit-animation: .6s linear 0s infinite alternate label;
+          animation: .6s linear 0s infinite alternate label;
   position: absolute;
   top: 40px;
   left: 45px;
+  color: #fff
 }
 .cup__label::before {
   content: '';
   width: 3px;
   height: 15px;
   background: #000;
-  -webkit-animation: .4s linear 0s infinite alternate label-line;
-          animation: .4s linear 0s infinite alternate label-line;
+  -webkit-animation: .6s linear 0s infinite alternate label-line;
+          animation: .6s linear 0s infinite alternate label-line;
   position: absolute;
   left: 25px;
   top: -16px;
@@ -445,8 +459,8 @@
   border-radius: 40% 40% 100% 100%;
   -webkit-transform-origin: bottom center;
           transform-origin: bottom center;
-  -webkit-animation: .4s linear 0s infinite alternate shadow;
-          animation: .4s linear 0s infinite alternate shadow;
+  -webkit-animation: .6s linear 0s infinite alternate shadow;
+          animation: .6s linear 0s infinite alternate shadow;
   position: absolute;
   bottom: -16px;
   left: 55px;
@@ -600,7 +614,6 @@
     </header>
 
     
-  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
 
 <noscript>
   <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
@@ -620,7 +633,7 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar_post_end.png">
-      <meta itemprop="name" content="">
+      <meta itemprop="name" content="leeze">
       <meta itemprop="description" content="因上努力，果上随缘！">
     </span>
 
@@ -696,25 +709,25 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h3 id="1-初始GitLab"><a href="#1-初始GitLab" class="headerlink" title="1.初始GitLab"></a>1.初始GitLab</h3><p>&emsp;&emsp;GitLab是利用Ruby on Rails一个开源的版本管理系统，实现一个自托管的Git项目仓库，可通过Web界面进行访问公开的或者私人项目。<br>&emsp;&emsp;与Github类似，GitLab能够浏览源代码，管理缺陷和注释。可以管理团队对仓库的访问，它非常易于浏览提交过的版本并提供一个文件历史库。团队成员可以利用内置的简单聊天程序(Wall)进行交流。<br>&emsp;&emsp;它还提供一个代码片段收集功能可以轻松实现代码复用，便于日后有需要的时候进行查找。</p>
+        <h3 id="1-初始GitLab"><a href="#1-初始GitLab" class="headerlink" title="1.初始GitLab"></a>1.初始GitLab</h3><p>  GitLab是利用Ruby on Rails一个开源的版本管理系统，实现一个自托管的Git项目仓库，可通过Web界面进行访问公开的或者私人项目。<br>  与Github类似，GitLab能够浏览源代码，管理缺陷和注释。可以管理团队对仓库的访问，它非常易于浏览提交过的版本并提供一个文件历史库。团队成员可以利用内置的简单聊天程序(Wall)进行交流。<br>  它还提供一个代码片段收集功能可以轻松实现代码复用，便于日后有需要的时候进行查找。</p>
 <a id="more"></a>
 
 
-<h3 id="2-准备安装GitLab"><a href="#2-准备安装GitLab" class="headerlink" title="2.准备安装GitLab"></a>2.准备安装GitLab</h3><p>&emsp;&emsp;<code>yum install -y postfix sshd policycoreutils-python</code></p>
+<h3 id="2-准备安装GitLab"><a href="#2-准备安装GitLab" class="headerlink" title="2.准备安装GitLab"></a>2.准备安装GitLab</h3><p>  <code>yum install -y postfix sshd policycoreutils-python</code></p>
 <ul>
 <li><code>postfix</code> 邮件通知</li>
 <li><code>sshd</code> ssh服务(一般系统已经有了,可以不装)</li>
 <li><code>policycoreutils-python</code> GitLab必备依赖</li>
 </ul>
-<p>&emsp;&emsp;设置postfix开机自启: <code>chkconfig --add postfix</code></p>
-<h3 id="3-开始安装GitLab"><a href="#3-开始安装GitLab" class="headerlink" title="3.开始安装GitLab"></a>3.开始安装GitLab</h3><p>&emsp;&emsp;官方下载地址：<a target="_blank" rel="noopener" href="https://packages.gitlab.com/gitlab/gitlab-ce">https://packages.gitlab.com/gitlab/gitlab-ce</a><br>&emsp;&emsp;国内镜像：<a target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/gitlab-ce/yum/el6/">https://mirrors.tuna.tsinghua.edu.cn/gitlab-ce/yum/el6/</a></p>
+<p>  设置postfix开机自启: <code>chkconfig --add postfix</code></p>
+<h3 id="3-开始安装GitLab"><a href="#3-开始安装GitLab" class="headerlink" title="3.开始安装GitLab"></a>3.开始安装GitLab</h3><p>  官方下载地址：<a target="_blank" rel="noopener" href="https://packages.gitlab.com/gitlab/gitlab-ce">https://packages.gitlab.com/gitlab/gitlab-ce</a><br>  国内镜像：<a target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/gitlab-ce/yum/el6/">https://mirrors.tuna.tsinghua.edu.cn/gitlab-ce/yum/el6/</a></p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">
 <span class="token function">wget</span> https://mirrors.tuna.tsinghua.edu.cn/gitlab-ce/yum/el6/gitlab-ce-12.7.6-ce.0.el6.x86_64.rpm
 yum <span class="token function">install</span> -y gitlab-ce-12.7.6-ce.0.el6.x86_64.rpm
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="4-配置GitLab"><a href="#4-配置GitLab" class="headerlink" title="4.配置GitLab"></a>4.配置GitLab</h3><p>&emsp;&emsp;主要配置两个地方: 访问GitLab的IP地址和发送邮件的账号配置</p>
-<p>&emsp;&emsp;<code>vim /etc/gitlab/gitlab.rb</code></p>
+<h3 id="4-配置GitLab"><a href="#4-配置GitLab" class="headerlink" title="4.配置GitLab"></a>4.配置GitLab</h3><p>  主要配置两个地方: 访问GitLab的IP地址和发送邮件的账号配置</p>
+<p>  <code>vim /etc/gitlab/gitlab.rb</code></p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">external_url <span class="token string">'http://192.168.183.200'</span> <span class="token comment"># 你自己的IP</span>
 
 <span class="token comment">### Email Settings</span>
@@ -734,10 +747,10 @@ gitlab_rails<span class="token punctuation">[</span><span class="token string">'
 gitlab_rails<span class="token punctuation">[</span><span class="token string">'smtp_tls'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">true</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>&emsp;&emsp;ESC保存并退出 :<code>wq</code></p>
-<h3 id="5-更改gitlab默认端口"><a href="#5-更改gitlab默认端口" class="headerlink" title="5.更改gitlab默认端口"></a>5.更改gitlab默认端口</h3><p>&emsp;&emsp;若linux服务器的80和8080端口都已经被使用，则需修改gitlab监听的端口</p>
-<p>&emsp;&emsp;修改路径文件：<code>vim /etc/gitlab/gitlab.rb</code></p>
-<p>&emsp;&emsp;1、修改<code>external_url</code>  （将前面的#注释符号去掉）,我改成了8099</p>
+<p>  ESC保存并退出 :<code>wq</code></p>
+<h3 id="5-更改gitlab默认端口"><a href="#5-更改gitlab默认端口" class="headerlink" title="5.更改gitlab默认端口"></a>5.更改gitlab默认端口</h3><p>  若linux服务器的80和8080端口都已经被使用，则需修改gitlab监听的端口</p>
+<p>  修改路径文件：<code>vim /etc/gitlab/gitlab.rb</code></p>
+<p>  1、修改<code>external_url</code>  （将前面的#注释符号去掉）,我改成了8099</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment">## GitLab URL</span>
 <span class="token comment">##! URL on which GitLab will be reachable.</span>
 <span class="token comment">##! For more details on configuring external_url see:</span>
@@ -750,7 +763,7 @@ gitlab_rails<span class="token punctuation">[</span><span class="token string">'
 <span class="token comment">##! https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instancedata-data-retrieval.html</span>
 external_url <span class="token string">'http://10.211.55.61:8099'</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>&emsp;&emsp;2、找到Advanced settings 下的8080端口 将端口改成自己备用端口号<br>&emsp;&emsp;（<code>不能和上面url端口号相同，会冲突占用！</code>），我改的28080</p>
+<p>  2、找到Advanced settings 下的8080端口 将端口改成自己备用端口号<br>  （<code>不能和上面url端口号相同，会冲突占用！</code>），我改的28080</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment">### Advanced settings</span>
 <span class="token comment"># unicorn['listen'] = 'localhost'</span>
  unicorn<span class="token punctuation">[</span><span class="token string">'port'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">28080</span>
@@ -759,39 +772,39 @@ external_url <span class="token string">'http://10.211.55.61:8099'</span><span a
 <span class="token comment"># unicorn['tcp_nopush'] = true</span>
 <span class="token comment"># unicorn['backlog_socket'] = 1024</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>&emsp;&emsp;3、运行下面命令</p>
+<p>  3、运行下面命令</p>
 <pre><code>     sudo gitlab-ctl stop --停止服务
      sudo gitlab-ctl reconfigure --启动服务
      sudo gitlab-ctl start --启动所有gitlab组件</code></pre>
-<p>&emsp;&emsp;4、若访问不了gitlab，尝试关闭或开放防火墙</p>
-<h3 id="6-启动GitLab"><a href="#6-启动GitLab" class="headerlink" title="6.启动GitLab"></a>6.启动GitLab</h3><p>&emsp;&emsp;刷新配置: <code>gitlab-ctl reconfigure</code><br>&emsp;&emsp;重启服务: <code>gitlab-ctl restart</code></p>
-<h3 id="7-访问GitLab"><a href="#7-访问GitLab" class="headerlink" title="7.访问GitLab"></a>7.访问GitLab</h3><p>&emsp;&emsp;此时还不能访问,需要关闭防火墙 <code>service iptables stop</code> 或者 在防火墙中开放8099端口:</p>
-<p>&emsp;&emsp;编辑iptables <code>vi /etc/sysconfig/iptables</code></p>
-<p>&emsp;&emsp;添加配置 <code>-A INPUT -m state --state NEW -m tcp -p tcp --dport 8099 -j ACCEPT</code></p>
-<p>&emsp;&emsp;重启防火墙 <code>service iptables restart</code></p>
-<p>&emsp;&emsp;访问 <a target="_blank" rel="noopener" href="http://10.211.55.61:8099/">http://10.211.55.61:8099/</a></p>
-<p>&emsp;&emsp;第一次登录需要修改<code>root</code>密码, 密码8位以上,修改完就可以登录</p>
-<h3 id="8-Linux下Gitlab个人界面汉化"><a href="#8-Linux下Gitlab个人界面汉化" class="headerlink" title="8.Linux下Gitlab个人界面汉化"></a>8.Linux下Gitlab个人界面汉化</h3><p>&emsp;&emsp;1.进入个人用户界面<br>&emsp;&emsp;点击右上角<code>个人头像-&gt;settings-&gt;profile-&gt;Preferred language</code><br>&emsp;&emsp;2.默认是english,可以切换中文<br>&emsp;&emsp;3.再刷新一下，我们看见语言变成中文了<br>&emsp;&emsp;4.不过其它账号登录依然是英文，只有当前账号登录才会显示成功切换的语言</p>
-<h3 id="9-GitLab基本操作"><a href="#9-GitLab基本操作" class="headerlink" title="9.GitLab基本操作"></a>9.GitLab基本操作</h3><p>&emsp;&emsp;添加用户2种方式: root后台添加和自己注册</p>
-<p>&emsp;&emsp;用户权限:</p>
+<p>  4、若访问不了gitlab，尝试关闭或开放防火墙</p>
+<h3 id="6-启动GitLab"><a href="#6-启动GitLab" class="headerlink" title="6.启动GitLab"></a>6.启动GitLab</h3><p>  刷新配置: <code>gitlab-ctl reconfigure</code><br>  重启服务: <code>gitlab-ctl restart</code></p>
+<h3 id="7-访问GitLab"><a href="#7-访问GitLab" class="headerlink" title="7.访问GitLab"></a>7.访问GitLab</h3><p>  此时还不能访问,需要关闭防火墙 <code>service iptables stop</code> 或者 在防火墙中开放8099端口:</p>
+<p>  编辑iptables <code>vi /etc/sysconfig/iptables</code></p>
+<p>  添加配置 <code>-A INPUT -m state --state NEW -m tcp -p tcp --dport 8099 -j ACCEPT</code></p>
+<p>  重启防火墙 <code>service iptables restart</code></p>
+<p>  访问 <a target="_blank" rel="noopener" href="http://10.211.55.61:8099/">http://10.211.55.61:8099/</a></p>
+<p>  第一次登录需要修改<code>root</code>密码, 密码8位以上,修改完就可以登录</p>
+<h3 id="8-Linux下Gitlab个人界面汉化"><a href="#8-Linux下Gitlab个人界面汉化" class="headerlink" title="8.Linux下Gitlab个人界面汉化"></a>8.Linux下Gitlab个人界面汉化</h3><p>  1.进入个人用户界面<br>  点击右上角<code>个人头像-&gt;settings-&gt;profile-&gt;Preferred language</code><br>  2.默认是english,可以切换中文<br>  3.再刷新一下，我们看见语言变成中文了<br>  4.不过其它账号登录依然是英文，只有当前账号登录才会显示成功切换的语言</p>
+<h3 id="9-GitLab基本操作"><a href="#9-GitLab基本操作" class="headerlink" title="9.GitLab基本操作"></a>9.GitLab基本操作</h3><p>  添加用户2种方式: root后台添加和自己注册</p>
+<p>  用户权限:</p>
 <pre><code>Regular: 可以访问自己组和项目
 Admin: 可以访问所有组和项目</code></pre>
-<p>&emsp;&emsp;添加组</p>
-<p>&emsp;&emsp;组权限</p>
+<p>  添加组</p>
+<p>  组权限</p>
 <pre><code>Private: 私用,只允许组成员可见
 Internal: 内部,所有登录用户可见
 Public: 公共,所有人可见</code></pre>
-<p>&emsp;&emsp;创建仓库和添加成员到组,很简单,不再赘述. 重点说下仓库成员权限,</p>
+<p>  创建仓库和添加成员到组,很简单,不再赘述. 重点说下仓库成员权限,</p>
 <pre><code>Guest：可以创建issue、发表评论，不能读写版本库
 Reporter：可以克隆代码，不能提交，QA、PM可以赋予这个权限
 Developer：可以克隆代码、开发、提交、push，RD可以赋予这个权限
 Master：可以创建项目、添加tag、保护分支、添加项目成员、编辑项目，核心RD负责人可以赋予这个权限
 Owner：可以设置项目访问权限 - Visibility Level、删除项目、迁移项目、管理组成员，开发组leader可以赋予这个权限</code></pre>
 <h3 id="10-Gitlab相关操作及说明"><a href="#10-Gitlab相关操作及说明" class="headerlink" title="10.Gitlab相关操作及说明"></a>10.Gitlab相关操作及说明</h3><pre class="line-numbers language-none"><code class="language-none">
-&#x2F;etc&#x2F;gitlab&#x2F;gitlab.rb          #gitlab配置文件
-&#x2F;opt&#x2F;gitlab                    #gitlab的程序安装目录
-&#x2F;var&#x2F;opt&#x2F;gitlab                #gitlab目录数据目录
-&#x2F;var&#x2F;opt&#x2F;gitlab&#x2F;git-data       #存放仓库数据
+/etc/gitlab/gitlab.rb          #gitlab配置文件
+/opt/gitlab                    #gitlab的程序安装目录
+/var/opt/gitlab                #gitlab目录数据目录
+/var/opt/gitlab/git-data       #存放仓库数据
 gitlab-ctl reconfigure         #重新加载配置
 gitlab-ctl status              #查看当前gitlab所有服务运行状态
 gitlab-ctl stop                #停止gitlab服务
@@ -806,7 +819,25 @@ postgresql             数据库
 redis                  缓存数据库
 sidekiq                用于在后台执行队列任务（异步执行）<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
     </div>
 
     
@@ -826,10 +857,32 @@ sidekiq                用于在后台执行队列任务（异步执行）<span 
     <p id="hitokoto" style="text-align:center;margin-top: 30px;font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, STKaiti, KaiTi, SimKai, DFKai-SB, 'Lato', 'PingFang SC', 'Microsoft YaHei', sans-serif;font-weight: bold;color: #999;">
      正在加载一言...
     </p>
+    <div style="margin-top: 30px;">
+      <img id="wechat_subscriber_qcode" src="/images/reward-container-back.png" alt="leeze wechat" style="max-width: 100%;">
+    </div>
+    
 
     
 </div>
 
+
+          <div class="reward-container">
+  <div></div>
+  <button onclick="document.querySelector('.post-reward').classList.toggle('active');">
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt="leeze 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.png" alt="leeze 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
 
           
 
@@ -966,7 +1019,6 @@ sidekiq                用于在后台执行队列任务（异步执行）<span 
 
 <script src="/js/prism/prism.js" async></script>
 
-
 <!-- 音乐播放器 -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aplayer/1.10.1/APlayer.min.css" integrity="sha512-CIYsJUa3pr1eoXlZFroEI0mq0UIMUqNouNinjpCkSWo3Bx5NRlQ0OuC6DtEB/bDqUWnzXc1gs2X/g52l36N5iw==" crossorigin="anonymous" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/aplayer/1.10.1/APlayer.min.js" integrity="sha512-RWosNnDNw8FxHibJqdFRySIswOUgYhFxnmYO3fp+BgCU7gfo4z0oS7mYFBvaa8qu+axY39BmQOrhW3Tp70XbaQ==" crossorigin="anonymous"></script>
@@ -983,7 +1035,7 @@ sidekiq                用于在后台执行队列任务（异步执行）<span 
   <script src="//cdn.jsdelivr.net/npm/@next-theme/pjax@0.4.0/pjax.min.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
-<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
   <script>
 var pjax = new Pjax({
   selectors: [

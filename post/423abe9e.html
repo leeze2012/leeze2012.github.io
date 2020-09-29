@@ -23,15 +23,15 @@
 
 <script class="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"blog.xiaosige.com","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"livere","storage":true,"lazyload":true,"nav":null,"activeClass":"livere"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}};
+    var CONFIG = {"hostname":"blog.xiaosige.com","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"livere","storage":true,"lazyload":true,"nav":null,"activeClass":"livere"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}};
   </script>
 
-  <meta name="description" content="命令初始配置 仓库级别 local 【优先级最高】 git config --local user.name &quot;Your name&quot; git config --local user.email &quot;you@example.com&quot; &amp;emsp;&amp;emsp;git 仓库级别对应的配置文件是当前仓库下的.git&#x2F;config 【在当前目录下.git目录默认是隐藏的">
+  <meta name="description" content="命令初始配置 仓库级别 local 【优先级最高】 git config --local user.name &quot;Your name&quot; git config --local user.email &quot;you@example.com&quot;   git 仓库级别对应的配置文件是当前仓库下的.git&#x2F;config 【在当前目录下.git目录默认是隐藏的，所以在文件管理器中我们要打开显示以藏文件】">
 <meta property="og:type" content="article">
 <meta property="og:title" content="git常用命令">
 <meta property="og:url" content="https://blog.xiaosige.com/post/423abe9e.html">
 <meta property="og:site_name" content="小四儿">
-<meta property="og:description" content="命令初始配置 仓库级别 local 【优先级最高】 git config --local user.name &quot;Your name&quot; git config --local user.email &quot;you@example.com&quot; &amp;emsp;&amp;emsp;git 仓库级别对应的配置文件是当前仓库下的.git&#x2F;config 【在当前目录下.git目录默认是隐藏的">
+<meta property="og:description" content="命令初始配置 仓库级别 local 【优先级最高】 git config --local user.name &quot;Your name&quot; git config --local user.email &quot;you@example.com&quot;   git 仓库级别对应的配置文件是当前仓库下的.git&#x2F;config 【在当前目录下.git目录默认是隐藏的，所以在文件管理器中我们要打开显示以藏文件】">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://blog.xiaosige.com/post/423abe9e/gitcom-001.png">
 <meta property="og:image" content="https://blog.xiaosige.com/post/423abe9e/gitcom-002.png">
@@ -39,6 +39,7 @@
 <meta property="og:image" content="https://blog.xiaosige.com/post/423abe9e/gitcom-004.png">
 <meta property="article:published_time" content="2019-09-03T15:16:00.000Z">
 <meta property="article:modified_time" content="2020-09-24T20:45:53.780Z">
+<meta property="article:author" content="leeze">
 <meta property="article:tag" content="Git">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://blog.xiaosige.com/post/423abe9e/gitcom-001.png">
@@ -111,8 +112,10 @@
   .search-pop-overlay, .sidebar-nav { display: none; }
   .sidebar-panel { display: block; }
   </style>
-</noscript><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</noscript>
 
+<link rel="alternate" href="/atom.xml" title="小四儿" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="小四儿" type="application/rss+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
@@ -155,6 +158,11 @@
     <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
 
   </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
         <li class="menu-item menu-item-tags">
 
     <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">19</span></a>
@@ -168,6 +176,11 @@
         <li class="menu-item menu-item-archives">
 
     <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">31</span></a>
+
+  </li>
+        <li class="menu-item menu-item-welfare">
+
+    <a href="/welfare" rel="section"><i class="fa fa-coffee fa-fw"></i>福利</a>
 
   </li>
         <li class="menu-item menu-item-photos">
@@ -247,9 +260,9 @@
 
       <section class="site-overview-wrap sidebar-panel">
         <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image" alt=""
+    <img class="site-author-image" itemprop="image" alt="leeze"
       src="/images/avatar_post_end.png">
-  <p class="site-author-name" itemprop="name"></p>
+  <p class="site-author-name" itemprop="name">leeze</p>
   <div class="site-description" itemprop="description">因上努力，果上随缘！</div>
 </div>
 <div class="site-state-wrap animated">
@@ -319,7 +332,7 @@
     <div class="cup">
         <div class="cup__mouse"></div>
         <div class="cup__eyes"></div>
-        <div class="cup__label"></div>
+        <div class="cup__label">多喝水</div>
     </div>
     <div class="cup-shadow"></div>
 </div>
@@ -345,8 +358,8 @@
   border-radius: 5px 5px 50px 50px;
   -webkit-transform-origin: bottom center;
           transform-origin: bottom center;
-  -webkit-animation: .4s linear 0s infinite alternate cup;
-          animation: .4s linear 0s infinite alternate cup;
+  -webkit-animation: .6s linear 0s infinite alternate cup;
+          animation: .6s linear 0s infinite alternate cup;
   border: 3px solid #000;
   position: absolute;
   bottom: 0;
@@ -361,8 +374,8 @@
   border-radius: 100%;
   border: 3px solid #000;
   box-shadow: inset 0 20px 0 0 #fff;
-  -webkit-animation: .4s linear 0s infinite alternate water;
-          animation: .4s linear 0s infinite alternate water;
+  -webkit-animation: .6s linear 0s infinite alternate water;
+          animation: .6s linear 0s infinite alternate water;
   position: absolute;
   top: -20px;
   left: -3px;
@@ -405,25 +418,26 @@
   width: 48px;
   height: 35px;
   box-sizing: content-box;
-  padding-top: 15px;
-  background: #C5C7FF;
+  padding-top: 10px;
+  background: #ff7600;
   border: 2px solid #000;
   border-bottom: none;
   -webkit-transform-origin: top center;
           transform-origin: top center;
-  -webkit-animation: .4s linear 0s infinite alternate label;
-          animation: .4s linear 0s infinite alternate label;
+  -webkit-animation: .6s linear 0s infinite alternate label;
+          animation: .6s linear 0s infinite alternate label;
   position: absolute;
   top: 40px;
   left: 45px;
+  color: #fff
 }
 .cup__label::before {
   content: '';
   width: 3px;
   height: 15px;
   background: #000;
-  -webkit-animation: .4s linear 0s infinite alternate label-line;
-          animation: .4s linear 0s infinite alternate label-line;
+  -webkit-animation: .6s linear 0s infinite alternate label-line;
+          animation: .6s linear 0s infinite alternate label-line;
   position: absolute;
   left: 25px;
   top: -16px;
@@ -449,8 +463,8 @@
   border-radius: 40% 40% 100% 100%;
   -webkit-transform-origin: bottom center;
           transform-origin: bottom center;
-  -webkit-animation: .4s linear 0s infinite alternate shadow;
-          animation: .4s linear 0s infinite alternate shadow;
+  -webkit-animation: .6s linear 0s infinite alternate shadow;
+          animation: .6s linear 0s infinite alternate shadow;
   position: absolute;
   bottom: -16px;
   left: 55px;
@@ -604,7 +618,6 @@
     </header>
 
     
-  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
 
 <noscript>
   <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
@@ -624,7 +637,7 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar_post_end.png">
-      <meta itemprop="name" content="">
+      <meta itemprop="name" content="leeze">
       <meta itemprop="description" content="因上努力，果上随缘！">
     </span>
 
@@ -702,19 +715,19 @@
     <div class="post-body" itemprop="articleBody">
         <h2 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h2><h5 id="初始配置"><a href="#初始配置" class="headerlink" title="初始配置"></a>初始配置</h5><ol>
 <li><p>仓库级别 local 【优先级最高】</p>
-<pre class="line-numbers language-none"><code class="language-none">git config --local user.name &quot;Your name&quot;
-git config --local user.email &quot;you@example.com&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p>&emsp;&emsp;git 仓库级别对应的配置文件是当前仓库下的.git/config 【在当前目录下.git目录默认是隐藏的，所以在文件管理器中我们要打开显示以藏文件】</p>
+<pre class="line-numbers language-none"><code class="language-none">git config --local user.name "Your name"
+git config --local user.email "you@example.com"<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>  git 仓库级别对应的配置文件是当前仓库下的.git/config 【在当前目录下.git目录默认是隐藏的，所以在文件管理器中我们要打开显示以藏文件】</p>
 <a id="more"></a></li>
 <li><p>用户级别 global【优先级次之】</p>
-<pre class="line-numbers language-none"><code class="language-none">git config --global user.name &quot;Your name&quot;
-git config --global user.email &quot;you@example.com&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p>&emsp;&emsp;git 用户级别对应的配置文件是用户宿主目录下的~/.gitconfig</p>
+<pre class="line-numbers language-none"><code class="language-none">git config --global user.name "Your name"
+git config --global user.email "you@example.com"<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>  git 用户级别对应的配置文件是用户宿主目录下的~/.gitconfig</p>
 </li>
 <li><p>系统级别 system【优先级最低】</p>
-<pre class="line-numbers language-none"><code class="language-none">git config --system user.name &quot;Your name&quot;
-git config --system user.email &quot;you@example.com&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p>&emsp;&emsp;git系统级别对应的配置文件是git安装目录下的 /etc/gitconfig</p>
+<pre class="line-numbers language-none"><code class="language-none">git config --system user.name "Your name"
+git config --system user.email "you@example.com"<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>  git系统级别对应的配置文件是git安装目录下的 /etc/gitconfig</p>
 </li>
 </ol>
 <h5 id="获取当前git配置"><a href="#获取当前git配置" class="headerlink" title="获取当前git配置"></a>获取当前git配置</h5><pre class="line-numbers language-none"><code class="language-none">git --version
@@ -725,7 +738,7 @@ git config --global user.email        # 获取当前登录用户的邮箱<span a
 <li>git config –local -l 查看仓库配置【必须要进入到具体的目录下，比如要查看TestGit仓库的配置信息】</li>
 <li>git config –global -l 查看用户配置</li>
 <li>git config –system -l 查看系统配置</li>
-<li>git config -l查看所有的配置信息，依次是系统级别、用户级别、仓库级别<img src="/post/423abe9e/gitcom-001.png" class title="示例图"></li>
+<li>git config -l查看所有的配置信息，依次是系统级别、用户级别、仓库级别<img src="/post/423abe9e/gitcom-001.png" class="" title="示例图"></li>
 <li>git config 常用配置选项<ul>
 <li>git config -e 编辑配置文件 <ul>
 <li>git config –local -e 编辑仓库级别配置文件</li>
@@ -734,33 +747,33 @@ git config --global user.email        # 获取当前登录用户的邮箱<span a
 </ul>
 </li>
 <li>git config 添加配置项目 <ul>
-<li>git config –global user.email “<a href="mailto:&#121;&#111;&#x75;&#x40;&#101;&#120;&#97;&#109;&#112;&#x6c;&#101;&#x2e;&#x63;&#x6f;&#x6d;">&#121;&#111;&#x75;&#x40;&#101;&#120;&#97;&#109;&#112;&#x6c;&#101;&#x2e;&#x63;&#x6f;&#x6d;</a>”</li>
+<li>git config –global user.email “<a href="mailto:you@example.com">you@example.com</a>”</li>
 <li>git config –global user.name “Your Name”<br>上面的操作表示添加用户级别的配置信息，也就是说修改用户宿主目录下面的配置文件</li>
 </ul>
 </li>
 </ul>
 </li>
-<li>配置文件如何生效的<br>&emsp;&emsp;对于git来说，配置文件的权重是仓库&gt;全局&gt;系统。Git会使用这一系列的配置文件来存储你定义的偏好，它首先会查找/etc/gitconfig文件（系统级），该文件含有对系统上所有用户及他们所拥有的仓库都生效的配置值。接下来Git会查找每个用户的~/.gitconfig文件（全局级）。最后Git会查找由用户定义的各个库中Git目录下的配置文件.git/config（仓库级），该文件中的值只对当前所属仓库有效</li>
+<li>配置文件如何生效的<br>  对于git来说，配置文件的权重是仓库&gt;全局&gt;系统。Git会使用这一系列的配置文件来存储你定义的偏好，它首先会查找/etc/gitconfig文件（系统级），该文件含有对系统上所有用户及他们所拥有的仓库都生效的配置值。接下来Git会查找每个用户的~/.gitconfig文件（全局级）。最后Git会查找由用户定义的各个库中Git目录下的配置文件.git/config（仓库级），该文件中的值只对当前所属仓库有效</li>
 </ol>
-<h5 id="增加配置项"><a href="#增加配置项" class="headerlink" title="增加配置项"></a>增加配置项</h5><p>&emsp;&emsp;参数 –add<br>&emsp;&emsp;格式: git config [–local|–global|–system] –add section.key value(默认是添加在local配置中)<br>&emsp;&emsp;注意add后面的section,key,value一项都不能少，否则添加失败。比如我们执行：git config –add cat.name tom</p>
-<img src="/post/423abe9e/gitcom-002.png" class title="示例图">
+<h5 id="增加配置项"><a href="#增加配置项" class="headerlink" title="增加配置项"></a>增加配置项</h5><p>  参数 –add<br>  格式: git config [–local|–global|–system] –add section.key value(默认是添加在local配置中)<br>  注意add后面的section,key,value一项都不能少，否则添加失败。比如我们执行：git config –add cat.name tom</p>
+<img src="/post/423abe9e/gitcom-002.png" class="" title="示例图">
 
-<h5 id="获取一个配置项"><a href="#获取一个配置项" class="headerlink" title="获取一个配置项"></a>获取一个配置项</h5><p>&emsp;&emsp;有时候，我们并不需要查看所有配置的值，而是查看某个配置项的值，怎么做呢？<br>&emsp;&emsp;命令参数 –get<br>&emsp;&emsp;格式：git config [–local|–global|–system] –get section.key(默认是获取local配置中内容)<br>&emsp;&emsp;我们先往global配置中写入一个cat.name=Tomcat的配置项，再使用git config –get cat.name看看得到的是什么：</p>
-<img src="/post/423abe9e/gitcom-003.png" class title="示例图">
-<p>&emsp;&emsp;结果就是local中的cat.name=Tom，因此git config –get section.key 等价于git config –local –get section.key<br>&emsp;&emsp;如果获取一个section不存在的key值，不会返回任何值<br>&emsp;&emsp;如果获取一个不存在的section的key值，则会报错</p>
-<h5 id="删除一个配置项"><a href="#删除一个配置项" class="headerlink" title="删除一个配置项"></a>删除一个配置项</h5><p>&emsp;&emsp;命令参数 –unset<br>&emsp;&emsp;格式：git config [–local|–global|–system] –unset section.key<br>&emsp;&emsp;相信有了前两个命令的使用基础，大家举一反三就知道改怎么用了，来，我们试试删除local配置中的cat.name</p>
-<img src="/post/423abe9e/gitcom-004.png" class title="示例图">
+<h5 id="获取一个配置项"><a href="#获取一个配置项" class="headerlink" title="获取一个配置项"></a>获取一个配置项</h5><p>  有时候，我们并不需要查看所有配置的值，而是查看某个配置项的值，怎么做呢？<br>  命令参数 –get<br>  格式：git config [–local|–global|–system] –get section.key(默认是获取local配置中内容)<br>  我们先往global配置中写入一个cat.name=Tomcat的配置项，再使用git config –get cat.name看看得到的是什么：</p>
+<img src="/post/423abe9e/gitcom-003.png" class="" title="示例图">
+<p>  结果就是local中的cat.name=Tom，因此git config –get section.key 等价于git config –local –get section.key<br>  如果获取一个section不存在的key值，不会返回任何值<br>  如果获取一个不存在的section的key值，则会报错</p>
+<h5 id="删除一个配置项"><a href="#删除一个配置项" class="headerlink" title="删除一个配置项"></a>删除一个配置项</h5><p>  命令参数 –unset<br>  格式：git config [–local|–global|–system] –unset section.key<br>  相信有了前两个命令的使用基础，大家举一反三就知道改怎么用了，来，我们试试删除local配置中的cat.name</p>
+<img src="/post/423abe9e/gitcom-004.png" class="" title="示例图">
 
 <h5 id="创建文件并写入内容"><a href="#创建文件并写入内容" class="headerlink" title="创建文件并写入内容"></a>创建文件并写入内容</h5><p>如果文件不存在，则创建文件</p>
-<pre class="line-numbers language-none"><code class="language-none">echo &quot;hello git&quot;
-&gt; index.html                          # 将&#39;hello git&#39;写入到index.html中<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-none"><code class="language-none">echo "hello git"
+&gt; index.html                          # 将'hello git'写入到index.html中<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p>单个<code>&gt;</code>箭头表示写入，<code>&gt;&gt;</code>表示追加</p>
 <h5 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h5><pre class="line-numbers language-none"><code class="language-none">git init                        # 初始化当前所在目录的这个项目
 git status                      # 查看项目状态，有没有添加或者修改文件
 git add .                       # 给目前的项目制作一个快照snapshot（快照只是登记留名，快照不等于记录在案，git管快照叫做索引index）
 git commit                      # 将快照里登记的内容永久写入git仓库
-git commit -a                   # 直接提交所有修改，省去了&#96;&#96;git add&#96;&#96;和&#96;&#96;git diff&#96;&#96;和&#96;&#96;git commit&#96;&#96;的工序
-                                # 无法把新增文件或文件夹加入进来，所以，如果你新增了文件或文件夹，那么就要老老实实的先&#96;&#96;git add ..&#96;&#96;，再&#96;&#96;git commit&#96;&#96;
+git commit -a                   # 直接提交所有修改，省去了``git add``和``git diff``和``git commit``的工序
+                                # 无法把新增文件或文件夹加入进来，所以，如果你新增了文件或文件夹，那么就要老老实实的先``git add ..``，再``git commit``
 git push                        # 把更新推送到远程分支
 git log -p                      # git不但会给出开发日志，而且会显示每个开发版本的代码区别所在
 git log --online                # 查看版本
@@ -770,7 +783,7 @@ git diff master                 # 比较历史区和工作区的差别（修改�
 git checkout index.html         # 用暂存区中的内容或者版本库中的内容覆盖掉工作区
 git reset HEAD index.html       # 取消增加到暂存区的内容（添加时）
 git rm index.html --cached      # 使用--cached表示只删除缓冲区中的内容
-git reset --hard HEAD&#x2F;commit_id # 回滚版本
+git reset --hard HEAD/commit_id # 回滚版本
 git reflog                      # 回滚到未来<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>总结：先git add修改过的文件，再git diff并git status查看确认，然后git commit提交，然后输入开发日志，然后git push推送到远程分支，最后git log再次确认。</p>
 <h5 id="创建分支"><a href="#创建分支" class="headerlink" title="创建分支"></a>创建分支</h5><pre class="line-numbers language-none"><code class="language-none">git branch                      # 查看分支列表
@@ -783,7 +796,7 @@ git merge experiment            # 合并分支到主干道
 git branch -d experiment        # -d，表示“在分支已经合并到主干后删除分支”。如果使用大写的-D的话，则表示“不论如何都删除分支”<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h5 id="使用git-stash命令保存和恢复进度"><a href="#使用git-stash命令保存和恢复进度" class="headerlink" title="使用git stash命令保存和恢复进度"></a>使用git stash命令保存和恢复进度</h5><pre class="line-numbers language-none"><code class="language-none">git stash                       # 保留当前工作区进度，会把暂存区和工作区的改动保存起来
-git stash save &#39;message...&#39;     # 保存当前工作区，并添加备注
+git stash save 'message...'     # 保存当前工作区，并添加备注
 git stash list                  # 显示保存进度的列表。也就意味着，git stash命令可以多次执行。
 git stash pop                   # 恢复最新的进度到工作区并删除。git默认会把工作区和缓存区的改动都恢复到工作区。
 git stash apply                 # 恢复最新的进度到工作区不删除
@@ -797,17 +810,17 @@ git push --force<span aria-hidden="true" class="line-numbers-rows"><span></span>
 <h5 id="GitHub更新自己fork的代码"><a href="#GitHub更新自己fork的代码" class="headerlink" title="GitHub更新自己fork的代码"></a>GitHub更新自己fork的代码</h5><ol>
 <li> clone已经fork到自己账号的代码 </li>
 
-<pre class="line-numbers language-none"><code class="language-none">git clone https:&#x2F;&#x2F;github.com&#x2F;shadow000902&#x2F;ApiTestEngine.git
+<pre class="line-numbers language-none"><code class="language-none">git clone https://github.com/shadow000902/ApiTestEngine.git
 cd ApiTestEngine<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <li> 查看远程分支列表 </li>
 
-<pre class="line-numbers language-none"><code class="language-none">╭─taoyi at TaoYi-Mac in ~&#x2F;git_projects&#x2F;GitHub&#x2F;ApiTestEngine on master✔ using ‹› 17-08-23 - 15:01:23
+<pre class="line-numbers language-none"><code class="language-none">╭─taoyi at TaoYi-Mac in ~/git_projects/GitHub/ApiTestEngine on master✔ using ‹› 17-08-23 - 15:01:23
 ╰─○ git remote -v
-debugtalk	https:&#x2F;&#x2F;github.com&#x2F;debugtalk&#x2F;ApiTestEngine.git (fetch)
-debugtalk	https:&#x2F;&#x2F;github.com&#x2F;debugtalk&#x2F;ApiTestEngine.git (push)
-origin	https:&#x2F;&#x2F;github.com&#x2F;shadow000902&#x2F;ApiTestEngine.git (fetch)
-origin	https:&#x2F;&#x2F;github.com&#x2F;shadow000902&#x2F;ApiTestEngine.git (push)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+debugtalk	https://github.com/debugtalk/ApiTestEngine.git (fetch)
+debugtalk	https://github.com/debugtalk/ApiTestEngine.git (push)
+origin	https://github.com/shadow000902/ApiTestEngine.git (fetch)
+origin	https://github.com/shadow000902/ApiTestEngine.git (push)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <li> fetch原始源代码的新版本到本地 </li>
 
@@ -815,7 +828,7 @@ origin	https:&#x2F;&#x2F;github.com&#x2F;shadow000902&#x2F;ApiTestEngine.git (pu
 
 <li> 合并两个版本的代码 </li>
 
-<pre class="line-numbers language-none"><code class="language-none">git merge debugtalk&#x2F;master<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-none"><code class="language-none">git merge debugtalk/master<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <li> 如果合并代码后有冲突，解决冲突 </li>
 
@@ -838,7 +851,7 @@ commit-id3<span aria-hidden="true" class="line-numbers-rows"><span></span><span>
 git push origin HARD --force		# 撤销后，强制提交并push到远程分支<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <li> 修改最新一次已提交但未 push 的 message </li>
 
-<pre class="line-numbers language-none"><code class="language-none">git commit --amend -m &quot;your new message&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-none"><code class="language-none">git commit --amend -m "your new message"<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 </ol>
 
 <br>
@@ -846,7 +859,25 @@ git push origin HARD --force		# 撤销后，强制提交并push到远程分支<s
 <blockquote>
 <p>其他相关链接<br><a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/1664429">Git 常用命令</a></p>
 </blockquote>
-<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
     </div>
 
     
@@ -866,10 +897,32 @@ git push origin HARD --force		# 撤销后，强制提交并push到远程分支<s
     <p id="hitokoto" style="text-align:center;margin-top: 30px;font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, STKaiti, KaiTi, SimKai, DFKai-SB, 'Lato', 'PingFang SC', 'Microsoft YaHei', sans-serif;font-weight: bold;color: #999;">
      正在加载一言...
     </p>
+    <div style="margin-top: 30px;">
+      <img id="wechat_subscriber_qcode" src="/images/reward-container-back.png" alt="leeze wechat" style="max-width: 100%;">
+    </div>
+    
 
     
 </div>
 
+
+          <div class="reward-container">
+  <div></div>
+  <button onclick="document.querySelector('.post-reward').classList.toggle('active');">
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt="leeze 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.png" alt="leeze 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
 
           
 
@@ -1005,7 +1058,6 @@ git push origin HARD --force		# 撤销后，强制提交并push到远程分支<s
 
 <script src="/js/prism/prism.js" async></script>
 
-
 <!-- 音乐播放器 -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aplayer/1.10.1/APlayer.min.css" integrity="sha512-CIYsJUa3pr1eoXlZFroEI0mq0UIMUqNouNinjpCkSWo3Bx5NRlQ0OuC6DtEB/bDqUWnzXc1gs2X/g52l36N5iw==" crossorigin="anonymous" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/aplayer/1.10.1/APlayer.min.js" integrity="sha512-RWosNnDNw8FxHibJqdFRySIswOUgYhFxnmYO3fp+BgCU7gfo4z0oS7mYFBvaa8qu+axY39BmQOrhW3Tp70XbaQ==" crossorigin="anonymous"></script>
@@ -1022,7 +1074,7 @@ git push origin HARD --force		# 撤销后，强制提交并push到远程分支<s
   <script src="//cdn.jsdelivr.net/npm/@next-theme/pjax@0.4.0/pjax.min.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
-<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
   <script>
 var pjax = new Pjax({
   selectors: [

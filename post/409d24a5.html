@@ -23,7 +23,7 @@
 
 <script class="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"blog.xiaosige.com","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"livere","storage":true,"lazyload":true,"nav":null,"activeClass":"livere"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}};
+    var CONFIG = {"hostname":"blog.xiaosige.com","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"livere","storage":true,"lazyload":true,"nav":null,"activeClass":"livere"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}};
   </script>
 
   <meta name="description" content="日常语句">
@@ -35,6 +35,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-04-24T18:37:01.000Z">
 <meta property="article:modified_time" content="2020-09-26T07:40:12.583Z">
+<meta property="article:author" content="leeze">
 <meta property="article:tag" content="MySQL">
 <meta name="twitter:card" content="summary">
 
@@ -106,8 +107,10 @@
   .search-pop-overlay, .sidebar-nav { display: none; }
   .sidebar-panel { display: block; }
   </style>
-</noscript><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</noscript>
 
+<link rel="alternate" href="/atom.xml" title="小四儿" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="小四儿" type="application/rss+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
@@ -150,6 +153,11 @@
     <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
 
   </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
         <li class="menu-item menu-item-tags">
 
     <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">19</span></a>
@@ -163,6 +171,11 @@
         <li class="menu-item menu-item-archives">
 
     <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">31</span></a>
+
+  </li>
+        <li class="menu-item menu-item-welfare">
+
+    <a href="/welfare" rel="section"><i class="fa fa-coffee fa-fw"></i>福利</a>
 
   </li>
         <li class="menu-item menu-item-photos">
@@ -241,9 +254,9 @@
 
       <section class="site-overview-wrap sidebar-panel">
         <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image" alt=""
+    <img class="site-author-image" itemprop="image" alt="leeze"
       src="/images/avatar_post_end.png">
-  <p class="site-author-name" itemprop="name"></p>
+  <p class="site-author-name" itemprop="name">leeze</p>
   <div class="site-description" itemprop="description">因上努力，果上随缘！</div>
 </div>
 <div class="site-state-wrap animated">
@@ -313,7 +326,7 @@
     <div class="cup">
         <div class="cup__mouse"></div>
         <div class="cup__eyes"></div>
-        <div class="cup__label"></div>
+        <div class="cup__label">多喝水</div>
     </div>
     <div class="cup-shadow"></div>
 </div>
@@ -339,8 +352,8 @@
   border-radius: 5px 5px 50px 50px;
   -webkit-transform-origin: bottom center;
           transform-origin: bottom center;
-  -webkit-animation: .4s linear 0s infinite alternate cup;
-          animation: .4s linear 0s infinite alternate cup;
+  -webkit-animation: .6s linear 0s infinite alternate cup;
+          animation: .6s linear 0s infinite alternate cup;
   border: 3px solid #000;
   position: absolute;
   bottom: 0;
@@ -355,8 +368,8 @@
   border-radius: 100%;
   border: 3px solid #000;
   box-shadow: inset 0 20px 0 0 #fff;
-  -webkit-animation: .4s linear 0s infinite alternate water;
-          animation: .4s linear 0s infinite alternate water;
+  -webkit-animation: .6s linear 0s infinite alternate water;
+          animation: .6s linear 0s infinite alternate water;
   position: absolute;
   top: -20px;
   left: -3px;
@@ -399,25 +412,26 @@
   width: 48px;
   height: 35px;
   box-sizing: content-box;
-  padding-top: 15px;
-  background: #C5C7FF;
+  padding-top: 10px;
+  background: #ff7600;
   border: 2px solid #000;
   border-bottom: none;
   -webkit-transform-origin: top center;
           transform-origin: top center;
-  -webkit-animation: .4s linear 0s infinite alternate label;
-          animation: .4s linear 0s infinite alternate label;
+  -webkit-animation: .6s linear 0s infinite alternate label;
+          animation: .6s linear 0s infinite alternate label;
   position: absolute;
   top: 40px;
   left: 45px;
+  color: #fff
 }
 .cup__label::before {
   content: '';
   width: 3px;
   height: 15px;
   background: #000;
-  -webkit-animation: .4s linear 0s infinite alternate label-line;
-          animation: .4s linear 0s infinite alternate label-line;
+  -webkit-animation: .6s linear 0s infinite alternate label-line;
+          animation: .6s linear 0s infinite alternate label-line;
   position: absolute;
   left: 25px;
   top: -16px;
@@ -443,8 +457,8 @@
   border-radius: 40% 40% 100% 100%;
   -webkit-transform-origin: bottom center;
           transform-origin: bottom center;
-  -webkit-animation: .4s linear 0s infinite alternate shadow;
-          animation: .4s linear 0s infinite alternate shadow;
+  -webkit-animation: .6s linear 0s infinite alternate shadow;
+          animation: .6s linear 0s infinite alternate shadow;
   position: absolute;
   bottom: -16px;
   left: 55px;
@@ -598,7 +612,6 @@
     </header>
 
     
-  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
 
 <noscript>
   <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
@@ -618,7 +631,7 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar_post_end.png">
-      <meta itemprop="name" content="">
+      <meta itemprop="name" content="leeze">
       <meta itemprop="description" content="因上努力，果上随缘！">
     </span>
 
@@ -699,25 +712,25 @@
 </blockquote>
 <p><escape><a id="more"></a></escape></p>
 <pre class="line-numbers language-none"><code class="language-none">-- 创建用户
-create user kanyme identified by &#39;kanyme&#39;;
+create user kanyme identified by 'kanyme';
 
 -- 授权
-grant all privileges on kanyme_db.* to kanyme@&#39;%&#39;;
+grant all privileges on kanyme_db.* to kanyme@'%';
 -- 刷新权限
 flush privileges;
 
 -- 查看权限
-show grants for &#39;kanyme&#39;;
+show grants for 'kanyme';
 
 -- 修改密码
-update mysql.user set password &#x3D; password(&#39;kanyme_new&#39;) where user &#x3D; &#39;kanyme&#39; and host &#x3D; &#39;%&#39;;
+update mysql.user set password = password('kanyme_new') where user = 'kanyme' and host = '%';
 
 -- 新版
-alter user&#39;root&#39;@&#39;%&#39; identified by &#39;kanyme_new&#39;;
+alter user'root'@'%' identified by 'kanyme_new';
 flush privileges;
 
 -- 删除用户
-drop user kanyme@&#39;%&#39;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+drop user kanyme@'%';<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <br>
 
@@ -726,7 +739,25 @@ update mysql.user <span class="token builtin class-name">set</span> <span class=
 flush privileges<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <br>
 <div class="note info no-icon"><p>mysql 5.7.9 之后取消了password 函数，authentication_string=password(“123456”) 会报错</p>
-</div><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
+</div><script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
     </div>
 
     
@@ -746,10 +777,32 @@ flush privileges<span class="token punctuation">;</span><span aria-hidden="true"
     <p id="hitokoto" style="text-align:center;margin-top: 30px;font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, STKaiti, KaiTi, SimKai, DFKai-SB, 'Lato', 'PingFang SC', 'Microsoft YaHei', sans-serif;font-weight: bold;color: #999;">
      正在加载一言...
     </p>
+    <div style="margin-top: 30px;">
+      <img id="wechat_subscriber_qcode" src="/images/reward-container-back.png" alt="leeze wechat" style="max-width: 100%;">
+    </div>
+    
 
     
 </div>
 
+
+          <div class="reward-container">
+  <div></div>
+  <button onclick="document.querySelector('.post-reward').classList.toggle('active');">
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt="leeze 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.png" alt="leeze 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
 
           
 
@@ -885,7 +938,6 @@ flush privileges<span class="token punctuation">;</span><span aria-hidden="true"
 
 <script src="/js/prism/prism.js" async></script>
 
-
 <!-- 音乐播放器 -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aplayer/1.10.1/APlayer.min.css" integrity="sha512-CIYsJUa3pr1eoXlZFroEI0mq0UIMUqNouNinjpCkSWo3Bx5NRlQ0OuC6DtEB/bDqUWnzXc1gs2X/g52l36N5iw==" crossorigin="anonymous" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/aplayer/1.10.1/APlayer.min.js" integrity="sha512-RWosNnDNw8FxHibJqdFRySIswOUgYhFxnmYO3fp+BgCU7gfo4z0oS7mYFBvaa8qu+axY39BmQOrhW3Tp70XbaQ==" crossorigin="anonymous"></script>
@@ -902,7 +954,7 @@ flush privileges<span class="token punctuation">;</span><span aria-hidden="true"
   <script src="//cdn.jsdelivr.net/npm/@next-theme/pjax@0.4.0/pjax.min.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
-<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
   <script>
 var pjax = new Pjax({
   selectors: [

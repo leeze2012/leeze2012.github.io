@@ -23,15 +23,15 @@
 
 <script class="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"blog.xiaosige.com","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"livere","storage":true,"lazyload":true,"nav":null,"activeClass":"livere"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}};
+    var CONFIG = {"hostname":"blog.xiaosige.com","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"livere","storage":true,"lazyload":true,"nav":null,"activeClass":"livere"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}};
   </script>
 
-  <meta name="description" content="段首缩进&amp;emsp;&amp;emsp; 下面用菜根谭中一段做例&amp;emsp;&amp;emsp;好丑心太明，则物不契；贤愚心太明，则人不亲。士君子须是内精明而外浑厚，使好丑两得其平，贤愚共受其益，才是生成的德量。">
+  <meta name="description" content="段首缩进&amp;emsp;&amp;emsp; 下面用菜根谭中一段做例  好丑心太明，则物不契；贤愚心太明，则人不亲。士君子须是内精明而外浑厚，使好丑两得其平，贤愚共受其益，才是生成的德量。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Markdown 编辑器日常使用语法记录">
 <meta property="og:url" content="https://blog.xiaosige.com/post/9c39465b.html">
 <meta property="og:site_name" content="小四儿">
-<meta property="og:description" content="段首缩进&amp;emsp;&amp;emsp; 下面用菜根谭中一段做例&amp;emsp;&amp;emsp;好丑心太明，则物不契；贤愚心太明，则人不亲。士君子须是内精明而外浑厚，使好丑两得其平，贤愚共受其益，才是生成的德量。">
+<meta property="og:description" content="段首缩进&amp;emsp;&amp;emsp; 下面用菜根谭中一段做例  好丑心太明，则物不契；贤愚心太明，则人不亲。士君子须是内精明而外浑厚，使好丑两得其平，贤愚共受其益，才是生成的德量。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://blog.xiaosige.com/post/9c39465b/child01.jpg">
 <meta property="og:image" content="https://blog.xiaosige.com/post/9c39465b/child01.jpg">
@@ -41,6 +41,7 @@
 <meta property="og:image" content="https://blog.xiaosige.com/photos/images/10.jpg">
 <meta property="article:published_time" content="2019-08-27T07:48:00.000Z">
 <meta property="article:modified_time" content="2020-09-28T11:14:02.144Z">
+<meta property="article:author" content="leeze">
 <meta property="article:tag" content="Markdown">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://blog.xiaosige.com/post/9c39465b/child01.jpg">
@@ -113,8 +114,10 @@
   .search-pop-overlay, .sidebar-nav { display: none; }
   .sidebar-panel { display: block; }
   </style>
-</noscript><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</noscript>
 
+<link rel="alternate" href="/atom.xml" title="小四儿" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="小四儿" type="application/rss+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
@@ -157,6 +160,11 @@
     <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
 
   </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
         <li class="menu-item menu-item-tags">
 
     <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">19</span></a>
@@ -170,6 +178,11 @@
         <li class="menu-item menu-item-archives">
 
     <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">31</span></a>
+
+  </li>
+        <li class="menu-item menu-item-welfare">
+
+    <a href="/welfare" rel="section"><i class="fa fa-coffee fa-fw"></i>福利</a>
 
   </li>
         <li class="menu-item menu-item-photos">
@@ -249,9 +262,9 @@
 
       <section class="site-overview-wrap sidebar-panel">
         <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image" alt=""
+    <img class="site-author-image" itemprop="image" alt="leeze"
       src="/images/avatar_post_end.png">
-  <p class="site-author-name" itemprop="name"></p>
+  <p class="site-author-name" itemprop="name">leeze</p>
   <div class="site-description" itemprop="description">因上努力，果上随缘！</div>
 </div>
 <div class="site-state-wrap animated">
@@ -321,7 +334,7 @@
     <div class="cup">
         <div class="cup__mouse"></div>
         <div class="cup__eyes"></div>
-        <div class="cup__label"></div>
+        <div class="cup__label">多喝水</div>
     </div>
     <div class="cup-shadow"></div>
 </div>
@@ -347,8 +360,8 @@
   border-radius: 5px 5px 50px 50px;
   -webkit-transform-origin: bottom center;
           transform-origin: bottom center;
-  -webkit-animation: .4s linear 0s infinite alternate cup;
-          animation: .4s linear 0s infinite alternate cup;
+  -webkit-animation: .6s linear 0s infinite alternate cup;
+          animation: .6s linear 0s infinite alternate cup;
   border: 3px solid #000;
   position: absolute;
   bottom: 0;
@@ -363,8 +376,8 @@
   border-radius: 100%;
   border: 3px solid #000;
   box-shadow: inset 0 20px 0 0 #fff;
-  -webkit-animation: .4s linear 0s infinite alternate water;
-          animation: .4s linear 0s infinite alternate water;
+  -webkit-animation: .6s linear 0s infinite alternate water;
+          animation: .6s linear 0s infinite alternate water;
   position: absolute;
   top: -20px;
   left: -3px;
@@ -407,25 +420,26 @@
   width: 48px;
   height: 35px;
   box-sizing: content-box;
-  padding-top: 15px;
-  background: #C5C7FF;
+  padding-top: 10px;
+  background: #ff7600;
   border: 2px solid #000;
   border-bottom: none;
   -webkit-transform-origin: top center;
           transform-origin: top center;
-  -webkit-animation: .4s linear 0s infinite alternate label;
-          animation: .4s linear 0s infinite alternate label;
+  -webkit-animation: .6s linear 0s infinite alternate label;
+          animation: .6s linear 0s infinite alternate label;
   position: absolute;
   top: 40px;
   left: 45px;
+  color: #fff
 }
 .cup__label::before {
   content: '';
   width: 3px;
   height: 15px;
   background: #000;
-  -webkit-animation: .4s linear 0s infinite alternate label-line;
-          animation: .4s linear 0s infinite alternate label-line;
+  -webkit-animation: .6s linear 0s infinite alternate label-line;
+          animation: .6s linear 0s infinite alternate label-line;
   position: absolute;
   left: 25px;
   top: -16px;
@@ -451,8 +465,8 @@
   border-radius: 40% 40% 100% 100%;
   -webkit-transform-origin: bottom center;
           transform-origin: bottom center;
-  -webkit-animation: .4s linear 0s infinite alternate shadow;
-          animation: .4s linear 0s infinite alternate shadow;
+  -webkit-animation: .6s linear 0s infinite alternate shadow;
+          animation: .6s linear 0s infinite alternate shadow;
   position: absolute;
   bottom: -16px;
   left: 55px;
@@ -606,7 +620,6 @@
     </header>
 
     
-  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
 
 <noscript>
   <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
@@ -626,7 +639,7 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar_post_end.png">
-      <meta itemprop="name" content="">
+      <meta itemprop="name" content="leeze">
       <meta itemprop="description" content="因上努力，果上随缘！">
     </span>
 
@@ -703,7 +716,7 @@
     
     <div class="post-body" itemprop="articleBody">
         <h4 id="段首缩进"><a href="#段首缩进" class="headerlink" title="段首缩进"></a>段首缩进</h4><pre class="line-numbers language-none"><code class="language-none">&amp;emsp;&amp;emsp;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>下面用菜根谭中一段做例<br>&emsp;&emsp;好丑心太明，则物不契；贤愚心太明，则人不亲。士君子须是内精明而外浑厚，使好丑两得其平，贤愚共受其益，才是生成的德量。</p>
+<p>下面用菜根谭中一段做例<br>  好丑心太明，则物不契；贤愚心太明，则人不亲。士君子须是内精明而外浑厚，使好丑两得其平，贤愚共受其益，才是生成的德量。</p>
 <a id="more"></a>
 
 <h4 id="文本局中"><a href="#文本局中" class="headerlink" title="文本局中"></a>文本局中</h4><blockquote class="blockquote-center">
@@ -711,14 +724,14 @@
 
 </blockquote>
 
-<h4 id="插入图片"><a href="#插入图片" class="headerlink" title="插入图片"></a>插入图片</h4><pre class="line-numbers language-none"><code class="language-none">![](&#x2F;post&#x2F;1.jpg)
+<h4 id="插入图片"><a href="#插入图片" class="headerlink" title="插入图片"></a>插入图片</h4><pre class="line-numbers language-none"><code class="language-none">![](/post/1.jpg)
 
-&#123;% asset_img jkp.jpeg 相对路径示例图 %&#125;  推荐<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+{% asset_img jkp.jpeg 相对路径示例图 %}  推荐<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <p><img src="/post/9c39465b/child01.jpg" alt="小女孩"></p>
-<img src="/post/9c39465b/child01.jpg" class title="小女孩">
+<img src="/post/9c39465b/child01.jpg" class="" title="小女孩">
 
-<h4 id="分页显示"><a href="#分页显示" class="headerlink" title="分页显示"></a>分页显示</h4><pre class="line-numbers language-none"><code class="language-none">&lt;escape&gt;&lt;!-- more --&gt;&lt;&#x2F;escape&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h4 id="分页显示"><a href="#分页显示" class="headerlink" title="分页显示"></a>分页显示</h4><pre class="line-numbers language-none"><code class="language-none">&lt;escape&gt;&lt;!-- more --&gt;&lt;/escape&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h4 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h4><ol>
   <li>文字链接</li>
 
@@ -749,117 +762,117 @@
 <td align="right">123456789123</td>
 </tr>
 </tbody></table>
-<h4 id="图片墙"><a href="#图片墙" class="headerlink" title="图片墙"></a>图片墙</h4><pre class="line-numbers language-none"><code class="language-none">&#123;% grouppicture [group]-[layout] %&#125;&#123;% endgrouppicture %&#125;
-&#123;% gp [group]-[layout] %&#125;&#123;% endgp %&#125;
+<h4 id="图片墙"><a href="#图片墙" class="headerlink" title="图片墙"></a>图片墙</h4><pre class="line-numbers language-none"><code class="language-none">{% grouppicture [group]-[layout] %}{% endgrouppicture %}
+{% gp [group]-[layout] %}{% endgp %}
 
 [group]  : 要在组中添加的图片总数。
 [layout] : 要显示的组下的默认图片。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
-<pre class="line-numbers language-none"><code class="language-none">&#123;% gp 4-4 %&#125;
-  ![](&#x2F;photos&#x2F;images&#x2F;1.jpg)
-  ![](&#x2F;photos&#x2F;images&#x2F;2.jpg)
-  ![](&#x2F;photos&#x2F;images&#x2F;3.jpg)
-  ![](&#x2F;photos&#x2F;images&#x2F;4.jpg)
-&#123;% endgp %&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-none"><code class="language-none">{% gp 4-4 %}
+  ![](/photos/images/1.jpg)
+  ![](/photos/images/2.jpg)
+  ![](/photos/images/3.jpg)
+  ![](/photos/images/4.jpg)
+{% endgp %}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <div class="group-picture"><div class="group-picture-row"><div class="group-picture-column"><img src="/photos/images/1.jpg"></div><div class="group-picture-column"><img src="/photos/images/2.jpg"></div><div class="group-picture-column"><img src="/photos/images/3.jpg"></div></div><div class="group-picture-row"><div class="group-picture-column"><img src="/photos/images/10.jpg"></div></div></div>
 
 
-<h4 id="按钮"><a href="#按钮" class="headerlink" title="按钮"></a>按钮</h4><pre class="line-numbers language-none"><code class="language-none">&#123;% button #, 开始 %&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h4 id="按钮"><a href="#按钮" class="headerlink" title="按钮"></a>按钮</h4><pre class="line-numbers language-none"><code class="language-none">{% button #, 开始 %}<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <a class="btn" href="#">开始</a>
 
-<pre class="line-numbers language-none"><code class="language-none">&#123;% btn #, Text %&#125; &#123;% btn #, 取消,, Title %&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-none"><code class="language-none">{% btn #, Text %} {% btn #, 取消,, Title %}<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <a class="btn" href="#">Text</a> <a class="btn" href="#" title="Title">取消</a>
 
 
-<pre class="line-numbers language-none"><code class="language-none">&#123;% button url, text, icon [class], [title] %&#125;
+<pre class="line-numbers language-none"><code class="language-none">{% button url, text, icon [class], [title] %}
 &lt;!-- 标签别名 --&gt;
-&#123;% btn url, text, icon [class], [title] %&#125;
+{% btn url, text, icon [class], [title] %}
 
 url     : 绝对或相对URL
 text    : 按钮文字，如果未指定图标则为必须
-icon    : FontAwesome图标名称（开头没有&#39;fa-&#39;）。如果未指定文本，则为必需
+icon    : FontAwesome图标名称（开头没有'fa-'）。如果未指定文本，则为必需
 [class] : FontAwesome类：fa-fw | fa-lg | fa-2x | fa-3x | fa-4x | fa-5X ，可选参数。
 [title] : 鼠标悬停时的工具提示，可选参数。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>使用：</p>
 <p>最好添加<code>&lt;div&gt;标签</code>，测试时没加div，下面显示不完全，加上非常美观。</p>
-<pre class="line-numbers language-none"><code class="language-none">&lt;div&gt;&#123;% btn https:&#x2F;&#x2F;www.zhyong.cn ,首页,home fa-2x,这是YouForever的首页%&#125;&lt;&#x2F;div&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-none"><code class="language-none">&lt;div&gt;{% btn https://www.zhyong.cn ,首页,home fa-2x,这是YouForever的首页%}&lt;/div&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>显示：</p>
 <div><a class="btn" href="https://blog.xiaosige.com/" title="这是leeze的首页"><i class="fa fa-home fa-fw"></i>首页</a></div>
 
 
-<h4 id="标签"><a href="#标签" class="headerlink" title="标签"></a>标签</h4><pre class="line-numbers language-none"><code class="language-none">&#123;% label [class]@Text %&#125;
+<h4 id="标签"><a href="#标签" class="headerlink" title="标签"></a>标签</h4><pre class="line-numbers language-none"><code class="language-none">{% label [class]@Text %}
 
 [class] : default | primary | success | info | warning | danger.
-          &#39;@Text&#39; 可以指定是否有空格
-          例如。 &#39;success @text&#39;类似于&#39;success @ text&#39;。
+          '@Text' 可以指定是否有空格
+          例如。 'success @text'类似于'success @ text'。
           如果未指定，则将选择默认类。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<pre class="line-numbers language-none"><code class="language-none">Lorem &#123;% label @ipsum %&#125; &#123;% label primary@dolor sit %&#125; amet, consectetur &#123;% label success@adipiscing elit, %&#125; sed &#123;% label info@do eiusmod %&#125; tempor incididunt ut labore et dolore magna aliqua.
+<pre class="line-numbers language-none"><code class="language-none">Lorem {% label @ipsum %} {% label primary@dolor sit %} amet, consectetur {% label success@adipiscing elit, %} sed {% label info@do eiusmod %} tempor incididunt ut labore et dolore magna aliqua.
 
-Ut enim *&#123;% label warning @ad %&#125;* minim veniam, quis **&#123;% label danger@nostrud %&#125;** exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+Ut enim *{% label warning @ad %}* minim veniam, quis **{% label danger@nostrud %}** exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
 
-Duis aute irure dolor in reprehenderit in voluptate ~~&#123;% label default @velit %&#125;~~ &lt;mark&gt;esse&lt;&#x2F;mark&gt; cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+Duis aute irure dolor in reprehenderit in voluptate ~~{% label default @velit %}~~ &lt;mark&gt;esse&lt;/mark&gt; cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>Lorem <mark class="label ">ipsum</mark> <mark class="label primary">dolor sit</mark> amet, consectetur <mark class="label success">adipiscing elit,</mark> sed <mark class="label info">do eiusmod</mark> tempor incididunt ut labore et dolore magna aliqua.</p>
 <p>Ut enim <em><mark class="label warning">ad</mark></em> minim veniam, quis <strong><mark class="label danger">nostrud</mark></strong> exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
 <p>Duis aute irure dolor in reprehenderit in voluptate <del><mark class="label default">velit</mark></del> <mark>esse</mark> cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-<h4 id="标注"><a href="#标注" class="headerlink" title="标注"></a>标注</h4><pre class="line-numbers language-none"><code class="language-none">&#123;% note [class] [no-icon] %&#125;
+<h4 id="标注"><a href="#标注" class="headerlink" title="标注"></a>标注</h4><pre class="line-numbers language-none"><code class="language-none">{% note [class] [no-icon] %}
 任何内容（支持内联标签）
-&#123;% endnote %&#125;
+{% endnote %}
 
 [class]   : default | primary | success | info | warning | danger.
 [no-icon] : 禁用备注中的图标
 
 所有参数都是可选的。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<pre class="line-numbers language-none"><code class="language-none">&#123;% note %&#125;
+<pre class="line-numbers language-none"><code class="language-none">{% note %}
 无任何样式
-&#123;% endnote %&#125;
+{% endnote %}
 
-&#123;% note success %&#125;
+{% note success %}
 成功的笔记
-&#123;% endnote %&#125;
+{% endnote %}
 
-&#123;% note primary %&#125;
+{% note primary %}
 #### Primary Header
-**Welcome** to [Hexo!](https:&#x2F;&#x2F;hexo.io)
-&#123;% endnote %&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+**Welcome** to [Hexo!](https://hexo.io)
+{% endnote %}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <div class="note primary"><h5 id="Primary-Header"><a href="#Primary-Header" class="headerlink" title="Primary Header"></a>Primary Header</h5><p><strong>Welcome</strong> to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo!</a></p>
 </div>
 
 <h4 id="pdf-文件"><a href="#pdf-文件" class="headerlink" title="pdf 文件"></a>pdf 文件</h4><p>1,第一方法</p>
-<pre class="line-numbers language-none"><code class="language-none">&lt;iframe src&#x3D;&quot;http:&#x2F;&#x2F;lc-0ww4yxjs.cn-n1.lcfile.com&#x2F;510df791fa9b2590c109&#x2F;Python%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B%EF%BC%88%E7%AC%AC3%E7%89%88%EF%BC%89.pdf&quot; width&#x3D;&quot;830&quot; height&#x3D;&quot;800&quot; scroll&#x3D;&quot;no&quot;&gt;&lt;&#x2F;iframe&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-none"><code class="language-none">&lt;iframe src="http://lc-0ww4yxjs.cn-n1.lcfile.com/510df791fa9b2590c109/Python%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B%EF%BC%88%E7%AC%AC3%E7%89%88%EF%BC%89.pdf" width="830" height="800" scroll="no"&gt;&lt;/iframe&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>2,第二方法</p>
-<pre class="line-numbers language-none"><code class="language-none">&lt;embed src&#x3D;&quot;http:&#x2F;&#x2F;lc-0ww4yxjs.cn-n1.lcfile.com&#x2F;510df791fa9b2590c109&#x2F;Python%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B%EF%BC%88%E7%AC%AC3%E7%89%88%EF%BC%89.pdf&quot; width&#x3D;&quot;840&quot; height&#x3D;&quot;800&quot;&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-none"><code class="language-none">&lt;embed src="http://lc-0ww4yxjs.cn-n1.lcfile.com/510df791fa9b2590c109/Python%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B%EF%BC%88%E7%AC%AC3%E7%89%88%EF%BC%89.pdf" width="840" height="800"&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>这两种方法效果是一样的，但是不够完美，pdf 文件不能随窗口大小变化，后读发现方法在更新。</p>
 <p>启用PDF标签插件：<a target="_blank" rel="noopener" href="https://github.com/theme-next/theme-next-pdf">https://github.com/theme-next/theme-next-pdf</a></p>
 <p>官方教程<br><a target="_blank" rel="noopener" href="https://theme-next.org/docs/tag-plugins/pdf">https://theme-next.org/docs/tag-plugins/pdf</a></p>
 <p>使用：</p>
-<pre class="line-numbers language-none"><code class="language-none">&#123;% pdf url [height] %&#125;
+<pre class="line-numbers language-none"><code class="language-none">{% pdf url [height] %}
 
 [url]    : 相对路径
 [height] : 可选参数，pdf展示的高度, e.g. 800px.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <p>示例1：</p>
-<pre class="line-numbers language-none"><code class="language-none">&#123;% pdf https:&#x2F;&#x2F;zhyong-cn-file.oss-cn-shanghai.aliyuncs.com&#x2F;books%2Fbyte-of-python-chinese-edition.pdf %&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-none"><code class="language-none">{% pdf https://zhyong-cn-file.oss-cn-shanghai.aliyuncs.com/books%2Fbyte-of-python-chinese-edition.pdf %}<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <div class="pdfobject-container" data-target="http://lc-0ww4yxjs.cn-n1.lcfile.com/510df791fa9b2590c109/Python%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B%EF%BC%88%E7%AC%AC3%E7%89%88%EF%BC%89.pdf" data-height="500px"></div>
 
 <p>示例2：</p>
-<pre class="line-numbers language-none"><code class="language-none">&#123;% pdf http:&#x2F;&#x2F;lc-0ww4yxjs.cn-n1.lcfile.com&#x2F;510df791fa9b2590c109&#x2F;Python%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B%EF%BC%88%E7%AC%AC3%E7%89%88%EF%BC%89.pdf %&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-none"><code class="language-none">{% pdf http://lc-0ww4yxjs.cn-n1.lcfile.com/510df791fa9b2590c109/Python%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B%EF%BC%88%E7%AC%AC3%E7%89%88%EF%BC%89.pdf %}<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <div class="pdfobject-container" data-target="http://lc-0ww4yxjs.cn-n1.lcfile.com/510df791fa9b2590c109/Python%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B%EF%BC%88%E7%AC%AC3%E7%89%88%EF%BC%89.pdf" data-height="500px"></div>
 
 <h4 id="锚点"><a href="#锚点" class="headerlink" title="锚点"></a>锚点</h4><p>用于页内跳转。其中定义id地方，虽然不太美观，不过只能写HTML。<br>语法</p>
 <pre class="line-numbers language-none"><code class="language-none">[点击我跳转到锚点](#jump)
-&lt;div id &#x3D; &quot;jump&quot;&gt;我是一个锚点，跳到我这里来&lt;&#x2F;div&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+&lt;div id = "jump"&gt;我是一个锚点，跳到我这里来&lt;/div&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <h4 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h4><p>使用 # 号可标记1 - 6级标题，一级标题对应 1 个 # 号，二级标题对应 2 个 # 号，以此类推。</p>
 <pre class="line-numbers language-none"><code class="language-none"># 一级标题
@@ -887,18 +900,18 @@ ___粗斜体文本___
 <p><strong>粗体文本</strong></p>
 <p><strong><em>粗斜体文本</em></strong></p>
 <p><strong><em>粗斜体文本</em></strong></p>
-<h4 id="字号及颜色"><a href="#字号及颜色" class="headerlink" title="字号及颜色"></a>字号及颜色</h4><pre class="line-numbers language-none"><code class="language-none">&lt;font size&#x3D;1&gt;大小为1的字体&lt;&#x2F;font&gt;
-&lt;font size&#x3D;6&gt;大小为6的字体&lt;&#x2F;font&gt;
+<h4 id="字号及颜色"><a href="#字号及颜色" class="headerlink" title="字号及颜色"></a>字号及颜色</h4><pre class="line-numbers language-none"><code class="language-none">&lt;font size=1&gt;大小为1的字体&lt;/font&gt;
+&lt;font size=6&gt;大小为6的字体&lt;/font&gt;
 
-&lt;font color&#x3D;gray size&#x3D;4&gt;gray颜色的字&lt;&#x2F;font&gt;
-&lt;font color&#x3D;green size&#x3D;4&gt;green颜色的字&lt;&#x2F;font&gt;
-&lt;font color&#x3D;hotpink size&#x3D;4&gt;hotpink颜色的字&lt;&#x2F;font&gt;
-&lt;font color&#x3D;LightCoral size&#x3D;4&gt;LightCoral颜色的字&lt;&#x2F;font&gt;
-&lt;font color&#x3D;LightSlateGray size&#x3D;4&gt;LightSlateGray颜色的字&lt;&#x2F;font&gt;
-&lt;font color&#x3D;orangered size&#x3D;4&gt;orangered颜色的字&lt;&#x2F;font&gt;
-&lt;font color&#x3D;red size&#x3D;4&gt;red颜色的字&lt;&#x2F;font&gt;
-&lt;font color&#x3D;springgreen size&#x3D;4&gt;springgreen颜色的字&lt;&#x2F;font&gt;
-&lt;font color&#x3D;Turquoise size&#x3D;4&gt;Turquoise颜色的字&lt;&#x2F;font&gt;
+&lt;font color=gray size=4&gt;gray颜色的字&lt;/font&gt;
+&lt;font color=green size=4&gt;green颜色的字&lt;/font&gt;
+&lt;font color=hotpink size=4&gt;hotpink颜色的字&lt;/font&gt;
+&lt;font color=LightCoral size=4&gt;LightCoral颜色的字&lt;/font&gt;
+&lt;font color=LightSlateGray size=4&gt;LightSlateGray颜色的字&lt;/font&gt;
+&lt;font color=orangered size=4&gt;orangered颜色的字&lt;/font&gt;
+&lt;font color=red size=4&gt;red颜色的字&lt;/font&gt;
+&lt;font color=springgreen size=4&gt;springgreen颜色的字&lt;/font&gt;
+&lt;font color=Turquoise size=4&gt;Turquoise颜色的字&lt;/font&gt;
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
@@ -924,7 +937,7 @@ _ _ _
 <p>显示效果如下：</p>
 <p>我没有删除线<br>我也没有删除线<br><del>我有删除线</del></p>
 <h4 id="下划线"><a href="#下划线" class="headerlink" title="下划线"></a>下划线</h4><p>Markdown中并无下划线的原生语法，可以通过HTML的<u>标签来实现。</u></p>
-<pre class="line-numbers language-none"><code class="language-none">&lt;u&gt;我带下划线&lt;&#x2F;u&gt;
+<pre class="line-numbers language-none"><code class="language-none">&lt;u&gt;我带下划线&lt;/u&gt;
 <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>显示效果如下：</p>
 <p><u>我带下划线</u></p>
@@ -1042,7 +1055,25 @@ _ _ _
 <p> <em>这里不会显示斜体</em></p>
 <p> <code>code</code></p>
 <p> <code>more code</code></p>
-<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
     </div>
 
     
@@ -1062,10 +1093,32 @@ _ _ _
     <p id="hitokoto" style="text-align:center;margin-top: 30px;font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, STKaiti, KaiTi, SimKai, DFKai-SB, 'Lato', 'PingFang SC', 'Microsoft YaHei', sans-serif;font-weight: bold;color: #999;">
      正在加载一言...
     </p>
+    <div style="margin-top: 30px;">
+      <img id="wechat_subscriber_qcode" src="/images/reward-container-back.png" alt="leeze wechat" style="max-width: 100%;">
+    </div>
+    
 
     
 </div>
 
+
+          <div class="reward-container">
+  <div></div>
+  <button onclick="document.querySelector('.post-reward').classList.toggle('active');">
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt="leeze 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.png" alt="leeze 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
 
           
 
@@ -1193,7 +1246,6 @@ _ _ _
 
 <script src="/js/prism/prism.js" async></script>
 
-
 <!-- 音乐播放器 -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aplayer/1.10.1/APlayer.min.css" integrity="sha512-CIYsJUa3pr1eoXlZFroEI0mq0UIMUqNouNinjpCkSWo3Bx5NRlQ0OuC6DtEB/bDqUWnzXc1gs2X/g52l36N5iw==" crossorigin="anonymous" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/aplayer/1.10.1/APlayer.min.js" integrity="sha512-RWosNnDNw8FxHibJqdFRySIswOUgYhFxnmYO3fp+BgCU7gfo4z0oS7mYFBvaa8qu+axY39BmQOrhW3Tp70XbaQ==" crossorigin="anonymous"></script>
@@ -1210,7 +1262,7 @@ _ _ _
   <script src="//cdn.jsdelivr.net/npm/@next-theme/pjax@0.4.0/pjax.min.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
-<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
   <script>
 var pjax = new Pjax({
   selectors: [

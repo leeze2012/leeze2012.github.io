@@ -23,18 +23,19 @@
 
 <script class="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"blog.xiaosige.com","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"livere","storage":true,"lazyload":true,"nav":null,"activeClass":"livere"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}};
+    var CONFIG = {"hostname":"blog.xiaosige.com","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"livere","storage":true,"lazyload":true,"nav":null,"activeClass":"livere"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}};
   </script>
 
-  <meta name="description" content="介绍首先什么是SSH  &amp;emsp;&amp;emsp;Secure Shell (SSH) 是一个允许两台电脑之间通过安全的连接进行数据交换的网络协议。通过加密保证了数据的保密性和完整性。SSH采用公钥加密技术来验证远程主机，以及(必要时)允许远程主机验证用户。">
+  <meta name="description" content="介绍首先什么是SSH    Secure Shell (SSH) 是一个允许两台电脑之间通过安全的连接进行数据交换的网络协议。通过加密保证了数据的保密性和完整性。SSH采用公钥加密技术来验证远程主机，以及(必要时)允许远程主机验证用户。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ssh-key生成密钥及SSH无密码登录">
 <meta property="og:url" content="https://blog.xiaosige.com/post/16d9a840.html">
 <meta property="og:site_name" content="小四儿">
-<meta property="og:description" content="介绍首先什么是SSH  &amp;emsp;&amp;emsp;Secure Shell (SSH) 是一个允许两台电脑之间通过安全的连接进行数据交换的网络协议。通过加密保证了数据的保密性和完整性。SSH采用公钥加密技术来验证远程主机，以及(必要时)允许远程主机验证用户。">
+<meta property="og:description" content="介绍首先什么是SSH    Secure Shell (SSH) 是一个允许两台电脑之间通过安全的连接进行数据交换的网络协议。通过加密保证了数据的保密性和完整性。SSH采用公钥加密技术来验证远程主机，以及(必要时)允许远程主机验证用户。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-08-28T12:18:29.000Z">
 <meta property="article:modified_time" content="2020-09-26T07:40:49.005Z">
+<meta property="article:author" content="leeze">
 <meta property="article:tag" content="Git">
 <meta property="article:tag" content="ssh">
 <meta name="twitter:card" content="summary">
@@ -107,8 +108,10 @@
   .search-pop-overlay, .sidebar-nav { display: none; }
   .sidebar-panel { display: block; }
   </style>
-</noscript><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</noscript>
 
+<link rel="alternate" href="/atom.xml" title="小四儿" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="小四儿" type="application/rss+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
@@ -151,6 +154,11 @@
     <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
 
   </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
         <li class="menu-item menu-item-tags">
 
     <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">19</span></a>
@@ -164,6 +172,11 @@
         <li class="menu-item menu-item-archives">
 
     <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">31</span></a>
+
+  </li>
+        <li class="menu-item menu-item-welfare">
+
+    <a href="/welfare" rel="section"><i class="fa fa-coffee fa-fw"></i>福利</a>
 
   </li>
         <li class="menu-item menu-item-photos">
@@ -243,9 +256,9 @@
 
       <section class="site-overview-wrap sidebar-panel">
         <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image" alt=""
+    <img class="site-author-image" itemprop="image" alt="leeze"
       src="/images/avatar_post_end.png">
-  <p class="site-author-name" itemprop="name"></p>
+  <p class="site-author-name" itemprop="name">leeze</p>
   <div class="site-description" itemprop="description">因上努力，果上随缘！</div>
 </div>
 <div class="site-state-wrap animated">
@@ -315,7 +328,7 @@
     <div class="cup">
         <div class="cup__mouse"></div>
         <div class="cup__eyes"></div>
-        <div class="cup__label"></div>
+        <div class="cup__label">多喝水</div>
     </div>
     <div class="cup-shadow"></div>
 </div>
@@ -341,8 +354,8 @@
   border-radius: 5px 5px 50px 50px;
   -webkit-transform-origin: bottom center;
           transform-origin: bottom center;
-  -webkit-animation: .4s linear 0s infinite alternate cup;
-          animation: .4s linear 0s infinite alternate cup;
+  -webkit-animation: .6s linear 0s infinite alternate cup;
+          animation: .6s linear 0s infinite alternate cup;
   border: 3px solid #000;
   position: absolute;
   bottom: 0;
@@ -357,8 +370,8 @@
   border-radius: 100%;
   border: 3px solid #000;
   box-shadow: inset 0 20px 0 0 #fff;
-  -webkit-animation: .4s linear 0s infinite alternate water;
-          animation: .4s linear 0s infinite alternate water;
+  -webkit-animation: .6s linear 0s infinite alternate water;
+          animation: .6s linear 0s infinite alternate water;
   position: absolute;
   top: -20px;
   left: -3px;
@@ -401,25 +414,26 @@
   width: 48px;
   height: 35px;
   box-sizing: content-box;
-  padding-top: 15px;
-  background: #C5C7FF;
+  padding-top: 10px;
+  background: #ff7600;
   border: 2px solid #000;
   border-bottom: none;
   -webkit-transform-origin: top center;
           transform-origin: top center;
-  -webkit-animation: .4s linear 0s infinite alternate label;
-          animation: .4s linear 0s infinite alternate label;
+  -webkit-animation: .6s linear 0s infinite alternate label;
+          animation: .6s linear 0s infinite alternate label;
   position: absolute;
   top: 40px;
   left: 45px;
+  color: #fff
 }
 .cup__label::before {
   content: '';
   width: 3px;
   height: 15px;
   background: #000;
-  -webkit-animation: .4s linear 0s infinite alternate label-line;
-          animation: .4s linear 0s infinite alternate label-line;
+  -webkit-animation: .6s linear 0s infinite alternate label-line;
+          animation: .6s linear 0s infinite alternate label-line;
   position: absolute;
   left: 25px;
   top: -16px;
@@ -445,8 +459,8 @@
   border-radius: 40% 40% 100% 100%;
   -webkit-transform-origin: bottom center;
           transform-origin: bottom center;
-  -webkit-animation: .4s linear 0s infinite alternate shadow;
-          animation: .4s linear 0s infinite alternate shadow;
+  -webkit-animation: .6s linear 0s infinite alternate shadow;
+          animation: .6s linear 0s infinite alternate shadow;
   position: absolute;
   bottom: -16px;
   left: 55px;
@@ -600,7 +614,6 @@
     </header>
 
     
-  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
 
 <noscript>
   <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
@@ -620,7 +633,7 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar_post_end.png">
-      <meta itemprop="name" content="">
+      <meta itemprop="name" content="leeze">
       <meta itemprop="description" content="因上努力，果上随缘！">
     </span>
 
@@ -696,7 +709,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><h3 id="首先什么是SSH"><a href="#首先什么是SSH" class="headerlink" title="首先什么是SSH"></a>首先什么是SSH</h3>  <div class="note success no-icon"><p>&emsp;&emsp;Secure Shell (SSH) 是一个允许两台电脑之间通过安全的连接进行数据交换的网络协议。通过加密保证了数据的保密性和完整性。SSH采用公钥加密技术来验证远程主机，以及(必要时)允许远程主机验证用户。</p>
+        <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><h3 id="首先什么是SSH"><a href="#首先什么是SSH" class="headerlink" title="首先什么是SSH"></a>首先什么是SSH</h3>  <div class="note success no-icon"><p>  Secure Shell (SSH) 是一个允许两台电脑之间通过安全的连接进行数据交换的网络协议。通过加密保证了数据的保密性和完整性。SSH采用公钥加密技术来验证远程主机，以及(必要时)允许远程主机验证用户。</p>
 </div>
 
   <a id="more"></a>
@@ -706,7 +719,7 @@
 <li>传输的数据是经过压缩的，所以可以加快传输的速度。 </li>
 </ul>
 </div>
-<h3 id="怎么实现SSH的好处呢？"><a href="#怎么实现SSH的好处呢？" class="headerlink" title="怎么实现SSH的好处呢？"></a>怎么实现SSH的好处呢？</h3>  <div class="note success no-icon"><p>&emsp;&emsp;SSH利用SSH Key来进行前面提到的基于密钥的安全验证。</p>
+<h3 id="怎么实现SSH的好处呢？"><a href="#怎么实现SSH的好处呢？" class="headerlink" title="怎么实现SSH的好处呢？"></a>怎么实现SSH的好处呢？</h3>  <div class="note success no-icon"><p>  SSH利用SSH Key来进行前面提到的基于密钥的安全验证。</p>
 </div>
 <h3 id="SSH-Key是什么？"><a href="#SSH-Key是什么？" class="headerlink" title="SSH-Key是什么？"></a>SSH-Key是什么？</h3>  <div class="note success no-icon"><ul>
 <li>SSH-Key 就是一对密钥对。【一个是公钥，一个是私钥】</li>
@@ -722,28 +735,28 @@
 <li>所以，SSH-Key的直观作用，就是【让你方便的登录到 SSH 服务器，而无需输入密码】</li>
 </ul>
 </div>
-<h3 id="SSH-Key的密钥类型"><a href="#SSH-Key的密钥类型" class="headerlink" title="SSH-Key的密钥类型"></a>SSH-Key的密钥类型</h3>  <div class="note success no-icon"><p>&emsp;&emsp;有<code>RSA</code>和<code>DSA</code>两种认证密钥。</p>
+<h3 id="SSH-Key的密钥类型"><a href="#SSH-Key的密钥类型" class="headerlink" title="SSH-Key的密钥类型"></a>SSH-Key的密钥类型</h3>  <div class="note success no-icon"><p>  有<code>RSA</code>和<code>DSA</code>两种认证密钥。</p>
 </div>
 
-<h2 id="SSH-Key生成"><a href="#SSH-Key生成" class="headerlink" title="SSH-Key生成"></a>SSH-Key生成</h2><h3 id="是否已存在SSH-Key"><a href="#是否已存在SSH-Key" class="headerlink" title="是否已存在SSH-Key"></a>是否已存在SSH-Key</h3>  <pre class="line-numbers language-none"><code class="language-none">ls -al ~&#x2F;.ssh # 用户目录.ssh文件,是否有id_rsa&#x2F;id_rsa.pub<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="SSH-Key生成"><a href="#SSH-Key生成" class="headerlink" title="SSH-Key生成"></a>SSH-Key生成</h2><h3 id="是否已存在SSH-Key"><a href="#是否已存在SSH-Key" class="headerlink" title="是否已存在SSH-Key"></a>是否已存在SSH-Key</h3>  <pre class="line-numbers language-none"><code class="language-none">ls -al ~/.ssh # 用户目录.ssh文件,是否有id_rsa/id_rsa.pub<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
   <div style="height: 10px;"></div>
 
-<p>  &emsp;&emsp; <code>id_rsa</code> （私钥，要保存好，放在本地，私钥可以生产公钥，反之不行。）<br>  &emsp;&emsp; <code>id_rsa.pub</code> (公钥，可以用于发送到其他服务器，或者git上。)</p>
-<h3 id="新生成SSH-key"><a href="#新生成SSH-key" class="headerlink" title="新生成SSH-key"></a>新生成SSH-key</h3>  <pre class="line-numbers language-none"><code class="language-none">ssh-keygen -t rsa -C &quot;leeze0216@163.com&quot;
+<p>     <code>id_rsa</code> （私钥，要保存好，放在本地，私钥可以生产公钥，反之不行。）<br>     <code>id_rsa.pub</code> (公钥，可以用于发送到其他服务器，或者git上。)</p>
+<h3 id="新生成SSH-key"><a href="#新生成SSH-key" class="headerlink" title="新生成SSH-key"></a>新生成SSH-key</h3>  <pre class="line-numbers language-none"><code class="language-none">ssh-keygen -t rsa -C "leeze0216@163.com"
 
 -b：指定密钥长度；
 -e：读取openssh的私钥或者公钥文件；
 -C：添加注释；
 -f：指定用来保存密钥的文件名；
--i：读取未加密的ssh-v2兼容的私钥&#x2F;公钥文件，然后在标准输出设备上显示openssh兼容的私钥&#x2F;公钥；
+-i：读取未加密的ssh-v2兼容的私钥/公钥文件，然后在标准输出设备上显示openssh兼容的私钥/公钥；
 -l：显示公钥文件的指纹数据；
 -N：提供一个新密语；
 -P：提供（旧）密语；
 -q：静默模式；
 -t：指定要创建的密钥类型（如：rsa,dsa)。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>  &emsp;&emsp; 键入命令后，会让你输入密码用来保护你的密钥等，总共三次需要输入的，你都直接三次回车就好！！<br>  &emsp;&emsp;【关键是，设置了你自己以后忘了就得重新生成】<br>  &emsp;&emsp;【-C 是给你的密钥设置注释，你不想设置为邮箱，设置成别的也行】</p>
-<p>  &emsp;&emsp; 生成后，当前<code>用户的目录</code>下，生成一个<code>.ssh</code>隐藏目录，目录中会有【<code>id_rsa</code>】和【<code>id_rsa.pub</code>】两个文件，一个是<code>私钥</code>，一个是<code>公钥</code>。你现在就可以复制使用了。</p>
+<p>     键入命令后，会让你输入密码用来保护你的密钥等，总共三次需要输入的，你都直接三次回车就好！！<br>    【关键是，设置了你自己以后忘了就得重新生成】<br>    【-C 是给你的密钥设置注释，你不想设置为邮箱，设置成别的也行】</p>
+<p>     生成后，当前<code>用户的目录</code>下，生成一个<code>.ssh</code>隐藏目录，目录中会有【<code>id_rsa</code>】和【<code>id_rsa.pub</code>】两个文件，一个是<code>私钥</code>，一个是<code>公钥</code>。你现在就可以复制使用了。</p>
 <h3 id="上传公钥到服务器"><a href="#上传公钥到服务器" class="headerlink" title="上传公钥到服务器"></a>上传公钥到服务器</h3>  <div class="note no-icon"><p>把<code>id_rsa.pub （公钥）</code>内容，写到服务器上的<code>~/.ssh/authorized_keys</code>文件里</p>
 </div>
 
@@ -751,9 +764,9 @@
 
   <li>上传方式</li>
 
-<p>  <strong><mark class="label danger">方式一：</mark></strong><br>  &emsp;&emsp; 这里测试用的服务器地址为：<code>10.211.55.61</code>，用户为：<code>root</code><br>  <pre class="line-numbers language-none"><code class="language-none">ssh-copy-id -i ~&#x2F;.ssh&#x2F;id_rsa.pub root@10.211.55.61<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></p>
-<p>  <strong><mark class="label danger">方式二：</mark></strong><br>  &emsp;&emsp; 将之前在本地生成的公钥<code>id_rsa.pub</code>,发送到需要<code>无密码登录的服务器</code>，然后将id_rsa.pub的内容追加到服务器的<code>~/.ssh/authorized_keys</code>文件中即可。</p>
-  <pre class="line-numbers language-none"><code class="language-none">$ cat ~&#x2F;.ssh&#x2F;id_rsa.pub &gt;&gt; ~&#x2F;.ssh&#x2F;authorized_keys<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>  <strong><mark class="label danger">方式一：</mark></strong><br>     这里测试用的服务器地址为：<code>10.211.55.61</code>，用户为：<code>root</code><br>  </p><pre class="line-numbers language-none"><code class="language-none">ssh-copy-id -i ~/.ssh/id_rsa.pub root@10.211.55.61<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p></p>
+<p>  <strong><mark class="label danger">方式二：</mark></strong><br>     将之前在本地生成的公钥<code>id_rsa.pub</code>,发送到需要<code>无密码登录的服务器</code>，然后将id_rsa.pub的内容追加到服务器的<code>~/.ssh/authorized_keys</code>文件中即可。</p>
+  <pre class="line-numbers language-none"><code class="language-none">$ cat ~/.ssh/id_rsa.pub &gt;&gt; ~/.ssh/authorized_keys<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
   <li>重启SSH服务 </li>
 
@@ -774,12 +787,12 @@
 
 <li> 生成 gitee SSH-Key </li>
 
-<pre class="line-numbers language-none"><code class="language-none">$ ssh-keygen -t rsa -C &#39;git@gitee.com&#39; -f ~&#x2F;.ssh&#x2F;gitee_id_rsa
+<pre class="line-numbers language-none"><code class="language-none">$ ssh-keygen -t rsa -C 'git@gitee.com' -f ~/.ssh/gitee_id_rsa
 <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <li> 生成 github SSH-Key </li>
 
-<pre class="line-numbers language-none"><code class="language-none">$ ssh-keygen -t rsa -C &#39;git@github.com&#39; -f ~&#x2F;.ssh&#x2F;github_id_rsa<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-none"><code class="language-none">$ ssh-keygen -t rsa -C 'git@github.com' -f ~/.ssh/github_id_rsa<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <li> 添加配置文件，在 ~/.ssh 目录下新建一个 config 文件 </li>
 
@@ -787,12 +800,12 @@
 Host gitee.com
 HostName gitee.com
 PreferredAuthentications publickey
-IdentityFile ~&#x2F;.ssh&#x2F;gitee_id_rsa
+IdentityFile ~/.ssh/gitee_id_rsa
 # github
 Host github.com
 HostName github.com
 PreferredAuthentications publickey
-IdentityFile ~&#x2F;.ssh&#x2F;github_id_rsa<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+IdentityFile ~/.ssh/github_id_rsa<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <br>
 
@@ -807,7 +820,25 @@ IdentityFile ~&#x2F;.ssh&#x2F;github_id_rsa<span aria-hidden="true" class="line-
 
 <pre class="line-numbers language-none"><code class="language-none">$ ssh -T git@gitee.com
 $ ssh -T git@github.com<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-</ol><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
+</ol><script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
     </div>
 
     
@@ -827,10 +858,32 @@ $ ssh -T git@github.com<span aria-hidden="true" class="line-numbers-rows"><span>
     <p id="hitokoto" style="text-align:center;margin-top: 30px;font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, STKaiti, KaiTi, SimKai, DFKai-SB, 'Lato', 'PingFang SC', 'Microsoft YaHei', sans-serif;font-weight: bold;color: #999;">
      正在加载一言...
     </p>
+    <div style="margin-top: 30px;">
+      <img id="wechat_subscriber_qcode" src="/images/reward-container-back.png" alt="leeze wechat" style="max-width: 100%;">
+    </div>
+    
 
     
 </div>
 
+
+          <div class="reward-container">
+  <div></div>
+  <button onclick="document.querySelector('.post-reward').classList.toggle('active');">
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt="leeze 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.png" alt="leeze 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
 
           
 
@@ -967,7 +1020,6 @@ $ ssh -T git@github.com<span aria-hidden="true" class="line-numbers-rows"><span>
 
 <script src="/js/prism/prism.js" async></script>
 
-
 <!-- 音乐播放器 -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aplayer/1.10.1/APlayer.min.css" integrity="sha512-CIYsJUa3pr1eoXlZFroEI0mq0UIMUqNouNinjpCkSWo3Bx5NRlQ0OuC6DtEB/bDqUWnzXc1gs2X/g52l36N5iw==" crossorigin="anonymous" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/aplayer/1.10.1/APlayer.min.js" integrity="sha512-RWosNnDNw8FxHibJqdFRySIswOUgYhFxnmYO3fp+BgCU7gfo4z0oS7mYFBvaa8qu+axY39BmQOrhW3Tp70XbaQ==" crossorigin="anonymous"></script>
@@ -984,7 +1036,7 @@ $ ssh -T git@github.com<span aria-hidden="true" class="line-numbers-rows"><span>
   <script src="//cdn.jsdelivr.net/npm/@next-theme/pjax@0.4.0/pjax.min.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
-<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
   <script>
 var pjax = new Pjax({
   selectors: [

@@ -23,18 +23,19 @@
 
 <script class="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"blog.xiaosige.com","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"livere","storage":true,"lazyload":true,"nav":null,"activeClass":"livere"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}};
+    var CONFIG = {"hostname":"blog.xiaosige.com","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"livere","storage":true,"lazyload":true,"nav":null,"activeClass":"livere"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}};
   </script>
 
-  <meta name="description" content="&amp;emsp;&amp;emsp;由于对接的项目比较老，要与其数据库进行交互，而且数据库类型不一致，所以我们的项目需要支持多数据源（接口平台），这个还是非常好配置的，SpringBoot给我们提供了多数据源配置的方案，并且每个数据源对应一个JdbcTemplate，这样就方便很多，具体配置如下：">
+  <meta name="description" content="由于对接的项目比较老，要与其数据库进行交互，而且数据库类型不一致，所以我们的项目需要支持多数据源（接口平台），这个还是非常好配置的，SpringBoot给我们提供了多数据源配置的方案，并且每个数据源对应一个JdbcTemplate，这样就方便很多，具体配置如下：">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SpringBoot项目配置多数据源">
 <meta property="og:url" content="https://blog.xiaosige.com/post/a810e572.html">
 <meta property="og:site_name" content="小四儿">
-<meta property="og:description" content="&amp;emsp;&amp;emsp;由于对接的项目比较老，要与其数据库进行交互，而且数据库类型不一致，所以我们的项目需要支持多数据源（接口平台），这个还是非常好配置的，SpringBoot给我们提供了多数据源配置的方案，并且每个数据源对应一个JdbcTemplate，这样就方便很多，具体配置如下：">
+<meta property="og:description" content="由于对接的项目比较老，要与其数据库进行交互，而且数据库类型不一致，所以我们的项目需要支持多数据源（接口平台），这个还是非常好配置的，SpringBoot给我们提供了多数据源配置的方案，并且每个数据源对应一个JdbcTemplate，这样就方便很多，具体配置如下：">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-07-21T18:39:33.000Z">
 <meta property="article:modified_time" content="2020-08-24T15:30:59.100Z">
+<meta property="article:author" content="leeze">
 <meta property="article:tag" content="SpringBoot">
 <meta name="twitter:card" content="summary">
 
@@ -106,8 +107,10 @@
   .search-pop-overlay, .sidebar-nav { display: none; }
   .sidebar-panel { display: block; }
   </style>
-</noscript><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</noscript>
 
+<link rel="alternate" href="/atom.xml" title="小四儿" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="小四儿" type="application/rss+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
@@ -150,6 +153,11 @@
     <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
 
   </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
         <li class="menu-item menu-item-tags">
 
     <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">19</span></a>
@@ -163,6 +171,11 @@
         <li class="menu-item menu-item-archives">
 
     <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">31</span></a>
+
+  </li>
+        <li class="menu-item menu-item-welfare">
+
+    <a href="/welfare" rel="section"><i class="fa fa-coffee fa-fw"></i>福利</a>
 
   </li>
         <li class="menu-item menu-item-photos">
@@ -242,9 +255,9 @@
 
       <section class="site-overview-wrap sidebar-panel">
         <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image" alt=""
+    <img class="site-author-image" itemprop="image" alt="leeze"
       src="/images/avatar_post_end.png">
-  <p class="site-author-name" itemprop="name"></p>
+  <p class="site-author-name" itemprop="name">leeze</p>
   <div class="site-description" itemprop="description">因上努力，果上随缘！</div>
 </div>
 <div class="site-state-wrap animated">
@@ -314,7 +327,7 @@
     <div class="cup">
         <div class="cup__mouse"></div>
         <div class="cup__eyes"></div>
-        <div class="cup__label"></div>
+        <div class="cup__label">多喝水</div>
     </div>
     <div class="cup-shadow"></div>
 </div>
@@ -340,8 +353,8 @@
   border-radius: 5px 5px 50px 50px;
   -webkit-transform-origin: bottom center;
           transform-origin: bottom center;
-  -webkit-animation: .4s linear 0s infinite alternate cup;
-          animation: .4s linear 0s infinite alternate cup;
+  -webkit-animation: .6s linear 0s infinite alternate cup;
+          animation: .6s linear 0s infinite alternate cup;
   border: 3px solid #000;
   position: absolute;
   bottom: 0;
@@ -356,8 +369,8 @@
   border-radius: 100%;
   border: 3px solid #000;
   box-shadow: inset 0 20px 0 0 #fff;
-  -webkit-animation: .4s linear 0s infinite alternate water;
-          animation: .4s linear 0s infinite alternate water;
+  -webkit-animation: .6s linear 0s infinite alternate water;
+          animation: .6s linear 0s infinite alternate water;
   position: absolute;
   top: -20px;
   left: -3px;
@@ -400,25 +413,26 @@
   width: 48px;
   height: 35px;
   box-sizing: content-box;
-  padding-top: 15px;
-  background: #C5C7FF;
+  padding-top: 10px;
+  background: #ff7600;
   border: 2px solid #000;
   border-bottom: none;
   -webkit-transform-origin: top center;
           transform-origin: top center;
-  -webkit-animation: .4s linear 0s infinite alternate label;
-          animation: .4s linear 0s infinite alternate label;
+  -webkit-animation: .6s linear 0s infinite alternate label;
+          animation: .6s linear 0s infinite alternate label;
   position: absolute;
   top: 40px;
   left: 45px;
+  color: #fff
 }
 .cup__label::before {
   content: '';
   width: 3px;
   height: 15px;
   background: #000;
-  -webkit-animation: .4s linear 0s infinite alternate label-line;
-          animation: .4s linear 0s infinite alternate label-line;
+  -webkit-animation: .6s linear 0s infinite alternate label-line;
+          animation: .6s linear 0s infinite alternate label-line;
   position: absolute;
   left: 25px;
   top: -16px;
@@ -444,8 +458,8 @@
   border-radius: 40% 40% 100% 100%;
   -webkit-transform-origin: bottom center;
           transform-origin: bottom center;
-  -webkit-animation: .4s linear 0s infinite alternate shadow;
-          animation: .4s linear 0s infinite alternate shadow;
+  -webkit-animation: .6s linear 0s infinite alternate shadow;
+          animation: .6s linear 0s infinite alternate shadow;
   position: absolute;
   bottom: -16px;
   left: 55px;
@@ -599,7 +613,6 @@
     </header>
 
     
-  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
 
 <noscript>
   <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
@@ -619,7 +632,7 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar_post_end.png">
-      <meta itemprop="name" content="">
+      <meta itemprop="name" content="leeze">
       <meta itemprop="description" content="因上努力，果上随缘！">
     </span>
 
@@ -695,123 +708,141 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p>&emsp;&emsp;由于对接的项目比较老，要与其数据库进行交互，而且数据库类型不一致，所以我们的项目需要支持多数据源（接口平台），这个还是非常好配置的，SpringBoot给我们提供了多数据源配置的方案，并且每个数据源对应一个JdbcTemplate，这样就方便很多，具体配置如下：</p>
+        <p>  由于对接的项目比较老，要与其数据库进行交互，而且数据库类型不一致，所以我们的项目需要支持多数据源（接口平台），这个还是非常好配置的，SpringBoot给我们提供了多数据源配置的方案，并且每个数据源对应一个JdbcTemplate，这样就方便很多，具体配置如下：</p>
 <a id="more"></a>
 
-<h4 id="application-properties文件内配置多数据源信息"><a href="#application-properties文件内配置多数据源信息" class="headerlink" title="application.properties文件内配置多数据源信息"></a>application.properties文件内配置多数据源信息</h4><p>&emsp;&emsp;首先在application.properties或者yml文件内配置多数据源信息，具体配置如下：</p>
+<h4 id="application-properties文件内配置多数据源信息"><a href="#application-properties文件内配置多数据源信息" class="headerlink" title="application.properties文件内配置多数据源信息"></a>application.properties文件内配置多数据源信息</h4><p>  首先在application.properties或者yml文件内配置多数据源信息，具体配置如下：</p>
 <pre class="line-numbers language-none"><code class="language-none"># ds1数据源配置
-spring.datasource.ds1.type&#x3D;com.alibaba.druid.pool.DruidDataSource
-spring.datasource.ds1.driver-class-name&#x3D;com.mysql.jdbc.Driver
-spring.datasource.ds1.url&#x3D;jdbc:mysql:&#x2F;&#x2F;localhost:3306&#x2F;zz?useUnicode&#x3D;true&amp;characterEncoding&#x3D;utf8
-spring.datasource.ds1.username&#x3D;zz
-spring.datasource.ds1.password&#x3D;zz
+spring.datasource.ds1.type=com.alibaba.druid.pool.DruidDataSource
+spring.datasource.ds1.driver-class-name=com.mysql.jdbc.Driver
+spring.datasource.ds1.url=jdbc:mysql://localhost:3306/zz?useUnicode=true&amp;characterEncoding=utf8
+spring.datasource.ds1.username=zz
+spring.datasource.ds1.password=zz
 
 # ds2数据源配置
-spring.datasource.ds2.driver-class-name&#x3D;oracle.jdbc.driver.OracleDriver
-spring.datasource.ds2.url&#x3D;jdbc:oracle:thin:@localhost:1521:orcl
-spring.datasource.ds2.username&#x3D;system
-spring.datasource.ds2.password&#x3D;050508<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+spring.datasource.ds2.driver-class-name=oracle.jdbc.driver.OracleDriver
+spring.datasource.ds2.url=jdbc:oracle:thin:@localhost:1521:orcl
+spring.datasource.ds2.username=system
+spring.datasource.ds2.password=050508<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h4 id="指定数据源与配置信息"><a href="#指定数据源与配置信息" class="headerlink" title="指定数据源与配置信息"></a>指定数据源与配置信息</h4><p>&emsp;&emsp;上面我们配置好了数据源，但是已经不是SpringBoot默认的数据源配置信息了，所以我们还要指定不同的数据源实例对应哪个配置信息，配置如下：</p>
-<pre class="line-numbers language-none"><code class="language-none">&#x2F;**
+<h4 id="指定数据源与配置信息"><a href="#指定数据源与配置信息" class="headerlink" title="指定数据源与配置信息"></a>指定数据源与配置信息</h4><p>  上面我们配置好了数据源，但是已经不是SpringBoot默认的数据源配置信息了，所以我们还要指定不同的数据源实例对应哪个配置信息，配置如下：</p>
+<pre class="line-numbers language-none"><code class="language-none">/**
  * 多数据源配置
- *&#x2F;
+ */
 @Configuration
-public class DataSourceConfig &#123;
+public class DataSourceConfig {
 
-  &#x2F;**
+  /**
    * ds1数据源配置
    *
    * @return 配置信息
-   *&#x2F;
+   */
   @Primary
-  @Bean(name &#x3D; &quot;ds1DataSourceProperties&quot;)
-  @ConfigurationProperties(prefix &#x3D; &quot;spring.datasource.ds1&quot;)
-  public DataSourceProperties ds1DataSourceProperties() &#123;
+  @Bean(name = "ds1DataSourceProperties")
+  @ConfigurationProperties(prefix = "spring.datasource.ds1")
+  public DataSourceProperties ds1DataSourceProperties() {
     return new DataSourceProperties();
-  &#125;
+  }
 
-  &#x2F;**
+  /**
    * ds1数据源
    *
    * @param dataSourceProperties 配置信息
    * @return 数据源实例
-   *&#x2F;
+   */
   @Primary
-  @Bean(name &#x3D; &quot;ds1DataSource&quot;)
-  public DataSource ds1DataSource(@Qualifier(&quot;ds1DataSourceProperties&quot;) DataSourceProperties dataSourceProperties) &#123;
+  @Bean(name = "ds1DataSource")
+  public DataSource ds1DataSource(@Qualifier("ds1DataSourceProperties") DataSourceProperties dataSourceProperties) {
     return dataSourceProperties.initializeDataSourceBuilder().build();
-  &#125;
+  }
 
-  &#x2F;**
+  /**
    * ds2数据源配置
    *
    * @return 配置信息
-   *&#x2F;
+   */
   @Primary
-  @Bean(name &#x3D; &quot;ds2DataSourceProperties&quot;)
-  @ConfigurationProperties(prefix &#x3D; &quot;spring.datasource.ds2&quot;)
-  public DataSourceProperties ds2DataSourceProperties() &#123;
+  @Bean(name = "ds2DataSourceProperties")
+  @ConfigurationProperties(prefix = "spring.datasource.ds2")
+  public DataSourceProperties ds2DataSourceProperties() {
     return new DataSourceProperties();
-  &#125;
+  }
 
-  &#x2F;**
+  /**
    * ds2数据源
    *
    * @param dataSourceProperties 配置信息
    * @return 数据源实例
-   *&#x2F;
+   */
   @Primary
-  @Bean(name &#x3D; &quot;ds2DataSource&quot;)
-  public DataSource ds2DataSource(@Qualifier(&quot;ds2DataSourceProperties&quot;) DataSourceProperties dataSourceProperties) &#123;
+  @Bean(name = "ds2DataSource")
+  public DataSource ds2DataSource(@Qualifier("ds2DataSourceProperties") DataSourceProperties dataSourceProperties) {
     return dataSourceProperties.initializeDataSourceBuilder().build();
-  &#125;
+  }
 
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h4 id="配置JdbcTemplate与数据源关系"><a href="#配置JdbcTemplate与数据源关系" class="headerlink" title="配置JdbcTemplate与数据源关系"></a>配置JdbcTemplate与数据源关系</h4><p>&emsp;&emsp;配置完数据源信息，我们想直接用不同的JdbcTemplate来操作不同的数据库，所以我们还要创建几个<code>JdbcTemplate</code>实例，并且这些实例与不同的数据源进行绑定，配置信息如下：</p>
-<pre class="line-numbers language-none"><code class="language-none">&#x2F;**
+<h4 id="配置JdbcTemplate与数据源关系"><a href="#配置JdbcTemplate与数据源关系" class="headerlink" title="配置JdbcTemplate与数据源关系"></a>配置JdbcTemplate与数据源关系</h4><p>  配置完数据源信息，我们想直接用不同的JdbcTemplate来操作不同的数据库，所以我们还要创建几个<code>JdbcTemplate</code>实例，并且这些实例与不同的数据源进行绑定，配置信息如下：</p>
+<pre class="line-numbers language-none"><code class="language-none">/**
  * JdbcTemplate 多数据源配置
  *
  * @author 明山
  * @see DataSourceConfig
- *&#x2F;
+ */
 @Configuration
-public class JdbcTemplateDataSourceConfig &#123;
+public class JdbcTemplateDataSourceConfig {
 
-  &#x2F;**
+  /**
    * ds1 JdbcTemplate 配置
    *
    * @param dataSource 数据源
    * @return JdbcTemplate
-   *&#x2F;
+   */
   @Primary
-  @Bean(name &#x3D; &quot;ds1JdbcTemplate&quot;)
-  public JdbcTemplate jdbcTemplate(@Qualifier(&quot;ds1DataSource&quot;) DataSource dataSource) &#123;
+  @Bean(name = "ds1JdbcTemplate")
+  public JdbcTemplate jdbcTemplate(@Qualifier("ds1DataSource") DataSource dataSource) {
     return new JdbcTemplate(dataSource);
-  &#125;
+  }
 
-  &#x2F;**
+  /**
    *ds2 JdbcTemplate 配置
    *
    * @param dataSource 数据源
    * @return JdbcTemplate
-   *&#x2F;
-  @Bean(name &#x3D; &quot;ds2JdbcTemplate&quot;)
-  public JdbcTemplate hdwmsJdbcTemplate(@Qualifier(&quot;ds2DataSource&quot;) DataSource dataSource) &#123;
+   */
+  @Bean(name = "ds2JdbcTemplate")
+  public JdbcTemplate hdwmsJdbcTemplate(@Qualifier("ds2DataSource") DataSource dataSource) {
     return new JdbcTemplate(dataSource);
-  &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+  }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h4 id="使用JdbcTemplate"><a href="#使用JdbcTemplate" class="headerlink" title="使用JdbcTemplate"></a>使用JdbcTemplate</h4><p>&emsp;&emsp;配置完后，我们可以直接在具体的类中使用了，使用方式如下：</p>
+<h4 id="使用JdbcTemplate"><a href="#使用JdbcTemplate" class="headerlink" title="使用JdbcTemplate"></a>使用JdbcTemplate</h4><p>  配置完后，我们可以直接在具体的类中使用了，使用方式如下：</p>
 <pre class="line-numbers language-none"><code class="language-none">@Autowired
-@Qualifier(&quot;ds1JdbcTemplate&quot;)
+@Qualifier("ds1JdbcTemplate")
 private JdbcTemplate ds1JdbcTemplate;
 
 @Autowired
-@Qualifier(&quot;ds2JdbcTemplate&quot;)
+@Qualifier("ds2JdbcTemplate")
 private JdbcTemplate ds2JdbcTemplate;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
     </div>
 
     
@@ -831,10 +862,32 @@ private JdbcTemplate ds2JdbcTemplate;<span aria-hidden="true" class="line-number
     <p id="hitokoto" style="text-align:center;margin-top: 30px;font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, STKaiti, KaiTi, SimKai, DFKai-SB, 'Lato', 'PingFang SC', 'Microsoft YaHei', sans-serif;font-weight: bold;color: #999;">
      正在加载一言...
     </p>
+    <div style="margin-top: 30px;">
+      <img id="wechat_subscriber_qcode" src="/images/reward-container-back.png" alt="leeze wechat" style="max-width: 100%;">
+    </div>
+    
 
     
 </div>
 
+
+          <div class="reward-container">
+  <div></div>
+  <button onclick="document.querySelector('.post-reward').classList.toggle('active');">
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt="leeze 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.png" alt="leeze 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
 
           
 
@@ -970,7 +1023,6 @@ private JdbcTemplate ds2JdbcTemplate;<span aria-hidden="true" class="line-number
 
 <script src="/js/prism/prism.js" async></script>
 
-
 <!-- 音乐播放器 -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aplayer/1.10.1/APlayer.min.css" integrity="sha512-CIYsJUa3pr1eoXlZFroEI0mq0UIMUqNouNinjpCkSWo3Bx5NRlQ0OuC6DtEB/bDqUWnzXc1gs2X/g52l36N5iw==" crossorigin="anonymous" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/aplayer/1.10.1/APlayer.min.js" integrity="sha512-RWosNnDNw8FxHibJqdFRySIswOUgYhFxnmYO3fp+BgCU7gfo4z0oS7mYFBvaa8qu+axY39BmQOrhW3Tp70XbaQ==" crossorigin="anonymous"></script>
@@ -987,7 +1039,7 @@ private JdbcTemplate ds2JdbcTemplate;<span aria-hidden="true" class="line-number
   <script src="//cdn.jsdelivr.net/npm/@next-theme/pjax@0.4.0/pjax.min.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
-<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
   <script>
 var pjax = new Pjax({
   selectors: [

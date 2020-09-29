@@ -7,7 +7,7 @@ var link ={
         });
     },
     shuffle: function shuffle(arr){
-        for(var i = 0, len = arr.length; i < len;i ++){
+        for(var i = 0, len = arr.length; i &lt; len;i ++){
             var a = parseInt(Math.random()*len);
             var temp = arr[a];
             arr[a] = arr[i];
@@ -18,7 +18,7 @@ var link ={
     render: function (data) {
         data = this.shuffle(data);
         var linkitem, nickname, avatar, site, intro, html = "";
-        for (var i = 0; i < data.length; i++) {
+        for (var i = 0; i &lt; data.length; i++) {
             nickname = data[i].nickname;
             avatar = data[i].avatar;
             site = data[i].site;
@@ -41,4 +41,22 @@ var link ={
 };
 
 link.init();
-<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>

@@ -23,15 +23,15 @@
 
 <script class="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"blog.xiaosige.com","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"livere","storage":true,"lazyload":true,"nav":null,"activeClass":"livere"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}};
+    var CONFIG = {"hostname":"blog.xiaosige.com","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"livere","storage":true,"lazyload":true,"nav":null,"activeClass":"livere"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}};
   </script>
 
-  <meta name="description" content="前言&amp;emsp;&amp;emsp; JIRA 是 Atlassian 公司出品的项目与事务跟踪工具，被广泛应用于缺陷跟踪、客户服务、需求收集、流程审批、任务跟踪、项目跟踪和敏捷管理等工作领域。">
+  <meta name="description" content="前言   JIRA 是 Atlassian 公司出品的项目与事务跟踪工具，被广泛应用于缺陷跟踪、客户服务、需求收集、流程审批、任务跟踪、项目跟踪和敏捷管理等工作领域。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Jira8.x版本安装与破解">
 <meta property="og:url" content="https://blog.xiaosige.com/post/afb30e04.html">
 <meta property="og:site_name" content="小四儿">
-<meta property="og:description" content="前言&amp;emsp;&amp;emsp; JIRA 是 Atlassian 公司出品的项目与事务跟踪工具，被广泛应用于缺陷跟踪、客户服务、需求收集、流程审批、任务跟踪、项目跟踪和敏捷管理等工作领域。">
+<meta property="og:description" content="前言   JIRA 是 Atlassian 公司出品的项目与事务跟踪工具，被广泛应用于缺陷跟踪、客户服务、需求收集、流程审批、任务跟踪、项目跟踪和敏捷管理等工作领域。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://blog.xiaosige.com/post/afb30e04/jira-001.png">
 <meta property="og:image" content="https://blog.xiaosige.com/post/afb30e04/jira-002.png">
@@ -48,6 +48,7 @@
 <meta property="og:image" content="https://blog.xiaosige.com/post/afb30e04/jira-013.png">
 <meta property="article:published_time" content="2020-08-25T08:15:42.000Z">
 <meta property="article:modified_time" content="2020-09-26T07:59:53.846Z">
+<meta property="article:author" content="leeze">
 <meta property="article:tag" content="Jira">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://blog.xiaosige.com/post/afb30e04/jira-001.png">
@@ -120,8 +121,10 @@
   .search-pop-overlay, .sidebar-nav { display: none; }
   .sidebar-panel { display: block; }
   </style>
-</noscript><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</noscript>
 
+<link rel="alternate" href="/atom.xml" title="小四儿" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="小四儿" type="application/rss+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
@@ -164,6 +167,11 @@
     <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
 
   </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
         <li class="menu-item menu-item-tags">
 
     <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">19</span></a>
@@ -177,6 +185,11 @@
         <li class="menu-item menu-item-archives">
 
     <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">31</span></a>
+
+  </li>
+        <li class="menu-item menu-item-welfare">
+
+    <a href="/welfare" rel="section"><i class="fa fa-coffee fa-fw"></i>福利</a>
 
   </li>
         <li class="menu-item menu-item-photos">
@@ -256,9 +269,9 @@
 
       <section class="site-overview-wrap sidebar-panel">
         <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image" alt=""
+    <img class="site-author-image" itemprop="image" alt="leeze"
       src="/images/avatar_post_end.png">
-  <p class="site-author-name" itemprop="name"></p>
+  <p class="site-author-name" itemprop="name">leeze</p>
   <div class="site-description" itemprop="description">因上努力，果上随缘！</div>
 </div>
 <div class="site-state-wrap animated">
@@ -328,7 +341,7 @@
     <div class="cup">
         <div class="cup__mouse"></div>
         <div class="cup__eyes"></div>
-        <div class="cup__label"></div>
+        <div class="cup__label">多喝水</div>
     </div>
     <div class="cup-shadow"></div>
 </div>
@@ -354,8 +367,8 @@
   border-radius: 5px 5px 50px 50px;
   -webkit-transform-origin: bottom center;
           transform-origin: bottom center;
-  -webkit-animation: .4s linear 0s infinite alternate cup;
-          animation: .4s linear 0s infinite alternate cup;
+  -webkit-animation: .6s linear 0s infinite alternate cup;
+          animation: .6s linear 0s infinite alternate cup;
   border: 3px solid #000;
   position: absolute;
   bottom: 0;
@@ -370,8 +383,8 @@
   border-radius: 100%;
   border: 3px solid #000;
   box-shadow: inset 0 20px 0 0 #fff;
-  -webkit-animation: .4s linear 0s infinite alternate water;
-          animation: .4s linear 0s infinite alternate water;
+  -webkit-animation: .6s linear 0s infinite alternate water;
+          animation: .6s linear 0s infinite alternate water;
   position: absolute;
   top: -20px;
   left: -3px;
@@ -414,25 +427,26 @@
   width: 48px;
   height: 35px;
   box-sizing: content-box;
-  padding-top: 15px;
-  background: #C5C7FF;
+  padding-top: 10px;
+  background: #ff7600;
   border: 2px solid #000;
   border-bottom: none;
   -webkit-transform-origin: top center;
           transform-origin: top center;
-  -webkit-animation: .4s linear 0s infinite alternate label;
-          animation: .4s linear 0s infinite alternate label;
+  -webkit-animation: .6s linear 0s infinite alternate label;
+          animation: .6s linear 0s infinite alternate label;
   position: absolute;
   top: 40px;
   left: 45px;
+  color: #fff
 }
 .cup__label::before {
   content: '';
   width: 3px;
   height: 15px;
   background: #000;
-  -webkit-animation: .4s linear 0s infinite alternate label-line;
-          animation: .4s linear 0s infinite alternate label-line;
+  -webkit-animation: .6s linear 0s infinite alternate label-line;
+          animation: .6s linear 0s infinite alternate label-line;
   position: absolute;
   left: 25px;
   top: -16px;
@@ -458,8 +472,8 @@
   border-radius: 40% 40% 100% 100%;
   -webkit-transform-origin: bottom center;
           transform-origin: bottom center;
-  -webkit-animation: .4s linear 0s infinite alternate shadow;
-          animation: .4s linear 0s infinite alternate shadow;
+  -webkit-animation: .6s linear 0s infinite alternate shadow;
+          animation: .6s linear 0s infinite alternate shadow;
   position: absolute;
   bottom: -16px;
   left: 55px;
@@ -613,7 +627,6 @@
     </header>
 
     
-  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
 
 <noscript>
   <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
@@ -633,7 +646,7 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar_post_end.png">
-      <meta itemprop="name" content="">
+      <meta itemprop="name" content="leeze">
       <meta itemprop="description" content="因上努力，果上随缘！">
     </span>
 
@@ -713,7 +726,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>&emsp;&emsp; JIRA 是 Atlassian 公司出品的项目与事务跟踪工具，被广泛应用于缺陷跟踪、客户服务、需求收集、流程审批、任务跟踪、项目跟踪和敏捷管理等工作领域。</p>
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>   JIRA 是 Atlassian 公司出品的项目与事务跟踪工具，被广泛应用于缺陷跟踪、客户服务、需求收集、流程审批、任务跟踪、项目跟踪和敏捷管理等工作领域。</p>
 <a id="more"></a>
 
 <h3 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h3><ol>
@@ -728,22 +741,22 @@
 <li><p>机子分配的内存适当大些。</p>
 </li>
 </ol>
-<h3 id="开始安装"><a href="#开始安装" class="headerlink" title="开始安装"></a>开始安装</h3><h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><p>&emsp;&emsp; 先把上面下载的软件包放到同一目录下，比如<code>/tmp</code>目录下，然后输入下面的命令进行安装</p>
+<h3 id="开始安装"><a href="#开始安装" class="headerlink" title="开始安装"></a>开始安装</h3><h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><p>   先把上面下载的软件包放到同一目录下，比如<code>/tmp</code>目录下，然后输入下面的命令进行安装</p>
 <pre class="line-numbers language-none"><code class="language-none">tar -zxvf atlassian-agent-v1.2.3.tar.gz<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">./atlassian-jira-software-8.5.7-x64.bin <span class="token comment"># 下面执行的是默认的</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<img src="/post/afb30e04/jira-001.png" class title="JIRA安装图">
+<img src="/post/afb30e04/jira-001.png" class="" title="JIRA安装图">
 
-<p>&emsp;&emsp;安装路径：  &emsp; <code>/opt/atlassian/jira</code><br>&emsp;&emsp;数据存放路径：<code>/var/atlassian/application-data/jira</code><br>&emsp;&emsp;HTTP Port: &emsp;<code>8080</code><br>&emsp;&emsp;RMI Port:  &emsp;&emsp;<code>8005</code></p>
-<h4 id="复制包"><a href="#复制包" class="headerlink" title="复制包"></a>复制包</h4><p>&emsp;&emsp; 复制驱动包、破解包：</p>
-<pre class="line-numbers language-none"><code class="language-none">cp atlassian-agent-v1.2.3&#x2F;atlassian-agent.jar &#x2F;home&#x2F;jira1&#x2F;
-cp atlassian-agent-v1.2.3&#x2F;atlassian-agent.jar &#x2F;opt&#x2F;atlassian&#x2F;jira&#x2F;atlassian-jira&#x2F;WEB-INF&#x2F;lib&#x2F;
-cp mysql-connector-java-5.1.49.jar &#x2F;opt&#x2F;atlassian&#x2F;jira&#x2F;atlassian-jira&#x2F;WEB-INF&#x2F;lib&#x2F;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>  安装路径：    <code>/opt/atlassian/jira</code><br>  数据存放路径：<code>/var/atlassian/application-data/jira</code><br>  HTTP Port:  <code>8080</code><br>  RMI Port:    <code>8005</code></p>
+<h4 id="复制包"><a href="#复制包" class="headerlink" title="复制包"></a>复制包</h4><p>   复制驱动包、破解包：</p>
+<pre class="line-numbers language-none"><code class="language-none">cp atlassian-agent-v1.2.3/atlassian-agent.jar /home/jira1/
+cp atlassian-agent-v1.2.3/atlassian-agent.jar /opt/atlassian/jira/atlassian-jira/WEB-INF/lib/
+cp mysql-connector-java-5.1.49.jar /opt/atlassian/jira/atlassian-jira/WEB-INF/lib/<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <h4 id="修改配置"><a href="#修改配置" class="headerlink" title="修改配置"></a>修改配置</h4><ol> 
 <li>破解：<font color="LightCoral" size="3">修改setenv.sh</font></li>
 <pre class="line-numbers language-diff" data-language="diff"><code class="language-diff">vi /opt/atlassian/jira/bin/setenv.sh
 <span class="token deleted-sign deleted"><span class="token prefix deleted">-</span><span class="token line"> export JAVA_OPTS # 70行的(其实，不用删的，嘿嘿，我是为了突出修改)
-</span></span><span class="token inserted-sign inserted"><span class="token prefix inserted">+</span><span class="token line"> export JAVA_OPTS="-javaagent:/home/jira1/atlassian-agent.jar $&#123;JAVA_OPTS&#125;"</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+</span></span><span class="token inserted-sign inserted"><span class="token prefix inserted">+</span><span class="token line"> export JAVA_OPTS="-javaagent:/home/jira1/atlassian-agent.jar ${JAVA_OPTS}"</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <div style="height: 10px;"></div>
 <li>个人习惯，把Java改了,默认<font color="LightCoral" size="3">OpenJDK</font>,改成<font color="orangered" size="3">Java(TM) SE </font></li>
 <pre class="line-numbers language-diff" data-language="diff"><code class="language-diff"># DO NOT remove the following line
@@ -752,70 +765,70 @@ cp mysql-connector-java-5.1.49.jar &#x2F;opt&#x2F;atlassian&#x2F;jira&#x2F;atlas
 <div style="height: 10px;"></div>
 <li>更改端口（默认8080）</li>
 <font color="LightCoral" size="3">lsof -i:8080</font>，<font color="LightCoral" size="3">ss -tanlp </font>, 如果被占用
-<pre class="line-numbers language-none"><code class="language-none">vi &#x2F;opt&#x2F;atlassian&#x2F;jira&#x2F;conf&#x2F;server.xml<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-none"><code class="language-none">vi /opt/atlassian/jira/conf/server.xml<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 将 <font color="LightCoral" size="3">Server port（8005）</font> and the <font color="LightCoral" size="3">Connector port （8080）</font> 改了。
 
 <div style="height: 10px;"></div>
 <li> 配置jira_home（默认不做更改）</li>
-<pre class="line-numbers language-none"><code class="language-none">vi &#x2F;opt&#x2F;atlassian&#x2F;jira&#x2F;atlassian-jira&#x2F;WEB-INF&#x2F;classes&#x2F;jira-application.properties<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-none"><code class="language-none">vi /opt/atlassian/jira/atlassian-jira/WEB-INF/classes/jira-application.properties<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <font color="red" size="2">（路径需根据实际情况配置，而且需要注意此路径配置不能和安装软件同一个目录，否则报错）</font>
 
 </ol>
 
-<h4 id="启动Jira"><a href="#启动Jira" class="headerlink" title="启动Jira"></a>启动Jira</h4><pre class="line-numbers language-none"><code class="language-none">&#x2F;opt&#x2F;atlassian&#x2F;jira&#x2F;bin&#x2F;start-jira.sh<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<h4 id="查看日志"><a href="#查看日志" class="headerlink" title="查看日志"></a>查看日志</h4><pre class="line-numbers language-none"><code class="language-none">tail -f -n 500 &#x2F;opt&#x2F;atlassian&#x2F;jira&#x2F;logs&#x2F;catalina.out<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h4 id="启动Jira"><a href="#启动Jira" class="headerlink" title="启动Jira"></a>启动Jira</h4><pre class="line-numbers language-none"><code class="language-none">/opt/atlassian/jira/bin/start-jira.sh<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h4 id="查看日志"><a href="#查看日志" class="headerlink" title="查看日志"></a>查看日志</h4><pre class="line-numbers language-none"><code class="language-none">tail -f -n 500 /opt/atlassian/jira/logs/catalina.out<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<h4 id="页面配置"><a href="#页面配置" class="headerlink" title="页面配置"></a>页面配置</h4><p>&emsp;&emsp; 访问地址：<a target="_blank" rel="noopener" href="http://10.211.55.61:8080/">http://10.211.55.61:8080</a></p>
-<img src="/post/afb30e04/jira-002.png" class title="中文">
-<img src="/post/afb30e04/jira-003.png" class title="自定义">
+<h4 id="页面配置"><a href="#页面配置" class="headerlink" title="页面配置"></a>页面配置</h4><p>   访问地址：<a target="_blank" rel="noopener" href="http://10.211.55.61:8080/">http://10.211.55.61:8080</a></p>
+<img src="/post/afb30e04/jira-002.png" class="" title="中文">
+<img src="/post/afb30e04/jira-003.png" class="" title="自定义">
 
-<p>&emsp;&emsp; 创建数据库，如果是选择Mysql，建议使用Mysql5.6或者Mysql5.7，这样不容易出错。另外在创建数据库时建议选择UTF8编码，目前不支持UTF8MB4。<a target="_blank" rel="noopener" href="https://confluence.atlassian.com/adminjiraserver085/connecting-jira-applications-to-mysql-5-7-981154582.html">参考</a></p>
+<p>   创建数据库，如果是选择Mysql，建议使用Mysql5.6或者Mysql5.7，这样不容易出错。另外在创建数据库时建议选择UTF8编码，目前不支持UTF8MB4。<a target="_blank" rel="noopener" href="https://confluence.atlassian.com/adminjiraserver085/connecting-jira-applications-to-mysql-5-7-981154582.html">参考</a></p>
 <pre class="line-numbers language-none"><code class="language-none">CREATE DATABASE jiradb CHARACTER SET utf8mb4 COLLATE utf8mb4_bin;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>&emsp;&emsp; 如果，想添加DB用户的话：</p>
+<p>   如果，想添加DB用户的话：</p>
 <pre class="line-numbers language-none"><code class="language-none">use jira;
-create user &#39;jira&#39;@&#39;%&#39; identifiedby &#39;jira&#39;;
-grant all privileges on *.* to&#39;jira&#39;@&#39;%&#39;;
+create user 'jira'@'%' identifiedby 'jira';
+grant all privileges on *.* to'jira'@'%';
 flush privileges;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>&emsp;&emsp; 配置DB数据，并测试，如下图：</p>
-<img src="/post/afb30e04/jira-004.png" class title="DB配置">
-<p>&emsp;&emsp; 测试OK，点击<code>下一步</code>:</p>
-<img src="/post/afb30e04/jira-005.png" class title="DB配置">
-<p>&emsp;&emsp; 此时，发现服务停止，<code>tail -f -n 500 /opt/atlassian/jira/logs/catalina.out</code>，后台报错：</p>
+<p>   配置DB数据，并测试，如下图：</p>
+<img src="/post/afb30e04/jira-004.png" class="" title="DB配置">
+<p>   测试OK，点击<code>下一步</code>:</p>
+<img src="/post/afb30e04/jira-005.png" class="" title="DB配置">
+<p>   此时，发现服务停止，<code>tail -f -n 500 /opt/atlassian/jira/logs/catalina.out</code>，后台报错：</p>
 <blockquote>
-<p>&emsp;&emsp; WARN: Establishing SSL connection without server’s identity verification is not recommended. According to MySQL 5.5.45+, 5.6.26+ and 5.7.6+ requirements SSL connection must be established by default if explicit option isn’t set. For compliance with existing applications not using SSL the verifyServerCertificate property is set to ‘false’. You need either to explicitly disable SSL by setting <code>useSSL=false</code>, or set useSSL=true and provide truststore for server certificate</p>
+<p>   WARN: Establishing SSL connection without server’s identity verification is not recommended. According to MySQL 5.5.45+, 5.6.26+ and 5.7.6+ requirements SSL connection must be established by default if explicit option isn’t set. For compliance with existing applications not using SSL the verifyServerCertificate property is set to ‘false’. You need either to explicitly disable SSL by setting <code>useSSL=false</code>, or set useSSL=true and provide truststore for server certificate</p>
 </blockquote>
-<p>&emsp;&emsp; 查看<code>/var/atlassian/application-data/jira</code>，新生成<code>dbconfig.xml</code>，<code>原先没有的</code>。</p>
-<p>&emsp;&emsp; 解决：<a target="_blank" rel="noopener" href="https://community.atlassian.com/t5/Jira-Core-questions/JIRA-and-MySql-5-7-with-SSL/qaq-p/1251720">参考1</a> ， <a target="_blank" rel="noopener" href="https://community.atlassian.com/t5/Jira-questions/useSSL-false-with-Jira-ServiceDesk/qaq-p/1088212">参考2</a> </p>
-<pre class="line-numbers language-none"><code class="language-none">vi &#x2F;var&#x2F;atlassian&#x2F;application-data&#x2F;jira&#x2F;dbconfig.xml<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>&emsp;&emsp; DB的URL末尾加上<code>&amp;amp;useSSL=false</code>，我们习惯加<code>&amp;</code>，但是这里却是<code>&amp;amp;</code>。</p>
-<img src="/post/afb30e04/jira-006.png" class title="SSL">
+<p>   查看<code>/var/atlassian/application-data/jira</code>，新生成<code>dbconfig.xml</code>，<code>原先没有的</code>。</p>
+<p>   解决：<a target="_blank" rel="noopener" href="https://community.atlassian.com/t5/Jira-Core-questions/JIRA-and-MySql-5-7-with-SSL/qaq-p/1251720">参考1</a> ， <a target="_blank" rel="noopener" href="https://community.atlassian.com/t5/Jira-questions/useSSL-false-with-Jira-ServiceDesk/qaq-p/1088212">参考2</a> </p>
+<pre class="line-numbers language-none"><code class="language-none">vi /var/atlassian/application-data/jira/dbconfig.xml<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>   DB的URL末尾加上<code>&amp;amp;useSSL=false</code>，我们习惯加<code>&amp;</code>，但是这里却是<code>&amp;amp;</code>。</p>
+<img src="/post/afb30e04/jira-006.png" class="" title="SSL">
 
-<p>&emsp;&emsp; 重新启动：<code>/opt/atlassian/jira/bin/start-jira.sh</code></p>
-<img src="/post/afb30e04/jira-007.png" class title="Title+URL">
+<p>   重新启动：<code>/opt/atlassian/jira/bin/start-jira.sh</code></p>
+<img src="/post/afb30e04/jira-007.png" class="" title="Title+URL">
 
-<img src="/post/afb30e04/jira-008.png" class title="KEY">
+<img src="/post/afb30e04/jira-008.png" class="" title="KEY">
 
-<p>&emsp;&emsp; 根据Server ID 生成license Key：</p>
-<pre class="line-numbers language-none"><code class="language-none">&#x2F;opt&#x2F;atlassian&#x2F;jira&#x2F;jre&#x2F;bin&#x2F;java -jar &#x2F;home&#x2F;jira1&#x2F;atlassian-agent.jar -p jira -m jira@jira.com -n jira -o https:&#x2F;&#x2F;jira.com -s BFZ0-PD41-I9AX-YXDP<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>   根据Server ID 生成license Key：</p>
+<pre class="line-numbers language-none"><code class="language-none">/opt/atlassian/jira/jre/bin/java -jar /home/jira1/atlassian-agent.jar -p jira -m jira@jira.com -n jira -o https://jira.com -s BFZ0-PD41-I9AX-YXDP<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <br>
-<div class="note default no-icon"><p>-p jira(安装的是jira产品)，具体的可以根据-p进行参考<br>-m <a href="mailto:&#106;&#105;&#114;&#97;&#64;&#x6a;&#105;&#x72;&#x61;&#x2e;&#x63;&#111;&#109;">&#106;&#105;&#114;&#97;&#64;&#x6a;&#105;&#x72;&#x61;&#x2e;&#x63;&#111;&#109;</a>(随意写)<br>-n jira(随意写)<br>-o <a target="_blank" rel="noopener" href="https://jira.com/">https://jira.com</a> (随意写)<br>-s BFZ0-PD41-I9AX-YXDP (即jira显示的服务器ID)</p>
+<div class="note default no-icon"><p>-p jira(安装的是jira产品)，具体的可以根据-p进行参考<br>-m <a href="mailto:jira@jira.com">jira@jira.com</a>(随意写)<br>-n jira(随意写)<br>-o <a target="_blank" rel="noopener" href="https://jira.com/">https://jira.com</a> (随意写)<br>-s BFZ0-PD41-I9AX-YXDP (即jira显示的服务器ID)</p>
 </div>
 <br>
 
-<img src="/post/afb30e04/jira-009.png" class title="KEY">
-<p>&emsp;&emsp; 复制生成的KEY，点击<code>Next</code>：</p>
-<img src="/post/afb30e04/jira-010.png" class title="KEY">
-<p>&emsp;&emsp; 创建账户：</p>
-<img src="/post/afb30e04/jira-011.png" class title="Admin">
-<p>&emsp;&emsp; Email配置，跳过</p>
-<img src="/post/afb30e04/jira-012.png" class title="Email">
+<img src="/post/afb30e04/jira-009.png" class="" title="KEY">
+<p>   复制生成的KEY，点击<code>Next</code>：</p>
+<img src="/post/afb30e04/jira-010.png" class="" title="KEY">
+<p>   创建账户：</p>
+<img src="/post/afb30e04/jira-011.png" class="" title="Admin">
+<p>   Email配置，跳过</p>
+<img src="/post/afb30e04/jira-012.png" class="" title="Email">
 
 <p>。。。。。。。。。</p>
-<h4 id="重配实例"><a href="#重配实例" class="headerlink" title="重配实例"></a>重配实例</h4><p>&emsp;&emsp; 如果页面配置失败或者想要重新配置实例，可以把原来的实例删除：</p>
-<pre class="line-numbers language-none"><code class="language-none">rm &#x2F;var&#x2F;atlassian&#x2F;application-data&#x2F;jira&#x2F;* -rf<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h4 id="重配实例"><a href="#重配实例" class="headerlink" title="重配实例"></a>重配实例</h4><p>   如果页面配置失败或者想要重新配置实例，可以把原来的实例删除：</p>
+<pre class="line-numbers language-none"><code class="language-none">rm /var/atlassian/application-data/jira/* -rf<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <div style="height: 10px;"></div>
-&emsp;&emsp; 然后再重新进行Web页面配置。
+   然后再重新进行Web页面配置。
 
 
 
@@ -826,31 +839,49 @@ flush privileges;<span aria-hidden="true" class="line-numbers-rows"><span></span
 </div>
 
 <p>把本地内存最好调大点,我任性给了6G，哈哈。。。</p>
-<img src="/post/afb30e04/jira-013.png" class title="VM">
+<img src="/post/afb30e04/jira-013.png" class="" title="VM">
 
 
 <p><code>vi /opt/atlassian/jira/bin/setenv.sh</code></p>
-<pre class="line-numbers language-none"><code class="language-none">JVM_MINIMUM_MEMORY&#x3D;&quot;768m&quot;
-JVM_MAXIMUM_MEMORY&#x3D;&quot;4096m&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-none"><code class="language-none">JVM_MINIMUM_MEMORY="768m"
+JVM_MAXIMUM_MEMORY="4096m"<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 </ol>
 
 <h3 id="PS"><a href="#PS" class="headerlink" title="PS"></a>PS</h3><div style="height: 10px;"></div>
 
-<pre class="line-numbers language-none"><code class="language-none">&#x2F;var&#x2F;atlassian&#x2F;application-data&#x2F;jira&#x2F;dbconfig.xml    # DB设置
+<pre class="line-numbers language-none"><code class="language-none">/var/atlassian/application-data/jira/dbconfig.xml    # DB设置
 
-&#x2F;opt&#x2F;atlassian&#x2F;jira&#x2F;bin&#x2F;start-jira.sh                # 启动
+/opt/atlassian/jira/bin/start-jira.sh                # 启动
 
-tail -f -n 500 &#x2F;opt&#x2F;atlassian&#x2F;jira&#x2F;logs&#x2F;catalina.out # 日志
+tail -f -n 500 /opt/atlassian/jira/logs/catalina.out # 日志
 
-vi &#x2F;opt&#x2F;atlassian&#x2F;jira&#x2F;conf&#x2F;server.xml               # 端口设置
+vi /opt/atlassian/jira/conf/server.xml               # 端口设置
 
-&#x2F;opt&#x2F;atlassian&#x2F;jira&#x2F;                                 # 安装路径
+/opt/atlassian/jira/                                 # 安装路径
 
-&#x2F;var&#x2F;atlassian&#x2F;application-data&#x2F;jira                 # 数据存放路径
+/var/atlassian/application-data/jira                 # 数据存放路径
 
-&#x2F;opt&#x2F;atlassian&#x2F;jira&#x2F;atlassian-jira&#x2F;WEB-INF&#x2F;classes&#x2F;database-defaults
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><!-- flag of hidden posts --><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
+/opt/atlassian/jira/atlassian-jira/WEB-INF/classes/database-defaults
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script><!-- flag of hidden posts --><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
     </div>
 
     
@@ -870,10 +901,32 @@ vi &#x2F;opt&#x2F;atlassian&#x2F;jira&#x2F;conf&#x2F;server.xml               # 
     <p id="hitokoto" style="text-align:center;margin-top: 30px;font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, STKaiti, KaiTi, SimKai, DFKai-SB, 'Lato', 'PingFang SC', 'Microsoft YaHei', sans-serif;font-weight: bold;color: #999;">
      正在加载一言...
     </p>
+    <div style="margin-top: 30px;">
+      <img id="wechat_subscriber_qcode" src="/images/reward-container-back.png" alt="leeze wechat" style="max-width: 100%;">
+    </div>
+    
 
     
 </div>
 
+
+          <div class="reward-container">
+  <div></div>
+  <button onclick="document.querySelector('.post-reward').classList.toggle('active');">
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt="leeze 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.png" alt="leeze 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
 
           
 
@@ -997,7 +1050,6 @@ vi &#x2F;opt&#x2F;atlassian&#x2F;jira&#x2F;conf&#x2F;server.xml               # 
 
 <script src="/js/prism/prism.js" async></script>
 
-
 <!-- 音乐播放器 -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aplayer/1.10.1/APlayer.min.css" integrity="sha512-CIYsJUa3pr1eoXlZFroEI0mq0UIMUqNouNinjpCkSWo3Bx5NRlQ0OuC6DtEB/bDqUWnzXc1gs2X/g52l36N5iw==" crossorigin="anonymous" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/aplayer/1.10.1/APlayer.min.js" integrity="sha512-RWosNnDNw8FxHibJqdFRySIswOUgYhFxnmYO3fp+BgCU7gfo4z0oS7mYFBvaa8qu+axY39BmQOrhW3Tp70XbaQ==" crossorigin="anonymous"></script>
@@ -1014,7 +1066,7 @@ vi &#x2F;opt&#x2F;atlassian&#x2F;jira&#x2F;conf&#x2F;server.xml               # 
   <script src="//cdn.jsdelivr.net/npm/@next-theme/pjax@0.4.0/pjax.min.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
-<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
   <script>
 var pjax = new Pjax({
   selectors: [
