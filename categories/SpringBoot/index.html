@@ -839,8 +839,8 @@
 <script src="https://unpkg.com/meting@2.0.1/dist/Meting.min.js"></script>
 <meting-js server="netease" type="playlist" id="571183770" fixed="true" autoplay="false" order="random" lrc-type=1  theme="#eb7aab"></meting-js>
 
-<div class="bg-box" id="bg-box1" style='background-image: url("https://cdn.jsdelivr.net/gh/maplesugarr/blog-assets/imgs/body-bg/body-bg-1.jpg"); opacity: 0;'></div>
-<div class="bg-box" id="bg-box2" style='background-image: url("https://cdn.jsdelivr.net/gh/maplesugarr/blog-assets/imgs/body-bg/body-bg-2.jpg"); opacity: 0;'></div>
+<div class="bg-box" id="bg-box1"></div>
+<div class="bg-box" id="bg-box2"></div>
 <style>
 .bg-box {
  background-repeat:no-repeat;
@@ -1184,39 +1184,71 @@ layui.use(['jquery', 'layer'], function(){
 <script>
 
     //var bgimgurl = 'https://source.unsplash.com/collection/30327996/2000x1000';
+
     var bgimgurl = "https://cdn.jsdelivr.net/gh/maplesugarr/blog-assets/imgs/body-bg/body-bg-";
-    var initbgurl = bgimgurl + '9' + ".jpg";
-
-    function renderbgimgurl(elem,url,opacity) {
-
-       $(elem).css({
-                   "background-image" : "url(" + url + ")", opacity : opacity
-               });
-
-    };
+    var initbgurl = null;
 
     var t = 0;
 
     setInterval(function(){
 
-       t++;
+          t++;
 
-      if(localStorage.hasOwnProperty('pjax-imgurl')){
-        if(initbgurl === localStorage.getItem("pjax-imgurl")){
+          var newbgurl = bgimgurl + Math.floor(23 * Math.random()) + ".jpg";
 
-        }else{
-            initbgurl = localStorage.getItem("pjax-imgurl");
-            renderbgimgurl('#bg-box1',initbgurl,1);
-            console.log("第 " + t + "次" + initbgurl);
-        }
-      }
+          if(localStorage.hasOwnProperty('pjax-imgurl-leeze')){
+            initbgurl = localStorage.getItem("pjax-imgurl-leeze");
+          }else{
+            initbgurl = newbgurl;
+          }
 
-      var newbgurl = bgimgurl + Math.floor(23 * Math.random()) + ".jpg";
-      renderbgimgurl('#bg-box2',newbgurl,0);
-      localStorage.setItem("pjax-imgurl", newbgurl);
-      console.log("第 " + t + "次" + newbgurl);
+          localStorage.setItem("pjax-imgurl-leeze", newbgurl);
+
+          //console.log(localStorage.hasOwnProperty('pjax-imgurl-leeze'));
+          //console.log("第 " + t + "次，" + parseInt(t%2) + "，新：" + newbgurl);
+          //console.log("第 " + t + "次，" + parseInt(t%2) + "，旧：" + initbgurl);
+          //console.log("-----------------------------------------------------");
+
+          if((parseInt(t%2)-1) === 0){
+                $("#bg-box1").animate(
+                　　{opacity:0},
+                　　"slow",
+                　　null,
+                　　function(){
+                       $("#bg-box1").css("background-image","url("+newbgurl+")");
+                　　}
+                );
+                $("#bg-box2").animate(
+                　　{opacity:1},
+                　　"slow",
+                　　null,
+                　　function(){
+                        $("#bg-box2").css("background-image","url("+initbgurl+")");
+                    }
+                );
+          }else{
+                $("#bg-box1").animate(
+                　　{opacity:1},
+                　　"slow",
+                　　null,
+                　　function(){
+                        $("#bg-box1").css("background-image","url("+initbgurl+")");
+                    }
+                );
+                $("#bg-box2").animate(
+                　　{opacity:0},
+                　　"slow",
+                　　null,
+                　　function(){
+                       $("#bg-box2").css("background-image","url("+newbgurl+")");
+                　　}
+                );
+          }
+
 
     },15000);
+
+
 
 
 </script>
