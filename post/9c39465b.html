@@ -1249,6 +1249,28 @@ _ _ _
 <script src="https://unpkg.com/meting@2.0.1/dist/Meting.min.js"></script>
 <meting-js server="netease" type="playlist" id="571183770" fixed="true" autoplay="false" order="random" lrc-type=1  theme="#eb7aab"></meting-js>
 
+<div class="bg-box" id="bg-box1" style='background-image: url("https://cdn.jsdelivr.net/gh/maplesugarr/blog-assets/imgs/body-bg/body-bg-1.jpg"); opacity: 0;'></div>
+<div class="bg-box" id="bg-box2" style='background-image: url("https://cdn.jsdelivr.net/gh/maplesugarr/blog-assets/imgs/body-bg/body-bg-2.jpg"); opacity: 0;'></div>
+<style>
+.bg-box {
+ background-repeat:no-repeat;
+ background-attachment:fixed;
+ background-position:50% 50%;
+ background-size:cover;
+ position:fixed;
+ left:0;
+ right:0;
+ top:0;
+ bottom:0
+}
+#bg-box1 {
+ z-index:-998
+}
+#bg-box2 {
+ z-index:-999
+}
+</style>
+
 
     </div>
   </footer>
@@ -1563,566 +1585,52 @@ layui.use(['jquery', 'layer'], function(){
   <!-- wobble窗口摆动特效 -->
   
 
-
-     var wobbleWindow = function(object, params) {
-          var canvas,
-              ctx;
-          var mousePos = {
-              x: 0,
-              y: 0
-          };
-          var isResizing = false;
-          var delayId = 0;
-          var canvasContent = {};
-          var points = {};
-
-          var settings = {};
-          settings.name = 'wobblew'; //name
-          settings.position = 'relative'; //relative or absolute
-          settings.depth = -1; //depth for zIndex
-          settings.overflowX = 'visible';
-          settings.overflowY = 'visible';
-          settings.offsetX = 0; //+ or - value the size of the div
-          settings.offsetY = 0; //+ or - value the size of the div
-          settings.moveTypeIn = 'move'; //method points follow the mouse
-          settings.moveTypeOut = 'wobble'; //method points go back to init position
-          settings.wobbleFactor = 0.95; //control the wobble effect
-          settings.wobbleSpeed = 0.1; //control the wobble effect
-          settings.moveSpeed = 6; //control the move speed
-          settings.lineWidth = 1; //lineWidth
-
-          settings.transplantLineColor = false; //true Use Object border-color
-          settings.lineColor = ''; //no value = no line. Use hex/rgba values
-          settings.transplantBodyColor = true; //true Use Object background Color
-          settings.bodyColor = ''; //no value = no body color. Use hex/rgba values
-          settings.radius = 50; //
-          settings.pointCountX = 7; //quantity of points horizontal. must be an odd int
-          settings.pointCountY = 5; //quantity of points vertical. must be an odd int
-          settings.movementLeft = true; //enable/disable movement directions
-          settings.movementRight = true; //enable/disable movement directions
-          settings.movementTop = true; //enable/disable movement directions
-          settings.movementBottom = true; //enable/disable movement directions
-          settings.autoResize = true; //if true size will be automatically adjusted
-          settings.debug = false; //enable/disable debug mode
-
-          // ---
-          if (params !== undefined) {
-              for (var prop in params) {
-                  if (params.hasOwnProperty(prop) && settings.hasOwnProperty(prop)) {
-                      settings[prop] = params[prop];
-                  }
-              }
-          }
-
-          // ---
-          if (!object) {
-              throw Error('\n' + 'No div element found');
-          }
-          if ((settings.pointCountX % 2) === 0) {
-              throw Error('\n' + 'Param pointCountX must be an odd integer');
-          }
-          if ((settings.pointCountY % 2) === 0) {
-              throw Error('\n' + 'Param pointCountY must be an odd integer');
-          }
-
-          // ---
-          HTMLElement.prototype.__defineGetter__("currentStyle", function() {
-              return this.ownerDocument.defaultView.getComputedStyle(this, null);
-          });
-          // ---
-          function init() {
-              canvas = document.createElement('canvas');
-              canvas.id = settings.name;
-              canvas.style.position = 'absolute';
-              canvas.style.zIndex = settings.depth.toString();
-              canvas.addEventListener('mousemove', mouseMoveHandler);
-              canvas.addEventListener('mouseleave', mouseLeaveHandler);
-              ctx = canvas.getContext('2d');
-
-              // element.insertBefore(canvas, element.firstChild);
-              object.appendChild(canvas);
-              object.style.position = settings.position;
-              object.style.zIndex = (settings.depth + 1).toString();
-              if (settings.overflowX.length > 0) {
-                  object.parentElement.style.overflowX = settings.overflowX;
-              };
-              if (settings.overflowY.length > 0) {
-                  object.parentElement.style.overflowY = settings.overflowY;
-              };
-              if (settings.transplantBodyColor) {
-                  if (object.currentStyle.backgroundColor.length > 0) {
-                      settings.bodyColor = object.currentStyle.backgroundColor;
-                  }
-              };
-              if (settings.transplantLineColor) {
-                  if (object.currentStyle.borderColor.length > 0) {
-                      settings.lineColor = object.currentStyle.borderColor;
-                  }
-              };
-              canvasContent.elementWidth = object.offsetWidth;
-              canvasContent.elementHeight = object.offsetHeight;
-              // ---
-              resizeCanvas();
-              addWindow();
-              animloop();
-              // -----------
-              if (settings.transplantBodyColor) {
-                  if (object.currentStyle.backgroundColor.length > 0) {
-                      if (object.className.length > 0) {
-                          object.className += ' wobbleTransparentBK';
-                      } else {
-                          object.className = ' wobbleTransparentBK';
-                      };
-                  }
-              };
-              if (settings.transplantLineColor) {
-                  if (object.currentStyle.borderColor.length > 0) {
-                      if (object.className.length > 0) {
-                          object.className += ' wobbleTransparentLine';
-                      } else {
-                          object.className = ' wobbleTransparentLine';
-                      };
-                  }
-              };
-          };
-
-          // ---
-          function resizeCanvas() {
-              canvasContent.width = canvasContent.elementWidth + settings.offsetX * 2;
-              canvasContent.height = canvasContent.elementHeight + settings.offsetY * 2;
-
-              if (settings.radius > 0) { //round,  ceil
-                  settings.pointCountX = Math.round(canvasContent.width / settings.radius);
-                  settings.pointCountY = Math.round(canvasContent.height / settings.radius);
-              };
-              if (settings.pointCountX % 2 == 0) {
-                  settings.pointCountX = settings.pointCountX + 1;
-              };
-              if (settings.pointCountY % 2 == 0) {
-                  settings.pointCountY = settings.pointCountY + 1;
-              };
-
-              points.spaceX = Math.min(canvasContent.elementWidth, canvasContent.width / (settings.pointCountX - 1));
-              points.spaceY = Math.min(canvasContent.elementHeight, canvasContent.height / (settings.pointCountY + 1));
-              points.radius = Math.ceil(Math.max(points.spaceX, points.spaceY));
-
-              ///--------------new1------------------
-              canvasContent.left = 0;
-              canvasContent.top = 0;
-              settings.canvasWidth = canvasContent.elementWidth;
-              if (settings.movementLeft) {
-                  canvas.style.left = -points.radius + 'px';
-                  settings.canvasWidth += points.radius;
-                  canvasContent.left = points.radius - settings.offsetX;
-              } else {
-                  canvas.style.left = -settings.offsetX + 'px';
-              };
-              if (settings.movementRight)
-                  settings.canvasWidth += points.radius;
-
-              settings.canvasHeight = canvasContent.elementHeight;
-              if (settings.movementTop) {
-                  canvas.style.top = -points.radius + 'px';
-                  settings.canvasHeight += points.radius;
-                  canvasContent.top = points.radius - settings.offsetY;
-              } else {
-                  canvas.style.top = -settings.offsetY + 'px';
-              };
-              if (settings.movementBottom)
-                  settings.canvasHeight += points.radius;
-
-              canvas.width = settings.canvasWidth;
-              canvas.height = settings.canvasHeight;
-          };
-
-          // ---
-          function addWindow() {
-              points.pointHolder = [];
-              // ---
-              var point;
-              var flag;
-              var i,
-                  l;
-              // ---
-              //top
-              flag = true;
-              for (i = 0, l = settings.pointCountX; i < l; i++) {
-                  if (settings.movementTop) {
-                      if (flag) {
-                          point = addPoint(canvasContent.left + i * points.spaceX, canvasContent.top, 0, 0, 0, true, points.spaceX, 'P', settings.debug);
-                          flag = false;
-                      } else {
-                          point = addPoint(canvasContent.left + i * points.spaceX, canvasContent.top, 0, 0, 0, true, points.spaceX, 'C', settings.debug);
-                          flag = true;
-                      }
-                      if (i === 0 || i === l - 1) {
-                          point.color = '#00FF00';
-                          point.movement = false;
-                      }
-                      points.pointHolder.push(point);
-                  } else {
-                      if (i === 0 || i === l - 1) {
-                          point = addPoint(canvasContent.left + i * points.spaceX, canvasContent.top, 0, 0, 0, false, 0, 'P', settings.debug);
-                      }
-                      points.pointHolder.push(point);
-                  }
-              }
-
-              // ---
-              //right
-              flag = false;
-              for (i = 1, l = settings.pointCountY + 1; i < l; i++) {
-                  if (settings.movementRight) {
-                      if (flag) {
-                          point = addPoint(canvasContent.left + canvasContent.width, canvasContent.top + i * points.spaceY, 0, 0, 0, true, points.spaceY, 'P', settings.debug);
-                          flag = false;
-                      } else {
-                          point = addPoint(canvasContent.left + canvasContent.width, canvasContent.top + i * points.spaceY, 0, 0, 0, true, points.spaceY, 'C', settings.debug);
-                          flag = true;
-                      }
-                      points.pointHolder.push(point);
-                  } else {
-                      if (i === 1) {
-                          point = addPoint(canvasContent.left + canvasContent.width, canvasContent.top + (i - 1) * points.spaceY, 0, 0, 0, false, 0, 'P', settings.debug);
-                      } else if (i === settings.pointCountY) {
-                          point = addPoint(canvasContent.left + canvasContent.width, canvasContent.top + (i + 1) * points.spaceY, 0, 0, 0, false, 0, 'P', settings.debug);
-                      }
-                      points.pointHolder.push(point);
-                  }
-              }
-
-              // ---
-              //bottom
-              flag = true;
-              for (i = settings.pointCountX - 1, l = -1; i > l; i--) {
-                  if (settings.movementBottom) {
-                      if (flag) {
-                          point = addPoint(canvasContent.left + i * points.spaceX, canvasContent.top + canvasContent.height, 0, 0, 0, true, points.spaceX, 'P', settings.debug);
-                          flag = false;
-                      } else {
-                          point = addPoint(canvasContent.left + i * points.spaceX, canvasContent.top + canvasContent.height, 0, 0, 0, true, points.spaceX, 'C', settings.debug);
-                          flag = true;
-                      }
-                      if (i === 0 || i === settings.pointCountX - 1) {
-                          point.color = '#00FF00';
-                          point.movement = false;
-                      }
-                      points.pointHolder.push(point);
-                  } else {
-                      if (i === 0 || i === settings.pointCountX - 1) {
-                          point = addPoint(canvasContent.left + i * points.spaceX, canvasContent.top + canvasContent.height, 0, 0, 0, false, 0, 'P', settings.debug);
-                      }
-                      points.pointHolder.push(point);
-                  }
-              }
-
-              // ---
-              //left
-              flag = false;
-              for (i = settings.pointCountY, l = -1; i > l; i--) {
-                  if (settings.movementLeft) {
-                      if (flag) {
-                          point = addPoint(canvasContent.left, canvasContent.top + i * points.spaceY, 0, 0, 0, true, points.spaceY, 'P', settings.debug);
-                          flag = false;
-                      } else {
-                          point = addPoint(canvasContent.left, canvasContent.top + i * points.spaceY, 0, 0, 0, true, points.spaceY, 'C', settings.debug);
-                          flag = true;
-                      }
-                      points.pointHolder.push(point);
-                  } else {
-                      if (i === 0) {
-                          point = addPoint(canvasContent.left, canvasContent.top + i * points.spaceY, 0, 0, 0, false, 0, 'P', settings.debug);
-                      } else if (i === settings.pointCountY) {
-                          point = addPoint(canvasContent.left, canvasContent.top + (i + 1) * points.spaceY, 0, 0, 0, false, 0, 'P', settings.debug);
-                      }
-                      points.pointHolder.push(point);
-                  }
-              }
-          }
-
-          // ---
-          function addPoint(x, y, xp, yp, distance, movement, radius, type, visible) {
-              var point = {};
-              point.x = x;
-              point.y = y;
-              point.xp = x;
-              point.yp = y;
-              point.sx = 0;
-              point.sy = 0;
-              point.distance = distance;
-              point.movement = movement;
-              point.radius = radius;
-              point.type = type;
-              point.visible = visible;
-              return point;
-          };
-
-          // ---
-          window.requestAnimFrame = (function() {
-              return window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || function(callback) {
-                  window.setTimeout(callback, 1000 / 60);
-              };
-          })();
-
-          function animloop() {
-              requestAnimFrame(animloop);
-              render();
-              if (settings.autoResize) {
-                  resize();
-              }
-          };
-
-          // ---
-          function render() {
-              ctx.clearRect(0, 0, settings.canvasWidth, settings.canvasHeight);
-
-              // ---
-              var windowPoints = points.pointHolder;
-              var i,
-                  l;
-
-              // ---
-              ctx.beginPath();
-              ctx.moveTo(windowPoints[0].x, windowPoints[0].y);
-              for (i = 1, l = windowPoints.length; i < l; i += 2) {
-                  var point = windowPoints[i];
-
-                  // ---
-                  var dx = mousePos.x - point.xp;
-                  var dy = mousePos.y - point.yp;
-                  point.distance = Math.sqrt(dx * dx + dy * dy);
-                  if (point.distance < point.radius) {
-                      if (settings.moveTypeIn === 'wobble') {
-                          point.sx = point.sx * settings.wobbleFactor + (mousePos.x - point.x) * settings.wobbleSpeed;
-                          point.sy = point.sy * settings.wobbleFactor + (mousePos.y - point.y) * settings.wobbleSpeed;
-                          point.x = point.x + point.sx;
-                          point.y = point.y + point.sy;
-                      } else if (settings.moveTypeIn === 'move') {
-                          point.x -= (point.x - mousePos.x) / settings.moveSpeed;
-                          point.y -= (point.y - mousePos.y) / settings.moveSpeed;
-                      }
-                  } else {
-                      if (settings.moveTypeOut === 'wobble') {
-                          point.sx = point.sx * settings.wobbleFactor + (point.xp - point.x) * settings.wobbleSpeed;
-                          point.sy = point.sy * settings.wobbleFactor + (point.yp - point.y) * settings.wobbleSpeed;
-                          point.x = point.x + point.sx;
-                          point.y = point.y + point.sy;
-                      } else if (settings.moveTypeOut === 'move') {
-                          point.x -= (point.x - point.xp) / settings.moveSpeed;
-                          point.y -= (point.y - point.yp) / settings.moveSpeed;
-                      }
-                  }
-
-                  // ---
-                  var pointBefor = windowPoints[i - 1];
-                  var pointAfter = windowPoints[i + 1];
-                  if (i > 2 && i < windowPoints.length - 2) {
-                      if (pointBefor.movement) {
-                          pointBefor.x = (windowPoints[i - 2].x + point.x) / 2;
-                          pointBefor.y = (windowPoints[i - 2].y + point.y) / 2;
-                      }
-                      if (pointAfter.movement) {
-                          pointAfter.x = (windowPoints[i + 2].x + point.x) / 2;
-                          pointAfter.y = (windowPoints[i + 2].y + point.y) / 2;
-                      }
-                  }
-                  ctx.quadraticCurveTo(point.x, point.y, pointAfter.x, pointAfter.y);
-              }
-
-              // ---
-              if (settings.lineColor.length > 0) {
-                  ctx.lineWidth = settings.lineWidth;
-                  ctx.strokeStyle = settings.lineColor;
-                  ctx.stroke();
-              }
-              if (settings.bodyColor.length > 0) {
-                  ctx.fillStyle = settings.bodyColor;
-                  ctx.fill();
-              }
-              // ctx.globalCompositeOperation = 'source-out';
-              // ctx.fillStyle = "rgba(0, 0, 0, 1)";
-              // ctx.fill();
-
-              // ---
-              if (settings.debug) {
-                  for (i = 0, l = windowPoints.length; i < l; i++) {
-                      var point = windowPoints[i];
-                      if (point.visible) {
-                          if (point.type === 'P') {
-                              drawCircle(point.x, point.y, 3, '#FF0000');
-                          } else {
-                              drawCircle(point.x, point.y, 6, '#FF00FF');
-                          }
-                          if (point.color) {
-                              drawCircle(point.x, point.y, 12, point.color);
-                          }
-                      }
-                  }
-                  ctx.strokeStyle = '#000000';
-                  ctx.strokeRect(0, 0, settings.canvasWidth, settings.canvasHeight);
-              }
-          };
-
-          // ---
-          function delayFlag() {
-              resizeCanvas();
-              addWindow();
-              isResizing = false;
-          };
-
-          function resize() {
-              if (!isResizing) {
-                  if (canvasContent.elementWidth !== object.offsetWidth || canvasContent.elementHeight !== object.offsetHeight) {
-                      // -----------
-                      isResizing = true;
-                      canvasContent.elementWidth = object.offsetWidth;
-                      canvasContent.elementHeight = object.offsetHeight;
-                      // 防止闪白
-                      delayId = window.setTimeout(delayFlag, 10);
-                  }
-              }
-          };
-
-          // ---
-          function drawCircle(x, y, radius, color) {
-              ctx.beginPath();
-              ctx.arc(x, y, radius, 0, 2 * Math.PI);
-              ctx.strokeStyle = color;
-              ctx.stroke();
-          };
-
-          // ---
-          function mouseMoveHandler(event) {
-              mousePos = getMousePos(canvas, event);
-          };
-
-          function mouseLeaveHandler(event) {
-              mousePos.x = -10000;
-              mousePos.y = -10000;
-          };
-
-          // ---
-          function getMousePos(canvas, event) {
-              var rect = canvas.getBoundingClientRect();
-              return {
-                  x: event.clientX - rect.left,
-                  y: event.clientY - rect.top
-              };
-          };
-
-          // ---
-          init();
-      };
-
-
-  var settings = {
-
-        wobbleFactor: 0.98,
-        wobbleSpeed: 0.05,
-        moveSpeed: 3,
-        lineWidth: 3,
-        lineColor: '#000',
-        bodyColor: '#EEE'
-
-  };
-  var footers=document.querySelectorAll(".footer");
-  wobbleWindow(footers[footers.length-1],{
-                radius: 50,
-                movementBottom: false,
-                movementLeft: false,
-                movementRight: false,
-                debug: false
-  });
-  var postblocks=document.querySelectorAll(".posts-expand article");
-  [].forEach.call(postblocks, function(elm) {
-      wobbleWindow(elm,settings);
-  });
-  
-
 });
 
 </script>
 
 
-<!-- 每隔 5 分钟，再次刷新页面才会切换背景 -->
+<!-- 页面背景图片动态加载 -->
 <script>
 
-// 缓存的编程模型，就是三个指针 localStorage记录点 cache() getnewimgurl()
-// cache()函数轮询，到了加载时间就去加载图片，更新localStorage记录点
-// 用户刷新后，时间间隔如果没有超过新一轮的refreshtime时间，就去加载cache缓存的图片，超过了执行getnewimgurl()，加载新图片，cache重新开始计时。
-// getnewimgurl()会在缓存过期或失败后加载图片
+    //var bgimgurl = 'https://source.unsplash.com/collection/30327996/2000x1000';
+    var bgimgurl = "https://cdn.jsdelivr.net/gh/maplesugarr/blog-assets/imgs/body-bg/body-bg-";
+    var initbgurl = bgimgurl + '9' + ".jpg";
 
-// localStorage记录点 cache() getnewimgurl()
-// cache() getnewimgurl() 这个时间段中打开着网页，就能成功cache
+    function renderbgimgurl(elem,url,opacity) {
 
-// cache不起作用，到8分钟必然换背景。cache起作用，到4分钟，就下载新图片，更新ocalStorage记录点，使用新图片。
-bgrefresh ={
-	refreshtime: 8,//分钟
-	url: 'https://source.unsplash.com/collection/30327996/2000x1000',
-	cacheinterval: null,
-	init: function () {
-		if(!localStorage.hasOwnProperty('lastvisitedtime')){// 第一次访问网站，需要刷新图片
-			this.getnewimgurl(this.url,false);
-		}else if(this.checktime(this.refreshtime)) {// 时间超过了refreshtime
-			this.getnewimgurl(this.url,false);
-		}else{// 时间没有超过refreshtime
-			this.cache();
-			this.render();
-		}
-	},
-	// checktime 执行完并没有刷新localStorage中的lastvisitedtime。
-	// 放到render函数中，记录的是上一次刷新的时间。
-	// 放到getnewimgurl函数中，记录的是上一次获取新图片的时间。也就是每隔refreshtime分钟就刷新背景。
-	checktime: function(interval){
-		var lastvisitedtime = localStorage.getItem("lastvisitedtime"); // 超过了refreshtime，需要刷新图片
-		if(Math.floor((new Date().getTime()-lastvisitedtime)/(60*1000))>=interval){
-			return true;
-		}else{
-			return false;
-		}
-	},
-	getnewimgurl: function(url,cache){ //cache 表示是否是缓存函数调用
-		if(cache==true){
-			clearInterval(this.cacheinterval);
-			//console.log('cache success');
-		}
-		var that = this;
-		var xhr = new XMLHttpRequest();
-		xhr.onreadystatechange = function(e) {
-			if(xhr.readyState==4) { //2 HEADERS_RECEIVED 4 done
-				if (xhr.status == 200 ) {
-					//console.log(xhr.responseURL);
-					localStorage.setItem("imgurl", xhr.responseURL);
-					localStorage.setItem("lastvisitedtime", new Date().getTime());//刷新lastvisitedtime
-					if(!cache) { // 不是缓存调用
-						that.render();
-						that.cache();
-					}
-				}
-			}
-		};
-		xhr.open("GET", url, true);//不用HEAD，直接拿到图片，相当于预加载图片了，图片不会一层层显示，而是一下就显示出来。
-		xhr.send();
-	},
-	render: function () {
-		document.body.style.backgroundImage='url('+ localStorage.getItem("imgurl") +')';
-	},
-	cache : function () {
-		var that = this;
-		//console.log('cache');
-		this.cacheinterval = setInterval(function() {
-			if(that.checktime(that.refreshtime-4)){
-				that.getnewimgurl(that.url,true);
-			}
-		}, 15000);
-		//15s循环一次，时间越短越好，但不要影响页面性能。
-		//同时，如果时间到了该cache的时候，此时刷新页面，
-		//就会下载cache图片，如果时间太小，cache就会立即加载新图片，影响页面加载速度。
-	}
-};
-bgrefresh.init();
+       $(elem).css({
+                   "background-image" : "url(" + url + ")", opacity : opacity
+               });
+
+    };
+
+    var t = 0;
+
+    setInterval(function(){
+
+       t++;
+
+      if(localStorage.hasOwnProperty('pjax-imgurl')){
+        if(initbgurl === localStorage.getItem("pjax-imgurl")){
+
+        }else{
+            initbgurl = localStorage.getItem("pjax-imgurl");
+            renderbgimgurl('#bg-box1',initbgurl,1);
+            console.log("第 " + t + "次" + initbgurl);
+        }
+      }
+
+      var newbgurl = bgimgurl + Math.floor(23 * Math.random()) + ".jpg";
+      renderbgimgurl('#bg-box2',newbgurl,0);
+      localStorage.setItem("pjax-imgurl", newbgurl);
+      console.log("第 " + t + "次" + newbgurl);
+
+    },15000);
+
 
 </script>
+
 
     </div><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>

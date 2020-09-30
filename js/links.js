@@ -1,3 +1,4 @@
+/*
 var link ={
     init: function () {
         var that = this;
@@ -41,6 +42,7 @@ var link ={
 };
 
 link.init();
+ */
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
