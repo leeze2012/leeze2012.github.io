@@ -153,11 +153,6 @@
     <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
 
   </li>
-        <li class="menu-item menu-item-about">
-
-    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
-
-  </li>
         <li class="menu-item menu-item-tags">
 
     <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">19</span></a>
@@ -171,11 +166,6 @@
         <li class="menu-item menu-item-archives">
 
     <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">31</span></a>
-
-  </li>
-        <li class="menu-item menu-item-welfare">
-
-    <a href="/welfare" rel="section"><i class="fa fa-coffee fa-fw"></i>福利</a>
 
   </li>
         <li class="menu-item menu-item-photos">
@@ -410,7 +400,7 @@
   width: 48px;
   height: 35px;
   box-sizing: content-box;
-  padding-top: 10px;
+  /*padding-top: 10px;*/
   background: #ff7600;
   border: 2px solid #000;
   border-bottom: none;
@@ -760,32 +750,10 @@ top: 10
     <p id="hitokoto" style="text-align:center;margin-top: 30px;font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, STKaiti, KaiTi, SimKai, DFKai-SB, 'Lato', 'PingFang SC', 'Microsoft YaHei', sans-serif;font-weight: bold;color: #999;">
      正在加载一言...
     </p>
-    <div style="margin-top: 30px;">
-      <img id="wechat_subscriber_qcode" src="/images/reward-container-back.png" alt="leeze wechat" style="max-width: 100%;">
-    </div>
-    
 
     
 </div>
 
-
-          <div class="reward-container">
-  <div></div>
-  <button onclick="document.querySelector('.post-reward').classList.toggle('active');">
-    赞赏
-  </button>
-  <div class="post-reward">
-      <div>
-        <img src="/images/wechatpay.png" alt="leeze 微信">
-        <span>微信</span>
-      </div>
-      <div>
-        <img src="/images/alipay.png" alt="leeze 支付宝">
-        <span>支付宝</span>
-      </div>
-
-  </div>
-</div>
 
           
 
@@ -1719,7 +1687,7 @@ layui.use(['jquery', 'layer'], function(){
 
 
   var settings = {
-
+        radius: 20,
         wobbleFactor: 0.98,
         wobbleSpeed: 0.05,
         moveSpeed: 3,
@@ -1730,7 +1698,7 @@ layui.use(['jquery', 'layer'], function(){
   };
   var footers=document.querySelectorAll(".footer");
   wobbleWindow(footers[footers.length-1],{
-                radius: 50,
+                radius: 20,
                 depth:-2,
                 movementBottom: false,
                 movementLeft: false,

@@ -151,11 +151,6 @@
     <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
 
   </li>
-        <li class="menu-item menu-item-about">
-
-    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
-
-  </li>
         <li class="menu-item menu-item-tags">
 
     <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">19</span></a>
@@ -169,11 +164,6 @@
         <li class="menu-item menu-item-archives">
 
     <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">31</span></a>
-
-  </li>
-        <li class="menu-item menu-item-welfare">
-
-    <a href="/welfare" rel="section"><i class="fa fa-coffee fa-fw"></i>福利</a>
 
   </li>
         <li class="menu-item menu-item-photos">
@@ -407,7 +397,7 @@
   width: 48px;
   height: 35px;
   box-sizing: content-box;
-  padding-top: 10px;
+  /*padding-top: 10px;*/
   background: #ff7600;
   border: 2px solid #000;
   border-bottom: none;
@@ -1728,7 +1718,7 @@ layui.use(['jquery', 'layer'], function(){
 
 
   var settings = {
-
+        radius: 20,
         wobbleFactor: 0.98,
         wobbleSpeed: 0.05,
         moveSpeed: 3,
@@ -1739,7 +1729,7 @@ layui.use(['jquery', 'layer'], function(){
   };
   var footers=document.querySelectorAll(".footer");
   wobbleWindow(footers[footers.length-1],{
-                radius: 50,
+                radius: 20,
                 depth:-2,
                 movementBottom: false,
                 movementLeft: false,

@@ -36,7 +36,7 @@
 <meta property="og:image" content="https://blog.xiaosige.com/images/avatar_post_end.png">
 <meta property="og:image" content="https://blog.xiaosige.com/images/wechatpay.png">
 <meta property="article:published_time" content="2019-08-26T06:43:04.000Z">
-<meta property="article:modified_time" content="2020-09-29T14:15:44.680Z">
+<meta property="article:modified_time" content="2020-09-30T19:24:36.617Z">
 <meta property="article:author" content="leeze">
 <meta property="article:tag" content="小四儿 leeze">
 <meta name="twitter:card" content="summary">
@@ -157,11 +157,6 @@
     <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
 
   </li>
-        <li class="menu-item menu-item-about">
-
-    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
-
-  </li>
         <li class="menu-item menu-item-tags">
 
     <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">19</span></a>
@@ -175,11 +170,6 @@
         <li class="menu-item menu-item-archives">
 
     <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">31</span></a>
-
-  </li>
-        <li class="menu-item menu-item-welfare">
-
-    <a href="/welfare" rel="section"><i class="fa fa-coffee fa-fw"></i>福利</a>
 
   </li>
         <li class="menu-item menu-item-photos">
@@ -414,7 +404,7 @@
   width: 48px;
   height: 35px;
   box-sizing: content-box;
-  padding-top: 10px;
+  /*padding-top: 10px;*/
   background: #ff7600;
   border: 2px solid #000;
   border-bottom: none;
@@ -669,13 +659,18 @@
 </div>
 
 <blockquote class="blockquote-center">
-<p><strong><em>你有多自律，就有多自由。敬未来，敬自己！</em></strong></p>
+<p><strong><em>你有多自律，就有多自由。</em></strong></p>
 
 </blockquote>
 
 <div>
 <iframe src="//player.bilibili.com/player.html?aid=74259844&amp;cid=127033666&amp;page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 </div>
+
+<blockquote class="blockquote-center">
+<p><strong><em>敬未来，敬自己！</em></strong></p>
+
+</blockquote>
 
 <hr>
 <img src="/images/avatar_post_end.png" style="border:none;width:100px; max-width: 100%;">
@@ -1632,7 +1627,7 @@ layui.use(['jquery', 'layer'], function(){
 
 
   var settings = {
-
+        radius: 20,
         wobbleFactor: 0.98,
         wobbleSpeed: 0.05,
         moveSpeed: 3,
@@ -1643,7 +1638,7 @@ layui.use(['jquery', 'layer'], function(){
   };
   var footers=document.querySelectorAll(".footer");
   wobbleWindow(footers[footers.length-1],{
-                radius: 50,
+                radius: 20,
                 depth:-2,
                 movementBottom: false,
                 movementLeft: false,
