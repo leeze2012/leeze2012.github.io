@@ -1132,7 +1132,7 @@ $(function(){
                     maxTop,// 如果大于 height ，则取 height
                 )
             );
-            // 根据 sin 曲线设置"收起代码"位置
+            // 根据 sin 曲线设置"收起阅读"位置
             const halfHeight = parseInt($(window).height() / 2 * Math.sin((top / maxTop) * 90 * (2 * Math.PI/360)));
             $hide.css('top', Math.min(top + halfHeight, maxTop));
         }
@@ -1143,12 +1143,17 @@ $(function(){
     const addCodeWrap = ($node) => {
         const $container = $node.wrap('<div class="js_highlight_container highlight-container"><div class="highlight-wrap"></div></div>').closest('.js_highlight_container');
 
-        // 底部 "展开代码" 与 侧边栏 "收起代码"
+        // 底部 "查看更多" 与 侧边栏 "收起阅读"
         const $btn = $(`
         <div class="highlight-footer">
-          <a class="js_unfold_code_btn show-btn" href="javascript:;">展开代码<i class="fa fa-angle-down fa-lg" aria-hidden="true"></i></a>
+          <a class="js_unfold_code_btn show-btn" href="javascript:;">
+              <span class="btn-inner">
+                查看更多<i class="fa fa-angle-right fa-lg" aria-hidden="true"></i>
+              </span>
+              <div class="btnbg-x"></div>
+          </a>
         </div>
-        <a class="js_retract_code_btn hide-btn" href="javascript:;"><i class="fa fa-angle-up fa-lg" aria-hidden="true"></i>收起代码</a>
+        <a class="js_retract_code_btn hide-btn" href="javascript:;"><i class="fa fa-angle-up fa-lg" aria-hidden="true"></i>收起阅读</a>
       `);
 
         $container.append($btn);

@@ -3696,10 +3696,48 @@ code {
   cursor: pointer;
   border-radius: 6px;
 }
+.highlight-container .show-btn .btnbg-x {
+  position: absolute;
+  left: -1px;
+  width: 0;
+  top: -1px;
+  bottom: -1px;
+  transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+}
+.highlight-container .show-btn .btn-inner {
+  padding: 0 12px;
+  position: relative;
+  z-index: 1;
+}
+.highlight-container .show-btn .btn-inner i {
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  margin-top: -0.75em;
+  line-height: 1.5;
+  right: 1em;
+}
 .highlight-container .show-btn:hover {
   text-decoration: none;
   color: #fff;
-  background: #de686d none repeat scroll 0% 0%;
+}
+.highlight-container .show-btn:hover .btnbg-x {
+  width: 100%;
+  width: calc(100% + 2px);
+  background: #e84c3d;
+  border-radius: 6px;
+}
+.highlight-container .show-btn:hover .btn-inner {
+  padding: 0 24px 0 0;
+  transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+}
+.highlight-container .show-btn:hover .btn-inner i {
+  opacity: 1;
+  right: 0.6em;
 }
 .highlight-container .hide-btn {
   color: #de686d;
@@ -3723,6 +3761,9 @@ code {
   text-decoration: none;
   color: #fff;
   background: #de686d none repeat scroll 0% 0%;
+  transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  -webkit-transition: all 0.5s;
 }
 .highlight-container .fa-angle-up,
 .highlight-container .fa-angle-down {
