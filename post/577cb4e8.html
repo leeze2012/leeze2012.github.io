@@ -1914,6 +1914,36 @@ layui.use(['jquery', 'layer'], function(){
 <!-- 页面背景图片动态加载 -->
 <script>
 
+     //获取指定长度的uuid
+     function uuid(len, radix) {
+        var chars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'.split('');
+        var uuid = [], i;
+        radix = radix || chars.length;
+
+        if (len) {
+          // Compact form
+          for (i = 0; i < len; i++) uuid[i] = chars[0 | Math.random()*radix];
+        } else {
+          // rfc4122, version 4 form
+          var r;
+
+          // rfc4122 requires these characters
+          uuid[8] = uuid[13] = uuid[18] = uuid[23] = '-';
+          uuid[14] = '4';
+
+          // Fill in random data.  At i==19 set the high bits of clock sequence as
+          // per rfc4122, sec. 4.1.5
+          for (i = 0; i < 36; i++) {
+            if (!uuid[i]) {
+              r = 0 | Math.random()*16;
+              uuid[i] = chars[(i == 19) ? (r & 0x3) | 0x8 : r];
+            }
+          }
+        }
+
+        return uuid.join('');
+    }
+
     //var bgimgurl = 'https://source.unsplash.com/collection/30327996/2000x1000';
 
     function animatechangbgimg(elm,opacityvalue,bgimgurl){
@@ -1927,25 +1957,33 @@ layui.use(['jquery', 'layer'], function(){
         );
     }
 
+    function checktime(time){
+        var oldtime = localStorage.getItem("pjax-imgurl-leeze-lastvisitedtime");
+        return Math.floor(((new Date).getTime()-oldtime)/1e3) >= time;
+    }
+
     function changbgimgurl(){
 
-          var initbgurl = null,newbgurl = "https://cdn.jsdelivr.net/gh/maplesugarr/blog-assets/imgs/body-bg/body-bg-" + Math.floor(23 * Math.random()) + ".jpg";
+          if(checktime(13)){//每次打开新页面，都会触发一个新的调度器，固加入lastvisitedtime校验，确保循环时间
+                var initbgurl = null,newbgurl = "https://cdn.jsdelivr.net/gh/maplesugarr/blog-assets/imgs/body-bg/body-bg-" + Math.floor(23 * Math.random()) + ".jpg";
 
-          if(localStorage.hasOwnProperty('pjax-imgurl-leeze')){
-            initbgurl = localStorage.getItem("pjax-imgurl-leeze");
-          }else{
-            initbgurl = newbgurl;
+                if(localStorage.hasOwnProperty('pjax-imgurl-leeze')){
+                  initbgurl = localStorage.getItem("pjax-imgurl-leeze");
+                }else{
+                  initbgurl = newbgurl;
+                }
+
+                if($("#bg-box1").css('opacity')==="1"){
+                      animatechangbgimg("#bg-box1",0,newbgurl);
+                      animatechangbgimg("#bg-box2",1,initbgurl);
+                }else{
+                      animatechangbgimg("#bg-box1",1,initbgurl);
+                      animatechangbgimg("#bg-box2",0,newbgurl);
+                }
+
+                localStorage.setItem("pjax-imgurl-leeze", newbgurl);
+                localStorage.setItem("pjax-imgurl-leeze-lastvisitedtime",(new Date).getTime());
           }
-
-          if($("#bg-box1").css('opacity')==="1"){
-                animatechangbgimg("#bg-box1",0,newbgurl);
-                animatechangbgimg("#bg-box2",1,initbgurl);
-          }else{
-                animatechangbgimg("#bg-box1",1,initbgurl);
-                animatechangbgimg("#bg-box2",0,newbgurl);
-          }
-
-          localStorage.setItem("pjax-imgurl-leeze", newbgurl);
 
     };
 
