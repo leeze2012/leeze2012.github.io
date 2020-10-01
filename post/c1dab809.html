@@ -1755,11 +1755,20 @@ layui.use(['jquery', 'layer'], function(){
 
     //var bgimgurl = 'https://source.unsplash.com/collection/30327996/2000x1000';
 
-    var initbgurl = null, frist = true;
+    function animatechangbgimg(elm,opacityvalue,bgimgurl){
+        $(elm).animate(
+        　　{opacity:opacityvalue},
+        　　"slow",
+        　　null,
+        　　function(){
+               $(elm).css("background-image","url("+bgimgurl+")");
+        　　}
+        );
+    }
 
     function changbgimgurl(){
 
-          var newbgurl = "https://cdn.jsdelivr.net/gh/maplesugarr/blog-assets/imgs/body-bg/body-bg-" + Math.floor(23 * Math.random()) + ".jpg";
+          var initbgurl = null,newbgurl = "https://cdn.jsdelivr.net/gh/maplesugarr/blog-assets/imgs/body-bg/body-bg-" + Math.floor(23 * Math.random()) + ".jpg";
 
           if(localStorage.hasOwnProperty('pjax-imgurl-leeze')){
             initbgurl = localStorage.getItem("pjax-imgurl-leeze");
@@ -1767,52 +1776,19 @@ layui.use(['jquery', 'layer'], function(){
             initbgurl = newbgurl;
           }
 
-          if(frist){
-                $("#bg-box1").animate(
-                　　{opacity:0},
-                　　"slow",
-                　　null,
-                　　function(){
-                       $("#bg-box1").css("background-image","url("+newbgurl+")");
-                　　}
-                );
-                $("#bg-box2").animate(
-                　　{opacity:1},
-                　　"slow",
-                　　null,
-                　　function(){
-                        $("#bg-box2").css("background-image","url("+initbgurl+")");
-                    }
-                );
+          if($("#bg-box1").css('opacity')==="1"){
+                animatechangbgimg("#bg-box1",0,newbgurl);
+                animatechangbgimg("#bg-box2",1,initbgurl);
           }else{
-                $("#bg-box1").animate(
-                　　{opacity:1},
-                　　"slow",
-                　　null,
-                　　function(){
-                        $("#bg-box1").css("background-image","url("+initbgurl+")");
-                    }
-                );
-                $("#bg-box2").animate(
-                　　{opacity:0},
-                　　"slow",
-                　　null,
-                　　function(){
-                       $("#bg-box2").css("background-image","url("+newbgurl+")");
-                　　}
-                );
+                animatechangbgimg("#bg-box1",1,initbgurl);
+                animatechangbgimg("#bg-box2",0,newbgurl);
           }
 
           localStorage.setItem("pjax-imgurl-leeze", newbgurl);
 
-          frist = false;
-
     };
 
     setInterval(changbgimgurl,15000);
-
-
-
 
 </script>
 
