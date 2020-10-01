@@ -1583,16 +1583,11 @@ layui.use(['jquery', 'layer'], function(){
 
     //var bgimgurl = 'https://source.unsplash.com/collection/30327996/2000x1000';
 
-    var bgimgurl = "https://cdn.jsdelivr.net/gh/maplesugarr/blog-assets/imgs/body-bg/body-bg-";
-    var initbgurl = null;
+    var initbgurl = null, frist = true;
 
-    var t = 0;
+    function changbgimgurl(){
 
-    setInterval(function(){
-
-          t++;
-
-          var newbgurl = bgimgurl + Math.floor(23 * Math.random()) + ".jpg";
+          var newbgurl = "https://cdn.jsdelivr.net/gh/maplesugarr/blog-assets/imgs/body-bg/body-bg-" + Math.floor(23 * Math.random()) + ".jpg";
 
           if(localStorage.hasOwnProperty('pjax-imgurl-leeze')){
             initbgurl = localStorage.getItem("pjax-imgurl-leeze");
@@ -1600,14 +1595,7 @@ layui.use(['jquery', 'layer'], function(){
             initbgurl = newbgurl;
           }
 
-          localStorage.setItem("pjax-imgurl-leeze", newbgurl);
-
-          //console.log(localStorage.hasOwnProperty('pjax-imgurl-leeze'));
-          //console.log("第 " + t + "次，" + parseInt(t%2) + "，新：" + newbgurl);
-          //console.log("第 " + t + "次，" + parseInt(t%2) + "，旧：" + initbgurl);
-          //console.log("-----------------------------------------------------");
-
-          if((parseInt(t%2)-1) === 0){
+          if(frist){
                 $("#bg-box1").animate(
                 　　{opacity:0},
                 　　"slow",
@@ -1643,8 +1631,13 @@ layui.use(['jquery', 'layer'], function(){
                 );
           }
 
+          localStorage.setItem("pjax-imgurl-leeze", newbgurl);
 
-    },15000);
+          frist = false;
+
+    };
+
+    setInterval(changbgimgurl,15000);
 
 
 
