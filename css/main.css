@@ -3124,9 +3124,15 @@ body {
     background-size: cover;
   }
 }
-.code-toolbar ::selection {
+.line-numbers ::selection {
   background: #7ebeee;
   color: #f7f7f7;
+}
+div.code-toolbar > .toolbar span:hover,
+div.code-toolbar > .toolbar button:hover {
+  color: #fc6423 !important;
+  border: 3px solid #fc6423;
+  background-color: #fff;
 }
 .wobbleTransparentBK {
   background: none !important;
