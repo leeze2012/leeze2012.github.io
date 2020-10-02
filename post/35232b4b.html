@@ -1808,13 +1808,13 @@ layui.use(['jquery', 'layer'], function(){
 
 document.getElementsByClassName('site-title')[0].setAttribute('data-splitting','chars');
 
-Splitting()
+Splitting();
 gsap.set('.char', {
   '--hue': gsap.utils.distribute({
     base: 0,
     amount: 330,
   })
-})
+});
 gsap.to('.char', {
   '--weight': 700,
   '--saturation': 80,
@@ -1825,19 +1825,20 @@ gsap.to('.char', {
     repeat: -1,
     each: 0.15,
   }
-}).time(2)
+}).time(2);
 </script>
 
 <!-- 社交链接的效果 -->
-<script src="/js/xs.js"></script>
-<style>
-.links-of-author-item a:hover, .links-of-author-item span.exturl:hover {
+<style type="text/css">
+.links-of-author-item a:hover {
     background: none;
 }
-<style>
-<script>
-$(".links-of-author-item").xs999(25);
+</style>
+<script src="/js/xs.js"></script>
+<script type="text/javascript">
+    $(".links-of-author-item").xs999(25);
 </script>
+
     </div><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 </html>
