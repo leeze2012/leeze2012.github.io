@@ -3194,10 +3194,11 @@ div.code-toolbar > .toolbar button:hover {
   margin: 10px 10px 0;
   font-size: 0.8125em;
 }
+.site-author {
+  padding-top: 10px;
+}
 .site-author-image {
-  border: initial !important;
-  border-radius: initial !important;
-  padding-bottom: 12px;
+  box-shadow: 2px 2px 12px rgba(0,0,0,0.8);
 }
 .footer {
   background: rgba(64,64,64,0.9) none repeat scroll !important;
