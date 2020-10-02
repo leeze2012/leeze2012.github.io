@@ -1853,16 +1853,36 @@ pre code {
   font-size: 12px;
 }
 .back-to-top {
-  margin: 8px -10px -20px;
-  opacity: 0;
-  transition: opacity 0.2s ease-in-out;
-}
-.back-to-top.back-to-top-on {
+  bottom: -100px;
+  box-sizing: border-box;
+  color: #fff;
+  padding: 0 6px;
+  transition: bottom 0.2s ease-in-out;
+  background: #222;
   cursor: pointer;
   opacity: 0.6;
+  position: fixed;
+  z-index: 1300;
+  right: 30px;
 }
-.back-to-top.back-to-top-on:hover {
+@media (max-width: 991px) {
+  .back-to-top {
+    right: 20px;
+  }
+}
+.back-to-top:hover {
   opacity: 0.8;
+}
+@media (max-width: 991px) {
+  .back-to-top {
+    opacity: 0.8;
+  }
+}
+.back-to-top:hover {
+  color: #fc6423;
+}
+.back-to-top.back-to-top-on {
+  bottom: 30px;
 }
 .noscript-warning {
   background-color: #f55;
@@ -2992,13 +3012,6 @@ mark.search-keyword {
 .links-of-author-item span.exturl:hover {
   background: var(--body-bg-color);
 }
-.back-to-top {
-  background: var(--body-bg-color);
-  margin: -4px -10px -18px;
-}
-.back-to-top.back-to-top-on {
-  margin-top: 16px;
-}
 .main-inner > .sub-menu,
 .main-inner > .post-block,
 .main-inner > .tabs-comment,
@@ -3182,9 +3195,24 @@ div.code-toolbar > .toolbar button:hover {
   font-size: 0.8125em;
 }
 .site-author-image {
-  border: initial !important;
-  border-radius: initial !important;
-  padding-bottom: 12px;
+  display: block;
+  margin: 0 auto;
+  padding: $site-author-image-padding;
+  max-width: 120px;
+  height: $site-author-image-height;
+  border: 1px solid #eee;
+/* 上面的代码是原有的，下面的是添加的 */
+/* 头像圆形 */
+  border-radius: 80px;
+  -webkit-border-radius: 80px;
+  -moz-border-radius: 80px;
+  box-shadow: inset 0 -1px 0 #333 sf;
+/* 设置循环动画 [animation: (play)动画名称 (2s)动画播放时长单位秒或微秒 (ase-out)动画播放的速度曲线为以低速结束
+  (1s)等待1秒然后开始动画 (1)动画播放次数(infinite为循环播放) ]*/
+/* 鼠标经过头像旋转360度 */
+  -webkit-transition: -webkit-transform 1s ease-out;
+  -moz-transition: -moz-transform 1s ease-out;
+  transition: transform 1s ease-out;
 }
 .footer {
   background: rgba(64,64,64,0.9) none repeat scroll !important;

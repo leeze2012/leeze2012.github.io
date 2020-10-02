@@ -624,7 +624,7 @@ systemctl diasble nginx <span class="token comment"># 禁止开机启动</span><
 
 <br>
 
-<img src="/post/69813a0e/nginx-001.png" class="" title="nginx编译输出">
+<img data-src="/post/69813a0e/nginx-001.png" class="" title="nginx编译输出">
 
 <p>上面的编译是使用了系统默认的openssl，如果想使用更高版本的openssl进行编译的话。可以加上<code>--with-openssl=openssl安装路径</code>来自定义。高版本的openssl安装可以参考 <a href="https://www.jianshu.com/p/bf5a55a0a814">这篇文章</a>。</p>
 <p><code>--with-openssl</code> 参数虽然可以指定 OpenSSL 路径，但只支持 OpenSSL 的源代码，不支持已编译好的 OpenSSL。每回更新 nginx 都要重新编译 OpenSSL 很麻烦 。以下是解决方案<br>打开nginx源码解压目录下的<code>auto/lib/openssl/conf</code>,找到所有带<code>.openssl</code>的行</p>
@@ -681,7 +681,7 @@ systemctl diasble nginx <span class="token comment"># 禁止开机启动</span><
 
 <br>
 
-<img src="/post/69813a0e/nginx-002.png" class="" title="nginx编译输出">
+<img data-src="/post/69813a0e/nginx-002.png" class="" title="nginx编译输出">
 
 
 <p>部分编译参数说明</p>
@@ -1384,7 +1384,7 @@ $ ssh -T git@github.com<span aria-hidden="true" class="line-numbers-rows"><span>
 
 <h4 id="关系"><a href="#关系" class="headerlink" title="关系"></a>关系</h4><p>     nvm 管理 nodejs 和 npm 的版本</p>
 <p>     npm 可以管理 nodejs 的第三方插件</p>
-   <img src="/post/c0a81ac4/nvmMac001.png" class="" title="nvm、node、npm关系图">
+   <img data-src="/post/c0a81ac4/nvmMac001.png" class="" title="nvm、node、npm关系图">
 
 
 <h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>  这里主要介绍mac的安装(linux可以参照),windows系统的话可以参考<a href="https://cnodejs.org/topic/5338c5db7cbade005b023c98">windows</a></p>
@@ -1867,7 +1867,7 @@ private JdbcTemplate ds2JdbcTemplate;<span aria-hidden="true" class="line-number
 spring.thymeleaf.cache <span class="token operator">=</span> <span class="token boolean">true</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <p>点击<code>File</code> -&gt; <code>Settings</code> -&gt; <code>Build-Execution-Deplyment</code> -&gt; <code>Compiler</code>，选中打勾 <code>Build project</code></p>
-<img src="/post/f3f7b1c5/springbootstatic.png" class="" title="设置开启实时生效"><script>
+<img data-src="/post/f3f7b1c5/springbootstatic.png" class="" title="设置开启实时生效"><script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }
@@ -2163,7 +2163,7 @@ spring.thymeleaf.cache <span class="token operator">=</span> <span class="token 
 mysql&gt;select user, host, plugin from user<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <br>
 
-<img src="/post/170d9336/mysqlpassword1.png" class="" title="USER">
+<img data-src="/post/170d9336/mysqlpassword1.png" class="" title="USER">
 
 <ol start="2">
 <li>修改加密规则为“mysql_native_password”</li>
@@ -2182,7 +2182,7 @@ select * from user;<span aria-hidden="true" class="line-numbers-rows"><span></sp
 ALTER USER 'root'@'%' IDENTIFIED WITH mysql_native_password BY 'password';<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p>  之后就好了.</p>
 <p>  完成后效果如下：</p>
-<img src="/post/170d9336/mysqlpassword2.png" class="" title="PASS">
+<img data-src="/post/170d9336/mysqlpassword2.png" class="" title="PASS">
 
 <h3 id="更为优雅的解决方案"><a href="#更为优雅的解决方案" class="headerlink" title="更为优雅的解决方案"></a>更为优雅的解决方案</h3><p>   又重新回到了 MySQL 官方在docker的仓库中，仔细的阅读了一遍官方的说明。<br> 其实，我们在启动MySQL 容器的时候，是可以修改一些设置的。主要有2种方式。</p>
 <ol>
@@ -2283,7 +2283,7 @@ flush privileges<span class="token punctuation">;</span><span aria-hidden="true"
     <content><![CDATA[<div class="note success no-icon"><p> 以前就很想给网站加上一个背景音乐播放器！并且这个播放器要简洁大气，Meting完美的阐释了这句话！</p>
 </div>
 
-<img src="/post/c1dab809/meting.png" class="" title="Meting">
+<img data-src="/post/c1dab809/meting.png" class="" title="Meting">
 
 <a id="more"></a>
 
@@ -3540,7 +3540,7 @@ shell# hostnamectl set-hostname &lt;主机名&gt;
     <url>/post/5f2bf15a.html</url>
     <content><![CDATA[<h4 id="记录一下，以防遗忘。"><a href="#记录一下，以防遗忘。" class="headerlink" title="记录一下，以防遗忘。"></a>记录一下，以防遗忘。</h4><a id="more"></a>
 
-<img src="/post/5f2bf15a/shell.jpg" class="" title="部署脚本示例图">
+<img data-src="/post/5f2bf15a/shell.jpg" class="" title="部署脚本示例图">
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -3574,7 +3574,7 @@ shell# hostnamectl set-hostname &lt;主机名&gt;
 <a id="more"></a>
 
 
-<img src="/post/4995ab80/jkp.jpeg" class="" title="相对路径示例图"><script>
+<img data-src="/post/4995ab80/jkp.jpeg" class="" title="相对路径示例图"><script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }
@@ -3628,7 +3628,7 @@ git config --global user.email        # 获取当前登录用户的邮箱<span a
 <li>git config –local -l 查看仓库配置【必须要进入到具体的目录下，比如要查看TestGit仓库的配置信息】</li>
 <li>git config –global -l 查看用户配置</li>
 <li>git config –system -l 查看系统配置</li>
-<li>git config -l查看所有的配置信息，依次是系统级别、用户级别、仓库级别<img src="/post/423abe9e/gitcom-001.png" class="" title="示例图"></li>
+<li>git config -l查看所有的配置信息，依次是系统级别、用户级别、仓库级别<img data-src="/post/423abe9e/gitcom-001.png" class="" title="示例图"></li>
 <li>git config 常用配置选项<ul>
 <li>git config -e 编辑配置文件 <ul>
 <li>git config –local -e 编辑仓库级别配置文件</li>
@@ -3646,13 +3646,13 @@ git config --global user.email        # 获取当前登录用户的邮箱<span a
 <li>配置文件如何生效的<br>  对于git来说，配置文件的权重是仓库&gt;全局&gt;系统。Git会使用这一系列的配置文件来存储你定义的偏好，它首先会查找/etc/gitconfig文件（系统级），该文件含有对系统上所有用户及他们所拥有的仓库都生效的配置值。接下来Git会查找每个用户的~/.gitconfig文件（全局级）。最后Git会查找由用户定义的各个库中Git目录下的配置文件.git/config（仓库级），该文件中的值只对当前所属仓库有效</li>
 </ol>
 <h5 id="增加配置项"><a href="#增加配置项" class="headerlink" title="增加配置项"></a>增加配置项</h5><p>  参数 –add<br>  格式: git config [–local|–global|–system] –add section.key value(默认是添加在local配置中)<br>  注意add后面的section,key,value一项都不能少，否则添加失败。比如我们执行：git config –add cat.name tom</p>
-<img src="/post/423abe9e/gitcom-002.png" class="" title="示例图">
+<img data-src="/post/423abe9e/gitcom-002.png" class="" title="示例图">
 
 <h5 id="获取一个配置项"><a href="#获取一个配置项" class="headerlink" title="获取一个配置项"></a>获取一个配置项</h5><p>  有时候，我们并不需要查看所有配置的值，而是查看某个配置项的值，怎么做呢？<br>  命令参数 –get<br>  格式：git config [–local|–global|–system] –get section.key(默认是获取local配置中内容)<br>  我们先往global配置中写入一个cat.name=Tomcat的配置项，再使用git config –get cat.name看看得到的是什么：</p>
-<img src="/post/423abe9e/gitcom-003.png" class="" title="示例图">
+<img data-src="/post/423abe9e/gitcom-003.png" class="" title="示例图">
 <p>  结果就是local中的cat.name=Tom，因此git config –get section.key 等价于git config –local –get section.key<br>  如果获取一个section不存在的key值，不会返回任何值<br>  如果获取一个不存在的section的key值，则会报错</p>
 <h5 id="删除一个配置项"><a href="#删除一个配置项" class="headerlink" title="删除一个配置项"></a>删除一个配置项</h5><p>  命令参数 –unset<br>  格式：git config [–local|–global|–system] –unset section.key<br>  相信有了前两个命令的使用基础，大家举一反三就知道改怎么用了，来，我们试试删除local配置中的cat.name</p>
-<img src="/post/423abe9e/gitcom-004.png" class="" title="示例图">
+<img data-src="/post/423abe9e/gitcom-004.png" class="" title="示例图">
 
 <h5 id="创建文件并写入内容"><a href="#创建文件并写入内容" class="headerlink" title="创建文件并写入内容"></a>创建文件并写入内容</h5><p>如果文件不存在，则创建文件</p>
 <pre class="line-numbers language-none"><code class="language-none">echo "hello git"
@@ -3782,11 +3782,11 @@ git push origin HARD --force		# 撤销后，强制提交并push到远程分支<s
   <a id="more"></a>
 
 
-  <img src="/post/ddb18259/em_svn_1.png" class="" title="第一步">
+  <img data-src="/post/ddb18259/em_svn_1.png" class="" title="第一步">
 
-  <img src="/post/ddb18259/em_svn_2.png" class="" title="第二步">
+  <img data-src="/post/ddb18259/em_svn_2.png" class="" title="第二步">
 
-<p>  点击Install开始安装<br>  <img src="/post/ddb18259/em_svn_3.png" class="" title="第三步"><br>  一步一步往下点，然后接受协议，安装完成后重启eclipse即可生效。</p>
+<p>  点击Install开始安装<br>  <img data-src="/post/ddb18259/em_svn_3.png" class="" title="第三步"><br>  一步一步往下点，然后接受协议，安装完成后重启eclipse即可生效。</p>
 <h4 id="方式二：通过Install-New-Software在线安装"><a href="#方式二：通过Install-New-Software在线安装" class="headerlink" title="方式二：通过Install New Software在线安装"></a><font color="red">方式二：通过Install New Software在线安装</font></h4><p>  Help -&gt; Install New Software</p>
 <p>  点击add按钮，在弹出窗口中，输入name(自己为变量命的名)和插件的URL，然后点击add</p>
 <p>  SVN插件与Subversion版本的对应关系如下：</p>
@@ -3794,20 +3794,20 @@ git push origin HARD --force		# 撤销后，强制提交并push到远程分支<s
 <p>  <a href="http://subclipse.tigris.org/update_1.8.x/">http://subclipse.tigris.org/update_1.8.x/</a> （Subversion 1.7.x）</p>
 <p>  <a href="http://subclipse.tigris.org/update_1.10.x/">http://subclipse.tigris.org/update_1.10.x/</a> （Subversion 1.8.x）</p>
 <p>  <a href="https://dl.bintray.com/subclipse/releases/subclipse/4.2.x/">https://dl.bintray.com/subclipse/releases/subclipse/4.2.x/</a> （Subversion 1.9.x）</p>
-  <img src="/post/ddb18259/em_svn_4.png" class="" title="第四步">
+  <img data-src="/post/ddb18259/em_svn_4.png" class="" title="第四步">
 
 <p>  全部勾选，然后点击Next</p>
-  <img src="/post/ddb18259/em_svn_5.png" class="" title="第五步">
+  <img data-src="/post/ddb18259/em_svn_5.png" class="" title="第五步">
 
 <p>  一步一步往下点，然后接受协议，安装完成后重启eclipse即可生效。</p>
 <h4 id="方式三：通过下载插件，离线安装"><a href="#方式三：通过下载插件，离线安装" class="headerlink" title="方式三：通过下载插件，离线安装"></a><font color="red">方式三：通过下载插件，离线安装</font></h4><p>   1、下载需要的插件包，<a href="https://github.com/subclipse/subclipse/wiki">https://github.com/subclipse/subclipse/wiki</a></p>
-   <img src="/post/ddb18259/em_svn_6.png" class="" title="第一步">
+   <img data-src="/post/ddb18259/em_svn_6.png" class="" title="第一步">
 
 <p>   这里有最新版的插件下载地址，也有旧版本的插件下载地址，根据自己的需要选择下载。</p>
-   <img src="/post/ddb18259/em_svn_7.png" class="" title="第二步">
+   <img data-src="/post/ddb18259/em_svn_7.png" class="" title="第二步">
 
 <p>   下载的包里会有”plugins”和”features”两个文件夹</p>
-   <img src="/post/ddb18259/em_svn_8.png" class="" title="第三步">
+   <img data-src="/post/ddb18259/em_svn_8.png" class="" title="第三步">
 
 <p>   2、找到eclipse目录下”plugins”和”features”文件夹，将下载好的的svn插件对应名称文件夹下的内容复制到eclipse的同名文件夹中</p>
 <p>   3、重启eclipse即可生效</p>
@@ -3853,8 +3853,8 @@ git push origin HARD --force		# 撤销后，强制提交并push到远程分支<s
 
 {% asset_img jkp.jpeg 相对路径示例图 %}  推荐<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
-<p><img src="/post/9c39465b/child01.jpg" alt="小女孩"></p>
-<img src="/post/9c39465b/child01.jpg" class="" title="小女孩">
+<p><img data-src="/post/9c39465b/child01.jpg" alt="小女孩"></p>
+<img data-src="/post/9c39465b/child01.jpg" class="" title="小女孩">
 
 <h4 id="分页显示"><a href="#分页显示" class="headerlink" title="分页显示"></a>分页显示</h4><pre class="line-numbers language-none"><code class="language-none">&lt;escape&gt;&lt;!-- more --&gt;&lt;/escape&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h4 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h4><ol>
@@ -3901,7 +3901,7 @@ git push origin HARD --force		# 撤销后，强制提交并push到远程分支<s
   ![](/photos/images/4.jpg)
 {% endgp %}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column"><img src="/photos/images/1.jpg"></div><div class="group-picture-column"><img src="/photos/images/2.jpg"></div><div class="group-picture-column"><img src="/photos/images/3.jpg"></div></div><div class="group-picture-row"><div class="group-picture-column"><img src="/photos/images/10.jpg"></div></div></div>
+<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column"><img data-src="/photos/images/1.jpg"></div><div class="group-picture-column"><img data-src="/photos/images/2.jpg"></div><div class="group-picture-column"><img data-src="/photos/images/3.jpg"></div></div><div class="group-picture-row"><div class="group-picture-column"><img data-src="/photos/images/10.jpg"></div></div></div>
 
 
 <h4 id="按钮"><a href="#按钮" class="headerlink" title="按钮"></a>按钮</h4><pre class="line-numbers language-none"><code class="language-none">{% button #, 开始 %}<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>

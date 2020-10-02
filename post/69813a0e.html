@@ -5,10 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 <meta name="generator" content="Hexo 5.2.0">
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
-  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.png">
+  <link rel="mask-icon" href="/images/favicon.png" color="#222">
   <meta name="baidu-site-verification" content="WZilU4QiSZ">
 
 <link rel="stylesheet" href="/css/main.css">
@@ -23,7 +23,7 @@
 
 <script class="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"blog.xiaosige.com","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"livere","storage":true,"lazyload":true,"nav":null,"activeClass":"livere"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}};
+    var CONFIG = {"hostname":"blog.xiaosige.com","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":"livere","storage":true,"lazyload":true,"nav":null,"activeClass":"livere"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}};
   </script>
 
   <meta name="description" content="介绍  Nginx是一个高性能的Web和反向代理服务器,它具有有很多非常优越的特性:  作为Web服务器: 相比Apache，Nginx 使用更少的资源，支持更多 的并发连接，体现更高的效率，这点使Nginx尤其受到虚拟主机提供商的欢迎。能够支持高达50,000个并发连接数的响应，感谢Nginx为我们选择了epoll and kqueue作为开发模型.">
@@ -316,9 +316,6 @@
         <a href="https://www.upyun.com/" title="又拍云 → https:&#x2F;&#x2F;www.upyun.com" rel="noopener" target="_blank"><i class="fab fa-jsfiddle fa-fw"></i>又拍云</a>
       </span>
   </div>
-  <div class="cc-license animated" itemprop="license">
-    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
-  </div>
 
 
 <div class="wrap">
@@ -599,10 +596,6 @@
 }
 </style>
       </section>
-        <div class="back-to-top animated">
-          <i class="fa fa-arrow-up"></i>
-          <span>0%</span>
-        </div>
     </div>
   </aside>
   <div class="sidebar-dimmer"></div>
@@ -611,6 +604,10 @@
     </header>
 
     
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
 
 <noscript>
   <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
@@ -689,13 +686,6 @@
       </span>
       <span class="post-meta-item-text">本文字数：</span>
       <span>15k</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>14 分钟</span>
     </span>
 </div>
 
@@ -851,7 +841,7 @@ systemctl diasble nginx <span class="token comment"># 禁止开机启动</span><
 
 <br>
 
-<img src="/post/69813a0e/nginx-001.png" class="" title="nginx编译输出">
+<img data-src="/post/69813a0e/nginx-001.png" class="" title="nginx编译输出">
 
 <p>上面的编译是使用了系统默认的openssl，如果想使用更高版本的openssl进行编译的话。可以加上<code>--with-openssl=openssl安装路径</code>来自定义。高版本的openssl安装可以参考 <a target="_blank" rel="noopener" href="https://www.jianshu.com/p/bf5a55a0a814">这篇文章</a>。</p>
 <p><code>--with-openssl</code> 参数虽然可以指定 OpenSSL 路径，但只支持 OpenSSL 的源代码，不支持已编译好的 OpenSSL。每回更新 nginx 都要重新编译 OpenSSL 很麻烦 。以下是解决方案<br>打开nginx源码解压目录下的<code>auto/lib/openssl/conf</code>,找到所有带<code>.openssl</code>的行</p>
@@ -908,7 +898,7 @@ systemctl diasble nginx <span class="token comment"># 禁止开机启动</span><
 
 <br>
 
-<img src="/post/69813a0e/nginx-002.png" class="" title="nginx编译输出">
+<img data-src="/post/69813a0e/nginx-002.png" class="" title="nginx编译输出">
 
 
 <p>部分编译参数说明</p>
@@ -1376,6 +1366,13 @@ systemctl diasble nginx <span class="token comment"># 禁止开机启动</span><
 <div>
     
 
+    
+    	<div class="wp_rating">
+    		<div style="color: rgba(0, 0, 0, 0.75); font-size:13px; letter-spacing:3px">(&gt;看完记得五星好评哦亲&lt;)</div>
+    		<div id="wpac-rating"></div>
+    	</div>
+    
+
     <div class="endlan">
         <i></i>
         <p>本文结束--- <img src="/images/avatar_post_end.png" style="display:inline-block;margin-bottom:-7px;height: 25px;"> ---感谢您的阅读</p>
@@ -1412,6 +1409,11 @@ systemctl diasble nginx <span class="token comment"># 禁止开机启动</span><
           </div>
 
         
+  <div class="post-widgets">
+    <div class="wp_rating">
+      <div id="wpac-rating"></div>
+    </div>
+  </div>
 
           <div class="post-nav">
             <div class="post-nav-item">
@@ -1560,6 +1562,8 @@ systemctl diasble nginx <span class="token comment"># 禁止开机启动</span><
   <script src="//cdn.jsdelivr.net/npm/@next-theme/pjax@0.4.0/pjax.min.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/lozad@1.15.0/dist/lozad.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js"></script>
 <script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
   <script>
 var pjax = new Pjax({
@@ -1609,6 +1613,26 @@ document.addEventListener('pjax:success', () => {
 
 
 
+  <script data-pjax>
+  if (CONFIG.page.isPost) {
+    wpac_init = window.wpac_init || [];
+    wpac_init.push({
+      widget: 'Rating',
+      id    : 13cc917f4aa19e4b800d2b0a67c65c9a4edc7faa2298e41b184f8e4ca772acfa,
+      el    : 'wpac-rating',
+      color : 'fc6423'
+    });
+    (function() {
+      if ('WIDGETPACK_LOADED' in window) return;
+      WIDGETPACK_LOADED = true;
+      var mc = document.createElement('script');
+      mc.type = 'text/javascript';
+      mc.async = true;
+      mc.src = '//embed.widgetpack.com/widget.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+    })();
+  }
+  </script>
 
   <script src="/js/local-search.js"></script>
 
@@ -1657,6 +1681,16 @@ document.querySelectorAll('.pdfobject-container').forEach(element => {
   
 
   
+  <script src="//cdn.jsdelivr.net/npm/quicklink@2.0.0/dist/quicklink.umd.js"></script>
+  <script>
+      window.addEventListener('load', () => {
+      quicklink.listen({
+        timeout : 3000,
+        priority: true,
+        ignores : [uri => uri.includes('#'),uri => uri === 'https://blog.xiaosige.com/post/69813a0e.html',]
+      });
+      });
+  </script>
 
 <script>
 NexT.utils.loadComments('#lv-container', () => {
@@ -2472,17 +2506,12 @@ gsap.to('.char', {
 }).time(2);
 </script>
 
-<!-- 社交链接的效果 -->
-<style type="text/css">
-.links-of-author-item a:hover {
-    background: none;
-}
-</style>
-<script src="/js/xs.js"></script>
+<!-- 头像连接到关于我 -->
 <script type="text/javascript">
-    $(".links-of-author-item").xs999(25);
+    $(document).ready(function() {
+        $('.site-author-image').prop('outerHTML', "<a href='/about'>"+$('.site-author-image').prop("outerHTML")+"</a>");
+    });
 </script>
-
     </div><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 </html>
