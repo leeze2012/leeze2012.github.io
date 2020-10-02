@@ -93,7 +93,9 @@
       
       
       
-      <category domain="https://blog.xiaosige.com/categories/Git/">Git</category>
+      <category domain="https://blog.xiaosige.com/categories/Linux/">Linux</category>
+      
+      <category domain="https://blog.xiaosige.com/categories/Linux/Git/">Git</category>
       
       
       <category domain="https://blog.xiaosige.com/tags/Linux/">Linux</category>

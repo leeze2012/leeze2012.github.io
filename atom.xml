@@ -79,14 +79,16 @@
     <link href="https://blog.xiaosige.com/post/4370af2f.html"/>
     <id>https://blog.xiaosige.com/post/4370af2f.html</id>
     <published>2020-09-15T18:04:14.000Z</published>
-    <updated>2020-09-17T09:01:21.723Z</updated>
+    <updated>2020-10-02T18:47:14.305Z</updated>
     
     
     <summary type="html">&lt;h3 id=&quot;Git介绍&quot;&gt;&lt;a href=&quot;#Git介绍&quot; class=&quot;headerlink&quot; title=&quot;Git介绍&quot;&gt;&lt;/a&gt;Git介绍&lt;/h3&gt;&lt;p&gt;  Git — The stupid content tracker, 傻瓜内容跟踪器。Linus Torvalds 是这样给我们介绍 Git 的。&lt;br&gt;  Git 是用于 Linux内核开发的版本控制工具。与常用的版本控制工具 CVS, Subversion 等不同，它采用了分布式版本库的方式，不必服务器端软件支持（wingeddevil注：这得分是用什么样的服务端，使用http协议或者git协议等不太一样。并且在push和pull的时候和服务器端还是有交互的。），使源代码的发布和交流极其方便。 Git 的速度很快，这对于诸如 Linux kernel 这样的大项目来说自然很重要。 Git 最为出色的是它的合并跟踪（merge tracing）能力。&lt;/p&gt;</summary>
     
     
     
-    <category term="Git" scheme="https://blog.xiaosige.com/categories/Git/"/>
+    <category term="Linux" scheme="https://blog.xiaosige.com/categories/Linux/"/>
+    
+    <category term="Git" scheme="https://blog.xiaosige.com/categories/Linux/Git/"/>
     
     
     <category term="Linux" scheme="https://blog.xiaosige.com/tags/Linux/"/>
