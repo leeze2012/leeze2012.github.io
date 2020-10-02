@@ -869,15 +869,17 @@ shell# hostnamectl set-hostname &lt;主机名&gt;
       
 
       
+  <div class="beian"><a href="https://beian.miit.gov.cn/" rel="noopener" target="_blank">ICP证：备案中。。。 </a>
+  </div>
 
 <div class="copyright">
   
   &copy; 2019 – 
   <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
-    <i class=""></i>
+    <i class="fa fa-user"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder"><span class="post-meta-item ">小四儿</span>  <span class="post-meta-item beian"><a href="https://beian.miit.gov.cn/" rel="noopener" target="_blank">ICP证：备案中。。。 </a></span></span>
+  <span class="author" itemprop="copyrightHolder">小四儿</span>
 </div>
 <div class="wordcount">
   <span class="post-meta-item">
@@ -1940,6 +1942,12 @@ gsap.to('.char', {
         <!-- footer的阅读次数位置调整 -->
         $(".wordcount").append($(".busuanzi-count").html());
         $(".busuanzi-count").remove();
+        <!-- 备案移动位置 -->
+        $(".copyright").append("<span><img src='/images/icp-002.png' style='display:inline;vertical-align: text-bottom;padding: 0 4px;'>"+
+                            $(".beian").html()+
+                            "</span>");
+        $(".beian").remove();
+
     });
 </script>
     </div><!-- hexo-inject:begin --><!-- hexo-inject:end -->

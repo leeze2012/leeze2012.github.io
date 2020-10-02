@@ -3208,20 +3208,11 @@ div.code-toolbar > .toolbar button:hover {
 .powered-by a:hover {
   color: #0593d3;
 }
-.beian a {
-  color: #999;
-}
-.beian a:hover {
-  color: #0593d3;
-}
-.with-love {
-  margin: 0px;
-}
-.beian a {
+.footer-inner a {
   color: #0593d3;
   border-bottom: none #0593d3;
 }
-.beian a:hover {
+.footer-inner a:hover {
   color: #fc6423;
   border-bottom: none;
   border-bottom: 1px solid #fc6423;
