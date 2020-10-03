@@ -63,6 +63,9 @@
 </style>
 
 
+
+<link rel="stylesheet" type="text/css" href="/css/shake.css" />
+
   <title>SpringBoot项目配置多数据源 | 小四儿</title>
   
 
@@ -171,7 +174,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">31</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">32</span></a>
 
   </li>
         <li class="menu-item menu-item-photos">
@@ -261,7 +264,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">31</span>
+          <span class="site-state-item-count">32</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -2016,7 +2019,7 @@ gsap.to('.char', {
     $(document).ready(function() {
         <!-- 头像连接到关于我 -->
         if($('.site-author:first').children().first().prop("tagName").toLowerCase() === "img"){
-            $('.site-author-image').prop('outerHTML', "<a href='/about'>"+$('.site-author-image').prop("outerHTML")+"</a>");
+            $('.site-author-image').prop('outerHTML', "<a href='/about' title='关于我'>"+$('.site-author-image').prop("outerHTML")+"</a>");
         }
         <!-- 五星好评 -->
         $("#wpac-rating").before("<div style='color: rgba(0, 0, 0, 0.75); font-size:13px; letter-spacing:3px'>(&gt; 看完记得五星好评哦亲 &lt;)</div>");
@@ -2025,6 +2028,12 @@ gsap.to('.char', {
         if($(".busuanzi-count").length > 0){
             $(".wordcount").append($(".busuanzi-count").html());
             $(".busuanzi-count").remove();
+        }
+        <!-- 标签页追加抖动样式 -->
+        if($('.tag-cloud-tags a').length > 0){
+            $('.tag-cloud-tags a').each(function(){
+              $(this).addClass('shake shake-slow');
+            });
         }
 
     });
