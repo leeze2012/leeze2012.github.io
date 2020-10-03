@@ -3218,10 +3218,6 @@ div.code-toolbar > .toolbar button:hover {
   border-bottom: none;
   border-bottom: 1px solid #fc6423;
 }
-.main-menu .menu-item a:hover {
-  color: #eb6d39;
-  background: #00c4b6;
-}
 .menu-item-active {
   border-right-color: #009d92;
   background: #00c4b6 !important;

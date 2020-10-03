@@ -3,8 +3,7 @@
   <entry>
     <title>谢谢你来看我的博客</title>
     <url>/post/a8863134.html</url>
-    <content><![CDATA[<p class="shake shake-slow">欢迎。。。</p>
-<script>
+    <content><![CDATA[<script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }

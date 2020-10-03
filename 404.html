@@ -26,13 +26,13 @@
 
   <meta name="description" content="document.querySelectorAll(&#39;.github-emoji&#39;)           .forEach(el &#x3D;&gt; {             if (!el.dataset.src) { return; }             const img &#x3D; document.createElement(&#39;img&#39;);">
 <meta property="og:type" content="website">
-<meta property="og:title" content="小四儿">
+<meta property="og:title" content="404">
 <meta property="og:url" content="https://blog.xiaosige.com/404.html">
 <meta property="og:site_name" content="小四儿">
 <meta property="og:description" content="document.querySelectorAll(&#39;.github-emoji&#39;)           .forEach(el &#x3D;&gt; {             if (!el.dataset.src) { return; }             const img &#x3D; document.createElement(&#39;img&#39;);">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-08-24T07:17:54.297Z">
-<meta property="article:modified_time" content="2020-08-01T19:23:30.377Z">
+<meta property="article:published_time" content="2020-08-24T07:17:54.335Z">
+<meta property="article:modified_time" content="2020-08-01T19:23:14.197Z">
 <meta property="article:author" content="leeze">
 <meta property="article:tag" content="小四儿 leeze">
 <meta name="twitter:card" content="summary">
@@ -52,6 +52,8 @@
 </script><!-- https://www.layuicdn.com/layui/css/layui.css -->
 <script src="https://www.layuicdn.com/layui/layui.js"></script>
 
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.4/gsap.min.js"></script>
 <script src="https://unpkg.com/splitting/dist/splitting.min.js"></script>
@@ -66,7 +68,11 @@
 
 <link rel="stylesheet" type="text/css" href="/css/shake.css" />
 
-  <title> | 小四儿
+
+<link rel="stylesheet" type="text/css" href="/css/hover.css" />
+
+
+  <title>404 | 小四儿
 </title>
   
 
@@ -624,7 +630,7 @@
     <div class="post-block" lang="zh-CN">
       <header class="post-header">
 
-<h1 class="post-title" itemprop="name headline">
+<h1 class="post-title" itemprop="name headline">404
 </h1>
 
 <div class="post-meta-container">
@@ -639,11 +645,8 @@
       
       <div class="post-body">
           
-  <script type="text/plain" src="http://www.qq.com/404/search_children.js" charset="utf-8" homepageurl="/" homepagename="回到我的主页">
-  </script>
-  <script src="https://qzone.qq.com/gy/404/data.js" charset="utf-8"></script>
-  <script src="https://qzone.qq.com/gy/404/page.js" charset="utf-8"></script>
-
+         <script type="text/javascript" src="//qzonestyle.gtimg.cn/qzone/hybrid/app/404/search_children.js" homepagename="返回首页" homepageurl="/"></script>
+	
 
 <script>
         document.querySelectorAll('.github-emoji')
@@ -677,11 +680,6 @@
 
 
       
-    
-  <div class="comments">
-    <div id="lv-container" data-id="city" data-uid="MTAyMC80NjMzMy8yMjg0NA=="></div>
-  </div>
-  
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -964,21 +962,6 @@ document.querySelectorAll('.pdfobject-container').forEach(element => {
       });
   </script>
 
-<script>
-NexT.utils.loadComments('#lv-container', () => {
-  window.livereOptions = {
-    refer: "404.html"
-  };
-  (function(d, s) {
-    var j, e = d.getElementsByTagName(s)[0];
-    if (typeof LivereTower === 'function') { return; }
-    j = d.createElement(s);
-    j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
-    j.async = true;
-    e.parentNode.insertBefore(j, e);
-  })(document, 'script');
-});
-</script>
 
 
 <!-- 提示信息 -->
@@ -1800,6 +1783,22 @@ gsap.to('.char', {
         if($('.tag-cloud-tags a').length > 0){
             $('.tag-cloud-tags a').each(function(){
               $(this).addClass('shake shake-slow');
+            });
+        }
+        <!-- 社交链接增加hover样式 -->
+        if($('.links-of-author-item a').length > 0){
+            $('.links-of-author-item a').each(function(index,element){
+                if((index+1)%2 === 1){
+                    $(this).addClass('hvr-bounce-to-right');
+                }else{
+                    $(this).addClass('hvr-bounce-to-left');
+                }
+            });
+        }
+        <!-- 主菜单hover样式 -->
+        if($('.main-menu .menu-item a').length > 0){
+            $('.main-menu .menu-item a').each(function(index,element){
+                $(this).addClass('hvr-grow-shadow');
             });
         }
 

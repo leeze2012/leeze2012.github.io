@@ -6,7 +6,7 @@
   <link href="https://blog.xiaosige.com/atom.xml" rel="self"/>
   
   <link href="https://blog.xiaosige.com/"/>
-  <updated>2020-10-03T15:05:18.935Z</updated>
+  <updated>2020-10-03T19:02:28.102Z</updated>
   <id>https://blog.xiaosige.com/</id>
   
   <author>
@@ -21,18 +21,18 @@
     <link href="https://blog.xiaosige.com/post/a8863134.html"/>
     <id>https://blog.xiaosige.com/post/a8863134.html</id>
     <published>2020-10-03T11:38:45.000Z</published>
-    <updated>2020-10-03T15:05:18.935Z</updated>
+    <updated>2020-10-03T19:02:28.102Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;p class=&quot;shake shake-slow&quot;&gt;欢迎。。。&lt;/p&gt;
-&lt;script&gt;
+    <summary type="html">&lt;script&gt;
         document.querySelectorAll(&#39;.github-emoji&#39;)
           .forEach(el =&gt; {
-            if</summary>
+            if (!el.dataset.src) { return; }
+       </summary>
         
       
     
