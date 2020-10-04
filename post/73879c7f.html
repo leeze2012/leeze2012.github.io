@@ -32,7 +32,7 @@
 <meta property="og:description" content="1.初始GitLab  GitLab是利用Ruby on Rails一个开源的版本管理系统，实现一个自托管的Git项目仓库，可通过Web界面进行访问公开的或者私人项目。  与Github类似，GitLab能够浏览源代码，管理缺陷和注释。可以管理团队对仓库的访问，它非常易于浏览提交过的版本并提供一个文件历史库。团队成员可以利用内置的简单聊天程序(Wall)进行交流。  它还提供一个代码片段收集功能可">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-02-20T14:56:53.000Z">
-<meta property="article:modified_time" content="2020-08-24T15:40:48.769Z">
+<meta property="article:modified_time" content="2020-10-04T13:23:16.380Z">
 <meta property="article:author" content="leeze">
 <meta property="article:tag" content="Linux">
 <meta property="article:tag" content="GitLab">
@@ -662,7 +662,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-08-24 23:40:48" itemprop="dateModified" datetime="2020-08-24T23:40:48+08:00">2020-08-24</time>
+        <time title="修改时间：2020-10-04 21:23:16" itemprop="dateModified" datetime="2020-10-04T21:23:16+08:00">2020-10-04</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -690,7 +690,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>4.1k</span>
+      <span>4k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -727,30 +727,30 @@ yum <span class="token function">install</span> -y gitlab-ce-12.7.6-ce.0.el6.x86
 
 <h3 id="4-配置GitLab"><a href="#4-配置GitLab" class="headerlink" title="4.配置GitLab"></a>4.配置GitLab</h3><p>  主要配置两个地方: 访问GitLab的IP地址和发送邮件的账号配置</p>
 <p>  <code>vim /etc/gitlab/gitlab.rb</code></p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">external_url <span class="token string">'http://192.168.183.200'</span> <span class="token comment"># 你自己的IP</span>
+<pre class="line-numbers language-properties" data-language="properties"><code class="language-properties"><span class="token attr-name">external_url</span> <span class="token attr-value">'http://192.168.183.200' # 你自己的IP</span>
 
 <span class="token comment">### Email Settings</span>
-gitlab_rails<span class="token punctuation">[</span><span class="token string">'gitlab_email_enabled'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">true</span>
-gitlab_rails<span class="token punctuation">[</span><span class="token string">'gitlab_email_from'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">'你的邮箱'</span>
-gitlab_rails<span class="token punctuation">[</span><span class="token string">'gitlab_email_display_name'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">'邮件名字'</span>
+<span class="token attr-name">gitlab_rails['gitlab_email_enabled']</span> <span class="token punctuation">=</span> <span class="token attr-value">true</span>
+<span class="token attr-name">gitlab_rails['gitlab_email_from']</span> <span class="token punctuation">=</span> <span class="token attr-value">'你的邮箱'</span>
+<span class="token attr-name">gitlab_rails['gitlab_email_display_name']</span> <span class="token punctuation">=</span> <span class="token attr-value">'邮件名字'</span>
 
 <span class="token comment">### GitLab email server settings</span>
 <span class="token comment">### 这里邮件服务器使用的是QQ企业邮箱,163自行修改</span>
-gitlab_rails<span class="token punctuation">[</span><span class="token string">'smtp_enable'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">true</span>
-gitlab_rails<span class="token punctuation">[</span><span class="token string">'smtp_address'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">"smtp.exmail.qq.com"</span>
-gitlab_rails<span class="token punctuation">[</span><span class="token string">'smtp_port'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">465</span>
-gitlab_rails<span class="token punctuation">[</span><span class="token string">'smtp_user_name'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">"你的邮箱"</span>
-gitlab_rails<span class="token punctuation">[</span><span class="token string">'smtp_password'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">"邮箱密码"</span>
-gitlab_rails<span class="token punctuation">[</span><span class="token string">'smtp_authentication'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">"login"</span>
-gitlab_rails<span class="token punctuation">[</span><span class="token string">'smtp_enable_starttls_auto'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">true</span>
-gitlab_rails<span class="token punctuation">[</span><span class="token string">'smtp_tls'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">true</span>
+<span class="token attr-name">gitlab_rails['smtp_enable']</span> <span class="token punctuation">=</span> <span class="token attr-value">true</span>
+<span class="token attr-name">gitlab_rails['smtp_address']</span> <span class="token punctuation">=</span> <span class="token attr-value">"smtp.exmail.qq.com"</span>
+<span class="token attr-name">gitlab_rails['smtp_port']</span> <span class="token punctuation">=</span> <span class="token attr-value">465</span>
+<span class="token attr-name">gitlab_rails['smtp_user_name']</span> <span class="token punctuation">=</span> <span class="token attr-value">"你的邮箱"</span>
+<span class="token attr-name">gitlab_rails['smtp_password']</span> <span class="token punctuation">=</span> <span class="token attr-value">"邮箱密码"</span>
+<span class="token attr-name">gitlab_rails['smtp_authentication']</span> <span class="token punctuation">=</span> <span class="token attr-value">"login"</span>
+<span class="token attr-name">gitlab_rails['smtp_enable_starttls_auto']</span> <span class="token punctuation">=</span> <span class="token attr-value">true</span>
+<span class="token attr-name">gitlab_rails['smtp_tls']</span> <span class="token punctuation">=</span> <span class="token attr-value">true</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>  ESC保存并退出 :<code>wq</code></p>
 <h3 id="5-更改gitlab默认端口"><a href="#5-更改gitlab默认端口" class="headerlink" title="5.更改gitlab默认端口"></a>5.更改gitlab默认端口</h3><p>  若linux服务器的80和8080端口都已经被使用，则需修改gitlab监听的端口</p>
 <p>  修改路径文件：<code>vim /etc/gitlab/gitlab.rb</code></p>
 <p>  1、修改<code>external_url</code>  （将前面的#注释符号去掉）,我改成了8099</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment">## GitLab URL</span>
+<pre class="line-numbers language-properties" data-language="properties"><code class="language-properties"><span class="token comment">## GitLab URL</span>
 <span class="token comment">##! URL on which GitLab will be reachable.</span>
 <span class="token comment">##! For more details on configuring external_url see:</span>
 <span class="token comment">##! https://docs.gitlab.com/omnibus/settings/configuration.html#configuring-the-external-url-for-gitlab</span>
@@ -760,21 +760,23 @@ gitlab_rails<span class="token punctuation">[</span><span class="token string">'
 <span class="token comment">##! On AWS EC2 instances, we also attempt to fetch the public hostname/IP</span>
 <span class="token comment">##! address from AWS. For more details, see:</span>
 <span class="token comment">##! https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instancedata-data-retrieval.html</span>
-external_url <span class="token string">'http://10.211.55.61:8099'</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token attr-name">external_url</span> <span class="token attr-value">'http://10.211.55.61:8099'</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>  2、找到Advanced settings 下的8080端口 将端口改成自己备用端口号<br>  （<code>不能和上面url端口号相同，会冲突占用！</code>），我改的28080</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment">### Advanced settings</span>
+<pre class="line-numbers language-properties" data-language="properties"><code class="language-properties"><span class="token comment">### Advanced settings</span>
 <span class="token comment"># unicorn['listen'] = 'localhost'</span>
- unicorn<span class="token punctuation">[</span><span class="token string">'port'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">28080</span>
+<span class="token attr-name"> unicorn['port']</span> <span class="token punctuation">=</span> <span class="token attr-value">28080</span>
 <span class="token comment"># unicorn['socket'] = '/var/opt/gitlab/gitlab-rails/sockets/gitlab.socket'</span>
 <span class="token comment"># unicorn['pidfile'] = '/opt/gitlab/var/unicorn/unicorn.pid'</span>
 <span class="token comment"># unicorn['tcp_nopush'] = true</span>
 <span class="token comment"># unicorn['backlog_socket'] = 1024</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>  3、运行下面命令</p>
-<pre><code>     sudo gitlab-ctl stop --停止服务
-     sudo gitlab-ctl reconfigure --启动服务
-     sudo gitlab-ctl start --启动所有gitlab组件</code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> gitlab-ctl stop --停止服务
+<span class="token function">sudo</span> gitlab-ctl reconfigure --启动服务
+<span class="token function">sudo</span> gitlab-ctl start --启动所有gitlab组件<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+
 <p>  4、若访问不了gitlab，尝试关闭或开放防火墙</p>
 <h3 id="6-启动GitLab"><a href="#6-启动GitLab" class="headerlink" title="6.启动GitLab"></a>6.启动GitLab</h3><p>  刷新配置: <code>gitlab-ctl reconfigure</code><br>  重启服务: <code>gitlab-ctl restart</code></p>
 <h3 id="7-访问GitLab"><a href="#7-访问GitLab" class="headerlink" title="7.访问GitLab"></a>7.访问GitLab</h3><p>  此时还不能访问,需要关闭防火墙 <code>service iptables stop</code> 或者 在防火墙中开放8099端口:</p>
@@ -786,34 +788,39 @@ external_url <span class="token string">'http://10.211.55.61:8099'</span><span a
 <h3 id="8-Linux下Gitlab个人界面汉化"><a href="#8-Linux下Gitlab个人界面汉化" class="headerlink" title="8.Linux下Gitlab个人界面汉化"></a>8.Linux下Gitlab个人界面汉化</h3><p>  1.进入个人用户界面<br>  点击右上角<code>个人头像-&gt;settings-&gt;profile-&gt;Preferred language</code><br>  2.默认是english,可以切换中文<br>  3.再刷新一下，我们看见语言变成中文了<br>  4.不过其它账号登录依然是英文，只有当前账号登录才会显示成功切换的语言</p>
 <h3 id="9-GitLab基本操作"><a href="#9-GitLab基本操作" class="headerlink" title="9.GitLab基本操作"></a>9.GitLab基本操作</h3><p>  添加用户2种方式: root后台添加和自己注册</p>
 <p>  用户权限:</p>
-<pre><code>Regular: 可以访问自己组和项目
-Admin: 可以访问所有组和项目</code></pre>
+<pre class="line-numbers language-properties" data-language="properties"><code class="language-properties"><span class="token attr-name">Regular</span><span class="token punctuation">:</span> <span class="token attr-value">可以访问自己组和项目</span>
+<span class="token attr-name">Admin</span><span class="token punctuation">:</span> <span class="token attr-value">可以访问所有组和项目</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+
 <p>  添加组</p>
 <p>  组权限</p>
-<pre><code>Private: 私用,只允许组成员可见
-Internal: 内部,所有登录用户可见
-Public: 公共,所有人可见</code></pre>
+<pre class="line-numbers language-properties" data-language="properties"><code class="language-properties"><span class="token attr-name">Private</span><span class="token punctuation">:</span> <span class="token attr-value">私用,只允许组成员可见</span>
+<span class="token attr-name">Internal</span><span class="token punctuation">:</span> <span class="token attr-value">内部,所有登录用户可见</span>
+<span class="token attr-name">Public</span><span class="token punctuation">:</span> <span class="token attr-value">公共,所有人可见</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
 <p>  创建仓库和添加成员到组,很简单,不再赘述. 重点说下仓库成员权限,</p>
-<pre><code>Guest：可以创建issue、发表评论，不能读写版本库
-Reporter：可以克隆代码，不能提交，QA、PM可以赋予这个权限
-Developer：可以克隆代码、开发、提交、push，RD可以赋予这个权限
-Master：可以创建项目、添加tag、保护分支、添加项目成员、编辑项目，核心RD负责人可以赋予这个权限
-Owner：可以设置项目访问权限 - Visibility Level、删除项目、迁移项目、管理组成员，开发组leader可以赋予这个权限</code></pre>
-<h3 id="10-Gitlab相关操作及说明"><a href="#10-Gitlab相关操作及说明" class="headerlink" title="10.Gitlab相关操作及说明"></a>10.Gitlab相关操作及说明</h3><pre class="line-numbers language-none"><code class="language-none">
-/etc/gitlab/gitlab.rb          #gitlab配置文件
-/opt/gitlab                    #gitlab的程序安装目录
-/var/opt/gitlab                #gitlab目录数据目录
-/var/opt/gitlab/git-data       #存放仓库数据
-gitlab-ctl reconfigure         #重新加载配置
-gitlab-ctl status              #查看当前gitlab所有服务运行状态
-gitlab-ctl stop                #停止gitlab服务
-gitlab-ctl stop nginx          #单独停止某个服务
-gitlab-ctl tail                #查看所有服务的日志
+<pre class="line-numbers language-properties" data-language="properties"><code class="language-properties"><span class="token attr-name">Guest</span><span class="token punctuation">:</span> <span class="token attr-value">可以创建issue、发表评论，不能读写版本库</span>
+<span class="token attr-name">Reporter</span><span class="token punctuation">:</span> <span class="token attr-value">可以克隆代码，不能提交，QA、PM可以赋予这个权限</span>
+<span class="token attr-name">Developer</span><span class="token punctuation">:</span> <span class="token attr-value">可以克隆代码、开发、提交、push，RD可以赋予这个权限</span>
+<span class="token attr-name">Master</span><span class="token punctuation">:</span> <span class="token attr-value">可以创建项目、添加tag、保护分支、添加项目成员、编辑项目，核心RD负责人可以赋予这个权限</span>
+<span class="token attr-name">Owner</span><span class="token punctuation">:</span> <span class="token attr-value">可以设置项目访问权限 (- Visibility Level、删除项目、迁移项目、管理组成员，开发组leader可以赋予这个权限)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+<h3 id="10-Gitlab相关操作及说明"><a href="#10-Gitlab相关操作及说明" class="headerlink" title="10.Gitlab相关操作及说明"></a>10.Gitlab相关操作及说明</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">
+/etc/gitlab/gitlab.rb          <span class="token comment">#gitlab配置文件</span>
+/opt/gitlab                    <span class="token comment">#gitlab的程序安装目录</span>
+/var/opt/gitlab                <span class="token comment">#gitlab目录数据目录</span>
+/var/opt/gitlab/git-data       <span class="token comment">#存放仓库数据</span>
+gitlab-ctl reconfigure         <span class="token comment">#重新加载配置</span>
+gitlab-ctl status              <span class="token comment">#查看当前gitlab所有服务运行状态</span>
+gitlab-ctl stop                <span class="token comment">#停止gitlab服务</span>
+gitlab-ctl stop nginx          <span class="token comment">#单独停止某个服务</span>
+gitlab-ctl <span class="token function">tail</span>                <span class="token comment">#查看所有服务的日志</span>
 
 Gitlab的服务构成：
 nginx：                 静态web服务器
 gitlab-workhorse        轻量级反向代理服务器
-logrotate              日志文件管理工具
+<span class="token function">logrotate</span>              日志文件管理工具
 postgresql             数据库
 redis                  缓存数据库
 sidekiq                用于在后台执行队列任务（异步执行）<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
@@ -963,13 +970,13 @@ sidekiq                用于在后台执行队列任务（异步执行）<span 
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">86k</span>
+    <span title="站点总字数">80k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">1:18</span>
+    <span title="站点阅读时长">1:13</span>
   </span>
 </div>
 <div class="busuanzi-count">

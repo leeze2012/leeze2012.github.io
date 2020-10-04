@@ -36,7 +36,7 @@
 <meta property="og:image" content="https://blog.xiaosige.com/post/423abe9e/gitcom-003.png">
 <meta property="og:image" content="https://blog.xiaosige.com/post/423abe9e/gitcom-004.png">
 <meta property="article:published_time" content="2019-09-03T15:16:00.000Z">
-<meta property="article:modified_time" content="2020-09-24T20:45:53.780Z">
+<meta property="article:modified_time" content="2020-10-04T13:26:17.238Z">
 <meta property="article:author" content="leeze">
 <meta property="article:tag" content="Git">
 <meta name="twitter:card" content="summary">
@@ -666,7 +666,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-09-25 04:45:53" itemprop="dateModified" datetime="2020-09-25T04:45:53+08:00">2020-09-25</time>
+        <time title="修改时间：2020-10-04 21:26:17" itemprop="dateModified" datetime="2020-10-04T21:26:17+08:00">2020-10-04</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -694,7 +694,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>4.7k</span>
+      <span>4.4k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -714,24 +714,24 @@
     <div class="post-body" itemprop="articleBody">
         <h2 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h2><h5 id="初始配置"><a href="#初始配置" class="headerlink" title="初始配置"></a>初始配置</h5><ol>
 <li><p>仓库级别 local 【优先级最高】</p>
-<pre class="line-numbers language-none"><code class="language-none">git config --local user.name "Your name"
-git config --local user.email "you@example.com"<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> config --local user.name <span class="token string">"Your name"</span>
+<span class="token function">git</span> config --local user.email <span class="token string">"you@example.com"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p>  git 仓库级别对应的配置文件是当前仓库下的.git/config 【在当前目录下.git目录默认是隐藏的，所以在文件管理器中我们要打开显示以藏文件】</p>
 <a id="more"></a></li>
 <li><p>用户级别 global【优先级次之】</p>
-<pre class="line-numbers language-none"><code class="language-none">git config --global user.name "Your name"
-git config --global user.email "you@example.com"<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> config --global user.name <span class="token string">"Your name"</span>
+<span class="token function">git</span> config --global user.email <span class="token string">"you@example.com"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p>  git 用户级别对应的配置文件是用户宿主目录下的~/.gitconfig</p>
 </li>
 <li><p>系统级别 system【优先级最低】</p>
-<pre class="line-numbers language-none"><code class="language-none">git config --system user.name "Your name"
-git config --system user.email "you@example.com"<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> config --system user.name <span class="token string">"Your name"</span>
+<span class="token function">git</span> config --system user.email <span class="token string">"you@example.com"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p>  git系统级别对应的配置文件是git安装目录下的 /etc/gitconfig</p>
 </li>
 </ol>
-<h5 id="获取当前git配置"><a href="#获取当前git配置" class="headerlink" title="获取当前git配置"></a>获取当前git配置</h5><pre class="line-numbers language-none"><code class="language-none">git --version
-git config --global user.name         # 获取当前登录的用户
-git config --global user.email        # 获取当前登录用户的邮箱<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h5 id="获取当前git配置"><a href="#获取当前git配置" class="headerlink" title="获取当前git配置"></a>获取当前git配置</h5><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> --version
+<span class="token function">git</span> config --global user.name         <span class="token comment"># 获取当前登录的用户</span>
+<span class="token function">git</span> config --global user.email        <span class="token comment"># 获取当前登录用户的邮箱</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p>或者</p>
 <ol>
 <li>git config –local -l 查看仓库配置【必须要进入到具体的目录下，比如要查看TestGit仓库的配置信息】</li>
@@ -764,93 +764,93 @@ git config --global user.email        # 获取当前登录用户的邮箱<span a
 <img data-src="/post/423abe9e/gitcom-004.png" class="" title="示例图">
 
 <h5 id="创建文件并写入内容"><a href="#创建文件并写入内容" class="headerlink" title="创建文件并写入内容"></a>创建文件并写入内容</h5><p>如果文件不存在，则创建文件</p>
-<pre class="line-numbers language-none"><code class="language-none">echo "hello git"
-&gt; index.html                          # 将'hello git'写入到index.html中<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">echo</span> <span class="token string">"hello git"</span>
+<span class="token operator">&gt;</span> index.html                          <span class="token comment"># 将'hello git'写入到index.html中</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p>单个<code>&gt;</code>箭头表示写入，<code>&gt;&gt;</code>表示追加</p>
-<h5 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h5><pre class="line-numbers language-none"><code class="language-none">git init                        # 初始化当前所在目录的这个项目
-git status                      # 查看项目状态，有没有添加或者修改文件
-git add .                       # 给目前的项目制作一个快照snapshot（快照只是登记留名，快照不等于记录在案，git管快照叫做索引index）
-git commit                      # 将快照里登记的内容永久写入git仓库
-git commit -a                   # 直接提交所有修改，省去了``git add``和``git diff``和``git commit``的工序
-                                # 无法把新增文件或文件夹加入进来，所以，如果你新增了文件或文件夹，那么就要老老实实的先``git add ..``，再``git commit``
-git push                        # 把更新推送到远程分支
-git log -p                      # git不但会给出开发日志，而且会显示每个开发版本的代码区别所在
-git log --online                # 查看版本
-git diff                        # 比较暂存区和工作区的差别
-git diff --cached               # 比较暂存区和历史区的差别
-git diff master                 # 比较历史区和工作区的差别（修改）
-git checkout index.html         # 用暂存区中的内容或者版本库中的内容覆盖掉工作区
-git reset HEAD index.html       # 取消增加到暂存区的内容（添加时）
-git rm index.html --cached      # 使用--cached表示只删除缓冲区中的内容
-git reset --hard HEAD/commit_id # 回滚版本
-git reflog                      # 回滚到未来<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h5 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h5><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> init                        <span class="token comment"># 初始化当前所在目录的这个项目</span>
+<span class="token function">git</span> status                      <span class="token comment"># 查看项目状态，有没有添加或者修改文件</span>
+<span class="token function">git</span> <span class="token function">add</span> <span class="token builtin class-name">.</span>                       <span class="token comment"># 给目前的项目制作一个快照snapshot（快照只是登记留名，快照不等于记录在案，git管快照叫做索引index）</span>
+<span class="token function">git</span> commit                      <span class="token comment"># 将快照里登记的内容永久写入git仓库</span>
+<span class="token function">git</span> commit -a                   <span class="token comment"># 直接提交所有修改，省去了``git add``和``git diff``和``git commit``的工序</span>
+                                <span class="token comment"># 无法把新增文件或文件夹加入进来，所以，如果你新增了文件或文件夹，那么就要老老实实的先``git add ..``，再``git commit``</span>
+<span class="token function">git</span> push                        <span class="token comment"># 把更新推送到远程分支</span>
+<span class="token function">git</span> log -p                      <span class="token comment"># git不但会给出开发日志，而且会显示每个开发版本的代码区别所在</span>
+<span class="token function">git</span> log --online                <span class="token comment"># 查看版本</span>
+<span class="token function">git</span> <span class="token function">diff</span>                        <span class="token comment"># 比较暂存区和工作区的差别</span>
+<span class="token function">git</span> <span class="token function">diff</span> --cached               <span class="token comment"># 比较暂存区和历史区的差别</span>
+<span class="token function">git</span> <span class="token function">diff</span> master                 <span class="token comment"># 比较历史区和工作区的差别（修改）</span>
+<span class="token function">git</span> checkout index.html         <span class="token comment"># 用暂存区中的内容或者版本库中的内容覆盖掉工作区</span>
+<span class="token function">git</span> reset HEAD index.html       <span class="token comment"># 取消增加到暂存区的内容（添加时）</span>
+<span class="token function">git</span> <span class="token function">rm</span> index.html --cached      <span class="token comment"># 使用--cached表示只删除缓冲区中的内容</span>
+<span class="token function">git</span> reset --hard HEAD/commit_id <span class="token comment"># 回滚版本</span>
+<span class="token function">git</span> reflog                      <span class="token comment"># 回滚到未来</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>总结：先git add修改过的文件，再git diff并git status查看确认，然后git commit提交，然后输入开发日志，然后git push推送到远程分支，最后git log再次确认。</p>
-<h5 id="创建分支"><a href="#创建分支" class="headerlink" title="创建分支"></a>创建分支</h5><pre class="line-numbers language-none"><code class="language-none">git branch                      # 查看分支列表
-git branch experiment           # 创建experiment分支
-git checkout experiment         # 切换到experiment分支
-git checkout -b experiment      # 创建分支并切换分支
-git commit -a                   # 在分支上提交工作
-git checkout master             # 切换到主干道
-git merge experiment            # 合并分支到主干道
-git branch -d experiment        # -d，表示“在分支已经合并到主干后删除分支”。如果使用大写的-D的话，则表示“不论如何都删除分支”<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h5 id="创建分支"><a href="#创建分支" class="headerlink" title="创建分支"></a>创建分支</h5><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> branch                      <span class="token comment"># 查看分支列表</span>
+<span class="token function">git</span> branch experiment           <span class="token comment"># 创建experiment分支</span>
+<span class="token function">git</span> checkout experiment         <span class="token comment"># 切换到experiment分支</span>
+<span class="token function">git</span> checkout -b experiment      <span class="token comment"># 创建分支并切换分支</span>
+<span class="token function">git</span> commit -a                   <span class="token comment"># 在分支上提交工作</span>
+<span class="token function">git</span> checkout master             <span class="token comment"># 切换到主干道</span>
+<span class="token function">git</span> merge experiment            <span class="token comment"># 合并分支到主干道</span>
+<span class="token function">git</span> branch -d experiment        <span class="token comment"># -d，表示“在分支已经合并到主干后删除分支”。如果使用大写的-D的话，则表示“不论如何都删除分支”</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h5 id="使用git-stash命令保存和恢复进度"><a href="#使用git-stash命令保存和恢复进度" class="headerlink" title="使用git stash命令保存和恢复进度"></a>使用git stash命令保存和恢复进度</h5><pre class="line-numbers language-none"><code class="language-none">git stash                       # 保留当前工作区进度，会把暂存区和工作区的改动保存起来
-git stash save 'message...'     # 保存当前工作区，并添加备注
-git stash list                  # 显示保存进度的列表。也就意味着，git stash命令可以多次执行。
-git stash pop                   # 恢复最新的进度到工作区并删除。git默认会把工作区和缓存区的改动都恢复到工作区。
-git stash apply                 # 恢复最新的进度到工作区不删除
-git stash drop [stash_id]       # 删除一个存储的进度，如果不指定stash_id，则默认删除最新的存储进度，stash_id从git stash list获取
-git stash clear                 # 删除所有存储的进度<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h5 id="使用git-stash命令保存和恢复进度"><a href="#使用git-stash命令保存和恢复进度" class="headerlink" title="使用git stash命令保存和恢复进度"></a>使用git stash命令保存和恢复进度</h5><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> stash                       <span class="token comment"># 保留当前工作区进度，会把暂存区和工作区的改动保存起来</span>
+<span class="token function">git</span> stash save <span class="token string">'message...'</span>     <span class="token comment"># 保存当前工作区，并添加备注</span>
+<span class="token function">git</span> stash list                  <span class="token comment"># 显示保存进度的列表。也就意味着，git stash命令可以多次执行。</span>
+<span class="token function">git</span> stash pop                   <span class="token comment"># 恢复最新的进度到工作区并删除。git默认会把工作区和缓存区的改动都恢复到工作区。</span>
+<span class="token function">git</span> stash apply                 <span class="token comment"># 恢复最新的进度到工作区不删除</span>
+<span class="token function">git</span> stash drop <span class="token punctuation">[</span>stash_id<span class="token punctuation">]</span>       <span class="token comment"># 删除一个存储的进度，如果不指定stash_id，则默认删除最新的存储进度，stash_id从git stash list获取</span>
+<span class="token function">git</span> stash <span class="token function">clear</span>                 <span class="token comment"># 删除所有存储的进度</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h5 id="撤销一次已经提交到Github的内容"><a href="#撤销一次已经提交到Github的内容" class="headerlink" title="撤销一次已经提交到Github的内容"></a>撤销一次已经提交到Github的内容</h5><pre class="line-numbers language-none"><code class="language-none">git reset --hard HEAD~1
-git push --force<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h5 id="撤销一次已经提交到Github的内容"><a href="#撤销一次已经提交到Github的内容" class="headerlink" title="撤销一次已经提交到Github的内容"></a>撤销一次已经提交到Github的内容</h5><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> reset --hard HEAD~1
+<span class="token function">git</span> push --force<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <p>该命令执行后，会隐藏掉Github库中的被撤销掉的记录，但是指定到该被隐藏掉的记录来访问，依旧可以访问。</p>
 <h5 id="GitHub更新自己fork的代码"><a href="#GitHub更新自己fork的代码" class="headerlink" title="GitHub更新自己fork的代码"></a>GitHub更新自己fork的代码</h5><ol>
 <li> clone已经fork到自己账号的代码 </li>
 
-<pre class="line-numbers language-none"><code class="language-none">git clone https://github.com/shadow000902/ApiTestEngine.git
-cd ApiTestEngine<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> clone https://github.com/shadow000902/ApiTestEngine.git
+<span class="token builtin class-name">cd</span> ApiTestEngine<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <li> 查看远程分支列表 </li>
 
-<pre class="line-numbers language-none"><code class="language-none">╭─taoyi at TaoYi-Mac in ~/git_projects/GitHub/ApiTestEngine on master✔ using ‹› 17-08-23 - 15:01:23
-╰─○ git remote -v
-debugtalk	https://github.com/debugtalk/ApiTestEngine.git (fetch)
-debugtalk	https://github.com/debugtalk/ApiTestEngine.git (push)
-origin	https://github.com/shadow000902/ApiTestEngine.git (fetch)
-origin	https://github.com/shadow000902/ApiTestEngine.git (push)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">╭─taoyi at TaoYi-Mac <span class="token keyword">in</span> ~/git_projects/GitHub/ApiTestEngine on master✔ using ‹› <span class="token number">17</span>-08-23 - <span class="token number">15</span>:01:23
+╰─○ <span class="token function">git</span> remote -v
+debugtalk	https://github.com/debugtalk/ApiTestEngine.git <span class="token punctuation">(</span>fetch<span class="token punctuation">)</span>
+debugtalk	https://github.com/debugtalk/ApiTestEngine.git <span class="token punctuation">(</span>push<span class="token punctuation">)</span>
+origin	https://github.com/shadow000902/ApiTestEngine.git <span class="token punctuation">(</span>fetch<span class="token punctuation">)</span>
+origin	https://github.com/shadow000902/ApiTestEngine.git <span class="token punctuation">(</span>push<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <li> fetch原始源代码的新版本到本地 </li>
 
-<pre class="line-numbers language-none"><code class="language-none">git fetch debugtalk<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> fetch debugtalk<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <li> 合并两个版本的代码 </li>
 
-<pre class="line-numbers language-none"><code class="language-none">git merge debugtalk/master<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> merge debugtalk/master<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <li> 如果合并代码后有冲突，解决冲突 </li>
 
 <li> 把合并好的最新的代码提交到自己的GitHub账号上 </li>
 
-<pre class="line-numbers language-none"><code class="language-none">git push origin master<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> push origin master<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 </ol>
 
 <h5 id="git撤销最后一次commit"><a href="#git撤销最后一次commit" class="headerlink" title="git撤销最后一次commit"></a>git撤销最后一次commit</h5><ol>
 <li> 使用git log查看commit记录 </li>
 
-<pre class="line-numbers language-none"><code class="language-none">commit-id1
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">commit-id1
 commit-id2
 commit-id3<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p>如果想要撤销commit-id1的话，就要选择commit-id2</p>
 <li> 使用命令撤销提交 </li>
 
-<pre class="line-numbers language-none"><code class="language-none">git reset commit-id2				# 只是撤销提交，修改的内容不变<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<pre class="line-numbers language-none"><code class="language-none">git reset --hard commit-id2			# 撤销提交，并撤销修改的内容
-git push origin HARD --force		# 撤销后，强制提交并push到远程分支<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> reset commit-id2				<span class="token comment"># 只是撤销提交，修改的内容不变</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> reset --hard commit-id2			<span class="token comment"># 撤销提交，并撤销修改的内容</span>
+<span class="token function">git</span> push origin HARD --force		<span class="token comment"># 撤销后，强制提交并push到远程分支</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <li> 修改最新一次已提交但未 push 的 message </li>
 
-<pre class="line-numbers language-none"><code class="language-none">git commit --amend -m "your new message"<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> commit --amend -m <span class="token string">"your new message"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 </ol>
 
 <br>
@@ -1002,13 +1002,13 @@ git push origin HARD --force		# 撤销后，强制提交并push到远程分支<s
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">86k</span>
+    <span title="站点总字数">80k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">1:18</span>
+    <span title="站点阅读时长">1:13</span>
   </span>
 </div>
 <div class="busuanzi-count">

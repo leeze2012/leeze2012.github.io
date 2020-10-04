@@ -32,7 +32,7 @@
 <meta property="og:description" content="Git介绍  Git — The stupid content tracker, 傻瓜内容跟踪器。Linus Torvalds 是这样给我们介绍 Git 的。  Git 是用于 Linux内核开发的版本控制工具。与常用的版本控制工具 CVS, Subversion 等不同，它采用了分布式版本库的方式，不必服务器端软件支持（wingeddevil注：这得分是用什么样的服务端，使用http协议或者gi">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-09-15T18:04:14.000Z">
-<meta property="article:modified_time" content="2020-10-02T18:47:14.305Z">
+<meta property="article:modified_time" content="2020-10-04T13:13:28.466Z">
 <meta property="article:author" content="leeze">
 <meta property="article:tag" content="Linux">
 <meta property="article:tag" content="Git">
@@ -662,7 +662,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-10-03 02:47:14" itemprop="dateModified" datetime="2020-10-03T02:47:14+08:00">2020-10-03</time>
+        <time title="修改时间：2020-10-04 21:13:28" itemprop="dateModified" datetime="2020-10-04T21:13:28+08:00">2020-10-04</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -694,7 +694,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>1.6k</span>
+      <span>1.4k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -716,42 +716,42 @@
 <a id="more"></a>
 
 <h3 id="yun安装"><a href="#yun安装" class="headerlink" title="yun安装"></a>yun安装</h3><ol>
-<li>在Linux上是有yum安装Git，非常简单，只需要一行命令<pre class="line-numbers language-none"><code class="language-none">yum install curl-devel expat-devel gettext-devel openssl-devel zlib-devel perl-devel
-yum -y install git<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
-<li>输入 git –version查看Git是否安装完成以及查看其版本号<pre class="line-numbers language-none"><code class="language-none">git --version<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li>在Linux上是有yum安装Git，非常简单，只需要一行命令<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">yum <span class="token function">install</span> curl-devel expat-devel gettext-devel openssl-devel zlib-devel perl-devel
+yum -y <span class="token function">install</span> <span class="token function">git</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
+<li>输入 git –version查看Git是否安装完成以及查看其版本号<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> --version<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 <li>yum安装git被安装在<code>/usr/libexec/git-core</code>目录下</li>
 </ol>
 <h3 id="从github上下载最新的源码编译后安装"><a href="#从github上下载最新的源码编译后安装" class="headerlink" title="从github上下载最新的源码编译后安装"></a>从github上下载最新的源码编译后安装</h3><p>  yum安装简单，但版本太旧，你不好控制。如果想要使用最新版的git，那还是得自己下载源码安装。</p>
 <ol>
 <li><p>首先我们需要删除旧的Git</p>
-<pre class="line-numbers language-none"><code class="language-none">yum -y remove git<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">yum -y remove <span class="token function">git</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 <li><p>进入<code>git</code>在<code>GitHub</code>上发布版本页面<code>https://github.com/git/git/releases</code> ，这个页面我们可以找到所有git已发布的版本。这里我们选择最新版的<code>tar.gz</code>包。</p>
-<pre class="line-numbers language-none"><code class="language-none">https://github.com/git/git/releases<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<pre class="line-numbers language-html" data-language="html"><code class="language-html">https://github.com/git/git/releases<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 <li><p>下载最新版本的tar.gz的Git到本地电脑上，利用ftp工具将压缩包上传至Linux服务器的<code>/usr/local</code>目录下</p>
-<pre class="line-numbers language-none"><code class="language-none">wget https://github.com/git/git/archive/v2.28.0.tar.gz<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">wget</span> https://github.com/git/git/archive/v2.28.0.tar.gz<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 </li>
 <li><p>进入<code>/usr/local</code> 目录解压git文件</p>
-<pre class="line-numbers language-none"><code class="language-none">tar -zxvf git-2.28.0.tar.gz<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">tar</span> -zxvf git-2.28.0.tar.gz<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 <li><p>拿到解压后的源码以后我们需要编译源码了，不过在此之前需要安装编译所需要的依赖。</p>
-<pre class="line-numbers language-none"><code class="language-none">yum install curl-devel expat-devel gettext-devel openssl-devel zlib-devel gcc perl-ExtUtils-MakeMaker<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">yum <span class="token function">install</span> curl-devel expat-devel gettext-devel openssl-devel zlib-devel gcc perl-ExtUtils-MakeMaker<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>6、提示，安装编译源码所需依赖的时候，yum自动帮你安装了git，这时候你需要先卸载这个旧版的git。</p>
-<pre class="line-numbers language-none"><code class="language-none">yum -y remove git<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">yum -y remove <span class="token function">git</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 <li><p>编译git源码，进入cd <code>/usr/local/git-2.28.0.tar.gz</code> 目录</p>
-<pre class="line-numbers language-none"><code class="language-none">make prefix=/usr/local/git all<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<pre class="line-numbers language-cmake" data-language="cmake"><code class="language-cmake">make prefix=/usr/local/git all<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 <li><p>安装git至/usr/local/git路径</p>
-<pre class="line-numbers language-none"><code class="language-none">make prefix=/usr/local/git install<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<pre class="line-numbers language-cmake" data-language="cmake"><code class="language-cmake">make prefix=/usr/local/git install<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 <li><p>配置环境变量</p>
-<pre class="line-numbers language-none"><code class="language-none">vi /etc/profile 
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">vi</span> /etc/profile 
 
 在底部加上如下
 
-export PATH=$PATH:/usr/local/git/bin<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token builtin class-name">export</span> <span class="token assign-left variable"><span class="token environment constant">PATH</span></span><span class="token operator">=</span><span class="token environment constant">$PATH</span>:/usr/local/git/bin<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
 <li><p>刷新环境变量</p>
-<pre class="line-numbers language-none"><code class="language-none">source /etc/profile<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">source</span> /etc/profile<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 <li><p>查看Git是否安装完成</p>
-<pre class="line-numbers language-none"><code class="language-none">whereis git
-git --version<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">whereis</span> <span class="token function">git</span>
+<span class="token function">git</span> --version<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 </li>
 </ol>
@@ -901,13 +901,13 @@ git --version<span aria-hidden="true" class="line-numbers-rows"><span></span><sp
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">86k</span>
+    <span title="站点总字数">80k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">1:18</span>
+    <span title="站点阅读时长">1:13</span>
   </span>
 </div>
 <div class="busuanzi-count">

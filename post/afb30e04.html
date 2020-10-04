@@ -45,7 +45,7 @@
 <meta property="og:image" content="https://blog.xiaosige.com/post/afb30e04/jira-012.png">
 <meta property="og:image" content="https://blog.xiaosige.com/post/afb30e04/jira-013.png">
 <meta property="article:published_time" content="2020-08-25T08:15:42.000Z">
-<meta property="article:modified_time" content="2020-09-26T07:59:53.846Z">
+<meta property="article:modified_time" content="2020-10-04T10:27:54.005Z">
 <meta property="article:author" content="leeze">
 <meta property="article:tag" content="Jira">
 <meta name="twitter:card" content="summary">
@@ -675,7 +675,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-09-26 15:59:53" itemprop="dateModified" datetime="2020-09-26T15:59:53+08:00">2020-09-26</time>
+        <time title="修改时间：2020-10-04 18:27:54" itemprop="dateModified" datetime="2020-10-04T18:27:54+08:00">2020-10-04</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -707,14 +707,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>4.2k</span>
+      <span>3.7k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>4 分钟</span>
+      <span>3 分钟</span>
     </span>
 </div>
 
@@ -741,15 +741,15 @@
 </li>
 </ol>
 <h3 id="开始安装"><a href="#开始安装" class="headerlink" title="开始安装"></a>开始安装</h3><h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><p>   先把上面下载的软件包放到同一目录下，比如<code>/tmp</code>目录下，然后输入下面的命令进行安装</p>
-<pre class="line-numbers language-none"><code class="language-none">tar -zxvf atlassian-agent-v1.2.3.tar.gz<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">tar</span> -zxvf atlassian-agent-v1.2.3.tar.gz<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">./atlassian-jira-software-8.5.7-x64.bin <span class="token comment"># 下面执行的是默认的</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <img data-src="/post/afb30e04/jira-001.png" class="" title="JIRA安装图">
 
 <p>  安装路径：    <code>/opt/atlassian/jira</code><br>  数据存放路径：<code>/var/atlassian/application-data/jira</code><br>  HTTP Port:  <code>8080</code><br>  RMI Port:    <code>8005</code></p>
 <h4 id="复制包"><a href="#复制包" class="headerlink" title="复制包"></a>复制包</h4><p>   复制驱动包、破解包：</p>
-<pre class="line-numbers language-none"><code class="language-none">cp atlassian-agent-v1.2.3/atlassian-agent.jar /home/jira1/
-cp atlassian-agent-v1.2.3/atlassian-agent.jar /opt/atlassian/jira/atlassian-jira/WEB-INF/lib/
-cp mysql-connector-java-5.1.49.jar /opt/atlassian/jira/atlassian-jira/WEB-INF/lib/<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">cp</span> atlassian-agent-v1.2.3/atlassian-agent.jar /home/jira1/
+<span class="token function">cp</span> atlassian-agent-v1.2.3/atlassian-agent.jar /opt/atlassian/jira/atlassian-jira/WEB-INF/lib/
+<span class="token function">cp</span> mysql-connector-java-5.1.49.jar /opt/atlassian/jira/atlassian-jira/WEB-INF/lib/<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <h4 id="修改配置"><a href="#修改配置" class="headerlink" title="修改配置"></a>修改配置</h4><ol> 
 <li>破解：<font color="LightCoral" size="3">修改setenv.sh</font></li>
@@ -764,30 +764,30 @@ cp mysql-connector-java-5.1.49.jar /opt/atlassian/jira/atlassian-jira/WEB-INF/li
 <div style="height: 10px;"></div>
 <li>更改端口（默认8080）</li>
 <font color="LightCoral" size="3">lsof -i:8080</font>，<font color="LightCoral" size="3">ss -tanlp </font>, 如果被占用
-<pre class="line-numbers language-none"><code class="language-none">vi /opt/atlassian/jira/conf/server.xml<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">vi</span> /opt/atlassian/jira/conf/server.xml<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 将 <font color="LightCoral" size="3">Server port（8005）</font> and the <font color="LightCoral" size="3">Connector port （8080）</font> 改了。
 
 <div style="height: 10px;"></div>
 <li> 配置jira_home（默认不做更改）</li>
-<pre class="line-numbers language-none"><code class="language-none">vi /opt/atlassian/jira/atlassian-jira/WEB-INF/classes/jira-application.properties<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">vi</span> /opt/atlassian/jira/atlassian-jira/WEB-INF/classes/jira-application.properties<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <font color="red" size="2">（路径需根据实际情况配置，而且需要注意此路径配置不能和安装软件同一个目录，否则报错）</font>
 
 </ol>
 
-<h4 id="启动Jira"><a href="#启动Jira" class="headerlink" title="启动Jira"></a>启动Jira</h4><pre class="line-numbers language-none"><code class="language-none">/opt/atlassian/jira/bin/start-jira.sh<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<h4 id="查看日志"><a href="#查看日志" class="headerlink" title="查看日志"></a>查看日志</h4><pre class="line-numbers language-none"><code class="language-none">tail -f -n 500 /opt/atlassian/jira/logs/catalina.out<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h4 id="启动Jira"><a href="#启动Jira" class="headerlink" title="启动Jira"></a>启动Jira</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">/opt/atlassian/jira/bin/start-jira.sh<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h4 id="查看日志"><a href="#查看日志" class="headerlink" title="查看日志"></a>查看日志</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">tail</span> -f -n <span class="token number">500</span> /opt/atlassian/jira/logs/catalina.out<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <h4 id="页面配置"><a href="#页面配置" class="headerlink" title="页面配置"></a>页面配置</h4><p>   访问地址：<a target="_blank" rel="noopener" href="http://10.211.55.61:8080/">http://10.211.55.61:8080</a></p>
 <img data-src="/post/afb30e04/jira-002.png" class="" title="中文">
 <img data-src="/post/afb30e04/jira-003.png" class="" title="自定义">
 
 <p>   创建数据库，如果是选择Mysql，建议使用Mysql5.6或者Mysql5.7，这样不容易出错。另外在创建数据库时建议选择UTF8编码，目前不支持UTF8MB4。<a target="_blank" rel="noopener" href="https://confluence.atlassian.com/adminjiraserver085/connecting-jira-applications-to-mysql-5-7-981154582.html">参考</a></p>
-<pre class="line-numbers language-none"><code class="language-none">CREATE DATABASE jiradb CHARACTER SET utf8mb4 COLLATE utf8mb4_bin;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">CREATE</span> <span class="token keyword">DATABASE</span> jiradb <span class="token keyword">CHARACTER</span> <span class="token keyword">SET</span> utf8mb4 <span class="token keyword">COLLATE</span> utf8mb4_bin<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>   如果，想添加DB用户的话：</p>
-<pre class="line-numbers language-none"><code class="language-none">use jira;
-create user 'jira'@'%' identifiedby 'jira';
-grant all privileges on *.* to'jira'@'%';
-flush privileges;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">use</span> jira<span class="token punctuation">;</span>
+<span class="token keyword">create</span> <span class="token keyword">user</span> <span class="token string">'jira'</span><span class="token variable">@'%'</span> identifiedby <span class="token string">'jira'</span><span class="token punctuation">;</span>
+<span class="token keyword">grant</span> <span class="token keyword">all</span> <span class="token keyword">privileges</span> <span class="token keyword">on</span> <span class="token operator">*</span><span class="token punctuation">.</span><span class="token operator">*</span> <span class="token keyword">to</span><span class="token string">'jira'</span><span class="token variable">@'%'</span><span class="token punctuation">;</span>
+flush <span class="token keyword">privileges</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>   配置DB数据，并测试，如下图：</p>
 <img data-src="/post/afb30e04/jira-004.png" class="" title="DB配置">
@@ -799,7 +799,7 @@ flush privileges;<span aria-hidden="true" class="line-numbers-rows"><span></span
 </blockquote>
 <p>   查看<code>/var/atlassian/application-data/jira</code>，新生成<code>dbconfig.xml</code>，<code>原先没有的</code>。</p>
 <p>   解决：<a target="_blank" rel="noopener" href="https://community.atlassian.com/t5/Jira-Core-questions/JIRA-and-MySql-5-7-with-SSL/qaq-p/1251720">参考1</a> ， <a target="_blank" rel="noopener" href="https://community.atlassian.com/t5/Jira-questions/useSSL-false-with-Jira-ServiceDesk/qaq-p/1088212">参考2</a> </p>
-<pre class="line-numbers language-none"><code class="language-none">vi /var/atlassian/application-data/jira/dbconfig.xml<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">vi</span> /var/atlassian/application-data/jira/dbconfig.xml<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>   DB的URL末尾加上<code>&amp;amp;useSSL=false</code>，我们习惯加<code>&amp;</code>，但是这里却是<code>&amp;amp;</code>。</p>
 <img data-src="/post/afb30e04/jira-006.png" class="" title="SSL">
 
@@ -809,7 +809,7 @@ flush privileges;<span aria-hidden="true" class="line-numbers-rows"><span></span
 <img data-src="/post/afb30e04/jira-008.png" class="" title="KEY">
 
 <p>   根据Server ID 生成license Key：</p>
-<pre class="line-numbers language-none"><code class="language-none">/opt/atlassian/jira/jre/bin/java -jar /home/jira1/atlassian-agent.jar -p jira -m jira@jira.com -n jira -o https://jira.com -s BFZ0-PD41-I9AX-YXDP<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">/opt/atlassian/jira/jre/bin/java -jar /home/jira1/atlassian-agent.jar -p jira -m jira@jira.com -n jira -o https://jira.com -s BFZ0-PD41-I9AX-YXDP<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <br>
 <div class="note default no-icon"><p>-p jira(安装的是jira产品)，具体的可以根据-p进行参考<br>-m <a href="mailto:jira@jira.com">jira@jira.com</a>(随意写)<br>-n jira(随意写)<br>-o <a target="_blank" rel="noopener" href="https://jira.com/">https://jira.com</a> (随意写)<br>-s BFZ0-PD41-I9AX-YXDP (即jira显示的服务器ID)</p>
 </div>
@@ -825,7 +825,7 @@ flush privileges;<span aria-hidden="true" class="line-numbers-rows"><span></span
 
 <p>。。。。。。。。。</p>
 <h4 id="重配实例"><a href="#重配实例" class="headerlink" title="重配实例"></a>重配实例</h4><p>   如果页面配置失败或者想要重新配置实例，可以把原来的实例删除：</p>
-<pre class="line-numbers language-none"><code class="language-none">rm /var/atlassian/application-data/jira/* -rf<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">rm</span> /var/atlassian/application-data/jira/* -rf<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <div style="height: 10px;"></div>
    然后再重新进行Web页面配置。
 
@@ -842,24 +842,24 @@ flush privileges;<span aria-hidden="true" class="line-numbers-rows"><span></span
 
 
 <p><code>vi /opt/atlassian/jira/bin/setenv.sh</code></p>
-<pre class="line-numbers language-none"><code class="language-none">JVM_MINIMUM_MEMORY="768m"
-JVM_MAXIMUM_MEMORY="4096m"<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-properties" data-language="properties"><code class="language-properties"><span class="token attr-name">JVM_MINIMUM_MEMORY</span><span class="token punctuation">=</span><span class="token attr-value">"768m"</span>
+<span class="token attr-name">JVM_MAXIMUM_MEMORY</span><span class="token punctuation">=</span><span class="token attr-value">"4096m"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 </ol>
 
 <h3 id="PS"><a href="#PS" class="headerlink" title="PS"></a>PS</h3><div style="height: 10px;"></div>
 
-<pre class="line-numbers language-none"><code class="language-none">/var/atlassian/application-data/jira/dbconfig.xml    # DB设置
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">/var/atlassian/application-data/jira/dbconfig.xml    <span class="token comment"># DB设置</span>
 
-/opt/atlassian/jira/bin/start-jira.sh                # 启动
+/opt/atlassian/jira/bin/start-jira.sh                <span class="token comment"># 启动</span>
 
-tail -f -n 500 /opt/atlassian/jira/logs/catalina.out # 日志
+<span class="token function">tail</span> -f -n <span class="token number">500</span> /opt/atlassian/jira/logs/catalina.out <span class="token comment"># 日志</span>
 
-vi /opt/atlassian/jira/conf/server.xml               # 端口设置
+<span class="token function">vi</span> /opt/atlassian/jira/conf/server.xml               <span class="token comment"># 端口设置</span>
 
-/opt/atlassian/jira/                                 # 安装路径
+/opt/atlassian/jira/                                 <span class="token comment"># 安装路径</span>
 
-/var/atlassian/application-data/jira                 # 数据存放路径
+/var/atlassian/application-data/jira                 <span class="token comment"># 数据存放路径</span>
 
 /opt/atlassian/jira/atlassian-jira/WEB-INF/classes/database-defaults
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><script>
@@ -994,13 +994,13 @@ vi /opt/atlassian/jira/conf/server.xml               # 端口设置
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">86k</span>
+    <span title="站点总字数">80k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">1:18</span>
+    <span title="站点阅读时长">1:13</span>
   </span>
 </div>
 <div class="busuanzi-count">

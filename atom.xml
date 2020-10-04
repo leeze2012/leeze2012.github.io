@@ -6,7 +6,7 @@
   <link href="https://blog.xiaosige.com/atom.xml" rel="self"/>
   
   <link href="https://blog.xiaosige.com/"/>
-  <updated>2020-10-04T08:52:42.819Z</updated>
+  <updated>2020-10-04T09:59:39.544Z</updated>
   <id>https://blog.xiaosige.com/</id>
   
   <author>
@@ -17,36 +17,11 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>谢谢你来看我的博客</title>
-    <link href="https://blog.xiaosige.com/post/a8863134.html"/>
-    <id>https://blog.xiaosige.com/post/a8863134.html</id>
-    <published>2020-10-03T11:38:45.000Z</published>
-    <updated>2020-10-04T08:52:42.819Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;div style=&quot;width: 100%;text-align: center;vertical-align: center;&quot;&gt;
-
-
-&lt;div style=&quot;text-align:center;&quot;&gt;
-    &lt;div</summary>
-        
-      
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
     <title>Nginx负载均衡的几种常见策略</title>
     <link href="https://blog.xiaosige.com/post/e3076ab.html"/>
     <id>https://blog.xiaosige.com/post/e3076ab.html</id>
     <published>2020-09-16T21:06:34.000Z</published>
-    <updated>2020-09-27T12:11:17.711Z</updated>
+    <updated>2020-10-04T09:59:39.544Z</updated>
     
     
     <summary type="html">&lt;p&gt;  负载均衡也是Nginx常用的一个功能，负载均衡其意思就是分摊到多个操作单元上进行执行，例如Web服务器、FTP服务器、企业关键应用服务器和其它关键任务服务器等，从而共同完成工作任务。&lt;br&gt;  简单而言就是当有2台或以上服务器时，根据规则随机的将请求分发到指定的服务器上处理，负载均衡配置一般都需要同时配置反向代理，通过反向代理跳转到负载均衡。而Nginx目前支持自带3种负载均衡策略，还有2种常用的第三方策略。&lt;/p&gt;</summary>
@@ -65,7 +40,7 @@
     <link href="https://blog.xiaosige.com/post/a81ceb57.html"/>
     <id>https://blog.xiaosige.com/post/a81ceb57.html</id>
     <published>2020-09-16T20:31:24.000Z</published>
-    <updated>2020-09-27T11:16:27.948Z</updated>
+    <updated>2020-10-04T10:00:27.498Z</updated>
     
     
     <summary type="html">&lt;h3 id=&quot;配置文件语法&quot;&gt;&lt;a href=&quot;#配置文件语法&quot; class=&quot;headerlink&quot; title=&quot;配置文件语法&quot;&gt;&lt;/a&gt;配置文件语法&lt;/h3&gt;&lt;p&gt;  nginx是模块化的系统，整个系统是分成一个个模块的。每个模块负责不同的功能。如果不用某个模块的话，也可以去掉，可以让nginx更加轻量化。&lt;/p&gt;
@@ -85,7 +60,7 @@
     <link href="https://blog.xiaosige.com/post/69813a0e.html"/>
     <id>https://blog.xiaosige.com/post/69813a0e.html</id>
     <published>2020-09-15T20:26:11.000Z</published>
-    <updated>2020-09-27T12:04:52.435Z</updated>
+    <updated>2020-10-04T10:02:29.121Z</updated>
     
     
     <summary type="html">&lt;h3 id=&quot;介绍&quot;&gt;&lt;a href=&quot;#介绍&quot; class=&quot;headerlink&quot; title=&quot;介绍&quot;&gt;&lt;/a&gt;介绍&lt;/h3&gt;&lt;p&gt;  Nginx是一个高性能的Web和反向代理服务器,它具有有很多非常优越的特性:&lt;br&gt;  &lt;b&gt;作为Web服务器&lt;/b&gt;: 相比Apache，Nginx 使用更少的资源，支持更多 的并发连接，体现更高的效率，这点使Nginx尤其受到虚拟主机提供商的欢迎。能够支持高达50,000个并发连接数的响应，感谢Nginx为我们选择了epoll and kqueue作为开发模型.&lt;/p&gt;</summary>
@@ -104,7 +79,7 @@
     <link href="https://blog.xiaosige.com/post/4370af2f.html"/>
     <id>https://blog.xiaosige.com/post/4370af2f.html</id>
     <published>2020-09-15T18:04:14.000Z</published>
-    <updated>2020-10-02T18:47:14.305Z</updated>
+    <updated>2020-10-04T13:13:28.466Z</updated>
     
     
     <summary type="html">&lt;h3 id=&quot;Git介绍&quot;&gt;&lt;a href=&quot;#Git介绍&quot; class=&quot;headerlink&quot; title=&quot;Git介绍&quot;&gt;&lt;/a&gt;Git介绍&lt;/h3&gt;&lt;p&gt;  Git — The stupid content tracker, 傻瓜内容跟踪器。Linus Torvalds 是这样给我们介绍 Git 的。&lt;br&gt;  Git 是用于 Linux内核开发的版本控制工具。与常用的版本控制工具 CVS, Subversion 等不同，它采用了分布式版本库的方式，不必服务器端软件支持（wingeddevil注：这得分是用什么样的服务端，使用http协议或者git协议等不太一样。并且在push和pull的时候和服务器端还是有交互的。），使源代码的发布和交流极其方便。 Git 的速度很快，这对于诸如 Linux kernel 这样的大项目来说自然很重要。 Git 最为出色的是它的合并跟踪（merge tracing）能力。&lt;/p&gt;</summary>
@@ -127,7 +102,7 @@
     <link href="https://blog.xiaosige.com/post/16d9a840.html"/>
     <id>https://blog.xiaosige.com/post/16d9a840.html</id>
     <published>2020-08-28T12:18:29.000Z</published>
-    <updated>2020-09-26T07:40:49.005Z</updated>
+    <updated>2020-10-04T09:49:00.098Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;介绍&quot;&gt;&lt;a href=&quot;#介绍&quot; class=&quot;headerlink&quot; title=&quot;介绍&quot;&gt;&lt;/a&gt;介绍&lt;/h2&gt;&lt;h3 id=&quot;首先什么是SSH&quot;&gt;&lt;a href=&quot;#首先什么是SSH&quot; class=&quot;headerlink&quot; title=&quot;首先什么是SSH&quot;&gt;&lt;/a&gt;首先什么是SSH&lt;/h3&gt;  &lt;div class=&quot;note success no-icon&quot;&gt;&lt;p&gt;  Secure Shell (SSH) 是一个允许两台电脑之间通过安全的连接进行数据交换的网络协议。通过加密保证了数据的保密性和完整性。SSH采用公钥加密技术来验证远程主机，以及(必要时)允许远程主机验证用户。&lt;/p&gt;
@@ -149,7 +124,7 @@
     <link href="https://blog.xiaosige.com/post/c0a81ac4.html"/>
     <id>https://blog.xiaosige.com/post/c0a81ac4.html</id>
     <published>2020-08-24T10:51:19.000Z</published>
-    <updated>2020-08-26T10:26:01.612Z</updated>
+    <updated>2020-10-04T09:58:26.148Z</updated>
     
     
     <summary type="html">&lt;h3 id=&quot;了解nvm&quot;&gt;&lt;a href=&quot;#了解nvm&quot; class=&quot;headerlink&quot; title=&quot;了解nvm&quot;&gt;&lt;/a&gt;了解nvm&lt;/h3&gt;&lt;p&gt;  目前主流的node版本管理工具有两种，nvm和n。两者差异挺大的。&lt;/p&gt;
@@ -169,7 +144,7 @@
     <link href="https://blog.xiaosige.com/post/afccf6ff.html"/>
     <id>https://blog.xiaosige.com/post/afccf6ff.html</id>
     <published>2020-08-21T18:32:04.000Z</published>
-    <updated>2020-08-24T15:23:57.743Z</updated>
+    <updated>2020-10-04T09:46:44.508Z</updated>
     
     
     <summary type="html">&lt;p&gt;  SpringBoot项目引入外部jar包是非常方便的。&lt;/p&gt;
@@ -189,7 +164,7 @@
     <link href="https://blog.xiaosige.com/post/26f63a55.html"/>
     <id>https://blog.xiaosige.com/post/26f63a55.html</id>
     <published>2020-08-21T16:13:41.000Z</published>
-    <updated>2020-08-31T07:10:29.484Z</updated>
+    <updated>2020-10-04T13:30:06.815Z</updated>
     
     
     <summary type="html">&lt;h4 id=&quot;js实现高精度计算，金钱价格计算，避免数字计算精度丢失问题&quot;&gt;&lt;a href=&quot;#js实现高精度计算，金钱价格计算，避免数字计算精度丢失问题&quot; class=&quot;headerlink&quot; title=&quot;js实现高精度计算，金钱价格计算，避免数字计算精度丢失问题&quot;&gt;&lt;/a&gt;js实现高精度计算，金钱价格计算，避免数字计算精度丢失问题&lt;/h4&gt;&lt;p&gt;   下载地址：&lt;a href=&quot;/download/js-big-decimal.min.js&quot;&gt;js-big-decimal.min.js&lt;/a&gt;&lt;/p&gt;</summary>
@@ -208,11 +183,11 @@
     <link href="https://blog.xiaosige.com/post/91eed2.html"/>
     <id>https://blog.xiaosige.com/post/91eed2.html</id>
     <published>2020-08-01T17:13:58.000Z</published>
-    <updated>2020-09-26T19:19:17.955Z</updated>
+    <updated>2020-10-04T10:10:33.290Z</updated>
     
     
     <summary type="html">&lt;h4 id=&quot;启动&quot;&gt;&lt;a href=&quot;#启动&quot; class=&quot;headerlink&quot; title=&quot;启动&quot;&gt;&lt;/a&gt;启动&lt;/h4&gt;&lt;p&gt;  启动&lt;code&gt;mongodb&lt;/code&gt;首先要指定mongo的&lt;code&gt;数据&lt;/code&gt;目录和&lt;code&gt;日志&lt;/code&gt;文件路径，如:  &lt;code&gt;/data/mongodb/&lt;/code&gt;,&lt;code&gt;/var/log/mongodb/mongodb.log&lt;/code&gt;&lt;br&gt;  启动命令： &lt;/p&gt;
-&lt;pre class=&quot;line-numbers language-none&quot;&gt;&lt;code class=&quot;language-none&quot;&gt;/usr/local/mongdb/bin/mongod -port 27017 --dbpath /data/mongodb/ --logpath /var/mongodb/mongodb.log&lt;span aria-hidden=&quot;true&quot; class=&quot;line-numbers-rows&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;</summary>
+&lt;pre class=&quot;line-numbers language-bash&quot; data-language=&quot;bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;/usr/local/mongdb/bin/mongod -port &lt;span class=&quot;token number&quot;&gt;27017&lt;/span&gt; --dbpath /data/mongodb/ --logpath /var/mongodb/mongodb.log&lt;span aria-hidden=&quot;true&quot; class=&quot;line-numbers-rows&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;</summary>
     
     
     
@@ -228,7 +203,7 @@
     <link href="https://blog.xiaosige.com/post/a810e572.html"/>
     <id>https://blog.xiaosige.com/post/a810e572.html</id>
     <published>2020-07-21T18:39:33.000Z</published>
-    <updated>2020-08-24T15:30:59.100Z</updated>
+    <updated>2020-10-04T09:47:34.503Z</updated>
     
     
     <summary type="html">&lt;p&gt;  由于对接的项目比较老，要与其数据库进行交互，而且数据库类型不一致，所以我们的项目需要支持多数据源（接口平台），这个还是非常好配置的，SpringBoot给我们提供了多数据源配置的方案，并且每个数据源对应一个JdbcTemplate，这样就方便很多，具体配置如下：&lt;/p&gt;</summary>
@@ -247,7 +222,7 @@
     <link href="https://blog.xiaosige.com/post/f3f7b1c5.html"/>
     <id>https://blog.xiaosige.com/post/f3f7b1c5.html</id>
     <published>2020-07-17T16:23:22.000Z</published>
-    <updated>2020-08-24T14:06:55.092Z</updated>
+    <updated>2020-10-04T09:43:59.185Z</updated>
     
     
     <summary type="html">&lt;p&gt;在项目中，用到了模板引擎,每次修改一个 html，要重启才生效,配置不重启也实时生效,可以提供开发效率&lt;/p&gt;</summary>
@@ -266,7 +241,7 @@
     <link href="https://blog.xiaosige.com/post/4d8e6ca2.html"/>
     <id>https://blog.xiaosige.com/post/4d8e6ca2.html</id>
     <published>2020-06-17T16:14:39.000Z</published>
-    <updated>2020-08-01T19:16:29.513Z</updated>
+    <updated>2020-10-04T09:49:57.576Z</updated>
     
     
     <summary type="html">&lt;p&gt;由于&lt;code&gt;Spring Boot&lt;/code&gt; 默认的日志框架 &lt;code&gt;Logback&lt;/code&gt;,直接在resource下创建&lt;code&gt;logback-spring.xml&lt;/code&gt;&lt;br&gt;创建logback-spring.xml文件&lt;/p&gt;</summary>
@@ -285,7 +260,7 @@
     <link href="https://blog.xiaosige.com/post/454608c3.html"/>
     <id>https://blog.xiaosige.com/post/454608c3.html</id>
     <published>2020-05-17T15:55:48.000Z</published>
-    <updated>2020-09-26T09:18:59.524Z</updated>
+    <updated>2020-10-04T10:12:25.941Z</updated>
     
     
     <summary type="html">&lt;h3 id=&quot;记录一下，有两种方式：&quot;&gt;&lt;a href=&quot;#记录一下，有两种方式：&quot; class=&quot;headerlink&quot; title=&quot;记录一下，有两种方式：&quot;&gt;&lt;/a&gt;记录一下，有两种方式：&lt;/h3&gt;&lt;ol&gt;
@@ -306,7 +281,7 @@
     <link href="https://blog.xiaosige.com/post/170d9336.html"/>
     <id>https://blog.xiaosige.com/post/170d9336.html</id>
     <published>2020-04-24T19:53:54.000Z</published>
-    <updated>2020-09-26T07:40:04.647Z</updated>
+    <updated>2020-10-04T10:06:55.626Z</updated>
     
     
     <summary type="html">&lt;h3 id=&quot;现象&quot;&gt;&lt;a href=&quot;#现象&quot; class=&quot;headerlink&quot; title=&quot;现象&quot;&gt;&lt;/a&gt;现象&lt;/h3&gt;&lt;div class=&quot;note info no-icon&quot;&gt;&lt;p&gt;报错如下： “Authentication plugin ‘caching_sha2_password’ cannot be loaded”。&lt;/p&gt;
@@ -328,7 +303,7 @@
     <link href="https://blog.xiaosige.com/post/409d24a5.html"/>
     <id>https://blog.xiaosige.com/post/409d24a5.html</id>
     <published>2020-04-24T18:37:01.000Z</published>
-    <updated>2020-09-26T07:40:12.583Z</updated>
+    <updated>2020-10-04T10:04:01.386Z</updated>
     
     
     <summary type="html">&lt;blockquote&gt;
@@ -350,7 +325,7 @@
     <link href="https://blog.xiaosige.com/post/c1dab809.html"/>
     <id>https://blog.xiaosige.com/post/c1dab809.html</id>
     <published>2020-02-29T16:40:36.000Z</published>
-    <updated>2020-09-26T19:19:17.953Z</updated>
+    <updated>2020-10-04T10:11:16.860Z</updated>
     
     
     <summary type="html">&lt;div class=&quot;note success no-icon&quot;&gt;&lt;p&gt; 以前就很想给网站加上一个背景音乐播放器！并且这个播放器要简洁大气，Meting完美的阐释了这句话！&lt;/p&gt;
@@ -372,7 +347,7 @@
     <link href="https://blog.xiaosige.com/post/73879c7f.html"/>
     <id>https://blog.xiaosige.com/post/73879c7f.html</id>
     <published>2020-02-20T14:56:53.000Z</published>
-    <updated>2020-08-24T15:40:48.769Z</updated>
+    <updated>2020-10-04T13:23:16.380Z</updated>
     
     
     <summary type="html">&lt;h3 id=&quot;1-初始GitLab&quot;&gt;&lt;a href=&quot;#1-初始GitLab&quot; class=&quot;headerlink&quot; title=&quot;1.初始GitLab&quot;&gt;&lt;/a&gt;1.初始GitLab&lt;/h3&gt;&lt;p&gt;  GitLab是利用Ruby on Rails一个开源的版本管理系统，实现一个自托管的Git项目仓库，可通过Web界面进行访问公开的或者私人项目。&lt;br&gt;  与Github类似，GitLab能够浏览源代码，管理缺陷和注释。可以管理团队对仓库的访问，它非常易于浏览提交过的版本并提供一个文件历史库。团队成员可以利用内置的简单聊天程序(Wall)进行交流。&lt;br&gt;  它还提供一个代码片段收集功能可以轻松实现代码复用，便于日后有需要的时候进行查找。&lt;/p&gt;</summary>
@@ -393,7 +368,7 @@
     <link href="https://blog.xiaosige.com/post/c42ce648.html"/>
     <id>https://blog.xiaosige.com/post/c42ce648.html</id>
     <published>2020-02-16T20:06:22.000Z</published>
-    <updated>2020-08-24T15:42:58.599Z</updated>
+    <updated>2020-10-04T09:56:43.351Z</updated>
     
     
     <summary type="html">&lt;div class=&quot;note success no-icon&quot;&gt;&lt;p&gt;  Libevent 是一个用C语言编写的、轻量级的开源高性能I/O框架，支持多种 I/O 多路复用技术： epoll、 poll、 dev/poll、 select 和 kqueue 等；支持 I/O，定时器和信号等事件；注册事件优先级。PHP提供了对应的扩展 libevent、 Event 。&lt;/p&gt;
@@ -414,13 +389,13 @@
     <link href="https://blog.xiaosige.com/post/577cb4e8.html"/>
     <id>https://blog.xiaosige.com/post/577cb4e8.html</id>
     <published>2020-02-14T21:28:30.000Z</published>
-    <updated>2020-09-24T14:56:19.973Z</updated>
+    <updated>2020-10-04T10:08:58.389Z</updated>
     
     
     <summary type="html">&lt;h3 id=&quot;一、Linux下MySQL安装-YUM&quot;&gt;&lt;a href=&quot;#一、Linux下MySQL安装-YUM&quot; class=&quot;headerlink&quot; title=&quot;一、Linux下MySQL安装(YUM)&quot;&gt;&lt;/a&gt;一、Linux下MySQL安装(YUM)&lt;/h3&gt;&lt;h4 id=&quot;1、检查并删除已经安装的MySql&quot;&gt;&lt;a href=&quot;#1、检查并删除已经安装的MySql&quot; class=&quot;headerlink&quot; title=&quot;1、检查并删除已经安装的MySql&quot;&gt;&lt;/a&gt;1、检查并删除已经安装的MySql&lt;/h4&gt;&lt;ul&gt;
 &lt;li&gt;检查MariaDB&lt;/li&gt;
 &lt;/ul&gt;
-&lt;pre class=&quot;line-numbers language-none&quot;&gt;&lt;code class=&quot;language-none&quot;&gt;shell&amp;gt; rpm -qa|grep mariadb
+&lt;pre class=&quot;line-numbers language-bash&quot; data-language=&quot;bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;shell&lt;span class=&quot;token operator&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;rpm&lt;/span&gt; -qa&lt;span class=&quot;token operator&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;grep&lt;/span&gt; mariadb
 mariadb-server-5.5.60-1.el7_5.x86_64
 mariadb-5.5.60-1.el7_5.x86_64
 mariadb-libs-5.5.60-1.el7_5.x86_64&lt;span aria-hidden=&quot;true&quot; class=&quot;line-numbers-rows&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
@@ -435,6 +410,28 @@ mariadb-libs-5.5.60-1.el7_5.x86_64&lt;span aria-hidden=&quot;true&quot; class=&q
     <category term="Linux" scheme="https://blog.xiaosige.com/tags/Linux/"/>
     
     <category term="MySQL" scheme="https://blog.xiaosige.com/tags/MySQL/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>centos系统之部署ShowDoc</title>
+    <link href="https://blog.xiaosige.com/post/ef6fd2ef.html"/>
+    <id>https://blog.xiaosige.com/post/ef6fd2ef.html</id>
+    <published>2020-01-31T11:53:04.000Z</published>
+    <updated>2020-10-04T09:50:58.390Z</updated>
+    
+    
+    <summary type="html">&lt;h4 id=&quot;介绍&quot;&gt;&lt;a href=&quot;#介绍&quot; class=&quot;headerlink&quot; title=&quot;介绍&quot;&gt;&lt;/a&gt;介绍&lt;/h4&gt;&lt;div class=&quot;note info no-icon&quot;&gt;&lt;p&gt;  showdoc是一个php语言编写的API文档系统，专为程序员设计，界面布局简单功能强大，支持在线和私服部署。&lt;/p&gt;
+&lt;/div&gt;</summary>
+    
+    
+    
+    <category term="Linux" scheme="https://blog.xiaosige.com/categories/Linux/"/>
+    
+    <category term="API文档系统" scheme="https://blog.xiaosige.com/categories/Linux/API%E6%96%87%E6%A1%A3%E7%B3%BB%E7%BB%9F/"/>
+    
+    
+    <category term="ShowDoc" scheme="https://blog.xiaosige.com/tags/ShowDoc/"/>
     
   </entry>
   

@@ -15,35 +15,8 @@
     <atom:link href="https://blog.xiaosige.com/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>因上努力，果上随缘！</description>
-    <pubDate>Sun, 04 Oct 2020 08:52:42 GMT</pubDate>
+    <pubDate>Sun, 04 Oct 2020 09:59:39 GMT</pubDate>
     <generator>http://hexo.io/</generator>
-    
-    <item>
-      <title>谢谢你来看我的博客</title>
-      <link>https://blog.xiaosige.com/post/a8863134.html</link>
-      <guid>https://blog.xiaosige.com/post/a8863134.html</guid>
-      <pubDate>Sat, 03 Oct 2020 11:38:45 GMT</pubDate>
-      
-        
-        
-          
-          
-      <description>&lt;div style=&quot;width: 100%;text-align: center;vertical-align: center;&quot;&gt;
-
-
-&lt;div style=&quot;text-align:center;&quot;&gt;
-    &lt;div</description>
-          
-        
-      
-      
-      
-      
-      
-      
-      <comments>https://blog.xiaosige.com/post/a8863134.html#disqus_thread</comments>
-      
-    </item>
     
     <item>
       <title>Nginx负载均衡的几种常见策略</title>
@@ -230,7 +203,7 @@
       <pubDate>Sat, 01 Aug 2020 17:13:58 GMT</pubDate>
       
       <description>&lt;h4 id=&quot;启动&quot;&gt;&lt;a href=&quot;#启动&quot; class=&quot;headerlink&quot; title=&quot;启动&quot;&gt;&lt;/a&gt;启动&lt;/h4&gt;&lt;p&gt;  启动&lt;code&gt;mongodb&lt;/code&gt;首先要指定mongo的&lt;code&gt;数据&lt;/code&gt;目录和&lt;code&gt;日志&lt;/code&gt;文件路径，如:  &lt;code&gt;/data/mongodb/&lt;/code&gt;,&lt;code&gt;/var/log/mongodb/mongodb.log&lt;/code&gt;&lt;br&gt;  启动命令： &lt;/p&gt;
-&lt;pre class=&quot;line-numbers language-none&quot;&gt;&lt;code class=&quot;language-none&quot;&gt;/usr/local/mongdb/bin/mongod -port 27017 --dbpath /data/mongodb/ --logpath /var/mongodb/mongodb.log&lt;span aria-hidden=&quot;true&quot; class=&quot;line-numbers-rows&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;</description>
+&lt;pre class=&quot;line-numbers language-bash&quot; data-language=&quot;bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;/usr/local/mongdb/bin/mongod -port &lt;span class=&quot;token number&quot;&gt;27017&lt;/span&gt; --dbpath /data/mongodb/ --logpath /var/mongodb/mongodb.log&lt;span aria-hidden=&quot;true&quot; class=&quot;line-numbers-rows&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;</description>
       
       
       
@@ -458,7 +431,7 @@
       <description>&lt;h3 id=&quot;一、Linux下MySQL安装-YUM&quot;&gt;&lt;a href=&quot;#一、Linux下MySQL安装-YUM&quot; class=&quot;headerlink&quot; title=&quot;一、Linux下MySQL安装(YUM)&quot;&gt;&lt;/a&gt;一、Linux下MySQL安装(YUM)&lt;/h3&gt;&lt;h4 id=&quot;1、检查并删除已经安装的MySql&quot;&gt;&lt;a href=&quot;#1、检查并删除已经安装的MySql&quot; class=&quot;headerlink&quot; title=&quot;1、检查并删除已经安装的MySql&quot;&gt;&lt;/a&gt;1、检查并删除已经安装的MySql&lt;/h4&gt;&lt;ul&gt;
 &lt;li&gt;检查MariaDB&lt;/li&gt;
 &lt;/ul&gt;
-&lt;pre class=&quot;line-numbers language-none&quot;&gt;&lt;code class=&quot;language-none&quot;&gt;shell&amp;gt; rpm -qa|grep mariadb
+&lt;pre class=&quot;line-numbers language-bash&quot; data-language=&quot;bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;shell&lt;span class=&quot;token operator&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;rpm&lt;/span&gt; -qa&lt;span class=&quot;token operator&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;grep&lt;/span&gt; mariadb
 mariadb-server-5.5.60-1.el7_5.x86_64
 mariadb-5.5.60-1.el7_5.x86_64
 mariadb-libs-5.5.60-1.el7_5.x86_64&lt;span aria-hidden=&quot;true&quot; class=&quot;line-numbers-rows&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
@@ -477,6 +450,30 @@ mariadb-libs-5.5.60-1.el7_5.x86_64&lt;span aria-hidden=&quot;true&quot; class=&q
       
       
       <comments>https://blog.xiaosige.com/post/577cb4e8.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>centos系统之部署ShowDoc</title>
+      <link>https://blog.xiaosige.com/post/ef6fd2ef.html</link>
+      <guid>https://blog.xiaosige.com/post/ef6fd2ef.html</guid>
+      <pubDate>Fri, 31 Jan 2020 11:53:04 GMT</pubDate>
+      
+      <description>&lt;h4 id=&quot;介绍&quot;&gt;&lt;a href=&quot;#介绍&quot; class=&quot;headerlink&quot; title=&quot;介绍&quot;&gt;&lt;/a&gt;介绍&lt;/h4&gt;&lt;div class=&quot;note info no-icon&quot;&gt;&lt;p&gt;  showdoc是一个php语言编写的API文档系统，专为程序员设计，界面布局简单功能强大，支持在线和私服部署。&lt;/p&gt;
+&lt;/div&gt;</description>
+      
+      
+      
+      
+      <category domain="https://blog.xiaosige.com/categories/Linux/">Linux</category>
+      
+      <category domain="https://blog.xiaosige.com/categories/Linux/API%E6%96%87%E6%A1%A3%E7%B3%BB%E7%BB%9F/">API文档系统</category>
+      
+      
+      <category domain="https://blog.xiaosige.com/tags/ShowDoc/">ShowDoc</category>
+      
+      
+      <comments>https://blog.xiaosige.com/post/ef6fd2ef.html#disqus_thread</comments>
       
     </item>
     
