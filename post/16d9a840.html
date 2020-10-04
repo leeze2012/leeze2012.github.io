@@ -1945,8 +1945,6 @@ layui.use(['jquery', 'layer'], function(){
         return uuid.join('');
     }
 
-    //var bgimgurl = 'https://source.unsplash.com/collection/30327996/2000x1000';
-
     function animatechangbgimg(elm,opacityvalue,bgimgurl){
         $(elm).animate(
         　　{opacity:opacityvalue},
@@ -1966,7 +1964,9 @@ layui.use(['jquery', 'layer'], function(){
     function changbgimgurl(){
 
           if(checktime(13)){//每次打开新页面，都会触发一个新的调度器，固加入lastvisitedtime校验，确保循环时间
-                var initbgurl = null,newbgurl = "https://cdn.jsdelivr.net/gh/maplesugarr/blog-assets/imgs/body-bg/body-bg-" + Math.floor(23 * Math.random()) + ".jpg";
+                //var tc = "https://cdn.jsdelivr.net/gh/maplesugarr/blog-assets/imgs/body-bg/body-bg-" + Math.floor(23 * Math.random()) + ".jpg";
+                //var bgimgurl = 'https://source.unsplash.com/collection/30327996/2000x1000';
+                var initbgurl = null,newbgurl = "https://cdn.jsdelivr.net/gh/leeze2012/blog-assets/img/body-bg-" + Math.floor(26 * Math.random()) + ".jpg";;
 
                 if(localStorage.hasOwnProperty('pjax-imgurl-leeze')){
                   initbgurl = localStorage.getItem("pjax-imgurl-leeze");

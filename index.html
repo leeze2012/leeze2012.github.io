@@ -642,7 +642,28 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <script>
+          <div style="height:200px;width: 100%;">
+
+
+<div style="text-align:center;">
+    <div style="height:200px;width:40%;display:inline-block;">
+        <iframe src="//player.bilibili.com/player.html?aid=243056306&amp;bvid=BV16e411p7mc&amp;cid=189177558&amp;page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+    </div>
+    <div style="height:200px;width:40%;display:inline-block;">
+        <iframe src="//player.bilibili.com/player.html?aid=24266901&amp;bvid=BV1uW411N7xr&amp;cid=40695101&amp;page=1&amp;auto=true" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+    </div>
+</div>
+
+
+</div>
+
+<style>
+.post-body .video-container {
+padding-top:55%;
+}
+</style>
+
+<script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }
@@ -2230,8 +2251,6 @@ layui.use(['jquery', 'layer'], function(){
         return uuid.join('');
     }
 
-    //var bgimgurl = 'https://source.unsplash.com/collection/30327996/2000x1000';
-
     function animatechangbgimg(elm,opacityvalue,bgimgurl){
         $(elm).animate(
         　　{opacity:opacityvalue},
@@ -2251,7 +2270,9 @@ layui.use(['jquery', 'layer'], function(){
     function changbgimgurl(){
 
           if(checktime(13)){//每次打开新页面，都会触发一个新的调度器，固加入lastvisitedtime校验，确保循环时间
-                var initbgurl = null,newbgurl = "https://cdn.jsdelivr.net/gh/maplesugarr/blog-assets/imgs/body-bg/body-bg-" + Math.floor(23 * Math.random()) + ".jpg";
+                //var tc = "https://cdn.jsdelivr.net/gh/maplesugarr/blog-assets/imgs/body-bg/body-bg-" + Math.floor(23 * Math.random()) + ".jpg";
+                //var bgimgurl = 'https://source.unsplash.com/collection/30327996/2000x1000';
+                var initbgurl = null,newbgurl = "https://cdn.jsdelivr.net/gh/leeze2012/blog-assets/img/body-bg-" + Math.floor(26 * Math.random()) + ".jpg";;
 
                 if(localStorage.hasOwnProperty('pjax-imgurl-leeze')){
                   initbgurl = localStorage.getItem("pjax-imgurl-leeze");
