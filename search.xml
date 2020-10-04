@@ -3,14 +3,14 @@
   <entry>
     <title>谢谢你来看我的博客</title>
     <url>/post/a8863134.html</url>
-    <content><![CDATA[<div style="height:200px;width: 100%;">
+    <content><![CDATA[<div style="width: 100%;text-align: center;vertical-align: center;">
 
 
 <div style="text-align:center;">
-    <div style="height:200px;width:40%;display:inline-block;">
+    <div style="width:40%;display:inline-block;">
         <iframe src="//player.bilibili.com/player.html?aid=243056306&amp;bvid=BV16e411p7mc&amp;cid=189177558&amp;page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
     </div>
-    <div style="height:200px;width:40%;display:inline-block;">
+    <div style="width:40%;display:inline-block;">
         <iframe src="//player.bilibili.com/player.html?aid=24266901&amp;bvid=BV1uW411N7xr&amp;cid=40695101&amp;page=1&amp;auto=true" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
     </div>
 </div>
@@ -21,6 +21,7 @@
 <style>
 .post-body .video-container {
 padding-top:55%;
+margin-bottom: 0px;
 }
 </style>
 
