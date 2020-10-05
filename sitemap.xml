@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.xiaosige.com/404.html</loc>
+    
+    <lastmod>2020-10-05</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.xiaosige.com/post/a8863134.html</loc>
     
-    <lastmod>2020-10-04</lastmod>
+    <lastmod>2020-10-05</lastmod>
     
   </url>
   
@@ -268,13 +275,6 @@
   </url>
   
   <url>
-    <loc>https://blog.xiaosige.com/404.html</loc>
-    
-    <lastmod>2020-08-01</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://blog.xiaosige.com/categories/index.html</loc>
     
     <lastmod>2020-08-01</lastmod>
@@ -298,14 +298,14 @@
 
   
   <url>
-    <loc>https://blog.xiaosige.com/tags/BootStrap/</loc>
+    <loc>https://blog.xiaosige.com/tags/Decimal/</loc>
     <lastmod>2020-10-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://blog.xiaosige.com/tags/Decimal/</loc>
+    <loc>https://blog.xiaosige.com/tags/BootStrap/</loc>
     <lastmod>2020-10-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -433,14 +433,14 @@
 
   
   <url>
-    <loc>https://blog.xiaosige.com/categories/BootStrap/</loc>
+    <loc>https://blog.xiaosige.com/categories/JavaScript/</loc>
     <lastmod>2020-10-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://blog.xiaosige.com/categories/JavaScript/</loc>
+    <loc>https://blog.xiaosige.com/categories/BootStrap/</loc>
     <lastmod>2020-10-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -461,14 +461,14 @@
   </url>
   
   <url>
-    <loc>https://blog.xiaosige.com/categories/BootStrap/table/</loc>
+    <loc>https://blog.xiaosige.com/categories/Linux/</loc>
     <lastmod>2020-10-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://blog.xiaosige.com/categories/Linux/</loc>
+    <loc>https://blog.xiaosige.com/categories/BootStrap/table/</loc>
     <lastmod>2020-10-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>

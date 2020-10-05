@@ -3147,6 +3147,7 @@ mark.search-keyword {
     background-position: 0 50%;
   }
 }
+/* 网站背景 */
 /*
 html {
   background-image:
@@ -3187,6 +3188,7 @@ body {
     background-size: cover;
   }
 }
+/* 所有选中代码块的默认样式 */
 .line-numbers ::selection {
   background: #7ebeee;
   color: #f7f7f7;
@@ -3197,14 +3199,17 @@ div.code-toolbar > .toolbar button:hover {
   border: 3px solid #fc6423;
   background-color: #fff;
 }
+/* 设置wobble窗口摆动特效后，自定义设置去掉白色背景 */
 .wobbleTransparentBK {
   background: none !important;
 }
+/* 网站标题栏渐变背景 */
 .site-brand-container {
   background-image: linear-gradient(-225deg, #2cd8d5 0%, #c5c1ff 56%, #ffbac3 100%, #ddd6f3 0%);
   background-size: 400% 400%;
   animation: Gradient 30s ease infinite;
 }
+/* 网站标题栏背景图 */
 .site-brand-container {
   background: url("../images/header-bg.jpg");
   background-position: 70% 20%;
@@ -3224,11 +3229,52 @@ div.code-toolbar > .toolbar button:hover {
   margin: 10px 10px 0;
   font-size: 0.8125em;
 }
+/* 站点作者头像阴影 */
 .site-author {
   padding-top: 10px;
 }
 .site-author-image {
   box-shadow: 2px 2px 12px rgba(0,0,0,0.8);
+}
+/* 站点作者头像转动 */
+.site-author-image {
+  transition: transform 1s ease-out;
+  animation: rotate 5s linear infinite;
+}
+/*@keyframes rotate{from{transform: rotate(0deg)}
+to{transform: rotate(360deg)}
+}*/
+@-moz-keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@-o-keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 .footer {
   background: rgba(64,64,64,0.9) none repeat scroll !important;
@@ -3248,6 +3294,7 @@ div.code-toolbar > .toolbar button:hover {
   border-bottom: none;
   border-bottom: 1px solid #fc6423;
 }
+/* 菜单栏选中样式 */
 .menu-item-active {
   border-right-color: #009d92;
   background: #00c4b6 !important;
@@ -3256,27 +3303,34 @@ div.code-toolbar > .toolbar button:hover {
   -webkit-transform: scale(1.1) !important;
   transform: scale(1.1) !important;
 }
+/* post-评论外观 */
 .post-block,
 .comments {
   border-radius: 20px !important;
 }
+/* 评论tabs时样式--以防止post-block波动效果的影响 */
 .tabs-comment {
   margin-top: 32px !important;
 }
+/* 分页外观 */
 .pagination {
   border-radius: 20px !important;
   margin-bottom: 50px;
   margin-top: 50px !important;
 }
+/* 文章字体 */
 .post-body {
   font-size: 1em;
 }
+/* 文章标题栏距离下面位置 */
 .posts-expand .post-header {
   margin-bottom: 30px;
 }
+/* 文章标题动态效果 */
 .posts-expand .post-title-link::before {
   background-image: linear-gradient(90deg, #a166ab 0%, #ef4e7b 25%, #f37055 50%, #ef4e7b 75%, #a166ab 100%);
 }
+/* [Read More]按钮样式 */
 .post-button .btn {
   color: #555 !important;
   background-color: #fff;
@@ -3428,7 +3482,8 @@ div.code-toolbar > .toolbar button:hover {
 .post-body h4:before,
 .post-body h5:before,
 .post-body h6:before {
-  content: "\f1d8";
+/* 在最前面显示 小飞机 */
+  content: "\f1d8"; /* '🍦','🌸','⛄️','🔥','🌱' */
   font-family: 'Font Awesome 5 Free';
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
