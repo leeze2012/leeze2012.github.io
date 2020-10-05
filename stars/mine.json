@@ -1,0 +1,19 @@
+[{"nickname":"又拍云控制台","site":"https://console.upyun.com/dashboard/","content":"CDN管理，刷新CDN缓存"},{"nickname":"LeanCloud控制台","site":"https://leancloud.cn/dashboard/applist.html#/apps","content":"应用管理，数据控制"},{"nickname":"百度统计","site":"https://tongji.baidu.com/web/10000188477/overview","content":"查看网站的百度统计信息"},{"nickname":"开课吧","site":"https://appaadih2af2521.pc.xiaoe-tech.com/bought","content":"学习网站"},{"nickname":"网易云课堂","site":"https://study.163.com/my","content":"学习网站"},{"nickname":"NexT","site":"https://theme-next.org/docs/","content":"NexT主题官方文档"}]<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
