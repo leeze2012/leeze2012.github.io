@@ -1,0 +1,54 @@
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="../js/txtscroll.js"></script>
+        <style>
+            .txt-scroll{
+                /*background-color: rgba(0,0,0,0.5); */
+                background-image: url(/images/ico-notice.png);
+                background-position: 10px center;
+                background-repeat: no-repeat; font-weight: bold;
+            }
+            /*txt-scroll*/
+            .txt-scroll{
+                width: 100%;
+                height: 30px;
+                line-height: 30px;
+                padding: 0 5px 0 30px;
+            }
+            .txt-scroll .scrollbox{ width: 100%; white-space: nowrap; overflow:hidden; transition: all .2s; }
+            .txt-scroll .txt,
+            .txt-scroll .txt-clone{ display: inline; position: relative; }
+
+        </style>
+    </head>
+    <body>
+        <table style="width: 100%;">
+            <tr>
+                <td>
+                    <iframe style="width: 100%;" src="//player.bilibili.com/player.html?aid=243056306&bvid=BV16e411p7mc&cid=189177558&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+                </td>
+                <td>
+                    <iframe style="width: 100%;" src="//player.bilibili.com/player.html?aid=24266901&bvid=BV1uW411N7xr&cid=40695101&page=1&auto=true" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+                </td>
+            </tr>
+            <tr>
+                <div class="txt-scroll">
+                    <div class="scrollbox">
+                        <div class="txt">
+                            出行游玩，记得防疫，美食面前，勤俭节约，“光盘”行动落到实处。祝大家国庆一切平安快乐。出行游玩，记得防疫，美食面前，勤俭节约，“光盘”行动落到实处。祝大家国庆一切平安快乐。
+                        </div>
+                    </div>
+                </div>
+            </tr>
+        </table>
+        <script>
+            $(document).ready(function(){
+                $('.txt-scroll').txtscroll({
+                    'speed': 50
+                });
+            });
+        </script>
+    </body>
+</html>
