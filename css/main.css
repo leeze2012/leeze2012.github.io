@@ -2817,6 +2817,24 @@ mark.search-keyword {
   color: #ff2a2a;
   font-weight: bold;
 }
+.popular-posts-header {
+  border-bottom: 1px solid #eee;
+  font-size: 1.125em;
+  margin-bottom: 10px;
+  margin-top: 60px;
+}
+.popular-posts {
+  padding: 0;
+}
+.popular-posts .popular-posts-item {
+  margin-left: 2em;
+}
+.popular-posts .popular-posts-item .popular-posts-title {
+  font-size: 0.875em;
+  font-weight: normal;
+  line-height: 2.4;
+  margin: 0;
+}
 .use-motion .animated {
   animation-fill-mode: none;
   visibility: inherit;
@@ -3490,11 +3508,13 @@ to{transform: rotate(360deg)}
   color: #00c4b6;
   margin-right: 6px;
 }
+.popular-posts a,
 .post-body p a {
   color: #0593d3;
   border-bottom: none;
   border-bottom: 1px solid #0593d3;
 }
+.popular-posts a:hover,
 .post-body p a:hover {
   color: #fc6423;
   border-bottom: none;
@@ -3720,6 +3740,98 @@ code {
   position: relative;
   z-index: 2;
 }
+/*********新年皮肤******start*****/
+/*
+body {
+  background:url("https://s1.ax1x.com/2018/12/20/FrwSoR.jpg");//大红背景的元旦图片
+  background-repeat: no-repeat;//不重复
+  background-position: center;//居中
+  background-size: cover;//填充
+  background-attachment:fixed;//不随页面滚动
+  // background-position:0% 0%;
+}
+
+//改掉题头背景
+.site-meta {
+  background:url("https://s1.ax1x.com/2018/12/20/FrBwsU.jpg");//小猪奔跑时钟
+  background-repeat: no-repeat;//不重复
+  background-size: cover;//填充
+  // background: #8cc302;
+  // background: linear-gradient(0deg, #8cc302 0%, #fdf52d 12%, #c12424 100%);
+}
+//主标题颜色
+.brand{
+  color: #fbda41
+}
+//副标题颜色
+.site-subtitle{
+  color: #fbda41
+}
+.header-inner{
+  background: #bc0100;
+  background: linear-gradient(0deg, #bc0100 20%, #9b1d22 80%);
+}
+
+//侧边栏与文字的颜色
+.menu-item a{
+  color: #fbda41
+}
+.menu-item-active a{
+  color: #555555
+}
+
+//页脚文字
+.footer,.footer a,.footer .with-love{
+  color: #31ff00
+}
+
+
+//文章标题右侧增加图片
+article .post-header{
+  background:url(https://s1.ax1x.com/2018/12/20/FrDJmD.png);//猪 2019 透明
+  background-repeat: no-repeat;//不重复
+  background-position: right ; //居右
+  background-size: contain;//合适大小
+  // color:#ff0000;
+}
+//文章版权处右侧增加图片
+article .post-copyright{
+  background:url(https://s1.ax1x.com/2018/12/20/FrD60g.png);//瑾贺新年 透明
+  background-repeat: no-repeat;//不重复
+  background-position: right bottom ; //居右下
+  background-size: contain;//auto按图片比例缩放
+}
+//左边栏概览
+.sidebar-inner {
+  //background:url(https://s1.ax1x.com/2018/12/20/FrBGIs.jpg);//元旦 大红背景
+  background:url(https://s1.ax1x.com/2018/12/20/FrD1l6.jpg);//元旦 大红背景 模糊
+
+  background-repeat: no-repeat;//不重复
+  background-position: center ; //居右下
+  background-size: cover;//auto按图片比例缩放
+
+  color: #fbda41;
+}
+.sidebar-inner .site-overview-wrap .site-overview,.sidebar-inner .site-overview-wrap .site-overview .site-author-name,.sidebar a,.sidebar span.exturl,.site-state-item-name,.site-description{
+  color: #fbda41;
+}
+//文章内页左边栏
+.sidebar-nav .sidebar-nav-active{
+  color: #fcc307;
+  border-bottom-color: #fcc307;
+}
+.sidebar-nav li{
+  color: #fbda41;
+  border-bottom-color: #fbda41;
+}
+.links-of-blogroll-list{
+  text-shadow: red 0 1px 0;//给links部分添加文字阴影
+}
+.post-toc ol a{
+  color: #fbda41;
+}
+*/
+/*********新年皮肤******end*****/
 @-moz-keyframes Gradient {
   0% {
     background-position: 0 50%;
