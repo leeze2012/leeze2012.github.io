@@ -15,8 +15,31 @@
     <atom:link href="https://www.xiaosige.com/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>因上努力，果上随缘！</description>
-    <pubDate>Sun, 04 Oct 2020 09:59:39 GMT</pubDate>
+    <pubDate>Sat, 10 Oct 2020 06:52:21 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>谢谢你来看我的博客</title>
+      <link>https://www.xiaosige.com/post/a8863134.html</link>
+      <guid>https://www.xiaosige.com/post/a8863134.html</guid>
+      <pubDate>Sat, 10 Oct 2020 01:12:16 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;iframe width=&quot;100%&quot; height=&quot;190px&quot; id=&quot;iframeid&quot; scrolling=&quot;no&quot; frameborder=&quot;0&quot;</description>
+          
+        
+      
+      
+      
+      
+      
+      
+      <comments>https://www.xiaosige.com/post/a8863134.html#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>Nginx负载均衡的几种常见策略</title>
@@ -450,30 +473,6 @@ mariadb-libs-5.5.60-1.el7_5.x86_64&lt;span aria-hidden=&quot;true&quot; class=&q
       
       
       <comments>https://www.xiaosige.com/post/577cb4e8.html#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>centos系统之部署ShowDoc</title>
-      <link>https://www.xiaosige.com/post/ef6fd2ef.html</link>
-      <guid>https://www.xiaosige.com/post/ef6fd2ef.html</guid>
-      <pubDate>Fri, 31 Jan 2020 11:53:04 GMT</pubDate>
-      
-      <description>&lt;h4 id=&quot;介绍&quot;&gt;&lt;a href=&quot;#介绍&quot; class=&quot;headerlink&quot; title=&quot;介绍&quot;&gt;&lt;/a&gt;介绍&lt;/h4&gt;&lt;div class=&quot;note info no-icon&quot;&gt;&lt;p&gt;  showdoc是一个php语言编写的API文档系统，专为程序员设计，界面布局简单功能强大，支持在线和私服部署。&lt;/p&gt;
-&lt;/div&gt;</description>
-      
-      
-      
-      
-      <category domain="https://www.xiaosige.com/categories/Linux/">Linux</category>
-      
-      <category domain="https://www.xiaosige.com/categories/Linux/API%E6%96%87%E6%A1%A3%E7%B3%BB%E7%BB%9F/">API文档系统</category>
-      
-      
-      <category domain="https://www.xiaosige.com/tags/ShowDoc/">ShowDoc</category>
-      
-      
-      <comments>https://www.xiaosige.com/post/ef6fd2ef.html#disqus_thread</comments>
       
     </item>
     
