@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>小四儿</title>
-  <icon>https://blog.xiaosige.com/icon.png</icon>
+  <icon>https://www.xiaosige.com/icon.png</icon>
   <subtitle>心之所愿，无所不至！</subtitle>
-  <link href="https://blog.xiaosige.com/atom.xml" rel="self"/>
+  <link href="https://www.xiaosige.com/atom.xml" rel="self"/>
   
-  <link href="https://blog.xiaosige.com/"/>
+  <link href="https://www.xiaosige.com/"/>
   <updated>2020-10-04T09:59:39.544Z</updated>
-  <id>https://blog.xiaosige.com/</id>
+  <id>https://www.xiaosige.com/</id>
   
   <author>
     <name>leeze</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>Nginx负载均衡的几种常见策略</title>
-    <link href="https://blog.xiaosige.com/post/e3076ab.html"/>
-    <id>https://blog.xiaosige.com/post/e3076ab.html</id>
+    <link href="https://www.xiaosige.com/post/e3076ab.html"/>
+    <id>https://www.xiaosige.com/post/e3076ab.html</id>
     <published>2020-09-16T21:06:34.000Z</published>
     <updated>2020-10-04T09:59:39.544Z</updated>
     
@@ -28,17 +28,17 @@
     
     
     
-    <category term="Nginx" scheme="https://blog.xiaosige.com/categories/Nginx/"/>
+    <category term="Nginx" scheme="https://www.xiaosige.com/categories/Nginx/"/>
     
     
-    <category term="Nginx" scheme="https://blog.xiaosige.com/tags/Nginx/"/>
+    <category term="Nginx" scheme="https://www.xiaosige.com/tags/Nginx/"/>
     
   </entry>
   
   <entry>
     <title>Nginx的基本配置--示例</title>
-    <link href="https://blog.xiaosige.com/post/a81ceb57.html"/>
-    <id>https://blog.xiaosige.com/post/a81ceb57.html</id>
+    <link href="https://www.xiaosige.com/post/a81ceb57.html"/>
+    <id>https://www.xiaosige.com/post/a81ceb57.html</id>
     <published>2020-09-16T20:31:24.000Z</published>
     <updated>2020-10-04T10:00:27.498Z</updated>
     
@@ -48,17 +48,17 @@
     
     
     
-    <category term="Nginx" scheme="https://blog.xiaosige.com/categories/Nginx/"/>
+    <category term="Nginx" scheme="https://www.xiaosige.com/categories/Nginx/"/>
     
     
-    <category term="Nginx" scheme="https://blog.xiaosige.com/tags/Nginx/"/>
+    <category term="Nginx" scheme="https://www.xiaosige.com/tags/Nginx/"/>
     
   </entry>
   
   <entry>
     <title>Linux安装Nginx--两种方式</title>
-    <link href="https://blog.xiaosige.com/post/69813a0e.html"/>
-    <id>https://blog.xiaosige.com/post/69813a0e.html</id>
+    <link href="https://www.xiaosige.com/post/69813a0e.html"/>
+    <id>https://www.xiaosige.com/post/69813a0e.html</id>
     <published>2020-09-15T20:26:11.000Z</published>
     <updated>2020-10-04T10:02:29.121Z</updated>
     
@@ -67,17 +67,17 @@
     
     
     
-    <category term="Nginx" scheme="https://blog.xiaosige.com/categories/Nginx/"/>
+    <category term="Nginx" scheme="https://www.xiaosige.com/categories/Nginx/"/>
     
     
-    <category term="Nginx" scheme="https://blog.xiaosige.com/tags/Nginx/"/>
+    <category term="Nginx" scheme="https://www.xiaosige.com/tags/Nginx/"/>
     
   </entry>
   
   <entry>
     <title>Linux安装Git-两种方式详细教程</title>
-    <link href="https://blog.xiaosige.com/post/4370af2f.html"/>
-    <id>https://blog.xiaosige.com/post/4370af2f.html</id>
+    <link href="https://www.xiaosige.com/post/4370af2f.html"/>
+    <id>https://www.xiaosige.com/post/4370af2f.html</id>
     <published>2020-09-15T18:04:14.000Z</published>
     <updated>2020-10-04T13:13:28.466Z</updated>
     
@@ -86,21 +86,21 @@
     
     
     
-    <category term="Linux" scheme="https://blog.xiaosige.com/categories/Linux/"/>
+    <category term="Linux" scheme="https://www.xiaosige.com/categories/Linux/"/>
     
-    <category term="Git" scheme="https://blog.xiaosige.com/categories/Linux/Git/"/>
+    <category term="Git" scheme="https://www.xiaosige.com/categories/Linux/Git/"/>
     
     
-    <category term="Linux" scheme="https://blog.xiaosige.com/tags/Linux/"/>
+    <category term="Linux" scheme="https://www.xiaosige.com/tags/Linux/"/>
     
-    <category term="Git" scheme="https://blog.xiaosige.com/tags/Git/"/>
+    <category term="Git" scheme="https://www.xiaosige.com/tags/Git/"/>
     
   </entry>
   
   <entry>
     <title>ssh-key生成密钥及SSH无密码登录</title>
-    <link href="https://blog.xiaosige.com/post/16d9a840.html"/>
-    <id>https://blog.xiaosige.com/post/16d9a840.html</id>
+    <link href="https://www.xiaosige.com/post/16d9a840.html"/>
+    <id>https://www.xiaosige.com/post/16d9a840.html</id>
     <published>2020-08-28T12:18:29.000Z</published>
     <updated>2020-10-04T09:49:00.098Z</updated>
     
@@ -110,19 +110,19 @@
     
     
     
-    <category term="Linux" scheme="https://blog.xiaosige.com/categories/Linux/"/>
+    <category term="Linux" scheme="https://www.xiaosige.com/categories/Linux/"/>
     
     
-    <category term="Git" scheme="https://blog.xiaosige.com/tags/Git/"/>
+    <category term="Git" scheme="https://www.xiaosige.com/tags/Git/"/>
     
-    <category term="ssh" scheme="https://blog.xiaosige.com/tags/ssh/"/>
+    <category term="ssh" scheme="https://www.xiaosige.com/tags/ssh/"/>
     
   </entry>
   
   <entry>
     <title>Mac正确的安装和使用nvm</title>
-    <link href="https://blog.xiaosige.com/post/c0a81ac4.html"/>
-    <id>https://blog.xiaosige.com/post/c0a81ac4.html</id>
+    <link href="https://www.xiaosige.com/post/c0a81ac4.html"/>
+    <id>https://www.xiaosige.com/post/c0a81ac4.html</id>
     <published>2020-08-24T10:51:19.000Z</published>
     <updated>2020-10-04T09:58:26.148Z</updated>
     
@@ -132,17 +132,17 @@
     
     
     
-    <category term="Mac" scheme="https://blog.xiaosige.com/categories/Mac/"/>
+    <category term="Mac" scheme="https://www.xiaosige.com/categories/Mac/"/>
     
     
-    <category term="Nvm" scheme="https://blog.xiaosige.com/tags/Nvm/"/>
+    <category term="Nvm" scheme="https://www.xiaosige.com/tags/Nvm/"/>
     
   </entry>
   
   <entry>
     <title>SpringBoot项目添加外部Jar包</title>
-    <link href="https://blog.xiaosige.com/post/afccf6ff.html"/>
-    <id>https://blog.xiaosige.com/post/afccf6ff.html</id>
+    <link href="https://www.xiaosige.com/post/afccf6ff.html"/>
+    <id>https://www.xiaosige.com/post/afccf6ff.html</id>
     <published>2020-08-21T18:32:04.000Z</published>
     <updated>2020-10-04T09:46:44.508Z</updated>
     
@@ -152,17 +152,17 @@
     
     
     
-    <category term="SpringBoot" scheme="https://blog.xiaosige.com/categories/SpringBoot/"/>
+    <category term="SpringBoot" scheme="https://www.xiaosige.com/categories/SpringBoot/"/>
     
     
-    <category term="SpringBoot" scheme="https://blog.xiaosige.com/tags/SpringBoot/"/>
+    <category term="SpringBoot" scheme="https://www.xiaosige.com/tags/SpringBoot/"/>
     
   </entry>
   
   <entry>
     <title>js实现高精度计算</title>
-    <link href="https://blog.xiaosige.com/post/26f63a55.html"/>
-    <id>https://blog.xiaosige.com/post/26f63a55.html</id>
+    <link href="https://www.xiaosige.com/post/26f63a55.html"/>
+    <id>https://www.xiaosige.com/post/26f63a55.html</id>
     <published>2020-08-21T16:13:41.000Z</published>
     <updated>2020-10-04T13:30:06.815Z</updated>
     
@@ -171,17 +171,17 @@
     
     
     
-    <category term="JavaScript" scheme="https://blog.xiaosige.com/categories/JavaScript/"/>
+    <category term="JavaScript" scheme="https://www.xiaosige.com/categories/JavaScript/"/>
     
     
-    <category term="Decimal" scheme="https://blog.xiaosige.com/tags/Decimal/"/>
+    <category term="Decimal" scheme="https://www.xiaosige.com/tags/Decimal/"/>
     
   </entry>
   
   <entry>
     <title>linux下mongo启动关闭重启方法</title>
-    <link href="https://blog.xiaosige.com/post/91eed2.html"/>
-    <id>https://blog.xiaosige.com/post/91eed2.html</id>
+    <link href="https://www.xiaosige.com/post/91eed2.html"/>
+    <id>https://www.xiaosige.com/post/91eed2.html</id>
     <published>2020-08-01T17:13:58.000Z</published>
     <updated>2020-10-04T10:10:33.290Z</updated>
     
@@ -191,17 +191,17 @@
     
     
     
-    <category term="Linux" scheme="https://blog.xiaosige.com/categories/Linux/"/>
+    <category term="Linux" scheme="https://www.xiaosige.com/categories/Linux/"/>
     
     
-    <category term="Mongo" scheme="https://blog.xiaosige.com/tags/Mongo/"/>
+    <category term="Mongo" scheme="https://www.xiaosige.com/tags/Mongo/"/>
     
   </entry>
   
   <entry>
     <title>SpringBoot项目配置多数据源</title>
-    <link href="https://blog.xiaosige.com/post/a810e572.html"/>
-    <id>https://blog.xiaosige.com/post/a810e572.html</id>
+    <link href="https://www.xiaosige.com/post/a810e572.html"/>
+    <id>https://www.xiaosige.com/post/a810e572.html</id>
     <published>2020-07-21T18:39:33.000Z</published>
     <updated>2020-10-04T09:47:34.503Z</updated>
     
@@ -210,17 +210,17 @@
     
     
     
-    <category term="SpringBoot" scheme="https://blog.xiaosige.com/categories/SpringBoot/"/>
+    <category term="SpringBoot" scheme="https://www.xiaosige.com/categories/SpringBoot/"/>
     
     
-    <category term="SpringBoot" scheme="https://blog.xiaosige.com/tags/SpringBoot/"/>
+    <category term="SpringBoot" scheme="https://www.xiaosige.com/tags/SpringBoot/"/>
     
   </entry>
   
   <entry>
     <title>Spring Boot配置静态资源不重启即时生效</title>
-    <link href="https://blog.xiaosige.com/post/f3f7b1c5.html"/>
-    <id>https://blog.xiaosige.com/post/f3f7b1c5.html</id>
+    <link href="https://www.xiaosige.com/post/f3f7b1c5.html"/>
+    <id>https://www.xiaosige.com/post/f3f7b1c5.html</id>
     <published>2020-07-17T16:23:22.000Z</published>
     <updated>2020-10-04T09:43:59.185Z</updated>
     
@@ -229,17 +229,17 @@
     
     
     
-    <category term="SpringBoot" scheme="https://blog.xiaosige.com/categories/SpringBoot/"/>
+    <category term="SpringBoot" scheme="https://www.xiaosige.com/categories/SpringBoot/"/>
     
     
-    <category term="SpringBoot" scheme="https://blog.xiaosige.com/tags/SpringBoot/"/>
+    <category term="SpringBoot" scheme="https://www.xiaosige.com/tags/SpringBoot/"/>
     
   </entry>
   
   <entry>
     <title>Spring Boot配置logback.xml日志信息</title>
-    <link href="https://blog.xiaosige.com/post/4d8e6ca2.html"/>
-    <id>https://blog.xiaosige.com/post/4d8e6ca2.html</id>
+    <link href="https://www.xiaosige.com/post/4d8e6ca2.html"/>
+    <id>https://www.xiaosige.com/post/4d8e6ca2.html</id>
     <published>2020-06-17T16:14:39.000Z</published>
     <updated>2020-10-04T09:49:57.576Z</updated>
     
@@ -248,17 +248,17 @@
     
     
     
-    <category term="SpringBoot" scheme="https://blog.xiaosige.com/categories/SpringBoot/"/>
+    <category term="SpringBoot" scheme="https://www.xiaosige.com/categories/SpringBoot/"/>
     
     
-    <category term="SpringBoot" scheme="https://blog.xiaosige.com/tags/SpringBoot/"/>
+    <category term="SpringBoot" scheme="https://www.xiaosige.com/tags/SpringBoot/"/>
     
   </entry>
   
   <entry>
     <title>Maven打包跳过test测试类</title>
-    <link href="https://blog.xiaosige.com/post/454608c3.html"/>
-    <id>https://blog.xiaosige.com/post/454608c3.html</id>
+    <link href="https://www.xiaosige.com/post/454608c3.html"/>
+    <id>https://www.xiaosige.com/post/454608c3.html</id>
     <published>2020-05-17T15:55:48.000Z</published>
     <updated>2020-10-04T10:12:25.941Z</updated>
     
@@ -269,17 +269,17 @@
     
     
     
-    <category term="Maven" scheme="https://blog.xiaosige.com/categories/Maven/"/>
+    <category term="Maven" scheme="https://www.xiaosige.com/categories/Maven/"/>
     
     
-    <category term="Maven" scheme="https://blog.xiaosige.com/tags/Maven/"/>
+    <category term="Maven" scheme="https://www.xiaosige.com/tags/Maven/"/>
     
   </entry>
   
   <entry>
     <title>连接 MySQL 8.0 时，加密方式不兼容的解决方法</title>
-    <link href="https://blog.xiaosige.com/post/170d9336.html"/>
-    <id>https://blog.xiaosige.com/post/170d9336.html</id>
+    <link href="https://www.xiaosige.com/post/170d9336.html"/>
+    <id>https://www.xiaosige.com/post/170d9336.html</id>
     <published>2020-04-24T19:53:54.000Z</published>
     <updated>2020-10-04T10:06:55.626Z</updated>
     
@@ -291,17 +291,17 @@
     
     
     
-    <category term="MySQL" scheme="https://blog.xiaosige.com/categories/MySQL/"/>
+    <category term="MySQL" scheme="https://www.xiaosige.com/categories/MySQL/"/>
     
     
-    <category term="MySQL" scheme="https://blog.xiaosige.com/tags/MySQL/"/>
+    <category term="MySQL" scheme="https://www.xiaosige.com/tags/MySQL/"/>
     
   </entry>
   
   <entry>
     <title>为MySQL数据库分配指定用户</title>
-    <link href="https://blog.xiaosige.com/post/409d24a5.html"/>
-    <id>https://blog.xiaosige.com/post/409d24a5.html</id>
+    <link href="https://www.xiaosige.com/post/409d24a5.html"/>
+    <id>https://www.xiaosige.com/post/409d24a5.html</id>
     <published>2020-04-24T18:37:01.000Z</published>
     <updated>2020-10-04T10:04:01.386Z</updated>
     
@@ -313,17 +313,17 @@
     
     
     
-    <category term="MySQL" scheme="https://blog.xiaosige.com/categories/MySQL/"/>
+    <category term="MySQL" scheme="https://www.xiaosige.com/categories/MySQL/"/>
     
     
-    <category term="MySQL" scheme="https://blog.xiaosige.com/tags/MySQL/"/>
+    <category term="MySQL" scheme="https://www.xiaosige.com/tags/MySQL/"/>
     
   </entry>
   
   <entry>
     <title>Meting漂亮的背景音乐播放器</title>
-    <link href="https://blog.xiaosige.com/post/c1dab809.html"/>
-    <id>https://blog.xiaosige.com/post/c1dab809.html</id>
+    <link href="https://www.xiaosige.com/post/c1dab809.html"/>
+    <id>https://www.xiaosige.com/post/c1dab809.html</id>
     <published>2020-02-29T16:40:36.000Z</published>
     <updated>2020-10-04T10:11:16.860Z</updated>
     
@@ -335,17 +335,17 @@
     
     
     
-    <category term="JavaScript" scheme="https://blog.xiaosige.com/categories/JavaScript/"/>
+    <category term="JavaScript" scheme="https://www.xiaosige.com/categories/JavaScript/"/>
     
     
-    <category term="Meting" scheme="https://blog.xiaosige.com/tags/Meting/"/>
+    <category term="Meting" scheme="https://www.xiaosige.com/tags/Meting/"/>
     
   </entry>
   
   <entry>
     <title>linux搭建GitLab</title>
-    <link href="https://blog.xiaosige.com/post/73879c7f.html"/>
-    <id>https://blog.xiaosige.com/post/73879c7f.html</id>
+    <link href="https://www.xiaosige.com/post/73879c7f.html"/>
+    <id>https://www.xiaosige.com/post/73879c7f.html</id>
     <published>2020-02-20T14:56:53.000Z</published>
     <updated>2020-10-04T13:23:16.380Z</updated>
     
@@ -354,19 +354,19 @@
     
     
     
-    <category term="Linux" scheme="https://blog.xiaosige.com/categories/Linux/"/>
+    <category term="Linux" scheme="https://www.xiaosige.com/categories/Linux/"/>
     
     
-    <category term="Linux" scheme="https://blog.xiaosige.com/tags/Linux/"/>
+    <category term="Linux" scheme="https://www.xiaosige.com/tags/Linux/"/>
     
-    <category term="GitLab" scheme="https://blog.xiaosige.com/tags/GitLab/"/>
+    <category term="GitLab" scheme="https://www.xiaosige.com/tags/GitLab/"/>
     
   </entry>
   
   <entry>
     <title>PHP7 安装 event 扩展</title>
-    <link href="https://blog.xiaosige.com/post/c42ce648.html"/>
-    <id>https://blog.xiaosige.com/post/c42ce648.html</id>
+    <link href="https://www.xiaosige.com/post/c42ce648.html"/>
+    <id>https://www.xiaosige.com/post/c42ce648.html</id>
     <published>2020-02-16T20:06:22.000Z</published>
     <updated>2020-10-04T09:56:43.351Z</updated>
     
@@ -377,17 +377,17 @@
     
     
     
-    <category term="Linux" scheme="https://blog.xiaosige.com/categories/Linux/"/>
+    <category term="Linux" scheme="https://www.xiaosige.com/categories/Linux/"/>
     
     
-    <category term="PHP" scheme="https://blog.xiaosige.com/tags/PHP/"/>
+    <category term="PHP" scheme="https://www.xiaosige.com/tags/PHP/"/>
     
   </entry>
   
   <entry>
     <title>CentOS 6 安装 MySQL 8.0.+</title>
-    <link href="https://blog.xiaosige.com/post/577cb4e8.html"/>
-    <id>https://blog.xiaosige.com/post/577cb4e8.html</id>
+    <link href="https://www.xiaosige.com/post/577cb4e8.html"/>
+    <id>https://www.xiaosige.com/post/577cb4e8.html</id>
     <published>2020-02-14T21:28:30.000Z</published>
     <updated>2020-10-04T10:08:58.389Z</updated>
     
@@ -404,19 +404,19 @@ mariadb-libs-5.5.60-1.el7_5.x86_64&lt;span aria-hidden=&quot;true&quot; class=&q
     
     
     
-    <category term="Linux" scheme="https://blog.xiaosige.com/categories/Linux/"/>
+    <category term="Linux" scheme="https://www.xiaosige.com/categories/Linux/"/>
     
     
-    <category term="Linux" scheme="https://blog.xiaosige.com/tags/Linux/"/>
+    <category term="Linux" scheme="https://www.xiaosige.com/tags/Linux/"/>
     
-    <category term="MySQL" scheme="https://blog.xiaosige.com/tags/MySQL/"/>
+    <category term="MySQL" scheme="https://www.xiaosige.com/tags/MySQL/"/>
     
   </entry>
   
   <entry>
     <title>centos系统之部署ShowDoc</title>
-    <link href="https://blog.xiaosige.com/post/ef6fd2ef.html"/>
-    <id>https://blog.xiaosige.com/post/ef6fd2ef.html</id>
+    <link href="https://www.xiaosige.com/post/ef6fd2ef.html"/>
+    <id>https://www.xiaosige.com/post/ef6fd2ef.html</id>
     <published>2020-01-31T11:53:04.000Z</published>
     <updated>2020-10-04T09:50:58.390Z</updated>
     
@@ -426,12 +426,12 @@ mariadb-libs-5.5.60-1.el7_5.x86_64&lt;span aria-hidden=&quot;true&quot; class=&q
     
     
     
-    <category term="Linux" scheme="https://blog.xiaosige.com/categories/Linux/"/>
+    <category term="Linux" scheme="https://www.xiaosige.com/categories/Linux/"/>
     
-    <category term="API文档系统" scheme="https://blog.xiaosige.com/categories/Linux/API%E6%96%87%E6%A1%A3%E7%B3%BB%E7%BB%9F/"/>
+    <category term="API文档系统" scheme="https://www.xiaosige.com/categories/Linux/API%E6%96%87%E6%A1%A3%E7%B3%BB%E7%BB%9F/"/>
     
     
-    <category term="ShowDoc" scheme="https://blog.xiaosige.com/tags/ShowDoc/"/>
+    <category term="ShowDoc" scheme="https://www.xiaosige.com/tags/ShowDoc/"/>
     
   </entry>
   
