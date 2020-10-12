@@ -120,6 +120,27 @@
   </entry>
   
   <entry>
+    <title>Jira8.x版本安装与破解</title>
+    <link href="https://www.xiaosige.com/post/afb30e04.html"/>
+    <id>https://www.xiaosige.com/post/afb30e04.html</id>
+    <published>2020-08-25T08:15:42.000Z</published>
+    <updated>2020-10-12T09:10:05.255Z</updated>
+    
+    
+    <summary type="html">&lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;   JIRA 是 Atlassian 公司出品的项目与事务跟踪工具，被广泛应用于缺陷跟踪、客户服务、需求收集、流程审批、任务跟踪、项目跟踪和敏捷管理等工作领域。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Linux" scheme="https://www.xiaosige.com/categories/Linux/"/>
+    
+    <category term="项目管理" scheme="https://www.xiaosige.com/categories/Linux/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/"/>
+    
+    
+    <category term="Jira" scheme="https://www.xiaosige.com/tags/Jira/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Mac正确的安装和使用nvm</title>
     <link href="https://www.xiaosige.com/post/c0a81ac4.html"/>
     <id>https://www.xiaosige.com/post/c0a81ac4.html</id>
@@ -233,6 +254,32 @@
     
     
     <category term="SpringBoot" scheme="https://www.xiaosige.com/tags/SpringBoot/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hexo博客实现自动部署阿里云服务器</title>
+    <link href="https://www.xiaosige.com/post/dd42c2af.html"/>
+    <id>https://www.xiaosige.com/post/dd42c2af.html</id>
+    <published>2020-07-17T10:45:36.000Z</published>
+    <updated>2020-10-12T09:25:23.670Z</updated>
+    
+    
+    <summary type="html">&lt;h3 id=&quot;准备工作&quot;&gt;&lt;a href=&quot;#准备工作&quot; class=&quot;headerlink&quot; title=&quot;准备工作&quot;&gt;&lt;/a&gt;准备工作&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt; 搭建Nginx服务器：&lt;/li&gt;
+
+&lt;p&gt;   参考：&lt;a href=&quot;/post/69813a0e.html&quot; title=&quot;Linux安装Nginx--两种方式&quot;&gt;Linux安装Nginx--两种方式&lt;/a&gt;&lt;/p&gt;
+&lt;li&gt; 搭建Git环境：&lt;/li&gt;
+
+&lt;p&gt;   参考：&lt;a href=&quot;/post/4370af2f.html&quot; title=&quot;Linux安装Git-两种方式详细教程&quot;&gt;Linux安装Git-两种方式详细教程&lt;/a&gt;&lt;/p&gt;
+&lt;/ol&gt;</summary>
+    
+    
+    
+    <category term="hexo建站" scheme="https://www.xiaosige.com/categories/hexo%E5%BB%BA%E7%AB%99/"/>
+    
+    
+    <category term="hexo" scheme="https://www.xiaosige.com/tags/hexo/"/>
     
   </entry>
   
@@ -381,57 +428,6 @@
     
     
     <category term="PHP" scheme="https://www.xiaosige.com/tags/PHP/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>CentOS 6 安装 MySQL 8.0.+</title>
-    <link href="https://www.xiaosige.com/post/577cb4e8.html"/>
-    <id>https://www.xiaosige.com/post/577cb4e8.html</id>
-    <published>2020-02-14T21:28:30.000Z</published>
-    <updated>2020-10-04T10:08:58.389Z</updated>
-    
-    
-    <summary type="html">&lt;h3 id=&quot;一、Linux下MySQL安装-YUM&quot;&gt;&lt;a href=&quot;#一、Linux下MySQL安装-YUM&quot; class=&quot;headerlink&quot; title=&quot;一、Linux下MySQL安装(YUM)&quot;&gt;&lt;/a&gt;一、Linux下MySQL安装(YUM)&lt;/h3&gt;&lt;h4 id=&quot;1、检查并删除已经安装的MySql&quot;&gt;&lt;a href=&quot;#1、检查并删除已经安装的MySql&quot; class=&quot;headerlink&quot; title=&quot;1、检查并删除已经安装的MySql&quot;&gt;&lt;/a&gt;1、检查并删除已经安装的MySql&lt;/h4&gt;&lt;ul&gt;
-&lt;li&gt;检查MariaDB&lt;/li&gt;
-&lt;/ul&gt;
-&lt;pre class=&quot;line-numbers language-bash&quot; data-language=&quot;bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;shell&lt;span class=&quot;token operator&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;rpm&lt;/span&gt; -qa&lt;span class=&quot;token operator&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;grep&lt;/span&gt; mariadb
-mariadb-server-5.5.60-1.el7_5.x86_64
-mariadb-5.5.60-1.el7_5.x86_64
-mariadb-libs-5.5.60-1.el7_5.x86_64&lt;span aria-hidden=&quot;true&quot; class=&quot;line-numbers-rows&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;escape&gt;&lt;/escape&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="Linux" scheme="https://www.xiaosige.com/categories/Linux/"/>
-    
-    
-    <category term="Linux" scheme="https://www.xiaosige.com/tags/Linux/"/>
-    
-    <category term="MySQL" scheme="https://www.xiaosige.com/tags/MySQL/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>centos系统之部署ShowDoc</title>
-    <link href="https://www.xiaosige.com/post/ef6fd2ef.html"/>
-    <id>https://www.xiaosige.com/post/ef6fd2ef.html</id>
-    <published>2020-01-31T11:53:04.000Z</published>
-    <updated>2020-10-04T09:50:58.390Z</updated>
-    
-    
-    <summary type="html">&lt;h4 id=&quot;介绍&quot;&gt;&lt;a href=&quot;#介绍&quot; class=&quot;headerlink&quot; title=&quot;介绍&quot;&gt;&lt;/a&gt;介绍&lt;/h4&gt;&lt;div class=&quot;note info no-icon&quot;&gt;&lt;p&gt;  showdoc是一个php语言编写的API文档系统，专为程序员设计，界面布局简单功能强大，支持在线和私服部署。&lt;/p&gt;
-&lt;/div&gt;</summary>
-    
-    
-    
-    <category term="Linux" scheme="https://www.xiaosige.com/categories/Linux/"/>
-    
-    <category term="API文档系统" scheme="https://www.xiaosige.com/categories/Linux/API%E6%96%87%E6%A1%A3%E7%B3%BB%E7%BB%9F/"/>
-    
-    
-    <category term="ShowDoc" scheme="https://www.xiaosige.com/tags/ShowDoc/"/>
     
   </entry>
   
