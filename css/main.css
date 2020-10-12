@@ -3306,7 +3306,7 @@ to{transform: rotate(360deg)}
   color: #0593d3;
 }
 .footer-inner a {
-  color: #0593d3;
+  color: #999;
   border-bottom: none #0593d3;
 }
 .footer-inner a:hover {
