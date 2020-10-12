@@ -1709,7 +1709,7 @@ nvm use <span class="token number">12.13</span>.0 <span class="token comment"># 
 
 <li> 进入mongo shell，运行： </li>
 
-<pre class="line-numbers language-mongodb" data-language="mongodb"><code class="language-mongodb">db.shuidownServer()<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-mongodb" data-language="mongodb"><code class="language-mongodb">db<span class="token punctuation">.</span><span class="token function">shuidownServer</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 </ol>
 <script>
