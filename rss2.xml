@@ -15,7 +15,7 @@
     <atom:link href="https://www.xiaosige.com/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>因上努力，果上随缘！</description>
-    <pubDate>Mon, 12 Oct 2020 07:46:47 GMT</pubDate>
+    <pubDate>Mon, 12 Oct 2020 08:54:03 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     <item>
@@ -28,7 +28,8 @@
         
           
           
-      <description>&lt;iframe width=&quot;100%&quot; height=&quot;190px&quot; id=&quot;iframeid&quot; scrolling=&quot;no&quot; frameborder=&quot;0&quot;</description>
+      <description>&lt;iframe width=&quot;100%&quot; height=&quot;190px&quot; id=&quot;iframeid&quot; scrolling=&quot;no&quot; frameborder=&quot;0&quot; src=&quot;/zone/top/index.html&quot;&gt;&lt;/iframe&gt;
+&lt;div</description>
           
         
       
