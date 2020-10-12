@@ -3314,6 +3314,11 @@ to{transform: rotate(360deg)}
   border-bottom: none;
   border-bottom: 1px solid #fc6423;
 }
+/* 备案加上分隔符 */
+.beian span::before {
+  content: '|';
+  margin: 0 0.5em;
+}
 /* 菜单栏选中样式 */
 .menu-item-active {
   border-right-color: #009d92;
