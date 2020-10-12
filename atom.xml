@@ -6,7 +6,7 @@
   <link href="https://www.xiaosige.com/atom.xml" rel="self"/>
   
   <link href="https://www.xiaosige.com/"/>
-  <updated>2020-10-12T08:54:03.873Z</updated>
+  <updated>2020-10-04T09:59:39.544Z</updated>
   <id>https://www.xiaosige.com/</id>
   
   <author>
@@ -15,28 +15,6 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>谢谢你来看我的博客</title>
-    <link href="https://www.xiaosige.com/post/a8863134.html"/>
-    <id>https://www.xiaosige.com/post/a8863134.html</id>
-    <published>2020-10-10T01:10:31.000Z</published>
-    <updated>2020-10-12T08:54:03.873Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;iframe width=&quot;100%&quot; height=&quot;190px&quot; id=&quot;iframeid&quot; scrolling=&quot;no&quot; frameborder=&quot;0&quot; src=&quot;/zone/top/index.html&quot;&gt;&lt;/iframe&gt;
-&lt;div</summary>
-        
-      
-    
-    
-    
-    
-  </entry>
   
   <entry>
     <title>Nginx负载均衡的几种常见策略</title>
@@ -432,6 +410,28 @@ mariadb-libs-5.5.60-1.el7_5.x86_64&lt;span aria-hidden=&quot;true&quot; class=&q
     <category term="Linux" scheme="https://www.xiaosige.com/tags/Linux/"/>
     
     <category term="MySQL" scheme="https://www.xiaosige.com/tags/MySQL/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>centos系统之部署ShowDoc</title>
+    <link href="https://www.xiaosige.com/post/ef6fd2ef.html"/>
+    <id>https://www.xiaosige.com/post/ef6fd2ef.html</id>
+    <published>2020-01-31T11:53:04.000Z</published>
+    <updated>2020-10-04T09:50:58.390Z</updated>
+    
+    
+    <summary type="html">&lt;h4 id=&quot;介绍&quot;&gt;&lt;a href=&quot;#介绍&quot; class=&quot;headerlink&quot; title=&quot;介绍&quot;&gt;&lt;/a&gt;介绍&lt;/h4&gt;&lt;div class=&quot;note info no-icon&quot;&gt;&lt;p&gt;  showdoc是一个php语言编写的API文档系统，专为程序员设计，界面布局简单功能强大，支持在线和私服部署。&lt;/p&gt;
+&lt;/div&gt;</summary>
+    
+    
+    
+    <category term="Linux" scheme="https://www.xiaosige.com/categories/Linux/"/>
+    
+    <category term="API文档系统" scheme="https://www.xiaosige.com/categories/Linux/API%E6%96%87%E6%A1%A3%E7%B3%BB%E7%BB%9F/"/>
+    
+    
+    <category term="ShowDoc" scheme="https://www.xiaosige.com/tags/ShowDoc/"/>
     
   </entry>
   
