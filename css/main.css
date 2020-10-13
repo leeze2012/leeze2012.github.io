@@ -3309,11 +3309,13 @@ to{transform: rotate(360deg)}
   color: #999;
   border-bottom: none #0593d3;
 }
-.footer-inner a:hover {
+/*
+.footer-inner a:hover{
   color: #fc6423;
   border-bottom: none;
   border-bottom: 1px solid #fc6423;
 }
+ */
 /* 备案加上分隔符 */
 .beian span::before {
   content: '|';
