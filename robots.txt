@@ -10,6 +10,6 @@ Disallow: /js/
 Disallow: /css/
 Disallow: /lib/
 
-Sitemap: https://blog.xiaosige.com/sitemap.xml
-Sitemap: https://blog.xiaosige.com/baidusitemap.xml
+Sitemap: https://www.xiaosige.com/sitemap.xml
+Sitemap: https://www.xiaosige.com/baidusitemap.xml
 
