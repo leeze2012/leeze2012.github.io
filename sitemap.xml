@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://www.xiaosige.com/links/index.html</loc>
+    
+    <lastmod>2020-10-17</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://www.xiaosige.com/welfare/index.html</loc>
     
     <lastmod>2020-10-17</lastmod>
@@ -173,13 +180,6 @@
     <loc>https://www.xiaosige.com/post/2db94f1a.html</loc>
     
     <lastmod>2020-10-12</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.xiaosige.com/links/index.html</loc>
-    
-    <lastmod>2020-10-07</lastmod>
     
   </url>
   
@@ -473,14 +473,14 @@
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/tags/BootStrap/</loc>
+    <loc>https://www.xiaosige.com/tags/Eclipse/</loc>
     <lastmod>2020-10-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/tags/Eclipse/</loc>
+    <loc>https://www.xiaosige.com/tags/BootStrap/</loc>
     <lastmod>2020-10-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -585,14 +585,14 @@
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/tags/Nvm/</loc>
+    <loc>https://www.xiaosige.com/tags/PHP/</loc>
     <lastmod>2020-10-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/tags/PHP/</loc>
+    <loc>https://www.xiaosige.com/tags/Nvm/</loc>
     <lastmod>2020-10-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -629,14 +629,14 @@
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/categories/BootStrap/</loc>
+    <loc>https://www.xiaosige.com/categories/Eclipse/</loc>
     <lastmod>2020-10-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/categories/Eclipse/</loc>
+    <loc>https://www.xiaosige.com/categories/BootStrap/</loc>
     <lastmod>2020-10-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -657,7 +657,7 @@
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/categories/BootStrap/table/</loc>
+    <loc>https://www.xiaosige.com/categories/%E6%B5%8B%E8%AF%95/</loc>
     <lastmod>2020-10-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -671,7 +671,7 @@
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/categories/%E6%B5%8B%E8%AF%95/</loc>
+    <loc>https://www.xiaosige.com/categories/BootStrap/table/</loc>
     <lastmod>2020-10-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
