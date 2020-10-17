@@ -3322,7 +3322,7 @@ to{transform: rotate(360deg)}
   margin: 0 0.5em;
 }
 /* 音乐播放器与底部.footer-inner文本对齐冲突 */
-.footer-inner meting-js {
+.footer-inner meting-js .aplayer-list li {
   text-align: left;
 }
 /* 菜单栏选中样式 */
