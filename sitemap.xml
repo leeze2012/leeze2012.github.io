@@ -466,21 +466,14 @@
 
   
   <url>
-    <loc>https://www.xiaosige.com/tags/Decimal/</loc>
-    <lastmod>2020-10-17</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.xiaosige.com/tags/Eclipse/</loc>
-    <lastmod>2020-10-17</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.xiaosige.com/tags/BootStrap/</loc>
+    <lastmod>2020-10-17</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.xiaosige.com/tags/Decimal/</loc>
     <lastmod>2020-10-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -494,6 +487,13 @@
   </url>
   
   <url>
+    <loc>https://www.xiaosige.com/tags/Eclipse/</loc>
+    <lastmod>2020-10-17</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://www.xiaosige.com/tags/Linux/</loc>
     <lastmod>2020-10-17</lastmod>
     <changefreq>daily</changefreq>
@@ -501,14 +501,14 @@
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/tags/GitLab/</loc>
+    <loc>https://www.xiaosige.com/tags/Git/</loc>
     <lastmod>2020-10-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/tags/Git/</loc>
+    <loc>https://www.xiaosige.com/tags/GitLab/</loc>
     <lastmod>2020-10-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -585,14 +585,14 @@
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/tags/PHP/</loc>
+    <loc>https://www.xiaosige.com/tags/Nvm/</loc>
     <lastmod>2020-10-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/tags/Nvm/</loc>
+    <loc>https://www.xiaosige.com/tags/PHP/</loc>
     <lastmod>2020-10-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -622,21 +622,14 @@
 
   
   <url>
-    <loc>https://www.xiaosige.com/categories/JavaScript/</loc>
-    <lastmod>2020-10-17</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.xiaosige.com/categories/Eclipse/</loc>
-    <lastmod>2020-10-17</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.xiaosige.com/categories/BootStrap/</loc>
+    <lastmod>2020-10-17</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.xiaosige.com/categories/JavaScript/</loc>
     <lastmod>2020-10-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -650,14 +643,21 @@
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/categories/Linux/</loc>
+    <loc>https://www.xiaosige.com/categories/Eclipse/</loc>
     <lastmod>2020-10-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/categories/%E6%B5%8B%E8%AF%95/</loc>
+    <loc>https://www.xiaosige.com/categories/BootStrap/table/</loc>
+    <lastmod>2020-10-17</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.xiaosige.com/categories/Linux/</loc>
     <lastmod>2020-10-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -671,7 +671,7 @@
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/categories/BootStrap/table/</loc>
+    <loc>https://www.xiaosige.com/categories/%E6%B5%8B%E8%AF%95/</loc>
     <lastmod>2020-10-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
