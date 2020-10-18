@@ -2,14 +2,14 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://www.xiaosige.com/links/index.html</loc>
+    <loc>https://www.xiaosige.com/welfare/index.html</loc>
     
-    <lastmod>2020-10-17</lastmod>
+    <lastmod>2020-10-18</lastmod>
     
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/welfare/index.html</loc>
+    <loc>https://www.xiaosige.com/links/index.html</loc>
     
     <lastmod>2020-10-17</lastmod>
     
@@ -487,13 +487,6 @@
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/tags/Markdown/</loc>
-    <lastmod>2020-10-18</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.xiaosige.com/tags/Linux/</loc>
     <lastmod>2020-10-18</lastmod>
     <changefreq>daily</changefreq>
@@ -516,6 +509,13 @@
   
   <url>
     <loc>https://www.xiaosige.com/tags/Test/</loc>
+    <lastmod>2020-10-18</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.xiaosige.com/tags/Markdown/</loc>
     <lastmod>2020-10-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -643,13 +643,6 @@
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/categories/Markdown/</loc>
-    <lastmod>2020-10-18</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.xiaosige.com/categories/Linux/</loc>
     <lastmod>2020-10-18</lastmod>
     <changefreq>daily</changefreq>
@@ -672,6 +665,13 @@
   
   <url>
     <loc>https://www.xiaosige.com/categories/%E6%B5%8B%E8%AF%95/</loc>
+    <lastmod>2020-10-18</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.xiaosige.com/categories/Markdown/</loc>
     <lastmod>2020-10-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
