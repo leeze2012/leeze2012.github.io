@@ -4,6 +4,11 @@
         <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
         <script src="../js/txtscroll.js"></script>
         <link rel="stylesheet" type="text/css" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/5.13.1/css/all.css" />
+        <!-- 提示消息 -->
+        <link rel="stylesheet" href="../scripts/jquerymessage/css/message.min.css">
+        <script src="../scripts/jquerymessage/js/message.min.js"></script>
+        <!-- 格式按钮炫炫酷效果 -->
+        <link rel="stylesheet" type="text/css" href="/css/hover.css" />
         <style>
             .txt-scroll{
                 /*background-color: rgba(0,0,0,0.5); */
@@ -25,6 +30,7 @@
             table a {
                 text-decoration:none;
                 color: #fc6423;
+                padding: 4px;
             }
 
         </style>
@@ -50,7 +56,12 @@
             </tr>
             <tr style="width: 100%;text-align: center;">
                 <td colspan="2">
-                    <a href="/covid19" target="_blank"><i class="fa fa-heartbeat fa-fw"></i>疫情图</a>
+                    <span>
+                        <a href="/covid19" class="hvr-shutter-in-vertical" target="_blank"><i class="fa fa-heartbeat fa-fw"></i>疫情图</a>
+                    </span>
+                    <span>
+                        <a href="/stars" class="hvr-shutter-out-vertical" target="_blank"><i class="fa fa-star fa-fw"></i>我的收藏</a>
+                    </span>
                 </td>
             </tr>
         </table>
@@ -59,6 +70,63 @@
                 $('.txt-scroll').txtscroll({
                     'speed': 50
                 });
+                let _config = {
+                    /*** 多少毫秒后关闭 <= 0 不关* @type {Number}*/
+                    duration: 5000,
+                    /**    * 背景色     * @type {boolean|string}   */
+                    background: false,
+                    /**    * 前景色  * @type {null|string}    */
+                    color: null,
+                    /**  * 提示内容 * @type {string}             */
+                    content: '欢迎光临。。。',
+                    /**   * 关闭时回调    * @type {null|Function}  */
+                    onclose: null, // 图标
+                    icon: '',
+                    /** * 自动关闭时 延迟多久后移除 * @type {number}  */
+                    animate_duration: 500,
+                    /**  * 是否开启关闭按钮    * @type {boolean} */
+                    closable: false,
+                    /** * 头部* @type {boolean|string} bool = false */
+                    header: false,
+                    /** * 标题 与 header 二者只能存其一 header 高于 title * @type {boolean|string} bool = false */
+                    title: false,
+                    /*** 底部* @type {boolean|string} bool = false*/
+                    footer: false,
+                    /*** 底部确认按钮 用户点击回调 * @type {boolean|Function} bool = false */
+                    confirm: function(cb) {
+                        cb();
+                    },
+                    /**  * 底部确认按钮文字  * @type {string} */
+                    confirm_text: '确认',
+                    /**  * 底部取消按钮 用户点击回调 * @type {boolean|Function} bool = false */
+                    cancel: function(cb) {
+                        cb();
+                    },
+                    /** * 底部取消按钮文字* @type {string} */
+                    cancel_text: '取消',
+                    /** *  宽度 高度  *  @type {Array} ar[0] = 宽 ar[1] = 高 */
+                    area: [],
+                    /**   * 是否开启遮罩 * @type {boolean}  */
+                    mask: false,
+                    /**  * 父节点  * 父节点不存在会默认创建一个* @type {jQuery|string|HTMLElement|null|boolean} string = selector  */
+                    parent: null,
+                    /** * 是否移除父节点  * @type {boolean}  */
+                    remove_parent: false,
+                    /**             * 位置
+                     * @type {string} css class
+                     * 目前有  vt-right-top、vt-left-top、vt-top-center、vt-left-center、
+                     * vt-center-center、vt-right-center、vt-left-bottom、vt-bottom-center、
+                     * vt-right-bottom
+                     * 其中 vt-right-top、vt-left-top、vt-top-center 默认没有使用 position: fixed
+                     * 如果需要使用 则加上 vt-fixed，如： vt-right-top vt-fixed
+                     * 每一个位置 css class 都有一个  同级 .vt-remove
+                     * 该参数最终会传递给 $.addClass()
+                     */
+                    offset: 'vt-top-center vt-fixed',
+                    /** * 样式* @type {null|Object} */
+                    style: null,
+                };
+                VtMessage.info(_config);
             });
         </script>
     </body>
