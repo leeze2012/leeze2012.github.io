@@ -1815,7 +1815,7 @@ layui.use(['jquery', 'layer'], function(){
         bodyColor: '#EEE'
 
   };
-   /*
+/*
   var footers=document.querySelectorAll(".footer");
   wobbleWindow(footers[footers.length-1],{
                 radius: 20,
@@ -1824,13 +1824,13 @@ layui.use(['jquery', 'layer'], function(){
                 movementLeft: false,
                 movementRight: false,
                 debug: false
-  });
+  });*/
 
-  var postblocks=document.querySelectorAll(".posts-expand article");
+  var postblocks=document.querySelectorAll(".main-inner .post-block ");
   [].forEach.call(postblocks, function(elm) {
       wobbleWindow(elm,settings);
   });
-  */
+
   
 
 });
