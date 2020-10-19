@@ -26,19 +26,23 @@
     var CONFIG = {"hostname":"www.xiaosige.com","root":"/","scheme":"Gemini","version":"8.0.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"livere","storage":true,"lazyload":true,"nav":null,"activeClass":"livere"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}};
   </script>
 
-  <meta name="description" content="因上努力，果上随缘！">
-<meta property="og:type" content="website">
-<meta property="og:title" content="小四儿">
-<meta property="og:url" content="https://www.xiaosige.com/tags/hexo/index.html">
+  <meta name="description" content="Parameter类  从JDK8开始，反射类添加了Parameter，通过Parameter类，我们可以从.class编译后的文件中获取方法上参数名。  获取参数名的方法：Parameter.getName()">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java反射获取方法的参数名，Maven&#x2F;IDEA&#x2F;Eclipse配置">
+<meta property="og:url" content="https://www.xiaosige.com/post/f34deb23.html">
 <meta property="og:site_name" content="小四儿">
-<meta property="og:description" content="因上努力，果上随缘！">
+<meta property="og:description" content="Parameter类  从JDK8开始，反射类添加了Parameter，通过Parameter类，我们可以从.class编译后的文件中获取方法上参数名。  获取参数名的方法：Parameter.getName()">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://www.xiaosige.com/post/f34deb23/java-001.png">
+<meta property="article:published_time" content="2020-10-19T21:05:45.000Z">
+<meta property="article:modified_time" content="2020-10-19T21:18:48.637Z">
 <meta property="article:author" content="leeze">
-<meta property="article:tag" content="小四儿 leeze">
+<meta property="article:tag" content="Jdk">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.xiaosige.com/post/f34deb23/java-001.png">
 
 
-<link rel="canonical" href="https://www.xiaosige.com/tags/hexo/">
+<link rel="canonical" href="https://www.xiaosige.com/post/f34deb23.html">
 
 
 <script data-pjax class="page-configurations">
@@ -46,7 +50,7 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script><!-- https://www.layuicdn.com/layui/css/layui.css -->
@@ -72,7 +76,7 @@
 <link rel="stylesheet" type="text/css" href="/css/hover.css" />
 
 
-  <title>标签: hexo | 小四儿</title>
+  <title>Java反射获取方法的参数名，Maven/IDEA/Eclipse配置 | 小四儿</title>
   
 
 
@@ -242,7 +246,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -254,6 +258,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Parameter%E7%B1%BB"><span class="nav-number">1.</span> <span class="nav-text">Parameter类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%80%E5%90%AFjavac%E7%BC%96%E8%AF%91-class%E6%96%87%E4%BB%B6%E4%BF%9D%E7%95%99%E5%8F%82%E6%95%B0%E5%90%8D"><span class="nav-number">2.</span> <span class="nav-text">开启javac编译.class文件保留参数名</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Maven%E9%85%8D%E7%BD%AE%E5%BC%80%E5%90%AFparameters"><span class="nav-number">2.0.1.</span> <span class="nav-text">Maven配置开启parameters</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Idea%E9%85%8D%E7%BD%AE%E5%BC%80%E5%90%AFparameters"><span class="nav-number">2.0.2.</span> <span class="nav-text">Idea配置开启parameters</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Eclipse%E9%85%8D%E7%BD%AE%E5%BC%80%E5%90%AFparameters"><span class="nav-number">2.0.3.</span> <span class="nav-text">Eclipse配置开启parameters</span></a></li></ol></li></ol></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -631,244 +636,252 @@ canvas#canvas {
 </noscript>
 
 
-    <div class="main-inner tag posts-collapse">
+    <div class="main-inner post posts-expand">
       
 
       
 
   
+
+
+<div class="post-block">
   
   
-  <div class="post-block">
-    <div class="post-content">
-      <div class="collection-title">
-        <h2 class="collection-header">hexo
-          <small>标签</small>
-        </h2>
-      </div>
 
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.xiaosige.com/post/f34deb23.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="leeze">
+      <meta itemprop="description" content="因上努力，果上随缘！">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小四儿">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Java反射获取方法的参数名，Maven/IDEA/Eclipse配置
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
       
-    <div class="collection-year">
-      <span class="collection-header">2020</span>
+
+      <time title="创建时间：2020-10-20 05:05:45 / 修改时间：05:18:48" itemprop="dateCreated datePublished" datetime="2020-10-20T05:05:45+08:00">2020-10-20</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>1.4k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h3 id="Parameter类"><a href="#Parameter类" class="headerlink" title="Parameter类"></a>Parameter类</h3><p>  从JDK8开始，反射类添加了Parameter，通过Parameter类，我们可以从.class编译后的文件中获取方法上参数名。<br>  获取参数名的方法：Parameter.getName()</p>
+<a id="more"></a>
+<p>  示例：</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">&gt;</span></span> <span class="token function">getParameterNameJava8</span><span class="token punctuation">(</span><span class="token class-name">Class</span> clazz<span class="token punctuation">,</span> <span class="token class-name">String</span> methodName<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">&gt;</span></span> paramterList <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token class-name">Method</span><span class="token punctuation">[</span><span class="token punctuation">]</span> methods <span class="token operator">=</span> clazz<span class="token punctuation">.</span><span class="token function">getDeclaredMethods</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token class-name">Method</span> method <span class="token operator">:</span> methods<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		<span class="token keyword">if</span> <span class="token punctuation">(</span>methodName<span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span>method<span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+			<span class="token comment">//直接通过method就能拿到所有的参数</span>
+			<span class="token class-name">Parameter</span><span class="token punctuation">[</span><span class="token punctuation">]</span> params <span class="token operator">=</span> method<span class="token punctuation">.</span><span class="token function">getParameters</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+			<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token class-name">Parameter</span> parameter <span class="token operator">:</span> params<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+				paramterList<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>parameter<span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+			<span class="token punctuation">}</span>
+		<span class="token punctuation">}</span>
+	<span class="token punctuation">}</span>
+	<span class="token keyword">return</span> paramterList<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="开启javac编译-class文件保留参数名"><a href="#开启javac编译-class文件保留参数名" class="headerlink" title="开启javac编译.class文件保留参数名"></a>开启javac编译.class文件保留参数名</h3><p>  默认情况下，JDK8的javac编译后的.class文件是不保留方法的参数名，参数名是以arg0，arg1，arg3…表示。<br>  如果要保留参数名，需要给javac添加参数-parameters开启。</p>
+<h5 id="Maven配置开启parameters"><a href="#Maven配置开启parameters" class="headerlink" title="Maven配置开启parameters"></a>Maven配置开启parameters</h5><p>  在pom.xml的编译插件中增加参数配置<arg>-parameters</arg>。</p>
+<pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>plugin</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">&gt;</span></span>org.apache.maven.plugins<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">&gt;</span></span>maven-compiler-plugin<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">&gt;</span></span>3.3<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>configuration</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>source</span><span class="token punctuation">&gt;</span></span>1.8<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>source</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>target</span><span class="token punctuation">&gt;</span></span>1.8<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>target</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>compilerArgs</span><span class="token punctuation">&gt;</span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>arg</span><span class="token punctuation">&gt;</span></span>-parameters<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>arg</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>compilerArgs</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>configuration</span><span class="token punctuation">&gt;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h5 id="Idea配置开启parameters"><a href="#Idea配置开启parameters" class="headerlink" title="Idea配置开启parameters"></a>Idea配置开启parameters</h5><ol>
+<li>File-&gt;Settings-&gt;Build,Execution,Deployment-&gt;Compiler-&gt;Java Compiler</li>
+<li>在 Additional command line parameters: 后面填上 -parameters</li>
+<li>填好后，再将项目重新build一下，Build-&gt;Rebuild Project。<img data-src="/post/f34deb23/java-001.png" class="" title="配置图">
+
+</li>
+</ol>
+<h5 id="Eclipse配置开启parameters"><a href="#Eclipse配置开启parameters" class="headerlink" title="Eclipse配置开启parameters"></a>Eclipse配置开启parameters</h5><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">Preferences-<span class="token operator">&gt;</span>java-<span class="token operator">&gt;</span>Compiler下勾选Store information about method parameters选项。<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>  这样在使用eclipse编译java文件的时候就会将参数名称编译到class文件中。</p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2020-07-17T18:45:36+08:00"
-              content="2020-07-17">
-          07-17
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/post/dd42c2af.html" itemprop="url">
-            <span itemprop="name">Hexo博客实现自动部署阿里云服务器</span>
-          </a>
-      </div>
-
+    
+    
+    
       
-    </header>
-  </article>
-    <div class="collection-year">
-      <span class="collection-header">2019</span>
+  <div class="popular-posts-header">相关文章</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/post/4824a74d.html" rel="bookmark">linux之使用alternatives 切换Java版本</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/post/2aaf08ad.html" rel="bookmark">Linux之安装jdk及环境配置</a></div>
+    </li>
+  </ul>
+
+
+    <footer class="post-footer">
+<div>
+    
+
+    <div class="endlan">
+        <i></i>
+        <p>本文结束--- <img src="/images/avatar_post_end.png" style="display:inline-block;margin-bottom:-7px;height: 25px;"> ---感谢您的阅读</p>
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2019-10-12T04:15:53+08:00"
-              content="2019-10-12">
-          10-12
-        </time>
-      </div>
 
-      <div class="post-title">
-          <a class="post-title-link" href="/post/20e74403.html" itemprop="url">
-            <span itemprop="name">hexo之404 跳转</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2019-10-12T04:09:10+08:00"
-              content="2019-10-12">
-          10-12
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/post/2c523943.html" itemprop="url">
-            <span itemprop="name">hexo之永久链接</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2019-10-11T22:30:39+08:00"
-              content="2019-10-11">
-          10-11
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/post/58bb50d8.html" itemprop="url">
-            <span itemprop="name">hexo之主题更新问题处理</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2019-10-08T20:43:06+08:00"
-              content="2019-10-08">
-          10-08
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/post/346628a2.html" itemprop="url">
-            <span itemprop="name">hexo之修改文章样式</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2019-10-08T20:18:00+08:00"
-              content="2019-10-08">
-          10-08
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/post/3f27960.html" itemprop="url">
-            <span itemprop="name">Hexo之修改[Read More]按钮样式</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2019-09-03T22:37:00+08:00"
-              content="2019-09-03">
-          09-03
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/post/e28ea32e.html" itemprop="url">
-            <span itemprop="name">Hexo之显示当前浏览进度</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2019-09-03T22:33:00+08:00"
-              content="2019-09-03">
-          09-03
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/post/35232b4b.html" itemprop="url">
-            <span itemprop="name">Hexo之主页文章添加边框阴影效果</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2019-09-03T22:29:00+08:00"
-              content="2019-09-03">
-          09-03
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/post/e9980575.html" itemprop="url">
-            <span itemprop="name">Hexo之修改访问URL路径</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2019-09-03T22:19:00+08:00"
-              content="2019-09-03">
-          09-03
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/post/c53d9800.html" itemprop="url">
-            <span itemprop="name">Hexo之博文置顶</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
+    <p id="hitokoto" style="text-align:center;margin-top: 30px;font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, STKaiti, KaiTi, SimKai, DFKai-SB, 'Lato', 'PingFang SC', 'Microsoft YaHei', sans-serif;font-weight: bold;color: #999;">
+     正在加载一言...
+    </p>
+    <div style="margin-top: 30px;">
+      <img id="wechat_subscriber_qcode" src="/images/reward-container-back.png" alt="leeze wechat" style="max-width: 100%;">
     </div>
+    
+
+    
+</div>
+
+
+          <div class="reward-container">
+  <div></div>
+  <button onclick="document.querySelector('.post-reward').classList.toggle('active');">
+    打赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt="leeze 微信支付">
+        <span>微信支付</span>
+      </div>
+      <div>
+        <img src="/images/alipay.png" alt="leeze 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>原作者： </strong>leeze
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://www.xiaosige.com/post/f34deb23.html" title="Java反射获取方法的参数名，Maven&#x2F;IDEA&#x2F;Eclipse配置">https://www.xiaosige.com/post/f34deb23.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/Jdk/" rel="tag"><i class="fa fa-tag"></i> Jdk</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+            </div>
+            <div class="post-nav-item">
+                <a href="/post/2dcb4b.html" rel="next" title="Yarn安装与镜像设置">
+                  Yarn安装与镜像设置 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+      
+    
+  <div class="comments">
+    <div id="lv-container" data-id="city" data-uid="MTAyMC80NjMzMy8yMjg0NA=="></div>
   </div>
   
-  
-  
-
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/tags/hexo/page/2/">2</a><a class="page-number" href="/tags/hexo/page/3/">3</a><a class="extend next" rel="next" href="/tags/hexo/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
-  </nav>
-
-
-
-      
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -1123,11 +1136,26 @@ document.querySelectorAll('.pdfobject-container').forEach(element => {
       quicklink.listen({
         timeout : 3000,
         priority: true,
-        ignores : [uri => uri.includes('#'),uri => uri === 'https://www.xiaosige.com/tags/hexo/',]
+        ignores : [uri => uri.includes('#'),uri => uri === 'https://www.xiaosige.com/post/f34deb23.html',]
       });
       });
   </script>
 
+<script>
+NexT.utils.loadComments('#lv-container', () => {
+  window.livereOptions = {
+    refer: "post/f34deb23.html"
+  };
+  (function(d, s) {
+    var j, e = d.getElementsByTagName(s)[0];
+    if (typeof LivereTower === 'function') { return; }
+    j = d.createElement(s);
+    j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+    j.async = true;
+    e.parentNode.insertBefore(j, e);
+  })(document, 'script');
+});
+</script>
 
 
 <!-- 提示信息 -->

@@ -6,7 +6,7 @@
   <link href="https://www.xiaosige.com/atom.xml" rel="self"/>
   
   <link href="https://www.xiaosige.com/"/>
-  <updated>2020-10-19T09:19:50.562Z</updated>
+  <updated>2020-10-19T21:18:48.637Z</updated>
   <id>https://www.xiaosige.com/</id>
   
   <author>
@@ -17,11 +17,30 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Java反射获取方法的参数名，Maven/IDEA/Eclipse配置</title>
+    <link href="https://www.xiaosige.com/post/f34deb23.html"/>
+    <id>https://www.xiaosige.com/post/f34deb23.html</id>
+    <published>2020-10-19T21:05:45.000Z</published>
+    <updated>2020-10-19T21:18:48.637Z</updated>
+    
+    
+    <summary type="html">&lt;h3 id=&quot;Parameter类&quot;&gt;&lt;a href=&quot;#Parameter类&quot; class=&quot;headerlink&quot; title=&quot;Parameter类&quot;&gt;&lt;/a&gt;Parameter类&lt;/h3&gt;&lt;p&gt;  从JDK8开始，反射类添加了Parameter，通过Parameter类，我们可以从.class编译后的文件中获取方法上参数名。&lt;br&gt;  获取参数名的方法：Parameter.getName()&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Java" scheme="https://www.xiaosige.com/categories/Java/"/>
+    
+    
+    <category term="Jdk" scheme="https://www.xiaosige.com/tags/Jdk/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Yarn安装与镜像设置</title>
     <link href="https://www.xiaosige.com/post/2dcb4b.html"/>
     <id>https://www.xiaosige.com/post/2dcb4b.html</id>
     <published>2020-10-18T19:34:20.000Z</published>
-    <updated>2020-10-19T09:19:50.562Z</updated>
+    <updated>2020-10-19T21:21:11.131Z</updated>
     
     
     <summary type="html">&lt;h3 id=&quot;介绍&quot;&gt;&lt;a href=&quot;#介绍&quot; class=&quot;headerlink&quot; title=&quot;介绍&quot;&gt;&lt;/a&gt;介绍&lt;/h3&gt;&lt;p&gt;  &lt;a href=&quot;https://yarn.bootcss.com/&quot;&gt;Yarn&lt;/a&gt; 就是一个类似于 npm 的包管理工具，它是由 facebook 推出并开源。&lt;br&gt;  与 npm 相比，yarn 有着众多的优势，主要的优势在于：速度快、离线模式、版本控制。&lt;/p&gt;</summary>
@@ -405,27 +424,6 @@
     
     
     <category term="Meting" scheme="https://www.xiaosige.com/tags/Meting/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>linux搭建GitLab</title>
-    <link href="https://www.xiaosige.com/post/73879c7f.html"/>
-    <id>https://www.xiaosige.com/post/73879c7f.html</id>
-    <published>2020-02-20T14:56:53.000Z</published>
-    <updated>2020-10-04T13:23:16.380Z</updated>
-    
-    
-    <summary type="html">&lt;h3 id=&quot;1-初始GitLab&quot;&gt;&lt;a href=&quot;#1-初始GitLab&quot; class=&quot;headerlink&quot; title=&quot;1.初始GitLab&quot;&gt;&lt;/a&gt;1.初始GitLab&lt;/h3&gt;&lt;p&gt;  GitLab是利用Ruby on Rails一个开源的版本管理系统，实现一个自托管的Git项目仓库，可通过Web界面进行访问公开的或者私人项目。&lt;br&gt;  与Github类似，GitLab能够浏览源代码，管理缺陷和注释。可以管理团队对仓库的访问，它非常易于浏览提交过的版本并提供一个文件历史库。团队成员可以利用内置的简单聊天程序(Wall)进行交流。&lt;br&gt;  它还提供一个代码片段收集功能可以轻松实现代码复用，便于日后有需要的时候进行查找。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="Linux" scheme="https://www.xiaosige.com/categories/Linux/"/>
-    
-    
-    <category term="Linux" scheme="https://www.xiaosige.com/tags/Linux/"/>
-    
-    <category term="GitLab" scheme="https://www.xiaosige.com/tags/GitLab/"/>
     
   </entry>
   
