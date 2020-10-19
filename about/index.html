@@ -1823,9 +1823,16 @@ gsap.to('.char', {
 
 <script type="text/javascript">
     $(document).ready(function() {
-        <!-- 头像连接到关于我 -->
+        <!-- 站点作者头像 -->
         if($('.site-author:first').children().first().prop("tagName").toLowerCase() === "img"){
+            <!-- 头像站点作者头像连接到关于我 -->
             $('.site-author-image').prop('outerHTML', "<a href='/about' title='关于我'>"+$('.site-author-image').prop("outerHTML")+"</a>");
+            <!-- 站点作者头像动画阴影 -->
+            $(".site-author-image").hover(function(){
+                $(this).toggleClass('site-author-image-yy');
+            },function(){
+                $(this).toggleClass('site-author-image-yy');
+            });
         }
         <!-- 五星好评 -->
         if($("#wpac-rating").length > 0){
