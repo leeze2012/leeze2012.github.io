@@ -34,7 +34,7 @@ myUtil = {
     },
     init: function() {
         window.console && console.log("%c ", "background: url(https://cdn.jsdelivr.net/gh/leeze2012/blog-assets/img/body-bg-6.jpg) no-repeat center;padding-left:1366px;padding-bottom: 490px;"),
-        this.isPC() && window.console && (this.customLogInfo("---联系方式 > QQ：374328123 邮箱：leeze0216@163.com < ---"), this.customLogInfo("小四儿，Java软件工程师，多年Java EE 从业经验，目前在北京工作。\n主要技能点：Java后端开发、Spring Cloud微服务、聚合支付、公众号开发、小程序开发、Linux\n欢迎来到`小四儿`的技术博客，这里将深入探讨相关技术，包括行业动态，架构设计，设计模式，框架使用等。\n\n----------------友链----------------\n\n技术博客：https://www.xiaosige.com/\n个人简历：https://hacknical.com/leeze2012/resume?locale=zh\nGitHub：https://github.com/leeze2012\nGitee：https://gitee.com/leeze"))
+        this.isPC() && window.console && (this.customLogInfo("\nQQ：374328123 邮箱：leeze0216@163.com"), this.customLogInfo("小四儿，Java软件工程师，多年Java EE 从业经验，目前在北京工作。\n主要技能点：Java后端开发、Spring Cloud微服务、聚合支付、公众号开发、小程序开发、Linux\n欢迎来到`小四儿`的技术博客，这里将深入探讨相关技术，包括行业动态，架构设计，设计模式，框架使用等。\n\n技术博客：https://www.xiaosige.com/\n个人简历：https://hacknical.com/leeze2012/resume?locale=zh\nGitHub：https://github.com/leeze2012\nGitee：https://gitee.com/leeze"))
     },
     customLog: function(o) {
         console.log("%c" + o, this.logStyle)
