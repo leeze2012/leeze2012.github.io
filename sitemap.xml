@@ -494,13 +494,6 @@
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/tags/Markdown/</loc>
-    <lastmod>2020-10-19</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.xiaosige.com/tags/Linux/</loc>
     <lastmod>2020-10-19</lastmod>
     <changefreq>daily</changefreq>
@@ -516,6 +509,13 @@
   
   <url>
     <loc>https://www.xiaosige.com/tags/Git/</loc>
+    <lastmod>2020-10-19</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.xiaosige.com/tags/Markdown/</loc>
     <lastmod>2020-10-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -657,13 +657,6 @@
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/categories/Markdown/</loc>
-    <lastmod>2020-10-19</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.xiaosige.com/categories/Linux/</loc>
     <lastmod>2020-10-19</lastmod>
     <changefreq>daily</changefreq>
@@ -671,7 +664,7 @@
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/categories/Git/</loc>
+    <loc>https://www.xiaosige.com/categories/Markdown/</loc>
     <lastmod>2020-10-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -679,6 +672,13 @@
   
   <url>
     <loc>https://www.xiaosige.com/categories/BootStrap/table/</loc>
+    <lastmod>2020-10-19</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.xiaosige.com/categories/Git/</loc>
     <lastmod>2020-10-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
