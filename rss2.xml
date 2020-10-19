@@ -15,8 +15,29 @@
     <atom:link href="https://www.xiaosige.com/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>因上努力，果上随缘！</description>
-    <pubDate>Sun, 04 Oct 2020 09:59:39 GMT</pubDate>
+    <pubDate>Mon, 19 Oct 2020 08:33:48 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>Mac安装yarn</title>
+      <link>https://www.xiaosige.com/post/2dcb4b.html</link>
+      <guid>https://www.xiaosige.com/post/2dcb4b.html</guid>
+      <pubDate>Sun, 18 Oct 2020 19:34:20 GMT</pubDate>
+      
+      <description>&lt;h3 id=&quot;介绍&quot;&gt;&lt;a href=&quot;#介绍&quot; class=&quot;headerlink&quot; title=&quot;介绍&quot;&gt;&lt;/a&gt;介绍&lt;/h3&gt;&lt;p&gt;  &lt;a href=&quot;https://yarn.bootcss.com/&quot;&gt;Yarn&lt;/a&gt; 就是一个类似于 npm 的包管理工具，它是由 facebook 推出并开源。&lt;br&gt;  与 npm 相比，yarn 有着众多的优势，主要的优势在于：速度快、离线模式、版本控制。&lt;/p&gt;</description>
+      
+      
+      
+      
+      <category domain="https://www.xiaosige.com/categories/Mac/">Mac</category>
+      
+      
+      <category domain="https://www.xiaosige.com/tags/Yarn/">Yarn</category>
+      
+      
+      <comments>https://www.xiaosige.com/post/2dcb4b.html#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>Nginx负载均衡的几种常见策略</title>
@@ -447,29 +468,6 @@
       
       
       <comments>https://www.xiaosige.com/post/73879c7f.html#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>PHP7 安装 event 扩展</title>
-      <link>https://www.xiaosige.com/post/c42ce648.html</link>
-      <guid>https://www.xiaosige.com/post/c42ce648.html</guid>
-      <pubDate>Sun, 16 Feb 2020 20:06:22 GMT</pubDate>
-      
-      <description>&lt;div class=&quot;note success no-icon&quot;&gt;&lt;p&gt;  Libevent 是一个用C语言编写的、轻量级的开源高性能I/O框架，支持多种 I/O 多路复用技术： epoll、 poll、 dev/poll、 select 和 kqueue 等；支持 I/O，定时器和信号等事件；注册事件优先级。PHP提供了对应的扩展 libevent、 Event 。&lt;/p&gt;
-&lt;p&gt;  相比 libevent ext, event ext 拥有更好的性能表现和更全面的API，可以让我们更友好的使用 Libevent。&lt;/p&gt;
-&lt;/div&gt;</description>
-      
-      
-      
-      
-      <category domain="https://www.xiaosige.com/categories/Linux/">Linux</category>
-      
-      
-      <category domain="https://www.xiaosige.com/tags/PHP/">PHP</category>
-      
-      
-      <comments>https://www.xiaosige.com/post/c42ce648.html#disqus_thread</comments>
       
     </item>
     

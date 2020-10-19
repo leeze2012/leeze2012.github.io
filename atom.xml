@@ -6,7 +6,7 @@
   <link href="https://www.xiaosige.com/atom.xml" rel="self"/>
   
   <link href="https://www.xiaosige.com/"/>
-  <updated>2020-10-04T09:59:39.544Z</updated>
+  <updated>2020-10-19T08:33:48.139Z</updated>
   <id>https://www.xiaosige.com/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Mac安装yarn</title>
+    <link href="https://www.xiaosige.com/post/2dcb4b.html"/>
+    <id>https://www.xiaosige.com/post/2dcb4b.html</id>
+    <published>2020-10-18T19:34:20.000Z</published>
+    <updated>2020-10-19T08:33:48.139Z</updated>
+    
+    
+    <summary type="html">&lt;h3 id=&quot;介绍&quot;&gt;&lt;a href=&quot;#介绍&quot; class=&quot;headerlink&quot; title=&quot;介绍&quot;&gt;&lt;/a&gt;介绍&lt;/h3&gt;&lt;p&gt;  &lt;a href=&quot;https://yarn.bootcss.com/&quot;&gt;Yarn&lt;/a&gt; 就是一个类似于 npm 的包管理工具，它是由 facebook 推出并开源。&lt;br&gt;  与 npm 相比，yarn 有着众多的优势，主要的优势在于：速度快、离线模式、版本控制。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Mac" scheme="https://www.xiaosige.com/categories/Mac/"/>
+    
+    
+    <category term="Yarn" scheme="https://www.xiaosige.com/tags/Yarn/"/>
+    
+  </entry>
   
   <entry>
     <title>Nginx负载均衡的几种常见策略</title>
@@ -407,27 +426,6 @@
     <category term="Linux" scheme="https://www.xiaosige.com/tags/Linux/"/>
     
     <category term="GitLab" scheme="https://www.xiaosige.com/tags/GitLab/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>PHP7 安装 event 扩展</title>
-    <link href="https://www.xiaosige.com/post/c42ce648.html"/>
-    <id>https://www.xiaosige.com/post/c42ce648.html</id>
-    <published>2020-02-16T20:06:22.000Z</published>
-    <updated>2020-10-04T09:56:43.351Z</updated>
-    
-    
-    <summary type="html">&lt;div class=&quot;note success no-icon&quot;&gt;&lt;p&gt;  Libevent 是一个用C语言编写的、轻量级的开源高性能I/O框架，支持多种 I/O 多路复用技术： epoll、 poll、 dev/poll、 select 和 kqueue 等；支持 I/O，定时器和信号等事件；注册事件优先级。PHP提供了对应的扩展 libevent、 Event 。&lt;/p&gt;
-&lt;p&gt;  相比 libevent ext, event ext 拥有更好的性能表现和更全面的API，可以让我们更友好的使用 Libevent。&lt;/p&gt;
-&lt;/div&gt;</summary>
-    
-    
-    
-    <category term="Linux" scheme="https://www.xiaosige.com/categories/Linux/"/>
-    
-    
-    <category term="PHP" scheme="https://www.xiaosige.com/tags/PHP/"/>
     
   </entry>
   

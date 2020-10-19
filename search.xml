@@ -39,6 +39,128 @@ margin-bottom: 0px;
       </script><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
   </entry>
   <entry>
+    <title>Mac安装yarn</title>
+    <url>/post/2dcb4b.html</url>
+    <content><![CDATA[<h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>  <a href="https://yarn.bootcss.com/">Yarn</a> 就是一个类似于 npm 的包管理工具，它是由 facebook 推出并开源。<br>  与 npm 相比，yarn 有着众多的优势，主要的优势在于：速度快、离线模式、版本控制。</p>
+<a id="more"></a>
+
+<p><img data-src="/post/2dcb4b/yarn.png" title="" style="width: 400px; height: 179px;" class="zoom-in-cursor" width="400" vspace="0" hspace="0" height="179" border="0"></p>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>  macOS有几种安装yarn的方式，如下：</p>
+<ol>
+<li><p>使用homebrew安装yarn<br>  使用homebrew安装，如果node.js没有安装，那么它会自动安装node.js</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">brew <span class="token function">install</span> <span class="token function">yarn</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>  如果你用的是 <code>nvm</code> 或类似工具，你需要确保 <code>PATH</code> 变量中列出的 nvm 版本的路径在 Homebrew 安装的 Node.js 路径之前。</p>
+</li>
+<li><p>使用MacPorts安装yarn<br>  你可以通过 <a href="https://www.macports.org/">MacPorts</a> 安装 Yarn 。 如果你还未安装 Node.MacPorts 会自动为你安装。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> port <span class="token function">install</span> <span class="token function">yarn</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</li>
+<li><p>使用脚本安装yarn<br>  macOS属于Unix系统的分支，在Unix环境下，使用脚本安装是很方便。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">curl</span> -o- -L https://yarnpkg.com/install.sh <span class="token operator">|</span> <span class="token function">bash</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>  安装指定版本的yarn</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">curl</span> -o- -L https://yarnpkg.com/install.sh <span class="token operator">|</span> <span class="token function">bash</span> -s -- --version <span class="token number">1.19</span>.1<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</li>
+<li><p>通过tarball手动安装<br>  你可以通过<a href="https://yarn.bootcss.com/latest.tar.gz">下载tarball</a>并在任何地方提取它来安装yarn。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">cd</span> /opt
+<span class="token function">wget</span> https://yarnpkg.com/latest.tar.gz
+<span class="token function">tar</span> zvxf latest.tar.gz
+<span class="token comment"># Yarn is now in /opt/yarn-[version]/</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>  在提取yarn之前，建议您使用GPG验证tarball：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">wget</span> -qO- https://dl.yarnpkg.com/debian/pubkey.gpg <span class="token operator">|</span> gpg --import
+<span class="token function">wget</span> https://yarnpkg.com/latest.tar.gz.asc
+gpg --verify latest.tar.gz.asc
+<span class="token comment"># Look for "Good signature from 'Yarn Packaging'" in the output</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>npm来安装(<code>推荐</code>)<br>  虽然安装 <code>yarn</code> 可以不依赖 <code>npm</code>，但这里还是建议你使用 <code>npm</code> 来安装吧，快速而简洁：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> -s
+<span class="token function">npm</span> <span class="token function">install</span> <span class="token function">yarn</span> -g<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+
+</li>
+</ol>
+<h3 id="Yarn-换源"><a href="#Yarn-换源" class="headerlink" title="Yarn 换源"></a>Yarn 换源</h3><p>  Yarn 源仓库包下载不稳定</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 查看 yarn 配置</span>
+<span class="token function">yarn</span> config get registry
+或者
+<span class="token function">yarn</span> config list
+
+<span class="token operator">&gt;</span> registry: <span class="token string">'https://registry.yarnpkg.com'</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 设置为淘宝镜像</span>
+<span class="token function">yarn</span> config <span class="token builtin class-name">set</span> registry https://registry.npm.taobao.org
+<span class="token comment"># 设置为官方镜像</span>
+<span class="token function">yarn</span> config <span class="token builtin class-name">set</span> registry https://registry.yarnpkg.com<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">yarn</span> config <span class="token builtin class-name">set</span> registry https://registry.npm.taobao.org --global
+<span class="token function">yarn</span> config <span class="token builtin class-name">set</span> disturl https://npm.taobao.org/dist --global<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<hr>
+<p>  我们使用<code>yrm</code>来做<code>yarn</code>的镜像管理器；首先需要下载，使用如下命令下载安装</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> i yrm -g<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>  之后可以通过以下命令来查看所提供的镜像地址</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">yrm <span class="token function">ls</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>  可以看到</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">*  <span class="token function">npm</span> ---- https://registry.npmjs.org/
+  cnpm --- http://r.cnpmjs.org/
+  taobao - https://registry.npm.taobao.org/
+  nj ----- https://registry.nodejitsu.com/
+  rednpm - http://registry.mirror.cqupt.edu.cn/
+  npmMirror  https://skimdb.npmjs.com/registry/
+  edunpm - http://registry.enpmjs.org/
+  <span class="token function">yarn</span> --- https://registry.yarnpkg.com<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>  所示的是我们现在的源地址是<code>npm</code>，让我们来切换镜像源吧，使用<code>yrm use 镜像名</code>，如我们切换成淘宝镜像</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">yrm use taobao<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>  可以看到</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">YARN Registry has been <span class="token builtin class-name">set</span> to: https://registry.npm.taobao.org/
+
+NPM Registry has been <span class="token builtin class-name">set</span> to: https://registry.npm.taobao.org/<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h3 id="升级"><a href="#升级" class="headerlink" title="升级"></a>升级</h3><p>  有新版时，Yarn 会给你提示。 如需升级 Yarn ，仍然可以通过 Homebrew 来升级。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">brew upgrade <span class="token function">yarn</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>  通过如下命令测试 Yarn 是否安装成功： </p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">yarn</span> --version<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="建议"><a href="#建议" class="headerlink" title="建议"></a>建议</h3><p>  我们选择 yarn 的主要原因是依赖安装速度快，默认生成的 yarn.lock 会保证所有成员的模块依赖目录能够很好的保持一致。<br>  yarn install 和 yarn upgrade 的执行逻辑，可以让你可以很清晰的管理本地依赖的版本更新时机，又能很好的让所有开发人员的本地依赖保持一致性。<br>  使用 npm install 则有些乱，当你不想写死版本号依赖时，它总会安装依赖包最新可用的版本，但这在有时候并不是你想要的。<br>  在 yarn 之前，我们使用的是 npm+淘宝仓库方案，也会使用 cnpm。在国内，cnpm 的依赖安装速度比 yarn 还要快，但 cnpm 在 windows 下通过创建链接引用的方式管理包依赖，可能会带来一些问题。<br>  现在我们会默认使用淘宝仓库，使用 npm 管理全局依赖，使用 yarn 管理具体项目内的依赖。<br>  在一个新的项目中使用 yarn，我们会这么来做：</p>
+<ol>
+<li>写好 package.json，写入初始的第三方依赖</li>
+<li>执行 yarn 命令，初始化安装项目依赖，生成 yarn.lock 文件</li>
+<li>后续通过执行 yarn add xxx 添加更多需要的依赖（也可直接在 package.json 文件中写入）</li>
+<li>当确定需要更新依赖模块到其最新版本时，执行 yarn upgrade 命令</li>
+<li>配置项目启动命令执行前，先执行 yarn 命令，以保证当 yarn.lock 被更新时，本地依赖也及时得到更新。例如，在 package.json 的 script 部分中配置 start 命令： “start”: “yarn &amp;&amp; yarn run build:dev”</li>
+</ol>
+<br>
+
+<blockquote>
+<blockquote>
+</blockquote>
+<p><a href="https://neveryu.github.io/2018/07/20/yarn/">yarn安装</a><br><a href="https://docs.npmjs.com/">npm</a><br><a href="https://yarnpkg.com/">yarn</a></p>
+</blockquote>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
+      <categories>
+        <category>Mac</category>
+      </categories>
+      <tags>
+        <tag>Yarn</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Nginx负载均衡的几种常见策略</title>
     <url>/post/e3076ab.html</url>
     <content><![CDATA[<p>  负载均衡也是Nginx常用的一个功能，负载均衡其意思就是分摊到多个操作单元上进行执行，例如Web服务器、FTP服务器、企业关键应用服务器和其它关键任务服务器等，从而共同完成工作任务。<br>  简单而言就是当有2台或以上服务器时，根据规则随机的将请求分发到指定的服务器上处理，负载均衡配置一般都需要同时配置反向代理，通过反向代理跳转到负载均衡。而Nginx目前支持自带3种负载均衡策略，还有2种常用的第三方策略。</p>
