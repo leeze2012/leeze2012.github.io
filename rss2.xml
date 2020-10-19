@@ -15,11 +15,11 @@
     <atom:link href="https://www.xiaosige.com/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>因上努力，果上随缘！</description>
-    <pubDate>Mon, 19 Oct 2020 08:33:48 GMT</pubDate>
+    <pubDate>Mon, 19 Oct 2020 09:19:50 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     <item>
-      <title>Mac安装yarn</title>
+      <title>Yarn安装与镜像设置</title>
       <link>https://www.xiaosige.com/post/2dcb4b.html</link>
       <guid>https://www.xiaosige.com/post/2dcb4b.html</guid>
       <pubDate>Sun, 18 Oct 2020 19:34:20 GMT</pubDate>
@@ -29,7 +29,7 @@
       
       
       
-      <category domain="https://www.xiaosige.com/categories/Mac/">Mac</category>
+      <category domain="https://www.xiaosige.com/categories/Linux/">Linux</category>
       
       
       <category domain="https://www.xiaosige.com/tags/Yarn/">Yarn</category>

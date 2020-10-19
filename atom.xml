@@ -6,7 +6,7 @@
   <link href="https://www.xiaosige.com/atom.xml" rel="self"/>
   
   <link href="https://www.xiaosige.com/"/>
-  <updated>2020-10-19T08:33:48.139Z</updated>
+  <updated>2020-10-19T09:19:50.562Z</updated>
   <id>https://www.xiaosige.com/</id>
   
   <author>
@@ -17,18 +17,18 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Mac安装yarn</title>
+    <title>Yarn安装与镜像设置</title>
     <link href="https://www.xiaosige.com/post/2dcb4b.html"/>
     <id>https://www.xiaosige.com/post/2dcb4b.html</id>
     <published>2020-10-18T19:34:20.000Z</published>
-    <updated>2020-10-19T08:33:48.139Z</updated>
+    <updated>2020-10-19T09:19:50.562Z</updated>
     
     
     <summary type="html">&lt;h3 id=&quot;介绍&quot;&gt;&lt;a href=&quot;#介绍&quot; class=&quot;headerlink&quot; title=&quot;介绍&quot;&gt;&lt;/a&gt;介绍&lt;/h3&gt;&lt;p&gt;  &lt;a href=&quot;https://yarn.bootcss.com/&quot;&gt;Yarn&lt;/a&gt; 就是一个类似于 npm 的包管理工具，它是由 facebook 推出并开源。&lt;br&gt;  与 npm 相比，yarn 有着众多的优势，主要的优势在于：速度快、离线模式、版本控制。&lt;/p&gt;</summary>
     
     
     
-    <category term="Mac" scheme="https://www.xiaosige.com/categories/Mac/"/>
+    <category term="Linux" scheme="https://www.xiaosige.com/categories/Linux/"/>
     
     
     <category term="Yarn" scheme="https://www.xiaosige.com/tags/Yarn/"/>

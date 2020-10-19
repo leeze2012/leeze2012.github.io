@@ -2,14 +2,14 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://www.xiaosige.com/links/index.html</loc>
+    <loc>https://www.xiaosige.com/post/2dcb4b.html</loc>
     
     <lastmod>2020-10-19</lastmod>
     
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/post/2dcb4b.html</loc>
+    <loc>https://www.xiaosige.com/links/index.html</loc>
     
     <lastmod>2020-10-19</lastmod>
     
@@ -494,13 +494,6 @@
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/tags/Markdown/</loc>
-    <lastmod>2020-10-19</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.xiaosige.com/tags/Linux/</loc>
     <lastmod>2020-10-19</lastmod>
     <changefreq>daily</changefreq>
@@ -522,7 +515,7 @@
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/tags/hexo/</loc>
+    <loc>https://www.xiaosige.com/tags/Markdown/</loc>
     <lastmod>2020-10-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -530,6 +523,13 @@
   
   <url>
     <loc>https://www.xiaosige.com/tags/Test/</loc>
+    <lastmod>2020-10-19</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.xiaosige.com/tags/hexo/</loc>
     <lastmod>2020-10-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -592,14 +592,14 @@
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/tags/Nvm/</loc>
+    <loc>https://www.xiaosige.com/tags/PHP/</loc>
     <lastmod>2020-10-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/tags/PHP/</loc>
+    <loc>https://www.xiaosige.com/tags/Nvm/</loc>
     <lastmod>2020-10-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -657,14 +657,14 @@
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/categories/Markdown/</loc>
+    <loc>https://www.xiaosige.com/categories/Linux/</loc>
     <lastmod>2020-10-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/categories/Linux/</loc>
+    <loc>https://www.xiaosige.com/categories/Markdown/</loc>
     <lastmod>2020-10-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -685,14 +685,14 @@
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/categories/hexo%E5%BB%BA%E7%AB%99/</loc>
+    <loc>https://www.xiaosige.com/categories/%E6%B5%8B%E8%AF%95/</loc>
     <lastmod>2020-10-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/categories/%E6%B5%8B%E8%AF%95/</loc>
+    <loc>https://www.xiaosige.com/categories/hexo%E5%BB%BA%E7%AB%99/</loc>
     <lastmod>2020-10-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
