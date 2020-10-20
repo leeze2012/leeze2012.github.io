@@ -39,7 +39,45 @@ margin-bottom: 0px;
       </script><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
   </entry>
   <entry>
-    <title>Java反射获取方法的参数名，Maven/IDEA/Eclipse配置</title>
+    <title>Java定位代码导致的CPU过高问题</title>
+    <url>/post/c006a425.html</url>
+    <content><![CDATA[<p>  相信大家肯定遇到过java程序cpu一直居高不下的情况，那么我来简单介绍在linux系统下如何定位java进程cpu过高的代码位置。</p>
+<a id="more"></a>
+<div class="note info no-icon"><ol>
+<li>首先，使用命令<code>top</code>,找到cpu过高的<code>pid</code>；</li>
+<li>接着，使用<code>top -Hp pid</code> 找到对应的<code>线程 tid</code>；</li>
+<li>我们知道jstack可以查看当前java进程的堆栈状态；由于线程在堆栈信息的使用16进制的。那么，<code>printf "%x" tid</code> 可以获取16进制的 tid16。</li>
+<li>最后使用 <code>jstack pid |grep -A 10 tid16 </code>，根据情况调整行数后，就可以看到该线程是执行的代码。</li>
+</ol>
+</div>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>Jdk</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Java反射获取方法的参数名</title>
     <url>/post/f34deb23.html</url>
     <content><![CDATA[<h3 id="Parameter类"><a href="#Parameter类" class="headerlink" title="Parameter类"></a>Parameter类</h3><p>  从JDK8开始，反射类添加了Parameter，通过Parameter类，我们可以从.class编译后的文件中获取方法上参数名。<br>  获取参数名的方法：Parameter.getName()</p>
 <a id="more"></a>

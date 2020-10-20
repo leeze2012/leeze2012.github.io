@@ -15,11 +15,32 @@
     <atom:link href="https://www.xiaosige.com/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>因上努力，果上随缘！</description>
-    <pubDate>Mon, 19 Oct 2020 21:18:48 GMT</pubDate>
+    <pubDate>Tue, 20 Oct 2020 06:47:02 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     <item>
-      <title>Java反射获取方法的参数名，Maven/IDEA/Eclipse配置</title>
+      <title>Java定位代码导致的CPU过高问题</title>
+      <link>https://www.xiaosige.com/post/c006a425.html</link>
+      <guid>https://www.xiaosige.com/post/c006a425.html</guid>
+      <pubDate>Tue, 20 Oct 2020 06:42:35 GMT</pubDate>
+      
+      <description>&lt;p&gt;  相信大家肯定遇到过java程序cpu一直居高不下的情况，那么我来简单介绍在linux系统下如何定位java进程cpu过高的代码位置。&lt;/p&gt;</description>
+      
+      
+      
+      
+      <category domain="https://www.xiaosige.com/categories/Java/">Java</category>
+      
+      
+      <category domain="https://www.xiaosige.com/tags/Jdk/">Jdk</category>
+      
+      
+      <comments>https://www.xiaosige.com/post/c006a425.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>Java反射获取方法的参数名</title>
       <link>https://www.xiaosige.com/post/f34deb23.html</link>
       <guid>https://www.xiaosige.com/post/f34deb23.html</guid>
       <pubDate>Mon, 19 Oct 2020 21:05:45 GMT</pubDate>
@@ -442,30 +463,6 @@
       
       
       <comments>https://www.xiaosige.com/post/409d24a5.html#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>Meting漂亮的背景音乐播放器</title>
-      <link>https://www.xiaosige.com/post/c1dab809.html</link>
-      <guid>https://www.xiaosige.com/post/c1dab809.html</guid>
-      <pubDate>Sat, 29 Feb 2020 16:40:36 GMT</pubDate>
-      
-      <description>&lt;div class=&quot;note success no-icon&quot;&gt;&lt;p&gt; 以前就很想给网站加上一个背景音乐播放器！并且这个播放器要简洁大气，Meting完美的阐释了这句话！&lt;/p&gt;
-&lt;/div&gt;
-
-&lt;img data-src=&quot;/post/c1dab809/meting.png&quot; class=&quot;&quot; title=&quot;Meting&quot;&gt;</description>
-      
-      
-      
-      
-      <category domain="https://www.xiaosige.com/categories/JavaScript/">JavaScript</category>
-      
-      
-      <category domain="https://www.xiaosige.com/tags/Meting/">Meting</category>
-      
-      
-      <comments>https://www.xiaosige.com/post/c1dab809.html#disqus_thread</comments>
       
     </item>
     
