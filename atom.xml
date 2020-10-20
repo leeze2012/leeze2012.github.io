@@ -6,7 +6,7 @@
   <link href="https://www.xiaosige.com/atom.xml" rel="self"/>
   
   <link href="https://www.xiaosige.com/"/>
-  <updated>2020-10-20T16:17:03.995Z</updated>
+  <updated>2020-10-20T17:40:26.546Z</updated>
   <id>https://www.xiaosige.com/</id>
   
   <author>
@@ -15,6 +15,106 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Spring MVC返回pdf文件并在页面显示而不是下载</title>
+    <link href="https://www.xiaosige.com/post/f556d83e.html"/>
+    <id>https://www.xiaosige.com/post/f556d83e.html</id>
+    <published>2020-10-20T17:36:59.000Z</published>
+    <updated>2020-10-20T17:40:26.546Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;  spring mvc下载pdf&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="SpringMVC" scheme="https://www.xiaosige.com/categories/SpringMVC/"/>
+    
+    
+    <category term="SpringMVC" scheme="https://www.xiaosige.com/tags/SpringMVC/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Shell脚本使用curl命令发送JSON数据</title>
+    <link href="https://www.xiaosige.com/post/3aee04b1.html"/>
+    <id>https://www.xiaosige.com/post/3aee04b1.html</id>
+    <published>2020-10-20T17:16:06.000Z</published>
+    <updated>2020-10-20T17:21:46.321Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;  在Linux使用命令行工具curl发送JSON数据需要把content-type设置为“application/json”。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Linux" scheme="https://www.xiaosige.com/categories/Linux/"/>
+    
+    
+    <category term="Linux" scheme="https://www.xiaosige.com/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Redis分布式锁实现类</title>
+    <link href="https://www.xiaosige.com/post/8406c440.html"/>
+    <id>https://www.xiaosige.com/post/8406c440.html</id>
+    <published>2020-10-20T17:10:18.000Z</published>
+    <updated>2020-10-20T17:14:19.622Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;  Redis分布式锁实现类，RedisDistributedLock。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Java" scheme="https://www.xiaosige.com/categories/Java/"/>
+    
+    
+    <category term="Redis" scheme="https://www.xiaosige.com/tags/Redis/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>雪花算法实现-分布式系统</title>
+    <link href="https://www.xiaosige.com/post/8515d6d4.html"/>
+    <id>https://www.xiaosige.com/post/8515d6d4.html</id>
+    <published>2020-10-20T16:53:39.000Z</published>
+    <updated>2020-10-20T17:22:37.014Z</updated>
+    
+    
+    <summary type="html">&lt;h3 id=&quot;订单id的特殊性&quot;&gt;&lt;a href=&quot;#订单id的特殊性&quot; class=&quot;headerlink&quot; title=&quot;订单id的特殊性&quot;&gt;&lt;/a&gt;订单id的特殊性&lt;/h3&gt;&lt;p&gt;  订单数据非常庞大，将来一定会做分库分表。那么这种情况下， 要保证id的唯一，就不能靠数据库自增，而是自己来实现算法，生成唯一id。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Java" scheme="https://www.xiaosige.com/categories/Java/"/>
+    
+    
+    <category term="snowflake" scheme="https://www.xiaosige.com/tags/snowflake/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>解决JDBC连接MySQL 8异常</title>
+    <link href="https://www.xiaosige.com/post/bfc2af04.html"/>
+    <id>https://www.xiaosige.com/post/bfc2af04.html</id>
+    <published>2020-10-20T16:41:51.000Z</published>
+    <updated>2020-10-20T16:48:03.590Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;  安装MySQL 8，同时驱动也改为了8.0.16&lt;/p&gt;
+&lt;pre class=&quot;line-numbers language-xml&quot; data-language=&quot;xml&quot;&gt;&lt;code class=&quot;language-xml&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;dependency&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;
+    &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;groupId&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;mysql&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;groupId&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;
+    &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;artifactId&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;mysql-connector-java&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;artifactId&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;
+    &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;version&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;8.0.16&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;version&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;dependency&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;span aria-hidden=&quot;true&quot; class=&quot;line-numbers-rows&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;</summary>
+    
+    
+    
+    <category term="MySQL" scheme="https://www.xiaosige.com/categories/MySQL/"/>
+    
+    
+    <category term="JDBC" scheme="https://www.xiaosige.com/tags/JDBC/"/>
+    
+  </entry>
   
   <entry>
     <title>Tomcat 8.5新安装环境初步配置优化</title>
@@ -317,109 +417,6 @@
     
     
     <category term="SpringBoot" scheme="https://www.xiaosige.com/tags/SpringBoot/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>js实现高精度计算</title>
-    <link href="https://www.xiaosige.com/post/26f63a55.html"/>
-    <id>https://www.xiaosige.com/post/26f63a55.html</id>
-    <published>2020-08-21T16:13:41.000Z</published>
-    <updated>2020-10-04T13:30:06.815Z</updated>
-    
-    
-    <summary type="html">&lt;h4 id=&quot;js实现高精度计算，金钱价格计算，避免数字计算精度丢失问题&quot;&gt;&lt;a href=&quot;#js实现高精度计算，金钱价格计算，避免数字计算精度丢失问题&quot; class=&quot;headerlink&quot; title=&quot;js实现高精度计算，金钱价格计算，避免数字计算精度丢失问题&quot;&gt;&lt;/a&gt;js实现高精度计算，金钱价格计算，避免数字计算精度丢失问题&lt;/h4&gt;&lt;p&gt;   下载地址：&lt;a href=&quot;/download/js-big-decimal.min.js&quot;&gt;js-big-decimal.min.js&lt;/a&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="JavaScript" scheme="https://www.xiaosige.com/categories/JavaScript/"/>
-    
-    
-    <category term="Decimal" scheme="https://www.xiaosige.com/tags/Decimal/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>linux下mongo启动关闭重启方法</title>
-    <link href="https://www.xiaosige.com/post/91eed2.html"/>
-    <id>https://www.xiaosige.com/post/91eed2.html</id>
-    <published>2020-08-01T17:13:58.000Z</published>
-    <updated>2020-10-04T10:10:33.290Z</updated>
-    
-    
-    <summary type="html">&lt;h4 id=&quot;启动&quot;&gt;&lt;a href=&quot;#启动&quot; class=&quot;headerlink&quot; title=&quot;启动&quot;&gt;&lt;/a&gt;启动&lt;/h4&gt;&lt;p&gt;  启动&lt;code&gt;mongodb&lt;/code&gt;首先要指定mongo的&lt;code&gt;数据&lt;/code&gt;目录和&lt;code&gt;日志&lt;/code&gt;文件路径，如:  &lt;code&gt;/data/mongodb/&lt;/code&gt;,&lt;code&gt;/var/log/mongodb/mongodb.log&lt;/code&gt;&lt;br&gt;  启动命令： &lt;/p&gt;
-&lt;pre class=&quot;line-numbers language-bash&quot; data-language=&quot;bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;/usr/local/mongdb/bin/mongod -port &lt;span class=&quot;token number&quot;&gt;27017&lt;/span&gt; --dbpath /data/mongodb/ --logpath /var/mongodb/mongodb.log&lt;span aria-hidden=&quot;true&quot; class=&quot;line-numbers-rows&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;</summary>
-    
-    
-    
-    <category term="Linux" scheme="https://www.xiaosige.com/categories/Linux/"/>
-    
-    
-    <category term="Mongo" scheme="https://www.xiaosige.com/tags/Mongo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>SpringBoot项目配置多数据源</title>
-    <link href="https://www.xiaosige.com/post/a810e572.html"/>
-    <id>https://www.xiaosige.com/post/a810e572.html</id>
-    <published>2020-07-21T18:39:33.000Z</published>
-    <updated>2020-10-04T09:47:34.503Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;  由于对接的项目比较老，要与其数据库进行交互，而且数据库类型不一致，所以我们的项目需要支持多数据源（接口平台），这个还是非常好配置的，SpringBoot给我们提供了多数据源配置的方案，并且每个数据源对应一个JdbcTemplate，这样就方便很多，具体配置如下：&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="SpringBoot" scheme="https://www.xiaosige.com/categories/SpringBoot/"/>
-    
-    
-    <category term="SpringBoot" scheme="https://www.xiaosige.com/tags/SpringBoot/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Spring Boot配置静态资源不重启即时生效</title>
-    <link href="https://www.xiaosige.com/post/f3f7b1c5.html"/>
-    <id>https://www.xiaosige.com/post/f3f7b1c5.html</id>
-    <published>2020-07-17T16:23:22.000Z</published>
-    <updated>2020-10-04T09:43:59.185Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;在项目中，用到了模板引擎,每次修改一个 html，要重启才生效,配置不重启也实时生效,可以提供开发效率&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="SpringBoot" scheme="https://www.xiaosige.com/categories/SpringBoot/"/>
-    
-    
-    <category term="SpringBoot" scheme="https://www.xiaosige.com/tags/SpringBoot/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hexo博客实现自动部署阿里云服务器</title>
-    <link href="https://www.xiaosige.com/post/dd42c2af.html"/>
-    <id>https://www.xiaosige.com/post/dd42c2af.html</id>
-    <published>2020-07-17T10:45:36.000Z</published>
-    <updated>2020-10-12T09:25:23.670Z</updated>
-    
-    
-    <summary type="html">&lt;h3 id=&quot;准备工作&quot;&gt;&lt;a href=&quot;#准备工作&quot; class=&quot;headerlink&quot; title=&quot;准备工作&quot;&gt;&lt;/a&gt;准备工作&lt;/h3&gt;&lt;ol&gt;
-&lt;li&gt; 搭建Nginx服务器：&lt;/li&gt;
-
-&lt;p&gt;   参考：&lt;a href=&quot;/post/69813a0e.html&quot; title=&quot;Linux安装Nginx--两种方式&quot;&gt;Linux安装Nginx--两种方式&lt;/a&gt;&lt;/p&gt;
-&lt;li&gt; 搭建Git环境：&lt;/li&gt;
-
-&lt;p&gt;   参考：&lt;a href=&quot;/post/4370af2f.html&quot; title=&quot;Linux安装Git-两种方式详细教程&quot;&gt;Linux安装Git-两种方式详细教程&lt;/a&gt;&lt;/p&gt;
-&lt;/ol&gt;</summary>
-    
-    
-    
-    <category term="hexo建站" scheme="https://www.xiaosige.com/categories/hexo%E5%BB%BA%E7%AB%99/"/>
-    
-    
-    <category term="hexo" scheme="https://www.xiaosige.com/tags/hexo/"/>
     
   </entry>
   
