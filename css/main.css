@@ -3209,6 +3209,9 @@ body {
   }
 }
 /* 所有选中代码块的默认样式 */
+.line-numbers {
+  border-radius: 15px;
+}
 .line-numbers ::selection {
   background: #7ebeee;
   color: #f7f7f7;
@@ -3371,6 +3374,13 @@ to{transform: rotate(360deg)}
 .posts-expand .post-title-link::before {
   background-image: linear-gradient(90deg, #a166ab 0%, #ef4e7b 25%, #f37055 50%, #ef4e7b 75%, #a166ab 100%);
 }
+.posts-expand .post-title,
+.posts-expand .post-title-link {
+/*color:#444;
+  font-size:25px;
+  font-weight:700;*/
+  text-shadow: 1px 1px 3px rgba(68,64,0,0.45);
+}
 /* [Read More]按钮样式 */
 .post-button .btn {
   color: #555 !important;
@@ -3381,6 +3391,14 @@ to{transform: rotate(360deg)}
   border: none !important;
   transition-property: unset;
   padding: 0px 15px;
+  background: #97dffd;
+  color: #fff;
+  font-size: 13px;
+  padding: 1px 15px;
+  border-radius: 5px;
+  border: none;
+  box-shadow: 0 2px 12px rgba(151,223,253,0.85);
+  transition: 0.3s ease;
 }
 .post-button .btn:hover {
   color: #fff !important;
@@ -3388,6 +3406,11 @@ to{transform: rotate(360deg)}
   font-size: 15px;
   box-shadow: inset 0px 0px 10px 0px rgba(0,0,0,0.35);
   background-image: linear-gradient(90deg, #a166ab 0%, #ef4e7b 25%, #f37055 50%, #ef4e7b 75%, #a166ab 100%);
+  -webkit-transform: scale(1.1);
+  -moz-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  -o-transform: scale(1.1);
+  transform: scale(1.1);
 }
 /*******************ol li *******start***************/
 .posts-expand .post-body ol {
@@ -3440,13 +3463,23 @@ to{transform: rotate(360deg)}
   transition: all 0.3s ease-out;
 }
 /*******************ol li *******end***************/
+.post-nav-item {
+  transition: 0.3s ease;
+}
+.post-nav-item:hover {
+  -webkit-transform: scale(1.1);
+  -moz-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  -o-transform: scale(1.1);
+  transform: scale(1.1);
+}
 .post-nav-item a {
   display: inline;
 }
 .post-nav-item a:hover,
 .post-tags a:hover {
   color: #fc6423;
-  border-bottom: 1px solid #fc6423;
+/*border-bottom: 1px solid #fc6423;*/
 }
 .post-tags a::before,
 .post-tags a::after {
@@ -3491,6 +3524,83 @@ to{transform: rotate(360deg)}
   box-shadow: 0 5px 11px 0 rgba(0,0,0,0.18), 0 4px 15px 0 rgba(0,0,0,0.15);
   border-radius: 3px;
 }
+.post-body h1 {
+  position: relative;
+  padding-bottom: 10px;
+}
+.post-body h1:before {
+  content: "";
+  width: 100%;
+  padding: 0 25px;
+  border-bottom: 1px solid #eee;
+  position: absolute;
+  bottom: -1px;
+  left: -25px;
+  box-sizing: unset;
+}
+.post-body h1:after {
+  transition: all 0.35s ease-in;
+  content: "";
+  position: absolute;
+  background: #97dffd;
+  width: 3em;
+  height: 5px;
+  bottom: -3px;
+  left: 0;
+  border-radius: 6px;
+  box-shadow: 0 2px 12px rgba(151,223,253,0.85);
+}
+.post-body h1:hover:after {
+  width: 4em;
+}
+.post-body h2 {
+  position: relative;
+  padding-bottom: 10px;
+}
+.post-body h2:before {
+  content: "";
+  width: 100%;
+  padding: 0 25px;
+  border-bottom: 1px solid #eee;
+  position: absolute;
+  bottom: -1px;
+  left: -25px;
+  box-sizing: unset;
+}
+.post-body h2:after {
+  transition: all 0.35s ease-in;
+  content: "";
+  position: absolute;
+  background: #97dffd;
+  width: 2em;
+  height: 5px;
+  bottom: -3px;
+  left: 0;
+  border-radius: 6px;
+  box-shadow: 0 2px 12px rgba(151,223,253,0.85);
+}
+.post-body h2:hover:after {
+  width: 3em;
+}
+.post-body h3 {
+  position: relative;
+  padding-bottom: 10px;
+}
+.post-body h3:after {
+  transition: all 0.35s ease-in;
+  content: "";
+  position: absolute;
+  background: #97dffd;
+  width: 1em;
+  height: 5px;
+  bottom: -3px;
+  left: 0;
+  border-radius: 6px;
+  box-shadow: 0 2px 12px rgba(151,223,253,0.85);
+}
+.post-body h3:hover:after {
+  width: 2em;
+}
 .post-body h1:hover,
 .post-body h2:hover,
 .post-body h3:hover,
@@ -3519,6 +3629,7 @@ to{transform: rotate(360deg)}
   -o-transition: all 0.3s ease-out;
   -ms-transition: all 0.3s ease-out;
   transition: all 0.3s ease-out;
+  text-shadow: 1px 1px 2px rgba(68,64,0,0.45);
 }
 .post-body h1:before,
 .post-body h2:before,
