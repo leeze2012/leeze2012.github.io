@@ -3167,6 +3167,16 @@ mark.search-keyword {
     background-position: 0 50%;
   }
 }
+/*副标题文字动画*/
+@-webkit-keyframes masked-animation {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: -100% 0;
+  }
+}
+/*悬赏按钮效果*/
 /* 网站背景 */
 /*
 html {
@@ -3250,7 +3260,16 @@ div.code-toolbar > .toolbar button:hover {
   font-weight: bold;
   color: #fff;
   margin: 10px 10px 0;
-  font-size: 0.8125em;
+/*font-size: 0.8125em;*/
+  font-size: 1em;
+/*font-size: 24px;
+  color: #de6f64;
+  font-family: "隶书",serif;*/
+  background-image: -webkit-linear-gradient(left, #ffdcb4, #b96972 25%, #e88a57 50%, #804170 75%, #a596cd);
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  -webkit-background-size: 200% 100%;
+  -webkit-animation: masked-animation 1.5s infinite linear;
 }
 /* 站点作者头像阴影 */
 .site-author {
@@ -3382,6 +3401,9 @@ to{transform: rotate(360deg)}
   text-shadow: 1px 1px 3px rgba(68,64,0,0.45);
 }
 /* [Read More]按钮样式 */
+.post-button {
+  animation: star 0.5s ease-in-out infinite alternate;
+}
 .post-button .btn {
   color: #555 !important;
   background-color: #fff;
@@ -3512,6 +3534,10 @@ to{transform: rotate(360deg)}
   -webkit-transform: translateX(0px);
   -moz-transform: translateX(0px);
   transform: translateX(0px);
+}
+.reward-container button {
+  animation: star 0.5s ease-in-out infinite alternate;
+  border-radius: 16px;
 }
 .post-copyright ul {
   border-style: dashed;
@@ -3678,7 +3704,8 @@ code {
   background-color: #ea434a;
   color: #fff;
   height: 22px;
-  line-height: 24px;
+  line-height: 24px !important;
+  animation: star 0.5s ease-in-out infinite alternate;
 }
 .tag-cloud a {
   font-weight: bold;
@@ -4009,6 +4036,38 @@ article .post-copyright {
   }
   100% {
     background-position: 0 50%;
+  }
+}
+@-moz-keyframes star {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.1);
+  }
+}
+@-webkit-keyframes star {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.1);
+  }
+}
+@-o-keyframes star {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.1);
+  }
+}
+@keyframes star {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.1);
   }
 }
 .moon-menu,

@@ -39,6 +39,71 @@ margin-bottom: 0px;
       </script><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
   </entry>
   <entry>
+    <title>linux之使用alternatives 切换Java版本</title>
+    <url>/post/4824a74d.html</url>
+    <content><![CDATA[<p> xception in thread “main” java.lang.UnsupportedClassVersionError: M : Unsupported major.minor version</p>
+<p>在linux上编译的java程序，在运行的时候报这个错误。</p>
+<a id="more"></a>
+
+<p>经过查找原来是javac的版本和java的版本不一致导致的，</p>
+<p>因为我机器上安装了系统自带的java-1.5.0-gcj和1.7.0的openjdk，另外我还自己安装了1.8.0的Oracle 官方的jdk</p>
+<p>导致编译器的版本和运行器的版本不一致。</p>
+<p>解决这个问题的方法是使用alternatives 切换默认的java命令</p>
+<p>这个工具的大概原理是</p>
+<p>在/usr/bin目录下创建一个符号链接，指向/etc/alternatives/ 下的的文件，而该文件依然是一个符号链接，举个栗子</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@node1 mec<span class="token punctuation">]</span><span class="token comment"># ll /usr/bin/java</span>
+lrwxrwxrwx. <span class="token number">1</span> root root <span class="token number">22</span> <span class="token number">4</span>月  <span class="token number">16</span> <span class="token number">16</span>:06 /usr/bin/java -<span class="token operator">&gt;</span> /etc/alternatives/java<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@node1 mec<span class="token punctuation">]</span><span class="token comment"># ll  /etc/alternatives/java</span>
+lrwxrwxrwx. <span class="token number">1</span> root root <span class="token number">26</span> <span class="token number">4</span>月  <span class="token number">16</span> <span class="token number">16</span>:06 /etc/alternatives/java -<span class="token operator">&gt;</span> /usr/java/default/bin/java<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>/etc/alternatives/java会指向最终的可执行文件，如果你有3个版本的java</p>
+<p>就需要运行 </p>
+<pre class="line-numbers language-none"><code class="language-none">[root@node1 mec]# alternatives --config java
+
+共有 3 个程序提供“java”。
+
+  选择    命令
+-----------------------------------------------
+   1           /usr/lib/jvm/jre-1.5.0-gcj/bin/java
+*  2           /usr/lib/jvm/jre-1.7.0-openjdk.x86_64/bin/java
+ + 3           /usr/java/default/bin/java
+
+按 Enter 来保存当前选择[+]，或键入选择号码：<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>然后选择你想要选择的选项保存就好了</p>
+<p>如果这个列表里面没有你想要的而且已经安装了的程序，就需要添加 命令为</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">alternatives --install /usr/bin/java java /usr/java/default/bin/java <span class="token number">500</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>这个命令实际操作的是 /var/lib/alternatives目录下对应的文件</p>
+<p>alternatives的安装删除显示等操作都是通过读取和修改这个目录下的文件实现的，而且是文本文件，感兴趣的可以取阅读一下</p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Jdk</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Spring MVC返回pdf文件并在页面显示而不是下载</title>
     <url>/post/f556d83e.html</url>
     <content><![CDATA[<p>  spring mvc下载pdf</p>
@@ -4699,71 +4764,6 @@ mysql<span class="token operator">&gt;</span>flush <span class="token keyword">p
       </categories>
       <tags>
         <tag>Maven</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>linux之使用alternatives 切换Java版本</title>
-    <url>/post/4824a74d.html</url>
-    <content><![CDATA[<p> xception in thread “main” java.lang.UnsupportedClassVersionError: M : Unsupported major.minor version</p>
-<p>在linux上编译的java程序，在运行的时候报这个错误。</p>
-<a id="more"></a>
-
-<p>经过查找原来是javac的版本和java的版本不一致导致的，</p>
-<p>因为我机器上安装了系统自带的java-1.5.0-gcj和1.7.0的openjdk，另外我还自己安装了1.8.0的Oracle 官方的jdk</p>
-<p>导致编译器的版本和运行器的版本不一致。</p>
-<p>解决这个问题的方法是使用alternatives 切换默认的java命令</p>
-<p>这个工具的大概原理是</p>
-<p>在/usr/bin目录下创建一个符号链接，指向/etc/alternatives/ 下的的文件，而该文件依然是一个符号链接，举个栗子</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@node1 mec<span class="token punctuation">]</span><span class="token comment"># ll /usr/bin/java</span>
-lrwxrwxrwx. <span class="token number">1</span> root root <span class="token number">22</span> <span class="token number">4</span>月  <span class="token number">16</span> <span class="token number">16</span>:06 /usr/bin/java -<span class="token operator">&gt;</span> /etc/alternatives/java<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@node1 mec<span class="token punctuation">]</span><span class="token comment"># ll  /etc/alternatives/java</span>
-lrwxrwxrwx. <span class="token number">1</span> root root <span class="token number">26</span> <span class="token number">4</span>月  <span class="token number">16</span> <span class="token number">16</span>:06 /etc/alternatives/java -<span class="token operator">&gt;</span> /usr/java/default/bin/java<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<p>/etc/alternatives/java会指向最终的可执行文件，如果你有3个版本的java</p>
-<p>就需要运行 </p>
-<pre class="line-numbers language-none"><code class="language-none">[root@node1 mec]# alternatives --config java
-
-共有 3 个程序提供“java”。
-
-  选择    命令
------------------------------------------------
-   1           /usr/lib/jvm/jre-1.5.0-gcj/bin/java
-*  2           /usr/lib/jvm/jre-1.7.0-openjdk.x86_64/bin/java
- + 3           /usr/java/default/bin/java
-
-按 Enter 来保存当前选择[+]，或键入选择号码：<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>然后选择你想要选择的选项保存就好了</p>
-<p>如果这个列表里面没有你想要的而且已经安装了的程序，就需要添加 命令为</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">alternatives --install /usr/bin/java java /usr/java/default/bin/java <span class="token number">500</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>这个命令实际操作的是 /var/lib/alternatives目录下对应的文件</p>
-<p>alternatives的安装删除显示等操作都是通过读取和修改这个目录下的文件实现的，而且是文本文件，感兴趣的可以取阅读一下</p>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>Jdk</tag>
       </tags>
   </entry>
   <entry>
