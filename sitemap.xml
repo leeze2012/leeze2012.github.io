@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://www.xiaosige.com/stars/index.html</loc>
+    
+    <lastmod>2020-10-23</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://www.xiaosige.com/post/f556d83e.html</loc>
     
     <lastmod>2020-10-20</lastmod>
@@ -282,13 +289,6 @@
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/stars/index.html</loc>
-    
-    <lastmod>2020-10-06</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://www.xiaosige.com/404.html</loc>
     
     <lastmod>2020-10-05</lastmod>
@@ -543,7 +543,7 @@
 
   <url>
     <loc>https://www.xiaosige.com/</loc>
-    <lastmod>2020-10-22</lastmod>
+    <lastmod>2020-10-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -551,196 +551,196 @@
   
   <url>
     <loc>https://www.xiaosige.com/tags/Decimal/</loc>
-    <lastmod>2020-10-22</lastmod>
+    <lastmod>2020-10-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://www.xiaosige.com/tags/BootStrap/</loc>
-    <lastmod>2020-10-22</lastmod>
+    <lastmod>2020-10-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://www.xiaosige.com/tags/Linux/</loc>
-    <lastmod>2020-10-22</lastmod>
+    <lastmod>2020-10-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://www.xiaosige.com/tags/Eclipse/</loc>
-    <lastmod>2020-10-22</lastmod>
+    <lastmod>2020-10-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://www.xiaosige.com/tags/Markdown/</loc>
-    <lastmod>2020-10-22</lastmod>
+    <lastmod>2020-10-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://www.xiaosige.com/tags/GitLab/</loc>
-    <lastmod>2020-10-22</lastmod>
+    <lastmod>2020-10-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://www.xiaosige.com/tags/Git/</loc>
-    <lastmod>2020-10-22</lastmod>
+    <lastmod>2020-10-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://www.xiaosige.com/tags/Test/</loc>
-    <lastmod>2020-10-22</lastmod>
+    <lastmod>2020-10-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://www.xiaosige.com/tags/hexo/</loc>
-    <lastmod>2020-10-22</lastmod>
+    <lastmod>2020-10-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://www.xiaosige.com/tags/Jdk/</loc>
-    <lastmod>2020-10-22</lastmod>
+    <lastmod>2020-10-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://www.xiaosige.com/tags/Jenkins/</loc>
-    <lastmod>2020-10-22</lastmod>
+    <lastmod>2020-10-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://www.xiaosige.com/tags/Jira/</loc>
-    <lastmod>2020-10-22</lastmod>
+    <lastmod>2020-10-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://www.xiaosige.com/tags/Maven/</loc>
-    <lastmod>2020-10-22</lastmod>
+    <lastmod>2020-10-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://www.xiaosige.com/tags/Meting/</loc>
-    <lastmod>2020-10-22</lastmod>
+    <lastmod>2020-10-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://www.xiaosige.com/tags/Mongo/</loc>
-    <lastmod>2020-10-22</lastmod>
+    <lastmod>2020-10-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://www.xiaosige.com/tags/MySQL/</loc>
-    <lastmod>2020-10-22</lastmod>
+    <lastmod>2020-10-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://www.xiaosige.com/tags/JDBC/</loc>
-    <lastmod>2020-10-22</lastmod>
+    <lastmod>2020-10-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://www.xiaosige.com/tags/Nginx/</loc>
-    <lastmod>2020-10-22</lastmod>
+    <lastmod>2020-10-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://www.xiaosige.com/tags/Nvm/</loc>
-    <lastmod>2020-10-22</lastmod>
+    <lastmod>2020-10-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://www.xiaosige.com/tags/PHP/</loc>
-    <lastmod>2020-10-22</lastmod>
+    <lastmod>2020-10-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://www.xiaosige.com/tags/Redis/</loc>
-    <lastmod>2020-10-22</lastmod>
+    <lastmod>2020-10-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://www.xiaosige.com/tags/ShowDoc/</loc>
-    <lastmod>2020-10-22</lastmod>
+    <lastmod>2020-10-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://www.xiaosige.com/tags/snowflake/</loc>
-    <lastmod>2020-10-22</lastmod>
+    <lastmod>2020-10-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://www.xiaosige.com/tags/SpringBoot/</loc>
-    <lastmod>2020-10-22</lastmod>
+    <lastmod>2020-10-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://www.xiaosige.com/tags/SpringMVC/</loc>
-    <lastmod>2020-10-22</lastmod>
+    <lastmod>2020-10-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://www.xiaosige.com/tags/ssh/</loc>
-    <lastmod>2020-10-22</lastmod>
+    <lastmod>2020-10-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://www.xiaosige.com/tags/Tomcat/</loc>
-    <lastmod>2020-10-22</lastmod>
+    <lastmod>2020-10-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://www.xiaosige.com/tags/Yarn/</loc>
-    <lastmod>2020-10-22</lastmod>
+    <lastmod>2020-10-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
@@ -749,140 +749,140 @@
   
   <url>
     <loc>https://www.xiaosige.com/categories/JavaScript/</loc>
-    <lastmod>2020-10-22</lastmod>
+    <lastmod>2020-10-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://www.xiaosige.com/categories/BootStrap/</loc>
-    <lastmod>2020-10-22</lastmod>
+    <lastmod>2020-10-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://www.xiaosige.com/categories/Linux/</loc>
-    <lastmod>2020-10-22</lastmod>
+    <lastmod>2020-10-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://www.xiaosige.com/categories/Eclipse/</loc>
-    <lastmod>2020-10-22</lastmod>
+    <lastmod>2020-10-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://www.xiaosige.com/categories/Markdown/</loc>
-    <lastmod>2020-10-22</lastmod>
+    <lastmod>2020-10-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://www.xiaosige.com/categories/BootStrap/table/</loc>
-    <lastmod>2020-10-22</lastmod>
+    <lastmod>2020-10-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://www.xiaosige.com/categories/Git/</loc>
-    <lastmod>2020-10-22</lastmod>
+    <lastmod>2020-10-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://www.xiaosige.com/categories/Linux/Git/</loc>
-    <lastmod>2020-10-22</lastmod>
+    <lastmod>2020-10-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://www.xiaosige.com/categories/%E6%B5%8B%E8%AF%95/</loc>
-    <lastmod>2020-10-22</lastmod>
+    <lastmod>2020-10-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://www.xiaosige.com/categories/hexo%E5%BB%BA%E7%AB%99/</loc>
-    <lastmod>2020-10-22</lastmod>
+    <lastmod>2020-10-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://www.xiaosige.com/categories/Java/</loc>
-    <lastmod>2020-10-22</lastmod>
+    <lastmod>2020-10-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://www.xiaosige.com/categories/Jenkins/</loc>
-    <lastmod>2020-10-22</lastmod>
+    <lastmod>2020-10-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://www.xiaosige.com/categories/Linux/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/</loc>
-    <lastmod>2020-10-22</lastmod>
+    <lastmod>2020-10-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://www.xiaosige.com/categories/Maven/</loc>
-    <lastmod>2020-10-22</lastmod>
+    <lastmod>2020-10-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://www.xiaosige.com/categories/MySQL/</loc>
-    <lastmod>2020-10-22</lastmod>
+    <lastmod>2020-10-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://www.xiaosige.com/categories/Nginx/</loc>
-    <lastmod>2020-10-22</lastmod>
+    <lastmod>2020-10-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://www.xiaosige.com/categories/Mac/</loc>
-    <lastmod>2020-10-22</lastmod>
+    <lastmod>2020-10-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://www.xiaosige.com/categories/Linux/API%E6%96%87%E6%A1%A3%E7%B3%BB%E7%BB%9F/</loc>
-    <lastmod>2020-10-22</lastmod>
+    <lastmod>2020-10-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://www.xiaosige.com/categories/SpringBoot/</loc>
-    <lastmod>2020-10-22</lastmod>
+    <lastmod>2020-10-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://www.xiaosige.com/categories/SpringMVC/</loc>
-    <lastmod>2020-10-22</lastmod>
+    <lastmod>2020-10-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
