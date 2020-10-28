@@ -3948,21 +3948,22 @@ body {
 .footer,.footer a,.footer .with-love{
   color: #31ff00
 }
-
-*/
-article .post-header {
-  background: url("/images/monkey.png");
-  background-repeat: no-repeat;
-  background-position: right;
-  background-size: contain;
+//文章标题右侧增加图片
+article .post-header{
+  //background:url(https://s1.ax1x.com/2018/12/20/FrDJmD.png);//猪 2019 透明
+  background:url(/images/monkey.png);
+  background-repeat: no-repeat;//不重复
+  background-position: right ; //居右
+  background-size: contain;//合适大小
+  // color:#ff0000;
 }
-article .post-copyright {
-  background: url("https://s1.ax1x.com/2018/12/20/FrD60g.png");
-  background-repeat: no-repeat;
-  background-position: right bottom;
-  background-size: contain;
+//文章版权处右侧增加图片
+article .post-copyright{
+  background:url(https://s1.ax1x.com/2018/12/20/FrD60g.png);//瑾贺新年 透明
+  background-repeat: no-repeat;//不重复
+  background-position: right bottom ; //居右下
+  background-size: contain;//auto按图片比例缩放
 }
-/*
 //左边栏概览
 .sidebar-inner {
   //background:url(https://s1.ax1x.com/2018/12/20/FrBGIs.jpg);//元旦 大红背景
