@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://www.xiaosige.com/stars/index.html</loc>
+    
+    <lastmod>2020-10-29</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://www.xiaosige.com/welfare/index.html</loc>
     
     <lastmod>2020-10-27</lastmod>
@@ -12,13 +19,6 @@
     <loc>https://www.xiaosige.com/post/4824a74d.html</loc>
     
     <lastmod>2020-10-27</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.xiaosige.com/stars/index.html</loc>
-    
-    <lastmod>2020-10-23</lastmod>
     
   </url>
   
