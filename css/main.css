@@ -3219,9 +3219,6 @@ body {
   }
 }
 /* 所有选中代码块的默认样式 */
-.line-numbers {
-  border-radius: 15px;
-}
 .line-numbers ::selection {
   background: #7ebeee;
   color: #f7f7f7;
@@ -3557,9 +3554,6 @@ to{transform: rotate(360deg)}
 .post-body h1:before {
   content: "";
   width: 100%;
-  padding: 0 25px;
-  border-bottom: 1px solid #eee;
-  position: absolute;
   bottom: -1px;
   left: -25px;
   box-sizing: unset;
@@ -3586,9 +3580,6 @@ to{transform: rotate(360deg)}
 .post-body h2:before {
   content: "";
   width: 100%;
-  padding: 0 25px;
-  border-bottom: 1px solid #eee;
-  position: absolute;
   bottom: -1px;
   left: -25px;
   box-sizing: unset;
