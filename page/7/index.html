@@ -2403,6 +2403,10 @@ gsap.to('.char', {
                 $(this).addClass('hvr-grow-shadow');
             });
         }
+        <!-- 移动端 -->
+        if (/(iPhone|iPad|iPod|iOS|Android)/i.test(navigator.userAgent)) {
+            $('meting-js').css('display','none');
+        }
 
     });
 </script>
