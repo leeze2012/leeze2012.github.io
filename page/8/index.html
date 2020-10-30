@@ -72,6 +72,9 @@
 <link rel="stylesheet" type="text/css" href="/css/hover.css" />
 
 
+<link rel="stylesheet" type="text/css" href="/zone/css/i_hover.css" />
+
+
   <title>小四儿 - 心之所愿，无所不至！</title>
   
 
@@ -2398,12 +2401,18 @@ gsap.to('.char', {
                 }else{
                     $(this).addClass('hvr-bounce-to-left');
                 }
+                if($(this).children('i').length > 0){
+                    $(this).children('i').addClass('faa-spin');
+                }
             });
         }
         <!-- 主菜单hover样式 -->
         if($('.main-menu .menu-item a').length > 0){
             $('.main-menu .menu-item a').each(function(index,element){
                 $(this).addClass('hvr-grow-shadow');
+                if($(this).children('i').length > 0){
+                    $(this).children('i').addClass('faa-wrench');
+                }
             });
         }
         <!-- 移动端 -->
