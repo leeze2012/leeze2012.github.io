@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 <meta name="generator" content="Hexo 5.2.0">
+
+
   <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.png">
@@ -15,7 +17,7 @@
 
 
 
-<link rel="stylesheet" href="//cdn.bootcdn.net/ajax/libs/font-awesome/5.13.1/css/all.css">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.1/css/all.min.css">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.css">
@@ -259,14 +261,15 @@
         </li>
       </ul>
 
-      <!--noindex-->
-      <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%86%E8%A7%A3nvm"><span class="nav-number">1.</span> <span class="nav-text">了解nvm</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%A4%E8%AF%86nvm%E3%80%81node%E3%80%81npm"><span class="nav-number">2.</span> <span class="nav-text">认识nvm、node、npm</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8C%BA%E5%88%AB"><span class="nav-number">2.1.</span> <span class="nav-text">区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%B3%E7%B3%BB"><span class="nav-number">2.2.</span> <span class="nav-text">关系</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85"><span class="nav-number">3.</span> <span class="nav-text">安装</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%8D%E6%8E%A8%E8%8D%90%E7%9A%84%E5%AE%89%E8%A3%85%E6%96%B9%E6%B3%95"><span class="nav-number">3.1.</span> <span class="nav-text">不推荐的安装方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8E%A8%E8%8D%90%E7%9A%84%E5%AE%89%E8%A3%85%E6%96%B9%E6%B3%95"><span class="nav-number">3.2.</span> <span class="nav-text">推荐的安装方法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%8D%B8%E8%BD%BD%E5%B7%B2%E5%AE%89%E8%A3%85%E5%88%B0%E5%85%A8%E5%B1%80%E7%9A%84-node-npm"><span class="nav-number">3.2.1.</span> <span class="nav-text">卸载已安装到全局的 node&#x2F;npm</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-nvm"><span class="nav-number">3.2.2.</span> <span class="nav-text">安装 nvm</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8-cnpm-%E5%8A%A0%E9%80%9F-npm"><span class="nav-number">3.2.3.</span> <span class="nav-text">使用 cnpm 加速 npm</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#nvm%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="nav-number">4.</span> <span class="nav-text">nvm常用命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%99%84-MAC-%E7%9A%84-bash-profile"><span class="nav-number">5.</span> <span class="nav-text">附: MAC 的 .bash_profile</span></a></li></ol></div>
-      </section>
-      <!--/noindex-->
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <section class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%86%E8%A7%A3nvm"><span class="nav-number">1.</span> <span class="nav-text">了解nvm</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%A4%E8%AF%86nvm%E3%80%81node%E3%80%81npm"><span class="nav-number">2.</span> <span class="nav-text">认识nvm、node、npm</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8C%BA%E5%88%AB"><span class="nav-number">2.1.</span> <span class="nav-text">区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%B3%E7%B3%BB"><span class="nav-number">2.2.</span> <span class="nav-text">关系</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85"><span class="nav-number">3.</span> <span class="nav-text">安装</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%8D%E6%8E%A8%E8%8D%90%E7%9A%84%E5%AE%89%E8%A3%85%E6%96%B9%E6%B3%95"><span class="nav-number">3.1.</span> <span class="nav-text">不推荐的安装方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8E%A8%E8%8D%90%E7%9A%84%E5%AE%89%E8%A3%85%E6%96%B9%E6%B3%95"><span class="nav-number">3.2.</span> <span class="nav-text">推荐的安装方法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%8D%B8%E8%BD%BD%E5%B7%B2%E5%AE%89%E8%A3%85%E5%88%B0%E5%85%A8%E5%B1%80%E7%9A%84-node-npm"><span class="nav-number">3.2.1.</span> <span class="nav-text">卸载已安装到全局的 node&#x2F;npm</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-nvm"><span class="nav-number">3.2.2.</span> <span class="nav-text">安装 nvm</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8-cnpm-%E5%8A%A0%E9%80%9F-npm"><span class="nav-number">3.2.3.</span> <span class="nav-text">使用 cnpm 加速 npm</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#nvm%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="nav-number">4.</span> <span class="nav-text">nvm常用命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%99%84-MAC-%E7%9A%84-bash-profile"><span class="nav-number">5.</span> <span class="nav-text">附: MAC 的 .bash_profile</span></a></li></ol></div>
+        </section>
+        <!--/noindex-->
 
-      <section class="site-overview-wrap sidebar-panel">
-        <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <section class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <img class="site-author-image" itemprop="image" alt="leeze"
       src="/images/avatar.jpg">
   <p class="site-author-name" itemprop="name">leeze</p>
@@ -624,7 +627,8 @@ canvas#canvas {
 }
 </style>
 
-      </section>
+        </section>
+      </div>
     </div>
   </aside>
   <div class="sidebar-dimmer"></div>
@@ -1111,7 +1115,7 @@ nvm use <span class="token number">12.13</span>.0 <span class="token comment"># 
   </footer>
 
   
-  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/@next-theme/pjax@0.4.0/pjax.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>

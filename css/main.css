@@ -1675,11 +1675,13 @@ pre code {
 .sidebar-overview-active .sidebar-nav-overview:hover {
   color: #fc6423;
 }
-.sidebar-panel {
-  display: none;
+.sidebar-panel-container {
   max-height: var(--sidebar-wrapper-height);
   overflow-x: hidden;
   overflow-y: auto;
+}
+.sidebar-panel {
+  display: none;
 }
 .sidebar-overview-active .site-overview-wrap {
   display: flex;

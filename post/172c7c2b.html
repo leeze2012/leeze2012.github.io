@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 <meta name="generator" content="Hexo 5.2.0">
+
+
   <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.png">
@@ -15,7 +17,7 @@
 
 
 
-<link rel="stylesheet" href="//cdn.bootcdn.net/ajax/libs/font-awesome/5.13.1/css/all.css">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.1/css/all.min.css">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.css">
@@ -259,14 +261,15 @@
         </li>
       </ul>
 
-      <!--noindex-->
-      <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E6%8F%92%E4%BB%B6%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE"><span class="nav-number">1.</span> <span class="nav-text">一、插件安装与配置</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E9%97%AE%E9%A2%98%E6%8E%A8%E6%B5%8B"><span class="nav-number">2.</span> <span class="nav-text">二、问题推测</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E4%B8%80-%E6%9C%AC%E5%9C%B0%E5%9B%BE%E7%89%87%E6%B2%A1%E6%9C%89%E6%9C%89%E6%95%88%E4%B8%8A%E4%BC%A0%E8%87%B3github%E4%BB%93%E5%BA%93%E4%B8%AD%EF%BC%8C%E5%AF%BC%E8%87%B4%E5%BC%95%E7%94%A8%E6%97%A0%E6%95%88"><span class="nav-number">2.1.</span> <span class="nav-text">(一)本地图片没有有效上传至github仓库中，导致引用无效</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%EF%BC%88%E4%BA%8C%EF%BC%89%E6%9C%AC%E5%9C%B0%E5%9B%BE%E7%89%87%E6%B2%A1%E6%9C%89%E5%AD%98%E6%94%BE%E5%9C%A8%E5%90%8C%E5%90%8D%E6%96%87%E4%BB%B6%E5%A4%B9%E4%B8%AD"><span class="nav-number">2.2.</span> <span class="nav-text">（二）本地图片没有存放在同名文件夹中</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%EF%BC%88%E4%B8%89%EF%BC%89%E5%9B%BE%E7%89%87%E8%B7%AF%E5%BE%84%E5%87%BA%E9%94%99"><span class="nav-number">2.3.</span> <span class="nav-text">（三）图片路径出错</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%EF%BC%88%E5%9B%9B%EF%BC%89%E7%9B%B8%E5%AF%B9%E8%B7%AF%E5%BE%84%E5%BC%95%E7%94%A8%E7%9A%84%E6%A0%87%E7%AD%BE%E6%8F%92%E4%BB%B6"><span class="nav-number">2.4.</span> <span class="nav-text">（四）相对路径引用的标签插件</span></a></li></ol></li></ol></div>
-      </section>
-      <!--/noindex-->
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <section class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E6%8F%92%E4%BB%B6%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE"><span class="nav-number">1.</span> <span class="nav-text">一、插件安装与配置</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E9%97%AE%E9%A2%98%E6%8E%A8%E6%B5%8B"><span class="nav-number">2.</span> <span class="nav-text">二、问题推测</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E4%B8%80-%E6%9C%AC%E5%9C%B0%E5%9B%BE%E7%89%87%E6%B2%A1%E6%9C%89%E6%9C%89%E6%95%88%E4%B8%8A%E4%BC%A0%E8%87%B3github%E4%BB%93%E5%BA%93%E4%B8%AD%EF%BC%8C%E5%AF%BC%E8%87%B4%E5%BC%95%E7%94%A8%E6%97%A0%E6%95%88"><span class="nav-number">2.1.</span> <span class="nav-text">(一)本地图片没有有效上传至github仓库中，导致引用无效</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%EF%BC%88%E4%BA%8C%EF%BC%89%E6%9C%AC%E5%9C%B0%E5%9B%BE%E7%89%87%E6%B2%A1%E6%9C%89%E5%AD%98%E6%94%BE%E5%9C%A8%E5%90%8C%E5%90%8D%E6%96%87%E4%BB%B6%E5%A4%B9%E4%B8%AD"><span class="nav-number">2.2.</span> <span class="nav-text">（二）本地图片没有存放在同名文件夹中</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%EF%BC%88%E4%B8%89%EF%BC%89%E5%9B%BE%E7%89%87%E8%B7%AF%E5%BE%84%E5%87%BA%E9%94%99"><span class="nav-number">2.3.</span> <span class="nav-text">（三）图片路径出错</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%EF%BC%88%E5%9B%9B%EF%BC%89%E7%9B%B8%E5%AF%B9%E8%B7%AF%E5%BE%84%E5%BC%95%E7%94%A8%E7%9A%84%E6%A0%87%E7%AD%BE%E6%8F%92%E4%BB%B6"><span class="nav-number">2.4.</span> <span class="nav-text">（四）相对路径引用的标签插件</span></a></li></ol></li></ol></div>
+        </section>
+        <!--/noindex-->
 
-      <section class="site-overview-wrap sidebar-panel">
-        <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <section class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <img class="site-author-image" itemprop="image" alt="leeze"
       src="/images/avatar.jpg">
   <p class="site-author-name" itemprop="name">leeze</p>
@@ -624,7 +627,8 @@ canvas#canvas {
 }
 </style>
 
-      </section>
+        </section>
+      </div>
     </div>
   </aside>
   <div class="sidebar-dimmer"></div>
@@ -1090,7 +1094,7 @@ hexo.extend.filter.register('after_post_render', function(data){
   </footer>
 
   
-  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/@next-theme/pjax@0.4.0/pjax.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>

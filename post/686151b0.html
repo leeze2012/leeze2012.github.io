@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 <meta name="generator" content="Hexo 5.2.0">
+
+
   <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.png">
@@ -15,7 +17,7 @@
 
 
 
-<link rel="stylesheet" href="//cdn.bootcdn.net/ajax/libs/font-awesome/5.13.1/css/all.css">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.1/css/all.min.css">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.css">
@@ -257,14 +259,15 @@
         </li>
       </ul>
 
-      <!--noindex-->
-      <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8B%E8%BD%BD%E5%AE%89%E8%A3%85Tomcat"><span class="nav-number">1.</span> <span class="nav-text">下载安装Tomcat</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E4%BC%98%E5%8C%96"><span class="nav-number">2.</span> <span class="nav-text">环境配置优化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%80%E5%90%AFapr%E6%A8%A1%E5%BC%8F"><span class="nav-number">3.</span> <span class="nav-text">开启apr模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9server-xml%E9%85%8D%E7%BD%AE"><span class="nav-number">4.</span> <span class="nav-text">修改server.xml配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8A%A0%E5%A4%A7%E7%86%B5%E6%B1%A0"><span class="nav-number">5.</span> <span class="nav-text">加大熵池</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JVM%E8%B0%83%E6%95%B4"><span class="nav-number">6.</span> <span class="nav-text">JVM调整</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#server-xml%E8%B0%83%E6%95%B4"><span class="nav-number">7.</span> <span class="nav-text">server.xml调整</span></a></li></ol></div>
-      </section>
-      <!--/noindex-->
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <section class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8B%E8%BD%BD%E5%AE%89%E8%A3%85Tomcat"><span class="nav-number">1.</span> <span class="nav-text">下载安装Tomcat</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E4%BC%98%E5%8C%96"><span class="nav-number">2.</span> <span class="nav-text">环境配置优化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%80%E5%90%AFapr%E6%A8%A1%E5%BC%8F"><span class="nav-number">3.</span> <span class="nav-text">开启apr模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9server-xml%E9%85%8D%E7%BD%AE"><span class="nav-number">4.</span> <span class="nav-text">修改server.xml配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8A%A0%E5%A4%A7%E7%86%B5%E6%B1%A0"><span class="nav-number">5.</span> <span class="nav-text">加大熵池</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JVM%E8%B0%83%E6%95%B4"><span class="nav-number">6.</span> <span class="nav-text">JVM调整</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#server-xml%E8%B0%83%E6%95%B4"><span class="nav-number">7.</span> <span class="nav-text">server.xml调整</span></a></li></ol></div>
+        </section>
+        <!--/noindex-->
 
-      <section class="site-overview-wrap sidebar-panel">
-        <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <section class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <img class="site-author-image" itemprop="image" alt="leeze"
       src="/images/avatar.jpg">
   <p class="site-author-name" itemprop="name">leeze</p>
@@ -622,7 +625,8 @@ canvas#canvas {
 }
 </style>
 
-      </section>
+        </section>
+      </div>
     </div>
   </aside>
   <div class="sidebar-dimmer"></div>
@@ -1055,7 +1059,7 @@ systemctl restart rngd<span aria-hidden="true" class="line-numbers-rows"><span><
   </footer>
 
   
-  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/@next-theme/pjax@0.4.0/pjax.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>

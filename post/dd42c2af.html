@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 <meta name="generator" content="Hexo 5.2.0">
+
+
   <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.png">
@@ -15,7 +17,7 @@
 
 
 
-<link rel="stylesheet" href="//cdn.bootcdn.net/ajax/libs/font-awesome/5.13.1/css/all.css">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.1/css/all.min.css">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.css">
@@ -259,14 +261,15 @@
         </li>
       </ul>
 
-      <!--noindex-->
-      <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C"><span class="nav-number">1.</span> <span class="nav-text">准备工作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#nginx%E9%85%8D%E7%BD%AE"><span class="nav-number">2.</span> <span class="nav-text">nginx配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GIT%E8%B4%A6%E6%88%B7-%E7%BB%84"><span class="nav-number">3.</span> <span class="nav-text">GIT账户&#x2F;组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A6%81%E7%94%A8shell%E7%99%BB%E5%BD%95"><span class="nav-number">4.</span> <span class="nav-text">禁用shell登录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E8%AF%81%E4%B9%A6%E7%99%BB%E5%BD%95"><span class="nav-number">5.</span> <span class="nav-text">创建证书登录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%89%93%E5%BC%80-RSA-%E8%AE%A4%E8%AF%81"><span class="nav-number">6.</span> <span class="nav-text">打开 RSA 认证</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E7%94%A8%E6%88%B7%E4%BF%A1%E6%81%AF"><span class="nav-number">7.</span> <span class="nav-text">设置用户信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96Git%E4%BB%93%E5%BA%93"><span class="nav-number">8.</span> <span class="nav-text">初始化Git仓库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B5%8B%E8%AF%95git%E4%BB%93%E5%BA%93"><span class="nav-number">9.</span> <span class="nav-text">测试git仓库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE-Git-Hook"><span class="nav-number">10.</span> <span class="nav-text">配置 Git Hook</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%AC%E5%9C%B0%E9%85%8D%E7%BD%AE"><span class="nav-number">11.</span> <span class="nav-text">本地配置</span></a></li></ol></div>
-      </section>
-      <!--/noindex-->
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <section class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C"><span class="nav-number">1.</span> <span class="nav-text">准备工作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#nginx%E9%85%8D%E7%BD%AE"><span class="nav-number">2.</span> <span class="nav-text">nginx配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GIT%E8%B4%A6%E6%88%B7-%E7%BB%84"><span class="nav-number">3.</span> <span class="nav-text">GIT账户&#x2F;组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A6%81%E7%94%A8shell%E7%99%BB%E5%BD%95"><span class="nav-number">4.</span> <span class="nav-text">禁用shell登录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E8%AF%81%E4%B9%A6%E7%99%BB%E5%BD%95"><span class="nav-number">5.</span> <span class="nav-text">创建证书登录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%89%93%E5%BC%80-RSA-%E8%AE%A4%E8%AF%81"><span class="nav-number">6.</span> <span class="nav-text">打开 RSA 认证</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E7%94%A8%E6%88%B7%E4%BF%A1%E6%81%AF"><span class="nav-number">7.</span> <span class="nav-text">设置用户信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96Git%E4%BB%93%E5%BA%93"><span class="nav-number">8.</span> <span class="nav-text">初始化Git仓库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B5%8B%E8%AF%95git%E4%BB%93%E5%BA%93"><span class="nav-number">9.</span> <span class="nav-text">测试git仓库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE-Git-Hook"><span class="nav-number">10.</span> <span class="nav-text">配置 Git Hook</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%AC%E5%9C%B0%E9%85%8D%E7%BD%AE"><span class="nav-number">11.</span> <span class="nav-text">本地配置</span></a></li></ol></div>
+        </section>
+        <!--/noindex-->
 
-      <section class="site-overview-wrap sidebar-panel">
-        <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <section class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <img class="site-author-image" itemprop="image" alt="leeze"
       src="/images/avatar.jpg">
   <p class="site-author-name" itemprop="name">leeze</p>
@@ -624,7 +627,8 @@ canvas#canvas {
 }
 </style>
 
-      </section>
+        </section>
+      </div>
     </div>
   </aside>
   <div class="sidebar-dimmer"></div>
@@ -1127,7 +1131,7 @@ AuthorizedKeysFile .ssh/authorized_keys<span aria-hidden="true" class="line-numb
   </footer>
 
   
-  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/@next-theme/pjax@0.4.0/pjax.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
