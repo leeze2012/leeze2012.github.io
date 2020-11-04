@@ -2037,6 +2037,23 @@ gsap.to('.char', {
             $('meting-js').css('display','none');
         }
 
+        <!-- 转载 -->
+        if($('.zhuanzai').length > 0){
+            $('.zhuanzai').each(function(index,element){
+                $(this).hover(function(){
+                    var tipmsg = this.getAttribute('href');
+                    if( tipmsg === 'javascript:;'){
+                        tipmsg = "抱歉，忘记转载地址了！";
+                    }
+                    layer.tips(tipmsg, $(this), {
+                      tips: 3
+                    });
+                },function(){
+                    layer.closeAll('tips');
+                });
+            });
+        }
+
     });
 </script>
 <!-- 自定义 -->
