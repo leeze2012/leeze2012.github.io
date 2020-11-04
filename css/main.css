@@ -3700,6 +3700,15 @@ code {
   line-height: 24px !important;
   animation: star 0.5s ease-in-out infinite alternate;
 }
+.zhuanzai:hover {
+  color: #0ff;
+}
+.zhuanzai:hover>.zhuanzai_i,
+.zhuanzai_i:hover {
+  color: #0ff;
+  -webkit-animation: spin 1.5s linear infinite;
+  animation: spin 1.5s linear infinite;
+}
 .tag-cloud a {
   font-weight: bold;
   border-bottom: unset;
