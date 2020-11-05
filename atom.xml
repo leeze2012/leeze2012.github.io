@@ -6,7 +6,7 @@
   <link href="https://www.xiaosige.com/atom.xml" rel="self"/>
   
   <link href="https://www.xiaosige.com/"/>
-  <updated>2020-10-20T18:00:15.733Z</updated>
+  <updated>2020-11-05T07:57:53.851Z</updated>
   <id>https://www.xiaosige.com/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://www.xiaosige.com/post/f556d83e.html"/>
     <id>https://www.xiaosige.com/post/f556d83e.html</id>
     <published>2020-10-20T17:36:59.000Z</published>
-    <updated>2020-10-20T18:00:15.733Z</updated>
+    <updated>2020-11-05T07:57:53.851Z</updated>
     
     
     <summary type="html">&lt;p&gt;  spring mvc下载pdf&lt;/p&gt;</summary>
@@ -40,7 +40,7 @@
     <link href="https://www.xiaosige.com/post/3aee04b1.html"/>
     <id>https://www.xiaosige.com/post/3aee04b1.html</id>
     <published>2020-10-20T17:16:06.000Z</published>
-    <updated>2020-10-20T17:21:46.321Z</updated>
+    <updated>2020-11-05T07:59:00.446Z</updated>
     
     
     <summary type="html">&lt;p&gt;  在Linux使用命令行工具curl发送JSON数据需要把content-type设置为“application/json”。&lt;/p&gt;</summary>
@@ -59,7 +59,7 @@
     <link href="https://www.xiaosige.com/post/8406c440.html"/>
     <id>https://www.xiaosige.com/post/8406c440.html</id>
     <published>2020-10-20T17:10:18.000Z</published>
-    <updated>2020-10-20T17:14:19.622Z</updated>
+    <updated>2020-11-05T07:58:26.878Z</updated>
     
     
     <summary type="html">&lt;p&gt;  Redis分布式锁实现类，RedisDistributedLock。&lt;/p&gt;</summary>
@@ -385,7 +385,7 @@
     <link href="https://www.xiaosige.com/post/c0a81ac4.html"/>
     <id>https://www.xiaosige.com/post/c0a81ac4.html</id>
     <published>2020-08-24T10:51:19.000Z</published>
-    <updated>2020-10-04T09:58:26.148Z</updated>
+    <updated>2020-11-05T07:55:56.418Z</updated>
     
     
     <summary type="html">&lt;h3 id=&quot;了解nvm&quot;&gt;&lt;a href=&quot;#了解nvm&quot; class=&quot;headerlink&quot; title=&quot;了解nvm&quot;&gt;&lt;/a&gt;了解nvm&lt;/h3&gt;&lt;p&gt;  目前主流的node版本管理工具有两种，nvm和n。两者差异挺大的。&lt;/p&gt;
