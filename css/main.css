@@ -3700,8 +3700,15 @@ code {
   line-height: 24px !important;
   animation: star 0.5s ease-in-out infinite alternate;
 }
+.zhuanzai {
+  color: #fff;
+  background-color: #00d27a;
+  border-color: #00d27a;
+}
 .zhuanzai:hover {
   color: #0ff;
+  background-color: #00ac64;
+  border-color: #009f5c;
 }
 .zhuanzai:hover>.zhuanzai_i,
 .zhuanzai_i:hover {
