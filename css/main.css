@@ -3716,6 +3716,9 @@ code {
   -webkit-animation: spin 1.5s linear infinite;
   animation: spin 1.5s linear infinite;
 }
+.image-caption {
+  line-height: 2 !important;
+}
 .tag-cloud a {
   font-weight: bold;
   border-bottom: unset;
