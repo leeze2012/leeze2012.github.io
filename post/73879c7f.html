@@ -2074,6 +2074,12 @@ gsap.to('.char', {
             $("#wpac-rating").before("<div style='color: rgba(0, 0, 0, 0.75); font-size:13px; letter-spacing:3px'>(&gt; 看完记得五星好评哦亲 &lt;)</div>");
             $(".wp_rating").css("height","30px");
         }
+        <!-- footer追加邮箱 -->
+        if($(".copyright").length > 0){
+            if($(".leezeEmail").length === 0){
+                $(".copyright").append("<span class='leezeEmail'><i style='margin-right:6px;' class='fa fa-fw fa-envelope with-love'></i><a href='mailto:leeze0216@163.com' title='E-Mail → mailto:leeze0216@163.com' target='_blank'>leeze0216@163.com</a></span>");
+            }
+        }
         <!-- footer的阅读次数位置调整 -->
         if($(".busuanzi-count").length > 0){
             $(".wordcount").append($(".busuanzi-count").html());
@@ -2107,7 +2113,7 @@ gsap.to('.char', {
                 }
             });
         }
-        <!-- 移动端 -->
+        <!-- 移动端 隐藏音乐 -->
         if (/(iPhone|iPad|iPod|iOS|Android)/i.test(navigator.userAgent)) {
             $('meting-js').css('display','none');
         }
