@@ -753,7 +753,7 @@ canvas#canvas {
 mysql<span class="token operator">&gt;</span><span class="token keyword">select</span> <span class="token keyword">user</span><span class="token punctuation">,</span> host<span class="token punctuation">,</span> plugin <span class="token keyword">from</span> <span class="token keyword">user</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <br>
 
-<img data-src="/post/170d9336/mysqlpassword1.png" class="" title="USER">
+<img data-src="/post/170d9336/mysqlpassword1.png" class title="USER">
 
 <ol start="2">
 <li>修改加密规则为“mysql_native_password”</li>
@@ -772,7 +772,7 @@ mysql<span class="token operator">&gt;</span><span class="token keyword">select<
 <span class="token keyword">ALTER</span> <span class="token keyword">USER</span> <span class="token string">'root'</span><span class="token variable">@'%'</span> IDENTIFIED <span class="token keyword">WITH</span> mysql_native_password <span class="token keyword">BY</span> <span class="token string">'password'</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p>  之后就好了.</p>
 <p>  完成后效果如下：</p>
-<img data-src="/post/170d9336/mysqlpassword2.png" class="" title="PASS">
+<img data-src="/post/170d9336/mysqlpassword2.png" class title="PASS">
 
 <h3 id="更为优雅的解决方案"><a href="#更为优雅的解决方案" class="headerlink" title="更为优雅的解决方案"></a>更为优雅的解决方案</h3><p>   又重新回到了 MySQL 官方在docker的仓库中，仔细的阅读了一遍官方的说明。<br> 其实，我们在启动MySQL 容器的时候，是可以修改一些设置的。主要有2种方式。</p>
 <ol>
@@ -977,7 +977,7 @@ mysql:8.0.12  --default-authentication-plugin<span class="token operator">=</spa
 
 
   <div class="beian">
-          <img src="/images/gongan.png" style="display: inline-block;vertical-align: text-bottom;padding-right: 6px;"><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11011502004362" rel="noopener" target="_blank">京公网安备 11011502004362 </a>
+          <img src="https://static.xiaosige.com/img/gongan.png" style="display: inline-block;vertical-align: text-bottom;padding-right: 6px;"><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11011502004362" rel="noopener" target="_blank">京公网安备 11011502004362 </a>
     <span></span><a href="http://beian.miit.gov.cn/" rel="noopener" target="_blank">京ICP备2020038036号-1 </a>
     <span></span>
     本网站由

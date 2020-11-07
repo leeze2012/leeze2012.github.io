@@ -792,7 +792,7 @@ yum -y remove  java-1.6.0-openjdk-1.6.0.0-1.41.1.10.4.el6.x86_64<span aria-hidde
 
 <p>   输入命令查看rpm包安装信息，如果第一条未出现信息，可以使用第二条命令查看，如果都没  有可能是未安装或者是tar包安装的<br>  </p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">rpm</span> -qa <span class="token operator">|</span> <span class="token function">grep</span> jdk<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><br>  我用上述rpm包安装之后，用命令查看，提示如下：<br>  <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@master100 local<span class="token punctuation">]</span><span class="token comment"># rpm -qa | grep jdk</span>
 jdk1.8-1.8.0_181-fcs.x86_64<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><br>  知道安装的rpm包名后就可以卸载了，卸载命令如下：<br>  <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">rpm</span> -e --nodeps jdk1.8-1.8.0_181-fcs.x86_64<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><br>  卸载完成后删除环境变量<br>  <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">vi</span> /etc/profile
-<span class="token builtin class-name">source</span> /etc/profile<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><br> <p></p></ol><p></p>
+<span class="token builtin class-name">source</span> /etc/profile<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><br> </ol><p></p>
 <h5 id="tar包安装"><a href="#tar包安装" class="headerlink" title="tar包安装"></a>tar包安装</h5> <ol>
 
  <li>下载 jdk-8u231-linux-x64.tar.gz</li>
@@ -1046,7 +1046,7 @@ jdk1.8-1.8.0_181-fcs.x86_64<span aria-hidden="true" class="line-numbers-rows"><s
 
 
   <div class="beian">
-          <img src="/images/gongan.png" style="display: inline-block;vertical-align: text-bottom;padding-right: 6px;"><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11011502004362" rel="noopener" target="_blank">京公网安备 11011502004362 </a>
+          <img src="https://static.xiaosige.com/img/gongan.png" style="display: inline-block;vertical-align: text-bottom;padding-right: 6px;"><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11011502004362" rel="noopener" target="_blank">京公网安备 11011502004362 </a>
     <span></span><a href="http://beian.miit.gov.cn/" rel="noopener" target="_blank">京ICP备2020038036号-1 </a>
     <span></span>
     本网站由

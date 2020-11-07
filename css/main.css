@@ -3241,9 +3241,9 @@ div.code-toolbar > .toolbar button:hover {
   background-size: 400% 400%;
   animation: Gradient 30s ease infinite;
 }
-/* 网站标题栏背景图 */
+/* 网站标题栏背景图../images/header-bg.jpg */
 .site-brand-container {
-  background: url("../images/header-bg.jpg");
+  background: url("https://static.xiaosige.com/img/header-bg.jpg");
   background-position: 70% 20%;
 }
 .site-title {

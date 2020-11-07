@@ -1126,7 +1126,7 @@ hexo init
 <h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><h3 id="网站图标"><a href="#网站图标" class="headerlink" title="网站图标"></a>网站图标</h3><p>  <a target="_blank" rel="noopener" href="https://realfavicongenerator.net/">网站图标生成网站</a></p>
 <p>  只要把<code>png</code>图片放进去（尺寸不能太大）</p>
 <p>  就可以生成一套图标（苹果手机桌面图标，网页图标，win磁贴图标等等）</p>
-<img data-src="/post/dfea82e5/faviconbuild.png" class="" title="示例图">
+<img data-src="/post/dfea82e5/faviconbuild.png" class title="示例图">
 <p>  下载之后放到<code>blog\source\my_images</code>文件夹中</p>
 <pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">favicon</span><span class="token punctuation">:</span>
   <span class="token key atrule">small</span><span class="token punctuation">:</span> /my_images/favicon<span class="token punctuation">-</span>16x16.png
@@ -1385,7 +1385,7 @@ tags:
   <span class="token comment"># If true, the avatar would be rotated with the cursor.</span>
   <span class="token key atrule">rotated</span><span class="token punctuation">:</span> <span class="token boolean important">true</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>  在 <code>url</code> 处指定头像文件即可，头像可以是网络图片，只需要把本地路径替换为网络图片的网址即可。另外，当打开了 <code>rotated</code> 后，鼠标移到头像处会逆时针旋转半圈，鼠标移开又转回来，不过这个效果看起来好像也比较普通，如果你想让鼠标一过去头像就控记不住记几鬼畜疯狂旋转，就像这样：</p>
-<img data-src="/post/dfea82e5/avatar_rotate_hover.gif" class="" title="hover">
+<img data-src="/post/dfea82e5/avatar_rotate_hover.gif" class title="hover">
 <p>  请找到这个文件并愤怒地打开它：<code>source/_data/styles.styl</code>，然后做如下部分修改：</p>
 <pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">if hexo-config('avatar.rotated')</span> <span class="token punctuation">{</span>
   <span class="token selector">.site-author-image</span> <span class="token punctuation">{</span>
@@ -1425,7 +1425,7 @@ tags:
   to{transform: rotate(360deg)}
   }*/</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<img data-src="/post/dfea82e5/avatar_rotate_normal.gif" class="" title="hover">
+<img data-src="/post/dfea82e5/avatar_rotate_normal.gif" class title="hover">
 
 <h3 id="languages-yml"><a href="#languages-yml" class="headerlink" title="languages.yml"></a>languages.yml</h3><p>  我们原来是通过配置主题下的 <code>languages</code> 目录中的 <code>zh-CN.yml</code> 文件来对菜单等进行中文翻译的，现在我们可以通过在 <code>hexo/source/_data/</code> 下新建数据文件 <code>languages.yml</code>，配置如下：</p>
 <pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">zh-CN</span><span class="token punctuation">:</span>
@@ -1663,7 +1663,7 @@ tags:
 
 
   <div class="beian">
-          <img src="/images/gongan.png" style="display: inline-block;vertical-align: text-bottom;padding-right: 6px;"><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11011502004362" rel="noopener" target="_blank">京公网安备 11011502004362 </a>
+          <img src="https://static.xiaosige.com/img/gongan.png" style="display: inline-block;vertical-align: text-bottom;padding-right: 6px;"><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11011502004362" rel="noopener" target="_blank">京公网安备 11011502004362 </a>
     <span></span><a href="http://beian.miit.gov.cn/" rel="noopener" target="_blank">京ICP备2020038036号-1 </a>
     <span></span>
     本网站由
