@@ -2,7 +2,28 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://www.xiaosige.com/links/index.html</loc>
+    
+    <lastmod>2020-11-07</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.xiaosige.com/welfare/index.html</loc>
+    
+    <lastmod>2020-11-07</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://www.xiaosige.com/photos/index.html</loc>
+    
+    <lastmod>2020-11-07</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.xiaosige.com/about/index.html</loc>
     
     <lastmod>2020-11-07</lastmod>
     
@@ -65,23 +86,9 @@
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/links/index.html</loc>
-    
-    <lastmod>2020-11-01</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://www.xiaosige.com/stars/index.html</loc>
     
     <lastmod>2020-10-29</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.xiaosige.com/welfare/index.html</loc>
-    
-    <lastmod>2020-10-27</lastmod>
     
   </url>
   
@@ -481,13 +488,6 @@
     <loc>https://www.xiaosige.com/tags/index.html</loc>
     
     <lastmod>2020-10-03</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.xiaosige.com/about/index.html</loc>
-    
-    <lastmod>2020-10-02</lastmod>
     
   </url>
   
