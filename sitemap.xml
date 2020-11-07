@@ -557,14 +557,14 @@
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/tags/BootStrap/</loc>
+    <loc>https://www.xiaosige.com/tags/Linux/</loc>
     <lastmod>2020-11-07</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/tags/Linux/</loc>
+    <loc>https://www.xiaosige.com/tags/BootStrap/</loc>
     <lastmod>2020-11-07</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -676,14 +676,14 @@
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/tags/PHP/</loc>
+    <loc>https://www.xiaosige.com/tags/Nvm/</loc>
     <lastmod>2020-11-07</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/tags/Nvm/</loc>
+    <loc>https://www.xiaosige.com/tags/PHP/</loc>
     <lastmod>2020-11-07</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -704,14 +704,14 @@
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/tags/snowflake/</loc>
+    <loc>https://www.xiaosige.com/tags/SpringBoot/</loc>
     <lastmod>2020-11-07</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/tags/SpringBoot/</loc>
+    <loc>https://www.xiaosige.com/tags/snowflake/</loc>
     <lastmod>2020-11-07</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -755,14 +755,14 @@
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/categories/BootStrap/</loc>
+    <loc>https://www.xiaosige.com/categories/Linux/</loc>
     <lastmod>2020-11-07</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/categories/Linux/</loc>
+    <loc>https://www.xiaosige.com/categories/BootStrap/</loc>
     <lastmod>2020-11-07</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -783,7 +783,7 @@
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/categories/BootStrap/table/</loc>
+    <loc>https://www.xiaosige.com/categories/Linux/Git/</loc>
     <lastmod>2020-11-07</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -797,7 +797,7 @@
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/categories/Linux/Git/</loc>
+    <loc>https://www.xiaosige.com/categories/BootStrap/table/</loc>
     <lastmod>2020-11-07</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
