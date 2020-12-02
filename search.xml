@@ -5512,12 +5512,12 @@ Duis aute irure dolor in reprehenderit in voluptate ~~{% label default @velit %}
 <p>示例1：</p>
 <pre class="line-numbers language-none"><code class="language-none">{% pdf https://zhyong-cn-file.oss-cn-shanghai.aliyuncs.com/books%2Fbyte-of-python-chinese-edition.pdf %}<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<div class="pdfobject-container" data-target="http://lc-0ww4yxjs.cn-n1.lcfile.com/510df791fa9b2590c109/Python%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B%EF%BC%88%E7%AC%AC3%E7%89%88%EF%BC%89.pdf" data-height="500px"></div>
+<div class="pdf-container" data-target="http://lc-0ww4yxjs.cn-n1.lcfile.com/510df791fa9b2590c109/Python%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B%EF%BC%88%E7%AC%AC3%E7%89%88%EF%BC%89.pdf" data-height="500px"></div>
 
 <p>示例2：</p>
 <pre class="line-numbers language-none"><code class="language-none">{% pdf http://lc-0ww4yxjs.cn-n1.lcfile.com/510df791fa9b2590c109/Python%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B%EF%BC%88%E7%AC%AC3%E7%89%88%EF%BC%89.pdf %}<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<div class="pdfobject-container" data-target="http://lc-0ww4yxjs.cn-n1.lcfile.com/510df791fa9b2590c109/Python%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B%EF%BC%88%E7%AC%AC3%E7%89%88%EF%BC%89.pdf" data-height="500px"></div>
+<div class="pdf-container" data-target="http://lc-0ww4yxjs.cn-n1.lcfile.com/510df791fa9b2590c109/Python%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B%EF%BC%88%E7%AC%AC3%E7%89%88%EF%BC%89.pdf" data-height="500px"></div>
 
 <h4 id="锚点"><a href="#锚点" class="headerlink" title="锚点"></a>锚点</h4><p>用于页内跳转。其中定义id地方，虽然不太美观，不过只能写HTML。<br>语法</p>
 <pre class="line-numbers language-none"><code class="language-none">[点击我跳转到锚点](#jump)

@@ -262,16 +262,16 @@ h6 {
   font-size: 0.875em;
 }
 p {
-  margin: 0 0 20px 0;
+  margin: 0 0 20px;
 }
 a,
 span.exturl {
   border-bottom: 1px solid #999;
   color: var(--link-color);
+  cursor: pointer;
   outline: 0;
   text-decoration: none;
   overflow-wrap: break-word;
-  cursor: pointer;
 }
 a:hover,
 span.exturl:hover {
@@ -317,7 +317,7 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
   font-size: 14px;
-  margin: 0 0 20px 0;
+  margin: 0 0 20px;
   width: 100%;
 }
 tbody tr:nth-of-type(odd) {
@@ -1012,10 +1012,10 @@ pre code {
   border-bottom: 1px solid #ddd;
   border-left: 1px solid transparent;
   border-right: 1px solid transparent;
+  border-radius: 0 0 0 0;
   border-top: 3px solid transparent;
   flex-grow: 1;
   list-style-type: none;
-  border-radius: 0 0 0 0;
   transition: all 0.2s ease-out;
 }
 @media (max-width: 413px) {
@@ -1069,8 +1069,8 @@ pre code {
 .post-body .tabs .tab-content,
 .tabs-comment .tab-content {
   border: 1px solid #ddd;
-  border-top-color: transparent;
   border-radius: 0 0 0 0;
+  border-top-color: transparent;
 }
 @media (max-width: 413px) {
   .post-body .tabs .tab-content,
@@ -1081,7 +1081,7 @@ pre code {
 }
 .post-body .tabs .tab-content .tab-pane,
 .tabs-comment .tab-content .tab-pane {
-  padding: 20px 20px 0 20px;
+  padding: 20px 20px 0;
 }
 .post-body .tabs .tab-content .tab-pane:not(.active),
 .tabs-comment .tab-content .tab-pane:not(.active) {
@@ -1156,7 +1156,7 @@ pre code {
   color: #777;
 }
 .post-body .note.default:not(.no-icon)::before {
-  content: "\f0a9";
+  content: '\f0a9';
   font-family: 'Font Awesome 5 Free';
   font-weight: 900;
   color: #777;
@@ -1178,7 +1178,7 @@ pre code {
   color: #6f42c1;
 }
 .post-body .note.primary:not(.no-icon)::before {
-  content: "\f055";
+  content: '\f055';
   font-family: 'Font Awesome 5 Free';
   font-weight: 900;
   color: #6f42c1;
@@ -1200,7 +1200,7 @@ pre code {
   color: #428bca;
 }
 .post-body .note.info:not(.no-icon)::before {
-  content: "\f05a";
+  content: '\f05a';
   font-family: 'Font Awesome 5 Free';
   font-weight: 900;
   color: #428bca;
@@ -1222,7 +1222,7 @@ pre code {
   color: #5cb85c;
 }
 .post-body .note.success:not(.no-icon)::before {
-  content: "\f058";
+  content: '\f058';
   font-family: 'Font Awesome 5 Free';
   font-weight: 900;
   color: #5cb85c;
@@ -1244,7 +1244,7 @@ pre code {
   color: #f0ad4e;
 }
 .post-body .note.warning:not(.no-icon)::before {
-  content: "\f06a";
+  content: '\f06a';
   font-family: 'Font Awesome 5 Free';
   font-weight: 900;
   color: #f0ad4e;
@@ -1266,7 +1266,7 @@ pre code {
   color: #d9534f;
 }
 .post-body .note.danger:not(.no-icon)::before {
-  content: "\f056";
+  content: '\f056';
   font-family: 'Font Awesome 5 Free';
   font-weight: 900;
   color: #d9534f;
@@ -1281,7 +1281,7 @@ pre code {
 .pagination .page-number,
 .pagination .space {
   display: inline-block;
-  margin: -1px 10px 0 10px;
+  margin: -1px 10px 0;
   padding: 0 10px;
 }
 @media (max-width: 767px) {
@@ -1421,7 +1421,7 @@ pre code {
   }
 }
 .brand {
-  border-bottom: none;
+  border-bottom: 0;
   color: var(--brand-color);
   display: inline-block;
   padding: 0 40px;
@@ -1430,7 +1430,7 @@ pre code {
   color: var(--brand-hover-color);
 }
 .site-title {
-  font-family: Lato, "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-family: Lato, 'PingFang SC', 'Microsoft YaHei', sans-serif;
   font-size: 1.375em;
   font-weight: normal;
   margin: 0;
@@ -1543,7 +1543,7 @@ pre code {
   margin-top: 10px;
 }
 .cc-license .cc-opacity {
-  border-bottom: none;
+  border-bottom: 0;
   opacity: 0.7;
 }
 .cc-license .cc-opacity:hover {
@@ -1625,7 +1625,7 @@ pre code {
 .sidebar-dimmer {
   display: none;
 }
-@media (max-width: 767px) {
+@media (max-width: 991px) {
   .sidebar-dimmer {
     background: #000;
     display: block;
@@ -1797,7 +1797,7 @@ pre code {
   padding: 0 15px;
 }
 .site-state-item a {
-  border-bottom: none;
+  border-bottom: 0;
   display: block;
 }
 .site-state-item-count {
@@ -2055,7 +2055,7 @@ pre code {
 }
 .posts-collapse .post-content .post-title a,
 .posts-collapse .post-content .post-title span.exturl {
-  border-bottom: none;
+  border-bottom: 0;
   color: var(--link-color);
 }
 .posts-collapse .post-content .post-title .fa-external-link-alt {
@@ -2072,7 +2072,7 @@ pre code {
   width: 4px;
 }
 .post-body {
-  font-family: Lato, "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-family: Lato, 'PingFang SC', 'Microsoft YaHei', sans-serif;
   overflow-wrap: break-word;
 }
 @media (min-width: 1200px) {
@@ -2236,7 +2236,7 @@ pre code {
   overflow-wrap: break-word;
 }
 .posts-expand .post-title-link {
-  border-bottom: none;
+  border-bottom: 0;
   color: var(--link-color);
   display: inline-block;
   position: relative;
@@ -2261,11 +2261,12 @@ pre code {
 }
 .post-sticky-flag {
   display: inline-block;
+  margin-right: 8px;
   transform: rotate(30deg);
 }
 .posts-expand .post-meta-container {
   color: #999;
-  font-family: Lato, "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-family: Lato, 'PingFang SC', 'Microsoft YaHei', sans-serif;
   font-size: 0.75em;
   margin-top: 3px;
 }
@@ -2306,7 +2307,7 @@ pre code {
   flex: 1;
 }
 .post-nav-item a {
-  border-bottom: none;
+  border-bottom: 0;
   display: block;
   font-size: 0.875em;
   line-height: 1.6;
@@ -2417,7 +2418,7 @@ pre code {
 }
 .post-reward img {
   display: inline-block;
-  margin: 0.8em 2em 0 2em;
+  margin: 0.8em 2em 0;
   max-width: 100%;
   width: 180px;
 }
@@ -2481,7 +2482,7 @@ pre code {
 }
 .event-list hr {
   background: #222;
-  margin: 20px 0 45px 0;
+  margin: 20px 0 45px;
 }
 .event-list hr::after {
   background: #222;
@@ -3056,7 +3057,7 @@ mark.search-keyword {
 }
 .links-of-author-item a,
 .links-of-author-item span.exturl {
-  border-bottom: none;
+  border-bottom: 0;
   border-radius: 4px;
   display: block;
 }
@@ -3109,7 +3110,7 @@ mark.search-keyword {
 }
 .pagination {
   border-top: initial;
-  padding: 10px 0 10px;
+  padding: 10px 0;
 }
 .post-body h1,
 .post-body h2 {
