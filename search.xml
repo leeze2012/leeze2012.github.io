@@ -69,12 +69,12 @@ lrwxrwxrwx. <span class="token number">1</span> root root <span class="token num
     <content><![CDATA[<p>  JetBrains是一家捷克的软件开发公司，该公司位于捷克的布拉格，并在俄国的圣彼得堡及美国麻州波士顿都设有办公室，该公司最为人所熟知的产品是Java编程语言开发撰写时所用的集成开发环境：IntelliJ IDEA。</p>
 <a id="more"></a>
 
-<p><font style="font-size: 30px; color: rgba(255, 0, 0, 1)">特别声明: 仅供学习禁止商用! 如有商业需要请支持购买正版!</font></p>
+<p><font style="font-size: 25px; color: rgba(255, 0, 0, 1)">  特别声明: 仅供学习禁止商用! 如有商业需要请支持购买正版!</font></p>
 
-<h3 id="支持版本"><a href="#支持版本" class="headerlink" title="支持版本"></a>支持版本</h3><blockquote>
-<p>IntelliJ IDEA 2020.3及以下<br>AppCode 2019.3.7及以下<br>CLion 2019.3.5及以下<br>DataGrip 2020.3及以下<br>GoLand 2020.3及以下<br>PhpStorm 2020.3及以下<br>PyCharm 2020.3及以下<br>Rider 2019.3.4及以下<br>RubyMine 2019.3.4及以下<br>WebStorm 2020.3及以下</p>
-</blockquote>
-<h3 id="使用说明"><a href="#使用说明" class="headerlink" title="使用说明"></a>使用说明</h3><ol>
+<h2 id="支持版本"><a href="#支持版本" class="headerlink" title="支持版本"></a>支持版本</h2><div class="note success no-icon"><p>IntelliJ IDEA 2020.3及以下<br>AppCode 2019.3.7及以下<br>CLion 2019.3.5及以下<br>DataGrip 2020.3及以下<br>GoLand 2020.3及以下<br>PhpStorm 2020.3及以下<br>PyCharm 2020.3及以下<br>Rider 2019.3.4及以下<br>RubyMine 2019.3.4及以下<br>WebStorm 2020.3及以下</p>
+</div>
+
+<h2 id="使用说明"><a href="#使用说明" class="headerlink" title="使用说明"></a>使用说明</h2><ol>
 
 <li> BetterIntelliJ-1.15.7z </li>
 
@@ -84,7 +84,7 @@ lrwxrwxrwx. <span class="token number">1</span> root root <span class="token num
 <p>无限重置激活补丁，IDEA系列软件，默认提供30天无限制功能使用，这个补丁能重置30天，要到期了，用补丁重置一下就行，并且补丁有自动重置功能，也相当于无限激活。</p>
 </ol>
 
-<h3 id="下载地址"><a href="#下载地址" class="headerlink" title="下载地址"></a>下载地址</h3><h5 id="插件安装"><a href="#插件安装" class="headerlink" title="插件安装"></a>插件安装</h5><p>  打开插件中心 File -&gt; Settings -&gt;Plugins–&gt; Manage Plugins Reposito，设置插件中心仓库</p>
+<h2 id="下载地址"><a href="#下载地址" class="headerlink" title="下载地址"></a>下载地址</h2><h5 id="插件安装"><a href="#插件安装" class="headerlink" title="插件安装"></a>插件安装</h5><p>  打开插件中心 File -&gt; Settings -&gt;Plugins–&gt; Manage Plugins Reposito，设置插件中心仓库</p>
 <ol>
 <li><p>设置仓库地址：<a href="https://repo.idechajian.com/">https://repo.idechajian.com</a><br>点击OK之后，便可以继续在插件中心，搜索关键字“BetterIntellij” 并安装</p>
 </li>
@@ -96,14 +96,11 @@ lrwxrwxrwx. <span class="token number">1</span> root root <span class="token num
 </ol>
 <br>
 
-
-<blockquote>
-<p>其他相关链接</p>
+<div class="note default no-icon"><p>其他相关链接</p>
 <blockquote>
 <p><a href="https://songzixian.com/">宋子宪博客</a><br><a href="https://zhile.io/2018/08/25/jetbrains-license-server-crack.html">知了</a></p>
 </blockquote>
-</blockquote>
-<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
+</div><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
       <categories>
         <category>Idea</category>
       </categories>

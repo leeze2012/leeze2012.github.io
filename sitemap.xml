@@ -9,6 +9,13 @@
   </url>
   
   <url>
+    <loc>https://www.xiaosige.com/404.html</loc>
+    
+    <lastmod>2021-01-01</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://www.xiaosige.com/post/c0a81ac4.html</loc>
     
     <lastmod>2021-01-01</lastmod>
@@ -334,13 +341,6 @@
     <loc>https://www.xiaosige.com/post/2db94f1a.html</loc>
     
     <lastmod>2020-10-12</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.xiaosige.com/404.html</loc>
-    
-    <lastmod>2020-10-05</lastmod>
     
   </url>
   
@@ -739,14 +739,14 @@
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/tags/ssh/</loc>
+    <loc>https://www.xiaosige.com/tags/Tomcat/</loc>
     <lastmod>2021-01-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/tags/Tomcat/</loc>
+    <loc>https://www.xiaosige.com/tags/ssh/</loc>
     <lastmod>2021-01-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
