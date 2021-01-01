@@ -75,9 +75,9 @@ lrwxrwxrwx. <span class="token number">1</span> root root <span class="token num
 <p>IntelliJ IDEA 2020.3及以下<br>AppCode 2019.3.7及以下<br>CLion 2019.3.5及以下<br>DataGrip 2020.3及以下<br>GoLand 2020.3及以下<br>PhpStorm 2020.3及以下<br>PyCharm 2020.3及以下<br>Rider 2019.3.4及以下<br>RubyMine 2019.3.4及以下<br>WebStorm 2020.3及以下</p>
 </blockquote>
 <h3 id="使用说明"><a href="#使用说明" class="headerlink" title="使用说明"></a>使用说明</h3><ol>
-<li><p>BetterIntelliJ-1.15.7z<br>  软件启动，先免费使用<br>  将BetterIntelliJ.zip拖入到软件界面，会提示重启<br>  重启以后，进入菜单，选择授权管理，输入key里面的内容即可<br>  本次补丁没有任何限制，理论上可以永久使用了<br>  <code>特别提示，需要删除%appdata%\JetBrains相关目录</code></p>
+<li><p>BetterIntelliJ-1.15.7z<br>软件启动，先免费使用<br>将BetterIntelliJ.zip拖入到软件界面，会提示重启<br>重启以后，进入菜单，选择授权管理，输入key里面的内容即可<br>本次补丁没有任何限制，理论上可以永久使用了<br><code>特别提示，需要删除%appdata%\JetBrains相关目录</code></p>
 </li>
-<li><p>ide-eval-resetter.zip<br>  无限重置激活补丁，IDEA系列软件，默认提供30天无限制功能使用，这个补丁能重置30天，要到期了，用补丁重置一下就行，并且补丁有自动重置功能，也相当于无限激活。</p>
+<li><p>ide-eval-resetter.zip<br>无限重置激活补丁，IDEA系列软件，默认提供30天无限制功能使用，这个补丁能重置30天，要到期了，用补丁重置一下就行，并且补丁有自动重置功能，也相当于无限激活。</p>
 </li>
 </ol>
 <h3 id="下载地址"><a href="#下载地址" class="headerlink" title="下载地址"></a>下载地址</h3><h5 id="插件安装"><a href="#插件安装" class="headerlink" title="插件安装"></a>插件安装</h5><p>  打开插件中心 File -&gt; Settings -&gt;Plugins–&gt; Manage Plugins Reposito，设置插件中心仓库</p>
