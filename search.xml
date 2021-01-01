@@ -64,135 +64,6 @@ lrwxrwxrwx. <span class="token number">1</span> root root <span class="token num
       </tags>
   </entry>
   <entry>
-    <title>Mac正确的安装和使用nvm</title>
-    <url>/post/c0a81ac4.html</url>
-    <content><![CDATA[<h3 id="了解nvm"><a href="#了解nvm" class="headerlink" title="了解nvm"></a>了解nvm</h3><p>  目前主流的node版本管理工具有两种，nvm和n。两者差异挺大的。</p>
-<p>  总的来说，nvm有点类似于 Python 的 virtualenv 或者 Ruby 的 rvm，每个node版本的模块都会被安装在各自版本的沙箱里面（因此切换版本后模块需重新安装），因此考虑到需要时常对node版本进行切换测试兼容性和一些模块对node版本的限制，我选择了使用nvm作为管理工具，下面就来说说nvm的安装和使用过程。</p>
-<a id="more"></a>
-
-
-<h3 id="认识nvm、node、npm"><a href="#认识nvm、node、npm" class="headerlink" title="认识nvm、node、npm"></a>认识nvm、node、npm</h3><h4 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h4><ol>
-
-<li>nvm：nodejs 版本管理工具。</li>
-  也就是说：一个 nvm 可以管理很多 node 版本和 npm 版本。
-
-<p>  这个技术出现的原因， 是由于不同的项目node版本也不同，有的是5.0.1， 有的是6.3.2。 如果node出现版本不对，运行 某个应用时，很可能就会遇到各种莫名其妙的问题 。</p>
-<li>nodejs：在项目开发时的所需要的代码库。</li>
-<li>npm：nodejs 包管理工具。</li>
-  在安装的 nodejs 的时候，npm 也会跟着一起安装，它是包管理工具。
-
-<p>  npm 管理 nodejs 中的第三方插件。他的作用与Ruby中的 bundler及Java中的maven相同，都是对第三方依赖进行管理的。</p>
-</ol>
-
-<h4 id="关系"><a href="#关系" class="headerlink" title="关系"></a>关系</h4><p>     nvm 管理 nodejs 和 npm 的版本</p>
-<p>     npm 可以管理 nodejs 的第三方插件</p>
-   <img data-src="/post/c0a81ac4/nvmMac001.png" class="" title="nvm、node、npm关系图">
-
-
-<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>  这里主要介绍mac的安装(linux可以参照),windows系统的话可以参考<a href="https://cnodejs.org/topic/5338c5db7cbade005b023c98">windows</a></p>
-<h4 id="不推荐的安装方法"><a href="#不推荐的安装方法" class="headerlink" title="不推荐的安装方法"></a>不推荐的安装方法</h4><p>  一开始我是使用homebrew来安装的,安装命令如下:</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">brew <span class="token function">install</span> nvm<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>  安装完后，为了让你可以直接在shell使用nvm指令，必须在你的<code> .bash_profile</code> 加入以下这行（习惯把设定放在.bashrc的人可以把以下的.bash_profile改成.bashrc）(注:如果没有这个文件,可以touch创建)</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">source</span> <span class="token variable"><span class="token variable">$(</span>brew --prefix nvm<span class="token variable">)</span></span>/nvm.sh<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>  或者直接输入以下这行来加入</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ <span class="token builtin class-name">echo</span> <span class="token string">"source <span class="token variable"><span class="token variable">$(</span>brew --prefix nvm<span class="token variable">)</span></span>/nvm.sh"</span> <span class="token operator">&gt;&gt;</span> .bash_profile<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>  记得重新source你的 .bash_profile 来让设定生效</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ <span class="token builtin class-name">.</span> ~/.bash_profile<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>  OK，以上就完成了nvm的安裝。</p>
-<p>  我们来装一下 node v5.12.0</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">nvm <span class="token function">install</span> <span class="token number">5</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>  安装成功后,使用nvm use 来切换版本</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">nvm use v5.12.0<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>  如，出现错误如下:</p>
- <div class="note danger no-icon"><p>nvm is not compatible with the npm config “prefix” option: currently set to “/Users/fabian/.nvm/versions/node/v0.12.7”<br>Run <code>nvm use --delete-prefix v4.6.2</code> to unset it.</p>
-</div>
-
-<p>  所以只能安装提示,使用</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">nvm use --delete-prefix v4.6.2<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>  成功切换。</p>
-<p>  至于为什么用homebrew安装会出现上面的问题,可参考Github上的一个<a href="https://github.com/nvm-sh/nvm/issues/855">issue</a>。</p>
-<p>  查看<a href="https://github.com/nvm-sh/nvm">nvm文档</a>发现:文档中Installation 那一小节倒数第二行有一句Homebrew installation is not supported.，由此可见，没事儿还是要多看看文档。</p>
-<h4 id="推荐的安装方法"><a href="#推荐的安装方法" class="headerlink" title="推荐的安装方法"></a>推荐的安装方法</h4><h5 id="卸载已安装到全局的-node-npm"><a href="#卸载已安装到全局的-node-npm" class="headerlink" title="卸载已安装到全局的 node/npm"></a><strong><em>卸载已安装到全局的 node/npm</em></strong></h5><p>  如果之前是在官网下载的 node 安装包，运行后会自动安装在全局目录，其中</p>
-<p>  node 命令在 <code>/usr/local/bin/node</code> ，</p>
-<p>  npm 命令在全局 <code>node_modules</code> 目录中，具体路径为 <code>/usr/local/lib/node_modules/npm</code></p>
-<p>  安装 nvm 之后最好先删除下已安装的 node 和全局 node 模块：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">ls</span> -g --depth<span class="token operator">=</span><span class="token number">0</span> <span class="token comment">#查看已经安装在全局的模块，以便删除这些全局模块后再按照不同的 node 版本重新进行全局安装</span>
-
-<span class="token function">sudo</span> <span class="token function">rm</span> -rf /usr/local/lib/node_modules <span class="token comment">#删除全局 node_modules 目录</span>
-<span class="token function">sudo</span> <span class="token function">rm</span> /usr/local/bin/node <span class="token comment">#删除 node</span>
-<span class="token builtin class-name">cd</span>  /usr/local/bin <span class="token operator">&amp;&amp;</span> <span class="token function">ls</span> -l <span class="token operator">|</span> <span class="token function">grep</span> <span class="token string">"../lib/node_modules/"</span> <span class="token operator">|</span> <span class="token function">awk</span> <span class="token string">'{print <span class="token variable">$9</span>}'</span><span class="token operator">|</span> <span class="token function">xargs</span> <span class="token function">rm</span> <span class="token comment">#删除全局 node 模块注册的软链</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h5 id="安装-nvm"><a href="#安装-nvm" class="headerlink" title="安装 nvm"></a><strong><em>安装 nvm</em></strong></h5><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">curl</span> -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh <span class="token operator">|</span> <span class="token function">bash</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>  <code>如果报错</code>，解决办法：通过修改<mark> hosts </mark>解决此问题。</p>
-<p>  查询真实IP，在 <a href="https://www.ipaddress.com/">https://www.ipaddress.com/</a> 查询 raw.githubusercontent.com 的真实IP。</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment">#修改hosts</span>
-<span class="token function">sudo</span> <span class="token function">vim</span> /etc/hosts
-
-<span class="token comment">#添加如下内容：</span>
-<span class="token number">199.232</span>.28.133 raw.githubusercontent.com<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>  安装完成后请重新打开终端环境，Mac 下推荐使用 oh-my-zsh 代替默认的 bash shell。 安装完成后,发现使用 <strong><mark class="label danger">nvm install stable 安装node速度很慢</mark></strong> ,原因嘛,大概大家都知道我大天朝的国情。 接下来介绍如何使用国内镜像快速安装node: 把环境变量 <code>NVM_NODEJS_ORG_MIRROR</code>, 那么我建议你加入到<code> .bash_profile</code> 文件中:</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># nvm</span>
-<span class="token builtin class-name">export</span> <span class="token assign-left variable">NVM_NODEJS_ORG_MIRROR</span><span class="token operator">=</span>https://npm.taobao.org/mirrors/node<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p>  然后你可以继续非常方便地安装各个版本的 node 了.</p>
-<p><mark>查看</mark><font color="LightCoral" size="4"> node  </font>版本</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">nvm ls-remote     <span class="token comment"># 远端版本</span>
-nvm <span class="token function">ls</span>            <span class="token comment"># 本地已安装的版本</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<p><mark>安装</mark><font color="LightCoral" size="4"> node </font>版本</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">nvm <span class="token function">install</span> node                            <span class="token comment"># 安装最新版本</span>
-nvm <span class="token function">install</span> <span class="token number">6.14</span>.4 <span class="token comment"># or 10.10.0, 8.9.1, etc # 安装指定版本</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<p><mark>使用</mark><font color="LightCoral" size="4"> node </font>版本</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">nvm use node    <span class="token comment"># 使用最新版本</span>
-nvm use <span class="token number">12.13</span>.0 <span class="token comment"># 使用指定版本</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p><mark>查看</mark><font color="LightCoral" size="4"> node  </font>版本 <em><mark class="label warning">安装位置</mark></em></p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">nvm <span class="token function">which</span> <span class="token number">5.0</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<h5 id="使用-cnpm-加速-npm"><a href="#使用-cnpm-加速-npm" class="headerlink" title="使用 cnpm 加速 npm"></a><strong><em>使用 cnpm 加速 npm</em></strong></h5><p>  同理 nvm , npm 默认是从国外的源获取和下载包信息, 不慢才奇怪. 可以通过简单的 —registry 参数, 使用国内的镜像 <a href="https://registry.npm.taobao.org/">https://registry.npm.taobao.org</a> :</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ <span class="token function">npm</span> --registry<span class="token operator">=</span>https://registry.npm.taobao.org <span class="token function">install</span> koa<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>  于是屏幕又哗啦哗啦地一大片输出</p>
-<div class="note default no-icon"><p>$ npm –registry=<a href="https://registry.npm.taobao.org/">https://registry.npm.taobao.org</a> install koa<br>npm http GET <a href="https://registry.npm.taobao.org/koa">https://registry.npm.taobao.org/koa</a><br>npm http 200 <a href="https://registry.npm.taobao.org/koa">https://registry.npm.taobao.org/koa</a><br>…<br>npm http 200 <a href="https://registry.npm.taobao.org/negotiator">https://registry.npm.taobao.org/negotiator</a><br>npm http 200 <a href="https://registry.npm.taobao.org/keygrip">https://registry.npm.taobao.org/keygrip</a><br>koa<a href="/user/0">@0</a>.5.2 node_modules/koa<br>├── koa-compose<a href="/user/2">@2</a>.2.0<br>├── statuses<a href="/user/1">@1</a>.0.2<br>├── finished<a href="/user/1">@1</a>.1.1<br>├── escape-html<a href="/user/1">@1</a>.0.1<br>├── only<a href="/user/0">@0</a>.0.2<br>├── debug<a href="/user/0">@0</a>.8.0<br>├── fresh<a href="/user/0">@0</a>.2.2<br>├── type-is<a href="/user/1">@1</a>.0.1<br>├── delegates<a href="/user/0">@0</a>.0.3<br>├── mime<a href="/user/1">@1</a>.2.11<br>├── co<a href="/user/3">@3</a>.0.5<br>├── accepts<a href="/user/1">@1</a>.0.1 (negotiator<a href="/user/0">@0</a>.4.2)<br>└── cookies<a href="/user/0">@0</a>.4.0 (keygrip<a href="/user/1">@1</a>.0.0)</p>
-</div>
-
-<p>  但是毕竟镜像跟官方的 npm 源还是会有一个同步时间差异, 目前 cnpm 的默认同步时间间隔是 15 分钟. 如果你是模块发布者, 或者你想马上同步一个模块, 那么推荐你安装 cnpm cli:</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ <span class="token function">npm</span> --registry<span class="token operator">=</span>https://registry.npm.taobao.org <span class="token function">install</span> cnpm -g<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>  通过 cnpm 命令行, 你可以快速同步任意模块:</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ cnpm <span class="token function">sync</span> koa connect mocha<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>  呃, 我就是不想安装 cnpm cli 怎么办? 哈哈, 早就想到你会这么懒了, 于是我们还有一个 web 页面:</p>
-<p>  例如我想马上同步 koa, 直接打开浏览器: <a href="https://npm.taobao.org/sync/koa">https://npm.taobao.org/sync/koa</a></p>
-<p>  或者你是命令行控, 通过 open 命令打开:</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ <span class="token function">open</span> https://npm.taobao.org/sync/koa<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>  如果你安装的模块依赖了 C++ 模块, 需要编译, 肯定会通过 node-gyp 来编译, node-gyp 在第一次编译的时候, 需要依赖 node 源代码, 于是又会去 node dist 下载, 于是大家又会吐槽, 怎么 npm 安装这么慢…</p>
-<p>  好吧, 于是又要提到 <code>--disturl</code> 参数, 通过七牛的镜像来下载:</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ <span class="token function">npm</span> --registry<span class="token operator">=</span>https://registry.npm.taobao.org --disturl<span class="token operator">=</span>https://npm.taobao.org/mirrors/node <span class="token function">install</span> microtime<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>  再次要提到 cnpm cli, 它已经默认将 –registry 和 –disturl 都配置好了, 谁用谁知道 如果不想使用cnpm cli，可以</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> config <span class="token builtin class-name">set</span> registry https://registry.npm.taobao.org --global
-<span class="token function">npm</span> config <span class="token builtin class-name">set</span> disturl https://npm.taobao.org/dist --global<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p>  查看npm的配置</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> config <span class="token function">ls</span> <span class="token comment"># npm的配置</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<h3 id="nvm常用命令"><a href="#nvm常用命令" class="headerlink" title="nvm常用命令"></a>nvm常用命令</h3><ol>
-<li>nvm install <version> ## 安装指定版本，可模糊安装，如：安装v4.4.0，既可nvm install v4.4.0，又可nvm install 4.4</version></li>
-<li>nvm uninstall <version> ## 删除已安装的指定版本，语法与install类似</version></li>
-<li>nvm use <version> ## 切换使用指定的版本node</version></li>
-<li>nvm ls ## 列出所有安装的版本</li>
-<li>nvm ls-remote ## 列出所以远程服务器的版本（官方node version list）</li>
-<li>nvm current ## 显示当前的版本</li>
-<li>nvm alias <name> <version> ## 给不同的版本号添加别名</version></name></li>
-<li>nvm unalias <name> ## 删除已定义的别名</name></li>
-<li>nvm reinstall-packages <version> ## 在当前版本node环境下，重新全局安装指定版本号的npm包</version></li>
-</ol>
-<h3 id="附-MAC-的-bash-profile"><a href="#附-MAC-的-bash-profile" class="headerlink" title="附: MAC 的 .bash_profile"></a>附: MAC 的 <code>.bash_profile</code></h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">export</span> <span class="token assign-left variable">NVM_DIR</span><span class="token operator">=</span><span class="token string">"<span class="token environment constant">$HOME</span>/.nvm"</span>
-<span class="token punctuation">[</span> -s <span class="token string">"<span class="token variable">$NVM_DIR</span>/nvm.sh"</span> <span class="token punctuation">]</span> <span class="token operator">&amp;&amp;</span> <span class="token punctuation">\</span>. <span class="token string">"<span class="token variable">$NVM_DIR</span>/nvm.sh"</span>  <span class="token comment"># This loads nvm</span>
-<span class="token punctuation">[</span> -s <span class="token string">"<span class="token variable">$NVM_DIR</span>/bash_completion"</span> <span class="token punctuation">]</span> <span class="token operator">&amp;&amp;</span> <span class="token punctuation">\</span>. <span class="token string">"<span class="token variable">$NVM_DIR</span>/bash_completion"</span>  <span class="token comment"># This loads nvm bash_completi    on</span>
- 
-<span class="token comment"># nvm 改为国内node镜像</span>
-<span class="token builtin class-name">export</span> <span class="token assign-left variable">NVM_NODEJS_ORG_MIRROR</span><span class="token operator">=</span>https://npm.taobao.org/mirrors/node<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
-      <categories>
-        <category>Mac</category>
-      </categories>
-      <tags>
-        <tag>Nvm</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>JetBrains IntelliJ IDEA2020.3 x64最新完全破解</title>
     <url>/post/a240ffad.html</url>
     <content><![CDATA[<p>  JetBrains是一家捷克的软件开发公司，该公司位于捷克的布拉格，并在俄国的圣彼得堡及美国麻州波士顿都设有办公室，该公司最为人所熟知的产品是Java编程语言开发撰写时所用的集成开发环境：IntelliJ IDEA。</p>
@@ -2730,6 +2601,135 @@ flush <span class="token keyword">privileges</span><span class="token punctuatio
       </categories>
       <tags>
         <tag>Jira</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Mac正确的安装和使用nvm</title>
+    <url>/post/c0a81ac4.html</url>
+    <content><![CDATA[<h3 id="了解nvm"><a href="#了解nvm" class="headerlink" title="了解nvm"></a>了解nvm</h3><p>  目前主流的node版本管理工具有两种，nvm和n。两者差异挺大的。</p>
+<p>  总的来说，nvm有点类似于 Python 的 virtualenv 或者 Ruby 的 rvm，每个node版本的模块都会被安装在各自版本的沙箱里面（因此切换版本后模块需重新安装），因此考虑到需要时常对node版本进行切换测试兼容性和一些模块对node版本的限制，我选择了使用nvm作为管理工具，下面就来说说nvm的安装和使用过程。</p>
+<a id="more"></a>
+
+
+<h3 id="认识nvm、node、npm"><a href="#认识nvm、node、npm" class="headerlink" title="认识nvm、node、npm"></a>认识nvm、node、npm</h3><h4 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h4><ol>
+
+<li>nvm：nodejs 版本管理工具。</li>
+  也就是说：一个 nvm 可以管理很多 node 版本和 npm 版本。
+
+<p>  这个技术出现的原因， 是由于不同的项目node版本也不同，有的是5.0.1， 有的是6.3.2。 如果node出现版本不对，运行 某个应用时，很可能就会遇到各种莫名其妙的问题 。</p>
+<li>nodejs：在项目开发时的所需要的代码库。</li>
+<li>npm：nodejs 包管理工具。</li>
+  在安装的 nodejs 的时候，npm 也会跟着一起安装，它是包管理工具。
+
+<p>  npm 管理 nodejs 中的第三方插件。他的作用与Ruby中的 bundler及Java中的maven相同，都是对第三方依赖进行管理的。</p>
+</ol>
+
+<h4 id="关系"><a href="#关系" class="headerlink" title="关系"></a>关系</h4><p>     nvm 管理 nodejs 和 npm 的版本</p>
+<p>     npm 可以管理 nodejs 的第三方插件</p>
+   <img data-src="/post/c0a81ac4/nvmMac001.png" class="" title="nvm、node、npm关系图">
+
+
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>  这里主要介绍mac的安装(linux可以参照),windows系统的话可以参考<a href="https://cnodejs.org/topic/5338c5db7cbade005b023c98">windows</a></p>
+<h4 id="不推荐的安装方法"><a href="#不推荐的安装方法" class="headerlink" title="不推荐的安装方法"></a>不推荐的安装方法</h4><p>  一开始我是使用homebrew来安装的,安装命令如下:</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">brew <span class="token function">install</span> nvm<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>  安装完后，为了让你可以直接在shell使用nvm指令，必须在你的<code> .bash_profile</code> 加入以下这行（习惯把设定放在.bashrc的人可以把以下的.bash_profile改成.bashrc）(注:如果没有这个文件,可以touch创建)</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">source</span> <span class="token variable"><span class="token variable">$(</span>brew --prefix nvm<span class="token variable">)</span></span>/nvm.sh<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>  或者直接输入以下这行来加入</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ <span class="token builtin class-name">echo</span> <span class="token string">"source <span class="token variable"><span class="token variable">$(</span>brew --prefix nvm<span class="token variable">)</span></span>/nvm.sh"</span> <span class="token operator">&gt;&gt;</span> .bash_profile<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>  记得重新source你的 .bash_profile 来让设定生效</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ <span class="token builtin class-name">.</span> ~/.bash_profile<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>  OK，以上就完成了nvm的安裝。</p>
+<p>  我们来装一下 node v5.12.0</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">nvm <span class="token function">install</span> <span class="token number">5</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>  安装成功后,使用nvm use 来切换版本</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">nvm use v5.12.0<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>  如，出现错误如下:</p>
+ <div class="note danger no-icon"><p>nvm is not compatible with the npm config “prefix” option: currently set to “/Users/fabian/.nvm/versions/node/v0.12.7”<br>Run <code>nvm use --delete-prefix v4.6.2</code> to unset it.</p>
+</div>
+
+<p>  所以只能安装提示,使用</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">nvm use --delete-prefix v4.6.2<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>  成功切换。</p>
+<p>  至于为什么用homebrew安装会出现上面的问题,可参考Github上的一个<a href="https://github.com/nvm-sh/nvm/issues/855">issue</a>。</p>
+<p>  查看<a href="https://github.com/nvm-sh/nvm">nvm文档</a>发现:文档中Installation 那一小节倒数第二行有一句Homebrew installation is not supported.，由此可见，没事儿还是要多看看文档。</p>
+<h4 id="推荐的安装方法"><a href="#推荐的安装方法" class="headerlink" title="推荐的安装方法"></a>推荐的安装方法</h4><h5 id="卸载已安装到全局的-node-npm"><a href="#卸载已安装到全局的-node-npm" class="headerlink" title="卸载已安装到全局的 node/npm"></a><strong><em>卸载已安装到全局的 node/npm</em></strong></h5><p>  如果之前是在官网下载的 node 安装包，运行后会自动安装在全局目录，其中</p>
+<p>  node 命令在 <code>/usr/local/bin/node</code> ，</p>
+<p>  npm 命令在全局 <code>node_modules</code> 目录中，具体路径为 <code>/usr/local/lib/node_modules/npm</code></p>
+<p>  安装 nvm 之后最好先删除下已安装的 node 和全局 node 模块：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">ls</span> -g --depth<span class="token operator">=</span><span class="token number">0</span> <span class="token comment">#查看已经安装在全局的模块，以便删除这些全局模块后再按照不同的 node 版本重新进行全局安装</span>
+
+<span class="token function">sudo</span> <span class="token function">rm</span> -rf /usr/local/lib/node_modules <span class="token comment">#删除全局 node_modules 目录</span>
+<span class="token function">sudo</span> <span class="token function">rm</span> /usr/local/bin/node <span class="token comment">#删除 node</span>
+<span class="token builtin class-name">cd</span>  /usr/local/bin <span class="token operator">&amp;&amp;</span> <span class="token function">ls</span> -l <span class="token operator">|</span> <span class="token function">grep</span> <span class="token string">"../lib/node_modules/"</span> <span class="token operator">|</span> <span class="token function">awk</span> <span class="token string">'{print <span class="token variable">$9</span>}'</span><span class="token operator">|</span> <span class="token function">xargs</span> <span class="token function">rm</span> <span class="token comment">#删除全局 node 模块注册的软链</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h5 id="安装-nvm"><a href="#安装-nvm" class="headerlink" title="安装 nvm"></a><strong><em>安装 nvm</em></strong></h5><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">curl</span> -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh <span class="token operator">|</span> <span class="token function">bash</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>  <code>如果报错</code>，解决办法：通过修改<mark> hosts </mark>解决此问题。</p>
+<p>  查询真实IP，在 <a href="https://www.ipaddress.com/">https://www.ipaddress.com/</a> 查询 raw.githubusercontent.com 的真实IP。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment">#修改hosts</span>
+<span class="token function">sudo</span> <span class="token function">vim</span> /etc/hosts
+
+<span class="token comment">#添加如下内容：</span>
+<span class="token number">199.232</span>.28.133 raw.githubusercontent.com<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>  安装完成后请重新打开终端环境，Mac 下推荐使用 oh-my-zsh 代替默认的 bash shell。 安装完成后,发现使用 <strong><mark class="label danger">nvm install stable 安装node速度很慢</mark></strong> ,原因嘛,大概大家都知道我大天朝的国情。 接下来介绍如何使用国内镜像快速安装node: 把环境变量 <code>NVM_NODEJS_ORG_MIRROR</code>, 那么我建议你加入到<code> .bash_profile</code> 文件中:</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># nvm</span>
+<span class="token builtin class-name">export</span> <span class="token assign-left variable">NVM_NODEJS_ORG_MIRROR</span><span class="token operator">=</span>https://npm.taobao.org/mirrors/node<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>  然后你可以继续非常方便地安装各个版本的 node 了.</p>
+<p><mark>查看</mark><font color="LightCoral" size="4"> node  </font>版本</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">nvm ls-remote     <span class="token comment"># 远端版本</span>
+nvm <span class="token function">ls</span>            <span class="token comment"># 本地已安装的版本</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p><mark>安装</mark><font color="LightCoral" size="4"> node </font>版本</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">nvm <span class="token function">install</span> node                            <span class="token comment"># 安装最新版本</span>
+nvm <span class="token function">install</span> <span class="token number">6.14</span>.4 <span class="token comment"># or 10.10.0, 8.9.1, etc # 安装指定版本</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p><mark>使用</mark><font color="LightCoral" size="4"> node </font>版本</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">nvm use node    <span class="token comment"># 使用最新版本</span>
+nvm use <span class="token number">12.13</span>.0 <span class="token comment"># 使用指定版本</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p><mark>查看</mark><font color="LightCoral" size="4"> node  </font>版本 <em><mark class="label warning">安装位置</mark></em></p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">nvm <span class="token function">which</span> <span class="token number">5.0</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h5 id="使用-cnpm-加速-npm"><a href="#使用-cnpm-加速-npm" class="headerlink" title="使用 cnpm 加速 npm"></a><strong><em>使用 cnpm 加速 npm</em></strong></h5><p>  同理 nvm , npm 默认是从国外的源获取和下载包信息, 不慢才奇怪. 可以通过简单的 —registry 参数, 使用国内的镜像 <a href="https://registry.npm.taobao.org/">https://registry.npm.taobao.org</a> :</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ <span class="token function">npm</span> --registry<span class="token operator">=</span>https://registry.npm.taobao.org <span class="token function">install</span> koa<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>  于是屏幕又哗啦哗啦地一大片输出</p>
+<div class="note default no-icon"><p>$ npm –registry=<a href="https://registry.npm.taobao.org/">https://registry.npm.taobao.org</a> install koa<br>npm http GET <a href="https://registry.npm.taobao.org/koa">https://registry.npm.taobao.org/koa</a><br>npm http 200 <a href="https://registry.npm.taobao.org/koa">https://registry.npm.taobao.org/koa</a><br>…<br>npm http 200 <a href="https://registry.npm.taobao.org/negotiator">https://registry.npm.taobao.org/negotiator</a><br>npm http 200 <a href="https://registry.npm.taobao.org/keygrip">https://registry.npm.taobao.org/keygrip</a><br>koa<a href="/user/0">@0</a>.5.2 node_modules/koa<br>├── koa-compose<a href="/user/2">@2</a>.2.0<br>├── statuses<a href="/user/1">@1</a>.0.2<br>├── finished<a href="/user/1">@1</a>.1.1<br>├── escape-html<a href="/user/1">@1</a>.0.1<br>├── only<a href="/user/0">@0</a>.0.2<br>├── debug<a href="/user/0">@0</a>.8.0<br>├── fresh<a href="/user/0">@0</a>.2.2<br>├── type-is<a href="/user/1">@1</a>.0.1<br>├── delegates<a href="/user/0">@0</a>.0.3<br>├── mime<a href="/user/1">@1</a>.2.11<br>├── co<a href="/user/3">@3</a>.0.5<br>├── accepts<a href="/user/1">@1</a>.0.1 (negotiator<a href="/user/0">@0</a>.4.2)<br>└── cookies<a href="/user/0">@0</a>.4.0 (keygrip<a href="/user/1">@1</a>.0.0)</p>
+</div>
+
+<p>  但是毕竟镜像跟官方的 npm 源还是会有一个同步时间差异, 目前 cnpm 的默认同步时间间隔是 15 分钟. 如果你是模块发布者, 或者你想马上同步一个模块, 那么推荐你安装 cnpm cli:</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ <span class="token function">npm</span> --registry<span class="token operator">=</span>https://registry.npm.taobao.org <span class="token function">install</span> cnpm -g<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>  通过 cnpm 命令行, 你可以快速同步任意模块:</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ cnpm <span class="token function">sync</span> koa connect mocha<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>  呃, 我就是不想安装 cnpm cli 怎么办? 哈哈, 早就想到你会这么懒了, 于是我们还有一个 web 页面:</p>
+<p>  例如我想马上同步 koa, 直接打开浏览器: <a href="https://npm.taobao.org/sync/koa">https://npm.taobao.org/sync/koa</a></p>
+<p>  或者你是命令行控, 通过 open 命令打开:</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ <span class="token function">open</span> https://npm.taobao.org/sync/koa<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>  如果你安装的模块依赖了 C++ 模块, 需要编译, 肯定会通过 node-gyp 来编译, node-gyp 在第一次编译的时候, 需要依赖 node 源代码, 于是又会去 node dist 下载, 于是大家又会吐槽, 怎么 npm 安装这么慢…</p>
+<p>  好吧, 于是又要提到 <code>--disturl</code> 参数, 通过七牛的镜像来下载:</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ <span class="token function">npm</span> --registry<span class="token operator">=</span>https://registry.npm.taobao.org --disturl<span class="token operator">=</span>https://npm.taobao.org/mirrors/node <span class="token function">install</span> microtime<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>  再次要提到 cnpm cli, 它已经默认将 –registry 和 –disturl 都配置好了, 谁用谁知道 如果不想使用cnpm cli，可以</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> config <span class="token builtin class-name">set</span> registry https://registry.npm.taobao.org --global
+<span class="token function">npm</span> config <span class="token builtin class-name">set</span> disturl https://npm.taobao.org/dist --global<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>  查看npm的配置</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> config <span class="token function">ls</span> <span class="token comment"># npm的配置</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="nvm常用命令"><a href="#nvm常用命令" class="headerlink" title="nvm常用命令"></a>nvm常用命令</h3><ol>
+<li>nvm install <version> ## 安装指定版本，可模糊安装，如：安装v4.4.0，既可nvm install v4.4.0，又可nvm install 4.4</version></li>
+<li>nvm uninstall <version> ## 删除已安装的指定版本，语法与install类似</version></li>
+<li>nvm use <version> ## 切换使用指定的版本node</version></li>
+<li>nvm ls ## 列出所有安装的版本</li>
+<li>nvm ls-remote ## 列出所以远程服务器的版本（官方node version list）</li>
+<li>nvm current ## 显示当前的版本</li>
+<li>nvm alias <name> <version> ## 给不同的版本号添加别名</version></name></li>
+<li>nvm unalias <name> ## 删除已定义的别名</name></li>
+<li>nvm reinstall-packages <version> ## 在当前版本node环境下，重新全局安装指定版本号的npm包</version></li>
+</ol>
+<h3 id="附-MAC-的-bash-profile"><a href="#附-MAC-的-bash-profile" class="headerlink" title="附: MAC 的 .bash_profile"></a>附: MAC 的 <code>.bash_profile</code></h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">export</span> <span class="token assign-left variable">NVM_DIR</span><span class="token operator">=</span><span class="token string">"<span class="token environment constant">$HOME</span>/.nvm"</span>
+<span class="token punctuation">[</span> -s <span class="token string">"<span class="token variable">$NVM_DIR</span>/nvm.sh"</span> <span class="token punctuation">]</span> <span class="token operator">&amp;&amp;</span> <span class="token punctuation">\</span>. <span class="token string">"<span class="token variable">$NVM_DIR</span>/nvm.sh"</span>  <span class="token comment"># This loads nvm</span>
+<span class="token punctuation">[</span> -s <span class="token string">"<span class="token variable">$NVM_DIR</span>/bash_completion"</span> <span class="token punctuation">]</span> <span class="token operator">&amp;&amp;</span> <span class="token punctuation">\</span>. <span class="token string">"<span class="token variable">$NVM_DIR</span>/bash_completion"</span>  <span class="token comment"># This loads nvm bash_completi    on</span>
+ 
+<span class="token comment"># nvm 改为国内node镜像</span>
+<span class="token builtin class-name">export</span> <span class="token assign-left variable">NVM_NODEJS_ORG_MIRROR</span><span class="token operator">=</span>https://npm.taobao.org/mirrors/node<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
+      <categories>
+        <category>Mac</category>
+      </categories>
+      <tags>
+        <tag>Nvm</tag>
       </tags>
   </entry>
   <entry>
