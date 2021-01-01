@@ -6,7 +6,7 @@
   <link href="https://www.xiaosige.com/atom.xml" rel="self"/>
   
   <link href="https://www.xiaosige.com/"/>
-  <updated>2020-11-05T07:57:53.851Z</updated>
+  <updated>2021-01-01T17:45:41.146Z</updated>
   <id>https://www.xiaosige.com/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>JetBrains IntelliJ IDEA2020.3 x64最新完全破解</title>
+    <link href="https://www.xiaosige.com/post/a240ffad.html"/>
+    <id>https://www.xiaosige.com/post/a240ffad.html</id>
+    <published>2021-01-01T15:53:21.000Z</published>
+    <updated>2021-01-01T17:45:41.146Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;  JetBrains是一家捷克的软件开发公司，该公司位于捷克的布拉格，并在俄国的圣彼得堡及美国麻州波士顿都设有办公室，该公司最为人所熟知的产品是Java编程语言开发撰写时所用的集成开发环境：IntelliJ IDEA。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Idea" scheme="https://www.xiaosige.com/categories/Idea/"/>
+    
+    
+    <category term="Idea" scheme="https://www.xiaosige.com/tags/Idea/"/>
+    
+  </entry>
   
   <entry>
     <title>Spring MVC返回pdf文件并在页面显示而不是下载</title>
@@ -397,26 +416,6 @@
     
     
     <category term="Nvm" scheme="https://www.xiaosige.com/tags/Nvm/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>SpringBoot项目添加外部Jar包</title>
-    <link href="https://www.xiaosige.com/post/afccf6ff.html"/>
-    <id>https://www.xiaosige.com/post/afccf6ff.html</id>
-    <published>2020-08-21T18:32:04.000Z</published>
-    <updated>2020-10-04T09:46:44.508Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;  SpringBoot项目引入外部jar包是非常方便的。&lt;/p&gt;
-&lt;p&gt;  1，首先在src同级目录建一个lib文件夹，将第三方jar包放到这个文件内，比如我将ojdbc6.jar 这个jar包放到这个地方。&lt;br&gt;  2，接着我们需要在pom.xml文件里配置jar的maven坐标，不过这个坐标比较特殊，我们需要直接定位到我们上一步添加的文件，而不是从Maven仓库里面去下载，以ojdbc6.jar为例，配置依赖如下：&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="SpringBoot" scheme="https://www.xiaosige.com/categories/SpringBoot/"/>
-    
-    
-    <category term="SpringBoot" scheme="https://www.xiaosige.com/tags/SpringBoot/"/>
     
   </entry>
   

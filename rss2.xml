@@ -15,8 +15,29 @@
     <atom:link href="https://www.xiaosige.com/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>因上努力，果上随缘！</description>
-    <pubDate>Thu, 05 Nov 2020 07:57:53 GMT</pubDate>
+    <pubDate>Fri, 01 Jan 2021 17:45:41 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>JetBrains IntelliJ IDEA2020.3 x64最新完全破解</title>
+      <link>https://www.xiaosige.com/post/a240ffad.html</link>
+      <guid>https://www.xiaosige.com/post/a240ffad.html</guid>
+      <pubDate>Fri, 01 Jan 2021 15:53:21 GMT</pubDate>
+      
+      <description>&lt;p&gt;  JetBrains是一家捷克的软件开发公司，该公司位于捷克的布拉格，并在俄国的圣彼得堡及美国麻州波士顿都设有办公室，该公司最为人所熟知的产品是Java编程语言开发撰写时所用的集成开发环境：IntelliJ IDEA。&lt;/p&gt;</description>
+      
+      
+      
+      
+      <category domain="https://www.xiaosige.com/categories/Idea/">Idea</category>
+      
+      
+      <category domain="https://www.xiaosige.com/tags/Idea/">Idea</category>
+      
+      
+      <comments>https://www.xiaosige.com/post/a240ffad.html#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>Spring MVC返回pdf文件并在页面显示而不是下载</title>
@@ -437,28 +458,6 @@
       
       
       <comments>https://www.xiaosige.com/post/c0a81ac4.html#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>SpringBoot项目添加外部Jar包</title>
-      <link>https://www.xiaosige.com/post/afccf6ff.html</link>
-      <guid>https://www.xiaosige.com/post/afccf6ff.html</guid>
-      <pubDate>Fri, 21 Aug 2020 18:32:04 GMT</pubDate>
-      
-      <description>&lt;p&gt;  SpringBoot项目引入外部jar包是非常方便的。&lt;/p&gt;
-&lt;p&gt;  1，首先在src同级目录建一个lib文件夹，将第三方jar包放到这个文件内，比如我将ojdbc6.jar 这个jar包放到这个地方。&lt;br&gt;  2，接着我们需要在pom.xml文件里配置jar的maven坐标，不过这个坐标比较特殊，我们需要直接定位到我们上一步添加的文件，而不是从Maven仓库里面去下载，以ojdbc6.jar为例，配置依赖如下：&lt;/p&gt;</description>
-      
-      
-      
-      
-      <category domain="https://www.xiaosige.com/categories/SpringBoot/">SpringBoot</category>
-      
-      
-      <category domain="https://www.xiaosige.com/tags/SpringBoot/">SpringBoot</category>
-      
-      
-      <comments>https://www.xiaosige.com/post/afccf6ff.html#disqus_thread</comments>
       
     </item>
     

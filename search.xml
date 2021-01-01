@@ -193,6 +193,39 @@ nvm use <span class="token number">12.13</span>.0 <span class="token comment"># 
       </tags>
   </entry>
   <entry>
+    <title>JetBrains IntelliJ IDEA2020.3 x64最新完全破解</title>
+    <url>/post/a240ffad.html</url>
+    <content><![CDATA[<p>  JetBrains是一家捷克的软件开发公司，该公司位于捷克的布拉格，并在俄国的圣彼得堡及美国麻州波士顿都设有办公室，该公司最为人所熟知的产品是Java编程语言开发撰写时所用的集成开发环境：IntelliJ IDEA。</p>
+<a id="more"></a>
+
+<p><font style="font-size: 30px; color: rgba(255, 0, 0, 1)">特别声明: 仅供学习禁止商用! 如有商业需要请支持购买正版!</font></p>
+
+<h3 id="支持版本"><a href="#支持版本" class="headerlink" title="支持版本"></a>支持版本</h3><p>   IntelliJ IDEA 2020.3及以下<br>   AppCode 2019.3.7及以下<br>   CLion 2019.3.5及以下<br>   DataGrip 2020.3及以下<br>   GoLand 2020.3及以下<br>   PhpStorm 2020.3及以下<br>   PyCharm 2020.3及以下<br>   Rider 2019.3.4及以下<br>   RubyMine 2019.3.4及以下<br>   WebStorm 2020.3及以下</p>
+<h3 id="使用说明"><a href="#使用说明" class="headerlink" title="使用说明"></a>使用说明</h3><ol>
+<li><p>BetterIntelliJ-1.15.7z<br>  软件启动，先免费使用<br>  将BetterIntelliJ.zip拖入到软件界面，会提示重启<br>  重启以后，进入菜单，选择授权管理，输入key里面的内容即可<br>  本次补丁没有任何限制，理论上可以永久使用了<br>  <code>特别提示，需要删除%appdata%\JetBrains相关目录</code></p>
+</li>
+<li><p>ide-eval-resetter.zip<br>  无限重置激活补丁，IDEA系列软件，默认提供30天无限制功能使用，这个补丁能重置30天，要到期了，用补丁重置一下就行，并且补丁有自动重置功能，也相当于无限激活。</p>
+</li>
+</ol>
+<h3 id="下载地址"><a href="#下载地址" class="headerlink" title="下载地址"></a>下载地址</h3><h5 id="插件安装"><a href="#插件安装" class="headerlink" title="插件安装"></a>插件安装</h5><p>  打开插件中心 File -&gt; Settings -&gt;Plugins–&gt; Manage Plugins Reposito，设置插件中心仓库</p>
+<ol>
+<li><p>设置仓库地址：<a href="https://repo.idechajian.com/">https://repo.idechajian.com</a><br>点击OK之后，便可以继续在插件中心，搜索关键字“BetterIntellij” 并安装</p>
+</li>
+<li><p>设置仓库地址：<a href="https://plugins.zhile.io/">https://plugins.zhile.io</a><br>点击OK之后，便可以继续在插件中心， 搜索：IDE Eval Reset插件进行安装</p>
+</li>
+</ol>
+<h5 id="本地安装"><a href="#本地安装" class="headerlink" title="本地安装"></a>本地安装</h5><ol>
+<li><a href="https://static.xiaosige.com/download/BetterIntelliJ-1.15.7z">下载</a> </li>
+</ol>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
+      <categories>
+        <category>Idea</category>
+      </categories>
+      <tags>
+        <tag>Idea</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Spring MVC返回pdf文件并在页面显示而不是下载</title>
     <url>/post/f556d83e.html</url>
     <content><![CDATA[<p>  spring mvc下载pdf</p>
