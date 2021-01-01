@@ -585,14 +585,14 @@
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/tags/GitLab/</loc>
+    <loc>https://www.xiaosige.com/tags/Markdown/</loc>
     <lastmod>2021-01-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/tags/Markdown/</loc>
+    <loc>https://www.xiaosige.com/tags/GitLab/</loc>
     <lastmod>2021-01-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -697,6 +697,13 @@
   </url>
   
   <url>
+    <loc>https://www.xiaosige.com/tags/PHP/</loc>
+    <lastmod>2021-01-01</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://www.xiaosige.com/tags/Redis/</loc>
     <lastmod>2021-01-01</lastmod>
     <changefreq>daily</changefreq>
@@ -747,13 +754,6 @@
   
   <url>
     <loc>https://www.xiaosige.com/tags/Yarn/</loc>
-    <lastmod>2021-01-01</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.xiaosige.com/tags/PHP/</loc>
     <lastmod>2021-01-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
