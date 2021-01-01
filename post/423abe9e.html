@@ -4,7 +4,7 @@
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.2.0">
+<meta name="generator" content="Hexo 5.3.0">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="https://static.xiaosige.com/img/favicon.png">
@@ -25,7 +25,7 @@
 
 <script class="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"www.xiaosige.com","root":"/","images":"/images","scheme":"Gemini","version":"8.1.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"livere","storage":true,"lazyload":true,"nav":null,"activeClass":"livere"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}};
+    var CONFIG = {"hostname":"www.xiaosige.com","root":"/","images":"/images","scheme":"Gemini","version":"8.2.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"livere","storage":true,"lazyload":true,"nav":null,"activeClass":"livere"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}};
   </script>
 <meta name="description" content="命令初始配置 仓库级别 local 【优先级最高】 git config --local user.name &quot;Your name&quot; git config --local user.email &quot;you@example.com&quot;   git 仓库级别对应的配置文件是当前仓库下的.git&#x2F;config 【在当前目录下.git目录默认是隐藏的，所以在文件管理器中我们要打开显示以藏文件】">
 <meta property="og:type" content="article">
@@ -96,6 +96,7 @@
   </script>
 
 
+
   <noscript>
   <style>
   body { margin-top: 2rem; }
@@ -144,7 +145,7 @@
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
   <div class="site-nav-toggle">
-    <div class="toggle" aria-label="切换导航栏">
+    <div class="toggle" aria-label="切换导航栏" role="button">
         <span class="toggle-line"></span>
         <span class="toggle-line"></span>
         <span class="toggle-line"></span>
@@ -172,41 +173,13 @@
 
 <nav class="site-nav">
   <ul class="main-menu menu">
-        <li class="menu-item menu-item-home">
-
-    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
-
-  </li>
-        <li class="menu-item menu-item-tags">
-
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">28</span></a>
-
-  </li>
-        <li class="menu-item menu-item-categories">
-
-    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">20</span></a>
-
-  </li>
-        <li class="menu-item menu-item-archives">
-
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">67</span></a>
-
-  </li>
-        <li class="menu-item menu-item-welfare">
-
-    <a href="/welfare" rel="section"><i class="fa fa-star fa-fw"></i>收藏</a>
-
-  </li>
-        <li class="menu-item menu-item-photos">
-
-    <a href="/photos" rel="section"><i class="fa fa-camera-retro fa-fw"></i>相册</a>
-
-  </li>
-        <li class="menu-item menu-item-links">
-
-    <a href="/links" rel="section"><i class="fa fa-link fa-fw"></i>友链</a>
-
-  </li>
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">28</span></a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">20</span></a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">67</span></a></li>
+        <li class="menu-item menu-item-welfare"><a href="/welfare" rel="section"><i class="fa fa-star fa-fw"></i>收藏</a></li>
+        <li class="menu-item menu-item-photos"><a href="/photos" rel="section"><i class="fa fa-camera-retro fa-fw"></i>相册</a></li>
+        <li class="menu-item menu-item-links"><a href="/links" rel="section"><i class="fa fa-link fa-fw"></i>友链</a></li>
       <li class="menu-item menu-item-search">
         <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
         </a>
@@ -226,7 +199,7 @@
            placeholder="搜索..." spellcheck="false"
            type="search" class="search-input">
   </div>
-  <span class="popup-btn-close">
+  <span class="popup-btn-close" role="button">
     <i class="fa fa-times-circle"></i>
   </span>
 </div>
@@ -242,7 +215,7 @@
 </div>
         
   
-  <div class="toggle sidebar-toggle">
+  <div class="toggle sidebar-toggle" role="button">
     <span class="toggle-line"></span>
     <span class="toggle-line"></span>
     <span class="toggle-line"></span>
@@ -262,12 +235,12 @@
 
       <div class="sidebar-panel-container">
         <!--noindex-->
-        <section class="post-toc-wrap sidebar-panel">
+        <div class="post-toc-wrap sidebar-panel">
             <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%91%BD%E4%BB%A4"><span class="nav-number">1.</span> <span class="nav-text">命令</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%88%9D%E5%A7%8B%E9%85%8D%E7%BD%AE"><span class="nav-number">1.0.0.1.</span> <span class="nav-text">初始配置</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8Dgit%E9%85%8D%E7%BD%AE"><span class="nav-number">1.0.0.2.</span> <span class="nav-text">获取当前git配置</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%A2%9E%E5%8A%A0%E9%85%8D%E7%BD%AE%E9%A1%B9"><span class="nav-number">1.0.0.3.</span> <span class="nav-text">增加配置项</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96%E4%B8%80%E4%B8%AA%E9%85%8D%E7%BD%AE%E9%A1%B9"><span class="nav-number">1.0.0.4.</span> <span class="nav-text">获取一个配置项</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%88%A0%E9%99%A4%E4%B8%80%E4%B8%AA%E9%85%8D%E7%BD%AE%E9%A1%B9"><span class="nav-number">1.0.0.5.</span> <span class="nav-text">删除一个配置项</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E6%96%87%E4%BB%B6%E5%B9%B6%E5%86%99%E5%85%A5%E5%86%85%E5%AE%B9"><span class="nav-number">1.0.0.6.</span> <span class="nav-text">创建文件并写入内容</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8"><span class="nav-number">1.0.0.7.</span> <span class="nav-text">使用</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E5%88%86%E6%94%AF"><span class="nav-number">1.0.0.8.</span> <span class="nav-text">创建分支</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8git-stash%E5%91%BD%E4%BB%A4%E4%BF%9D%E5%AD%98%E5%92%8C%E6%81%A2%E5%A4%8D%E8%BF%9B%E5%BA%A6"><span class="nav-number">1.0.0.9.</span> <span class="nav-text">使用git stash命令保存和恢复进度</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%92%A4%E9%94%80%E4%B8%80%E6%AC%A1%E5%B7%B2%E7%BB%8F%E6%8F%90%E4%BA%A4%E5%88%B0Github%E7%9A%84%E5%86%85%E5%AE%B9"><span class="nav-number">1.0.0.10.</span> <span class="nav-text">撤销一次已经提交到Github的内容</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#GitHub%E6%9B%B4%E6%96%B0%E8%87%AA%E5%B7%B1fork%E7%9A%84%E4%BB%A3%E7%A0%81"><span class="nav-number">1.0.0.11.</span> <span class="nav-text">GitHub更新自己fork的代码</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#git%E6%92%A4%E9%94%80%E6%9C%80%E5%90%8E%E4%B8%80%E6%AC%A1commit"><span class="nav-number">1.0.0.12.</span> <span class="nav-text">git撤销最后一次commit</span></a></li></ol></li></ol></li></ol></li></ol></div>
-        </section>
+        </div>
         <!--/noindex-->
 
-        <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview-wrap sidebar-panel">
           <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <img class="site-author-image" itemprop="image" alt="leeze"
       src="https://static.xiaosige.com/img/avatar.jpg">
@@ -626,7 +599,7 @@ canvas#canvas {
 }
 </style>
 
-        </section>
+        </div>
       </div>
     </div>
   </aside>
@@ -813,7 +786,6 @@ canvas#canvas {
 <span class="token function">git</span> checkout master             <span class="token comment"># 切换到主干道</span>
 <span class="token function">git</span> merge experiment            <span class="token comment"># 合并分支到主干道</span>
 <span class="token function">git</span> branch -d experiment        <span class="token comment"># -d，表示“在分支已经合并到主干后删除分支”。如果使用大写的-D的话，则表示“不论如何都删除分支”</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <h5 id="使用git-stash命令保存和恢复进度"><a href="#使用git-stash命令保存和恢复进度" class="headerlink" title="使用git stash命令保存和恢复进度"></a>使用git stash命令保存和恢复进度</h5><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> stash                       <span class="token comment"># 保留当前工作区进度，会把暂存区和工作区的改动保存起来</span>
 <span class="token function">git</span> stash save <span class="token string">'message...'</span>     <span class="token comment"># 保存当前工作区，并添加备注</span>
 <span class="token function">git</span> stash list                  <span class="token comment"># 显示保存进度的列表。也就意味着，git stash命令可以多次执行。</span>
@@ -821,17 +793,14 @@ canvas#canvas {
 <span class="token function">git</span> stash apply                 <span class="token comment"># 恢复最新的进度到工作区不删除</span>
 <span class="token function">git</span> stash drop <span class="token punctuation">[</span>stash_id<span class="token punctuation">]</span>       <span class="token comment"># 删除一个存储的进度，如果不指定stash_id，则默认删除最新的存储进度，stash_id从git stash list获取</span>
 <span class="token function">git</span> stash <span class="token function">clear</span>                 <span class="token comment"># 删除所有存储的进度</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <h5 id="撤销一次已经提交到Github的内容"><a href="#撤销一次已经提交到Github的内容" class="headerlink" title="撤销一次已经提交到Github的内容"></a>撤销一次已经提交到Github的内容</h5><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> reset --hard HEAD~1
 <span class="token function">git</span> push --force<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
 <p>该命令执行后，会隐藏掉Github库中的被撤销掉的记录，但是指定到该被隐藏掉的记录来访问，依旧可以访问。</p>
 <h5 id="GitHub更新自己fork的代码"><a href="#GitHub更新自己fork的代码" class="headerlink" title="GitHub更新自己fork的代码"></a>GitHub更新自己fork的代码</h5><ol>
 <li> clone已经fork到自己账号的代码 </li>
 
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> clone https://github.com/shadow000902/ApiTestEngine.git
 <span class="token builtin class-name">cd</span> ApiTestEngine<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
 <li> 查看远程分支列表 </li>
 
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">╭─taoyi at TaoYi-Mac <span class="token keyword">in</span> ~/git_projects/GitHub/ApiTestEngine on master✔ using ‹› <span class="token number">17</span>-08-23 - <span class="token number">15</span>:01:23
@@ -840,15 +809,12 @@ debugtalk	https://github.com/debugtalk/ApiTestEngine.git <span class="token punc
 debugtalk	https://github.com/debugtalk/ApiTestEngine.git <span class="token punctuation">(</span>push<span class="token punctuation">)</span>
 origin	https://github.com/shadow000902/ApiTestEngine.git <span class="token punctuation">(</span>fetch<span class="token punctuation">)</span>
 origin	https://github.com/shadow000902/ApiTestEngine.git <span class="token punctuation">(</span>push<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <li> fetch原始源代码的新版本到本地 </li>
 
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> fetch debugtalk<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
 <li> 合并两个版本的代码 </li>
 
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> merge debugtalk/master<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
 <li> 如果合并代码后有冲突，解决冲突 </li>
 
 <li> 把合并好的最新的代码提交到自己的GitHub账号上 </li>
@@ -983,11 +949,7 @@ commit-id3<span aria-hidden="true" class="line-numbers-rows"><span></span><span>
 
 
 
-    
-  <div class="comments">
-    <div id="lv-container" data-id="city" data-uid="MTAyMC80NjMzMy8yMjg0NA=="></div>
-  </div>
-  
+    <div class="comments" id="lv-container" data-id="city" data-uid="MTAyMC80NjMzMy8yMjg0NA=="></div>
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -1157,16 +1119,6 @@ document.addEventListener('pjax:success', () => {
 
 
   
-  <script data-pjax>
-    (function(){
-      var bp = document.createElement('script');
-      var curProtocol = window.location.protocol.split(':')[0];
-      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(bp, s);
-    })();
-  </script>
-
 <script src="/js/local-search.js"></script>
 
 
@@ -1215,7 +1167,6 @@ if (document.querySelectorAll('.pdf-container').length) {
 
   
   <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
 
 
 

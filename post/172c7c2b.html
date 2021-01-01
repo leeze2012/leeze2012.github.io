@@ -4,7 +4,7 @@
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.2.0">
+<meta name="generator" content="Hexo 5.3.0">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="https://static.xiaosige.com/img/favicon.png">
@@ -25,7 +25,7 @@
 
 <script class="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"www.xiaosige.com","root":"/","images":"/images","scheme":"Gemini","version":"8.1.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"livere","storage":true,"lazyload":true,"nav":null,"activeClass":"livere"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}};
+    var CONFIG = {"hostname":"www.xiaosige.com","root":"/","images":"/images","scheme":"Gemini","version":"8.2.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"livere","storage":true,"lazyload":true,"nav":null,"activeClass":"livere"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}};
   </script>
 <meta name="description" content="一、插件安装与配置首先我们需要安装一个图片路径转换的插件，这个插件名字是hexo-asset-image $ npm install https:&#x2F;&#x2F;github.com&#x2F;CodeFalling&#x2F;hexo-asset-image --save    npm install hexo-asset-image --save  (推荐这个)">
 <meta property="og:type" content="article">
@@ -93,6 +93,7 @@
   </script>
 
 
+
   <noscript>
   <style>
   body { margin-top: 2rem; }
@@ -141,7 +142,7 @@
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
   <div class="site-nav-toggle">
-    <div class="toggle" aria-label="切换导航栏">
+    <div class="toggle" aria-label="切换导航栏" role="button">
         <span class="toggle-line"></span>
         <span class="toggle-line"></span>
         <span class="toggle-line"></span>
@@ -169,41 +170,13 @@
 
 <nav class="site-nav">
   <ul class="main-menu menu">
-        <li class="menu-item menu-item-home">
-
-    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
-
-  </li>
-        <li class="menu-item menu-item-tags">
-
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">28</span></a>
-
-  </li>
-        <li class="menu-item menu-item-categories">
-
-    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">20</span></a>
-
-  </li>
-        <li class="menu-item menu-item-archives">
-
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">67</span></a>
-
-  </li>
-        <li class="menu-item menu-item-welfare">
-
-    <a href="/welfare" rel="section"><i class="fa fa-star fa-fw"></i>收藏</a>
-
-  </li>
-        <li class="menu-item menu-item-photos">
-
-    <a href="/photos" rel="section"><i class="fa fa-camera-retro fa-fw"></i>相册</a>
-
-  </li>
-        <li class="menu-item menu-item-links">
-
-    <a href="/links" rel="section"><i class="fa fa-link fa-fw"></i>友链</a>
-
-  </li>
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">28</span></a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">20</span></a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">67</span></a></li>
+        <li class="menu-item menu-item-welfare"><a href="/welfare" rel="section"><i class="fa fa-star fa-fw"></i>收藏</a></li>
+        <li class="menu-item menu-item-photos"><a href="/photos" rel="section"><i class="fa fa-camera-retro fa-fw"></i>相册</a></li>
+        <li class="menu-item menu-item-links"><a href="/links" rel="section"><i class="fa fa-link fa-fw"></i>友链</a></li>
       <li class="menu-item menu-item-search">
         <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
         </a>
@@ -223,7 +196,7 @@
            placeholder="搜索..." spellcheck="false"
            type="search" class="search-input">
   </div>
-  <span class="popup-btn-close">
+  <span class="popup-btn-close" role="button">
     <i class="fa fa-times-circle"></i>
   </span>
 </div>
@@ -239,7 +212,7 @@
 </div>
         
   
-  <div class="toggle sidebar-toggle">
+  <div class="toggle sidebar-toggle" role="button">
     <span class="toggle-line"></span>
     <span class="toggle-line"></span>
     <span class="toggle-line"></span>
@@ -259,12 +232,12 @@
 
       <div class="sidebar-panel-container">
         <!--noindex-->
-        <section class="post-toc-wrap sidebar-panel">
+        <div class="post-toc-wrap sidebar-panel">
             <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E6%8F%92%E4%BB%B6%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE"><span class="nav-number">1.</span> <span class="nav-text">一、插件安装与配置</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E9%97%AE%E9%A2%98%E6%8E%A8%E6%B5%8B"><span class="nav-number">2.</span> <span class="nav-text">二、问题推测</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E4%B8%80-%E6%9C%AC%E5%9C%B0%E5%9B%BE%E7%89%87%E6%B2%A1%E6%9C%89%E6%9C%89%E6%95%88%E4%B8%8A%E4%BC%A0%E8%87%B3github%E4%BB%93%E5%BA%93%E4%B8%AD%EF%BC%8C%E5%AF%BC%E8%87%B4%E5%BC%95%E7%94%A8%E6%97%A0%E6%95%88"><span class="nav-number">2.1.</span> <span class="nav-text">(一)本地图片没有有效上传至github仓库中，导致引用无效</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%EF%BC%88%E4%BA%8C%EF%BC%89%E6%9C%AC%E5%9C%B0%E5%9B%BE%E7%89%87%E6%B2%A1%E6%9C%89%E5%AD%98%E6%94%BE%E5%9C%A8%E5%90%8C%E5%90%8D%E6%96%87%E4%BB%B6%E5%A4%B9%E4%B8%AD"><span class="nav-number">2.2.</span> <span class="nav-text">（二）本地图片没有存放在同名文件夹中</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%EF%BC%88%E4%B8%89%EF%BC%89%E5%9B%BE%E7%89%87%E8%B7%AF%E5%BE%84%E5%87%BA%E9%94%99"><span class="nav-number">2.3.</span> <span class="nav-text">（三）图片路径出错</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%EF%BC%88%E5%9B%9B%EF%BC%89%E7%9B%B8%E5%AF%B9%E8%B7%AF%E5%BE%84%E5%BC%95%E7%94%A8%E7%9A%84%E6%A0%87%E7%AD%BE%E6%8F%92%E4%BB%B6"><span class="nav-number">2.4.</span> <span class="nav-text">（四）相对路径引用的标签插件</span></a></li></ol></li></ol></div>
-        </section>
+        </div>
         <!--/noindex-->
 
-        <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview-wrap sidebar-panel">
           <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <img class="site-author-image" itemprop="image" alt="leeze"
       src="https://static.xiaosige.com/img/avatar.jpg">
@@ -623,7 +596,7 @@ canvas#canvas {
 }
 </style>
 
-        </section>
+        </div>
       </div>
     </div>
   </aside>
@@ -733,7 +706,6 @@ canvas#canvas {
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ <span class="token function">npm</span> <span class="token function">install</span> https://github.com/CodeFalling/hexo-asset-image --save
 
   <span class="token function">npm</span> <span class="token function">install</span> hexo-asset-image --save  <span class="token punctuation">(</span>推荐这个<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
 <a id="more"></a>
 
 <p>但是这个插件的内容需要修改【不然可能会出Bug】</p>
@@ -802,7 +774,6 @@ hexo.extend.filter.register('after_post_render', function(data){
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>打开_config.yml文件，修改下述内容</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">post_asset_folder: <span class="token boolean">true</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
 <h5 id="二、问题推测"><a href="#二、问题推测" class="headerlink" title="二、问题推测"></a>二、问题推测</h5><h6 id="一-本地图片没有有效上传至github仓库中，导致引用无效"><a href="#一-本地图片没有有效上传至github仓库中，导致引用无效" class="headerlink" title="(一)本地图片没有有效上传至github仓库中，导致引用无效"></a>(一)本地图片没有有效上传至github仓库中，导致引用无效</h6><pre><code>解决方案：安装插件（回看前文）</code></pre>
 <h6 id="（二）本地图片没有存放在同名文件夹中"><a href="#（二）本地图片没有存放在同名文件夹中" class="headerlink" title="（二）本地图片没有存放在同名文件夹中"></a>（二）本地图片没有存放在同名文件夹中</h6><pre><code>解决方案：将需要引用的本地图片存放在与文章名相同的文件夹中</code></pre>
 <h6 id="（三）图片路径出错"><a href="#（三）图片路径出错" class="headerlink" title="（三）图片路径出错"></a>（三）图片路径出错</h6><p>解决方案：打开_config.yml修改下述内容<br><img style="margin-left:30px;" data-src="https://img-blog.csdnimg.cn/20181115112941162.png"></p>
@@ -820,8 +791,7 @@ hexo.extend.filter.register('after_post_render', function(data){
 
 
 <p>正确的引用图片方式是使用下列的标签插件而不是 markdown ：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">{</span>% asset_img example.jpg This is an example image %<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">{</span>% asset_img example.jpg This is an example image %<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
     </div>
 
     
@@ -932,11 +902,7 @@ hexo.extend.filter.register('after_post_render', function(data){
 
 
 
-    
-  <div class="comments">
-    <div id="lv-container" data-id="city" data-uid="MTAyMC80NjMzMy8yMjg0NA=="></div>
-  </div>
-  
+    <div class="comments" id="lv-container" data-id="city" data-uid="MTAyMC80NjMzMy8yMjg0NA=="></div>
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -1106,16 +1072,6 @@ document.addEventListener('pjax:success', () => {
 
 
   
-  <script data-pjax>
-    (function(){
-      var bp = document.createElement('script');
-      var curProtocol = window.location.protocol.split(':')[0];
-      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(bp, s);
-    })();
-  </script>
-
 <script src="/js/local-search.js"></script>
 
 
@@ -1164,7 +1120,6 @@ if (document.querySelectorAll('.pdf-container').length) {
 
   
   <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
 
 
 

@@ -4,7 +4,7 @@
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.2.0">
+<meta name="generator" content="Hexo 5.3.0">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="https://static.xiaosige.com/img/favicon.png">
@@ -25,7 +25,7 @@
 
 <script class="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"www.xiaosige.com","root":"/","images":"/images","scheme":"Gemini","version":"8.1.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"livere","storage":true,"lazyload":true,"nav":null,"activeClass":"livere"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}};
+    var CONFIG = {"hostname":"www.xiaosige.com","root":"/","images":"/images","scheme":"Gemini","version":"8.2.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"livere","storage":true,"lazyload":true,"nav":null,"activeClass":"livere"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}};
   </script>
 <meta name="description" content="介绍  Yarn 就是一个类似于 npm 的包管理工具，它是由 facebook 推出并开源。  与 npm 相比，yarn 有着众多的优势，主要的优势在于：速度快、离线模式、版本控制。">
 <meta property="og:type" content="article">
@@ -93,6 +93,7 @@
   </script>
 
 
+
   <noscript>
   <style>
   body { margin-top: 2rem; }
@@ -141,7 +142,7 @@
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
   <div class="site-nav-toggle">
-    <div class="toggle" aria-label="切换导航栏">
+    <div class="toggle" aria-label="切换导航栏" role="button">
         <span class="toggle-line"></span>
         <span class="toggle-line"></span>
         <span class="toggle-line"></span>
@@ -169,41 +170,13 @@
 
 <nav class="site-nav">
   <ul class="main-menu menu">
-        <li class="menu-item menu-item-home">
-
-    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
-
-  </li>
-        <li class="menu-item menu-item-tags">
-
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">28</span></a>
-
-  </li>
-        <li class="menu-item menu-item-categories">
-
-    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">20</span></a>
-
-  </li>
-        <li class="menu-item menu-item-archives">
-
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">67</span></a>
-
-  </li>
-        <li class="menu-item menu-item-welfare">
-
-    <a href="/welfare" rel="section"><i class="fa fa-star fa-fw"></i>收藏</a>
-
-  </li>
-        <li class="menu-item menu-item-photos">
-
-    <a href="/photos" rel="section"><i class="fa fa-camera-retro fa-fw"></i>相册</a>
-
-  </li>
-        <li class="menu-item menu-item-links">
-
-    <a href="/links" rel="section"><i class="fa fa-link fa-fw"></i>友链</a>
-
-  </li>
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">28</span></a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">20</span></a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">67</span></a></li>
+        <li class="menu-item menu-item-welfare"><a href="/welfare" rel="section"><i class="fa fa-star fa-fw"></i>收藏</a></li>
+        <li class="menu-item menu-item-photos"><a href="/photos" rel="section"><i class="fa fa-camera-retro fa-fw"></i>相册</a></li>
+        <li class="menu-item menu-item-links"><a href="/links" rel="section"><i class="fa fa-link fa-fw"></i>友链</a></li>
       <li class="menu-item menu-item-search">
         <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
         </a>
@@ -223,7 +196,7 @@
            placeholder="搜索..." spellcheck="false"
            type="search" class="search-input">
   </div>
-  <span class="popup-btn-close">
+  <span class="popup-btn-close" role="button">
     <i class="fa fa-times-circle"></i>
   </span>
 </div>
@@ -239,7 +212,7 @@
 </div>
         
   
-  <div class="toggle sidebar-toggle">
+  <div class="toggle sidebar-toggle" role="button">
     <span class="toggle-line"></span>
     <span class="toggle-line"></span>
     <span class="toggle-line"></span>
@@ -259,12 +232,12 @@
 
       <div class="sidebar-panel-container">
         <!--noindex-->
-        <section class="post-toc-wrap sidebar-panel">
+        <div class="post-toc-wrap sidebar-panel">
             <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%8B%E7%BB%8D"><span class="nav-number">1.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85"><span class="nav-number">2.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Yarn-%E6%8D%A2%E6%BA%90"><span class="nav-number">3.</span> <span class="nav-text">Yarn 换源</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8D%87%E7%BA%A7"><span class="nav-number">4.</span> <span class="nav-text">升级</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BB%BA%E8%AE%AE"><span class="nav-number">5.</span> <span class="nav-text">建议</span></a></li></ol></div>
-        </section>
+        </div>
         <!--/noindex-->
 
-        <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview-wrap sidebar-panel">
           <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <img class="site-author-image" itemprop="image" alt="leeze"
       src="https://static.xiaosige.com/img/avatar.jpg">
@@ -623,7 +596,7 @@ canvas#canvas {
 }
 </style>
 
-        </section>
+        </div>
       </div>
     </div>
   </aside>
@@ -740,13 +713,11 @@ canvas#canvas {
 <p>  如果你用的是 <code>nvm</code> 或类似工具，你需要确保 <code>PATH</code> 变量中列出的 nvm 版本的路径在 Homebrew 安装的 Node.js 路径之前。</p>
 </li>
 <li><p>使用MacPorts安装yarn<br>  你可以通过 <a target="_blank" rel="noopener" href="https://www.macports.org/">MacPorts</a> 安装 Yarn 。 如果你还未安装 Node.MacPorts 会自动为你安装。</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> port <span class="token function">install</span> <span class="token function">yarn</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-</li>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> port <span class="token function">install</span> <span class="token function">yarn</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 <li><p>使用脚本安装yarn<br>  macOS属于Unix系统的分支，在Unix环境下，使用脚本安装是很方便。</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">curl</span> -o- -L https://yarnpkg.com/install.sh <span class="token operator">|</span> <span class="token function">bash</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>  安装指定版本的yarn</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">curl</span> -o- -L https://yarnpkg.com/install.sh <span class="token operator">|</span> <span class="token function">bash</span> -s -- --version <span class="token number">1.19</span>.1<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-</li>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">curl</span> -o- -L https://yarnpkg.com/install.sh <span class="token operator">|</span> <span class="token function">bash</span> -s -- --version <span class="token number">1.19</span>.1<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 <li><p>通过tarball手动安装<br>  你可以通过<a target="_blank" rel="noopener" href="https://yarn.bootcss.com/latest.tar.gz">下载tarball</a>并在任何地方提取它来安装yarn。</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">cd</span> /opt
 <span class="token function">wget</span> https://yarnpkg.com/latest.tar.gz
@@ -756,12 +727,10 @@ canvas#canvas {
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">wget</span> -qO- https://dl.yarnpkg.com/debian/pubkey.gpg <span class="token operator">|</span> gpg --import
 <span class="token function">wget</span> https://yarnpkg.com/latest.tar.gz.asc
 gpg --verify latest.tar.gz.asc
-<span class="token comment"># Look for "Good signature from 'Yarn Packaging'" in the output</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-</li>
+<span class="token comment"># Look for "Good signature from 'Yarn Packaging'" in the output</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li>
 <li><p>npm来安装(<code>推荐</code>)<br>  虽然安装 <code>yarn</code> 可以不依赖 <code>npm</code>，但这里还是建议你使用 <code>npm</code> 来安装吧，快速而简洁：</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> -s
 <span class="token function">npm</span> <span class="token function">install</span> <span class="token function">yarn</span> -g<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
 
 </li>
 </ol>
@@ -778,7 +747,6 @@ gpg --verify latest.tar.gz.asc
 <span class="token function">yarn</span> config <span class="token builtin class-name">set</span> registry https://registry.yarnpkg.com<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">yarn</span> config <span class="token builtin class-name">set</span> registry https://registry.npm.taobao.org --global
 <span class="token function">yarn</span> config <span class="token builtin class-name">set</span> disturl https://npm.taobao.org/dist --global<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
 <hr>
 <p>  我们使用<code>yrm</code>来做<code>yarn</code>的镜像管理器；首先需要下载，使用如下命令下载安装</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> i yrm -g<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
@@ -801,12 +769,10 @@ gpg --verify latest.tar.gz.asc
 NPM Registry has been <span class="token builtin class-name">set</span> to: https://registry.npm.taobao.org/<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 
-
 <h3 id="升级"><a href="#升级" class="headerlink" title="升级"></a>升级</h3><p>  有新版时，Yarn 会给你提示。 如需升级 Yarn ，仍然可以通过 Homebrew 来升级。</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">brew upgrade <span class="token function">yarn</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>  通过如下命令测试 Yarn 是否安装成功： </p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">yarn</span> --version<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
 <h3 id="建议"><a href="#建议" class="headerlink" title="建议"></a>建议</h3><p>  我们选择 yarn 的主要原因是依赖安装速度快，默认生成的 yarn.lock 会保证所有成员的模块依赖目录能够很好的保持一致。<br>  yarn install 和 yarn upgrade 的执行逻辑，可以让你可以很清晰的管理本地依赖的版本更新时机，又能很好的让所有开发人员的本地依赖保持一致性。<br>  使用 npm install 则有些乱，当你不想写死版本号依赖时，它总会安装依赖包最新可用的版本，但这在有时候并不是你想要的。<br>  在 yarn 之前，我们使用的是 npm+淘宝仓库方案，也会使用 cnpm。在国内，cnpm 的依赖安装速度比 yarn 还要快，但 cnpm 在 windows 下通过创建链接引用的方式管理包依赖，可能会带来一些问题。<br>  现在我们会默认使用淘宝仓库，使用 npm 管理全局依赖，使用 yarn 管理具体项目内的依赖。<br>  在一个新的项目中使用 yarn，我们会这么来做：<br>  1.  写好 package.json，写入初始的第三方依赖<br>  2.  执行 yarn 命令，初始化安装项目依赖，生成 yarn.lock 文件<br>  3.  后续通过执行 yarn add xxx 添加更多需要的依赖（也可直接在 package.json 文件中写入）<br>  4.  当确定需要更新依赖模块到其最新版本时，执行 yarn upgrade 命令<br>  5.  配置项目启动命令执行前，先执行 yarn 命令，以保证当 yarn.lock 被更新时，本地依赖也及时得到更新。例如，在 package.json 的 script 部分中配置 start 命令： “start”: “yarn &amp;&amp; yarn run build:dev”</p>
 <br>
 
@@ -908,11 +874,7 @@ NPM Registry has been <span class="token builtin class-name">set</span> to: http
 
 
 
-    
-  <div class="comments">
-    <div id="lv-container" data-id="city" data-uid="MTAyMC80NjMzMy8yMjg0NA=="></div>
-  </div>
-  
+    <div class="comments" id="lv-container" data-id="city" data-uid="MTAyMC80NjMzMy8yMjg0NA=="></div>
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -1082,16 +1044,6 @@ document.addEventListener('pjax:success', () => {
 
 
   
-  <script data-pjax>
-    (function(){
-      var bp = document.createElement('script');
-      var curProtocol = window.location.protocol.split(':')[0];
-      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(bp, s);
-    })();
-  </script>
-
 <script src="/js/local-search.js"></script>
 
 
@@ -1140,7 +1092,6 @@ if (document.querySelectorAll('.pdf-container').length) {
 
   
   <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
 
 
 
