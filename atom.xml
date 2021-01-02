@@ -6,7 +6,7 @@
   <link href="https://www.xiaosige.com/atom.xml" rel="self"/>
   
   <link href="https://www.xiaosige.com/"/>
-  <updated>2021-01-02T11:29:01.666Z</updated>
+  <updated>2021-01-02T20:22:21.875Z</updated>
   <id>https://www.xiaosige.com/</id>
   
   <author>
@@ -21,10 +21,11 @@
     <link href="https://www.xiaosige.com/post/9bae427b.html"/>
     <id>https://www.xiaosige.com/post/9bae427b.html</id>
     <published>2021-01-02T11:18:00.000Z</published>
-    <updated>2021-01-02T11:29:01.666Z</updated>
+    <updated>2021-01-02T20:22:21.875Z</updated>
     
     
-    <summary type="html">&lt;p&gt;  最近CentOS 6已经停止更新支持，同时官方也把yum源删除了，目前CentOS 6系统使用yum命令安装软件包基本都是失败，因此需要更换yum源。&lt;/p&gt;</summary>
+    <summary type="html">&lt;p&gt;  &lt;code&gt;2020年11月30日 centos6各大开源镜像站已经停止维护了。&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;  最近CentOS 6已经停止更新支持，同时官方也把yum源删除了，目前CentOS 6系统使用yum命令安装软件包基本都是失败，因此需要更换yum源。&lt;/p&gt;</summary>
     
     
     

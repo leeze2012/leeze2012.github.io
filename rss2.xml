@@ -15,7 +15,7 @@
     <atom:link href="https://www.xiaosige.com/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>因上努力，果上随缘！</description>
-    <pubDate>Sat, 02 Jan 2021 11:29:01 GMT</pubDate>
+    <pubDate>Sat, 02 Jan 2021 20:22:21 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     <item>
@@ -24,7 +24,8 @@
       <guid>https://www.xiaosige.com/post/9bae427b.html</guid>
       <pubDate>Sat, 02 Jan 2021 11:18:00 GMT</pubDate>
       
-      <description>&lt;p&gt;  最近CentOS 6已经停止更新支持，同时官方也把yum源删除了，目前CentOS 6系统使用yum命令安装软件包基本都是失败，因此需要更换yum源。&lt;/p&gt;</description>
+      <description>&lt;p&gt;  &lt;code&gt;2020年11月30日 centos6各大开源镜像站已经停止维护了。&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;  最近CentOS 6已经停止更新支持，同时官方也把yum源删除了，目前CentOS 6系统使用yum命令安装软件包基本都是失败，因此需要更换yum源。&lt;/p&gt;</description>
       
       
       
