@@ -2,16 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://www.xiaosige.com/post/9bae427b.html</loc>
+    <loc>https://www.xiaosige.com/post/a240ffad.html</loc>
     
     <lastmod>2021-01-02</lastmod>
     
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/post/a240ffad.html</loc>
+    <loc>https://www.xiaosige.com/post/9bae427b.html</loc>
     
-    <lastmod>2021-01-01</lastmod>
+    <lastmod>2021-01-02</lastmod>
     
   </url>
   
@@ -564,13 +564,6 @@
 
   
   <url>
-    <loc>https://www.xiaosige.com/tags/Decimal/</loc>
-    <lastmod>2021-01-02</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.xiaosige.com/tags/BootStrap/</loc>
     <lastmod>2021-01-02</lastmod>
     <changefreq>daily</changefreq>
@@ -579,6 +572,13 @@
   
   <url>
     <loc>https://www.xiaosige.com/tags/Linux/</loc>
+    <lastmod>2021-01-02</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.xiaosige.com/tags/Decimal/</loc>
     <lastmod>2021-01-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -769,13 +769,6 @@
 
   
   <url>
-    <loc>https://www.xiaosige.com/categories/JavaScript/</loc>
-    <lastmod>2021-01-02</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.xiaosige.com/categories/BootStrap/</loc>
     <lastmod>2021-01-02</lastmod>
     <changefreq>daily</changefreq>
@@ -790,6 +783,20 @@
   </url>
   
   <url>
+    <loc>https://www.xiaosige.com/categories/JavaScript/</loc>
+    <lastmod>2021-01-02</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.xiaosige.com/categories/BootStrap/table/</loc>
+    <lastmod>2021-01-02</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://www.xiaosige.com/categories/Eclipse/</loc>
     <lastmod>2021-01-02</lastmod>
     <changefreq>daily</changefreq>
@@ -798,13 +805,6 @@
   
   <url>
     <loc>https://www.xiaosige.com/categories/Markdown/</loc>
-    <lastmod>2021-01-02</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.xiaosige.com/categories/BootStrap/table/</loc>
     <lastmod>2021-01-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>

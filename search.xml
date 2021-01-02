@@ -104,7 +104,7 @@ yum makecache<span aria-hidden="true" class="line-numbers-rows"><span></span><sp
 
 <h2 id="下载地址"><a href="#下载地址" class="headerlink" title="下载地址"></a>下载地址</h2><h5 id="插件安装"><a href="#插件安装" class="headerlink" title="插件安装"></a>插件安装</h5><p>  打开插件中心 File -&gt; Settings -&gt;Plugins–&gt; Manage Plugins Reposito，设置插件中心仓库</p>
 <ol>
-<li><p>设置仓库地址：<a href="https://repo.idechajian.com/">https://repo.idechajian.com</a><br>点击OK之后，便可以继续在插件中心，搜索关键字“BetterIntellij” 并安装</p>
+<li><p>设置仓库地址：<a href="https://repo.idechajian.com/">https://repo.idechajian.com</a><br>点击OK之后，便可以继续在插件中心，搜索关键字“BetterIntellij” 并安装，<a href="https://www.cnblogs.com/GeekerJun/p/14202387.html">参考</a></p>
 </li>
 <li><p>设置仓库地址：<a href="https://plugins.zhile.io/">https://plugins.zhile.io</a><br>点击OK之后，便可以继续在插件中心， 搜索：IDE Eval Reset插件进行安装</p>
 </li>
