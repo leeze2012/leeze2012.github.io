@@ -15,8 +15,29 @@
     <atom:link href="https://www.xiaosige.com/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>因上努力，果上随缘！</description>
-    <pubDate>Fri, 01 Jan 2021 20:45:31 GMT</pubDate>
+    <pubDate>Sat, 02 Jan 2021 11:22:09 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>解决CentOS6停止更新支持后yum源失效</title>
+      <link>https://www.xiaosige.com/post/9bae427b.html</link>
+      <guid>https://www.xiaosige.com/post/9bae427b.html</guid>
+      <pubDate>Sat, 02 Jan 2021 11:18:00 GMT</pubDate>
+      
+      <description>&lt;p&gt;  最近CentOS 6已经停止更新支持，同时官方也把yum源删除了，目前CentOS 6系统使用yum命令安装软件包基本都是失败，因此需要更换yum源。&lt;/p&gt;</description>
+      
+      
+      
+      
+      <category domain="https://www.xiaosige.com/categories/Linux/">Linux</category>
+      
+      
+      <category domain="https://www.xiaosige.com/tags/Linux/">Linux</category>
+      
+      
+      <comments>https://www.xiaosige.com/post/9bae427b.html#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>JetBrains IntelliJ IDEA2020.3 x64最新完全破解</title>
@@ -436,28 +457,6 @@
       
       
       <comments>https://www.xiaosige.com/post/afb30e04.html#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>Mac正确的安装和使用nvm</title>
-      <link>https://www.xiaosige.com/post/c0a81ac4.html</link>
-      <guid>https://www.xiaosige.com/post/c0a81ac4.html</guid>
-      <pubDate>Mon, 24 Aug 2020 10:51:19 GMT</pubDate>
-      
-      <description>&lt;h3 id=&quot;了解nvm&quot;&gt;&lt;a href=&quot;#了解nvm&quot; class=&quot;headerlink&quot; title=&quot;了解nvm&quot;&gt;&lt;/a&gt;了解nvm&lt;/h3&gt;&lt;p&gt;  目前主流的node版本管理工具有两种，nvm和n。两者差异挺大的。&lt;/p&gt;
-&lt;p&gt;  总的来说，nvm有点类似于 Python 的 virtualenv 或者 Ruby 的 rvm，每个node版本的模块都会被安装在各自版本的沙箱里面（因此切换版本后模块需重新安装），因此考虑到需要时常对node版本进行切换测试兼容性和一些模块对node版本的限制，我选择了使用nvm作为管理工具，下面就来说说nvm的安装和使用过程。&lt;/p&gt;</description>
-      
-      
-      
-      
-      <category domain="https://www.xiaosige.com/categories/Mac/">Mac</category>
-      
-      
-      <category domain="https://www.xiaosige.com/tags/Nvm/">Nvm</category>
-      
-      
-      <comments>https://www.xiaosige.com/post/c0a81ac4.html#disqus_thread</comments>
       
     </item>
     
