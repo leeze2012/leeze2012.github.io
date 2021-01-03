@@ -66,7 +66,7 @@ lrwxrwxrwx. <span class="token number">1</span> root root <span class="token num
   <entry>
     <title>CentOS8通过命令设置静态IP地址</title>
     <url>/post/68713d77.html</url>
-    <content><![CDATA[<p>  在<code>centos7</code>上，同时支持<code>network.service</code>和<code>NetworkManager.service</code>（简称NM）。默认情况下，这2个服务都有开启，但许多人都会将NM禁用掉。<br>  在<code>centos8</code>上，已<code>废弃network.service</code>，因此只能通过<code>NM</code>进行网络配置，包括动态ip和静态ip。换言之，在<code>centos8</code>上，<code>必须开启NM</code>，否则无法使用网络。<br>  <code>注：centos8依然支持network.service，只是默认没安装</code>。</p>
+    <content><![CDATA[<p>  在<code>centos7</code>上，同时支持<code>network.service</code>和<code>NetworkManager.service</code>（简称NM）。默认情况下，这2个服务都有开启，但许多人都会将NM禁用掉。<br>  在<code>centos8</code>上，已<code>废弃network.service</code>，因此只能通过<code>NM</code>进行网络配置，包括动态ip和静态ip。换言之，在centos8上，<code>必须开启NM</code>，否则无法使用网络。<br>  <code>注：centos8依然支持network.service，只是默认没安装</code>。</p>
 <a id="more"></a>
 
 <h2 id="静态IP设置"><a href="#静态IP设置" class="headerlink" title="静态IP设置"></a>静态IP设置</h2><ol>

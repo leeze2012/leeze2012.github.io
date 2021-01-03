@@ -15,7 +15,7 @@
     <atom:link href="https://www.xiaosige.com/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>因上努力，果上随缘！</description>
-    <pubDate>Sun, 03 Jan 2021 15:40:17 GMT</pubDate>
+    <pubDate>Sun, 03 Jan 2021 15:48:06 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     <item>
@@ -24,7 +24,7 @@
       <guid>https://www.xiaosige.com/post/68713d77.html</guid>
       <pubDate>Sun, 03 Jan 2021 14:52:29 GMT</pubDate>
       
-      <description>&lt;p&gt;  在&lt;code&gt;centos7&lt;/code&gt;上，同时支持&lt;code&gt;network.service&lt;/code&gt;和&lt;code&gt;NetworkManager.service&lt;/code&gt;（简称NM）。默认情况下，这2个服务都有开启，但许多人都会将NM禁用掉。&lt;br&gt;  在&lt;code&gt;centos8&lt;/code&gt;上，已&lt;code&gt;废弃network.service&lt;/code&gt;，因此只能通过&lt;code&gt;NM&lt;/code&gt;进行网络配置，包括动态ip和静态ip。换言之，在&lt;code&gt;centos8&lt;/code&gt;上，&lt;code&gt;必须开启NM&lt;/code&gt;，否则无法使用网络。&lt;br&gt;  &lt;code&gt;注：centos8依然支持network.service，只是默认没安装&lt;/code&gt;。&lt;/p&gt;</description>
+      <description>&lt;p&gt;  在&lt;code&gt;centos7&lt;/code&gt;上，同时支持&lt;code&gt;network.service&lt;/code&gt;和&lt;code&gt;NetworkManager.service&lt;/code&gt;（简称NM）。默认情况下，这2个服务都有开启，但许多人都会将NM禁用掉。&lt;br&gt;  在&lt;code&gt;centos8&lt;/code&gt;上，已&lt;code&gt;废弃network.service&lt;/code&gt;，因此只能通过&lt;code&gt;NM&lt;/code&gt;进行网络配置，包括动态ip和静态ip。换言之，在centos8上，&lt;code&gt;必须开启NM&lt;/code&gt;，否则无法使用网络。&lt;br&gt;  &lt;code&gt;注：centos8依然支持network.service，只是默认没安装&lt;/code&gt;。&lt;/p&gt;</description>
       
       
       
