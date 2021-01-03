@@ -64,6 +64,140 @@ lrwxrwxrwx. <span class="token number">1</span> root root <span class="token num
       </tags>
   </entry>
   <entry>
+    <title>CentOS8通过命令设置静态IP地址</title>
+    <url>/post/68713d77.html</url>
+    <content><![CDATA[<p>  在<code>centos7</code>上，同时支持<code>network.service</code>和<code>NetworkManager.service</code>（简称NM）。默认情况下，这2个服务都有开启，但许多人都会将NM禁用掉。<br>  在<code>centos8</code>上，已<code>废弃network.service</code>，因此只能通过<code>NM</code>进行网络配置，包括动态ip和静态ip。换言之，在<code>centos8</code>上，<code>必须开启NM</code>，否则无法使用网络。<br>  <code>注：centos8依然支持network.service，只是默认没安装</code>。</p>
+<a id="more"></a>
+
+<h2 id="静态IP设置"><a href="#静态IP设置" class="headerlink" title="静态IP设置"></a>静态IP设置</h2><ol>
+<li><code>su root</code>登录终端  </li>
+<li>确保<code>NM</code>启动<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment">#启动nm网络</span>
+systemctl restart NetworkManager<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
+<li>设置静态IP地址(<code>enp0s5</code>名字各不同)<br>  <code>/etc/sysconfig/network-scripts</code>目录下存放着网卡的配置文件，文件名称是<code>ifcfg- 网卡名称</code>。<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">vi</span> /etc/sysconfig/network-scripts/ifcfg-enp0s5
+
+<span class="token assign-left variable">TYPE</span><span class="token operator">=</span>Ethernet
+<span class="token assign-left variable">PROXY_METHOD</span><span class="token operator">=</span>none
+<span class="token assign-left variable">BROWSER_ONLY</span><span class="token operator">=</span>no
+<span class="token assign-left variable">BOOTPROTO</span><span class="token operator">=</span>static      <span class="token comment">#将dhcp修改为stati表示使用静态ip</span>
+<span class="token assign-left variable">DEFROUTE</span><span class="token operator">=</span>yes
+<span class="token assign-left variable">IPADDR</span><span class="token operator">=</span><span class="token number">10.211</span>.55.81   <span class="token comment">#设置IP地址</span>
+<span class="token assign-left variable">NETMASK</span><span class="token operator">=</span><span class="token number">255.255</span>.255.0 <span class="token comment">#设置子网掩码</span>
+<span class="token assign-left variable">GATEWAY</span><span class="token operator">=</span><span class="token number">10.211</span>.55.1   <span class="token comment">#设置网关</span>
+<span class="token assign-left variable">DNS1</span><span class="token operator">=</span><span class="token number">10.211</span>.55.1      <span class="token comment">#设置dns</span>
+<span class="token assign-left variable">IPV4_FAILURE_FATAL</span><span class="token operator">=</span>no
+<span class="token assign-left variable">IPV6INIT</span><span class="token operator">=</span>yes
+<span class="token assign-left variable">IPV6_AUTOCONF</span><span class="token operator">=</span>yes
+<span class="token assign-left variable">IPV6_DEFROUTE</span><span class="token operator">=</span>yes
+<span class="token assign-left variable">IPV6_FAILURE_FATAL</span><span class="token operator">=</span>no
+<span class="token assign-left variable">IPV6_ADDR_GEN_MODE</span><span class="token operator">=</span>stable-privacy
+<span class="token assign-left variable">NAME</span><span class="token operator">=</span>enp0s5
+<span class="token assign-left variable">UUID</span><span class="token operator">=</span>0b14dacc-2e6a-4f89-a3de-888d70ac1334
+<span class="token assign-left variable">DEVICE</span><span class="token operator">=</span>enp0s5
+<span class="token assign-left variable">ONBOOT</span><span class="token operator">=</span>yes             <span class="token comment">#将no改为yes</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li>设置<code>connection</code>,重新启动网络<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 重新载入一下配置文件</span>
+nmcli c reload
+<span class="token comment"># 重启网卡（下面的三条命令都可以）</span>
+nmcli c up enp0s5 
+nmcli d reapply enp0s5
+nmcli d connect enp0s5<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<code>注</code>：原来<code>cento6</code>是使用<code>service network restart</code>,<br>    <code>cento7</code>是使用<code>systemctl restart network</code>，<br>    <code>centos8</code>则命令就变成<code>nmcli c reload</code>。</li>
+</ol>
+<h2 id="关闭图形界面登录"><a href="#关闭图形界面登录" class="headerlink" title="关闭图形界面登录"></a>关闭图形界面登录</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">systemctl set-default multi-user.target<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h2 id="修改主机名"><a href="#修改主机名" class="headerlink" title="修改主机名"></a>修改主机名</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">vi</span> /etc/hostname
+
+CentOS_8_1.localdomain <span class="token comment">#改成自己的</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h2 id="nmcli常用命令一览"><a href="#nmcli常用命令一览" class="headerlink" title="nmcli常用命令一览"></a>nmcli常用命令一览</h2><p><a href="https://www.cnblogs.com/linuxandy/p/10839856.html">参考</a></p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token comment"># 查看ip（类似于ifconfig、ip addr）</span>
+nmcli
+
+<span class="token comment"># 创建connection，配置静态ip（等同于配置ifcfg，其中BOOTPROTO=none，并ifup启动）</span>
+nmcli c <span class="token function">add</span> <span class="token builtin class-name">type</span> ethernet con-name ethX ifname ethX ipv4.addr <span class="token number">192.168</span>.1.100/24 ipv4.gateway <span class="token number">192.168</span>.1.1 ipv4.method manual
+
+<span class="token comment"># 创建connection，配置动态ip（等同于配置ifcfg，其中BOOTPROTO=dhcp，并ifup启动）</span>
+nmcli c <span class="token function">add</span> <span class="token builtin class-name">type</span> ethernet con-name ethX ifname ethX ipv4.method auto
+
+<span class="token comment"># 修改ip（非交互式）</span>
+nmcli c modify ethX ipv4.addr <span class="token string">'192.168.1.200/24'</span>
+nmcli c up ethX
+
+<span class="token comment"># 修改ip（交互式）</span>
+nmcli c edit ethX
+nmcli<span class="token operator">&gt;</span> goto ipv4.addresses
+nmcli ipv4.addresses<span class="token operator">&gt;</span> change
+Edit <span class="token string">'addresses'</span> value: <span class="token number">192.168</span>.1.200/24
+Do you also want to <span class="token builtin class-name">set</span> <span class="token string">'ipv4.method'</span> to <span class="token string">'manual'</span>? <span class="token punctuation">[</span>yes<span class="token punctuation">]</span>: <span class="token function">yes</span>
+nmcli ipv<span class="token operator"><span class="token file-descriptor important">4</span>&gt;</span> save
+nmcli ipv<span class="token operator"><span class="token file-descriptor important">4</span>&gt;</span> activate
+nmcli ipv<span class="token operator"><span class="token file-descriptor important">4</span>&gt;</span> quit
+
+<span class="token comment"># 启用connection（相当于ifup）</span>
+nmcli c up ethX
+
+<span class="token comment"># 停止connection（相当于ifdown）</span>
+nmcli c down
+
+<span class="token comment"># 删除connection（类似于ifdown并删除ifcfg）</span>
+nmcli c delete ethX
+
+<span class="token comment"># 查看connection列表</span>
+nmcli c show
+
+<span class="token comment"># 查看connection详细信息</span>
+nmcli c show ethX
+
+<span class="token comment"># 重载所有ifcfg或route到connection（不会立即生效）</span>
+nmcli c reload
+
+<span class="token comment"># 重载指定ifcfg或route到connection（不会立即生效）</span>
+nmcli c load /etc/sysconfig/network-scripts/ifcfg-ethX
+nmcli c load /etc/sysconfig/network-scripts/route-ethX
+
+<span class="token comment"># 立即生效connection，有3种方法</span>
+nmcli c up ethX
+nmcli d reapply ethX
+nmcli d connect ethX
+
+<span class="token comment"># 查看device列表</span>
+nmcli d
+
+<span class="token comment"># 查看所有device详细信息</span>
+nmcli d show
+
+<span class="token comment"># 查看指定device的详细信息</span>
+nmcli d show ethX
+
+<span class="token comment"># 激活网卡</span>
+nmcli d connect ethX
+
+<span class="token comment"># 关闭无线网络（NM默认启用无线网络）</span>
+nmcli r all off
+
+<span class="token comment"># 查看NM纳管状态</span>
+nmcli n
+
+<span class="token comment"># 开启NM纳管</span>
+nmcli n on
+
+<span class="token comment"># 关闭NM纳管（谨慎执行）</span>
+nmcli n off
+
+<span class="token comment"># 监听事件</span>
+nmcli m
+
+<span class="token comment"># 查看NM本身状态</span>
+nmcli
+
+<span class="token comment"># 检测NM是否在线可用</span>
+nm-online<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>解决CentOS6停止更新支持后yum源失效</title>
     <url>/post/9bae427b.html</url>
     <content><![CDATA[<p>  <code>2020年11月30日 centos6各大开源镜像站已经停止维护了。</code></p>

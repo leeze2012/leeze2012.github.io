@@ -6,7 +6,7 @@
   <link href="https://www.xiaosige.com/atom.xml" rel="self"/>
   
   <link href="https://www.xiaosige.com/"/>
-  <updated>2021-01-02T20:22:21.875Z</updated>
+  <updated>2021-01-03T15:40:17.152Z</updated>
   <id>https://www.xiaosige.com/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>CentOS8通过命令设置静态IP地址</title>
+    <link href="https://www.xiaosige.com/post/68713d77.html"/>
+    <id>https://www.xiaosige.com/post/68713d77.html</id>
+    <published>2021-01-03T14:52:29.000Z</published>
+    <updated>2021-01-03T15:40:17.152Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;  在&lt;code&gt;centos7&lt;/code&gt;上，同时支持&lt;code&gt;network.service&lt;/code&gt;和&lt;code&gt;NetworkManager.service&lt;/code&gt;（简称NM）。默认情况下，这2个服务都有开启，但许多人都会将NM禁用掉。&lt;br&gt;  在&lt;code&gt;centos8&lt;/code&gt;上，已&lt;code&gt;废弃network.service&lt;/code&gt;，因此只能通过&lt;code&gt;NM&lt;/code&gt;进行网络配置，包括动态ip和静态ip。换言之，在&lt;code&gt;centos8&lt;/code&gt;上，&lt;code&gt;必须开启NM&lt;/code&gt;，否则无法使用网络。&lt;br&gt;  &lt;code&gt;注：centos8依然支持network.service，只是默认没安装&lt;/code&gt;。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Linux" scheme="https://www.xiaosige.com/categories/Linux/"/>
+    
+    
+    <category term="Linux" scheme="https://www.xiaosige.com/tags/Linux/"/>
+    
+  </entry>
   
   <entry>
     <title>解决CentOS6停止更新支持后yum源失效</title>
@@ -395,27 +414,6 @@
     <category term="Git" scheme="https://www.xiaosige.com/tags/Git/"/>
     
     <category term="ssh" scheme="https://www.xiaosige.com/tags/ssh/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Jira8.x版本安装与破解</title>
-    <link href="https://www.xiaosige.com/post/afb30e04.html"/>
-    <id>https://www.xiaosige.com/post/afb30e04.html</id>
-    <published>2020-08-25T08:15:42.000Z</published>
-    <updated>2020-10-12T09:10:05.255Z</updated>
-    
-    
-    <summary type="html">&lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;   JIRA 是 Atlassian 公司出品的项目与事务跟踪工具，被广泛应用于缺陷跟踪、客户服务、需求收集、流程审批、任务跟踪、项目跟踪和敏捷管理等工作领域。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="Linux" scheme="https://www.xiaosige.com/categories/Linux/"/>
-    
-    <category term="项目管理" scheme="https://www.xiaosige.com/categories/Linux/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/"/>
-    
-    
-    <category term="Jira" scheme="https://www.xiaosige.com/tags/Jira/"/>
     
   </entry>
   

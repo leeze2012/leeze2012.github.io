@@ -27,21 +27,21 @@
     var NexT = window.NexT || {};
     var CONFIG = {"hostname":"www.xiaosige.com","root":"/","images":"/images","scheme":"Gemini","version":"8.2.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"livere","storage":true,"lazyload":true,"nav":null,"activeClass":"livere"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}};
   </script>
-<meta name="description" content="由于对接的项目比较老，要与其数据库进行交互，而且数据库类型不一致，所以我们的项目需要支持多数据源（接口平台），这个还是非常好配置的，SpringBoot给我们提供了多数据源配置的方案，并且每个数据源对应一个JdbcTemplate，这样就方便很多，具体配置如下：">
+<meta name="description" content="在centos7上，同时支持network.service和NetworkManager.service（简称NM）。默认情况下，这2个服务都有开启，但许多人都会将NM禁用掉。  在centos8上，已废弃network.service，因此只能通过NM进行网络配置，包括动态ip和静态ip。换言之，在centos8上，必须开启NM，否则无法使用网络。  注：centos8依然支持network">
 <meta property="og:type" content="article">
-<meta property="og:title" content="SpringBoot项目配置多数据源">
-<meta property="og:url" content="https://www.xiaosige.com/post/a810e572.html">
+<meta property="og:title" content="CentOS8通过命令设置静态IP地址">
+<meta property="og:url" content="https://www.xiaosige.com/post/68713d77.html">
 <meta property="og:site_name" content="小四儿">
-<meta property="og:description" content="由于对接的项目比较老，要与其数据库进行交互，而且数据库类型不一致，所以我们的项目需要支持多数据源（接口平台），这个还是非常好配置的，SpringBoot给我们提供了多数据源配置的方案，并且每个数据源对应一个JdbcTemplate，这样就方便很多，具体配置如下：">
+<meta property="og:description" content="在centos7上，同时支持network.service和NetworkManager.service（简称NM）。默认情况下，这2个服务都有开启，但许多人都会将NM禁用掉。  在centos8上，已废弃network.service，因此只能通过NM进行网络配置，包括动态ip和静态ip。换言之，在centos8上，必须开启NM，否则无法使用网络。  注：centos8依然支持network">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-07-21T18:39:33.000Z">
-<meta property="article:modified_time" content="2020-10-04T09:47:34.503Z">
+<meta property="article:published_time" content="2021-01-03T14:52:29.000Z">
+<meta property="article:modified_time" content="2021-01-03T15:40:17.152Z">
 <meta property="article:author" content="leeze">
-<meta property="article:tag" content="SpringBoot">
+<meta property="article:tag" content="Linux">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://www.xiaosige.com/post/a810e572.html">
+<link rel="canonical" href="https://www.xiaosige.com/post/68713d77.html">
 
 
 <script data-pjax class="page-configurations">
@@ -77,7 +77,7 @@
 
 <link rel="stylesheet" type="text/css" href="/zone/css/i_hover.css" />
 
-<title>SpringBoot项目配置多数据源 | 小四儿</title>
+<title>CentOS8通过命令设置静态IP地址 | 小四儿</title>
   
 
   <script data-pjax>
@@ -231,7 +231,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#application-properties%E6%96%87%E4%BB%B6%E5%86%85%E9%85%8D%E7%BD%AE%E5%A4%9A%E6%95%B0%E6%8D%AE%E6%BA%90%E4%BF%A1%E6%81%AF"><span class="nav-number">1.</span> <span class="nav-text">application.properties文件内配置多数据源信息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8C%87%E5%AE%9A%E6%95%B0%E6%8D%AE%E6%BA%90%E4%B8%8E%E9%85%8D%E7%BD%AE%E4%BF%A1%E6%81%AF"><span class="nav-number">2.</span> <span class="nav-text">指定数据源与配置信息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%85%8D%E7%BD%AEJdbcTemplate%E4%B8%8E%E6%95%B0%E6%8D%AE%E6%BA%90%E5%85%B3%E7%B3%BB"><span class="nav-number">3.</span> <span class="nav-text">配置JdbcTemplate与数据源关系</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8JdbcTemplate"><span class="nav-number">4.</span> <span class="nav-text">使用JdbcTemplate</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9D%99%E6%80%81IP%E8%AE%BE%E7%BD%AE"><span class="nav-number">1.</span> <span class="nav-text">静态IP设置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B3%E9%97%AD%E5%9B%BE%E5%BD%A2%E7%95%8C%E9%9D%A2%E7%99%BB%E5%BD%95"><span class="nav-number">2.</span> <span class="nav-text">关闭图形界面登录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E4%B8%BB%E6%9C%BA%E5%90%8D"><span class="nav-number">3.</span> <span class="nav-text">修改主机名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#nmcli%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E4%B8%80%E8%A7%88"><span class="nav-number">4.</span> <span class="nav-text">nmcli常用命令一览</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -621,7 +621,7 @@ canvas#canvas {
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://www.xiaosige.com/post/a810e572.html">
+    <link itemprop="mainEntityOfPage" href="https://www.xiaosige.com/post/68713d77.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://static.xiaosige.com/img/avatar.jpg">
@@ -634,7 +634,7 @@ canvas#canvas {
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          SpringBoot项目配置多数据源
+          CentOS8通过命令设置静态IP地址
         </h1>
 
         <div class="post-meta-container">
@@ -644,23 +644,17 @@ canvas#canvas {
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
+      
 
-      <time title="创建时间：2020-07-22 02:39:33" itemprop="dateCreated datePublished" datetime="2020-07-22T02:39:33+08:00">2020-07-22</time>
+      <time title="创建时间：2021-01-03 22:52:29 / 修改时间：23:40:17" itemprop="dateCreated datePublished" datetime="2021-01-03T22:52:29+08:00">2021-01-03</time>
     </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-10-04 17:47:34" itemprop="dateModified" datetime="2020-10-04T17:47:34+08:00">2020-10-04</time>
-      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/SpringBoot/" itemprop="url" rel="index"><span itemprop="name">SpringBoot</span></a>
+          <a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
         </span>
     </span>
 
@@ -682,14 +676,14 @@ canvas#canvas {
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>2.8k</span>
+      <span>2.4k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>3 分钟</span>
+      <span>2 分钟</span>
     </span>
 </div>
 
@@ -700,119 +694,130 @@ canvas#canvas {
     
     
     <div class="post-body" itemprop="articleBody">
-        <p>  由于对接的项目比较老，要与其数据库进行交互，而且数据库类型不一致，所以我们的项目需要支持多数据源（接口平台），这个还是非常好配置的，SpringBoot给我们提供了多数据源配置的方案，并且每个数据源对应一个JdbcTemplate，这样就方便很多，具体配置如下：</p>
+        <p>  在<code>centos7</code>上，同时支持<code>network.service</code>和<code>NetworkManager.service</code>（简称NM）。默认情况下，这2个服务都有开启，但许多人都会将NM禁用掉。<br>  在<code>centos8</code>上，已<code>废弃network.service</code>，因此只能通过<code>NM</code>进行网络配置，包括动态ip和静态ip。换言之，在<code>centos8</code>上，<code>必须开启NM</code>，否则无法使用网络。<br>  <code>注：centos8依然支持network.service，只是默认没安装</code>。</p>
 <a id="more"></a>
 
-<h4 id="application-properties文件内配置多数据源信息"><a href="#application-properties文件内配置多数据源信息" class="headerlink" title="application.properties文件内配置多数据源信息"></a>application.properties文件内配置多数据源信息</h4><p>  首先在application.properties或者yml文件内配置多数据源信息，具体配置如下：</p>
-<pre class="line-numbers language-properties" data-language="properties"><code class="language-properties"><span class="token comment"># ds1数据源配置</span>
-<span class="token attr-name">spring.datasource.ds1.type</span><span class="token punctuation">=</span><span class="token attr-value">com.alibaba.druid.pool.DruidDataSource</span>
-<span class="token attr-name">spring.datasource.ds1.driver-class-name</span><span class="token punctuation">=</span><span class="token attr-value">com.mysql.jdbc.Driver</span>
-<span class="token attr-name">spring.datasource.ds1.url</span><span class="token punctuation">=</span><span class="token attr-value">jdbc:mysql://localhost:3306/zz?useUnicode=true&amp;characterEncoding=utf8</span>
-<span class="token attr-name">spring.datasource.ds1.username</span><span class="token punctuation">=</span><span class="token attr-value">zz</span>
-<span class="token attr-name">spring.datasource.ds1.password</span><span class="token punctuation">=</span><span class="token attr-value">zz</span>
+<h2 id="静态IP设置"><a href="#静态IP设置" class="headerlink" title="静态IP设置"></a>静态IP设置</h2><ol>
+<li><code>su root</code>登录终端  </li>
+<li>确保<code>NM</code>启动<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment">#启动nm网络</span>
+systemctl restart NetworkManager<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
+<li>设置静态IP地址(<code>enp0s5</code>名字各不同)<br>  <code>/etc/sysconfig/network-scripts</code>目录下存放着网卡的配置文件，文件名称是<code>ifcfg- 网卡名称</code>。<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">vi</span> /etc/sysconfig/network-scripts/ifcfg-enp0s5
 
-<span class="token comment"># ds2数据源配置</span>
-<span class="token attr-name">spring.datasource.ds2.driver-class-name</span><span class="token punctuation">=</span><span class="token attr-value">oracle.jdbc.driver.OracleDriver</span>
-<span class="token attr-name">spring.datasource.ds2.url</span><span class="token punctuation">=</span><span class="token attr-value">jdbc:oracle:thin:@localhost:1521:orcl</span>
-<span class="token attr-name">spring.datasource.ds2.username</span><span class="token punctuation">=</span><span class="token attr-value">system</span>
-<span class="token attr-name">spring.datasource.ds2.password</span><span class="token punctuation">=</span><span class="token attr-value">050508</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="指定数据源与配置信息"><a href="#指定数据源与配置信息" class="headerlink" title="指定数据源与配置信息"></a>指定数据源与配置信息</h4><p>  上面我们配置好了数据源，但是已经不是SpringBoot默认的数据源配置信息了，所以我们还要指定不同的数据源实例对应哪个配置信息，配置如下：</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">/**
- * 多数据源配置
- */</span>
-<span class="token annotation punctuation">@Configuration</span>
-<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">DataSourceConfig</span> <span class="token punctuation">{</span>
+<span class="token assign-left variable">TYPE</span><span class="token operator">=</span>Ethernet
+<span class="token assign-left variable">PROXY_METHOD</span><span class="token operator">=</span>none
+<span class="token assign-left variable">BROWSER_ONLY</span><span class="token operator">=</span>no
+<span class="token assign-left variable">BOOTPROTO</span><span class="token operator">=</span>static      <span class="token comment">#将dhcp修改为stati表示使用静态ip</span>
+<span class="token assign-left variable">DEFROUTE</span><span class="token operator">=</span>yes
+<span class="token assign-left variable">IPADDR</span><span class="token operator">=</span><span class="token number">10.211</span>.55.81   <span class="token comment">#设置IP地址</span>
+<span class="token assign-left variable">NETMASK</span><span class="token operator">=</span><span class="token number">255.255</span>.255.0 <span class="token comment">#设置子网掩码</span>
+<span class="token assign-left variable">GATEWAY</span><span class="token operator">=</span><span class="token number">10.211</span>.55.1   <span class="token comment">#设置网关</span>
+<span class="token assign-left variable">DNS1</span><span class="token operator">=</span><span class="token number">10.211</span>.55.1      <span class="token comment">#设置dns</span>
+<span class="token assign-left variable">IPV4_FAILURE_FATAL</span><span class="token operator">=</span>no
+<span class="token assign-left variable">IPV6INIT</span><span class="token operator">=</span>yes
+<span class="token assign-left variable">IPV6_AUTOCONF</span><span class="token operator">=</span>yes
+<span class="token assign-left variable">IPV6_DEFROUTE</span><span class="token operator">=</span>yes
+<span class="token assign-left variable">IPV6_FAILURE_FATAL</span><span class="token operator">=</span>no
+<span class="token assign-left variable">IPV6_ADDR_GEN_MODE</span><span class="token operator">=</span>stable-privacy
+<span class="token assign-left variable">NAME</span><span class="token operator">=</span>enp0s5
+<span class="token assign-left variable">UUID</span><span class="token operator">=</span>0b14dacc-2e6a-4f89-a3de-888d70ac1334
+<span class="token assign-left variable">DEVICE</span><span class="token operator">=</span>enp0s5
+<span class="token assign-left variable">ONBOOT</span><span class="token operator">=</span>yes             <span class="token comment">#将no改为yes</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li>设置<code>connection</code>,重新启动网络<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 重新载入一下配置文件</span>
+nmcli c reload
+<span class="token comment"># 重启网卡（下面的三条命令都可以）</span>
+nmcli c up enp0s5 
+nmcli d reapply enp0s5
+nmcli d connect enp0s5<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<code>注</code>：原来<code>cento6</code>是使用<code>service network restart</code>,<br>    <code>cento7</code>是使用<code>systemctl restart network</code>，<br>    <code>centos8</code>则命令就变成<code>nmcli c reload</code>。</li>
+</ol>
+<h2 id="关闭图形界面登录"><a href="#关闭图形界面登录" class="headerlink" title="关闭图形界面登录"></a>关闭图形界面登录</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">systemctl set-default multi-user.target<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-  <span class="token comment">/**
-   * ds1数据源配置
-   *
-   * @return 配置信息
-   */</span>
-  <span class="token annotation punctuation">@Primary</span>
-  <span class="token annotation punctuation">@Bean</span><span class="token punctuation">(</span>name <span class="token operator">=</span> <span class="token string">"ds1DataSourceProperties"</span><span class="token punctuation">)</span>
-  <span class="token annotation punctuation">@ConfigurationProperties</span><span class="token punctuation">(</span>prefix <span class="token operator">=</span> <span class="token string">"spring.datasource.ds1"</span><span class="token punctuation">)</span>
-  <span class="token keyword">public</span> <span class="token class-name">DataSourceProperties</span> <span class="token function">ds1DataSourceProperties</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">DataSourceProperties</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token punctuation">}</span>
+<h2 id="修改主机名"><a href="#修改主机名" class="headerlink" title="修改主机名"></a>修改主机名</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">vi</span> /etc/hostname
 
-  <span class="token comment">/**
-   * ds1数据源
-   *
-   * @param dataSourceProperties 配置信息
-   * @return 数据源实例
-   */</span>
-  <span class="token annotation punctuation">@Primary</span>
-  <span class="token annotation punctuation">@Bean</span><span class="token punctuation">(</span>name <span class="token operator">=</span> <span class="token string">"ds1DataSource"</span><span class="token punctuation">)</span>
-  <span class="token keyword">public</span> <span class="token class-name">DataSource</span> <span class="token function">ds1DataSource</span><span class="token punctuation">(</span><span class="token annotation punctuation">@Qualifier</span><span class="token punctuation">(</span><span class="token string">"ds1DataSourceProperties"</span><span class="token punctuation">)</span> <span class="token class-name">DataSourceProperties</span> dataSourceProperties<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">return</span> dataSourceProperties<span class="token punctuation">.</span><span class="token function">initializeDataSourceBuilder</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token punctuation">}</span>
+CentOS_8_1.localdomain <span class="token comment">#改成自己的</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h2 id="nmcli常用命令一览"><a href="#nmcli常用命令一览" class="headerlink" title="nmcli常用命令一览"></a>nmcli常用命令一览</h2><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/linuxandy/p/10839856.html">参考</a></p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token comment"># 查看ip（类似于ifconfig、ip addr）</span>
+nmcli
 
-  <span class="token comment">/**
-   * ds2数据源配置
-   *
-   * @return 配置信息
-   */</span>
-  <span class="token annotation punctuation">@Primary</span>
-  <span class="token annotation punctuation">@Bean</span><span class="token punctuation">(</span>name <span class="token operator">=</span> <span class="token string">"ds2DataSourceProperties"</span><span class="token punctuation">)</span>
-  <span class="token annotation punctuation">@ConfigurationProperties</span><span class="token punctuation">(</span>prefix <span class="token operator">=</span> <span class="token string">"spring.datasource.ds2"</span><span class="token punctuation">)</span>
-  <span class="token keyword">public</span> <span class="token class-name">DataSourceProperties</span> <span class="token function">ds2DataSourceProperties</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">DataSourceProperties</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token punctuation">}</span>
+<span class="token comment"># 创建connection，配置静态ip（等同于配置ifcfg，其中BOOTPROTO=none，并ifup启动）</span>
+nmcli c <span class="token function">add</span> <span class="token builtin class-name">type</span> ethernet con-name ethX ifname ethX ipv4.addr <span class="token number">192.168</span>.1.100/24 ipv4.gateway <span class="token number">192.168</span>.1.1 ipv4.method manual
 
-  <span class="token comment">/**
-   * ds2数据源
-   *
-   * @param dataSourceProperties 配置信息
-   * @return 数据源实例
-   */</span>
-  <span class="token annotation punctuation">@Primary</span>
-  <span class="token annotation punctuation">@Bean</span><span class="token punctuation">(</span>name <span class="token operator">=</span> <span class="token string">"ds2DataSource"</span><span class="token punctuation">)</span>
-  <span class="token keyword">public</span> <span class="token class-name">DataSource</span> <span class="token function">ds2DataSource</span><span class="token punctuation">(</span><span class="token annotation punctuation">@Qualifier</span><span class="token punctuation">(</span><span class="token string">"ds2DataSourceProperties"</span><span class="token punctuation">)</span> <span class="token class-name">DataSourceProperties</span> dataSourceProperties<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">return</span> dataSourceProperties<span class="token punctuation">.</span><span class="token function">initializeDataSourceBuilder</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token punctuation">}</span>
+<span class="token comment"># 创建connection，配置动态ip（等同于配置ifcfg，其中BOOTPROTO=dhcp，并ifup启动）</span>
+nmcli c <span class="token function">add</span> <span class="token builtin class-name">type</span> ethernet con-name ethX ifname ethX ipv4.method auto
 
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="配置JdbcTemplate与数据源关系"><a href="#配置JdbcTemplate与数据源关系" class="headerlink" title="配置JdbcTemplate与数据源关系"></a>配置JdbcTemplate与数据源关系</h4><p>  配置完数据源信息，我们想直接用不同的JdbcTemplate来操作不同的数据库，所以我们还要创建几个<code>JdbcTemplate</code>实例，并且这些实例与不同的数据源进行绑定，配置信息如下：</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">/**
- * JdbcTemplate 多数据源配置
- *
- * @author 明山
- * @see DataSourceConfig
- */</span>
-<span class="token annotation punctuation">@Configuration</span>
-<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">JdbcTemplateDataSourceConfig</span> <span class="token punctuation">{</span>
+<span class="token comment"># 修改ip（非交互式）</span>
+nmcli c modify ethX ipv4.addr <span class="token string">'192.168.1.200/24'</span>
+nmcli c up ethX
 
-  <span class="token comment">/**
-   * ds1 JdbcTemplate 配置
-   *
-   * @param dataSource 数据源
-   * @return JdbcTemplate
-   */</span>
-  <span class="token annotation punctuation">@Primary</span>
-  <span class="token annotation punctuation">@Bean</span><span class="token punctuation">(</span>name <span class="token operator">=</span> <span class="token string">"ds1JdbcTemplate"</span><span class="token punctuation">)</span>
-  <span class="token keyword">public</span> <span class="token class-name">JdbcTemplate</span> <span class="token function">jdbcTemplate</span><span class="token punctuation">(</span><span class="token annotation punctuation">@Qualifier</span><span class="token punctuation">(</span><span class="token string">"ds1DataSource"</span><span class="token punctuation">)</span> <span class="token class-name">DataSource</span> dataSource<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">JdbcTemplate</span><span class="token punctuation">(</span>dataSource<span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token punctuation">}</span>
+<span class="token comment"># 修改ip（交互式）</span>
+nmcli c edit ethX
+nmcli<span class="token operator">&gt;</span> goto ipv4.addresses
+nmcli ipv4.addresses<span class="token operator">&gt;</span> change
+Edit <span class="token string">'addresses'</span> value: <span class="token number">192.168</span>.1.200/24
+Do you also want to <span class="token builtin class-name">set</span> <span class="token string">'ipv4.method'</span> to <span class="token string">'manual'</span>? <span class="token punctuation">[</span>yes<span class="token punctuation">]</span>: <span class="token function">yes</span>
+nmcli ipv<span class="token operator"><span class="token file-descriptor important">4</span>&gt;</span> save
+nmcli ipv<span class="token operator"><span class="token file-descriptor important">4</span>&gt;</span> activate
+nmcli ipv<span class="token operator"><span class="token file-descriptor important">4</span>&gt;</span> quit
 
-  <span class="token comment">/**
-   *ds2 JdbcTemplate 配置
-   *
-   * @param dataSource 数据源
-   * @return JdbcTemplate
-   */</span>
-  <span class="token annotation punctuation">@Bean</span><span class="token punctuation">(</span>name <span class="token operator">=</span> <span class="token string">"ds2JdbcTemplate"</span><span class="token punctuation">)</span>
-  <span class="token keyword">public</span> <span class="token class-name">JdbcTemplate</span> <span class="token function">hdwmsJdbcTemplate</span><span class="token punctuation">(</span><span class="token annotation punctuation">@Qualifier</span><span class="token punctuation">(</span><span class="token string">"ds2DataSource"</span><span class="token punctuation">)</span> <span class="token class-name">DataSource</span> dataSource<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">JdbcTemplate</span><span class="token punctuation">(</span>dataSource<span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="使用JdbcTemplate"><a href="#使用JdbcTemplate" class="headerlink" title="使用JdbcTemplate"></a>使用JdbcTemplate</h4><p>  配置完后，我们可以直接在具体的类中使用了，使用方式如下：</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Autowired</span>
-<span class="token annotation punctuation">@Qualifier</span><span class="token punctuation">(</span><span class="token string">"ds1JdbcTemplate"</span><span class="token punctuation">)</span>
-<span class="token keyword">private</span> <span class="token class-name">JdbcTemplate</span> ds1JdbcTemplate<span class="token punctuation">;</span>
+<span class="token comment"># 启用connection（相当于ifup）</span>
+nmcli c up ethX
 
-<span class="token annotation punctuation">@Autowired</span>
-<span class="token annotation punctuation">@Qualifier</span><span class="token punctuation">(</span><span class="token string">"ds2JdbcTemplate"</span><span class="token punctuation">)</span>
-<span class="token keyword">private</span> <span class="token class-name">JdbcTemplate</span> ds2JdbcTemplate<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
+<span class="token comment"># 停止connection（相当于ifdown）</span>
+nmcli c down
+
+<span class="token comment"># 删除connection（类似于ifdown并删除ifcfg）</span>
+nmcli c delete ethX
+
+<span class="token comment"># 查看connection列表</span>
+nmcli c show
+
+<span class="token comment"># 查看connection详细信息</span>
+nmcli c show ethX
+
+<span class="token comment"># 重载所有ifcfg或route到connection（不会立即生效）</span>
+nmcli c reload
+
+<span class="token comment"># 重载指定ifcfg或route到connection（不会立即生效）</span>
+nmcli c load /etc/sysconfig/network-scripts/ifcfg-ethX
+nmcli c load /etc/sysconfig/network-scripts/route-ethX
+
+<span class="token comment"># 立即生效connection，有3种方法</span>
+nmcli c up ethX
+nmcli d reapply ethX
+nmcli d connect ethX
+
+<span class="token comment"># 查看device列表</span>
+nmcli d
+
+<span class="token comment"># 查看所有device详细信息</span>
+nmcli d show
+
+<span class="token comment"># 查看指定device的详细信息</span>
+nmcli d show ethX
+
+<span class="token comment"># 激活网卡</span>
+nmcli d connect ethX
+
+<span class="token comment"># 关闭无线网络（NM默认启用无线网络）</span>
+nmcli r all off
+
+<span class="token comment"># 查看NM纳管状态</span>
+nmcli n
+
+<span class="token comment"># 开启NM纳管</span>
+nmcli n on
+
+<span class="token comment"># 关闭NM纳管（谨慎执行）</span>
+nmcli n off
+
+<span class="token comment"># 监听事件</span>
+nmcli m
+
+<span class="token comment"># 查看NM本身状态</span>
+nmcli
+
+<span class="token comment"># 检测NM是否在线可用</span>
+nm-online<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
     </div>
 
     
@@ -822,16 +827,19 @@ canvas#canvas {
   <div class="popular-posts-header">相关文章</div>
   <ul class="popular-posts">
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/post/afccf6ff.html" rel="bookmark">SpringBoot项目添加外部Jar包</a></div>
+      <div class="popular-posts-title"><a href="/post/9bae427b.html" rel="bookmark">解决CentOS6停止更新支持后yum源失效</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/post/f3f7b1c5.html" rel="bookmark">Spring Boot配置静态资源不重启即时生效</a></div>
+      <div class="popular-posts-title"><a href="/post/3aee04b1.html" rel="bookmark">Shell脚本使用curl命令发送JSON数据</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/post/4d8e6ca2.html" rel="bookmark">Spring Boot配置logback.xml日志信息</a></div>
+      <div class="popular-posts-title"><a href="/post/3d2df54e.html" rel="bookmark">CentOS查看软件安装路径及环境变量</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/post/88151b22.html" rel="bookmark">SpringBoot之统一包装响应</a></div>
+      <div class="popular-posts-title"><a href="/post/d7d45238.html" rel="bookmark">git使用ls-files统计代码行数的命令</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/post/4370af2f.html" rel="bookmark">Linux安装Git-两种方式详细教程</a></div>
     </li>
   </ul>
 
@@ -885,7 +893,7 @@ canvas#canvas {
   </li>
   <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="https://www.xiaosige.com/post/a810e572.html" title="SpringBoot项目配置多数据源">https://www.xiaosige.com/post/a810e572.html</a>
+      <a href="https://www.xiaosige.com/post/68713d77.html" title="CentOS8通过命令设置静态IP地址">https://www.xiaosige.com/post/68713d77.html</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -894,20 +902,17 @@ canvas#canvas {
 </div>
 
           <div class="post-tags">
-              <a href="/tags/SpringBoot/" rel="tag"><i class="fa fa-tag"></i> SpringBoot</a>
+              <a href="/tags/Linux/" rel="tag"><i class="fa fa-tag"></i> Linux</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/post/91eed2.html" rel="prev" title="linux下mongo启动关闭重启方法">
-                  <i class="fa fa-chevron-left"></i> linux下mongo启动关闭重启方法
-                </a>
             </div>
             <div class="post-nav-item">
-                <a href="/post/f3f7b1c5.html" rel="next" title="Spring Boot配置静态资源不重启即时生效">
-                  Spring Boot配置静态资源不重启即时生效 <i class="fa fa-chevron-right"></i>
+                <a href="/post/9bae427b.html" rel="next" title="解决CentOS6停止更新支持后yum源失效">
+                  解决CentOS6停止更新支持后yum源失效 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
@@ -1149,7 +1154,7 @@ if (document.querySelectorAll('.pdf-container').length) {
       quicklink.listen({
         timeout : 3000,
         priority: true,
-        ignores : [uri => uri.includes('#'),uri => uri === 'https://www.xiaosige.com/post/a810e572.html',]
+        ignores : [uri => uri.includes('#'),uri => uri === 'https://www.xiaosige.com/post/68713d77.html',]
       });
       });
   </script>
@@ -1157,7 +1162,7 @@ if (document.querySelectorAll('.pdf-container').length) {
 <script>
 NexT.utils.loadComments('#lv-container', () => {
   window.livereOptions = {
-    refer: "post/a810e572.html"
+    refer: "post/68713d77.html"
   };
   (function(d, s) {
     var j, e = d.getElementsByTagName(s)[0];
