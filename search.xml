@@ -122,6 +122,10 @@ lrwxrwxrwx. <span class="token number">1</span> root root <span class="token num
 --enable-xml <span class="token punctuation">\</span>
 --enable-zip 
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>   如果看到以下提示信息，说明 configure 这步已经成功啦。</p>
+<img data-src="/post/421fae74/configure.png" class="" title="configure-success">
+
+
 <p>  <code>可能会出现错误</code></p>
 <ol>
 <li>configure: error: Package requirements (sqlite3 &gt; 3.7.4) were not met: No package ‘sqlite3’ found<br>解决方法：<code>yum install libsqlite3x-devel -y</code></li>
@@ -129,7 +133,8 @@ lrwxrwxrwx. <span class="token number">1</span> root root <span class="token num
 <li>configure: error: Package requirements (libxml-2.0 &gt;= 2.7.6) were not met:<br>No package ‘libxml-2.0’ found<br>解决方法：<code>yum install libxml2-devel.x86_64</code></li>
 <li>configure: error: Package requirements (sqlite3 &gt; 3.7.4) were not met:<br>No package ‘sqlite3’ found<br>解决方法：<code>yum install sqlite-devel.x86_64</code></li>
 </ol>
-<h2 id="编译安装"><a href="#编译安装" class="headerlink" title="编译安装"></a>编译安装</h2><p><code>make &amp;&amp; make install</code><br>安装成功执行 <code>/usr/local/php8/bin/php -v</code></p>
+<h2 id="编译安装"><a href="#编译安装" class="headerlink" title="编译安装"></a>编译安装</h2><p><code>make &amp;&amp; make install</code></p>
+<p>安装成功执行 <code>/usr/local/php8/bin/php -v</code></p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"> <span class="token punctuation">[</span>root@i14kuk3fpixkevvZ vhost<span class="token punctuation">]</span><span class="token comment"># /usr/local/php8/bin/php -v</span>
 PHP <span class="token number">8.0</span>.0 <span class="token punctuation">(</span>cli<span class="token punctuation">)</span> <span class="token punctuation">(</span>built: Jan  <span class="token number">5</span> <span class="token number">2021</span> 06:38:02<span class="token punctuation">)</span> <span class="token punctuation">(</span> NTS <span class="token punctuation">)</span>
 Copyright <span class="token punctuation">(</span>c<span class="token punctuation">)</span> The PHP Group
@@ -196,6 +201,11 @@ charset utf-8<span class="token punctuation">;</span>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token assign-left variable"><span class="token environment constant">PATH</span></span><span class="token operator">=</span><span class="token environment constant">$PATH</span>:/usr/local/php8/bin
 <span class="token builtin class-name">export</span> <span class="token environment constant">PATH</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p><code> source /etc/profile</code></p>
+<blockquote>
+<blockquote>
+<p><a href="https://www.cnblogs.com/pyrene/p/6523184.html"> php安装 </a><br><a href="https://www.cnblogs.com/ryanzheng/p/11263261.html"> CentOS 7 配置 nginx php-fpm 详细教程 </a><br><a href="https://blog.csdn.net/u013474436/article/details/52972699">Nginx+Php-fpm运行原理详解</a></p>
+</blockquote>
+</blockquote>
 <link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
       <categories>
         <category>Linux</category>
