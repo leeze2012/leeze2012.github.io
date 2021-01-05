@@ -256,9 +256,7 @@ yum makecache<span aria-hidden="true" class="line-numbers-rows"><span></span><sp
 <li><p>设置仓库地址：<a href="https://plugins.zhile.io/">https://plugins.zhile.io</a><br>点击OK之后，便可以继续在插件中心， 搜索：IDE Eval Reset插件进行安装，<a href="https://zhile.io/2020/11/18/jetbrains-eval-reset.html">参考</a></p>
 </li>
 </ol>
-<h5 id="本地安装"><a href="#本地安装" class="headerlink" title="本地安装"></a>本地安装</h5><ol>
-<li><a href="/download/BetterIntelliJ">下载测试</a></li>
-</ol>
+<h5 id="本地安装"><a href="#本地安装" class="headerlink" title="本地安装"></a>本地安装</h5><p><a href="/download/BetterIntelliJ" target="_blank">下载</a></p>
 <br>
 
 <div class="note default no-icon"><p>其他相关链接</p>
