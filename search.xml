@@ -165,7 +165,7 @@ opcache.max_accelerated_files<span class="token operator">=</span><span class="t
 <h4 id="配置-JIT"><a href="#配置-JIT" class="headerlink" title="配置 JIT"></a>配置 JIT</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">opcache.jit<span class="token operator">=</span><span class="token number">1205</span>
 opcache.jit_buffer_size<span class="token operator">=</span>64M
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<h4 id="重新启动-php-fpm"><a href="#重新启动-php-fpm" class="headerlink" title="重新启动 php-fpm"></a>重新启动 php-fpm</h4><p><code> service php-fpm restart</code></p>
+<h2 id="重新启动-php-fpm"><a href="#重新启动-php-fpm" class="headerlink" title="重新启动 php-fpm"></a>重新启动 php-fpm</h2><p><code> service php-fpm restart</code></p>
 <h2 id="配置-nginx"><a href="#配置-nginx" class="headerlink" title="配置 nginx"></a>配置 nginx</h2><h3 id="新建-index-php"><a href="#新建-index-php" class="headerlink" title="新建 index.php"></a>新建 index.php</h3><p>在 <code>/usr/local/nginx/html</code>目录下创建 <code>index.php</code></p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token operator">&lt;</span>?php
     phpinfo<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
