@@ -6,7 +6,7 @@
   <link href="https://www.xiaosige.com/atom.xml" rel="self"/>
   
   <link href="https://www.xiaosige.com/"/>
-  <updated>2021-01-03T15:48:06.738Z</updated>
+  <updated>2021-01-05T18:00:24.447Z</updated>
   <id>https://www.xiaosige.com/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>CentOS 7 环境 PHP8.0 编译安装以及开启 JIT</title>
+    <link href="https://www.xiaosige.com/post/421fae74.html"/>
+    <id>https://www.xiaosige.com/post/421fae74.html</id>
+    <published>2021-01-05T16:37:31.000Z</published>
+    <updated>2021-01-05T18:00:24.447Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;  PHP是超文本预处理器(Hypertext Preprocessor)的简称，是一种用于创建动态性交互网站的强有力的语言。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Linux" scheme="https://www.xiaosige.com/categories/Linux/"/>
+    
+    
+    <category term="PHP" scheme="https://www.xiaosige.com/tags/PHP/"/>
+    
+  </entry>
   
   <entry>
     <title>CentOS8通过命令设置静态IP地址</title>
@@ -392,28 +411,6 @@
     <category term="Linux" scheme="https://www.xiaosige.com/tags/Linux/"/>
     
     <category term="Git" scheme="https://www.xiaosige.com/tags/Git/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>ssh-key生成密钥及SSH无密码登录</title>
-    <link href="https://www.xiaosige.com/post/16d9a840.html"/>
-    <id>https://www.xiaosige.com/post/16d9a840.html</id>
-    <published>2020-08-28T12:18:29.000Z</published>
-    <updated>2020-10-04T09:49:00.098Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;介绍&quot;&gt;&lt;a href=&quot;#介绍&quot; class=&quot;headerlink&quot; title=&quot;介绍&quot;&gt;&lt;/a&gt;介绍&lt;/h2&gt;&lt;h3 id=&quot;首先什么是SSH&quot;&gt;&lt;a href=&quot;#首先什么是SSH&quot; class=&quot;headerlink&quot; title=&quot;首先什么是SSH&quot;&gt;&lt;/a&gt;首先什么是SSH&lt;/h3&gt;  &lt;div class=&quot;note success no-icon&quot;&gt;&lt;p&gt;  Secure Shell (SSH) 是一个允许两台电脑之间通过安全的连接进行数据交换的网络协议。通过加密保证了数据的保密性和完整性。SSH采用公钥加密技术来验证远程主机，以及(必要时)允许远程主机验证用户。&lt;/p&gt;
-&lt;/div&gt;</summary>
-    
-    
-    
-    <category term="Linux" scheme="https://www.xiaosige.com/categories/Linux/"/>
-    
-    
-    <category term="Git" scheme="https://www.xiaosige.com/tags/Git/"/>
-    
-    <category term="ssh" scheme="https://www.xiaosige.com/tags/ssh/"/>
     
   </entry>
   

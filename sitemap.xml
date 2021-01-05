@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://www.xiaosige.com/post/421fae74.html</loc>
+    
+    <lastmod>2021-01-05</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://www.xiaosige.com/post/a240ffad.html</loc>
     
     <lastmod>2021-01-05</lastmod>
@@ -669,14 +676,14 @@
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/tags/Mongo/</loc>
+    <loc>https://www.xiaosige.com/tags/Meting/</loc>
     <lastmod>2021-01-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/tags/Meting/</loc>
+    <loc>https://www.xiaosige.com/tags/Mongo/</loc>
     <lastmod>2021-01-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>

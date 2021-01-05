@@ -64,6 +64,147 @@ lrwxrwxrwx. <span class="token number">1</span> root root <span class="token num
       </tags>
   </entry>
   <entry>
+    <title>CentOS 7 环境 PHP8.0 编译安装以及开启 JIT</title>
+    <url>/post/421fae74.html</url>
+    <content><![CDATA[<p>  PHP是超文本预处理器(Hypertext Preprocessor)的简称，是一种用于创建动态性交互网站的强有力的语言。</p>
+<a id="more"></a>
+
+
+<h2 id="安装相关依赖"><a href="#安装相关依赖" class="headerlink" title="安装相关依赖"></a>安装相关依赖</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">yum <span class="token function">install</span> libxml2 libxml2-devel openssl openssl-devel <span class="token function">bzip2</span> bzip2-devel libcurl libcurl-devel libjpeg libjpeg-devel libpng libpng-devel freetype freetype-devel gmp gmp-devel libmcrypt libmcrypt-devel readline readline-devel libxslt libxslt-devel zlib zlib-devel glibc glibc-devel glib2 glib2-devel ncurses <span class="token function">curl</span> gdbm-devel db4-devel libXpm-devel libX11-devel gd-devel gmp-devel expat-devel xmlrpc-c xmlrpc-c-devel libicu-devel libmcrypt-devel libmemcached-devel<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="下载并解压"><a href="#下载并解压" class="headerlink" title="下载并解压"></a>下载并解压</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">
+<span class="token function">wget</span> https://www.php.net/distributions/php-8.0.0.tar.gz
+
+<span class="token function">tar</span> -zxvf php-8.0.0.tar.gz
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="生成预编译文件-Makefile"><a href="#生成预编译文件-Makefile" class="headerlink" title="生成预编译文件 Makefile"></a>生成预编译文件 Makefile</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">
+<span class="token builtin class-name">cd</span> php-8.0.0
+
+<span class="token comment"># 生成 Makefile</span>
+./configure <span class="token punctuation">\</span>
+--prefix<span class="token operator">=</span>/usr/local/php8 <span class="token punctuation">\</span>
+--with-config-file-path<span class="token operator">=</span>/usr/local/php8/etc <span class="token punctuation">\</span>
+--enable-fpm <span class="token punctuation">\</span>
+--with-fpm-user<span class="token operator">=</span>www <span class="token punctuation">\</span>
+--with-fpm-group<span class="token operator">=</span>www <span class="token punctuation">\</span>
+--with-curl <span class="token punctuation">\</span>
+--with-freetype-dir <span class="token punctuation">\</span>
+--enable-gd <span class="token punctuation">\</span>
+--with-gettext <span class="token punctuation">\</span>
+--with-iconv-dir <span class="token punctuation">\</span>
+--with-kerberos <span class="token punctuation">\</span>
+--with-libdir<span class="token operator">=</span>lib64 <span class="token punctuation">\</span>
+--with-libxml-dir <span class="token punctuation">\</span>
+--with-mysqli <span class="token punctuation">\</span>
+--with-openssl <span class="token punctuation">\</span>
+--with-pcre-regex <span class="token punctuation">\</span>
+--with-pdo-mysql <span class="token punctuation">\</span>
+--with-pdo-sqlite <span class="token punctuation">\</span>
+--with-pear <span class="token punctuation">\</span>
+--with-png-dir <span class="token punctuation">\</span>
+--with-jpeg-dir <span class="token punctuation">\</span>
+--with-xmlrpc <span class="token punctuation">\</span>
+--with-xsl <span class="token punctuation">\</span>
+--with-zlib <span class="token punctuation">\</span>
+--with-bz2 <span class="token punctuation">\</span>
+--with-mhash <span class="token punctuation">\</span>
+--enable-bcmath <span class="token punctuation">\</span>
+--enable-libxml <span class="token punctuation">\</span>
+--enable-inline-optimization <span class="token punctuation">\</span>
+--enable-mbregex <span class="token punctuation">\</span>
+--enable-mbstring <span class="token punctuation">\</span>
+--enable-opcache <span class="token punctuation">\</span>
+--enable-pcntl <span class="token punctuation">\</span>
+--enable-shmop <span class="token punctuation">\</span>
+--enable-soap <span class="token punctuation">\</span>
+--enable-sockets <span class="token punctuation">\</span>
+--enable-sysvsem <span class="token punctuation">\</span>
+--enable-sysvshm <span class="token punctuation">\</span>
+--enable-xml <span class="token punctuation">\</span>
+--enable-zip 
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>  <code>可能会出现错误</code></p>
+<ol>
+<li>configure: error: Package requirements (sqlite3 &gt; 3.7.4) were not met: No package ‘sqlite3’ found<br>解决方法：<code>yum install libsqlite3x-devel -y</code></li>
+<li>configure: error: Package requirements (oniguruma) were not met<br>解决方法：<code>yum install oniguruma-devel -y</code></li>
+<li>configure: error: Package requirements (libxml-2.0 &gt;= 2.7.6) were not met:<br>No package ‘libxml-2.0’ found<br>解决方法：<code>yum install libxml2-devel.x86_64</code></li>
+<li>configure: error: Package requirements (sqlite3 &gt; 3.7.4) were not met:<br>No package ‘sqlite3’ found<br>解决方法：<code>yum install sqlite-devel.x86_64</code></li>
+</ol>
+<h2 id="编译安装"><a href="#编译安装" class="headerlink" title="编译安装"></a>编译安装</h2><p><code>make &amp;&amp; make install</code><br>安装成功执行 <code>/usr/local/php8/bin/php -v</code></p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"> <span class="token punctuation">[</span>root@i14kuk3fpixkevvZ vhost<span class="token punctuation">]</span><span class="token comment"># /usr/local/php8/bin/php -v</span>
+PHP <span class="token number">8.0</span>.0 <span class="token punctuation">(</span>cli<span class="token punctuation">)</span> <span class="token punctuation">(</span>built: Jan  <span class="token number">5</span> <span class="token number">2021</span> 06:38:02<span class="token punctuation">)</span> <span class="token punctuation">(</span> NTS <span class="token punctuation">)</span>
+Copyright <span class="token punctuation">(</span>c<span class="token punctuation">)</span> The PHP Group
+Zend Engine v4.0.0-dev, Copyright <span class="token punctuation">(</span>c<span class="token punctuation">)</span> Zend Technologies
+    with Zend OPcache v8.0.0, Copyright <span class="token punctuation">(</span>c<span class="token punctuation">)</span>, by Zend Technologies<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h2><ol>
+<li> 复制 php 配置文件 </li>
+
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">cp</span> php.ini-production /usr/local/php8/etc/php.ini<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<li> 复制 php-fpm 配置文件 </li>
+
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">cp</span> /usr/local/php8/etc/php-fpm.conf.default /usr/local/php8/etc/php-fpm.conf
+<span class="token function">cp</span> /usr/local/php8/etc/php-fpm.d/www.conf.default /usr/local/php8/etc/php-fpm.d/www.conf<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<li> 修改 php-fpm 配置 </li>
+
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">php-fpm.conf 中开启 pid <span class="token operator">=</span> run/php-fpm.pid 配置项<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</ol>
+
+
+<h2 id="php-fpm"><a href="#php-fpm" class="headerlink" title="php-fpm"></a>php-fpm</h2><p>复制 php-fpm 的启动脚本<br><code> cp sapi/fpm/init.d.php-fpm /etc/init.d/php-fpm</code></p>
+<p>增加执行权限<br><code> chmod +x /etc/init.d/php-fpm</code></p>
+<p>启动 php-fpm<br><code>/etc/init.d/php-fpm start</code> 或者 <code>service php-fpm start</code></p>
+<h2 id="开启-opcache-和-JIT"><a href="#开启-opcache-和-JIT" class="headerlink" title="开启 opcache 和 JIT"></a>开启 opcache 和 JIT</h2><p><code>opcache</code> 配置参数参考：<a href="https://www.php.net/manual/zh/opcache.configuration.php">https://www.php.net/manual/zh/opcache.configuration.php</a><br><code>JIT</code>   配置参数参考：<a href="https://www.laruence.com/2020/06/27/5963.html">https://www.laruence.com/2020/06/27/5963.html</a></p>
+<h3 id="添加配置到-php-ini"><a href="#添加配置到-php-ini" class="headerlink" title="添加配置到 php.ini"></a>添加配置到 php.ini</h3><h4 id="启用并配置-opcache"><a href="#启用并配置-opcache" class="headerlink" title="启用并配置 opcache"></a>启用并配置 opcache</h4><p><code>zend_extension</code> 的路径替换为你自己的路径</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token assign-left variable">zend_extension</span><span class="token operator">=</span>/usr/local/php8/lib/php/extensions/no-debug-non-zts-20200930/opcache.so
+
+<span class="token punctuation">[</span>opcache<span class="token punctuation">]</span>
+opcache.enable<span class="token operator">=</span><span class="token number">1</span>
+opcache.enable_cli<span class="token operator">=</span><span class="token number">1</span>
+opcache.memory_consumption<span class="token operator">=</span><span class="token number">192</span>
+opcache.interned_strings_buffer<span class="token operator">=</span><span class="token number">8</span>
+opcache.max_accelerated_files<span class="token operator">=</span><span class="token number">4000</span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="配置-JIT"><a href="#配置-JIT" class="headerlink" title="配置 JIT"></a>配置 JIT</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">opcache.jit<span class="token operator">=</span><span class="token number">1205</span>
+opcache.jit_buffer_size<span class="token operator">=</span>64M
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h4 id="重新启动-php-fpm"><a href="#重新启动-php-fpm" class="headerlink" title="重新启动 php-fpm"></a>重新启动 php-fpm</h4><p><code> service php-fpm restart</code></p>
+<h2 id="配置-nginx"><a href="#配置-nginx" class="headerlink" title="配置 nginx"></a>配置 nginx</h2><h3 id="新建-index-php"><a href="#新建-index-php" class="headerlink" title="新建 index.php"></a>新建 index.php</h3><p>在 <code>/usr/local/nginx/html</code>目录下创建 <code>index.php</code></p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token operator">&lt;</span>?php
+    phpinfo<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+?<span class="token operator">&gt;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h3 id="修改nginx配置"><a href="#修改nginx配置" class="headerlink" title="修改nginx配置"></a>修改nginx配置</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"> server <span class="token punctuation">{</span>
+      listen    <span class="token number">8082</span><span class="token punctuation">;</span>
+      server_name <span class="token number">127.0</span>.0.1<span class="token punctuation">;</span> 
+      root /usr/local/nginx/html<span class="token punctuation">;</span> 
+      index index.html index.htm index.php<span class="token punctuation">;</span>
+charset utf-8<span class="token punctuation">;</span>
+
+   location ~ <span class="token punctuation">\</span>.php$ <span class="token punctuation">{</span>
+       fastcgi_connect_timeout <span class="token number">30</span><span class="token punctuation">;</span>
+       fastcgi_send_timeout <span class="token number">30</span><span class="token punctuation">;</span>
+       fastcgi_read_timeout <span class="token number">30</span><span class="token punctuation">;</span>
+		fastcgi_pass  <span class="token number">127.0</span>.0.1:9000<span class="token punctuation">;</span>
+       fastcgi_index index.php<span class="token punctuation">;</span>
+       fastcgi_param SCRIPT_FILENAME <span class="token variable">$realpath_root</span><span class="token variable">$fastcgi_script_name</span><span class="token punctuation">;</span>
+       include fastcgi_params<span class="token punctuation">;</span>
+   <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="测试php环境"><a href="#测试php环境" class="headerlink" title="测试php环境"></a>测试php环境</h3><p>浏览器访问 <code>127.0.0.1:8082</code> 返回结果：</p>
+<h4 id="Zend-OPcache"><a href="#Zend-OPcache" class="headerlink" title="Zend OPcache"></a>Zend OPcache</h4><img data-src="/post/421fae74/opcache.png" class="" title="Zend-OPcache">
+
+<h4 id="php-ini-中-JIT-配置信息"><a href="#php-ini-中-JIT-配置信息" class="headerlink" title="php.ini 中 JIT 配置信息"></a>php.ini 中 JIT 配置信息</h4><img data-src="/post/421fae74/jit.png" class="" title="JIT">
+
+<h2 id="增加全局-php-环境变量"><a href="#增加全局-php-环境变量" class="headerlink" title="增加全局 php 环境变量"></a>增加全局 php 环境变量</h2><p><code>vim /etc/profile</code>,添加配置到最后:</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token assign-left variable"><span class="token environment constant">PATH</span></span><span class="token operator">=</span><span class="token environment constant">$PATH</span>:/usr/local/php8/bin
+<span class="token builtin class-name">export</span> <span class="token environment constant">PATH</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p><code> source /etc/profile</code></p>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>PHP</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>CentOS8通过命令设置静态IP地址</title>
     <url>/post/68713d77.html</url>
     <content><![CDATA[<p>  在<code>centos7</code>上，同时支持<code>network.service</code>和<code>NetworkManager.service</code>（简称NM）。默认情况下，这2个服务都有开启，但许多人都会将NM禁用掉。<br>  在<code>centos8</code>上，已<code>废弃network.service</code>，因此只能通过<code>NM</code>进行网络配置，包括动态ip和静态ip。换言之，在centos8上，<code>必须开启NM</code>，否则无法使用网络。<br>  <code>注：centos8依然支持network.service，只是默认没安装</code>。</p>
