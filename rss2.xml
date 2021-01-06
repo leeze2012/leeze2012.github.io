@@ -15,8 +15,29 @@
     <atom:link href="https://www.xiaosige.com/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>因上努力，果上随缘！</description>
-    <pubDate>Tue, 05 Jan 2021 19:36:49 GMT</pubDate>
+    <pubDate>Wed, 06 Jan 2021 08:17:39 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>Parallels Desktop 16在Big Sur下网络初始化失败解决办法</title>
+      <link>https://www.xiaosige.com/post/7507a33f.html</link>
+      <guid>https://www.xiaosige.com/post/7507a33f.html</guid>
+      <pubDate>Wed, 06 Jan 2021 07:44:27 GMT</pubDate>
+      
+      <description>&lt;p&gt;   Mac最新的操作系统 Big Sur 已经发布，听说一些不兼容，一致没更新，最近手贱，一不小心&lt;code&gt;更新&lt;/code&gt;了，突然发现Parallels Desktop 16报无法联网的问题等。&lt;/p&gt;</description>
+      
+      
+      
+      
+      <category domain="https://www.xiaosige.com/categories/Mac/">Mac</category>
+      
+      
+      <category domain="https://www.xiaosige.com/tags/Mac/">Mac</category>
+      
+      
+      <comments>https://www.xiaosige.com/post/7507a33f.html#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>CentOS 7 环境 PHP8.0 编译安装以及开启 JIT</title>
@@ -428,31 +449,6 @@
       
       
       <comments>https://www.xiaosige.com/post/69813a0e.html#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>Linux安装Git-两种方式详细教程</title>
-      <link>https://www.xiaosige.com/post/4370af2f.html</link>
-      <guid>https://www.xiaosige.com/post/4370af2f.html</guid>
-      <pubDate>Tue, 15 Sep 2020 18:04:14 GMT</pubDate>
-      
-      <description>&lt;h3 id=&quot;Git介绍&quot;&gt;&lt;a href=&quot;#Git介绍&quot; class=&quot;headerlink&quot; title=&quot;Git介绍&quot;&gt;&lt;/a&gt;Git介绍&lt;/h3&gt;&lt;p&gt;  Git — The stupid content tracker, 傻瓜内容跟踪器。Linus Torvalds 是这样给我们介绍 Git 的。&lt;br&gt;  Git 是用于 Linux内核开发的版本控制工具。与常用的版本控制工具 CVS, Subversion 等不同，它采用了分布式版本库的方式，不必服务器端软件支持（wingeddevil注：这得分是用什么样的服务端，使用http协议或者git协议等不太一样。并且在push和pull的时候和服务器端还是有交互的。），使源代码的发布和交流极其方便。 Git 的速度很快，这对于诸如 Linux kernel 这样的大项目来说自然很重要。 Git 最为出色的是它的合并跟踪（merge tracing）能力。&lt;/p&gt;</description>
-      
-      
-      
-      
-      <category domain="https://www.xiaosige.com/categories/Linux/">Linux</category>
-      
-      <category domain="https://www.xiaosige.com/categories/Linux/Git/">Git</category>
-      
-      
-      <category domain="https://www.xiaosige.com/tags/Linux/">Linux</category>
-      
-      <category domain="https://www.xiaosige.com/tags/Git/">Git</category>
-      
-      
-      <comments>https://www.xiaosige.com/post/4370af2f.html#disqus_thread</comments>
       
     </item>
     
