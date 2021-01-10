@@ -6,7 +6,7 @@
   <link href="https://www.xiaosige.com/atom.xml" rel="self"/>
   
   <link href="https://www.xiaosige.com/"/>
-  <updated>2021-01-06T08:17:39.487Z</updated>
+  <updated>2021-01-08T07:42:39.368Z</updated>
   <id>https://www.xiaosige.com/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://www.xiaosige.com/post/7507a33f.html"/>
     <id>https://www.xiaosige.com/post/7507a33f.html</id>
     <published>2021-01-06T07:44:27.000Z</published>
-    <updated>2021-01-06T08:17:39.487Z</updated>
+    <updated>2021-01-08T07:42:39.368Z</updated>
     
     
     <summary type="html">&lt;p&gt;   Mac最新的操作系统 Big Sur 已经发布，听说一些不兼容，一致没更新，最近手贱，一不小心&lt;code&gt;更新&lt;/code&gt;了，突然发现Parallels Desktop 16报无法联网的问题等。&lt;/p&gt;</summary>
@@ -31,7 +31,7 @@
     <category term="Mac" scheme="https://www.xiaosige.com/categories/Mac/"/>
     
     
-    <category term="Mac" scheme="https://www.xiaosige.com/tags/Mac/"/>
+    <category term="虚拟机" scheme="https://www.xiaosige.com/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/"/>
     
   </entry>
   
