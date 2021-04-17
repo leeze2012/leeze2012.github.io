@@ -64,6 +64,77 @@ lrwxrwxrwx. <span class="token number">1</span> root root <span class="token num
       </tags>
   </entry>
   <entry>
+    <title>docker 安装mysql8并挂载数据</title>
+    <url>/post/d4875b9e.html</url>
+    <content><![CDATA[<h3 id="下载镜像"><a href="#下载镜像" class="headerlink" title="下载镜像"></a>下载镜像</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># docker从仓库中拉取最新版的mysql镜像，默认获取最新的版本</span>
+  docker pull mysql
+<span class="token comment"># docker pull mysql:8.0.23</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<a id="more"></a>
+
+<h3 id="创建挂载目录"><a href="#创建挂载目录" class="headerlink" title="创建挂载目录"></a>创建挂载目录</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">mkdir</span> -p  ~/docker/mysql/conf<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="新建my-cnf"><a href="#新建my-cnf" class="headerlink" title="新建my.cnf"></a>新建<code>my.cnf</code></h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">vi</span> ~/docker/mysql/conf/my.cnf
+
+<span class="token punctuation">[</span>mysqld<span class="token punctuation">]</span>
+<span class="token assign-left variable">user</span><span class="token operator">=</span>mysql
+<span class="token assign-left variable">socket</span><span class="token operator">=</span>/var/run/mysqld/mysqld.sock
+character-set-server<span class="token operator">=</span>utf8
+<span class="token comment">#忘记密码时使用</span>
+<span class="token comment">#skip-grant-tables</span>
+<span class="token comment">#设置协议认证方式</span>
+<span class="token assign-left variable">default_authentication_plugin</span><span class="token operator">=</span>mysql_native_password
+secure-file-priv<span class="token operator">=</span>/var/lib/mysql
+<span class="token assign-left variable">sql_mode</span><span class="token operator">=</span>STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION
+<span class="token assign-left variable">max_connections</span><span class="token operator">=</span><span class="token number">1000</span>
+
+<span class="token punctuation">[</span>client<span class="token punctuation">]</span>
+default-character-set<span class="token operator">=</span>utf8
+
+<span class="token punctuation">[</span>mysql<span class="token punctuation">]</span>
+default-character-set<span class="token operator">=</span>utf8
+
+<span class="token punctuation">[</span>mysqld_safe<span class="token punctuation">]</span>
+pid-file<span class="token operator">=</span>/var/run/mysqld/mysqld.pid
+<span class="token comment">#log-error=/var/log/mysql/mysqld.log</span>
+
+
+<span class="token comment">#</span>
+<span class="token comment"># include all files from the config directory</span>
+<span class="token comment">#</span>
+<span class="token comment"># !includedir /etc/my.cnf.d</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="创建-MySQL-容器并启动"><a href="#创建-MySQL-容器并启动" class="headerlink" title="创建 MySQL 容器并启动"></a>创建 MySQL 容器并启动</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">docker run --restart<span class="token operator">=</span>always --privileged<span class="token operator">=</span>true -p <span class="token number">3307</span>:3306 --name mysql8 <span class="token punctuation">\</span>
+-v /Users/lizhang/docker/mysql/conf/my.cnf:/etc/mysql/conf.d/mysqld.cnf <span class="token punctuation">\</span>
+-v /Users/lizhang/docker/mysql/data:/var/lib/mysql <span class="token punctuation">\</span>
+-v /Users/lizhang/docker/mysql/logs:/var/log/mysql <span class="token punctuation">\</span>
+-e <span class="token assign-left variable">MYSQL_ROOT_PASSWORD</span><span class="token operator">=</span><span class="token number">12345678</span> <span class="token punctuation">\</span>
+-d mysql:8.0.23<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><code>/docker/mysql/data  /docker/mysql/logs目录自动生成</code></p>
+<h3 id="登录容器"><a href="#登录容器" class="headerlink" title="登录容器"></a>登录容器</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">docker <span class="token builtin class-name">exec</span> -it mysql8 /bin/bash
+
+mysql -uroot -p12345678
+
+ALTER <span class="token environment constant">USER</span> <span class="token string">'root'</span>@<span class="token string">'localhost'</span> IDENTIFIED BY <span class="token string">'12345678'</span><span class="token punctuation">;</span>
+ALTER <span class="token environment constant">USER</span> <span class="token string">'root'</span>@<span class="token string">'%'</span> IDENTIFIED WITH mysql_native_password BY <span class="token string">'12345678'</span><span class="token punctuation">;</span>
+
+grant all privileges on *.* to <span class="token string">'root'</span>@<span class="token string">'%'</span> with grant option<span class="token punctuation">;</span>
+
+CREATE <span class="token environment constant">USER</span> <span class="token string">'leeze'</span>@<span class="token string">'%'</span> IDENTIFIED with mysql_native_password  BY <span class="token string">'12345678'</span><span class="token punctuation">;</span>
+grant all privileges on *.* to <span class="token string">'leeze'</span>@<span class="token string">'%'</span>
+flush privileges<span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="PS"><a href="#PS" class="headerlink" title="PS"></a>PS</h3><blockquote>
+<p><a href="https://www.cnblogs.com/qq931399960/p/11670625.html">docker安装mysql挂载外部配置和数据目录</a></p>
+</blockquote>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
+      <categories>
+        <category>Mysql</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>Docker</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Parallels Desktop 16在Big Sur下网络初始化失败解决办法</title>
     <url>/post/7507a33f.html</url>
     <content><![CDATA[<p>   Mac最新的操作系统 Big Sur 已经发布，听说一些不兼容，一致没更新，最近手贱，一不小心<code>更新</code>了，突然发现Parallels Desktop 16报无法联网的问题等。</p>

@@ -15,8 +15,33 @@
     <atom:link href="https://www.xiaosige.com/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>因上努力，果上随缘！</description>
-    <pubDate>Fri, 08 Jan 2021 07:42:39 GMT</pubDate>
+    <pubDate>Sat, 17 Apr 2021 23:14:00 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>docker 安装mysql8并挂载数据</title>
+      <link>https://www.xiaosige.com/post/d4875b9e.html</link>
+      <guid>https://www.xiaosige.com/post/d4875b9e.html</guid>
+      <pubDate>Sat, 17 Apr 2021 22:12:51 GMT</pubDate>
+      
+      <description>&lt;h3 id=&quot;下载镜像&quot;&gt;&lt;a href=&quot;#下载镜像&quot; class=&quot;headerlink&quot; title=&quot;下载镜像&quot;&gt;&lt;/a&gt;下载镜像&lt;/h3&gt;&lt;pre class=&quot;line-numbers language-bash&quot; data-language=&quot;bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# docker从仓库中拉取最新版的mysql镜像，默认获取最新的版本&lt;/span&gt;
+  docker pull mysql
+&lt;span class=&quot;token comment&quot;&gt;# docker pull mysql:8.0.23&lt;/span&gt;&lt;span aria-hidden=&quot;true&quot; class=&quot;line-numbers-rows&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;</description>
+      
+      
+      
+      
+      <category domain="https://www.xiaosige.com/categories/Mysql/">Mysql</category>
+      
+      
+      <category domain="https://www.xiaosige.com/tags/Linux/">Linux</category>
+      
+      <category domain="https://www.xiaosige.com/tags/Docker/">Docker</category>
+      
+      
+      <comments>https://www.xiaosige.com/post/d4875b9e.html#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>Parallels Desktop 16在Big Sur下网络初始化失败解决办法</title>
@@ -428,27 +453,6 @@
       
       
       <comments>https://www.xiaosige.com/post/a81ceb57.html#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>Linux安装Nginx--两种方式</title>
-      <link>https://www.xiaosige.com/post/69813a0e.html</link>
-      <guid>https://www.xiaosige.com/post/69813a0e.html</guid>
-      <pubDate>Tue, 15 Sep 2020 20:26:11 GMT</pubDate>
-      
-      <description>&lt;h3 id=&quot;介绍&quot;&gt;&lt;a href=&quot;#介绍&quot; class=&quot;headerlink&quot; title=&quot;介绍&quot;&gt;&lt;/a&gt;介绍&lt;/h3&gt;&lt;p&gt;  Nginx是一个高性能的Web和反向代理服务器,它具有有很多非常优越的特性:&lt;br&gt;  &lt;b&gt;作为Web服务器&lt;/b&gt;: 相比Apache，Nginx 使用更少的资源，支持更多 的并发连接，体现更高的效率，这点使Nginx尤其受到虚拟主机提供商的欢迎。能够支持高达50,000个并发连接数的响应，感谢Nginx为我们选择了epoll and kqueue作为开发模型.&lt;/p&gt;</description>
-      
-      
-      
-      
-      <category domain="https://www.xiaosige.com/categories/Nginx/">Nginx</category>
-      
-      
-      <category domain="https://www.xiaosige.com/tags/Nginx/">Nginx</category>
-      
-      
-      <comments>https://www.xiaosige.com/post/69813a0e.html#disqus_thread</comments>
       
     </item>
     

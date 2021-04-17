@@ -6,7 +6,7 @@
   <link href="https://www.xiaosige.com/atom.xml" rel="self"/>
   
   <link href="https://www.xiaosige.com/"/>
-  <updated>2021-01-08T07:42:39.368Z</updated>
+  <updated>2021-04-17T23:14:00.599Z</updated>
   <id>https://www.xiaosige.com/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>docker 安装mysql8并挂载数据</title>
+    <link href="https://www.xiaosige.com/post/d4875b9e.html"/>
+    <id>https://www.xiaosige.com/post/d4875b9e.html</id>
+    <published>2021-04-17T22:12:51.000Z</published>
+    <updated>2021-04-17T23:14:00.599Z</updated>
+    
+    
+    <summary type="html">&lt;h3 id=&quot;下载镜像&quot;&gt;&lt;a href=&quot;#下载镜像&quot; class=&quot;headerlink&quot; title=&quot;下载镜像&quot;&gt;&lt;/a&gt;下载镜像&lt;/h3&gt;&lt;pre class=&quot;line-numbers language-bash&quot; data-language=&quot;bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# docker从仓库中拉取最新版的mysql镜像，默认获取最新的版本&lt;/span&gt;
+  docker pull mysql
+&lt;span class=&quot;token comment&quot;&gt;# docker pull mysql:8.0.23&lt;/span&gt;&lt;span aria-hidden=&quot;true&quot; class=&quot;line-numbers-rows&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;</summary>
+    
+    
+    
+    <category term="Mysql" scheme="https://www.xiaosige.com/categories/Mysql/"/>
+    
+    
+    <category term="Linux" scheme="https://www.xiaosige.com/tags/Linux/"/>
+    
+    <category term="Docker" scheme="https://www.xiaosige.com/tags/Docker/"/>
+    
+  </entry>
   
   <entry>
     <title>Parallels Desktop 16在Big Sur下网络初始化失败解决办法</title>
@@ -381,25 +404,6 @@
     
     <summary type="html">&lt;h3 id=&quot;配置文件语法&quot;&gt;&lt;a href=&quot;#配置文件语法&quot; class=&quot;headerlink&quot; title=&quot;配置文件语法&quot;&gt;&lt;/a&gt;配置文件语法&lt;/h3&gt;&lt;p&gt;  nginx是模块化的系统，整个系统是分成一个个模块的。每个模块负责不同的功能。如果不用某个模块的话，也可以去掉，可以让nginx更加轻量化。&lt;/p&gt;
 &lt;p&gt;  要用的模块已经被编译进nginx了，成为nginx的一部分了，那要怎么用这些模块呢？那就得通过配置文件，这跟传统的linux服务差不多，都是通过配置文件来改变功能。nginx的模块是通过一个叫指令(directive)的东西来用的。整个配置文件都是由指令来控制的。nginx也有自己内置的指令，比如events, http, server, 和 location等，下面会进行详细解释。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="Nginx" scheme="https://www.xiaosige.com/categories/Nginx/"/>
-    
-    
-    <category term="Nginx" scheme="https://www.xiaosige.com/tags/Nginx/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Linux安装Nginx--两种方式</title>
-    <link href="https://www.xiaosige.com/post/69813a0e.html"/>
-    <id>https://www.xiaosige.com/post/69813a0e.html</id>
-    <published>2020-09-15T20:26:11.000Z</published>
-    <updated>2020-10-04T10:02:29.121Z</updated>
-    
-    
-    <summary type="html">&lt;h3 id=&quot;介绍&quot;&gt;&lt;a href=&quot;#介绍&quot; class=&quot;headerlink&quot; title=&quot;介绍&quot;&gt;&lt;/a&gt;介绍&lt;/h3&gt;&lt;p&gt;  Nginx是一个高性能的Web和反向代理服务器,它具有有很多非常优越的特性:&lt;br&gt;  &lt;b&gt;作为Web服务器&lt;/b&gt;: 相比Apache，Nginx 使用更少的资源，支持更多 的并发连接，体现更高的效率，这点使Nginx尤其受到虚拟主机提供商的欢迎。能够支持高达50,000个并发连接数的响应，感谢Nginx为我们选择了epoll and kqueue作为开发模型.&lt;/p&gt;</summary>
     
     
     
