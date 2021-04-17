@@ -704,13 +704,6 @@
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/tags/MySQL/</loc>
-    <lastmod>2021-04-17</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.xiaosige.com/tags/Meting/</loc>
     <lastmod>2021-04-17</lastmod>
     <changefreq>daily</changefreq>
@@ -719,6 +712,13 @@
   
   <url>
     <loc>https://www.xiaosige.com/tags/Mongo/</loc>
+    <lastmod>2021-04-17</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.xiaosige.com/tags/MySQL/</loc>
     <lastmod>2021-04-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -753,14 +753,14 @@
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/tags/Redis/</loc>
+    <loc>https://www.xiaosige.com/tags/ShowDoc/</loc>
     <lastmod>2021-04-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/tags/ShowDoc/</loc>
+    <loc>https://www.xiaosige.com/tags/Redis/</loc>
     <lastmod>2021-04-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -795,14 +795,14 @@
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/tags/Yarn/</loc>
+    <loc>https://www.xiaosige.com/tags/Tomcat/</loc>
     <lastmod>2021-04-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/tags/Tomcat/</loc>
+    <loc>https://www.xiaosige.com/tags/Yarn/</loc>
     <lastmod>2021-04-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -839,7 +839,7 @@
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/categories/Mysql/</loc>
+    <loc>https://www.xiaosige.com/categories/MySQL/</loc>
     <lastmod>2021-04-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -924,13 +924,6 @@
   
   <url>
     <loc>https://www.xiaosige.com/categories/Maven/</loc>
-    <lastmod>2021-04-17</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.xiaosige.com/categories/MySQL/</loc>
     <lastmod>2021-04-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>

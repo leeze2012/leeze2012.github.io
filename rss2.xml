@@ -15,7 +15,7 @@
     <atom:link href="https://www.xiaosige.com/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>因上努力，果上随缘！</description>
-    <pubDate>Sat, 17 Apr 2021 23:14:00 GMT</pubDate>
+    <pubDate>Sat, 17 Apr 2021 23:29:30 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     <item>
@@ -31,7 +31,7 @@
       
       
       
-      <category domain="https://www.xiaosige.com/categories/Mysql/">Mysql</category>
+      <category domain="https://www.xiaosige.com/categories/MySQL/">MySQL</category>
       
       
       <category domain="https://www.xiaosige.com/tags/Linux/">Linux</category>
