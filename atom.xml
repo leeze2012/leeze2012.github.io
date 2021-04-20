@@ -6,7 +6,7 @@
   <link href="https://www.xiaosige.com/atom.xml" rel="self"/>
   
   <link href="https://www.xiaosige.com/"/>
-  <updated>2021-04-17T23:32:50.426Z</updated>
+  <updated>2021-04-18T18:51:15.308Z</updated>
   <id>https://www.xiaosige.com/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://www.xiaosige.com/post/d4875b9e.html"/>
     <id>https://www.xiaosige.com/post/d4875b9e.html</id>
     <published>2021-04-17T22:12:51.000Z</published>
-    <updated>2021-04-17T23:32:50.426Z</updated>
+    <updated>2021-04-18T18:51:15.308Z</updated>
     
     
     <summary type="html">&lt;h3 id=&quot;下载镜像&quot;&gt;&lt;a href=&quot;#下载镜像&quot; class=&quot;headerlink&quot; title=&quot;下载镜像&quot;&gt;&lt;/a&gt;下载镜像&lt;/h3&gt;&lt;pre class=&quot;line-numbers language-bash&quot; data-language=&quot;bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# docker从仓库中拉取最新版的mysql镜像，默认获取最新的版本&lt;/span&gt;
@@ -30,10 +30,10 @@
     
     
     
-    <category term="MySQL" scheme="https://www.xiaosige.com/categories/MySQL/"/>
+    <category term="Docker" scheme="https://www.xiaosige.com/categories/Docker/"/>
     
     
-    <category term="Docker" scheme="https://www.xiaosige.com/tags/Docker/"/>
+    <category term="MySQL" scheme="https://www.xiaosige.com/tags/MySQL/"/>
     
   </entry>
   
