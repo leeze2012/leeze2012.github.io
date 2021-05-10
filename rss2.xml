@@ -15,8 +15,92 @@
     <atom:link href="https://www.xiaosige.com/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>因上努力，果上随缘！</description>
-    <pubDate>Sun, 18 Apr 2021 18:51:15 GMT</pubDate>
+    <pubDate>Mon, 10 May 2021 11:39:32 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>centos8安装docker</title>
+      <link>https://www.xiaosige.com/post/a00f9d53.html</link>
+      <guid>https://www.xiaosige.com/post/a00f9d53.html</guid>
+      <pubDate>Mon, 10 May 2021 08:17:18 GMT</pubDate>
+      
+      <description>&lt;h3 id=&quot;准备&quot;&gt;&lt;a href=&quot;#准备&quot; class=&quot;headerlink&quot; title=&quot;准备&quot;&gt;&lt;/a&gt;准备&lt;/h3&gt;&lt;p&gt;  服务器版本:CentOS 8.2 64位&lt;/p&gt;</description>
+      
+      
+      
+      
+      <category domain="https://www.xiaosige.com/categories/Docker/">Docker</category>
+      
+      
+      <category domain="https://www.xiaosige.com/tags/Docker/">Docker</category>
+      
+      
+      <comments>https://www.xiaosige.com/post/a00f9d53.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>docker安装portainer-ce2.0</title>
+      <link>https://www.xiaosige.com/post/5086702b.html</link>
+      <guid>https://www.xiaosige.com/post/5086702b.html</guid>
+      <pubDate>Mon, 10 May 2021 07:44:46 GMT</pubDate>
+      
+      <description>&lt;h3 id=&quot;介绍&quot;&gt;&lt;a href=&quot;#介绍&quot; class=&quot;headerlink&quot; title=&quot;介绍&quot;&gt;&lt;/a&gt;介绍&lt;/h3&gt;&lt;p&gt;  Portainer是Docker的图形化管理工具，提供状态显示面板、应用模板快速部署、容器镜像网络数据卷的基本操作（包括上传下载镜像，创建容器等操作）、事件日志显示、容器控制台操作、Swarm集群和服务等集中管理和操作、登录用户管理和控制等功能。功能十分全面，基本能满足中小型单位对容器管理的全部需求。&lt;/p&gt;</description>
+      
+      
+      
+      
+      <category domain="https://www.xiaosige.com/categories/Docker/">Docker</category>
+      
+      
+      <category domain="https://www.xiaosige.com/tags/GitLab/">GitLab</category>
+      
+      
+      <comments>https://www.xiaosige.com/post/5086702b.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>Centos8防火墙设置</title>
+      <link>https://www.xiaosige.com/post/e0840970.html</link>
+      <guid>https://www.xiaosige.com/post/e0840970.html</guid>
+      <pubDate>Mon, 10 May 2021 06:44:59 GMT</pubDate>
+      
+      <description>&lt;h3 id=&quot;介绍&quot;&gt;&lt;a href=&quot;#介绍&quot; class=&quot;headerlink&quot; title=&quot;介绍&quot;&gt;&lt;/a&gt;介绍&lt;/h3&gt;&lt;p&gt;  centos7以前的版本默认使用iptables服务进行管理防火墙规则。centos7以及其以上版本默认使用firewalld服务管理防火墙。所以在centos8中，就使用其默认的firewalld配置防火墙。&lt;br&gt;  firewalld和iptables的官方说明可以参照&lt;a href=&quot;https://access.redhat.com/documentation/zh-cn/red_hat_enterprise_linux/7/html/security_guide/sec-using_firewalls#sec-Comparison_of_Firewalld_to_system-config-firewall_and_iptables&quot;&gt;https://access.redhat.com/documentation/zh-cn/red_hat_enterprise_linux/7/html/security_guide/sec-using_firewalls#sec-Comparison_of_Firewalld_to_system-config-firewall_and_iptables&lt;/a&gt;&lt;/p&gt;</description>
+      
+      
+      
+      
+      <category domain="https://www.xiaosige.com/categories/Linux/">Linux</category>
+      
+      
+      <category domain="https://www.xiaosige.com/tags/Linux/">Linux</category>
+      
+      
+      <comments>https://www.xiaosige.com/post/e0840970.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>docker 安装 GitLab</title>
+      <link>https://www.xiaosige.com/post/6af4ceb4.html</link>
+      <guid>https://www.xiaosige.com/post/6af4ceb4.html</guid>
+      <pubDate>Sun, 09 May 2021 12:12:04 GMT</pubDate>
+      
+      <description>&lt;h3 id=&quot;一，介绍&quot;&gt;&lt;a href=&quot;#一，介绍&quot; class=&quot;headerlink&quot; title=&quot;一，介绍&quot;&gt;&lt;/a&gt;一，介绍&lt;/h3&gt;&lt;p&gt;  GitLab 分为社区版（Community Edition，缩写为 CE）和 企业版（Enterprise Edition，缩写为 EE）。社区版是免费的，而企业版包含一些收费服务，一般来说个人开发者用社区版就足够了。&lt;/p&gt;</description>
+      
+      
+      
+      
+      <category domain="https://www.xiaosige.com/categories/Docker/">Docker</category>
+      
+      
+      <category domain="https://www.xiaosige.com/tags/GitLab/">GitLab</category>
+      
+      
+      <comments>https://www.xiaosige.com/post/6af4ceb4.html#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>docker 安装mysql8并挂载数据</title>
@@ -366,91 +450,6 @@
       
       
       <comments>https://www.xiaosige.com/post/c006a425.html#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>Java反射获取方法的参数名</title>
-      <link>https://www.xiaosige.com/post/f34deb23.html</link>
-      <guid>https://www.xiaosige.com/post/f34deb23.html</guid>
-      <pubDate>Mon, 19 Oct 2020 21:05:45 GMT</pubDate>
-      
-      <description>&lt;h3 id=&quot;Parameter类&quot;&gt;&lt;a href=&quot;#Parameter类&quot; class=&quot;headerlink&quot; title=&quot;Parameter类&quot;&gt;&lt;/a&gt;Parameter类&lt;/h3&gt;&lt;p&gt;  从JDK8开始，反射类添加了Parameter，通过Parameter类，我们可以从.class编译后的文件中获取方法上参数名。&lt;br&gt;  获取参数名的方法：Parameter.getName()&lt;/p&gt;</description>
-      
-      
-      
-      
-      <category domain="https://www.xiaosige.com/categories/Java/">Java</category>
-      
-      
-      <category domain="https://www.xiaosige.com/tags/Jdk/">Jdk</category>
-      
-      
-      <comments>https://www.xiaosige.com/post/f34deb23.html#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>Yarn安装与镜像设置</title>
-      <link>https://www.xiaosige.com/post/2dcb4b.html</link>
-      <guid>https://www.xiaosige.com/post/2dcb4b.html</guid>
-      <pubDate>Sun, 18 Oct 2020 19:34:20 GMT</pubDate>
-      
-      <description>&lt;h3 id=&quot;介绍&quot;&gt;&lt;a href=&quot;#介绍&quot; class=&quot;headerlink&quot; title=&quot;介绍&quot;&gt;&lt;/a&gt;介绍&lt;/h3&gt;&lt;p&gt;  &lt;a href=&quot;https://yarn.bootcss.com/&quot;&gt;Yarn&lt;/a&gt; 就是一个类似于 npm 的包管理工具，它是由 facebook 推出并开源。&lt;br&gt;  与 npm 相比，yarn 有着众多的优势，主要的优势在于：速度快、离线模式、版本控制。&lt;/p&gt;</description>
-      
-      
-      
-      
-      <category domain="https://www.xiaosige.com/categories/Linux/">Linux</category>
-      
-      
-      <category domain="https://www.xiaosige.com/tags/Yarn/">Yarn</category>
-      
-      
-      <comments>https://www.xiaosige.com/post/2dcb4b.html#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>Nginx负载均衡的几种常见策略</title>
-      <link>https://www.xiaosige.com/post/e3076ab.html</link>
-      <guid>https://www.xiaosige.com/post/e3076ab.html</guid>
-      <pubDate>Wed, 16 Sep 2020 21:06:34 GMT</pubDate>
-      
-      <description>&lt;p&gt;  负载均衡也是Nginx常用的一个功能，负载均衡其意思就是分摊到多个操作单元上进行执行，例如Web服务器、FTP服务器、企业关键应用服务器和其它关键任务服务器等，从而共同完成工作任务。&lt;br&gt;  简单而言就是当有2台或以上服务器时，根据规则随机的将请求分发到指定的服务器上处理，负载均衡配置一般都需要同时配置反向代理，通过反向代理跳转到负载均衡。而Nginx目前支持自带3种负载均衡策略，还有2种常用的第三方策略。&lt;/p&gt;</description>
-      
-      
-      
-      
-      <category domain="https://www.xiaosige.com/categories/Nginx/">Nginx</category>
-      
-      
-      <category domain="https://www.xiaosige.com/tags/Nginx/">Nginx</category>
-      
-      
-      <comments>https://www.xiaosige.com/post/e3076ab.html#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>Nginx的基本配置--示例</title>
-      <link>https://www.xiaosige.com/post/a81ceb57.html</link>
-      <guid>https://www.xiaosige.com/post/a81ceb57.html</guid>
-      <pubDate>Wed, 16 Sep 2020 20:31:24 GMT</pubDate>
-      
-      <description>&lt;h3 id=&quot;配置文件语法&quot;&gt;&lt;a href=&quot;#配置文件语法&quot; class=&quot;headerlink&quot; title=&quot;配置文件语法&quot;&gt;&lt;/a&gt;配置文件语法&lt;/h3&gt;&lt;p&gt;  nginx是模块化的系统，整个系统是分成一个个模块的。每个模块负责不同的功能。如果不用某个模块的话，也可以去掉，可以让nginx更加轻量化。&lt;/p&gt;
-&lt;p&gt;  要用的模块已经被编译进nginx了，成为nginx的一部分了，那要怎么用这些模块呢？那就得通过配置文件，这跟传统的linux服务差不多，都是通过配置文件来改变功能。nginx的模块是通过一个叫指令(directive)的东西来用的。整个配置文件都是由指令来控制的。nginx也有自己内置的指令，比如events, http, server, 和 location等，下面会进行详细解释。&lt;/p&gt;</description>
-      
-      
-      
-      
-      <category domain="https://www.xiaosige.com/categories/Nginx/">Nginx</category>
-      
-      
-      <category domain="https://www.xiaosige.com/tags/Nginx/">Nginx</category>
-      
-      
-      <comments>https://www.xiaosige.com/post/a81ceb57.html#disqus_thread</comments>
       
     </item>
     
