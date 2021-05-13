@@ -6,7 +6,7 @@
   <link href="https://www.xiaosige.com/atom.xml" rel="self"/>
   
   <link href="https://www.xiaosige.com/"/>
-  <updated>2021-05-10T11:39:32.412Z</updated>
+  <updated>2021-05-13T06:11:56.442Z</updated>
   <id>https://www.xiaosige.com/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://www.xiaosige.com/post/a00f9d53.html"/>
     <id>https://www.xiaosige.com/post/a00f9d53.html</id>
     <published>2021-05-10T08:17:18.000Z</published>
-    <updated>2021-05-10T11:39:32.412Z</updated>
+    <updated>2021-05-13T06:11:56.442Z</updated>
     
     
     <summary type="html">&lt;h3 id=&quot;准备&quot;&gt;&lt;a href=&quot;#准备&quot; class=&quot;headerlink&quot; title=&quot;准备&quot;&gt;&lt;/a&gt;准备&lt;/h3&gt;&lt;p&gt;  服务器版本:CentOS 8.2 64位&lt;/p&gt;</summary>
@@ -40,7 +40,7 @@
     <link href="https://www.xiaosige.com/post/5086702b.html"/>
     <id>https://www.xiaosige.com/post/5086702b.html</id>
     <published>2021-05-10T07:44:46.000Z</published>
-    <updated>2021-05-10T11:06:52.102Z</updated>
+    <updated>2021-05-13T04:01:12.274Z</updated>
     
     
     <summary type="html">&lt;h3 id=&quot;介绍&quot;&gt;&lt;a href=&quot;#介绍&quot; class=&quot;headerlink&quot; title=&quot;介绍&quot;&gt;&lt;/a&gt;介绍&lt;/h3&gt;&lt;p&gt;  Portainer是Docker的图形化管理工具，提供状态显示面板、应用模板快速部署、容器镜像网络数据卷的基本操作（包括上传下载镜像，创建容器等操作）、事件日志显示、容器控制台操作、Swarm集群和服务等集中管理和操作、登录用户管理和控制等功能。功能十分全面，基本能满足中小型单位对容器管理的全部需求。&lt;/p&gt;</summary>
@@ -78,7 +78,7 @@
     <link href="https://www.xiaosige.com/post/6af4ceb4.html"/>
     <id>https://www.xiaosige.com/post/6af4ceb4.html</id>
     <published>2021-05-09T12:12:04.000Z</published>
-    <updated>2021-05-10T13:34:00.326Z</updated>
+    <updated>2021-05-13T03:59:59.101Z</updated>
     
     
     <summary type="html">&lt;h3 id=&quot;一，介绍&quot;&gt;&lt;a href=&quot;#一，介绍&quot; class=&quot;headerlink&quot; title=&quot;一，介绍&quot;&gt;&lt;/a&gt;一，介绍&lt;/h3&gt;&lt;p&gt;  GitLab 分为社区版（Community Edition，缩写为 CE）和 企业版（Enterprise Edition，缩写为 EE）。社区版是免费的，而企业版包含一些收费服务，一般来说个人开发者用社区版就足够了。&lt;/p&gt;</summary>
@@ -97,7 +97,7 @@
     <link href="https://www.xiaosige.com/post/d4875b9e.html"/>
     <id>https://www.xiaosige.com/post/d4875b9e.html</id>
     <published>2021-04-17T22:12:51.000Z</published>
-    <updated>2021-04-18T18:51:15.308Z</updated>
+    <updated>2021-05-12T20:17:14.791Z</updated>
     
     
     <summary type="html">&lt;h3 id=&quot;下载镜像&quot;&gt;&lt;a href=&quot;#下载镜像&quot; class=&quot;headerlink&quot; title=&quot;下载镜像&quot;&gt;&lt;/a&gt;下载镜像&lt;/h3&gt;&lt;pre class=&quot;line-numbers language-bash&quot; data-language=&quot;bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# docker从仓库中拉取最新版的mysql镜像，默认获取最新的版本&lt;/span&gt;

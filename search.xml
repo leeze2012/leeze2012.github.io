@@ -108,7 +108,7 @@ docker volume <span class="token function">rm</span>  数据卷名  <span class=
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
-<h3 id="docker远程连接"><a href="#docker远程连接" class="headerlink" title="docker远程连接"></a>docker远程连接</h3><h5 id="portainer中远程连接"><a href="#portainer中远程连接" class="headerlink" title="portainer中远程连接"></a>portainer中远程连接</h5><ol>
+<h3 id="docker远程连接"><a href="#docker远程连接" class="headerlink" title="docker远程连接"></a>docker远程连接</h3><h4 id="portainer中远程连接"><a href="#portainer中远程连接" class="headerlink" title="portainer中远程连接"></a>portainer中远程连接</h4><ol>
 <li>服务器配置docker<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">
 <span class="token function">vim</span> /usr/lib/systemd/system/docker.service<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
   添加<code>-H tcp://0.0.0.0:2375</code>如下<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token comment"># ExecStart=/usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock</span>
@@ -124,7 +124,28 @@ systemctl restart docker<span aria-hidden="true" class="line-numbers-rows"><span
 
 </li>
 </ol>
-<h5 id="IDEA中远程连接"><a href="#IDEA中远程连接" class="headerlink" title="IDEA中远程连接"></a>IDEA中远程连接</h5><p>  TCP-socket:<br>  <code>tcp://10.211.55.81:2375</code></p>
+<h4 id="IDEA中远程连接"><a href="#IDEA中远程连接" class="headerlink" title="IDEA中远程连接"></a>IDEA中远程连接</h4><p>  TCP-socket:<br>  <code>tcp://10.211.55.81:2375</code></p>
+<h3 id="PS"><a href="#PS" class="headerlink" title="PS"></a>PS</h3><h4 id="网络问题"><a href="#网络问题" class="headerlink" title="网络问题"></a><code>网络问题</code></h4><p>  <code>firewall-cmd，网路配置端口后不好用</code>:</p>
+<blockquote>
+<p><code>一</code>，查看网卡</p>
+<img data-src="/post/a00f9d53/firewall001.png" class="" title="网络设备">
+<p><code>二</code>，查看激活作用域</p>
+<img data-src="/post/a00f9d53/firewall002.png" class="" title="作用域">
+<p><code>三</code>，把<code>docker0</code>网卡添加到<code>trusted</code>域</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">firewall-cmd --permanent --zone<span class="token operator">=</span>trusted --add-interface<span class="token operator">=</span>docker0<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p><code>四</code>，重启加载配置</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">firewall-cmd --reload<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p><code>五</code>，查看激活作用域</p>
+<img data-src="/post/a00f9d53/firewall003.png" class="" title="作用域">
+<p><code>六</code>，查看网卡</p>
+<img data-src="/post/a00f9d53/firewall004.png" class="" title="网络设备">
+<p><code>七</code>，查看端口</p>
+<img data-src="/post/a00f9d53/firewall005.png" class="" title="查看端口">
+<p><code>八</code>，开放端口</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">firewall-cmd  --zone<span class="token operator">=</span>public --add-port<span class="token operator">=</span><span class="token number">3307</span>/tcp --permanent
+firewall-cmd --reload<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<img data-src="/post/a00f9d53/firewall006.png" class="" title="查看3307端口"> 
+</blockquote>
 <link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
       <categories>
         <category>Docker</category>
@@ -157,9 +178,10 @@ portainer/portainer-ce<span aria-hidden="true" class="line-numbers-rows"><span><
 <li>服务器配置docker<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">
 <span class="token function">vim</span> /usr/lib/systemd/system/docker.service<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
   添加<code>-H tcp://0.0.0.0:2375</code>如下<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token comment"># ExecStart=/usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock</span>
+
 改为：
 <span class="token comment"># leeze</span>
- <span class="token assign-left variable">ExecStart</span><span class="token operator">=</span>/usr/bin/dockerd -H fd:// --containerd<span class="token operator">=</span>/run/containerd/containerd.sock -H tcp://0.0.0.0:2375<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li>
+ <span class="token assign-left variable">ExecStart</span><span class="token operator">=</span>/usr/bin/dockerd -H fd:// --containerd<span class="token operator">=</span>/run/containerd/containerd.sock -H tcp://0.0.0.0:2375<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 <li>防火墙端口(<code>2375</code>)<br>  如果服务器有防火墙，请放开 <code>2375</code> 端口<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">firewall-cmd  --zone<span class="token operator">=</span>public --add-port<span class="token operator">=</span><span class="token number">2375</span>/tcp --permanent
 firewall-cmd --reload
 firewall-cmd --list-ports<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
@@ -303,6 +325,7 @@ exit                            退出容器<span aria-hidden="true" class="line
 </li>
 </ol>
 <h4 id="Centos-8下操作"><a href="#Centos-8下操作" class="headerlink" title="Centos 8下操作"></a><code>Centos 8</code>下操作</h4><p>  基于Docker在<code>Centos 8</code>系统中的部署和设置GitLab的具体过程如下：</p>
+<p>  同上；</p>
 <h3 id="三、PS"><a href="#三、PS" class="headerlink" title="三、PS"></a>三、PS</h3><ol>
 <li>中文设置<br>在<code>User Settings &gt; Profile &gt; Preferred language</code>设置</li>
 <li>如果页面访问出现502<pre class="line-numbers language-docker" data-language="docker"><code class="language-docker"><span class="token comment"># 修改下权限</span>
@@ -367,6 +390,8 @@ pid-file<span class="token operator">=</span>/var/run/mysqld/mysqld.pid
 
 mysql -uroot -p12345678
 
+USE mysql<span class="token punctuation">;</span>
+
 ALTER <span class="token environment constant">USER</span> <span class="token string">'root'</span>@<span class="token string">'localhost'</span> IDENTIFIED BY <span class="token string">'12345678'</span><span class="token punctuation">;</span>
 ALTER <span class="token environment constant">USER</span> <span class="token string">'root'</span>@<span class="token string">'%'</span> IDENTIFIED WITH mysql_native_password BY <span class="token string">'12345678'</span><span class="token punctuation">;</span>
 
@@ -375,7 +400,7 @@ grant all privileges on *.* to <span class="token string">'root'</span>@<span cl
 CREATE <span class="token environment constant">USER</span> <span class="token string">'leeze'</span>@<span class="token string">'%'</span> IDENTIFIED with mysql_native_password  BY <span class="token string">'12345678'</span><span class="token punctuation">;</span>
 grant all privileges on *.* to <span class="token string">'leeze'</span>@<span class="token string">'%'</span>
 flush privileges<span class="token punctuation">;</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="PS"><a href="#PS" class="headerlink" title="PS"></a>PS</h3><blockquote>
 <p><a href="https://www.cnblogs.com/qq931399960/p/11670625.html">docker安装mysql挂载外部配置和数据目录</a></p>
 </blockquote>
