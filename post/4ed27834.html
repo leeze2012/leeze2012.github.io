@@ -32,7 +32,7 @@
 <meta property="og:description" content="前言  JIRA 是 Atlassian 公司出品的项目与事务跟踪工具，被广泛应用于缺陷跟踪、客户服务、需求收集、流程审批、任务跟踪、项目跟踪和敏捷管理等工作领域。  Centos下安装参考：Centos下Jira8.x版本安装与破解。  下面介绍是采用docker来进行部署。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-05-14T15:59:08.000Z">
-<meta property="article:modified_time" content="2021-05-14T18:11:15.252Z">
+<meta property="article:modified_time" content="2021-05-14T19:44:55.509Z">
 <meta property="article:author" content="leeze">
 <meta property="article:tag" content="Jira">
 <meta name="twitter:card" content="summary">
@@ -605,7 +605,7 @@ canvas#canvas {
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-05-15 02:11:15" itemprop="dateModified" datetime="2021-05-15T02:11:15+08:00">2021-05-15</time>
+        <time title="修改时间：2021-05-15 03:44:55" itemprop="dateModified" datetime="2021-05-15T03:44:55+08:00">2021-05-15</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -642,14 +642,14 @@ canvas#canvas {
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>3.8k</span>
+      <span>3.9k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>3 分钟</span>
+      <span>4 分钟</span>
     </span>
 </div>
 
@@ -742,19 +742,19 @@ firewall-cmd --reload<span aria-hidden="true" class="line-numbers-rows"><span></
 <h4 id="创建jira目录"><a href="#创建jira目录" class="headerlink" title="创建jira目录"></a>创建<code>jira</code>目录</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">mkdir</span> -p /root/.docker/atlassian
 <span class="token function">mkdir</span> -p /root/.docker/atlassian/jira<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p>  <code>tips：有时要，chmod -R 777 atlassian</code><br>  <code>tips：atlassian目录如果不创建在root下面，否则会报错</code></p>
-<h4 id="下载破解文件"><a href="#下载破解文件" class="headerlink" title="下载破解文件"></a>下载破解文件</h4><p>  下载破解包：<a target="_blank" rel="noopener" href="https://gitee.com/pengzhile/atlassian-agent/attach_files/283101/download">atlassian-agent-v1.2.3</a> ，放到<code>/root/.docker/atlassian</code>目录下面</p>
+<h4 id="下载破解文件"><a href="#下载破解文件" class="headerlink" title="下载破解文件"></a>下载破解文件</h4><p>  下载破解包：<a target="_blank" rel="noopener" href="https://static.xiaosige.com/download/atlassian-agent-v1.2.3.tar.gz">atlassian-agent-v1.2.3</a> ，放到<code>/root/.docker/atlassian</code>目录下面</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">scp</span> atlassian-agent.jar root@10.211.55.81:/tmp
 <span class="token function">cp</span> atlassian-agent.jar /root/.docker/atlassian<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <h4 id="编写jira对应Dockerfile文件"><a href="#编写jira对应Dockerfile文件" class="headerlink" title="编写jira对应Dockerfile文件"></a>编写<code>jira</code>对应<code>Dockerfile</code>文件</h4><p>  确保：<code>docker pull cptactionhank/atlassian-jira-software:latest</code></p>
-<pre class="line-numbers language-dockerfile" data-language="dockerfile"><code class="language-dockerfile"><span class="token keyword">FROM</span> cptactionhank/atlassian<span class="token punctuation">-</span>jira<span class="token punctuation">-</span>software<span class="token punctuation">:</span>latest
+<pre class="line-numbers language-dockerfile" data-language="dockerfile"><code class="language-dockerfile">FROM cptactionhank/atlassian-jira-software:latest
 
-<span class="token keyword">USER</span> root
+USER root
 
-<span class="token comment"># 将代理破解包加入容器</span>
-<span class="token keyword">COPY</span> <span class="token string">"atlassian-agent.jar"</span> /opt/atlassian/jira/
+# 将代理破解包加入容器
+COPY "atlassian-agent.jar" /opt/atlassian/jira/
 
-<span class="token comment"># 设置启动加载代理包</span>
-<span class="token keyword">RUN</span> echo <span class="token string">'export CATALINA_OPTS="-javaagent:/opt/atlassian/jira/atlassian-agent.jar ${CATALINA_OPTS}"'</span> <span class="token punctuation">&gt;</span><span class="token punctuation">&gt;</span> /opt/atlassian/jira/bin/setenv.sh<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+# 设置启动加载代理包
+RUN echo 'export CATALINA_OPTS="-javaagent:/opt/atlassian/jira/atlassian-agent.jar ${CATALINA_OPTS}"' &gt;&gt; /opt/atlassian/jira/bin/setenv.sh<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h4 id="构建镜像"><a href="#构建镜像" class="headerlink" title="构建镜像"></a>构建镜像</h4><p>  在<code>/root/.docker/atlassian</code>目录下执行</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">
 <span class="token builtin class-name">cd</span> /root/.docker/atlassian
