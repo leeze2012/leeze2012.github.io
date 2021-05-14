@@ -6,7 +6,7 @@
   <link href="https://www.xiaosige.com/atom.xml" rel="self"/>
   
   <link href="https://www.xiaosige.com/"/>
-  <updated>2021-05-14T18:04:28.079Z</updated>
+  <updated>2021-05-14T18:11:15.252Z</updated>
   <id>https://www.xiaosige.com/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://www.xiaosige.com/post/4ed27834.html"/>
     <id>https://www.xiaosige.com/post/4ed27834.html</id>
     <published>2021-05-14T15:59:08.000Z</published>
-    <updated>2021-05-14T18:04:28.079Z</updated>
+    <updated>2021-05-14T18:11:15.252Z</updated>
     
     
     <summary type="html">&lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;  JIRA 是 Atlassian 公司出品的项目与事务跟踪工具，被广泛应用于缺陷跟踪、客户服务、需求收集、流程审批、任务跟踪、项目跟踪和敏捷管理等工作领域。&lt;br&gt;  Centos下安装参考：&lt;a href=&quot;/post/afb30e04.html&quot; title=&quot;Centos下Jira8.x版本安装与破解&quot;&gt;Centos下Jira8.x版本安装与破解&lt;/a&gt;。&lt;br&gt;  下面介绍是采用&lt;code&gt;docker&lt;/code&gt;来进行部署。&lt;/p&gt;</summary>
