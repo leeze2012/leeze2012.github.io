@@ -6,7 +6,7 @@
   <link href="https://www.xiaosige.com/atom.xml" rel="self"/>
   
   <link href="https://www.xiaosige.com/"/>
-  <updated>2021-05-13T06:11:56.442Z</updated>
+  <updated>2021-05-14T18:04:28.079Z</updated>
   <id>https://www.xiaosige.com/</id>
   
   <author>
@@ -17,11 +17,30 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Docker中搭建Jira</title>
+    <link href="https://www.xiaosige.com/post/4ed27834.html"/>
+    <id>https://www.xiaosige.com/post/4ed27834.html</id>
+    <published>2021-05-14T15:59:08.000Z</published>
+    <updated>2021-05-14T18:04:28.079Z</updated>
+    
+    
+    <summary type="html">&lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;  JIRA 是 Atlassian 公司出品的项目与事务跟踪工具，被广泛应用于缺陷跟踪、客户服务、需求收集、流程审批、任务跟踪、项目跟踪和敏捷管理等工作领域。&lt;br&gt;  Centos下安装参考：&lt;a href=&quot;/post/afb30e04.html&quot; title=&quot;Centos下Jira8.x版本安装与破解&quot;&gt;Centos下Jira8.x版本安装与破解&lt;/a&gt;。&lt;br&gt;  下面介绍是采用&lt;code&gt;docker&lt;/code&gt;来进行部署。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Docker" scheme="https://www.xiaosige.com/categories/Docker/"/>
+    
+    
+    <category term="Jira" scheme="https://www.xiaosige.com/tags/Jira/"/>
+    
+  </entry>
+  
+  <entry>
     <title>centos8安装docker</title>
     <link href="https://www.xiaosige.com/post/a00f9d53.html"/>
     <id>https://www.xiaosige.com/post/a00f9d53.html</id>
     <published>2021-05-10T08:17:18.000Z</published>
-    <updated>2021-05-13T06:11:56.442Z</updated>
+    <updated>2021-05-13T09:49:06.011Z</updated>
     
     
     <summary type="html">&lt;h3 id=&quot;准备&quot;&gt;&lt;a href=&quot;#准备&quot; class=&quot;headerlink&quot; title=&quot;准备&quot;&gt;&lt;/a&gt;准备&lt;/h3&gt;&lt;p&gt;  服务器版本:CentOS 8.2 64位&lt;/p&gt;</summary>
@@ -389,25 +408,6 @@
     <category term="Linux" scheme="https://www.xiaosige.com/tags/Linux/"/>
     
     <category term="Git" scheme="https://www.xiaosige.com/tags/Git/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Java定位代码导致的CPU过高问题</title>
-    <link href="https://www.xiaosige.com/post/c006a425.html"/>
-    <id>https://www.xiaosige.com/post/c006a425.html</id>
-    <published>2020-10-20T06:42:35.000Z</published>
-    <updated>2020-10-20T06:47:02.824Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;  相信大家肯定遇到过java程序cpu一直居高不下的情况，那么我来简单介绍在linux系统下如何定位java进程cpu过高的代码位置。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="Java" scheme="https://www.xiaosige.com/categories/Java/"/>
-    
-    
-    <category term="Jdk" scheme="https://www.xiaosige.com/tags/Jdk/"/>
     
   </entry>
   

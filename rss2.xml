@@ -15,8 +15,29 @@
     <atom:link href="https://www.xiaosige.com/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>因上努力，果上随缘！</description>
-    <pubDate>Thu, 13 May 2021 06:11:56 GMT</pubDate>
+    <pubDate>Fri, 14 May 2021 18:04:28 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>Docker中搭建Jira</title>
+      <link>https://www.xiaosige.com/post/4ed27834.html</link>
+      <guid>https://www.xiaosige.com/post/4ed27834.html</guid>
+      <pubDate>Fri, 14 May 2021 15:59:08 GMT</pubDate>
+      
+      <description>&lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;  JIRA 是 Atlassian 公司出品的项目与事务跟踪工具，被广泛应用于缺陷跟踪、客户服务、需求收集、流程审批、任务跟踪、项目跟踪和敏捷管理等工作领域。&lt;br&gt;  Centos下安装参考：&lt;a href=&quot;/post/afb30e04.html&quot; title=&quot;Centos下Jira8.x版本安装与破解&quot;&gt;Centos下Jira8.x版本安装与破解&lt;/a&gt;。&lt;br&gt;  下面介绍是采用&lt;code&gt;docker&lt;/code&gt;来进行部署。&lt;/p&gt;</description>
+      
+      
+      
+      
+      <category domain="https://www.xiaosige.com/categories/Docker/">Docker</category>
+      
+      
+      <category domain="https://www.xiaosige.com/tags/Jira/">Jira</category>
+      
+      
+      <comments>https://www.xiaosige.com/post/4ed27834.html#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>centos8安装docker</title>
@@ -429,27 +450,6 @@
       
       
       <comments>https://www.xiaosige.com/post/d7d45238.html#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>Java定位代码导致的CPU过高问题</title>
-      <link>https://www.xiaosige.com/post/c006a425.html</link>
-      <guid>https://www.xiaosige.com/post/c006a425.html</guid>
-      <pubDate>Tue, 20 Oct 2020 06:42:35 GMT</pubDate>
-      
-      <description>&lt;p&gt;  相信大家肯定遇到过java程序cpu一直居高不下的情况，那么我来简单介绍在linux系统下如何定位java进程cpu过高的代码位置。&lt;/p&gt;</description>
-      
-      
-      
-      
-      <category domain="https://www.xiaosige.com/categories/Java/">Java</category>
-      
-      
-      <category domain="https://www.xiaosige.com/tags/Jdk/">Jdk</category>
-      
-      
-      <comments>https://www.xiaosige.com/post/c006a425.html#disqus_thread</comments>
       
     </item>
     

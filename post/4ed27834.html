@@ -24,28 +24,28 @@
   <script src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.js" integrity="sha256-a5YRB27CcBwBFcT5EF/f3E4vzIqyHrSR878nseNYw64=" crossorigin="anonymous"></script>
 
 <script class="next-config" data-name="main" type="application/json">{&quot;hostname&quot;:&quot;www.xiaosige.com&quot;,&quot;root&quot;:&quot;&#x2F;&quot;,&quot;images&quot;:&quot;&#x2F;images&quot;,&quot;scheme&quot;:&quot;Gemini&quot;,&quot;version&quot;:&quot;8.4.0&quot;,&quot;exturl&quot;:false,&quot;sidebar&quot;:{&quot;position&quot;:&quot;left&quot;,&quot;display&quot;:&quot;post&quot;,&quot;padding&quot;:18,&quot;offset&quot;:12},&quot;copycode&quot;:true,&quot;bookmark&quot;:{&quot;enable&quot;:false,&quot;color&quot;:&quot;#222&quot;,&quot;save&quot;:&quot;auto&quot;},&quot;fancybox&quot;:true,&quot;mediumzoom&quot;:false,&quot;lazyload&quot;:true,&quot;pangu&quot;:false,&quot;comments&quot;:{&quot;style&quot;:&quot;tabs&quot;,&quot;active&quot;:&quot;livere&quot;,&quot;storage&quot;:true,&quot;lazyload&quot;:true,&quot;nav&quot;:null,&quot;activeClass&quot;:&quot;livere&quot;},&quot;motion&quot;:{&quot;enable&quot;:true,&quot;async&quot;:false,&quot;transition&quot;:{&quot;post_block&quot;:&quot;fadeIn&quot;,&quot;post_header&quot;:&quot;fadeInDown&quot;,&quot;post_body&quot;:&quot;fadeInDown&quot;,&quot;coll_header&quot;:&quot;fadeInLeft&quot;,&quot;sidebar&quot;:&quot;fadeInUp&quot;}},&quot;prism&quot;:false,&quot;i18n&quot;:{&quot;placeholder&quot;:&quot;搜索...&quot;,&quot;empty&quot;:&quot;没有找到任何搜索结果：${query}&quot;,&quot;hits_time&quot;:&quot;找到 ${hits} 个搜索结果（用时 ${time} 毫秒）&quot;,&quot;hits&quot;:&quot;找到 ${hits} 个搜索结果&quot;},&quot;path&quot;:&quot;&#x2F;search.xml&quot;,&quot;localsearch&quot;:{&quot;enable&quot;:true,&quot;trigger&quot;:&quot;auto&quot;,&quot;top_n_per_article&quot;:1,&quot;unescape&quot;:false,&quot;preload&quot;:true}}</script>
-<meta name="description" content="修改内容区域的宽度编辑主题的 source&#x2F;css&#x2F;_variables&#x2F;custom.styl 文件，新增变量：">
+<meta name="description" content="前言  JIRA 是 Atlassian 公司出品的项目与事务跟踪工具，被广泛应用于缺陷跟踪、客户服务、需求收集、流程审批、任务跟踪、项目跟踪和敏捷管理等工作领域。  Centos下安装参考：Centos下Jira8.x版本安装与破解。  下面介绍是采用docker来进行部署。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo之修改内容区域的宽度">
-<meta property="og:url" content="https://www.xiaosige.com/post/e20d3e6e.html">
+<meta property="og:title" content="Docker中搭建Jira">
+<meta property="og:url" content="https://www.xiaosige.com/post/4ed27834.html">
 <meta property="og:site_name" content="小四儿">
-<meta property="og:description" content="修改内容区域的宽度编辑主题的 source&#x2F;css&#x2F;_variables&#x2F;custom.styl 文件，新增变量：">
+<meta property="og:description" content="前言  JIRA 是 Atlassian 公司出品的项目与事务跟踪工具，被广泛应用于缺陷跟踪、客户服务、需求收集、流程审批、任务跟踪、项目跟踪和敏捷管理等工作领域。  Centos下安装参考：Centos下Jira8.x版本安装与破解。  下面介绍是采用docker来进行部署。">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2019-09-03T13:54:00.000Z">
-<meta property="article:modified_time" content="2020-10-12T09:08:05.661Z">
+<meta property="article:published_time" content="2021-05-14T15:59:08.000Z">
+<meta property="article:modified_time" content="2021-05-14T18:04:28.079Z">
 <meta property="article:author" content="leeze">
-<meta property="article:tag" content="hexo">
+<meta property="article:tag" content="Jira">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://www.xiaosige.com/post/e20d3e6e.html">
+<link rel="canonical" href="https://www.xiaosige.com/post/4ed27834.html">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{&quot;sidebar&quot;:&quot;&quot;,&quot;isHome&quot;:false,&quot;isPost&quot;:true,&quot;lang&quot;:&quot;zh-CN&quot;,&quot;comments&quot;:true,&quot;permalink&quot;:&quot;https:&#x2F;&#x2F;www.xiaosige.com&#x2F;post&#x2F;e20d3e6e.html&quot;,&quot;path&quot;:&quot;post&#x2F;e20d3e6e.html&quot;,&quot;title&quot;:&quot;Hexo之修改内容区域的宽度&quot;}</script>
+<script class="next-config" data-name="page" type="application/json">{&quot;sidebar&quot;:&quot;&quot;,&quot;isHome&quot;:false,&quot;isPost&quot;:true,&quot;lang&quot;:&quot;zh-CN&quot;,&quot;comments&quot;:true,&quot;permalink&quot;:&quot;https:&#x2F;&#x2F;www.xiaosige.com&#x2F;post&#x2F;4ed27834.html&quot;,&quot;path&quot;:&quot;post&#x2F;4ed27834.html&quot;,&quot;title&quot;:&quot;Docker中搭建Jira&quot;}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">&quot;&quot;</script>
-<title>Hexo之修改内容区域的宽度 | 小四儿</title><script src="/js/config.js"></script><!-- https://www.layuicdn.com/layui/css/layui.css -->
+<title>Docker中搭建Jira | 小四儿</title><script src="/js/config.js"></script><!-- https://www.layuicdn.com/layui/css/layui.css -->
 <script src="https://www.layuicdn.com/layui/layui.js"></script>
 
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
@@ -184,7 +184,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E5%86%85%E5%AE%B9%E5%8C%BA%E5%9F%9F%E7%9A%84%E5%AE%BD%E5%BA%A6"><span class="nav-number">1.</span> <span class="nav-text">修改内容区域的宽度</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87"><span class="nav-number">2.</span> <span class="nav-text">环境准备</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%80%E5%A7%8B%E5%AE%89%E8%A3%85"><span class="nav-number">3.</span> <span class="nav-text">开始安装</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%89%E8%A3%85MSQL"><span class="nav-number">3.1.</span> <span class="nav-text">安装MSQL</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%9B%E5%BB%BAjira%E7%9B%AE%E5%BD%95"><span class="nav-number">3.2.</span> <span class="nav-text">创建jira目录</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%8B%E8%BD%BD%E7%A0%B4%E8%A7%A3%E6%96%87%E4%BB%B6"><span class="nav-number">3.3.</span> <span class="nav-text">下载破解文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BC%96%E5%86%99jira%E5%AF%B9%E5%BA%94Dockerfile%E6%96%87%E4%BB%B6"><span class="nav-number">3.4.</span> <span class="nav-text">编写jira对应Dockerfile文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9E%84%E5%BB%BA%E9%95%9C%E5%83%8F"><span class="nav-number">3.5.</span> <span class="nav-text">构建镜像</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%90%AF%E5%8A%A8%E5%AE%B9%E5%99%A8"><span class="nav-number">3.6.</span> <span class="nav-text">启动容器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E7%95%8C%E9%9D%A2%E8%BF%9B%E8%A1%8C%E8%AE%BE%E7%BD%AE"><span class="nav-number">3.7.</span> <span class="nav-text">浏览器界面进行设置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE"><span class="nav-number">3.8.</span> <span class="nav-text">配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%94%9F%E6%88%90%E7%A0%B4%E8%A7%A3%E8%AE%B8%E5%8F%AF"><span class="nav-number">3.9.</span> <span class="nav-text">生成破解许可</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E8%B4%A6%E6%88%B7"><span class="nav-number">3.10.</span> <span class="nav-text">创建账户</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -574,7 +574,7 @@ canvas#canvas {
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://www.xiaosige.com/post/e20d3e6e.html">
+    <link itemprop="mainEntityOfPage" href="https://www.xiaosige.com/post/4ed27834.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://static.xiaosige.com/img/avatar.jpg">
@@ -587,7 +587,7 @@ canvas#canvas {
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Hexo之修改内容区域的宽度
+          Docker中搭建Jira
         </h1>
 
         <div class="post-meta-container">
@@ -598,14 +598,14 @@ canvas#canvas {
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2019-09-03 21:54:00" itemprop="dateCreated datePublished" datetime="2019-09-03T21:54:00+08:00">2019-09-03</time>
+      <time title="创建时间：2021-05-14 23:59:08" itemprop="dateCreated datePublished" datetime="2021-05-14T23:59:08+08:00">2021-05-14</time>
     </span>
       <span class="post-meta-item">
         <span class="post-meta-item-icon">
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-10-12 17:08:05" itemprop="dateModified" datetime="2020-10-12T17:08:05+08:00">2020-10-12</time>
+        <time title="修改时间：2021-05-15 02:04:28" itemprop="dateModified" datetime="2021-05-15T02:04:28+08:00">2021-05-15</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -613,7 +613,7 @@ canvas#canvas {
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/hexo%E5%BB%BA%E7%AB%99/" itemprop="url" rel="index"><span itemprop="name">hexo建站</span></a>
+          <a href="/categories/Docker/" itemprop="url" rel="index"><span itemprop="name">Docker</span></a>
         </span>
     </span>
 
@@ -635,14 +635,14 @@ canvas#canvas {
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>137</span>
+      <span>3.8k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
+      <span>3 分钟</span>
     </span>
 </div>
 
@@ -653,14 +653,138 @@ canvas#canvas {
     
     
     <div class="post-body" itemprop="articleBody">
-        <h2 id="修改内容区域的宽度"><a href="#修改内容区域的宽度" class="headerlink" title="修改内容区域的宽度"></a>修改内容区域的宽度</h2><p>编辑主题的 <code>source/css/_variables/custom.styl</code> 文件，新增变量：</p>
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>  JIRA 是 Atlassian 公司出品的项目与事务跟踪工具，被广泛应用于缺陷跟踪、客户服务、需求收集、流程审批、任务跟踪、项目跟踪和敏捷管理等工作领域。<br>  Centos下安装参考：<a href="/post/afb30e04.html" title="Centos下Jira8.x版本安装与破解">Centos下Jira8.x版本安装与破解</a>。<br>  下面介绍是采用<code>docker</code>来进行部署。</p>
 <a id="more"></a>
 
-<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token comment">/* 修改成你期望的宽度 */</span>
-$content-desktop = 700px
+<h3 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h3><ol>
+<li> Centos8，机子分配的<mark class="label danger">内存</mark>适当大些。 </li>
+<li> <mark class="label danger">破解包</mark> ：</li>
 
-<span class="token comment">/* 当视窗超过 1600px 后的宽度 */</span>
-$content-desktop-large = 900px<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
+<p>   参考：<a target="_blank" rel="noopener" href="https://gitee.com/pengzhile/atlassian-agent/attach_files/283101/download">atlassian-agent-v1.2.3</a>  , <a target="_blank" rel="noopener" href="https://gitee.com/pengzhile/atlassian-agent/releases">其他</a></p>
+<li> 安装<mark class="label danger">Docker</mark>。 </li>
+<li> 事先安装`Mysql`，尽量<mark class="label danger">5.7</mark>。</li>
+</ol>
+
+
+<h3 id="开始安装"><a href="#开始安装" class="headerlink" title="开始安装"></a>开始安装</h3><h4 id="安装MSQL"><a href="#安装MSQL" class="headerlink" title="安装MSQL"></a>安装<code>MSQL</code></h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 1，下载镜像</span>
+docker pull mysql:5.7
+
+<span class="token comment"># 2，创建目录</span>
+<span class="token function">mkdir</span> -p /root/.docker/mysql5.7/conf
+<span class="token function">mkdir</span> -p /root/.docker/mysql5.7/data
+<span class="token function">mkdir</span> -p /root/.docker/mysql5.7/logs
+
+<span class="token comment"># 3，设置配置文件</span>
+<span class="token builtin class-name">cd</span> /root/.docker/mysql5.7/conf
+<span class="token function">touch</span> my.cnf<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-properties" data-language="properties"><code class="language-properties">[mysqld]
+<span class="token attr-name">user</span><span class="token punctuation">=</span><span class="token attr-value">mysql</span>
+<span class="token attr-name">socket</span><span class="token punctuation">=</span><span class="token attr-value">/var/run/mysqld/mysqld.sock</span>
+
+<span class="token comment">#character-set-server=utf8</span>
+<span class="token attr-name">character_set_server</span><span class="token punctuation">=</span><span class="token attr-value">utf8mb4</span>
+<span class="token attr-name">default-storage-engine</span><span class="token punctuation">=</span><span class="token attr-value">INNODB</span>
+<span class="token attr-name">innodb_default_row_format</span><span class="token punctuation">=</span><span class="token attr-value">DYNAMIC</span>
+<span class="token attr-name">innodb_large_prefix</span><span class="token punctuation">=</span><span class="token attr-value">ON</span>
+<span class="token attr-name">innodb_file_format</span><span class="token punctuation">=</span><span class="token attr-value">Barracuda</span>
+<span class="token attr-name">innodb_log_file_size</span><span class="token punctuation">=</span><span class="token attr-value">2G</span>
+
+<span class="token comment">#忘记密码时使用</span>
+<span class="token comment">#skip-grant-tables</span>
+<span class="token comment">#设置协议认证方式</span>
+<span class="token attr-name">default_authentication_plugin</span><span class="token punctuation">=</span><span class="token attr-value">mysql_native_password</span>
+<span class="token attr-name">secure-file-priv</span><span class="token punctuation">=</span><span class="token attr-value">/var/lib/mysql</span>
+<span class="token comment">#sql_mode=STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION</span>
+<span class="token attr-name">sql_mode</span> <span class="token punctuation">=</span> <span class="token attr-value">NO_AUTO_VALUE_ON_ZERO</span>
+<span class="token attr-name">max_connections</span><span class="token punctuation">=</span><span class="token attr-value">1000</span>
+
+[client]
+<span class="token attr-name">default-character-set</span><span class="token punctuation">=</span><span class="token attr-value">utf8</span>
+
+[mysql]
+<span class="token attr-name">default-character-set</span><span class="token punctuation">=</span><span class="token attr-value">utf8</span>
+
+[mysqld_safe]
+<span class="token attr-name">pid-file</span><span class="token punctuation">=</span><span class="token attr-value">/var/run/mysqld/mysqld.pid</span>
+<span class="token comment">#log-error=/var/log/mysql/mysqld.log</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 4，启动容器</span>
+docker run -d -p <span class="token number">3306</span>:3306 --name mysql5.7 <span class="token punctuation">\</span>
+--restart always <span class="token punctuation">\</span>
+--privileged<span class="token operator">=</span>true <span class="token punctuation">\</span>
+-e <span class="token assign-left variable">TZ</span><span class="token operator">=</span>Asia/Shanghai <span class="token punctuation">\</span>
+-e <span class="token assign-left variable">MYSQL_ROOT_PASSWORD</span><span class="token operator">=</span><span class="token number">123456</span> <span class="token punctuation">\</span>
+-e <span class="token assign-left variable">MYSQL_DATABASE</span><span class="token operator">=</span>jira <span class="token punctuation">\</span>
+-e <span class="token assign-left variable">MYSQL_USER</span><span class="token operator">=</span>jira <span class="token punctuation">\</span>
+-e <span class="token assign-left variable">MYSQL_PASSWORD</span><span class="token operator">=</span><span class="token number">123456</span> <span class="token punctuation">\</span>
+-v /root/.docker/mysql5.7/conf/my.cnf:/etc/mysql/conf.d/mysqld.cnf <span class="token punctuation">\</span>
+-v /root/.docker/mysql5.7/data:/var/lib/mysql <span class="token punctuation">\</span>
+-v /root/.docker/mysql5.7/logs:/var/log/mysql <span class="token punctuation">\</span>
+mysql:5.7
+
+<span class="token comment"># 5，授权远程访问</span>
+CREATE DATABASE jira CHARACTER SET utf8mb4 COLLATE utf8mb4_bin<span class="token punctuation">;</span>
+CREATE <span class="token environment constant">USER</span> jira IDENTIFIED BY <span class="token string">'jira'</span><span class="token punctuation">;</span>
+GRANT ALL PRIVILEGES ON *.* TO <span class="token string">'jira'</span> @<span class="token string">'%'</span> IDENTIFIED BY <span class="token string">'jira'</span> WITH GRANT OPTION<span class="token punctuation">;</span>
+GRANT ALL PRIVILEGES ON *.* TO <span class="token string">'jira'</span> @<span class="token string">'localhost'</span> IDENTIFIED BY <span class="token string">'jira'</span> WITH GRANT OPTION<span class="token punctuation">;</span>
+FLUSH PRIVILEGES<span class="token punctuation">;</span>
+
+
+<span class="token comment"># 6，开放端口</span>
+firewall-cmd --zone<span class="token operator">=</span>public --add-port<span class="token operator">=</span><span class="token number">3306</span>/tcp --permanent
+firewall-cmd --reload<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="创建jira目录"><a href="#创建jira目录" class="headerlink" title="创建jira目录"></a>创建<code>jira</code>目录</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">mkdir</span> -p /root/.docker/atlassian
+<span class="token function">mkdir</span> -p /root/.docker/atlassian/jira<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>  <code>tips：有时要，chmod -R 777 atlassian</code><br>  <code>tips：atlassian目录如果不创建在root下面，否则会报错</code></p>
+<h4 id="下载破解文件"><a href="#下载破解文件" class="headerlink" title="下载破解文件"></a>下载破解文件</h4><p>  下载破解包：<a target="_blank" rel="noopener" href="https://gitee.com/pengzhile/atlassian-agent/attach_files/283101/download">atlassian-agent-v1.2.3</a> ，放到<code>/root/.docker/atlassian</code>目录下面</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">scp</span> atlassian-agent.jar root@10.211.55.81:/tmp
+<span class="token function">cp</span> atlassian-agent.jar /root/.docker/atlassian<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h4 id="编写jira对应Dockerfile文件"><a href="#编写jira对应Dockerfile文件" class="headerlink" title="编写jira对应Dockerfile文件"></a>编写<code>jira</code>对应<code>Dockerfile</code>文件</h4><p>  确保：<code>docker pull cptactionhank/atlassian-jira-software:latest</code></p>
+<pre class="line-numbers language-dockerfile" data-language="dockerfile"><code class="language-dockerfile"><span class="token keyword">FROM</span> cptactionhank/atlassian<span class="token punctuation">-</span>jira<span class="token punctuation">-</span>software<span class="token punctuation">:</span>latest
+
+<span class="token keyword">USER</span> root
+
+<span class="token comment"># 将代理破解包加入容器</span>
+<span class="token keyword">COPY</span> <span class="token string">"atlassian-agent.jar"</span> /opt/atlassian/jira/
+
+<span class="token comment"># 设置启动加载代理包</span>
+<span class="token keyword">RUN</span> echo <span class="token string">'export CATALINA_OPTS="-javaagent:/opt/atlassian/jira/atlassian-agent.jar ${CATALINA_OPTS}"'</span> <span class="token punctuation">&gt;</span><span class="token punctuation">&gt;</span> /opt/atlassian/jira/bin/setenv.sh<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="构建镜像"><a href="#构建镜像" class="headerlink" title="构建镜像"></a>构建镜像</h4><p>  在<code>/root/.docker/atlassian</code>目录下执行</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">
+<span class="token builtin class-name">cd</span> /root/.docker/atlassian
+docker build -t jira/jira:latest <span class="token builtin class-name">.</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>  <code>注意：命令最后有一个空格和点</code><br>  执行完毕之后，在末尾显示 <code>Successfully built … </code>代表执行成功。</p>
+<h4 id="启动容器"><a href="#启动容器" class="headerlink" title="启动容器"></a>启动容器</h4><p>  在<code>/root/.docker/atlassian</code>目录下执行:</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">docker run -d -p <span class="token number">8089</span>:8080 <span class="token punctuation">\</span>
+--name jira <span class="token punctuation">\</span>
+--restart unless-stopped <span class="token punctuation">\</span>
+-e <span class="token assign-left variable">TZ</span><span class="token operator">=</span>Asia/Shanghai <span class="token punctuation">\</span>
+-v /root/.docker/atlassian:/var/atlassian/jira <span class="token punctuation">\</span>
+-v /root/.docker/atlassian/logs:/opt/atlassian/jira/logs <span class="token punctuation">\</span>
+-v /etc/localtime:/etc/localtime <span class="token punctuation">\</span>
+jira/jira:latest<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="浏览器界面进行设置"><a href="#浏览器界面进行设置" class="headerlink" title="浏览器界面进行设置"></a>浏览器界面进行设置</h4><p>  输入地址：<code>http://IP地址:8089</code>，一步步配置下去，直到配置<code>数据库</code>，尽量选<code>Msql:5.7</code>.</p>
+<h4 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h4><p>  确保<code>MSQL</code>配置<code>my.cnf</code></p>
+<pre class="line-numbers language-properties" data-language="properties"><code class="language-properties">[mysqld]
+<span class="token attr-name">pid-file</span><span class="token punctuation">=</span><span class="token attr-value">/var/run/mysqld/mysqld.pid</span>
+<span class="token attr-name">socket</span><span class="token punctuation">=</span><span class="token attr-value">/var/run/mysqld/mysqld.sock</span>
+
+<span class="token attr-name">default-storage-engine</span><span class="token punctuation">=</span><span class="token attr-value">INNODB</span>
+<span class="token attr-name">character_set_server</span><span class="token punctuation">=</span><span class="token attr-value">utf8mb4</span>
+<span class="token attr-name">innodb_default_row_format</span><span class="token punctuation">=</span><span class="token attr-value">DYNAMIC</span>
+<span class="token attr-name">innodb_large_prefix</span><span class="token punctuation">=</span><span class="token attr-value">ON</span>
+<span class="token attr-name">innodb_file_format</span><span class="token punctuation">=</span><span class="token attr-value">Barracuda</span>
+<span class="token attr-name">innodb_log_file_size</span><span class="token punctuation">=</span><span class="token attr-value">2G</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>  确保<code>MSQL</code>数据库<code>5.7</code>,及<code>utf8mb4</code>，<code>utf8mb4_bin</code></p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">CREATE</span> <span class="token keyword">DATABASE</span> jira <span class="token keyword">CHARACTER</span> <span class="token keyword">SET</span> utf8mb4 <span class="token keyword">COLLATE</span> utf8mb4_bin<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h4 id="生成破解许可"><a href="#生成破解许可" class="headerlink" title="生成破解许可"></a>生成破解许可</h4><p>  直到<code>配置许可</code>时，在<code>/root/.docker/atlassian</code>目录下执行:</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">java <span class="token operator">-</span>jar atlassian<span class="token operator">-</span>agent<span class="token punctuation">.</span>jar <span class="token operator">-</span>d <span class="token operator">-</span>m <span class="token operator">*</span><span class="token operator">*</span><span class="token operator">*</span><span class="token annotation punctuation">@163.com</span> <span class="token operator">-</span>n <span class="token operator">*</span><span class="token operator">*</span><span class="token operator">*</span> <span class="token operator">-</span>p jira <span class="token operator">-</span>o http<span class="token operator">:</span><span class="token operator">/</span><span class="token operator">/</span>IP <span class="token operator">-</span>s BXLB<span class="token operator">-</span>ZOUP<span class="token operator">-</span>KBKK<span class="token operator">-</span>KYOK
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>  根据<code>Server ID</code> 生成<code>license Key</code>, 复制生成的<code>KEY</code>，点击<code>Next</code>。<br><br></p>
+<blockquote>
+<p>-p jira(安装的是jira产品)，具体的可以根据-p进行参考<br>-m <a href="mailto:jira@jira.com">jira@jira.com</a>(随意写)<br>-n jira(随意写)<br>-o <a target="_blank" rel="noopener" href="https://jira.com/">https://jira.com</a> (随意写)<br>-s BXLB-ZOUP-KBKK-KYOK (即jira显示的服务器ID)</p>
+</blockquote>
+<h4 id="创建账户"><a href="#创建账户" class="headerlink" title="创建账户"></a>创建账户</h4><p>  破解后，继续设置账户即可。</p>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
     </div>
 
     
@@ -670,19 +794,7 @@ $content-desktop-large = 900px<span aria-hidden="true" class="line-numbers-rows"
   <div class="popular-posts-header">相关文章</div>
   <ul class="popular-posts">
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/post/dd42c2af.html" rel="bookmark">Hexo博客实现自动部署阿里云服务器</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/post/20e74403.html" rel="bookmark">hexo之404 跳转</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/post/2c523943.html" rel="bookmark">hexo之永久链接</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/post/58bb50d8.html" rel="bookmark">hexo之主题更新问题处理</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/post/346628a2.html" rel="bookmark">hexo之修改文章样式</a></div>
+      <div class="popular-posts-title"><a href="/post/afb30e04.html" rel="bookmark">Centos下Jira8.x版本安装与破解</a></div>
     </li>
   </ul>
 
@@ -736,7 +848,7 @@ $content-desktop-large = 900px<span aria-hidden="true" class="line-numbers-rows"
   </li>
   <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="https://www.xiaosige.com/post/e20d3e6e.html" title="Hexo之修改内容区域的宽度">https://www.xiaosige.com/post/e20d3e6e.html</a>
+      <a href="https://www.xiaosige.com/post/4ed27834.html" title="Docker中搭建Jira">https://www.xiaosige.com/post/4ed27834.html</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -745,20 +857,17 @@ $content-desktop-large = 900px<span aria-hidden="true" class="line-numbers-rows"
 </div>
 
           <div class="post-tags">
-              <a href="/tags/hexo/" rel="tag"><i class="fa fa-tag"></i> hexo</a>
+              <a href="/tags/Jira/" rel="tag"><i class="fa fa-tag"></i> Jira</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/post/91a443ec.html" rel="prev" title="Hexo之网站标题栏背景颜色">
-                  <i class="fa fa-chevron-left"></i> Hexo之网站标题栏背景颜色
-                </a>
             </div>
             <div class="post-nav-item">
-                <a href="/post/6d38bae0.html" rel="next" title="Hexo之修改Logo字体">
-                  Hexo之修改Logo字体 <i class="fa fa-chevron-right"></i>
+                <a href="/post/a00f9d53.html" rel="next" title="centos8安装docker">
+                  centos8安装docker <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
@@ -904,7 +1013,7 @@ $content-desktop-large = 900px<span aria-hidden="true" class="line-numbers-rows"
 
 
   <script src="https://cdn.jsdelivr.net/npm/quicklink@2.1.0/dist/quicklink.umd.js" integrity="sha256-KK3rvmDcW72MSl9jzzNZWlQjZNrRzAuGhAQ+0SFOg7Q=" crossorigin="anonymous"></script>
-  <script class="next-config" data-name="quicklink" type="application/json">{&quot;enable&quot;:true,&quot;home&quot;:true,&quot;archive&quot;:true,&quot;delay&quot;:true,&quot;timeout&quot;:3000,&quot;priority&quot;:true,&quot;ignores&quot;:null,&quot;url&quot;:&quot;https:&#x2F;&#x2F;www.xiaosige.com&#x2F;post&#x2F;e20d3e6e.html&quot;}</script>
+  <script class="next-config" data-name="quicklink" type="application/json">{&quot;enable&quot;:true,&quot;home&quot;:true,&quot;archive&quot;:true,&quot;delay&quot;:true,&quot;timeout&quot;:3000,&quot;priority&quot;:true,&quot;ignores&quot;:null,&quot;url&quot;:&quot;https:&#x2F;&#x2F;www.xiaosige.com&#x2F;post&#x2F;4ed27834.html&quot;}</script>
   <script src="/js/third-party/quicklink.js"></script>
 <script src="/js/third-party/comments/livere.js"></script>
 
