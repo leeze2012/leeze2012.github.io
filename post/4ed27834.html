@@ -124,7 +124,7 @@
         <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
         <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">31</span></a></li>
         <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">22</span></a></li>
-        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">78</span></a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">79</span></a></li>
         <li class="menu-item menu-item-welfare"><a href="/welfare" rel="section"><i class="fa fa-star fa-fw"></i>收藏</a></li>
         <li class="menu-item menu-item-photos"><a href="/photos" rel="section"><i class="fa fa-camera-retro fa-fw"></i>相册</a></li>
         <li class="menu-item menu-item-links"><a href="/links" rel="section"><i class="fa fa-link fa-fw"></i>友链</a></li>
@@ -200,7 +200,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">78</span>
+          <span class="site-state-item-count">79</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -642,14 +642,14 @@ canvas#canvas {
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>3.9k</span>
+      <span>3.8k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>4 分钟</span>
+      <span>3 分钟</span>
     </span>
 </div>
 
@@ -746,15 +746,15 @@ firewall-cmd --reload<span aria-hidden="true" class="line-numbers-rows"><span></
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">scp</span> atlassian-agent.jar root@10.211.55.81:/tmp
 <span class="token function">cp</span> atlassian-agent.jar /root/.docker/atlassian<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <h4 id="编写jira对应Dockerfile文件"><a href="#编写jira对应Dockerfile文件" class="headerlink" title="编写jira对应Dockerfile文件"></a>编写<code>jira</code>对应<code>Dockerfile</code>文件</h4><p>  确保：<code>docker pull cptactionhank/atlassian-jira-software:latest</code></p>
-<pre class="line-numbers language-dockerfile" data-language="dockerfile"><code class="language-dockerfile">FROM cptactionhank/atlassian-jira-software:latest
+<pre class="line-numbers language-dockerfile" data-language="dockerfile"><code class="language-dockerfile"><span class="token keyword">FROM</span> cptactionhank/atlassian<span class="token punctuation">-</span>jira<span class="token punctuation">-</span>software<span class="token punctuation">:</span>latest
 
-USER root
+<span class="token keyword">USER</span> root
 
-# 将代理破解包加入容器
-COPY "atlassian-agent.jar" /opt/atlassian/jira/
+<span class="token comment"># 将代理破解包加入容器</span>
+<span class="token keyword">COPY</span> <span class="token string">"atlassian-agent.jar"</span> /opt/atlassian/jira/
 
-# 设置启动加载代理包
-RUN echo 'export CATALINA_OPTS="-javaagent:/opt/atlassian/jira/atlassian-agent.jar ${CATALINA_OPTS}"' &gt;&gt; /opt/atlassian/jira/bin/setenv.sh<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token comment"># 设置启动加载代理包</span>
+<span class="token keyword">RUN</span> echo <span class="token string">'export CATALINA_OPTS="-javaagent:/opt/atlassian/jira/atlassian-agent.jar ${CATALINA_OPTS}"'</span> <span class="token punctuation">&gt;</span><span class="token punctuation">&gt;</span> /opt/atlassian/jira/bin/setenv.sh<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h4 id="构建镜像"><a href="#构建镜像" class="headerlink" title="构建镜像"></a>构建镜像</h4><p>  在<code>/root/.docker/atlassian</code>目录下执行</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">
 <span class="token builtin class-name">cd</span> /root/.docker/atlassian
@@ -871,6 +871,9 @@ jira/jira:latest<span aria-hidden="true" class="line-numbers-rows"><span></span>
 
           <div class="post-nav">
             <div class="post-nav-item">
+                <a href="/post/cb326ecf.html" rel="prev" title="Docker 查看端口占用列表">
+                  <i class="fa fa-chevron-left"></i> Docker 查看端口占用列表
+                </a>
             </div>
             <div class="post-nav-item">
                 <a href="/post/a00f9d53.html" rel="next" title="centos8安装docker">

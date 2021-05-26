@@ -64,6 +64,31 @@ lrwxrwxrwx. <span class="token number">1</span> root root <span class="token num
       </tags>
   </entry>
   <entry>
+    <title>Docker 查看端口占用列表</title>
+    <url>/post/cb326ecf.html</url>
+    <content><![CDATA[<p>  我们在部署新项目时，不知道启动的容器都占用了那些端口，docker ps 眼花缭乱。我们可以使用netstat看一下。</p>
+<a id="more"></a>
+
+<p>  查看启动的容器占用的列表命令:</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">netstat</span> -nlp <span class="token operator">|</span><span class="token function">grep</span> docker-proxy<span class="token operator">|</span><span class="token function">awk</span> <span class="token string">'{print <span class="token variable">$4</span>}'</span><span class="token operator">|</span><span class="token function">sort</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>  执行结果：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@loaclhost mongodb<span class="token punctuation">]</span><span class="token comment"># netstat -nlp |grep docker-proxy|awk '{print $4}'|sort</span>
+<span class="token number">0.0</span>.0.0:27017
+<span class="token number">0.0</span>.0.0:3306
+<span class="token number">0.0</span>.0.0:3307
+<span class="token number">0.0</span>.0.0:9000
+:::27017
+:::3306
+:::3307
+:::9000<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
+      <categories>
+        <category>Docker</category>
+      </categories>
+      <tags>
+        <tag>Docker</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Docker中搭建Jira</title>
     <url>/post/4ed27834.html</url>
     <content><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>  JIRA 是 Atlassian 公司出品的项目与事务跟踪工具，被广泛应用于缺陷跟踪、客户服务、需求收集、流程审批、任务跟踪、项目跟踪和敏捷管理等工作领域。<br>  Centos下安装参考：<a href="/post/afb30e04.html" title="Centos下Jira8.x版本安装与破解">Centos下Jira8.x版本安装与破解</a>。<br>  下面介绍是采用<code>docker</code>来进行部署。</p>
@@ -152,15 +177,15 @@ firewall-cmd --reload<span aria-hidden="true" class="line-numbers-rows"><span></
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">scp</span> atlassian-agent.jar root@10.211.55.81:/tmp
 <span class="token function">cp</span> atlassian-agent.jar /root/.docker/atlassian<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <h4 id="编写jira对应Dockerfile文件"><a href="#编写jira对应Dockerfile文件" class="headerlink" title="编写jira对应Dockerfile文件"></a>编写<code>jira</code>对应<code>Dockerfile</code>文件</h4><p>  确保：<code>docker pull cptactionhank/atlassian-jira-software:latest</code></p>
-<pre class="line-numbers language-dockerfile" data-language="dockerfile"><code class="language-dockerfile">FROM cptactionhank/atlassian-jira-software:latest
+<pre class="line-numbers language-dockerfile" data-language="dockerfile"><code class="language-dockerfile"><span class="token keyword">FROM</span> cptactionhank/atlassian<span class="token punctuation">-</span>jira<span class="token punctuation">-</span>software<span class="token punctuation">:</span>latest
 
-USER root
+<span class="token keyword">USER</span> root
 
-# 将代理破解包加入容器
-COPY "atlassian-agent.jar" /opt/atlassian/jira/
+<span class="token comment"># 将代理破解包加入容器</span>
+<span class="token keyword">COPY</span> <span class="token string">"atlassian-agent.jar"</span> /opt/atlassian/jira/
 
-# 设置启动加载代理包
-RUN echo 'export CATALINA_OPTS="-javaagent:/opt/atlassian/jira/atlassian-agent.jar ${CATALINA_OPTS}"' &gt;&gt; /opt/atlassian/jira/bin/setenv.sh<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token comment"># 设置启动加载代理包</span>
+<span class="token keyword">RUN</span> echo <span class="token string">'export CATALINA_OPTS="-javaagent:/opt/atlassian/jira/atlassian-agent.jar ${CATALINA_OPTS}"'</span> <span class="token punctuation">&gt;</span><span class="token punctuation">&gt;</span> /opt/atlassian/jira/bin/setenv.sh<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h4 id="构建镜像"><a href="#构建镜像" class="headerlink" title="构建镜像"></a>构建镜像</h4><p>  在<code>/root/.docker/atlassian</code>目录下执行</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">
 <span class="token builtin class-name">cd</span> /root/.docker/atlassian
@@ -298,7 +323,7 @@ firewall-cmd --reload<span aria-hidden="true" class="line-numbers-rows"><span></
       </tags>
   </entry>
   <entry>
-    <title>docker安装portainer-ce2.0</title>
+    <title>Docker安装portainer-ce2.0</title>
     <url>/post/5086702b.html</url>
     <content><![CDATA[<h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>  Portainer是Docker的图形化管理工具，提供状态显示面板、应用模板快速部署、容器镜像网络数据卷的基本操作（包括上传下载镜像，创建容器等操作）、事件日志显示、容器控制台操作、Swarm集群和服务等集中管理和操作、登录用户管理和控制等功能。功能十分全面，基本能满足中小型单位对容器管理的全部需求。</p>
 <a id="more"></a>
@@ -403,7 +428,7 @@ firwall-cmd：是Linux提供的操作firewall的一个工具（服务）命令
       </tags>
   </entry>
   <entry>
-    <title>docker 安装 GitLab</title>
+    <title>Docker 安装 GitLab</title>
     <url>/post/6af4ceb4.html</url>
     <content><![CDATA[<h3 id="一，介绍"><a href="#一，介绍" class="headerlink" title="一，介绍"></a>一，介绍</h3><p>  GitLab 分为社区版（Community Edition，缩写为 CE）和 企业版（Enterprise Edition，缩写为 EE）。社区版是免费的，而企业版包含一些收费服务，一般来说个人开发者用社区版就足够了。</p>
 <a id="more"></a>
@@ -484,7 +509,7 @@ docker exec <span class="token punctuation">-</span>it gitlab update<span class=
       </tags>
   </entry>
   <entry>
-    <title>docker 安装mysql8并挂载数据</title>
+    <title>Docker 安装mysql8并挂载数据</title>
     <url>/post/d4875b9e.html</url>
     <content><![CDATA[<h3 id="下载镜像"><a href="#下载镜像" class="headerlink" title="下载镜像"></a>下载镜像</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># docker从仓库中拉取最新版的mysql镜像，默认获取最新的版本</span>
   docker pull mysql

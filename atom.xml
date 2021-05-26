@@ -6,7 +6,7 @@
   <link href="https://www.xiaosige.com/atom.xml" rel="self"/>
   
   <link href="https://www.xiaosige.com/"/>
-  <updated>2021-05-14T19:44:55.509Z</updated>
+  <updated>2021-05-26T18:36:08.227Z</updated>
   <id>https://www.xiaosige.com/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Docker 查看端口占用列表</title>
+    <link href="https://www.xiaosige.com/post/cb326ecf.html"/>
+    <id>https://www.xiaosige.com/post/cb326ecf.html</id>
+    <published>2021-05-26T18:30:16.000Z</published>
+    <updated>2021-05-26T18:36:08.227Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;  我们在部署新项目时，不知道启动的容器都占用了那些端口，docker ps 眼花缭乱。我们可以使用netstat看一下。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Docker" scheme="https://www.xiaosige.com/categories/Docker/"/>
+    
+    
+    <category term="Docker" scheme="https://www.xiaosige.com/tags/Docker/"/>
+    
+  </entry>
   
   <entry>
     <title>Docker中搭建Jira</title>
@@ -55,11 +74,11 @@
   </entry>
   
   <entry>
-    <title>docker安装portainer-ce2.0</title>
+    <title>Docker安装portainer-ce2.0</title>
     <link href="https://www.xiaosige.com/post/5086702b.html"/>
     <id>https://www.xiaosige.com/post/5086702b.html</id>
     <published>2021-05-10T07:44:46.000Z</published>
-    <updated>2021-05-13T04:01:12.274Z</updated>
+    <updated>2021-05-26T18:38:37.023Z</updated>
     
     
     <summary type="html">&lt;h3 id=&quot;介绍&quot;&gt;&lt;a href=&quot;#介绍&quot; class=&quot;headerlink&quot; title=&quot;介绍&quot;&gt;&lt;/a&gt;介绍&lt;/h3&gt;&lt;p&gt;  Portainer是Docker的图形化管理工具，提供状态显示面板、应用模板快速部署、容器镜像网络数据卷的基本操作（包括上传下载镜像，创建容器等操作）、事件日志显示、容器控制台操作、Swarm集群和服务等集中管理和操作、登录用户管理和控制等功能。功能十分全面，基本能满足中小型单位对容器管理的全部需求。&lt;/p&gt;</summary>
@@ -93,11 +112,11 @@
   </entry>
   
   <entry>
-    <title>docker 安装 GitLab</title>
+    <title>Docker 安装 GitLab</title>
     <link href="https://www.xiaosige.com/post/6af4ceb4.html"/>
     <id>https://www.xiaosige.com/post/6af4ceb4.html</id>
     <published>2021-05-09T12:12:04.000Z</published>
-    <updated>2021-05-13T03:59:59.101Z</updated>
+    <updated>2021-05-26T18:38:37.016Z</updated>
     
     
     <summary type="html">&lt;h3 id=&quot;一，介绍&quot;&gt;&lt;a href=&quot;#一，介绍&quot; class=&quot;headerlink&quot; title=&quot;一，介绍&quot;&gt;&lt;/a&gt;一，介绍&lt;/h3&gt;&lt;p&gt;  GitLab 分为社区版（Community Edition，缩写为 CE）和 企业版（Enterprise Edition，缩写为 EE）。社区版是免费的，而企业版包含一些收费服务，一般来说个人开发者用社区版就足够了。&lt;/p&gt;</summary>
@@ -112,11 +131,11 @@
   </entry>
   
   <entry>
-    <title>docker 安装mysql8并挂载数据</title>
+    <title>Docker 安装mysql8并挂载数据</title>
     <link href="https://www.xiaosige.com/post/d4875b9e.html"/>
     <id>https://www.xiaosige.com/post/d4875b9e.html</id>
     <published>2021-04-17T22:12:51.000Z</published>
-    <updated>2021-05-12T20:17:14.791Z</updated>
+    <updated>2021-05-26T18:38:37.029Z</updated>
     
     
     <summary type="html">&lt;h3 id=&quot;下载镜像&quot;&gt;&lt;a href=&quot;#下载镜像&quot; class=&quot;headerlink&quot; title=&quot;下载镜像&quot;&gt;&lt;/a&gt;下载镜像&lt;/h3&gt;&lt;pre class=&quot;line-numbers language-bash&quot; data-language=&quot;bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# docker从仓库中拉取最新版的mysql镜像，默认获取最新的版本&lt;/span&gt;
@@ -385,29 +404,6 @@
     
     
     <category term="MySQL" scheme="https://www.xiaosige.com/tags/MySQL/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>git使用ls-files统计代码行数的命令</title>
-    <link href="https://www.xiaosige.com/post/d7d45238.html"/>
-    <id>https://www.xiaosige.com/post/d7d45238.html</id>
-    <published>2020-10-20T15:03:30.000Z</published>
-    <updated>2020-10-20T15:06:53.934Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;  需要注意，这里统计的是git仓库中所有被跟踪文件的代码行数。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="Linux" scheme="https://www.xiaosige.com/categories/Linux/"/>
-    
-    <category term="Git" scheme="https://www.xiaosige.com/categories/Linux/Git/"/>
-    
-    
-    <category term="Linux" scheme="https://www.xiaosige.com/tags/Linux/"/>
-    
-    <category term="Git" scheme="https://www.xiaosige.com/tags/Git/"/>
     
   </entry>
   

@@ -15,8 +15,29 @@
     <atom:link href="https://www.xiaosige.com/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>因上努力，果上随缘！</description>
-    <pubDate>Fri, 14 May 2021 19:44:55 GMT</pubDate>
+    <pubDate>Wed, 26 May 2021 18:36:08 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>Docker 查看端口占用列表</title>
+      <link>https://www.xiaosige.com/post/cb326ecf.html</link>
+      <guid>https://www.xiaosige.com/post/cb326ecf.html</guid>
+      <pubDate>Wed, 26 May 2021 18:30:16 GMT</pubDate>
+      
+      <description>&lt;p&gt;  我们在部署新项目时，不知道启动的容器都占用了那些端口，docker ps 眼花缭乱。我们可以使用netstat看一下。&lt;/p&gt;</description>
+      
+      
+      
+      
+      <category domain="https://www.xiaosige.com/categories/Docker/">Docker</category>
+      
+      
+      <category domain="https://www.xiaosige.com/tags/Docker/">Docker</category>
+      
+      
+      <comments>https://www.xiaosige.com/post/cb326ecf.html#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>Docker中搭建Jira</title>
@@ -61,7 +82,7 @@
     </item>
     
     <item>
-      <title>docker安装portainer-ce2.0</title>
+      <title>Docker安装portainer-ce2.0</title>
       <link>https://www.xiaosige.com/post/5086702b.html</link>
       <guid>https://www.xiaosige.com/post/5086702b.html</guid>
       <pubDate>Mon, 10 May 2021 07:44:46 GMT</pubDate>
@@ -103,7 +124,7 @@
     </item>
     
     <item>
-      <title>docker 安装 GitLab</title>
+      <title>Docker 安装 GitLab</title>
       <link>https://www.xiaosige.com/post/6af4ceb4.html</link>
       <guid>https://www.xiaosige.com/post/6af4ceb4.html</guid>
       <pubDate>Sun, 09 May 2021 12:12:04 GMT</pubDate>
@@ -124,7 +145,7 @@
     </item>
     
     <item>
-      <title>docker 安装mysql8并挂载数据</title>
+      <title>Docker 安装mysql8并挂载数据</title>
       <link>https://www.xiaosige.com/post/d4875b9e.html</link>
       <guid>https://www.xiaosige.com/post/d4875b9e.html</guid>
       <pubDate>Sat, 17 Apr 2021 22:12:51 GMT</pubDate>
@@ -425,31 +446,6 @@
       
       
       <comments>https://www.xiaosige.com/post/6c06d7af.html#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>git使用ls-files统计代码行数的命令</title>
-      <link>https://www.xiaosige.com/post/d7d45238.html</link>
-      <guid>https://www.xiaosige.com/post/d7d45238.html</guid>
-      <pubDate>Tue, 20 Oct 2020 15:03:30 GMT</pubDate>
-      
-      <description>&lt;p&gt;  需要注意，这里统计的是git仓库中所有被跟踪文件的代码行数。&lt;/p&gt;</description>
-      
-      
-      
-      
-      <category domain="https://www.xiaosige.com/categories/Linux/">Linux</category>
-      
-      <category domain="https://www.xiaosige.com/categories/Linux/Git/">Git</category>
-      
-      
-      <category domain="https://www.xiaosige.com/tags/Linux/">Linux</category>
-      
-      <category domain="https://www.xiaosige.com/tags/Git/">Git</category>
-      
-      
-      <comments>https://www.xiaosige.com/post/d7d45238.html#disqus_thread</comments>
       
     </item>
     
