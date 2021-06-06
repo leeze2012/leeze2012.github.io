@@ -4,7 +4,7 @@
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.3.0">
+<meta name="generator" content="Hexo 5.4.0">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="https://static.xiaosige.com/img/favicon.png">
@@ -23,7 +23,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.css" integrity="sha256-no0c5ccDODBwp+9hSmV5VvPpKwHCpbVzXHexIkupM6U=" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.js" integrity="sha256-a5YRB27CcBwBFcT5EF/f3E4vzIqyHrSR878nseNYw64=" crossorigin="anonymous"></script>
 
-<script class="next-config" data-name="main" type="application/json">{&quot;hostname&quot;:&quot;www.xiaosige.com&quot;,&quot;root&quot;:&quot;&#x2F;&quot;,&quot;images&quot;:&quot;&#x2F;images&quot;,&quot;scheme&quot;:&quot;Gemini&quot;,&quot;version&quot;:&quot;8.4.0&quot;,&quot;exturl&quot;:false,&quot;sidebar&quot;:{&quot;position&quot;:&quot;left&quot;,&quot;display&quot;:&quot;post&quot;,&quot;padding&quot;:18,&quot;offset&quot;:12},&quot;copycode&quot;:true,&quot;bookmark&quot;:{&quot;enable&quot;:false,&quot;color&quot;:&quot;#222&quot;,&quot;save&quot;:&quot;auto&quot;},&quot;fancybox&quot;:true,&quot;mediumzoom&quot;:false,&quot;lazyload&quot;:true,&quot;pangu&quot;:false,&quot;comments&quot;:{&quot;style&quot;:&quot;tabs&quot;,&quot;active&quot;:&quot;livere&quot;,&quot;storage&quot;:true,&quot;lazyload&quot;:true,&quot;nav&quot;:null,&quot;activeClass&quot;:&quot;livere&quot;},&quot;motion&quot;:{&quot;enable&quot;:true,&quot;async&quot;:false,&quot;transition&quot;:{&quot;post_block&quot;:&quot;fadeIn&quot;,&quot;post_header&quot;:&quot;fadeInDown&quot;,&quot;post_body&quot;:&quot;fadeInDown&quot;,&quot;coll_header&quot;:&quot;fadeInLeft&quot;,&quot;sidebar&quot;:&quot;fadeInUp&quot;}},&quot;prism&quot;:false,&quot;i18n&quot;:{&quot;placeholder&quot;:&quot;搜索...&quot;,&quot;empty&quot;:&quot;没有找到任何搜索结果：${query}&quot;,&quot;hits_time&quot;:&quot;找到 ${hits} 个搜索结果（用时 ${time} 毫秒）&quot;,&quot;hits&quot;:&quot;找到 ${hits} 个搜索结果&quot;},&quot;path&quot;:&quot;&#x2F;search.xml&quot;,&quot;localsearch&quot;:{&quot;enable&quot;:true,&quot;trigger&quot;:&quot;auto&quot;,&quot;top_n_per_article&quot;:1,&quot;unescape&quot;:false,&quot;preload&quot;:true}}</script>
+<script class="next-config" data-name="main" type="application/json">{&quot;hostname&quot;:&quot;www.xiaosige.com&quot;,&quot;root&quot;:&quot;&#x2F;&quot;,&quot;images&quot;:&quot;&#x2F;images&quot;,&quot;scheme&quot;:&quot;Gemini&quot;,&quot;version&quot;:&quot;8.5.0&quot;,&quot;exturl&quot;:false,&quot;sidebar&quot;:{&quot;position&quot;:&quot;left&quot;,&quot;display&quot;:&quot;post&quot;,&quot;padding&quot;:18,&quot;offset&quot;:12},&quot;copycode&quot;:true,&quot;bookmark&quot;:{&quot;enable&quot;:false,&quot;color&quot;:&quot;#222&quot;,&quot;save&quot;:&quot;auto&quot;},&quot;fancybox&quot;:true,&quot;mediumzoom&quot;:false,&quot;lazyload&quot;:true,&quot;pangu&quot;:false,&quot;comments&quot;:{&quot;style&quot;:&quot;tabs&quot;,&quot;active&quot;:&quot;livere&quot;,&quot;storage&quot;:true,&quot;lazyload&quot;:true,&quot;nav&quot;:null,&quot;activeClass&quot;:&quot;livere&quot;},&quot;motion&quot;:{&quot;enable&quot;:true,&quot;async&quot;:false,&quot;transition&quot;:{&quot;post_block&quot;:&quot;fadeIn&quot;,&quot;post_header&quot;:&quot;fadeInDown&quot;,&quot;post_body&quot;:&quot;fadeInDown&quot;,&quot;coll_header&quot;:&quot;fadeInLeft&quot;,&quot;sidebar&quot;:&quot;fadeInUp&quot;}},&quot;prism&quot;:false,&quot;i18n&quot;:{&quot;placeholder&quot;:&quot;搜索...&quot;,&quot;empty&quot;:&quot;没有找到任何搜索结果：${query}&quot;,&quot;hits_time&quot;:&quot;找到 ${hits} 个搜索结果（用时 ${time} 毫秒）&quot;,&quot;hits&quot;:&quot;找到 ${hits} 个搜索结果&quot;},&quot;path&quot;:&quot;&#x2F;search.xml&quot;,&quot;localsearch&quot;:{&quot;enable&quot;:true,&quot;trigger&quot;:&quot;auto&quot;,&quot;top_n_per_article&quot;:1,&quot;unescape&quot;:false,&quot;preload&quot;:true}}</script><script src="/js/config.js"></script>
 <meta name="description" content="SpringBoot项目引入外部jar包是非常方便的。   1，首先在src同级目录建一个lib文件夹，将第三方jar包放到这个文件内，比如我将ojdbc6.jar 这个jar包放到这个地方。  2，接着我们需要在pom.xml文件里配置jar的maven坐标，不过这个坐标比较特殊，我们需要直接定位到我们上一步添加的文件，而不是从Maven仓库里面去下载，以ojdbc6.jar为例，配置依赖如">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SpringBoot项目添加外部Jar包">
@@ -45,7 +45,14 @@
 <script class="next-config" data-name="page" type="application/json">{&quot;sidebar&quot;:&quot;&quot;,&quot;isHome&quot;:false,&quot;isPost&quot;:true,&quot;lang&quot;:&quot;zh-CN&quot;,&quot;comments&quot;:true,&quot;permalink&quot;:&quot;https:&#x2F;&#x2F;www.xiaosige.com&#x2F;post&#x2F;afccf6ff.html&quot;,&quot;path&quot;:&quot;post&#x2F;afccf6ff.html&quot;,&quot;title&quot;:&quot;SpringBoot项目添加外部Jar包&quot;}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">&quot;&quot;</script>
-<title>SpringBoot项目添加外部Jar包 | 小四儿</title><script src="/js/config.js"></script><!-- https://www.layuicdn.com/layui/css/layui.css -->
+<title>SpringBoot项目添加外部Jar包 | 小四儿</title>
+  
+
+  <script src="/js/third-party/analytics/baidu-analytics.js"></script>
+  <script async src="https://hm.baidu.com/hm.js?7a645cfcecaf8f711cd7518386adcc74"></script>
+
+
+<!-- https://www.layuicdn.com/layui/css/layui.css -->
 <script src="https://www.layuicdn.com/layui/layui.js"></script>
 
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
@@ -69,14 +76,7 @@
 
 
 <link rel="stylesheet" type="text/css" href="/zone/css/i_hover.css" />
-
-  
-
-  <script src="/js/third-party/analytics/baidu-analytics.js"></script>
-  <script async src="https://hm.baidu.com/hm.js?7a645cfcecaf8f711cd7518386adcc74"></script>
-
-
-
+<link rel="stylesheet" type="text/css" href="/css/injector/main.css" /><link rel="preload" as="style" href="/css/injector/light.css" /><link rel="preload" as="style" href="/css/injector/dark.css" />
   <noscript>
     <link rel="stylesheet" href="/css/noscript.css">
   </noscript>
@@ -654,7 +654,7 @@ canvas#canvas {
     <div class="post-body" itemprop="articleBody">
         <p>  SpringBoot项目引入外部jar包是非常方便的。</p>
 <p>  1，首先在src同级目录建一个lib文件夹，将第三方jar包放到这个文件内，比如我将ojdbc6.jar 这个jar包放到这个地方。<br>  2，接着我们需要在pom.xml文件里配置jar的maven坐标，不过这个坐标比较特殊，我们需要直接定位到我们上一步添加的文件，而不是从Maven仓库里面去下载，以ojdbc6.jar为例，配置依赖如下：</p>
-<a id="more"></a>
+<span id="more"></span>
 
 <pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">&gt;</span></span>
 	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">&gt;</span></span>com.oracle<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">&gt;</span></span>
@@ -780,7 +780,7 @@ canvas#canvas {
 
 
 
-    <div class="comments" id="lv-container" data-id="city" data-uid="MTAyMC80NjMzMy8yMjg0NA=="></div><script src="/js/comments.js"></script>
+    <div class="comments" id="lv-container" data-id="city" data-uid="MTAyMC80NjMzMy8yMjg0NA=="></div>
 </div>
   </main>
 
@@ -892,7 +892,7 @@ canvas#canvas {
   <script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/lozad@1.16.0/dist/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
-<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
 
   
 <script src="/js/third-party/search/local-search.js"></script>
@@ -1804,10 +1804,10 @@ gsap.to('.char', {
 <div class="moon-menu">
   <div class="moon-menu-items">
     
-    <div class="moon-menu-item" onclick="back2bottom()">
+    <div id="moon-menu-item-back2bottom" class="moon-menu-item" onclick="back2bottom()">
       <i class='fa fa-chevron-down'></i>    </div>
     
-    <div class="moon-menu-item" onclick="back2top()">
+    <div id="moon-menu-item-back2top" class="moon-menu-item" onclick="back2top()">
       <i class='fa fa-chevron-up'></i>    </div>
     
   </div>
