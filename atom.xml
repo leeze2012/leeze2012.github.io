@@ -6,7 +6,7 @@
   <link href="https://www.xiaosige.com/atom.xml" rel="self"/>
   
   <link href="https://www.xiaosige.com/"/>
-  <updated>2021-06-11T11:12:50.413Z</updated>
+  <updated>2021-06-11T11:49:56.715Z</updated>
   <id>https://www.xiaosige.com/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://www.xiaosige.com/post/55d89d2f.html"/>
     <id>https://www.xiaosige.com/post/55d89d2f.html</id>
     <published>2021-06-11T10:56:49.000Z</published>
-    <updated>2021-06-11T11:12:50.413Z</updated>
+    <updated>2021-06-11T11:49:56.715Z</updated>
     
     
     <summary type="html">&lt;h3 id=&quot;介绍&quot;&gt;&lt;a href=&quot;#介绍&quot; class=&quot;headerlink&quot; title=&quot;介绍&quot;&gt;&lt;/a&gt;介绍&lt;/h3&gt;&lt;p&gt;  在做项目时，需要实现对身份证,密码等敏感数据的加密，即不能以明文存储密码到数据库。&lt;br&gt;  以下采用&lt;code&gt;TypeHandler&lt;/code&gt;形式。&lt;/p&gt;</summary>
