@@ -6,7 +6,7 @@
   <link href="https://www.xiaosige.com/atom.xml" rel="self"/>
   
   <link href="https://www.xiaosige.com/"/>
-  <updated>2021-05-26T18:36:08.227Z</updated>
+  <updated>2021-06-11T11:12:50.413Z</updated>
   <id>https://www.xiaosige.com/</id>
   
   <author>
@@ -15,6 +15,44 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>mybatis plus 实现敏感数据的加密</title>
+    <link href="https://www.xiaosige.com/post/55d89d2f.html"/>
+    <id>https://www.xiaosige.com/post/55d89d2f.html</id>
+    <published>2021-06-11T10:56:49.000Z</published>
+    <updated>2021-06-11T11:12:50.413Z</updated>
+    
+    
+    <summary type="html">&lt;h3 id=&quot;介绍&quot;&gt;&lt;a href=&quot;#介绍&quot; class=&quot;headerlink&quot; title=&quot;介绍&quot;&gt;&lt;/a&gt;介绍&lt;/h3&gt;&lt;p&gt;  在做项目时，需要实现对身份证,密码等敏感数据的加密，即不能以明文存储密码到数据库。&lt;br&gt;  以下采用&lt;code&gt;TypeHandler&lt;/code&gt;形式。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Java" scheme="https://www.xiaosige.com/categories/Java/"/>
+    
+    
+    <category term="MyBatisPlus" scheme="https://www.xiaosige.com/tags/MyBatisPlus/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>MyBatis Plus - xml中如何使用autoResultMap构造的ResultMap</title>
+    <link href="https://www.xiaosige.com/post/b7c3ab9f.html"/>
+    <id>https://www.xiaosige.com/post/b7c3ab9f.html</id>
+    <published>2021-06-11T10:23:46.000Z</published>
+    <updated>2021-06-11T10:35:50.766Z</updated>
+    
+    
+    <summary type="html">&lt;h3 id=&quot;介绍&quot;&gt;&lt;a href=&quot;#介绍&quot; class=&quot;headerlink&quot; title=&quot;介绍&quot;&gt;&lt;/a&gt;介绍&lt;/h3&gt;&lt;p&gt;  MyBatis Plus有一个很大的缺陷，就是insert和select的时候使用的ResultMap是不同的，修复的办法就是在实体类上增加注解&lt;code&gt;@TableName(autoResultMap = true)&lt;/code&gt;。但是这个autoResultMap并不能使用在自定义的方法上，只在MyBatis Plus内置方法上生效。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Java" scheme="https://www.xiaosige.com/categories/Java/"/>
+    
+    
+    <category term="MyBatisPlus" scheme="https://www.xiaosige.com/tags/MyBatisPlus/"/>
+    
+  </entry>
   
   <entry>
     <title>Docker 查看端口占用列表</title>
@@ -366,44 +404,6 @@
     
     
     <category term="Tomcat" scheme="https://www.xiaosige.com/tags/Tomcat/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>CentOS查看软件安装路径及环境变量</title>
-    <link href="https://www.xiaosige.com/post/3d2df54e.html"/>
-    <id>https://www.xiaosige.com/post/3d2df54e.html</id>
-    <published>2020-10-20T15:39:37.000Z</published>
-    <updated>2020-10-20T15:54:53.504Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;  在Linux下，我们经常要查看软件的安装路径以及查看设置环境变量。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="Linux" scheme="https://www.xiaosige.com/categories/Linux/"/>
-    
-    
-    <category term="Linux" scheme="https://www.xiaosige.com/tags/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>MySQL备份数据库shell脚本</title>
-    <link href="https://www.xiaosige.com/post/6c06d7af.html"/>
-    <id>https://www.xiaosige.com/post/6c06d7af.html</id>
-    <published>2020-10-20T15:12:05.000Z</published>
-    <updated>2020-10-20T15:34:22.226Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;  以下为MySQL备份数据库的sh脚本：&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="Linux" scheme="https://www.xiaosige.com/categories/Linux/"/>
-    
-    
-    <category term="MySQL" scheme="https://www.xiaosige.com/tags/MySQL/"/>
     
   </entry>
   
