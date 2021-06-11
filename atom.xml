@@ -6,7 +6,7 @@
   <link href="https://www.xiaosige.com/atom.xml" rel="self"/>
   
   <link href="https://www.xiaosige.com/"/>
-  <updated>2021-06-11T11:49:56.715Z</updated>
+  <updated>2021-06-11T19:42:18.525Z</updated>
   <id>https://www.xiaosige.com/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Docker安装Gitea</title>
+    <link href="https://www.xiaosige.com/post/853577ec.html"/>
+    <id>https://www.xiaosige.com/post/853577ec.html</id>
+    <published>2021-06-11T18:42:29.000Z</published>
+    <updated>2021-06-11T19:42:18.525Z</updated>
+    
+    
+    <summary type="html">&lt;h3 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h3&gt;&lt;p&gt;  Gitea是一个极易安装，运行非常快速，安装和使用体验良好的自建Git服务。采用Go作为后端语言，这使得只要生成一个可执行程序即可。并且他还支持跨平台，支持Linux、macOS和Windows以及各种架构，除了x86，amd64，还包括ARM和 PowerPC。&lt;/p&gt;
+&lt;p&gt;  Github地址：&lt;a href=&quot;https://github.com/go-gitea/gitea&quot;&gt;https://github.com/go-gitea/gitea&lt;/a&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Docker" scheme="https://www.xiaosige.com/categories/Docker/"/>
+    
+    
+    <category term="Gitea" scheme="https://www.xiaosige.com/tags/Gitea/"/>
+    
+  </entry>
   
   <entry>
     <title>mybatis plus 实现敏感数据的加密</title>
@@ -382,28 +402,6 @@
     
     
     <category term="JDBC" scheme="https://www.xiaosige.com/tags/JDBC/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Tomcat 8.5新安装环境初步配置优化</title>
-    <link href="https://www.xiaosige.com/post/686151b0.html"/>
-    <id>https://www.xiaosige.com/post/686151b0.html</id>
-    <published>2020-10-20T16:01:13.000Z</published>
-    <updated>2020-10-20T16:17:03.995Z</updated>
-    
-    
-    <summary type="html">&lt;h3 id=&quot;下载安装Tomcat&quot;&gt;&lt;a href=&quot;#下载安装Tomcat&quot; class=&quot;headerlink&quot; title=&quot;下载安装Tomcat&quot;&gt;&lt;/a&gt;下载安装Tomcat&lt;/h3&gt;&lt;pre class=&quot;line-numbers language-bash&quot; data-language=&quot;bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function&quot;&gt;wget&lt;/span&gt; http://mirrors.hust.edu.cn/apache/tomcat/tomcat-8/v8.5.37/bin/apache-tomcat-8.5.37.tar.gz
-&lt;span class=&quot;token function&quot;&gt;tar&lt;/span&gt; zxf apache-tomcat-8.5.37.tar.gz -C /usr/local
-&lt;span class=&quot;token function&quot;&gt;mv&lt;/span&gt; /usr/local/apache-tomcat-8.5.37 /usr/local/tomcat&lt;span aria-hidden=&quot;true&quot; class=&quot;line-numbers-rows&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;  tomcat是一个压缩包，下载完成后，只需要解压到安装目录即可。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="Linux" scheme="https://www.xiaosige.com/categories/Linux/"/>
-    
-    
-    <category term="Tomcat" scheme="https://www.xiaosige.com/tags/Tomcat/"/>
     
   </entry>
   
