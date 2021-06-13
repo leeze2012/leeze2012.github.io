@@ -6,7 +6,7 @@
   <link href="https://www.xiaosige.com/atom.xml" rel="self"/>
   
   <link href="https://www.xiaosige.com/"/>
-  <updated>2021-06-11T19:42:18.525Z</updated>
+  <updated>2021-06-13T12:24:18.342Z</updated>
   <id>https://www.xiaosige.com/</id>
   
   <author>
@@ -17,11 +17,31 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Docker使用Gitea+Drone实现持续集成(CI/CD)</title>
+    <link href="https://www.xiaosige.com/post/3abef87b.html"/>
+    <id>https://www.xiaosige.com/post/3abef87b.html</id>
+    <published>2021-06-12T22:19:21.000Z</published>
+    <updated>2021-06-13T12:24:18.342Z</updated>
+    
+    
+    <summary type="html">&lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;div class=&quot;note success no-icon&quot;&gt;&lt;p&gt;  在开发或生产环境中，我们经常会搞一套自动化部署方案（俗称一键部署）。比较流行的一种就是Gitlab+Jenkins实现方案，不过这种方案占用内存比较大，没有个8G内存，很难流畅运行，而且部署起来也不快。最近发现一款神器Drone，轻量级CI/DI工具，结合Gogs使用内存占用不到1G，几行脚本就能实现自动化部署，推荐给大家！&lt;/p&gt;
+&lt;/div&gt;</summary>
+    
+    
+    
+    <category term="Docker" scheme="https://www.xiaosige.com/categories/Docker/"/>
+    
+    
+    <category term="Drone" scheme="https://www.xiaosige.com/tags/Drone/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Docker安装Gitea</title>
     <link href="https://www.xiaosige.com/post/853577ec.html"/>
     <id>https://www.xiaosige.com/post/853577ec.html</id>
     <published>2021-06-11T18:42:29.000Z</published>
-    <updated>2021-06-11T19:42:18.525Z</updated>
+    <updated>2021-06-12T09:04:23.015Z</updated>
     
     
     <summary type="html">&lt;h3 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h3&gt;&lt;p&gt;  Gitea是一个极易安装，运行非常快速，安装和使用体验良好的自建Git服务。采用Go作为后端语言，这使得只要生成一个可执行程序即可。并且他还支持跨平台，支持Linux、macOS和Windows以及各种架构，除了x86，amd64，还包括ARM和 PowerPC。&lt;/p&gt;
@@ -113,18 +133,18 @@
   </entry>
   
   <entry>
-    <title>centos8安装docker</title>
+    <title>Centos8安装Docker</title>
     <link href="https://www.xiaosige.com/post/a00f9d53.html"/>
     <id>https://www.xiaosige.com/post/a00f9d53.html</id>
     <published>2021-05-10T08:17:18.000Z</published>
-    <updated>2021-05-13T09:49:06.011Z</updated>
+    <updated>2021-06-12T07:27:46.381Z</updated>
     
     
     <summary type="html">&lt;h3 id=&quot;准备&quot;&gt;&lt;a href=&quot;#准备&quot; class=&quot;headerlink&quot; title=&quot;准备&quot;&gt;&lt;/a&gt;准备&lt;/h3&gt;&lt;p&gt;  服务器版本:CentOS 8.2 64位&lt;/p&gt;</summary>
     
     
     
-    <category term="Docker" scheme="https://www.xiaosige.com/categories/Docker/"/>
+    <category term="Centos" scheme="https://www.xiaosige.com/categories/Centos/"/>
     
     
     <category term="Docker" scheme="https://www.xiaosige.com/tags/Docker/"/>
@@ -136,7 +156,7 @@
     <link href="https://www.xiaosige.com/post/5086702b.html"/>
     <id>https://www.xiaosige.com/post/5086702b.html</id>
     <published>2021-05-10T07:44:46.000Z</published>
-    <updated>2021-05-26T18:38:37.023Z</updated>
+    <updated>2021-06-12T08:33:35.984Z</updated>
     
     
     <summary type="html">&lt;h3 id=&quot;介绍&quot;&gt;&lt;a href=&quot;#介绍&quot; class=&quot;headerlink&quot; title=&quot;介绍&quot;&gt;&lt;/a&gt;介绍&lt;/h3&gt;&lt;p&gt;  Portainer是Docker的图形化管理工具，提供状态显示面板、应用模板快速部署、容器镜像网络数据卷的基本操作（包括上传下载镜像，创建容器等操作）、事件日志显示、容器控制台操作、Swarm集群和服务等集中管理和操作、登录用户管理和控制等功能。功能十分全面，基本能满足中小型单位对容器管理的全部需求。&lt;/p&gt;</summary>
@@ -378,30 +398,6 @@
     
     
     <category term="snowflake" scheme="https://www.xiaosige.com/tags/snowflake/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>解决JDBC连接MySQL 8异常</title>
-    <link href="https://www.xiaosige.com/post/bfc2af04.html"/>
-    <id>https://www.xiaosige.com/post/bfc2af04.html</id>
-    <published>2020-10-20T16:41:51.000Z</published>
-    <updated>2020-10-20T16:48:03.590Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;  安装MySQL 8，同时驱动也改为了8.0.16&lt;/p&gt;
-&lt;pre class=&quot;line-numbers language-xml&quot; data-language=&quot;xml&quot;&gt;&lt;code class=&quot;language-xml&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;dependency&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;
-    &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;groupId&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;mysql&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;groupId&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;
-    &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;artifactId&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;mysql-connector-java&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;artifactId&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;
-    &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;version&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;8.0.16&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;version&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;dependency&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;span aria-hidden=&quot;true&quot; class=&quot;line-numbers-rows&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;</summary>
-    
-    
-    
-    <category term="MySQL" scheme="https://www.xiaosige.com/categories/MySQL/"/>
-    
-    
-    <category term="JDBC" scheme="https://www.xiaosige.com/tags/JDBC/"/>
     
   </entry>
   

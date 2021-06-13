@@ -33,7 +33,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.xiaosige.com/post/5086702b/portainer001.png">
 <meta property="article:published_time" content="2021-05-10T07:44:46.000Z">
-<meta property="article:modified_time" content="2021-05-26T18:38:37.023Z">
+<meta property="article:modified_time" content="2021-06-12T08:33:35.984Z">
 <meta property="article:author" content="leeze">
 <meta property="article:tag" content="GitLab">
 <meta name="twitter:card" content="summary">
@@ -124,9 +124,9 @@
 <nav class="site-nav">
   <ul class="main-menu menu">
         <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
-        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">33</span></a></li>
-        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">22</span></a></li>
-        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">82</span></a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">34</span></a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">23</span></a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">83</span></a></li>
         <li class="menu-item menu-item-welfare"><a href="/welfare" rel="section"><i class="fa fa-star fa-fw"></i>收藏</a></li>
         <li class="menu-item menu-item-photos"><a href="/photos" rel="section"><i class="fa fa-camera-retro fa-fw"></i>相册</a></li>
         <li class="menu-item menu-item-links"><a href="/links" rel="section"><i class="fa fa-link fa-fw"></i>友链</a></li>
@@ -202,20 +202,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">82</span>
+          <span class="site-state-item-count">83</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">22</span>
+        <span class="site-state-item-count">23</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">33</span>
+        <span class="site-state-item-count">34</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -607,7 +607,7 @@ canvas#canvas {
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-05-27 02:38:37" itemprop="dateModified" datetime="2021-05-27T02:38:37+08:00">2021-05-27</time>
+        <time title="修改时间：2021-06-12 16:33:35" itemprop="dateModified" datetime="2021-06-12T16:33:35+08:00">2021-06-12</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -637,14 +637,14 @@ canvas#canvas {
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>1.2k</span>
+      <span>2k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
+      <span>2 分钟</span>
     </span>
 </div>
 
@@ -662,6 +662,7 @@ canvas#canvas {
 <li>拉取新的镜像<br>  老 版：   <code>portainer/portainer</code><br>  社区版： <code>portainer/portainer-ce</code><br>  企业版： <code>portainer/portainer-ee</code><pre class="line-numbers language-none"><code class="language-none">docker pull portainer/portainer-ce<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 <li>创建数据卷<pre class="line-numbers language-none"><code class="language-none">docker volume create portainer_data<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
   位置：<code>/var/lib/docker/volumes/portainer_data</code></li>
+<li>创建自己的网络<br>  创建我们固定的ip网段，可以防止服务器卡死宕机强制重启后，导致的容器ip自动重启后产生变化,而导致docker容器内部通过网段通信的问题<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">docker network create --subnet<span class="token operator">=</span><span class="token number">172.172</span>.0.0/24 --gateway <span class="token number">172.172</span>.0.1 docker-mynet <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 <li>启动新的容器<pre class="line-numbers language-none"><code class="language-none">docker run -d \
 -e TZ=Asia/Shanghai \
 --restart unless-stopped \
@@ -669,7 +670,22 @@ canvas#canvas {
 --name myportainer \
 -v /var/run/docker.sock:/var/run/docker.sock \
 -v portainer_data:/data \
-portainer/portainer-ce<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+portainer/portainer-ce<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+或者<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">docker run --name portainer <span class="token punctuation">\</span>
+--net docker-mynet --ip <span class="token number">172.172</span>.0.3 <span class="token punctuation">\</span>
+-p <span class="token number">9000</span>:9000 <span class="token punctuation">\</span>
+--restart<span class="token operator">=</span>always <span class="token punctuation">\</span>
+-v /var/run/docker.sock:/var/run/docker.sock <span class="token punctuation">\</span>
+-v /soft/docker/portainer/data:/data <span class="token punctuation">\</span>
+-v /soft/docker/portainer/public:/public 
+-d portainer/portainer <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<blockquote>
+<p>参数<br><code>--net</code> docker-mynet 指定网段<br><code>--ip 172.172.0.3</code> 指定ip 服务器启动后不会发生改变<br><code>--restart=always</code> 随着docker 启动而启动</p>
+</blockquote>
+  然而我们使用ip:9000却发现无法访问 ，是因为我们用<code>-v /soft/docker/portainer/public:/public</code> 将portainer的页面文件夹挂载在宿主机的<code>/soft/docker/portainer/public</code>目录下了，而且是个空文件夹，所以无法访问<blockquote>
+<p><a target="_blank" rel="noopener" href="https://files-cdn.cnblogs.com/files/blogs/680867/Portainer-CN.zip">https://files-cdn.cnblogs.com/files/blogs/680867/Portainer-CN.zip</a><br>使用上面的地址下载汉化文件，放置在/soft/docker/portainer/public 并解压<br>使用docker restart portainer 后，使用ip:9000即可访问（前提是要设置centos防火墙） </p>
+</blockquote>
+</li>
 <li>查看<br>  在游览器输入如下地址：<code>http://10.211.55.81:9000</code></li>
 </ol>
 <h3 id="连接远程docker"><a href="#连接远程docker" class="headerlink" title="连接远程docker"></a>连接远程docker</h3><ol>
@@ -770,8 +786,8 @@ systemctl restart docker<span aria-hidden="true" class="line-numbers-rows"><span
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/post/a00f9d53.html" rel="prev" title="centos8安装docker">
-                  <i class="fa fa-chevron-left"></i> centos8安装docker
+                <a href="/post/a00f9d53.html" rel="prev" title="Centos8安装Docker">
+                  <i class="fa fa-chevron-left"></i> Centos8安装Docker
                 </a>
             </div>
             <div class="post-nav-item">
@@ -810,13 +826,13 @@ systemctl restart docker<span aria-hidden="true" class="line-numbers-rows"><span
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">173k</span>
+    <span title="站点总字数">182k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">2:37</span>
+    <span title="站点阅读时长">2:45</span>
   </span>
 </div>
 <div class="busuanzi-count">

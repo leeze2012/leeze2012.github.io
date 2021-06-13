@@ -15,8 +15,30 @@
     <atom:link href="https://www.xiaosige.com/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>因上努力，果上随缘！</description>
-    <pubDate>Fri, 11 Jun 2021 19:42:18 GMT</pubDate>
+    <pubDate>Sun, 13 Jun 2021 12:24:18 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>Docker使用Gitea+Drone实现持续集成(CI/CD)</title>
+      <link>https://www.xiaosige.com/post/3abef87b.html</link>
+      <guid>https://www.xiaosige.com/post/3abef87b.html</guid>
+      <pubDate>Sat, 12 Jun 2021 22:19:21 GMT</pubDate>
+      
+      <description>&lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;div class=&quot;note success no-icon&quot;&gt;&lt;p&gt;  在开发或生产环境中，我们经常会搞一套自动化部署方案（俗称一键部署）。比较流行的一种就是Gitlab+Jenkins实现方案，不过这种方案占用内存比较大，没有个8G内存，很难流畅运行，而且部署起来也不快。最近发现一款神器Drone，轻量级CI/DI工具，结合Gogs使用内存占用不到1G，几行脚本就能实现自动化部署，推荐给大家！&lt;/p&gt;
+&lt;/div&gt;</description>
+      
+      
+      
+      
+      <category domain="https://www.xiaosige.com/categories/Docker/">Docker</category>
+      
+      
+      <category domain="https://www.xiaosige.com/tags/Drone/">Drone</category>
+      
+      
+      <comments>https://www.xiaosige.com/post/3abef87b.html#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>Docker安装Gitea</title>
@@ -125,7 +147,7 @@
     </item>
     
     <item>
-      <title>centos8安装docker</title>
+      <title>Centos8安装Docker</title>
       <link>https://www.xiaosige.com/post/a00f9d53.html</link>
       <guid>https://www.xiaosige.com/post/a00f9d53.html</guid>
       <pubDate>Mon, 10 May 2021 08:17:18 GMT</pubDate>
@@ -135,7 +157,7 @@
       
       
       
-      <category domain="https://www.xiaosige.com/categories/Docker/">Docker</category>
+      <category domain="https://www.xiaosige.com/categories/Centos/">Centos</category>
       
       
       <category domain="https://www.xiaosige.com/tags/Docker/">Docker</category>
@@ -418,32 +440,6 @@
       
       
       <comments>https://www.xiaosige.com/post/8515d6d4.html#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>解决JDBC连接MySQL 8异常</title>
-      <link>https://www.xiaosige.com/post/bfc2af04.html</link>
-      <guid>https://www.xiaosige.com/post/bfc2af04.html</guid>
-      <pubDate>Tue, 20 Oct 2020 16:41:51 GMT</pubDate>
-      
-      <description>&lt;p&gt;  安装MySQL 8，同时驱动也改为了8.0.16&lt;/p&gt;
-&lt;pre class=&quot;line-numbers language-xml&quot; data-language=&quot;xml&quot;&gt;&lt;code class=&quot;language-xml&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;dependency&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;
-    &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;groupId&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;mysql&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;groupId&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;
-    &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;artifactId&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;mysql-connector-java&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;artifactId&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;
-    &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;version&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;8.0.16&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;version&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;dependency&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;span aria-hidden=&quot;true&quot; class=&quot;line-numbers-rows&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;</description>
-      
-      
-      
-      
-      <category domain="https://www.xiaosige.com/categories/MySQL/">MySQL</category>
-      
-      
-      <category domain="https://www.xiaosige.com/tags/JDBC/">JDBC</category>
-      
-      
-      <comments>https://www.xiaosige.com/post/bfc2af04.html#disqus_thread</comments>
       
     </item>
     
