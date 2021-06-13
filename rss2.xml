@@ -63,7 +63,7 @@
     </item>
     
     <item>
-      <title>mybatis plus 实现敏感数据的加密</title>
+      <title>MyBatis-Plus 实现敏感数据的加密</title>
       <link>https://www.xiaosige.com/post/55d89d2f.html</link>
       <guid>https://www.xiaosige.com/post/55d89d2f.html</guid>
       <pubDate>Fri, 11 Jun 2021 10:56:49 GMT</pubDate>
@@ -76,7 +76,7 @@
       <category domain="https://www.xiaosige.com/categories/Java/">Java</category>
       
       
-      <category domain="https://www.xiaosige.com/tags/MyBatisPlus/">MyBatisPlus</category>
+      <category domain="https://www.xiaosige.com/tags/MyBatis-Plus/">MyBatis-Plus</category>
       
       
       <comments>https://www.xiaosige.com/post/55d89d2f.html#disqus_thread</comments>
@@ -84,7 +84,7 @@
     </item>
     
     <item>
-      <title>MyBatis Plus - xml中如何使用autoResultMap构造的ResultMap</title>
+      <title>MyBatis-Plus - xml中如何使用autoResultMap构造的ResultMap</title>
       <link>https://www.xiaosige.com/post/b7c3ab9f.html</link>
       <guid>https://www.xiaosige.com/post/b7c3ab9f.html</guid>
       <pubDate>Fri, 11 Jun 2021 10:23:46 GMT</pubDate>
@@ -97,7 +97,7 @@
       <category domain="https://www.xiaosige.com/categories/Java/">Java</category>
       
       
-      <category domain="https://www.xiaosige.com/tags/MyBatisPlus/">MyBatisPlus</category>
+      <category domain="https://www.xiaosige.com/tags/MyBatis-Plus/">MyBatis-Plus</category>
       
       
       <comments>https://www.xiaosige.com/post/b7c3ab9f.html#disqus_thread</comments>
