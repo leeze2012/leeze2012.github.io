@@ -24,26 +24,28 @@
   <script src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.js" integrity="sha256-a5YRB27CcBwBFcT5EF/f3E4vzIqyHrSR878nseNYw64=" crossorigin="anonymous"></script>
 
 <script class="next-config" data-name="main" type="application/json">{&quot;hostname&quot;:&quot;www.xiaosige.com&quot;,&quot;root&quot;:&quot;&#x2F;&quot;,&quot;images&quot;:&quot;&#x2F;images&quot;,&quot;scheme&quot;:&quot;Gemini&quot;,&quot;version&quot;:&quot;8.5.0&quot;,&quot;exturl&quot;:false,&quot;sidebar&quot;:{&quot;position&quot;:&quot;left&quot;,&quot;display&quot;:&quot;post&quot;,&quot;padding&quot;:18,&quot;offset&quot;:12},&quot;copycode&quot;:true,&quot;bookmark&quot;:{&quot;enable&quot;:false,&quot;color&quot;:&quot;#222&quot;,&quot;save&quot;:&quot;auto&quot;},&quot;fancybox&quot;:true,&quot;mediumzoom&quot;:false,&quot;lazyload&quot;:true,&quot;pangu&quot;:false,&quot;comments&quot;:{&quot;style&quot;:&quot;tabs&quot;,&quot;active&quot;:&quot;livere&quot;,&quot;storage&quot;:true,&quot;lazyload&quot;:true,&quot;nav&quot;:null,&quot;activeClass&quot;:&quot;livere&quot;},&quot;motion&quot;:{&quot;enable&quot;:true,&quot;async&quot;:false,&quot;transition&quot;:{&quot;post_block&quot;:&quot;fadeIn&quot;,&quot;post_header&quot;:&quot;fadeInDown&quot;,&quot;post_body&quot;:&quot;fadeInDown&quot;,&quot;coll_header&quot;:&quot;fadeInLeft&quot;,&quot;sidebar&quot;:&quot;fadeInUp&quot;}},&quot;prism&quot;:false,&quot;i18n&quot;:{&quot;placeholder&quot;:&quot;搜索...&quot;,&quot;empty&quot;:&quot;没有找到任何搜索结果：${query}&quot;,&quot;hits_time&quot;:&quot;找到 ${hits} 个搜索结果（用时 ${time} 毫秒）&quot;,&quot;hits&quot;:&quot;找到 ${hits} 个搜索结果&quot;},&quot;path&quot;:&quot;&#x2F;search.xml&quot;,&quot;localsearch&quot;:{&quot;enable&quot;:true,&quot;trigger&quot;:&quot;auto&quot;,&quot;top_n_per_article&quot;:1,&quot;unescape&quot;:false,&quot;preload&quot;:true}}</script><script src="/js/config.js"></script>
-<meta name="description" content="因上努力，果上随缘！">
-<meta property="og:type" content="website">
-<meta property="og:title" content="小四儿">
-<meta property="og:url" content="https://www.xiaosige.com/tags/Decimal/index.html">
+<meta name="description" content="什么是 悬虚镜像  悬虚镜像就是镜像没有仓库名或没有标签查询显示虚悬镜像，在列表中展示为 &lt;none&gt;:&lt;none&gt;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Docker 删除所有悬虚镜像（name 为none , tag 为 none）">
+<meta property="og:url" content="https://www.xiaosige.com/post/d2e31b5e.html">
 <meta property="og:site_name" content="小四儿">
-<meta property="og:description" content="因上努力，果上随缘！">
+<meta property="og:description" content="什么是 悬虚镜像  悬虚镜像就是镜像没有仓库名或没有标签查询显示虚悬镜像，在列表中展示为 &lt;none&gt;:&lt;none&gt;">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-06-13T17:30:37.000Z">
+<meta property="article:modified_time" content="2021-06-13T17:45:55.527Z">
 <meta property="article:author" content="leeze">
-<meta property="article:tag" content="小四儿 leeze">
+<meta property="article:tag" content="Docker">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://www.xiaosige.com/tags/Decimal/">
+<link rel="canonical" href="https://www.xiaosige.com/post/d2e31b5e.html">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{&quot;sidebar&quot;:&quot;&quot;,&quot;isHome&quot;:false,&quot;isPost&quot;:false,&quot;lang&quot;:&quot;zh-CN&quot;,&quot;comments&quot;:&quot;&quot;,&quot;permalink&quot;:&quot;&quot;,&quot;path&quot;:&quot;tags&#x2F;Decimal&#x2F;index.html&quot;,&quot;title&quot;:&quot;&quot;}</script>
+<script class="next-config" data-name="page" type="application/json">{&quot;sidebar&quot;:&quot;&quot;,&quot;isHome&quot;:false,&quot;isPost&quot;:true,&quot;lang&quot;:&quot;zh-CN&quot;,&quot;comments&quot;:true,&quot;permalink&quot;:&quot;https:&#x2F;&#x2F;www.xiaosige.com&#x2F;post&#x2F;d2e31b5e.html&quot;,&quot;path&quot;:&quot;post&#x2F;d2e31b5e.html&quot;,&quot;title&quot;:&quot;Docker 删除所有悬虚镜像（name 为none , tag 为 none）&quot;}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">&quot;&quot;</script>
-<title>标签: Decimal | 小四儿</title>
+<title>Docker 删除所有悬虚镜像（name 为none , tag 为 none） | 小四儿</title>
   
 
   <script src="/js/third-party/analytics/baidu-analytics.js"></script>
@@ -169,7 +171,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -182,6 +184,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF-%E6%82%AC%E8%99%9A%E9%95%9C%E5%83%8F"><span class="nav-number">1.</span> <span class="nav-text">什么是 悬虚镜像</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%82%AC%E8%99%9A%E9%95%9C%E5%83%8F-%E6%80%8E%E4%B9%88%E6%9D%A5%E7%9A%84"><span class="nav-number">2.</span> <span class="nav-text">悬虚镜像 怎么来的</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%A0%E9%99%A4%E6%82%AC%E8%99%9A%E9%95%9C%E5%83%8F"><span class="nav-number">3.</span> <span class="nav-text">删除悬虚镜像</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%A0%E9%99%A4%E6%B2%A1%E6%9C%89%E4%BD%BF%E7%94%A8%E7%9A%84%E9%95%9C%E5%83%8F"><span class="nav-number">4.</span> <span class="nav-text">删除没有使用的镜像</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PS"><span class="nav-number">5.</span> <span class="nav-text">PS</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -560,51 +563,212 @@ canvas#canvas {
 </noscript>
 
 
-    <div class="main-inner tag posts-collapse">
+    <div class="main-inner post posts-expand">
 
 
   
-  
-  
-  <div class="post-block">
-    <div class="post-content">
-      <div class="collection-title">
-        <h2 class="collection-header">Decimal
-          <small>标签</small>
-        </h2>
-      </div>
 
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.xiaosige.com/post/d2e31b5e.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://static.xiaosige.com/img/avatar.jpg">
+      <meta itemprop="name" content="leeze">
+      <meta itemprop="description" content="因上努力，果上随缘！">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小四儿">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Docker 删除所有悬虚镜像（name 为none , tag 为 none）
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
       
-    <div class="collection-year">
-      <span class="collection-header">2020</span>
+
+      <time title="创建时间：2021-06-14 01:30:37 / 修改时间：01:45:55" itemprop="dateCreated datePublished" datetime="2021-06-14T01:30:37+08:00">2021-06-14</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Docker/" itemprop="url" rel="index"><span itemprop="name">Docker</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+
+
+
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>745</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h3 id="什么是-悬虚镜像"><a href="#什么是-悬虚镜像" class="headerlink" title="什么是 悬虚镜像"></a>什么是 悬虚镜像</h3><p>  悬虚镜像就是镜像没有仓库名或没有标签查询显示虚悬镜像，在列表中展示为<code> &lt;none&gt;:&lt;none&gt;</code></p>
+<span id="more"></span>
+
+<h3 id="悬虚镜像-怎么来的"><a href="#悬虚镜像-怎么来的" class="headerlink" title="悬虚镜像 怎么来的"></a>悬虚镜像 怎么来的</h3><p>  有时候在构建新镜像的时候，为这个镜像打了一个已经存在的tag，此时Docker 会移除旧镜像上的tag,将这个tag 用在新的镜像上，此时旧镜像就变成了悬虚镜像, 或者构建新镜像报错时，也会生成一个悬虚镜像。</p>
+<h3 id="删除悬虚镜像"><a href="#删除悬虚镜像" class="headerlink" title="删除悬虚镜像"></a>删除悬虚镜像</h3><pre class="line-numbers language-docker" data-language="docker"><code class="language-docker">docker image prune<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="删除没有使用的镜像"><a href="#删除没有使用的镜像" class="headerlink" title="删除没有使用的镜像"></a>删除没有使用的镜像</h3><p>  在命令<code>docker image prune</code>加上参数<code>-a</code>，可以删除没有被任何容器使用的镜像。</p>
+<pre class="line-numbers language-docker" data-language="docker"><code class="language-docker">docker image prune <span class="token punctuation">-</span>a<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>  输入<code>y</code>即可删除。</p>
+<h3 id="PS"><a href="#PS" class="headerlink" title="PS"></a>PS</h3><pre class="line-numbers language-docker" data-language="docker"><code class="language-docker">docker images <span class="token punctuation">|</span> grep none <span class="token punctuation">|</span> awk <span class="token string">'{print $3}'</span> <span class="token punctuation">|</span> xargs docker rmi<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<pre class="line-numbers language-docker" data-language="docker"><code class="language-docker">
+docker ps <span class="token punctuation">-</span>a<span class="token punctuation">|</span>grep <span class="token string">"Exited"</span> <span class="token punctuation">|</span> awk <span class="token string">'{print $1}'</span> <span class="token punctuation">|</span> xargs docker stop
+docker ps <span class="token punctuation">-</span>a<span class="token punctuation">|</span>grep <span class="token string">"Exited"</span> <span class="token punctuation">|</span> awk <span class="token string">'{print $1}'</span> <span class="token punctuation">|</span> xargs docker rm
+docker images<span class="token punctuation">|</span>grep none<span class="token punctuation">|</span>awk <span class="token string">'{print $3}'</span><span class="token punctuation">|</span>xargs docker rmi
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-docker" data-language="docker"><code class="language-docker"><span class="token comment"># 添加定时任务，批量删除tag 为none 的镜像  ，释放磁盘空间</span>
+<span class="token punctuation">[</span>root@loaclhost<span class="token punctuation">]</span><span class="token punctuation">:</span>~<span class="token comment"># crontab -l</span>
+ */ * * * /usr/bin/docker rmi `docker images<span class="token punctuation">|</span>grep none<span class="token punctuation">|</span> awk <span class="token string">'{print $3}'</span>`
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-docker" data-language="docker"><code class="language-docker">docker rmi $(docker images <span class="token punctuation">-</span>f <span class="token string">"dangling=true"</span> <span class="token punctuation">-</span>q)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2020-08-22T00:13:41+08:00"
-              content="2020-08-22">
-          08-22
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/post/26f63a55.html" itemprop="url">
-            <span itemprop="name">js实现高精度计算</span>
-          </a>
-      </div>
-
+    
+    
+    
       
-    </header>
-  </article>
+  <div class="popular-posts-header">相关文章</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/post/cb326ecf.html" rel="bookmark">Docker 查看端口占用列表</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/post/a00f9d53.html" rel="bookmark">Centos8安装Docker</a></div>
+    </li>
+  </ul>
 
+
+    <footer class="post-footer">
+<div style="padding-top: 26px;">
+    
+
+    <div class="endlan">
+        <i></i>
+        <p>本文结束--- <img src="https://static.xiaosige.com/img/logo.png" style="display:inline-block;margin-bottom:-7px;height: 25px;"> ---感谢您的阅读</p>
     </div>
+
+
+    <p id="hitokoto" style="text-align:center;margin-top: 30px;font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, STKaiti, KaiTi, SimKai, DFKai-SB, 'Lato', 'PingFang SC', 'Microsoft YaHei', sans-serif;font-weight: bold;color: #999;">
+     正在加载一言...
+    </p>
+    <div style="margin-top: 30px;">
+      <img id="wechat_subscriber_qcode" src="https://static.xiaosige.com/img/reward-container-back.png" alt="leeze wechat" style="max-width: 100%;">
+    </div>
+    
+
+    
+</div>
+
+
+          <div class="reward-container">
+  <div></div>
+  <button onclick="document.querySelector('.post-reward').classList.toggle('active');">
+    打赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="https://static.xiaosige.com/img/wechatpay.png" alt="leeze 微信支付">
+        <span>微信支付</span>
+      </div>
+      <div>
+        <img src="https://static.xiaosige.com/img/alipay.png" alt="leeze 支付宝">
+        <span>支付宝</span>
+      </div>
+
   </div>
-  
-  
-  
+</div>
 
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>原作者： </strong>leeze
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://www.xiaosige.com/post/d2e31b5e.html" title="Docker 删除所有悬虚镜像（name 为none , tag 为 none）">https://www.xiaosige.com/post/d2e31b5e.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/Docker/" rel="tag"><i class="fa fa-tag"></i> Docker</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+            </div>
+            <div class="post-nav-item">
+                <a href="/post/3abef87b.html" rel="next" title="Docker使用Gitea+Drone实现持续集成(CI/CD)">
+                  Docker使用Gitea+Drone实现持续集成(CI/CD) <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments" id="lv-container" data-id="city" data-uid="MTAyMC80NjMzMy8yMjg0NA=="></div>
 </div>
   </main>
 
@@ -751,7 +915,7 @@ canvas#canvas {
 
 
   <script src="https://cdn.jsdelivr.net/npm/quicklink@2.1.0/dist/quicklink.umd.js" integrity="sha256-KK3rvmDcW72MSl9jzzNZWlQjZNrRzAuGhAQ+0SFOg7Q=" crossorigin="anonymous"></script>
-  <script class="next-config" data-name="quicklink" type="application/json">{&quot;enable&quot;:true,&quot;home&quot;:true,&quot;archive&quot;:true,&quot;delay&quot;:true,&quot;timeout&quot;:3000,&quot;priority&quot;:true,&quot;ignores&quot;:null,&quot;url&quot;:&quot;https:&#x2F;&#x2F;www.xiaosige.com&#x2F;tags&#x2F;Decimal&#x2F;&quot;}</script>
+  <script class="next-config" data-name="quicklink" type="application/json">{&quot;enable&quot;:true,&quot;home&quot;:true,&quot;archive&quot;:true,&quot;delay&quot;:true,&quot;timeout&quot;:3000,&quot;priority&quot;:true,&quot;ignores&quot;:null,&quot;url&quot;:&quot;https:&#x2F;&#x2F;www.xiaosige.com&#x2F;post&#x2F;d2e31b5e.html&quot;}</script>
   <script src="/js/third-party/quicklink.js"></script>
 <script src="/js/third-party/comments/livere.js"></script>
 

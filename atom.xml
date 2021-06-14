@@ -6,7 +6,7 @@
   <link href="https://www.xiaosige.com/atom.xml" rel="self"/>
   
   <link href="https://www.xiaosige.com/"/>
-  <updated>2021-06-13T12:24:18.342Z</updated>
+  <updated>2021-06-13T17:45:55.527Z</updated>
   <id>https://www.xiaosige.com/</id>
   
   <author>
@@ -17,11 +17,30 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Docker 删除所有悬虚镜像（name 为none , tag 为 none）</title>
+    <link href="https://www.xiaosige.com/post/d2e31b5e.html"/>
+    <id>https://www.xiaosige.com/post/d2e31b5e.html</id>
+    <published>2021-06-13T17:30:37.000Z</published>
+    <updated>2021-06-13T17:45:55.527Z</updated>
+    
+    
+    <summary type="html">&lt;h3 id=&quot;什么是-悬虚镜像&quot;&gt;&lt;a href=&quot;#什么是-悬虚镜像&quot; class=&quot;headerlink&quot; title=&quot;什么是 悬虚镜像&quot;&gt;&lt;/a&gt;什么是 悬虚镜像&lt;/h3&gt;&lt;p&gt;  悬虚镜像就是镜像没有仓库名或没有标签查询显示虚悬镜像，在列表中展示为&lt;code&gt; &amp;lt;none&amp;gt;:&amp;lt;none&amp;gt;&lt;/code&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Docker" scheme="https://www.xiaosige.com/categories/Docker/"/>
+    
+    
+    <category term="Docker" scheme="https://www.xiaosige.com/tags/Docker/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Docker使用Gitea+Drone实现持续集成(CI/CD)</title>
     <link href="https://www.xiaosige.com/post/3abef87b.html"/>
     <id>https://www.xiaosige.com/post/3abef87b.html</id>
     <published>2021-06-12T22:19:21.000Z</published>
-    <updated>2021-06-13T12:24:18.342Z</updated>
+    <updated>2021-06-13T18:20:24.486Z</updated>
     
     
     <summary type="html">&lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;div class=&quot;note success no-icon&quot;&gt;&lt;p&gt;  在开发或生产环境中，我们经常会搞一套自动化部署方案（俗称一键部署）。比较流行的一种就是Gitlab+Jenkins实现方案，不过这种方案占用内存比较大，没有个8G内存，很难流畅运行，而且部署起来也不快。最近发现一款神器Drone，轻量级CI/DI工具，结合Gogs使用内存占用不到1G，几行脚本就能实现自动化部署，推荐给大家！&lt;/p&gt;
@@ -379,25 +398,6 @@
     
     
     <category term="Redis" scheme="https://www.xiaosige.com/tags/Redis/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>雪花算法实现-分布式系统</title>
-    <link href="https://www.xiaosige.com/post/8515d6d4.html"/>
-    <id>https://www.xiaosige.com/post/8515d6d4.html</id>
-    <published>2020-10-20T16:53:39.000Z</published>
-    <updated>2020-11-04T18:20:24.572Z</updated>
-    
-    
-    <summary type="html">&lt;h3 id=&quot;订单id的特殊性&quot;&gt;&lt;a href=&quot;#订单id的特殊性&quot; class=&quot;headerlink&quot; title=&quot;订单id的特殊性&quot;&gt;&lt;/a&gt;订单id的特殊性&lt;/h3&gt;&lt;p&gt;  订单数据非常庞大，将来一定会做分库分表。那么这种情况下， 要保证id的唯一，就不能靠数据库自增，而是自己来实现算法，生成唯一id。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="Java" scheme="https://www.xiaosige.com/categories/Java/"/>
-    
-    
-    <category term="snowflake" scheme="https://www.xiaosige.com/tags/snowflake/"/>
     
   </entry>
   
