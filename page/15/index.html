@@ -24,30 +24,26 @@
   <script src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.js" integrity="sha256-a5YRB27CcBwBFcT5EF/f3E4vzIqyHrSR878nseNYw64=" crossorigin="anonymous"></script>
 
 <script class="next-config" data-name="main" type="application/json">{&quot;hostname&quot;:&quot;www.xiaosige.com&quot;,&quot;root&quot;:&quot;&#x2F;&quot;,&quot;images&quot;:&quot;&#x2F;images&quot;,&quot;scheme&quot;:&quot;Gemini&quot;,&quot;version&quot;:&quot;8.5.0&quot;,&quot;exturl&quot;:false,&quot;sidebar&quot;:{&quot;position&quot;:&quot;left&quot;,&quot;display&quot;:&quot;post&quot;,&quot;padding&quot;:18,&quot;offset&quot;:12},&quot;copycode&quot;:true,&quot;bookmark&quot;:{&quot;enable&quot;:false,&quot;color&quot;:&quot;#222&quot;,&quot;save&quot;:&quot;auto&quot;},&quot;fancybox&quot;:true,&quot;mediumzoom&quot;:false,&quot;lazyload&quot;:true,&quot;pangu&quot;:false,&quot;comments&quot;:{&quot;style&quot;:&quot;tabs&quot;,&quot;active&quot;:&quot;livere&quot;,&quot;storage&quot;:true,&quot;lazyload&quot;:true,&quot;nav&quot;:null,&quot;activeClass&quot;:&quot;livere&quot;},&quot;motion&quot;:{&quot;enable&quot;:true,&quot;async&quot;:false,&quot;transition&quot;:{&quot;post_block&quot;:&quot;fadeIn&quot;,&quot;post_header&quot;:&quot;fadeInDown&quot;,&quot;post_body&quot;:&quot;fadeInDown&quot;,&quot;coll_header&quot;:&quot;fadeInLeft&quot;,&quot;sidebar&quot;:&quot;fadeInUp&quot;}},&quot;prism&quot;:false,&quot;i18n&quot;:{&quot;placeholder&quot;:&quot;搜索...&quot;,&quot;empty&quot;:&quot;没有找到任何搜索结果：${query}&quot;,&quot;hits_time&quot;:&quot;找到 ${hits} 个搜索结果（用时 ${time} 毫秒）&quot;,&quot;hits&quot;:&quot;找到 ${hits} 个搜索结果&quot;},&quot;path&quot;:&quot;&#x2F;search.xml&quot;,&quot;localsearch&quot;:{&quot;enable&quot;:true,&quot;trigger&quot;:&quot;auto&quot;,&quot;top_n_per_article&quot;:1,&quot;unescape&quot;:false,&quot;preload&quot;:true}}</script><script src="/js/config.js"></script>
-<meta name="description" content="了解nvm  目前主流的node版本管理工具有两种，nvm和n。两者差异挺大的。   总的来说，nvm有点类似于 Python 的 virtualenv 或者 Ruby 的 rvm，每个node版本的模块都会被安装在各自版本的沙箱里面（因此切换版本后模块需重新安装），因此考虑到需要时常对node版本进行切换测试兼容性和一些模块对node版本的限制，我选择了使用nvm作为管理工具，下面就来说说nvm">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Mac正确的安装和使用nvm">
-<meta property="og:url" content="https://www.xiaosige.com/post/c0a81ac4.html">
+<meta name="description" content="因上努力，果上随缘！">
+<meta property="og:type" content="website">
+<meta property="og:title" content="小四儿">
+<meta property="og:url" content="https://www.xiaosige.com/page/15/index.html">
 <meta property="og:site_name" content="小四儿">
-<meta property="og:description" content="了解nvm  目前主流的node版本管理工具有两种，nvm和n。两者差异挺大的。   总的来说，nvm有点类似于 Python 的 virtualenv 或者 Ruby 的 rvm，每个node版本的模块都会被安装在各自版本的沙箱里面（因此切换版本后模块需重新安装），因此考虑到需要时常对node版本进行切换测试兼容性和一些模块对node版本的限制，我选择了使用nvm作为管理工具，下面就来说说nvm">
+<meta property="og:description" content="因上努力，果上随缘！">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://www.xiaosige.com/post/c0a81ac4/nvmMac001.png">
-<meta property="article:published_time" content="2020-08-24T10:51:19.000Z">
-<meta property="article:modified_time" content="2021-01-01T17:58:52.645Z">
 <meta property="article:author" content="leeze">
-<meta property="article:tag" content="Nvm">
+<meta property="article:tag" content="小四儿 leeze">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://www.xiaosige.com/post/c0a81ac4/nvmMac001.png">
 
 
-<link rel="canonical" href="https://www.xiaosige.com/post/c0a81ac4.html">
+<link rel="canonical" href="https://www.xiaosige.com/page/15/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{&quot;sidebar&quot;:&quot;&quot;,&quot;isHome&quot;:false,&quot;isPost&quot;:true,&quot;lang&quot;:&quot;zh-CN&quot;,&quot;comments&quot;:true,&quot;permalink&quot;:&quot;https:&#x2F;&#x2F;www.xiaosige.com&#x2F;post&#x2F;c0a81ac4.html&quot;,&quot;path&quot;:&quot;post&#x2F;c0a81ac4.html&quot;,&quot;title&quot;:&quot;Mac正确的安装和使用nvm&quot;}</script>
+<script class="next-config" data-name="page" type="application/json">{&quot;sidebar&quot;:&quot;&quot;,&quot;isHome&quot;:true,&quot;isPost&quot;:false,&quot;lang&quot;:&quot;zh-CN&quot;,&quot;comments&quot;:&quot;&quot;,&quot;permalink&quot;:&quot;&quot;,&quot;path&quot;:&quot;page&#x2F;15&#x2F;index.html&quot;,&quot;title&quot;:&quot;&quot;}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">&quot;&quot;</script>
-<title>Mac正确的安装和使用nvm | 小四儿</title>
+<title>小四儿 - 心之所愿，无所不至！</title>
   
 
   <script src="/js/third-party/analytics/baidu-analytics.js"></script>
@@ -173,7 +169,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+    <div class="sidebar-inner sidebar-overview-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -186,7 +182,6 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%86%E8%A7%A3nvm"><span class="nav-number">1.</span> <span class="nav-text">了解nvm</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%A4%E8%AF%86nvm%E3%80%81node%E3%80%81npm"><span class="nav-number">2.</span> <span class="nav-text">认识nvm、node、npm</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8C%BA%E5%88%AB"><span class="nav-number">2.1.</span> <span class="nav-text">区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%B3%E7%B3%BB"><span class="nav-number">2.2.</span> <span class="nav-text">关系</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85"><span class="nav-number">3.</span> <span class="nav-text">安装</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%8D%E6%8E%A8%E8%8D%90%E7%9A%84%E5%AE%89%E8%A3%85%E6%96%B9%E6%B3%95"><span class="nav-number">3.1.</span> <span class="nav-text">不推荐的安装方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8E%A8%E8%8D%90%E7%9A%84%E5%AE%89%E8%A3%85%E6%96%B9%E6%B3%95"><span class="nav-number">3.2.</span> <span class="nav-text">推荐的安装方法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%8D%B8%E8%BD%BD%E5%B7%B2%E5%AE%89%E8%A3%85%E5%88%B0%E5%85%A8%E5%B1%80%E7%9A%84-node-npm"><span class="nav-number">3.2.1.</span> <span class="nav-text">卸载已安装到全局的 node&#x2F;npm</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-nvm"><span class="nav-number">3.2.2.</span> <span class="nav-text">安装 nvm</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8-cnpm-%E5%8A%A0%E9%80%9F-npm"><span class="nav-number">3.2.3.</span> <span class="nav-text">使用 cnpm 加速 npm</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#nvm%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="nav-number">4.</span> <span class="nav-text">nvm常用命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%99%84-MAC-%E7%9A%84-bash-profile"><span class="nav-number">5.</span> <span class="nav-text">附: MAC 的 .bash_profile</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -565,18 +560,17 @@ canvas#canvas {
 </noscript>
 
 
-    <div class="main-inner post posts-expand">
+    <div class="main-inner index posts-expand">
 
-
-  
+    
 
 
 <div class="post-block">
   
   
 
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://www.xiaosige.com/post/c0a81ac4.html">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://www.xiaosige.com/post/dfea82e5.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://static.xiaosige.com/img/avatar.jpg">
@@ -588,9 +582,9 @@ canvas#canvas {
       <meta itemprop="name" content="小四儿">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          Mac正确的安装和使用nvm
-        </h1>
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/post/dfea82e5.html" class="post-title-link" itemprop="url">Hexo之搭建个人博客</a>
+        </h2>
 
         <div class="post-meta-container">
           <div class="post-meta">
@@ -600,14 +594,14 @@ canvas#canvas {
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2020-08-24 18:51:19" itemprop="dateCreated datePublished" datetime="2020-08-24T18:51:19+08:00">2020-08-24</time>
+      <time title="创建时间：2019-08-26 12:23:00" itemprop="dateCreated datePublished" datetime="2019-08-26T12:23:00+08:00">2019-08-26</time>
     </span>
       <span class="post-meta-item">
         <span class="post-meta-item-icon">
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-01-02 01:58:52" itemprop="dateModified" datetime="2021-01-02T01:58:52+08:00">2021-01-02</time>
+        <time title="修改时间：2020-10-12 17:24:29" itemprop="dateModified" datetime="2020-10-12T17:24:29+08:00">2020-10-12</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -615,18 +609,11 @@ canvas#canvas {
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Mac/" itemprop="url" rel="index"><span itemprop="name">Mac</span></a>
+          <a href="/categories/hexo%E5%BB%BA%E7%AB%99/" itemprop="url" rel="index"><span itemprop="name">hexo建站</span></a>
         </span>
     </span>
 
   
-    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span id="busuanzi_value_page_pv"></span>
-    </span>
 
 
 
@@ -637,14 +624,14 @@ canvas#canvas {
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>4.5k</span>
+      <span>14k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>4 分钟</span>
+      <span>12 分钟</span>
     </span>
 </div>
 
@@ -655,221 +642,25 @@ canvas#canvas {
     
     
     <div class="post-body" itemprop="articleBody">
-        <h3 id="了解nvm"><a href="#了解nvm" class="headerlink" title="了解nvm"></a>了解nvm</h3><p>  目前主流的node版本管理工具有两种，nvm和n。两者差异挺大的。</p>
-<p>  总的来说，nvm有点类似于 Python 的 virtualenv 或者 Ruby 的 rvm，每个node版本的模块都会被安装在各自版本的沙箱里面（因此切换版本后模块需重新安装），因此考虑到需要时常对node版本进行切换测试兼容性和一些模块对node版本的限制，我选择了使用nvm作为管理工具，下面就来说说nvm的安装和使用过程。</p>
-<span id="more"></span>
-
-
-<h3 id="认识nvm、node、npm"><a href="#认识nvm、node、npm" class="headerlink" title="认识nvm、node、npm"></a>认识nvm、node、npm</h3><h4 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h4><ol>
-
-<li>nvm：nodejs 版本管理工具。</li>
-  也就是说：一个 nvm 可以管理很多 node 版本和 npm 版本。
-
-<p>  这个技术出现的原因， 是由于不同的项目node版本也不同，有的是5.0.1， 有的是6.3.2。 如果node出现版本不对，运行 某个应用时，很可能就会遇到各种莫名其妙的问题 。</p>
-<li>nodejs：在项目开发时的所需要的代码库。</li>
-<li>npm：nodejs 包管理工具。</li>
-  在安装的 nodejs 的时候，npm 也会跟着一起安装，它是包管理工具。
-
-<p>  npm 管理 nodejs 中的第三方插件。他的作用与Ruby中的 bundler及Java中的maven相同，都是对第三方依赖进行管理的。</p>
-</ol>
-  
-<h4 id="关系"><a href="#关系" class="headerlink" title="关系"></a>关系</h4><p>     nvm 管理 nodejs 和 npm 的版本</p>
-<p>     npm 可以管理 nodejs 的第三方插件</p>
-   <img data-src="/post/c0a81ac4/nvmMac001.png" class="" title="nvm、node、npm关系图">
-
-
-<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>  这里主要介绍mac的安装(linux可以参照),windows系统的话可以参考<a target="_blank" rel="noopener" href="https://cnodejs.org/topic/5338c5db7cbade005b023c98">windows</a></p>
-<h4 id="不推荐的安装方法"><a href="#不推荐的安装方法" class="headerlink" title="不推荐的安装方法"></a>不推荐的安装方法</h4><p>  一开始我是使用homebrew来安装的,安装命令如下:</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">brew <span class="token function">install</span> nvm<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>  安装完后，为了让你可以直接在shell使用nvm指令，必须在你的<code> .bash_profile</code> 加入以下这行（习惯把设定放在.bashrc的人可以把以下的.bash_profile改成.bashrc）(注:如果没有这个文件,可以touch创建)</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">source</span> <span class="token variable"><span class="token variable">$(</span>brew --prefix nvm<span class="token variable">)</span></span>/nvm.sh<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>  或者直接输入以下这行来加入</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ <span class="token builtin class-name">echo</span> <span class="token string">"source <span class="token variable"><span class="token variable">$(</span>brew --prefix nvm<span class="token variable">)</span></span>/nvm.sh"</span> <span class="token operator">&gt;&gt;</span> .bash_profile<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>  记得重新source你的 .bash_profile 来让设定生效</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ <span class="token builtin class-name">.</span> ~/.bash_profile<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>  OK，以上就完成了nvm的安裝。</p>
-<p>  我们来装一下 node v5.12.0</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">nvm <span class="token function">install</span> <span class="token number">5</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>  安装成功后,使用nvm use 来切换版本</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">nvm use v5.12.0<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>  如，出现错误如下:</p>
- <div class="note danger no-icon"><p>nvm is not compatible with the npm config “prefix” option: currently set to “/Users/fabian/.nvm/versions/node/v0.12.7”<br>Run <code>nvm use --delete-prefix v4.6.2</code> to unset it.
- </p>
-</div>
-<p>  所以只能安装提示,使用</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">nvm use --delete-prefix v4.6.2<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>  成功切换。</p>
-<p>  至于为什么用homebrew安装会出现上面的问题,可参考Github上的一个<a target="_blank" rel="noopener" href="https://github.com/nvm-sh/nvm/issues/855">issue</a>。</p>
-<p>  查看<a target="_blank" rel="noopener" href="https://github.com/nvm-sh/nvm">nvm文档</a>发现:文档中Installation 那一小节倒数第二行有一句Homebrew installation is not supported.，由此可见，没事儿还是要多看看文档。</p>
-<h4 id="推荐的安装方法"><a href="#推荐的安装方法" class="headerlink" title="推荐的安装方法"></a>推荐的安装方法</h4><h5 id="卸载已安装到全局的-node-npm"><a href="#卸载已安装到全局的-node-npm" class="headerlink" title="卸载已安装到全局的 node/npm"></a><em><strong>卸载已安装到全局的 node/npm</strong></em></h5><p>  如果之前是在官网下载的 node 安装包，运行后会自动安装在全局目录，其中</p>
-<p>  node 命令在 <code>/usr/local/bin/node</code> ，</p>
-<p>  npm 命令在全局 <code>node_modules</code> 目录中，具体路径为 <code>/usr/local/lib/node_modules/npm</code></p>
-<p>  安装 nvm 之后最好先删除下已安装的 node 和全局 node 模块：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">ls</span> -g --depth<span class="token operator">=</span><span class="token number">0</span> <span class="token comment">#查看已经安装在全局的模块，以便删除这些全局模块后再按照不同的 node 版本重新进行全局安装</span>
-
-<span class="token function">sudo</span> <span class="token function">rm</span> -rf /usr/local/lib/node_modules <span class="token comment">#删除全局 node_modules 目录</span>
-<span class="token function">sudo</span> <span class="token function">rm</span> /usr/local/bin/node <span class="token comment">#删除 node</span>
-<span class="token builtin class-name">cd</span>  /usr/local/bin <span class="token operator">&amp;&amp;</span> <span class="token function">ls</span> -l <span class="token operator">|</span> <span class="token function">grep</span> <span class="token string">"../lib/node_modules/"</span> <span class="token operator">|</span> <span class="token function">awk</span> <span class="token string">'{print <span class="token variable">$9</span>}'</span><span class="token operator">|</span> <span class="token function">xargs</span> <span class="token function">rm</span> <span class="token comment">#删除全局 node 模块注册的软链</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h5 id="安装-nvm"><a href="#安装-nvm" class="headerlink" title="安装 nvm"></a><em><strong>安装 nvm</strong></em></h5><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">curl</span> -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh <span class="token operator">|</span> <span class="token function">bash</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>  <code>如果报错</code>，解决办法：通过修改<mark> hosts </mark>解决此问题。</p>
-<p>  查询真实IP，在 <a target="_blank" rel="noopener" href="https://www.ipaddress.com/">https://www.ipaddress.com/</a> 查询 raw.githubusercontent.com 的真实IP。</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment">#修改hosts</span>
-<span class="token function">sudo</span> <span class="token function">vim</span> /etc/hosts
-
-<span class="token comment">#添加如下内容：</span>
-<span class="token number">199.232</span>.28.133 raw.githubusercontent.com<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>  安装完成后请重新打开终端环境，Mac 下推荐使用 oh-my-zsh 代替默认的 bash shell。 安装完成后,发现使用 <strong><mark class="label danger">nvm install stable 安装node速度很慢</mark></strong> ,原因嘛,大概大家都知道我大天朝的国情。 接下来介绍如何使用国内镜像快速安装node: 把环境变量 <code>NVM_NODEJS_ORG_MIRROR</code>, 那么我建议你加入到<code> .bash_profile</code> 文件中:</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># nvm</span>
-<span class="token builtin class-name">export</span> <span class="token assign-left variable">NVM_NODEJS_ORG_MIRROR</span><span class="token operator">=</span>https://npm.taobao.org/mirrors/node<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<p>  然后你可以继续非常方便地安装各个版本的 node 了.</p>
-<p><mark>查看</mark><font color="LightCoral" size="4"> node  </font>版本</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">nvm ls-remote     <span class="token comment"># 远端版本</span>
-nvm <span class="token function">ls</span>            <span class="token comment"># 本地已安装的版本</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-
-<p><mark>安装</mark><font color="LightCoral" size="4"> node </font>版本</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">nvm <span class="token function">install</span> node                            <span class="token comment"># 安装最新版本</span>
-nvm <span class="token function">install</span> <span class="token number">6.14</span>.4 <span class="token comment"># or 10.10.0, 8.9.1, etc # 安装指定版本</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-
-<p><mark>使用</mark><font color="LightCoral" size="4"> node </font>版本</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">nvm use node    <span class="token comment"># 使用最新版本</span>
-nvm use <span class="token number">12.13</span>.0 <span class="token comment"># 使用指定版本</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<p><mark>查看</mark><font color="LightCoral" size="4"> node  </font>版本 <em><mark class="label warning">安装位置</mark></em></p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">nvm <span class="token function">which</span> <span class="token number">5.0</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h5 id="使用-cnpm-加速-npm"><a href="#使用-cnpm-加速-npm" class="headerlink" title="使用 cnpm 加速 npm"></a><em><strong>使用 cnpm 加速 npm</strong></em></h5><p>  同理 nvm , npm 默认是从国外的源获取和下载包信息, 不慢才奇怪. 可以通过简单的 —registry 参数, 使用国内的镜像 <a target="_blank" rel="noopener" href="https://registry.npm.taobao.org/">https://registry.npm.taobao.org</a> :</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ <span class="token function">npm</span> --registry<span class="token operator">=</span>https://registry.npm.taobao.org <span class="token function">install</span> koa<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>  于是屏幕又哗啦哗啦地一大片输出</p>
-<div class="note default no-icon"><p>$ npm –registry=<a target="_blank" rel="noopener" href="https://registry.npm.taobao.org/">https://registry.npm.taobao.org</a> install koa<br>npm http GET <a target="_blank" rel="noopener" href="https://registry.npm.taobao.org/koa">https://registry.npm.taobao.org/koa</a><br>npm http 200 <a target="_blank" rel="noopener" href="https://registry.npm.taobao.org/koa">https://registry.npm.taobao.org/koa</a><br>…<br>npm http 200 <a target="_blank" rel="noopener" href="https://registry.npm.taobao.org/negotiator">https://registry.npm.taobao.org/negotiator</a><br>npm http 200 <a target="_blank" rel="noopener" href="https://registry.npm.taobao.org/keygrip">https://registry.npm.taobao.org/keygrip</a><br>koa<a href="/user/0">@0</a>.5.2 node_modules/koa<br>├── koa-compose<a href="/user/2">@2</a>.2.0<br>├── statuses<a href="/user/1">@1</a>.0.2<br>├── finished<a href="/user/1">@1</a>.1.1<br>├── escape-html<a href="/user/1">@1</a>.0.1<br>├── only<a href="/user/0">@0</a>.0.2<br>├── debug<a href="/user/0">@0</a>.8.0<br>├── fresh<a href="/user/0">@0</a>.2.2<br>├── type-is<a href="/user/1">@1</a>.0.1<br>├── delegates<a href="/user/0">@0</a>.0.3<br>├── mime<a href="/user/1">@1</a>.2.11<br>├── co<a href="/user/3">@3</a>.0.5<br>├── accepts<a href="/user/1">@1</a>.0.1 (negotiator<a href="/user/0">@0</a>.4.2)<br>└── cookies<a href="/user/0">@0</a>.4.0 (keygrip<a href="/user/1">@1</a>.0.0)</p>
-</div>
-
-<p>  但是毕竟镜像跟官方的 npm 源还是会有一个同步时间差异, 目前 cnpm 的默认同步时间间隔是 15 分钟. 如果你是模块发布者, 或者你想马上同步一个模块, 那么推荐你安装 cnpm cli:</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ <span class="token function">npm</span> --registry<span class="token operator">=</span>https://registry.npm.taobao.org <span class="token function">install</span> cnpm -g<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>  通过 cnpm 命令行, 你可以快速同步任意模块:</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ cnpm <span class="token function">sync</span> koa connect mocha<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>  呃, 我就是不想安装 cnpm cli 怎么办? 哈哈, 早就想到你会这么懒了, 于是我们还有一个 web 页面:</p>
-<p>  例如我想马上同步 koa, 直接打开浏览器: <a target="_blank" rel="noopener" href="https://npm.taobao.org/sync/koa">https://npm.taobao.org/sync/koa</a></p>
-<p>  或者你是命令行控, 通过 open 命令打开:</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ <span class="token function">open</span> https://npm.taobao.org/sync/koa<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>  如果你安装的模块依赖了 C++ 模块, 需要编译, 肯定会通过 node-gyp 来编译, node-gyp 在第一次编译的时候, 需要依赖 node 源代码, 于是又会去 node dist 下载, 于是大家又会吐槽, 怎么 npm 安装这么慢…</p>
-<p>  好吧, 于是又要提到 <code>--disturl</code> 参数, 通过七牛的镜像来下载:</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ <span class="token function">npm</span> --registry<span class="token operator">=</span>https://registry.npm.taobao.org --disturl<span class="token operator">=</span>https://npm.taobao.org/mirrors/node <span class="token function">install</span> microtime<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>  再次要提到 cnpm cli, 它已经默认将 –registry 和 –disturl 都配置好了, 谁用谁知道 如果不想使用cnpm cli，可以</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> config <span class="token builtin class-name">set</span> registry https://registry.npm.taobao.org --global
-<span class="token function">npm</span> config <span class="token builtin class-name">set</span> disturl https://npm.taobao.org/dist --global<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<p>  查看npm的配置</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> config <span class="token function">ls</span> <span class="token comment"># npm的配置</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h3 id="nvm常用命令"><a href="#nvm常用命令" class="headerlink" title="nvm常用命令"></a>nvm常用命令</h3><ol>
-<li> nvm install <version> ## 安装指定版本，可模糊安装，如：安装v4.4.0，既可nvm install v4.4.0，又可nvm install 4.4</version></li>
-<li> nvm uninstall <version> ## 删除已安装的指定版本，语法与install类似</version></li>
-<li> nvm use <version> ## 切换使用指定的版本node</version></li>
-<li> nvm ls ## 列出所有安装的版本</li>
-<li> nvm ls-remote ## 列出所以远程服务器的版本（官方node version list）</li>
-<li> nvm current ## 显示当前的版本</li>
-<li> nvm alias <name> <version> ## 给不同的版本号添加别名</version></name></li>
-<li> nvm unalias <name> ## 删除已定义的别名</name></li>
-<li> nvm reinstall-packages <version> ## 在当前版本node环境下，重新全局安装指定版本号的npm包</version></li>
-</ol>
-<h3 id="附-MAC-的-bash-profile"><a href="#附-MAC-的-bash-profile" class="headerlink" title="附: MAC 的 .bash_profile"></a>附: MAC 的 <code>.bash_profile</code></h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">export</span> <span class="token assign-left variable">NVM_DIR</span><span class="token operator">=</span><span class="token string">"<span class="token environment constant">$HOME</span>/.nvm"</span>
-<span class="token punctuation">[</span> -s <span class="token string">"<span class="token variable">$NVM_DIR</span>/nvm.sh"</span> <span class="token punctuation">]</span> <span class="token operator">&amp;&amp;</span> <span class="token punctuation">\</span>. <span class="token string">"<span class="token variable">$NVM_DIR</span>/nvm.sh"</span>  <span class="token comment"># This loads nvm</span>
-<span class="token punctuation">[</span> -s <span class="token string">"<span class="token variable">$NVM_DIR</span>/bash_completion"</span> <span class="token punctuation">]</span> <span class="token operator">&amp;&amp;</span> <span class="token punctuation">\</span>. <span class="token string">"<span class="token variable">$NVM_DIR</span>/bash_completion"</span>  <span class="token comment"># This loads nvm bash_completi    on</span>
- 
-<span class="token comment"># nvm 改为国内node镜像</span>
-<span class="token builtin class-name">export</span> <span class="token assign-left variable">NVM_NODEJS_ORG_MIRROR</span><span class="token operator">=</span>https://npm.taobao.org/mirrors/node<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
+          <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>    Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。hexo 博客在 Linux 系统中搭建是非常简单的，在 WIN 系统中比较复杂，我们接触的手机📱永远要比电脑的时间要多那么我们可以在安卓手机上使用 termux 来搭建，这样随时随地都可以写做和发表文章。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/post/dfea82e5.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
     </div>
 
     
     
     
-      
-
 
     <footer class="post-footer">
-<div style="padding-top: 26px;">
-    
-
-    <div class="endlan">
-        <i></i>
-        <p>本文结束--- <img src="https://static.xiaosige.com/img/logo.png" style="display:inline-block;margin-bottom:-7px;height: 25px;"> ---感谢您的阅读</p>
-    </div>
-
-
-    <p id="hitokoto" style="text-align:center;margin-top: 30px;font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, STKaiti, KaiTi, SimKai, DFKai-SB, 'Lato', 'PingFang SC', 'Microsoft YaHei', sans-serif;font-weight: bold;color: #999;">
-     正在加载一言...
-    </p>
-    <div style="margin-top: 30px;">
-      <img id="wechat_subscriber_qcode" src="https://static.xiaosige.com/img/reward-container-back.png" alt="leeze wechat" style="max-width: 100%;">
-    </div>
-    
-
-    
-</div>
-
-
-          <div class="reward-container">
-  <div></div>
-  <button onclick="document.querySelector('.post-reward').classList.toggle('active');">
-    打赏
-  </button>
-  <div class="post-reward">
-      <div>
-        <img src="https://static.xiaosige.com/img/wechatpay.png" alt="leeze 微信支付">
-        <span>微信支付</span>
-      </div>
-      <div>
-        <img src="https://static.xiaosige.com/img/alipay.png" alt="leeze 支付宝">
-        <span>支付宝</span>
-      </div>
-
-  </div>
-</div>
-
-          
-
-<div class="post-copyright">
-<ul>
-  <li class="post-copyright-author">
-      <strong>原作者： </strong>leeze
-  </li>
-  <li class="post-copyright-link">
-      <strong>本文链接：</strong>
-      <a href="https://www.xiaosige.com/post/c0a81ac4.html" title="Mac正确的安装和使用nvm">https://www.xiaosige.com/post/c0a81ac4.html</a>
-  </li>
-  <li class="post-copyright-license">
-    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
-  </li>
-</ul>
-</div>
-
-          <div class="post-tags">
-              <a href="/tags/Nvm/" rel="tag"><i class="fa fa-tag"></i> Nvm</a>
-          </div>
-
-        
-
-          <div class="post-nav">
-            <div class="post-nav-item">
-                <a href="/post/afb30e04.html" rel="prev" title="Centos下Jira8.x版本安装与破解">
-                  <i class="fa fa-chevron-left"></i> Centos下Jira8.x版本安装与破解
-                </a>
-            </div>
-            <div class="post-nav-item">
-                <a href="/post/afccf6ff.html" rel="next" title="SpringBoot项目添加外部Jar包">
-                  SpringBoot项目添加外部Jar包 <i class="fa fa-chevron-right"></i>
-                </a>
-            </div>
-          </div>
+        <div class="post-eof"></div>
+      
     </footer>
   </article>
 </div>
@@ -877,9 +668,119 @@ nvm use <span class="token number">12.13</span>.0 <span class="token comment"># 
 
 
 
+    
 
 
-    <div class="comments" id="lv-container" data-id="city" data-uid="MTAyMC80NjMzMy8yMjg0NA=="></div>
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://www.xiaosige.com/post/4a17b156.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://static.xiaosige.com/img/avatar.jpg">
+      <meta itemprop="name" content="leeze">
+      <meta itemprop="description" content="因上努力，果上随缘！">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小四儿">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/post/4a17b156.html" class="post-title-link" itemprop="url">Hello World</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2019-08-26 01:15:00" itemprop="dateCreated datePublished" datetime="2019-08-26T01:15:00+08:00">2019-08-26</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2020-10-12 17:08:05" itemprop="dateModified" datetime="2020-10-12T17:08:05+08:00">2020-10-12</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%B5%8B%E8%AF%95/" itemprop="url" rel="index"><span itemprop="name">测试</span></a>
+        </span>
+    </span>
+
+  
+
+
+
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>353</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo new <span class="token string">"My New Post"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/post/4a17b156.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/page/14/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><span class="page-number current">15</span>
+  </nav>
+
 </div>
   </main>
 
@@ -1026,7 +927,7 @@ nvm use <span class="token number">12.13</span>.0 <span class="token comment"># 
 
 
   <script src="https://cdn.jsdelivr.net/npm/quicklink@2.1.0/dist/quicklink.umd.js" integrity="sha256-KK3rvmDcW72MSl9jzzNZWlQjZNrRzAuGhAQ+0SFOg7Q=" crossorigin="anonymous"></script>
-  <script class="next-config" data-name="quicklink" type="application/json">{&quot;enable&quot;:true,&quot;home&quot;:true,&quot;archive&quot;:true,&quot;delay&quot;:true,&quot;timeout&quot;:3000,&quot;priority&quot;:true,&quot;ignores&quot;:null,&quot;url&quot;:&quot;https:&#x2F;&#x2F;www.xiaosige.com&#x2F;post&#x2F;c0a81ac4.html&quot;}</script>
+  <script class="next-config" data-name="quicklink" type="application/json">{&quot;enable&quot;:true,&quot;home&quot;:true,&quot;archive&quot;:true,&quot;delay&quot;:true,&quot;timeout&quot;:3000,&quot;priority&quot;:true,&quot;ignores&quot;:null,&quot;url&quot;:&quot;https:&#x2F;&#x2F;www.xiaosige.com&#x2F;page&#x2F;15&#x2F;&quot;}</script>
   <script src="/js/third-party/quicklink.js"></script>
 <script src="/js/third-party/comments/livere.js"></script>
 

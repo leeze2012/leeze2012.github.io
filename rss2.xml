@@ -15,8 +15,50 @@
     <atom:link href="https://www.xiaosige.com/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>因上努力，果上随缘！</description>
-    <pubDate>Mon, 14 Jun 2021 05:42:24 GMT</pubDate>
+    <pubDate>Thu, 17 Jun 2021 18:16:50 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>Linux 字符颜色输出</title>
+      <link>https://www.xiaosige.com/post/120400e.html</link>
+      <guid>https://www.xiaosige.com/post/120400e.html</guid>
+      <pubDate>Thu, 17 Jun 2021 18:06:32 GMT</pubDate>
+      
+      <description>&lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;  没啥的，搞点颜色看看。&lt;/p&gt;</description>
+      
+      
+      
+      
+      <category domain="https://www.xiaosige.com/categories/Linux/">Linux</category>
+      
+      
+      <category domain="https://www.xiaosige.com/tags/Linux/">Linux</category>
+      
+      
+      <comments>https://www.xiaosige.com/post/120400e.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>Docker安装部署Jenkins</title>
+      <link>https://www.xiaosige.com/post/78357a82.html</link>
+      <guid>https://www.xiaosige.com/post/78357a82.html</guid>
+      <pubDate>Thu, 17 Jun 2021 17:28:48 GMT</pubDate>
+      
+      <description>&lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;  记录下 Docker 下 Jenkins 的安装。&lt;br&gt;  DockerHub: &lt;a href=&quot;https://hub.docker.com/r/jenkins/jenkins/&quot;&gt;https://hub.docker.com/r/jenkins/jenkins/&lt;/a&gt;&lt;/p&gt;</description>
+      
+      
+      
+      
+      <category domain="https://www.xiaosige.com/categories/Docker/">Docker</category>
+      
+      
+      <category domain="https://www.xiaosige.com/tags/Gitea/">Gitea</category>
+      
+      
+      <comments>https://www.xiaosige.com/post/78357a82.html#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>Docker 删除所有悬虚镜像（name 为none , tag 为 none）</title>
@@ -398,48 +440,6 @@
       
       
       <comments>https://www.xiaosige.com/post/f556d83e.html#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>Shell脚本使用curl命令发送JSON数据</title>
-      <link>https://www.xiaosige.com/post/3aee04b1.html</link>
-      <guid>https://www.xiaosige.com/post/3aee04b1.html</guid>
-      <pubDate>Tue, 20 Oct 2020 17:16:06 GMT</pubDate>
-      
-      <description>&lt;p&gt;  在Linux使用命令行工具curl发送JSON数据需要把content-type设置为“application/json”。&lt;/p&gt;</description>
-      
-      
-      
-      
-      <category domain="https://www.xiaosige.com/categories/Linux/">Linux</category>
-      
-      
-      <category domain="https://www.xiaosige.com/tags/Linux/">Linux</category>
-      
-      
-      <comments>https://www.xiaosige.com/post/3aee04b1.html#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>Redis分布式锁实现类</title>
-      <link>https://www.xiaosige.com/post/8406c440.html</link>
-      <guid>https://www.xiaosige.com/post/8406c440.html</guid>
-      <pubDate>Tue, 20 Oct 2020 17:10:18 GMT</pubDate>
-      
-      <description>&lt;p&gt;  Redis分布式锁实现类，RedisDistributedLock。&lt;/p&gt;</description>
-      
-      
-      
-      
-      <category domain="https://www.xiaosige.com/categories/Java/">Java</category>
-      
-      
-      <category domain="https://www.xiaosige.com/tags/Redis/">Redis</category>
-      
-      
-      <comments>https://www.xiaosige.com/post/8406c440.html#disqus_thread</comments>
       
     </item>
     
