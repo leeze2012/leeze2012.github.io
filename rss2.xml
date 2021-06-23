@@ -15,8 +15,29 @@
     <atom:link href="https://www.xiaosige.com/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>因上努力，果上随缘！</description>
-    <pubDate>Thu, 17 Jun 2021 18:16:50 GMT</pubDate>
+    <pubDate>Tue, 22 Jun 2021 19:22:18 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>Docker 安装 Maven私服 Nexus3</title>
+      <link>https://www.xiaosige.com/post/a6836d41.html</link>
+      <guid>https://www.xiaosige.com/post/a6836d41.html</guid>
+      <pubDate>Tue, 22 Jun 2021 16:48:12 GMT</pubDate>
+      
+      <description>&lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;  Nexus 是Maven仓库管理器，如果你使用Maven，你可以从Maven中央仓库 下载所需要的构件（artifact），但这通常不是一个好的做法，你应该在本地架设一个Maven仓库服务器，在代理远程仓库的同时维护本地仓库，以节省带宽和时间，Nexus就可以满足这样的需要。此外，他还提供了强大的仓库管理功能，构件搜索功能，它基于REST，友好的UI是一个extjs的REST客户端，它占用较少的内存，基于简单文件系统而非数据库。这些优点使其日趋成为最流行的Maven仓库管理器。除此之外，Nexus还可以管理Docker镜像。&lt;/p&gt;</description>
+      
+      
+      
+      
+      <category domain="https://www.xiaosige.com/categories/Docker/">Docker</category>
+      
+      
+      <category domain="https://www.xiaosige.com/tags/Nexus/">Nexus</category>
+      
+      
+      <comments>https://www.xiaosige.com/post/a6836d41.html#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>Linux 字符颜色输出</title>
@@ -330,7 +351,7 @@
       <category domain="https://www.xiaosige.com/categories/Mac/">Mac</category>
       
       
-      <category domain="https://www.xiaosige.com/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/">虚拟机</category>
+      <category domain="https://www.xiaosige.com/tags/VM/">VM</category>
       
       
       <comments>https://www.xiaosige.com/post/7507a33f.html#disqus_thread</comments>
@@ -419,27 +440,6 @@
       
       
       <comments>https://www.xiaosige.com/post/a240ffad.html#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>Spring MVC返回pdf文件并在页面显示而不是下载</title>
-      <link>https://www.xiaosige.com/post/f556d83e.html</link>
-      <guid>https://www.xiaosige.com/post/f556d83e.html</guid>
-      <pubDate>Tue, 20 Oct 2020 17:36:59 GMT</pubDate>
-      
-      <description>&lt;p&gt;  spring mvc下载pdf&lt;/p&gt;</description>
-      
-      
-      
-      
-      <category domain="https://www.xiaosige.com/categories/SpringMVC/">SpringMVC</category>
-      
-      
-      <category domain="https://www.xiaosige.com/tags/SpringMVC/">SpringMVC</category>
-      
-      
-      <comments>https://www.xiaosige.com/post/f556d83e.html#disqus_thread</comments>
       
     </item>
     
