@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://www.xiaosige.com/localdev/index.html</loc>
+    
+    <lastmod>2021-06-27</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://www.xiaosige.com/post/5086702b.html</loc>
     
     <lastmod>2021-06-27</lastmod>
@@ -10,13 +17,6 @@
   
   <url>
     <loc>https://www.xiaosige.com/post/a6836d41.html</loc>
-    
-    <lastmod>2021-06-22</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.xiaosige.com/localdev/index.html</loc>
     
     <lastmod>2021-06-22</lastmod>
     
@@ -697,13 +697,6 @@
 
   
   <url>
-    <loc>https://www.xiaosige.com/tags/Decimal/</loc>
-    <lastmod>2021-06-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.xiaosige.com/tags/VM/</loc>
     <lastmod>2021-06-27</lastmod>
     <changefreq>daily</changefreq>
@@ -711,7 +704,7 @@
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/tags/BootStrap/</loc>
+    <loc>https://www.xiaosige.com/tags/Decimal/</loc>
     <lastmod>2021-06-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -719,6 +712,13 @@
   
   <url>
     <loc>https://www.xiaosige.com/tags/Linux/</loc>
+    <lastmod>2021-06-27</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.xiaosige.com/tags/BootStrap/</loc>
     <lastmod>2021-06-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -774,13 +774,6 @@
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/tags/Eclipse/</loc>
-    <lastmod>2021-06-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.xiaosige.com/tags/Markdown/</loc>
     <lastmod>2021-06-27</lastmod>
     <changefreq>daily</changefreq>
@@ -789,6 +782,13 @@
   
   <url>
     <loc>https://www.xiaosige.com/tags/Git/</loc>
+    <lastmod>2021-06-27</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.xiaosige.com/tags/Eclipse/</loc>
     <lastmod>2021-06-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -809,14 +809,14 @@
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/tags/Jdk/</loc>
+    <loc>https://www.xiaosige.com/tags/Idea/</loc>
     <lastmod>2021-06-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/tags/Idea/</loc>
+    <loc>https://www.xiaosige.com/tags/Jdk/</loc>
     <lastmod>2021-06-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -858,6 +858,13 @@
   </url>
   
   <url>
+    <loc>https://www.xiaosige.com/tags/JDBC/</loc>
+    <lastmod>2021-06-27</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://www.xiaosige.com/tags/Nginx/</loc>
     <lastmod>2021-06-27</lastmod>
     <changefreq>daily</changefreq>
@@ -886,13 +893,6 @@
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/tags/JDBC/</loc>
-    <lastmod>2021-06-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.xiaosige.com/tags/ShowDoc/</loc>
     <lastmod>2021-06-27</lastmod>
     <changefreq>daily</changefreq>
@@ -900,14 +900,14 @@
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/tags/SpringBoot/</loc>
+    <loc>https://www.xiaosige.com/tags/snowflake/</loc>
     <lastmod>2021-06-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/tags/snowflake/</loc>
+    <loc>https://www.xiaosige.com/tags/SpringBoot/</loc>
     <lastmod>2021-06-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -944,13 +944,6 @@
 
   
   <url>
-    <loc>https://www.xiaosige.com/categories/JavaScript/</loc>
-    <lastmod>2021-06-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.xiaosige.com/categories/Mac/</loc>
     <lastmod>2021-06-27</lastmod>
     <changefreq>daily</changefreq>
@@ -958,7 +951,7 @@
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/categories/BootStrap/</loc>
+    <loc>https://www.xiaosige.com/categories/JavaScript/</loc>
     <lastmod>2021-06-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -972,14 +965,14 @@
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/categories/Centos/</loc>
+    <loc>https://www.xiaosige.com/categories/BootStrap/</loc>
     <lastmod>2021-06-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/categories/BootStrap/table/</loc>
+    <loc>https://www.xiaosige.com/categories/Centos/</loc>
     <lastmod>2021-06-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -993,7 +986,7 @@
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/categories/Eclipse/</loc>
+    <loc>https://www.xiaosige.com/categories/BootStrap/table/</loc>
     <lastmod>2021-06-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1008,6 +1001,13 @@
   
   <url>
     <loc>https://www.xiaosige.com/categories/Linux/Git/</loc>
+    <lastmod>2021-06-27</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.xiaosige.com/categories/Eclipse/</loc>
     <lastmod>2021-06-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1035,14 +1035,14 @@
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/categories/Java/</loc>
+    <loc>https://www.xiaosige.com/categories/Idea/</loc>
     <lastmod>2021-06-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/categories/Idea/</loc>
+    <loc>https://www.xiaosige.com/categories/Java/</loc>
     <lastmod>2021-06-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
