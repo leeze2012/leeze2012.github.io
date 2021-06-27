@@ -1234,8 +1234,8 @@ portainer/portainer-ce<span aria-hidden="true" class="line-numbers-rows"><span><
 --restart<span class="token operator">=</span>always <span class="token punctuation">\</span>
 -v /var/run/docker.sock:/var/run/docker.sock <span class="token punctuation">\</span>
 -v /soft/docker/portainer/data:/data <span class="token punctuation">\</span>
--v /soft/docker/portainer/public:/public 
--d portainer/portainer <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+-v /soft/docker/portainer/public:/public <span class="token punctuation">\</span>
+-d portainer/portainer-ce <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <blockquote>
 <p>参数<br><code>--net</code> docker-mynet 指定网段<br><code>--ip 172.172.0.3</code> 指定ip 服务器启动后不会发生改变<br><code>--restart=always</code> 随着docker 启动而启动</p>
 </blockquote>
