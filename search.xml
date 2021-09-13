@@ -4261,7 +4261,7 @@ $ <span class="token function">ssh</span> -T git@github.com<span aria-hidden="tr
 <li>Jdk1.8以上：<a href="https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html">jdk8</a> ，<a href="https://www.oracle.com/java/technologies/javase-downloads.html">其他</a></li>
 <li>Mysql驱动：<a href="https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.49/mysql-connector-java-5.1.49.jar">mysql-connector-java-5.1.49.jar</a> , <a href="https://repo1.maven.org/maven2/mysql/mysql-connector-java/">其他</a></li>
 <li>JIRA安装包：<a href="https://product-downloads.atlassian.com/software/jira/downloads/atlassian-jira-software-8.5.7-x64.bin">atlassian-jira-software-8.5.7-x64.bin</a> , <a href="https://www.atlassian.com/zh/software/jira/download/data-center">其他</a></li>
-<li>破解包：<a href="https://gitee.com/pengzhile/atlassian-agent/attach_files/283101/download">atlassian-agent-v1.2.3</a>  , <a href="https://gitee.com/pengzhile/atlassian-agent/releases">其他1</a> ，<a href="https://files.cnblogs.com/files/sanduzxcvbnm/atlassian-agent-v1.2.3.zip">其他2</a>  </li>
+<li>破解包：<a href="https://gitee.com/pengzhile/atlassian-agent/attach_files/283101/download">atlassian-agent-v1.2.3</a>  , <a href="https://gitee.com/pengzhile/atlassian-agent/releases">其他1</a> ，<a href="https://www.cnblogs.com/caibao666/p/14992713.html">其他2</a>  </li>
 <li>机子分配的内存适当大些。</li>
 </ol>
 <h3 id="开始安装"><a href="#开始安装" class="headerlink" title="开始安装"></a>开始安装</h3><h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><p>   先把上面下载的软件包放到同一目录下，比如<code>/tmp</code>目录下，然后输入下面的命令进行安装</p>
