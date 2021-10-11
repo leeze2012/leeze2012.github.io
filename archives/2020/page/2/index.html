@@ -795,7 +795,7 @@ canvas#canvas {
   &copy; 2019 – 
   <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
-    <i class=""></i>
+    <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">Xiaosige.com 版权所有</span>
 </div>
@@ -1738,11 +1738,13 @@ gsap.to('.char', {
             $("#wpac-rating").before("<div style='color: rgba(0, 0, 0, 0.75); font-size:13px; letter-spacing:3px'>(&gt; 看完记得五星好评哦亲 &lt;)</div>");
             $(".wp_rating").css("height","30px");
         }
-        <!-- footer追加邮箱 -->
         if($(".copyright").length > 0){
+            <!-- footer追加邮箱 -->
             if($(".leezeEmail").length === 0){
-                $(".copyright").append("<span class='leezeEmail'><i style='margin-right:6px;' class='fa fa-fw fa-envelope with-love'></i><a href='mailto:leeze0216@163.com' title='E-Mail → mailto:leeze0216@163.com' target='_blank'>leeze0216@163.com</a></span>");
+                $(".copyright").append("<span class='leezeEmail' style='margin: 0 5px;'><i style='margin-right:6px;' class='fa fa-fw fa-envelope with-love'></i><a href='mailto:leeze0216@163.com' title='E-Mail → mailto:leeze0216@163.com' target='_blank'>leeze0216@163.com</a></span>");
             }
+            <!-- 版权图标 -->
+            $(".copyright span[class='with-love']").css("display","none");
         }
         <!-- footer的阅读次数位置调整 -->
         if($(".busuanzi-count").length > 0){
