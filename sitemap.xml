@@ -753,14 +753,14 @@
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/tags/Jira/</loc>
+    <loc>https://www.xiaosige.com/tags/MySQL/</loc>
     <lastmod>2021-10-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/tags/MySQL/</loc>
+    <loc>https://www.xiaosige.com/tags/Jira/</loc>
     <lastmod>2021-10-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -844,14 +844,14 @@
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/tags/Mongo/</loc>
+    <loc>https://www.xiaosige.com/tags/MyBatis-Plus/</loc>
     <lastmod>2021-10-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/tags/MyBatis-Plus/</loc>
+    <loc>https://www.xiaosige.com/tags/Mongo/</loc>
     <lastmod>2021-10-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -886,14 +886,14 @@
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/tags/Redis/</loc>
+    <loc>https://www.xiaosige.com/tags/ShowDoc/</loc>
     <lastmod>2021-10-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/tags/ShowDoc/</loc>
+    <loc>https://www.xiaosige.com/tags/Redis/</loc>
     <lastmod>2021-10-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
