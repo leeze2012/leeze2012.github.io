@@ -15,8 +15,29 @@
     <atom:link href="https://www.xiaosige.com/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>因上努力，果上随缘！</description>
-    <pubDate>Tue, 22 Jun 2021 19:22:18 GMT</pubDate>
+    <pubDate>Sat, 30 Oct 2021 17:15:15 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>Docker搭建Nexus私有仓库</title>
+      <link>https://www.xiaosige.com/post/1ed6a709.html</link>
+      <guid>https://www.xiaosige.com/post/1ed6a709.html</guid>
+      <pubDate>Sat, 30 Oct 2021 16:19:29 GMT</pubDate>
+      
+      <description>&lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;  Nexus3是Sonatype提供的仓库管理平台，Nuexus Repository OSS3能够支持Maven、npm、Docker、YUM、Helm等格式数据的存储和发布；并且能够与Jekins、SonaQube和Eclipse等工具进行集成。Nexus3支持作为宿主和代理存储库的Docker存储库，可以直接将这些存储库暴露给客户端工具；也可以以存储库组的方式暴露给客户端工具，存储库组是合并了多个存储库的内容的存储库，能够通过一个URL将多个存储库暴露给客户端工具，从而便于用户的使用。通过nexus3自建能够有效减少访问获取镜像的时间和对带宽使用，并能够通过自有的镜像仓库共享企业自己的镜像。在本文中，采用Docker方式安装部署Nexus3。&lt;/p&gt;</description>
+      
+      
+      
+      
+      <category domain="https://www.xiaosige.com/categories/Docker/">Docker</category>
+      
+      
+      <category domain="https://www.xiaosige.com/tags/Nexus/">Nexus</category>
+      
+      
+      <comments>https://www.xiaosige.com/post/1ed6a709.html#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>Docker 安装 Maven私服 Nexus3</title>
@@ -419,27 +440,6 @@
       
       
       <comments>https://www.xiaosige.com/post/9bae427b.html#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>JetBrains IntelliJ IDEA2020.3 x64最新完全破解</title>
-      <link>https://www.xiaosige.com/post/a240ffad.html</link>
-      <guid>https://www.xiaosige.com/post/a240ffad.html</guid>
-      <pubDate>Fri, 01 Jan 2021 15:53:21 GMT</pubDate>
-      
-      <description>&lt;p&gt;  JetBrains是一家捷克的软件开发公司，该公司位于捷克的布拉格，并在俄国的圣彼得堡及美国麻州波士顿都设有办公室，该公司最为人所熟知的产品是Java编程语言开发撰写时所用的集成开发环境：IntelliJ IDEA。&lt;/p&gt;</description>
-      
-      
-      
-      
-      <category domain="https://www.xiaosige.com/categories/Idea/">Idea</category>
-      
-      
-      <category domain="https://www.xiaosige.com/tags/Idea/">Idea</category>
-      
-      
-      <comments>https://www.xiaosige.com/post/a240ffad.html#disqus_thread</comments>
       
     </item>
     
