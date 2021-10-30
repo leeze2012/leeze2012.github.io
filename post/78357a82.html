@@ -31,7 +31,7 @@
 <meta property="og:description" content="前言  记录下 Docker 下 Jenkins 的安装。  DockerHub: https:&#x2F;&#x2F;hub.docker.com&#x2F;r&#x2F;jenkins&#x2F;jenkins&#x2F;">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-06-17T17:28:48.000Z">
-<meta property="article:modified_time" content="2021-06-17T18:57:33.295Z">
+<meta property="article:modified_time" content="2021-10-30T06:50:10.106Z">
 <meta property="article:author" content="leeze">
 <meta property="article:tag" content="Gitea">
 <meta name="twitter:card" content="summary">
@@ -183,7 +183,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8Bdocker%E7%9A%84jenkins%E9%95%9C%E5%83%8F%E7%89%88%E6%9C%AC"><span class="nav-number">2.</span> <span class="nav-text">查看docker的jenkins镜像版本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%9C%E7%A8%8B%E6%8B%89%E5%8F%96%E9%95%9C%E5%83%8F"><span class="nav-number">3.</span> <span class="nav-text">远程拉取镜像</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E6%8C%82%E8%BD%BD%E7%9B%AE%E5%BD%95"><span class="nav-number">4.</span> <span class="nav-text">创建挂载目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%AF%E5%8A%A8%E5%AE%B9%E5%99%A8"><span class="nav-number">5.</span> <span class="nav-text">启动容器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="nav-number">6.</span> <span class="nav-text">配置文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%87%8D%E5%90%AFjenkins%E5%AE%B9%E5%99%A8"><span class="nav-number">7.</span> <span class="nav-text">重启jenkins容器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PS"><span class="nav-number">8.</span> <span class="nav-text">PS</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8Bdocker%E7%9A%84jenkins%E9%95%9C%E5%83%8F%E7%89%88%E6%9C%AC"><span class="nav-number">2.</span> <span class="nav-text">查看docker的jenkins镜像版本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%9C%E7%A8%8B%E6%8B%89%E5%8F%96%E9%95%9C%E5%83%8F"><span class="nav-number">3.</span> <span class="nav-text">远程拉取镜像</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E6%8C%82%E8%BD%BD%E7%9B%AE%E5%BD%95"><span class="nav-number">4.</span> <span class="nav-text">创建挂载目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-git"><span class="nav-number">5.</span> <span class="nav-text">安装 git</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-maven"><span class="nav-number">6.</span> <span class="nav-text">安装 maven</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%AF%E5%8A%A8%E5%AE%B9%E5%99%A8"><span class="nav-number">7.</span> <span class="nav-text">启动容器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="nav-number">8.</span> <span class="nav-text">配置文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%87%8D%E5%90%AFjenkins%E5%AE%B9%E5%99%A8"><span class="nav-number">9.</span> <span class="nav-text">重启jenkins容器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PS"><span class="nav-number">10.</span> <span class="nav-text">PS</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -593,10 +593,16 @@ canvas#canvas {
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2021-06-18 01:28:48 / 修改时间：02:57:33" itemprop="dateCreated datePublished" datetime="2021-06-18T01:28:48+08:00">2021-06-18</time>
+      <time title="创建时间：2021-06-18 01:28:48" itemprop="dateCreated datePublished" datetime="2021-06-18T01:28:48+08:00">2021-06-18</time>
     </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2021-10-30 14:50:10" itemprop="dateModified" datetime="2021-10-30T14:50:10+08:00">2021-10-30</time>
+      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
@@ -624,14 +630,14 @@ canvas#canvas {
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>1.7k</span>
+      <span>3.3k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>2 分钟</span>
+      <span>3 分钟</span>
     </span>
 </div>
 
@@ -658,8 +664,27 @@ docker pull jenkins/jenkins<span class="token punctuation">:</span>2.289.1<span 
 <span class="token function">mkdir</span> /home/jenkins<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p>  <code>重点：此目录需要设置权限，否则启动容器报错权限错误</code></p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment">#修改权限（1000:1000 是UID和GID）</span>
-<span class="token function">chown</span> -R <span class="token number">1000</span>:1000 /home/jenkins/<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<span class="token function">chown</span> -R <span class="token number">1000</span>:1000 /home/jenkins/
+<span class="token function">chmod</span> <span class="token number">777</span> /var/run/docker.sock<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
+<h3 id="安装-git"><a href="#安装-git" class="headerlink" title="安装 git"></a>安装 git</h3><pre class="line-numbers language-none"><code class="language-none">yum install git
+git --version<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<h3 id="安装-maven"><a href="#安装-maven" class="headerlink" title="安装 maven"></a>安装 maven</h3><pre class="line-numbers language-none"><code class="language-none">wget https://dlcdn.apache.org/maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.tar.gz
+tar -zxvf apache-maven-3.6.3-bin.tar.gz
+mv apache-maven-3.6.3-bin.tar.gz /usr/local
+ln -s /usr/local/apache-maven-3.6.3 maven<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>修改配置文件settings.xml,使用了阿里云的Maven仓库 （可选）<br><code>cd apache-maven-3.6.3/conf</code><br><code>vi settings.xml</code></p>
+<pre class="line-numbers language-none"><code class="language-none"> &lt;mirror&gt;
+    &lt;id&gt;aliyunmaven&lt;/id&gt;
+    &lt;mirrorOf&gt;*&lt;/mirrorOf&gt;
+    &lt;name&gt;阿里云公共仓库&lt;/name&gt;
+    &lt;url&gt;https://maven.aliyun.com/repository/public&lt;/url&gt;
+&lt;/mirror&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>添加环境变量 <code>vi /etc/profile</code></p>
+<pre class="line-numbers language-none"><code class="language-none">export M2_HOME=/usr/local/maven                                                                                                                                                                                          
+export PATH=$PATH:${M2_HOME}/bin<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p><code>source /etc/profile</code></p>
 <h3 id="启动容器"><a href="#启动容器" class="headerlink" title="启动容器"></a>启动容器</h3><pre class="line-numbers language-docker" data-language="docker"><code class="language-docker">docker run <span class="token punctuation">-</span>d <span class="token punctuation">-</span><span class="token punctuation">-</span>name=myjenkins \
 <span class="token punctuation">-</span>p 8000<span class="token punctuation">:</span>8080 <span class="token punctuation">-</span>p 50000<span class="token punctuation">:</span>50000 \
 <span class="token punctuation">-</span><span class="token punctuation">-</span>restart=unless<span class="token punctuation">-</span>stopped \
@@ -679,6 +704,23 @@ jenkins/jenkins<span class="token punctuation">:</span>2.289.1<span class="token
 <li><code>--privileged</code> : 使用该参数，container内的root拥有真正的root权限，否则，container（容器）内的root只是外部的一个普通用户权限，privileged启动的容器可以看到很多host上的设备，并且可以执行mount，甚至允许你在docker容器内启动docker容器。</li>
 <li> <code>-p 50000:50000</code> : 如果您在其他机器上设置了一个或多个基于JNLP的Jenkins代理程序，而这些代理程序又与 jenkinsci/blueocean 容器交互（充当“主”Jenkins服务器，或者简称为“Jenkins主”）， 则这是必需的。默认情况下，基于JNLP的Jenkins代理通过TCP端口50000与Jenkins主站进行通信。</li>
 </ul>
+<pre class="line-numbers language-none"><code class="language-none">docker run -d --name=myjenkins \
+--net mynet --ip 172.172.0.12 \
+-p 8000:8080 -p 50000:50000 \
+--restart=unless-stopped \
+--privileged=true \
+-u root \
+-e TZ="Asia/Shanghai" \
+-e JAVA_OPTS=-Duser.timezone=Asia/Shanghai \
+-v /etc/localtime:/etc/localtime \
+-v /root/docker_data/jenkins:/var/jenkins_home \
+-v /usr/java/jdk1.8.0_311-amd64:/usr/local/java \
+-v /usr/local/maven:/usr/local/maven \
+-v /usr/bin/git:/usr/bin/git \
+-v /var/run/docker.sock:/var/run/docker.sock \
+-v /usr/bin/docker:/usr/bin/docker \
+ jenkins/jenkins:2.318-jdk11<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h3 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h3><p>  进入刚才设置的挂载目录 /home/jenkins 内:</p>
 <ol>
 <li>首先修改hudson.model.UpdateCenter.xml配置文件<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment">#默认路径</span>
@@ -821,13 +863,13 @@ docker restart myjenkins<span aria-hidden="true" class="line-numbers-rows"><span
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">191k</span>
+    <span title="站点总字数">192k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">2:54</span>
+    <span title="站点阅读时长">2:55</span>
   </span>
 </div>
 <div class="busuanzi-count">
