@@ -920,9 +920,6 @@ docker pull jenkins/jenkins<span class="token punctuation">:</span>2.289.1<span 
 <span class="token function">chown</span> -R <span class="token number">1000</span>:1000 /home/jenkins/
 <span class="token function">chmod</span> <span class="token number">777</span> /var/run/docker.sock<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="安装-git"><a href="#安装-git" class="headerlink" title="安装 git"></a>安装 git</h3><pre class="line-numbers language-none"><code class="language-none">yum install git
-git --version<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
 <h3 id="安装-maven"><a href="#安装-maven" class="headerlink" title="安装 maven"></a>安装 maven</h3><pre class="line-numbers language-none"><code class="language-none">wget https://dlcdn.apache.org/maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.tar.gz
 tar -zxvf apache-maven-3.6.3-bin.tar.gz
 mv apache-maven-3.6.3-bin.tar.gz /usr/local
@@ -969,10 +966,9 @@ jenkins/jenkins<span class="token punctuation">:</span>2.289.1<span class="token
 -v /root/docker_data/jenkins:/var/jenkins_home \
 -v /usr/java/jdk1.8.0_311-amd64:/usr/local/java \
 -v /usr/local/maven:/usr/local/maven \
--v /usr/bin/git:/usr/bin/git \
 -v /var/run/docker.sock:/var/run/docker.sock \
 -v /usr/bin/docker:/usr/bin/docker \
- jenkins/jenkins:2.318-jdk11<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+ jenkins/jenkins:2.318-jdk11<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h3 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h3><p>  进入刚才设置的挂载目录 /home/jenkins 内:</p>
 <ol>
@@ -3684,6 +3680,34 @@ lrwxrwxrwx. <span class="token number">1</span> root root <span class="token num
       </tags>
   </entry>
   <entry>
+    <title>Maven打包跳过test测试类</title>
+    <url>/post/454608c3.html</url>
+    <content><![CDATA[<h3 id="记录一下，有两种方式："><a href="#记录一下，有两种方式：" class="headerlink" title="记录一下，有两种方式："></a>记录一下，有两种方式：</h3><ol>
+<li> 传统方式<br>  命令带上参数 <code>mvn install -Dmaven.test.skip=true</code> 即可<span id="more"></span></li>
+<li> 使用<code>maven-surefire-plugin</code>插件<br>  在pom.xml的build里添加插件如下：<pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>plugin</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">&gt;</span></span>org.apache.maven.plugins<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">&gt;</span></span>maven-surefire-plugin<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">&gt;</span></span>2.20.1<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>configuration</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>skipTests</span><span class="token punctuation">&gt;</span></span>true<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>skipTests</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>configuration</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>plugin</span><span class="token punctuation">&gt;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li>在<code>properties</code>定义<skiptests>，设置其值为true。<pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>properties</span><span class="token punctuation">&gt;</span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>project.build.sourceEncoding</span><span class="token punctuation">&gt;</span></span>UTF-8<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>project.build.sourceEncoding</span><span class="token punctuation">&gt;</span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>project.reporting.outputEncoding</span><span class="token punctuation">&gt;</span></span>UTF-8<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>project.reporting.outputEncoding</span><span class="token punctuation">&gt;</span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>java.version</span><span class="token punctuation">&gt;</span></span>1.8<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>java.version</span><span class="token punctuation">&gt;</span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>skipTests</span><span class="token punctuation">&gt;</span></span>true<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>skipTests</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>properties</span><span class="token punctuation">&gt;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></skiptests></li>
+</ol>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
+      <categories>
+        <category>Maven</category>
+      </categories>
+      <tags>
+        <tag>Maven</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Meting漂亮的背景音乐播放器</title>
     <url>/post/c1dab809.html</url>
     <content><![CDATA[<div class="note success no-icon"><p> 以前就很想给网站加上一个背景音乐播放器！并且这个播放器要简洁大气，Meting完美的阐释了这句话！</p>
@@ -3733,31 +3757,130 @@ lrwxrwxrwx. <span class="token number">1</span> root root <span class="token num
       </tags>
   </entry>
   <entry>
-    <title>Maven打包跳过test测试类</title>
-    <url>/post/454608c3.html</url>
-    <content><![CDATA[<h3 id="记录一下，有两种方式："><a href="#记录一下，有两种方式：" class="headerlink" title="记录一下，有两种方式："></a>记录一下，有两种方式：</h3><ol>
-<li> 传统方式<br>  命令带上参数 <code>mvn install -Dmaven.test.skip=true</code> 即可<span id="more"></span></li>
-<li> 使用<code>maven-surefire-plugin</code>插件<br>  在pom.xml的build里添加插件如下：<pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>plugin</span><span class="token punctuation">&gt;</span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">&gt;</span></span>org.apache.maven.plugins<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">&gt;</span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">&gt;</span></span>maven-surefire-plugin<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">&gt;</span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">&gt;</span></span>2.20.1<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">&gt;</span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>configuration</span><span class="token punctuation">&gt;</span></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>skipTests</span><span class="token punctuation">&gt;</span></span>true<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>skipTests</span><span class="token punctuation">&gt;</span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>configuration</span><span class="token punctuation">&gt;</span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>plugin</span><span class="token punctuation">&gt;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li>在<code>properties</code>定义<skiptests>，设置其值为true。<pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>properties</span><span class="token punctuation">&gt;</span></span>
-	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>project.build.sourceEncoding</span><span class="token punctuation">&gt;</span></span>UTF-8<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>project.build.sourceEncoding</span><span class="token punctuation">&gt;</span></span>
-	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>project.reporting.outputEncoding</span><span class="token punctuation">&gt;</span></span>UTF-8<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>project.reporting.outputEncoding</span><span class="token punctuation">&gt;</span></span>
-	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>java.version</span><span class="token punctuation">&gt;</span></span>1.8<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>java.version</span><span class="token punctuation">&gt;</span></span>
-	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>skipTests</span><span class="token punctuation">&gt;</span></span>true<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>skipTests</span><span class="token punctuation">&gt;</span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>properties</span><span class="token punctuation">&gt;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></skiptests></li>
+    <title>linux下mongo启动关闭重启方法</title>
+    <url>/post/91eed2.html</url>
+    <content><![CDATA[<h4 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h4><p>  启动<code>mongodb</code>首先要指定mongo的<code>数据</code>目录和<code>日志</code>文件路径，如:  <code>/data/mongodb/</code>,<code>/var/log/mongodb/mongodb.log</code><br>  启动命令： </p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">/usr/local/mongdb/bin/mongod -port <span class="token number">27017</span> --dbpath /data/mongodb/ --logpath /var/mongodb/mongodb.log<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<span id="more"></span>
+
+<h4 id="通过配置文件配置："><a href="#通过配置文件配置：" class="headerlink" title="通过配置文件配置："></a>通过配置文件配置：</h4><p>  <code>vim mongodb.conf </code>   </p>
+<pre class="line-numbers language-properties" data-language="properties"><code class="language-properties"><span class="token comment">#数据库路径</span>
+<span class="token attr-name">dbpath</span><span class="token punctuation">=</span><span class="token attr-value">/usr/local/mongodb/data/</span>
+
+<span class="token comment">#日志输出文件路径</span>
+<span class="token attr-name">logpath</span><span class="token punctuation">=</span><span class="token attr-value">/usr/local/mongodb/log/mongodb.log</span>
+
+<span class="token comment">#错误日志采用追加模式，配置这个选项后mongodb的日志会追加到现有的日志文件，而不是从新创建一个新文件</span>
+<span class="token attr-name">logappend</span><span class="token punctuation">=</span><span class="token attr-value">true</span>
+
+<span class="token comment">#启用日志文件，默认启用</span>
+<span class="token attr-name">journal</span><span class="token punctuation">=</span><span class="token attr-value">true</span>
+
+<span class="token comment">#这个选项可以过滤掉一些无用的日志信息，若需要调试使用请设置为false</span>
+<span class="token attr-name">quiet</span><span class="token punctuation">=</span><span class="token attr-value">false</span>
+
+<span class="token comment">#是否后台启动，有这个参数，就可以实现后台运行</span>
+<span class="token attr-name">fork</span><span class="token punctuation">=</span><span class="token attr-value">true</span>
+
+<span class="token comment">#端口号 默认为27017</span>
+<span class="token attr-name">port</span><span class="token punctuation">=</span><span class="token attr-value">27017</span>
+
+<span class="token comment">#远程连接</span>
+<span class="token attr-name">bind_ip</span> <span class="token punctuation">=</span> <span class="token attr-value">0.0.0.0</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>  启动命令： </p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">/usr/loca/mongodb/bin/mongod -f mongodb.conf<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h4 id="后台启动"><a href="#后台启动" class="headerlink" title="后台启动"></a>后台启动</h4><ol>
+<li> 使用<font color="LightCoral" size="4"><b>--fork</b></font> 选项将会通知 mongod 在后台运行   </li> 
+
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">/usr/local/mongodb/bin/mongod  -port <span class="token number">10001</span> --dbpath /data/mongodb/ --logpath /var/mongodb/mongodb.log --fork  <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+<li> 使用<font color="LightCoral" size="4"><b>&amp;</b></font>后台启动      </li>
+
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">/usr/local/mongodb/bin/mongod  -port <span class="token number">10001</span> --dbpath /data/mongodb/ --logpath /var/mongodb/mongodb.log <span class="token operator">&amp;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</ol>
+
+<h4 id="关闭"><a href="#关闭" class="headerlink" title="关闭"></a>关闭</h4><ol>
+<li> pkill mongod</li>
+
+<li> 进入mongo shell，运行： </li>
+
+<pre class="line-numbers language-mongodb" data-language="mongodb"><code class="language-mongodb">db<span class="token punctuation">.</span><span class="token function">shuidownServer</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 </ol>
 <link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
       <categories>
-        <category>Maven</category>
+        <category>Linux</category>
       </categories>
       <tags>
-        <tag>Maven</tag>
+        <tag>Mongo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>MyBatis-Plus - xml中如何使用autoResultMap构造的ResultMap</title>
+    <url>/post/b7c3ab9f.html</url>
+    <content><![CDATA[<h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>  MyBatis Plus有一个很大的缺陷，就是insert和select的时候使用的ResultMap是不同的，修复的办法就是在实体类上增加注解<code>@TableName(autoResultMap = true)</code>。但是这个autoResultMap并不能使用在自定义的方法上，只在MyBatis Plus内置方法上生效。</p>
+<span id="more"></span>
+
+<h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><p>  展示autoResultMap存在的问题<br>  实体类<code>Person</code>,该实体类中有自定义的<code>typehandler</code>: <code>IntegerListTypeHandler</code>, <code>StringListTypeHandler</code></p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@TableName</span><span class="token punctuation">(</span>autoResultMap <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">)</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Person</span> <span class="token punctuation">{</span>
+    <span class="token keyword">private</span> <span class="token class-name">Integer</span> id<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token class-name">String</span> name<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token class-name">Integer</span> age<span class="token punctuation">;</span>
+    <span class="token annotation punctuation">@TableField</span><span class="token punctuation">(</span>typeHandler <span class="token operator">=</span> <span class="token class-name">IntegerListTypeHandler</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span>
+    <span class="token keyword">private</span> <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Integer</span><span class="token punctuation">&gt;</span></span> orgIds<span class="token punctuation">;</span>
+    <span class="token annotation punctuation">@TableField</span><span class="token punctuation">(</span>typeHandler <span class="token operator">=</span> <span class="token class-name">StringListTypeHandler</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span>
+    <span class="token keyword">private</span> <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">&gt;</span></span> hobbies<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Mapper</span>
+<span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">PersonMapper</span> <span class="token keyword">extends</span> <span class="token class-name">BaseMapper</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Person</span><span class="token punctuation">&gt;</span></span> <span class="token punctuation">{</span>
+    <span class="token comment">/**
+     * 自定义的根据Id获取Person的方法，与MyBatis-Plus中的selectById相同的功能（但是不能使用autoResultMap生成的ResultMap）.
+     */</span>
+    <span class="token annotation punctuation">@Select</span><span class="token punctuation">(</span><span class="token string">"SELECT * FROM person WHERE id=#{id}"</span><span class="token punctuation">)</span>
+    <span class="token class-name">Person</span> <span class="token function">selectOneById</span><span class="token punctuation">(</span><span class="token keyword">int</span> id<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>  自定义方法拿不到一些字段.<br>  因为Person中的orgIds和hobbies需要自定义的typeHandler，自定义的方法使用的是resultType=Person，而不是生成的ResultMap，所以都是null</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">Person</span> person <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Person</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+person<span class="token punctuation">.</span><span class="token function">setAge</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+person<span class="token punctuation">.</span><span class="token function">setName</span><span class="token punctuation">(</span><span class="token string">"tim"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+person<span class="token punctuation">.</span><span class="token function">setOrgIds</span><span class="token punctuation">(</span><span class="token class-name">Lists</span><span class="token punctuation">.</span><span class="token function">newArrayList</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+person<span class="token punctuation">.</span><span class="token function">setHobbies</span><span class="token punctuation">(</span><span class="token class-name">Lists</span><span class="token punctuation">.</span><span class="token function">newArrayList</span><span class="token punctuation">(</span><span class="token string">"basketball"</span><span class="token punctuation">,</span> <span class="token string">"pingpong"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+personMapper<span class="token punctuation">.</span><span class="token function">insert</span><span class="token punctuation">(</span>person<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+# 可以得到正确的字段值
+<span class="token class-name">Person</span> personInDb <span class="token operator">=</span> personMapper<span class="token punctuation">.</span><span class="token function">selectById</span><span class="token punctuation">(</span>person<span class="token punctuation">.</span><span class="token function">getId</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+# orgIds和hobbies都为<span class="token keyword">null</span>
+personInDb <span class="token operator">=</span> personMapper<span class="token punctuation">.</span><span class="token function">selectOneById</span><span class="token punctuation">(</span>person<span class="token punctuation">.</span><span class="token function">getId</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token class-name">Preconditions</span><span class="token punctuation">.</span><span class="token function">checkArgument</span><span class="token punctuation">(</span>personInDb<span class="token punctuation">.</span><span class="token function">getHobbies</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span>person<span class="token punctuation">.</span><span class="token function">getHobbies</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">Preconditions</span><span class="token punctuation">.</span><span class="token function">checkArgument</span><span class="token punctuation">(</span>personInDb<span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span>person<span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">Preconditions</span><span class="token punctuation">.</span><span class="token function">checkArgument</span><span class="token punctuation">(</span>personInDb<span class="token punctuation">.</span><span class="token function">getAge</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span>person<span class="token punctuation">.</span><span class="token function">getAge</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">Preconditions</span><span class="token punctuation">.</span><span class="token function">checkArgument</span><span class="token punctuation">(</span>personInDb<span class="token punctuation">.</span><span class="token function">getOrgIds</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span>person<span class="token punctuation">.</span><span class="token function">getOrgIds</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="改进"><a href="#改进" class="headerlink" title="改进"></a>改进</h3><p>  设置  <code>@ResultMap("mybatis-plus_Person")</code></p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">/**
+ * 设置了ResultMap为`mybatis-plus_Person`后就可以拿到正确的值.
+ */</span>
+<span class="token annotation punctuation">@ResultMap</span><span class="token punctuation">(</span><span class="token string">"mybatis-plus_Person"</span><span class="token punctuation">)</span>
+<span class="token annotation punctuation">@Select</span><span class="token punctuation">(</span><span class="token string">"SELECT * FROM person WHERE id=#{id}"</span><span class="token punctuation">)</span>
+<span class="token class-name">Person</span> <span class="token function">selectOneById</span><span class="token punctuation">(</span><span class="token keyword">int</span> id<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>  命名规则就是：<code>mybatis-plus_{实体类名}</code></p>
+<h3 id="个人理解"><a href="#个人理解" class="headerlink" title="个人理解"></a>个人理解</h3><p>  MyBatis Plus本身并不是一个动态的ORM，而只是在mybatis初始化的时候，为mybatis提供常用的SQL语句，resultMap设置，并不会改变MyBatis本身的行为</p>
+<h3 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h3><p>   <code>@TableField(typeHandler = IntegerListTypeHandler.class)</code>没有生效：自定义的方法上没有配置<code>resultType</code></p>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>MyBatis-Plus</tag>
       </tags>
   </entry>
   <entry>
@@ -3921,133 +4044,6 @@ lrwxrwxrwx. <span class="token number">1</span> root root <span class="token num
 <blockquote>
 <p>参考<br><a href="https://cloud.tencent.com/developer/article/1815139?from=article.detail.1557019">Mybatis Plugin</a></p>
 </blockquote>
-<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
-      <categories>
-        <category>Java</category>
-      </categories>
-      <tags>
-        <tag>MyBatis-Plus</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>linux下mongo启动关闭重启方法</title>
-    <url>/post/91eed2.html</url>
-    <content><![CDATA[<h4 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h4><p>  启动<code>mongodb</code>首先要指定mongo的<code>数据</code>目录和<code>日志</code>文件路径，如:  <code>/data/mongodb/</code>,<code>/var/log/mongodb/mongodb.log</code><br>  启动命令： </p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">/usr/local/mongdb/bin/mongod -port <span class="token number">27017</span> --dbpath /data/mongodb/ --logpath /var/mongodb/mongodb.log<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<span id="more"></span>
-
-<h4 id="通过配置文件配置："><a href="#通过配置文件配置：" class="headerlink" title="通过配置文件配置："></a>通过配置文件配置：</h4><p>  <code>vim mongodb.conf </code>   </p>
-<pre class="line-numbers language-properties" data-language="properties"><code class="language-properties"><span class="token comment">#数据库路径</span>
-<span class="token attr-name">dbpath</span><span class="token punctuation">=</span><span class="token attr-value">/usr/local/mongodb/data/</span>
-
-<span class="token comment">#日志输出文件路径</span>
-<span class="token attr-name">logpath</span><span class="token punctuation">=</span><span class="token attr-value">/usr/local/mongodb/log/mongodb.log</span>
-
-<span class="token comment">#错误日志采用追加模式，配置这个选项后mongodb的日志会追加到现有的日志文件，而不是从新创建一个新文件</span>
-<span class="token attr-name">logappend</span><span class="token punctuation">=</span><span class="token attr-value">true</span>
-
-<span class="token comment">#启用日志文件，默认启用</span>
-<span class="token attr-name">journal</span><span class="token punctuation">=</span><span class="token attr-value">true</span>
-
-<span class="token comment">#这个选项可以过滤掉一些无用的日志信息，若需要调试使用请设置为false</span>
-<span class="token attr-name">quiet</span><span class="token punctuation">=</span><span class="token attr-value">false</span>
-
-<span class="token comment">#是否后台启动，有这个参数，就可以实现后台运行</span>
-<span class="token attr-name">fork</span><span class="token punctuation">=</span><span class="token attr-value">true</span>
-
-<span class="token comment">#端口号 默认为27017</span>
-<span class="token attr-name">port</span><span class="token punctuation">=</span><span class="token attr-value">27017</span>
-
-<span class="token comment">#远程连接</span>
-<span class="token attr-name">bind_ip</span> <span class="token punctuation">=</span> <span class="token attr-value">0.0.0.0</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>  启动命令： </p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">/usr/loca/mongodb/bin/mongod -f mongodb.conf<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h4 id="后台启动"><a href="#后台启动" class="headerlink" title="后台启动"></a>后台启动</h4><ol>
-<li> 使用<font color="LightCoral" size="4"><b>--fork</b></font> 选项将会通知 mongod 在后台运行   </li> 
-
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">/usr/local/mongodb/bin/mongod  -port <span class="token number">10001</span> --dbpath /data/mongodb/ --logpath /var/mongodb/mongodb.log --fork  <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-
-<li> 使用<font color="LightCoral" size="4"><b>&amp;</b></font>后台启动      </li>
-
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">/usr/local/mongodb/bin/mongod  -port <span class="token number">10001</span> --dbpath /data/mongodb/ --logpath /var/mongodb/mongodb.log <span class="token operator">&amp;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-</ol>
-
-<h4 id="关闭"><a href="#关闭" class="headerlink" title="关闭"></a>关闭</h4><ol>
-<li> pkill mongod</li>
-
-<li> 进入mongo shell，运行： </li>
-
-<pre class="line-numbers language-mongodb" data-language="mongodb"><code class="language-mongodb">db<span class="token punctuation">.</span><span class="token function">shuidownServer</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-</ol>
-<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>Mongo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>MyBatis-Plus - xml中如何使用autoResultMap构造的ResultMap</title>
-    <url>/post/b7c3ab9f.html</url>
-    <content><![CDATA[<h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>  MyBatis Plus有一个很大的缺陷，就是insert和select的时候使用的ResultMap是不同的，修复的办法就是在实体类上增加注解<code>@TableName(autoResultMap = true)</code>。但是这个autoResultMap并不能使用在自定义的方法上，只在MyBatis Plus内置方法上生效。</p>
-<span id="more"></span>
-
-<h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><p>  展示autoResultMap存在的问题<br>  实体类<code>Person</code>,该实体类中有自定义的<code>typehandler</code>: <code>IntegerListTypeHandler</code>, <code>StringListTypeHandler</code></p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@TableName</span><span class="token punctuation">(</span>autoResultMap <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">)</span>
-<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Person</span> <span class="token punctuation">{</span>
-    <span class="token keyword">private</span> <span class="token class-name">Integer</span> id<span class="token punctuation">;</span>
-    <span class="token keyword">private</span> <span class="token class-name">String</span> name<span class="token punctuation">;</span>
-    <span class="token keyword">private</span> <span class="token class-name">Integer</span> age<span class="token punctuation">;</span>
-    <span class="token annotation punctuation">@TableField</span><span class="token punctuation">(</span>typeHandler <span class="token operator">=</span> <span class="token class-name">IntegerListTypeHandler</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span>
-    <span class="token keyword">private</span> <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Integer</span><span class="token punctuation">&gt;</span></span> orgIds<span class="token punctuation">;</span>
-    <span class="token annotation punctuation">@TableField</span><span class="token punctuation">(</span>typeHandler <span class="token operator">=</span> <span class="token class-name">StringListTypeHandler</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span>
-    <span class="token keyword">private</span> <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">&gt;</span></span> hobbies<span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Mapper</span>
-<span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">PersonMapper</span> <span class="token keyword">extends</span> <span class="token class-name">BaseMapper</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Person</span><span class="token punctuation">&gt;</span></span> <span class="token punctuation">{</span>
-    <span class="token comment">/**
-     * 自定义的根据Id获取Person的方法，与MyBatis-Plus中的selectById相同的功能（但是不能使用autoResultMap生成的ResultMap）.
-     */</span>
-    <span class="token annotation punctuation">@Select</span><span class="token punctuation">(</span><span class="token string">"SELECT * FROM person WHERE id=#{id}"</span><span class="token punctuation">)</span>
-    <span class="token class-name">Person</span> <span class="token function">selectOneById</span><span class="token punctuation">(</span><span class="token keyword">int</span> id<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>  自定义方法拿不到一些字段.<br>  因为Person中的orgIds和hobbies需要自定义的typeHandler，自定义的方法使用的是resultType=Person，而不是生成的ResultMap，所以都是null</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">Person</span> person <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Person</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-person<span class="token punctuation">.</span><span class="token function">setAge</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-person<span class="token punctuation">.</span><span class="token function">setName</span><span class="token punctuation">(</span><span class="token string">"tim"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-person<span class="token punctuation">.</span><span class="token function">setOrgIds</span><span class="token punctuation">(</span><span class="token class-name">Lists</span><span class="token punctuation">.</span><span class="token function">newArrayList</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-person<span class="token punctuation">.</span><span class="token function">setHobbies</span><span class="token punctuation">(</span><span class="token class-name">Lists</span><span class="token punctuation">.</span><span class="token function">newArrayList</span><span class="token punctuation">(</span><span class="token string">"basketball"</span><span class="token punctuation">,</span> <span class="token string">"pingpong"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-personMapper<span class="token punctuation">.</span><span class="token function">insert</span><span class="token punctuation">(</span>person<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-# 可以得到正确的字段值
-<span class="token class-name">Person</span> personInDb <span class="token operator">=</span> personMapper<span class="token punctuation">.</span><span class="token function">selectById</span><span class="token punctuation">(</span>person<span class="token punctuation">.</span><span class="token function">getId</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-# orgIds和hobbies都为<span class="token keyword">null</span>
-personInDb <span class="token operator">=</span> personMapper<span class="token punctuation">.</span><span class="token function">selectOneById</span><span class="token punctuation">(</span>person<span class="token punctuation">.</span><span class="token function">getId</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token class-name">Preconditions</span><span class="token punctuation">.</span><span class="token function">checkArgument</span><span class="token punctuation">(</span>personInDb<span class="token punctuation">.</span><span class="token function">getHobbies</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span>person<span class="token punctuation">.</span><span class="token function">getHobbies</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token class-name">Preconditions</span><span class="token punctuation">.</span><span class="token function">checkArgument</span><span class="token punctuation">(</span>personInDb<span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span>person<span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token class-name">Preconditions</span><span class="token punctuation">.</span><span class="token function">checkArgument</span><span class="token punctuation">(</span>personInDb<span class="token punctuation">.</span><span class="token function">getAge</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span>person<span class="token punctuation">.</span><span class="token function">getAge</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token class-name">Preconditions</span><span class="token punctuation">.</span><span class="token function">checkArgument</span><span class="token punctuation">(</span>personInDb<span class="token punctuation">.</span><span class="token function">getOrgIds</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span>person<span class="token punctuation">.</span><span class="token function">getOrgIds</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h3 id="改进"><a href="#改进" class="headerlink" title="改进"></a>改进</h3><p>  设置  <code>@ResultMap("mybatis-plus_Person")</code></p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">/**
- * 设置了ResultMap为`mybatis-plus_Person`后就可以拿到正确的值.
- */</span>
-<span class="token annotation punctuation">@ResultMap</span><span class="token punctuation">(</span><span class="token string">"mybatis-plus_Person"</span><span class="token punctuation">)</span>
-<span class="token annotation punctuation">@Select</span><span class="token punctuation">(</span><span class="token string">"SELECT * FROM person WHERE id=#{id}"</span><span class="token punctuation">)</span>
-<span class="token class-name">Person</span> <span class="token function">selectOneById</span><span class="token punctuation">(</span><span class="token keyword">int</span> id<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>  命名规则就是：<code>mybatis-plus_{实体类名}</code></p>
-<h3 id="个人理解"><a href="#个人理解" class="headerlink" title="个人理解"></a>个人理解</h3><p>  MyBatis Plus本身并不是一个动态的ORM，而只是在mybatis初始化的时候，为mybatis提供常用的SQL语句，resultMap设置，并不会改变MyBatis本身的行为</p>
-<h3 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h3><p>   <code>@TableField(typeHandler = IntegerListTypeHandler.class)</code>没有生效：自定义的方法上没有配置<code>resultType</code></p>
 <link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
       <categories>
         <category>Java</category>
@@ -4265,6 +4261,40 @@ mysql<span class="token operator">&gt;</span>flush <span class="token keyword">p
       </tags>
   </entry>
   <entry>
+    <title>解决JDBC连接MySQL 8异常</title>
+    <url>/post/bfc2af04.html</url>
+    <content><![CDATA[<p>  安装MySQL 8，同时驱动也改为了8.0.16</p>
+<pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">&gt;</span></span>mysql<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">&gt;</span></span>mysql-connector-java<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">&gt;</span></span>8.0.16<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">&gt;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span id="more"></span>
+<p>  使用原来基于MySQL 5.1的JDBC代码运行时，报错：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">java.sql.SQLException: The server <span class="token function">time</span> zone value <span class="token string">'�й���׼ʱ��'</span> is unrecognized or represents <span class="token function">more</span> than one <span class="token function">time</span> zone. You must configure either the server or JDBC driver <span class="token punctuation">(</span>via the serverTimezone configuration property<span class="token punctuation">)</span> to use a <span class="token function">more</span> specifc <span class="token function">time</span> zone value <span class="token keyword">if</span> you want to utilize <span class="token function">time</span> zone support.
+at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException<span class="token punctuation">(</span>SQLError.java:129<span class="token punctuation">)</span> ~<span class="token punctuation">[</span>mysql-connector-java-8.0.16.jar:8.0.16<span class="token punctuation">]</span>
+at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException<span class="token punctuation">(</span>SQLError.java:97<span class="token punctuation">)</span> ~<span class="token punctuation">[</span>mysql-connector-java-8.0.16.jar:8.0.16<span class="token punctuation">]</span>
+at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException<span class="token punctuation">(</span>SQLError.java:89<span class="token punctuation">)</span> ~<span class="token punctuation">[</span>mysql-connector-java-8.0.16.jar:8.0.16<span class="token punctuation">]</span>
+at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException<span class="token punctuation">(</span>SQLError.java:63<span class="token punctuation">)</span> ~<span class="token punctuation">[</span>mysql-connector-java-8.0.16.jar:8.0.16<span class="token punctuation">]</span>
+at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException<span class="token punctuation">(</span>SQLError.java:73<span class="token punctuation">)</span> ~<span class="token punctuation">[</span>mysql-connector-java-8.0.16.jar:8.0.16<span class="token punctuation">]</span>
+at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException<span class="token punctuation">(</span>SQLExceptionsMapping.java:76<span class="token punctuation">)</span> ~<span class="token punctuation">[</span>mysql-connector-java-8.0.16.jar:8.0.16<span class="token punctuation">]</span>
+at com.mysql.cj.jdbc.ConnectionImpl.createNewIO<span class="token punctuation">(</span>ConnectionImpl.java:835<span class="token punctuation">)</span> ~<span class="token punctuation">[</span>mysql-connector-java-8.0.16.jar:8.0.16<span class="token punctuation">]</span>
+at com.mysql.cj.jdbc.ConnectionImpl.<span class="token operator">&lt;</span>init<span class="token operator">&gt;</span><span class="token punctuation">(</span>ConnectionImpl.java:455<span class="token punctuation">)</span> ~<span class="token punctuation">[</span>mysql-connector-java-8.0.16.jar:8.0.16<span class="token punctuation">]</span>
+at com.mysql.cj.jdbc.ConnectionImpl.getInstance<span class="token punctuation">(</span>ConnectionImpl.java:240<span class="token punctuation">)</span> ~<span class="token punctuation">[</span>mysql-connector-java-8.0.16.jar:8.0.16<span class="token punctuation">]</span>
+at com.mysql.cj.jdbc.NonRegisteringDriver.connect<span class="token punctuation">(</span>NonRegisteringDriver.java:199<span class="token punctuation">)</span> ~<span class="token punctuation">[</span>mysql-connector-java-8.0.16.jar:8.0.16<span class="token punctuation">]</span>
+at com.alibaba.druid.filter.FilterChainImpl.connection_connect<span class="token punctuation">(</span>FilterChainImpl.java:148<span class="token punctuation">)</span> ~<span class="token punctuation">[</span>druid-1.0.31.jar:1.0.31<span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>  这是由于数据库和JDBC所在的系统时差引起，在jdbc连接的url后面加上参数serverTimezone=GMT可解决问题，如果使用gmt+8时区，需要对gmt+8转码，写成GMT%2B8。</p>
+<p>  最后URL类似于：</p>
+<pre class="line-numbers language-xml" data-language="xml"><code class="language-xml">jdbc:mysql://localhost:3306/db?useUnicode=true&amp;characterEncoding=UTF-8&amp;zeroDateTimeBehavior=convertToNull&amp;useSSL=false&amp;serverTimezone=GMT%2B8<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
+      <categories>
+        <category>MySQL</category>
+      </categories>
+      <tags>
+        <tag>JDBC</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>MySQL备份数据库shell脚本</title>
     <url>/post/6c06d7af.html</url>
     <content><![CDATA[<p>  以下为MySQL备份数据库的sh脚本：</p>
@@ -4325,40 +4355,6 @@ another_one_db"</span>
       </categories>
       <tags>
         <tag>MySQL</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>解决JDBC连接MySQL 8异常</title>
-    <url>/post/bfc2af04.html</url>
-    <content><![CDATA[<p>  安装MySQL 8，同时驱动也改为了8.0.16</p>
-<pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">&gt;</span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">&gt;</span></span>mysql<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">&gt;</span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">&gt;</span></span>mysql-connector-java<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">&gt;</span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">&gt;</span></span>8.0.16<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">&gt;</span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">&gt;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<span id="more"></span>
-<p>  使用原来基于MySQL 5.1的JDBC代码运行时，报错：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">java.sql.SQLException: The server <span class="token function">time</span> zone value <span class="token string">'�й���׼ʱ��'</span> is unrecognized or represents <span class="token function">more</span> than one <span class="token function">time</span> zone. You must configure either the server or JDBC driver <span class="token punctuation">(</span>via the serverTimezone configuration property<span class="token punctuation">)</span> to use a <span class="token function">more</span> specifc <span class="token function">time</span> zone value <span class="token keyword">if</span> you want to utilize <span class="token function">time</span> zone support.
-at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException<span class="token punctuation">(</span>SQLError.java:129<span class="token punctuation">)</span> ~<span class="token punctuation">[</span>mysql-connector-java-8.0.16.jar:8.0.16<span class="token punctuation">]</span>
-at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException<span class="token punctuation">(</span>SQLError.java:97<span class="token punctuation">)</span> ~<span class="token punctuation">[</span>mysql-connector-java-8.0.16.jar:8.0.16<span class="token punctuation">]</span>
-at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException<span class="token punctuation">(</span>SQLError.java:89<span class="token punctuation">)</span> ~<span class="token punctuation">[</span>mysql-connector-java-8.0.16.jar:8.0.16<span class="token punctuation">]</span>
-at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException<span class="token punctuation">(</span>SQLError.java:63<span class="token punctuation">)</span> ~<span class="token punctuation">[</span>mysql-connector-java-8.0.16.jar:8.0.16<span class="token punctuation">]</span>
-at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException<span class="token punctuation">(</span>SQLError.java:73<span class="token punctuation">)</span> ~<span class="token punctuation">[</span>mysql-connector-java-8.0.16.jar:8.0.16<span class="token punctuation">]</span>
-at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException<span class="token punctuation">(</span>SQLExceptionsMapping.java:76<span class="token punctuation">)</span> ~<span class="token punctuation">[</span>mysql-connector-java-8.0.16.jar:8.0.16<span class="token punctuation">]</span>
-at com.mysql.cj.jdbc.ConnectionImpl.createNewIO<span class="token punctuation">(</span>ConnectionImpl.java:835<span class="token punctuation">)</span> ~<span class="token punctuation">[</span>mysql-connector-java-8.0.16.jar:8.0.16<span class="token punctuation">]</span>
-at com.mysql.cj.jdbc.ConnectionImpl.<span class="token operator">&lt;</span>init<span class="token operator">&gt;</span><span class="token punctuation">(</span>ConnectionImpl.java:455<span class="token punctuation">)</span> ~<span class="token punctuation">[</span>mysql-connector-java-8.0.16.jar:8.0.16<span class="token punctuation">]</span>
-at com.mysql.cj.jdbc.ConnectionImpl.getInstance<span class="token punctuation">(</span>ConnectionImpl.java:240<span class="token punctuation">)</span> ~<span class="token punctuation">[</span>mysql-connector-java-8.0.16.jar:8.0.16<span class="token punctuation">]</span>
-at com.mysql.cj.jdbc.NonRegisteringDriver.connect<span class="token punctuation">(</span>NonRegisteringDriver.java:199<span class="token punctuation">)</span> ~<span class="token punctuation">[</span>mysql-connector-java-8.0.16.jar:8.0.16<span class="token punctuation">]</span>
-at com.alibaba.druid.filter.FilterChainImpl.connection_connect<span class="token punctuation">(</span>FilterChainImpl.java:148<span class="token punctuation">)</span> ~<span class="token punctuation">[</span>druid-1.0.31.jar:1.0.31<span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>  这是由于数据库和JDBC所在的系统时差引起，在jdbc连接的url后面加上参数serverTimezone=GMT可解决问题，如果使用gmt+8时区，需要对gmt+8转码，写成GMT%2B8。</p>
-<p>  最后URL类似于：</p>
-<pre class="line-numbers language-xml" data-language="xml"><code class="language-xml">jdbc:mysql://localhost:3306/db?useUnicode=true&amp;characterEncoding=UTF-8&amp;zeroDateTimeBehavior=convertToNull&amp;useSSL=false&amp;serverTimezone=GMT%2B8<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
-      <categories>
-        <category>MySQL</category>
-      </categories>
-      <tags>
-        <tag>JDBC</tag>
       </tags>
   </entry>
   <entry>
@@ -6325,37 +6321,6 @@ charset utf-8<span class="token punctuation">;</span>
       </tags>
   </entry>
   <entry>
-    <title>SpringBoot项目添加外部Jar包</title>
-    <url>/post/afccf6ff.html</url>
-    <content><![CDATA[<p>  SpringBoot项目引入外部jar包是非常方便的。</p>
-<p>  1，首先在src同级目录建一个lib文件夹，将第三方jar包放到这个文件内，比如我将ojdbc6.jar 这个jar包放到这个地方。<br>  2，接着我们需要在pom.xml文件里配置jar的maven坐标，不过这个坐标比较特殊，我们需要直接定位到我们上一步添加的文件，而不是从Maven仓库里面去下载，以ojdbc6.jar为例，配置依赖如下：</p>
-<span id="more"></span>
-
-<pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">&gt;</span></span>
-	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">&gt;</span></span>com.oracle<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">&gt;</span></span>
-	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">&gt;</span></span>ojdbc6<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">&gt;</span></span>
-	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">&gt;</span></span>12.1.0.2.0<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">&gt;</span></span>
-	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>scope</span><span class="token punctuation">&gt;</span></span>system<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>scope</span><span class="token punctuation">&gt;</span></span>
-	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>systemPath</span><span class="token punctuation">&gt;</span></span>${project.basedir}/lib/ojdbc6.jar<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>systemPath</span><span class="token punctuation">&gt;</span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">&gt;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>  这里比较特殊的是<code>systemPath</code>，常见的Maven坐标是没有这个的，这里面直接指定该jar的相对路径（相对项目的根目录），这样Maven在编译的时候就不会从中央仓库里面去下载该jar包了。但只配置这个还不行，还需要配置SpringBoot编译时插件属性<code>includeSystemScope</code>，具体如下：</p>
-<pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>plugin</span><span class="token punctuation">&gt;</span></span>
-	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">&gt;</span></span>org.springframework.boot<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">&gt;</span></span>
-	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">&gt;</span></span>spring-boot-maven-plugin<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">&gt;</span></span>
-	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>configuration</span><span class="token punctuation">&gt;</span></span>
-		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>includeSystemScope</span><span class="token punctuation">&gt;</span></span>true<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>includeSystemScope</span><span class="token punctuation">&gt;</span></span>
-	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>configuration</span><span class="token punctuation">&gt;</span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>plugin</span><span class="token punctuation">&gt;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>  上面配置完毕，我们就可以直接执行<code>mvn clean install</code>进行打包，然后我们查看打好的jar包里面包含的jar包，会发现ojdbc6.jar这个包已经正确被包含进去了。</p>
-<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
-      <categories>
-        <category>SpringBoot</category>
-      </categories>
-      <tags>
-        <tag>SpringBoot</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>SpringBoot之统一包装响应</title>
     <url>/post/88151b22.html</url>
     <content><![CDATA[<p>  SpringBoot 中可以基于 <code>ControllerAdvice</code> 和 <code>HttpMessageConverter</code> 实现对数据返回的包装。</p>
@@ -6535,6 +6500,37 @@ charset utf-8<span class="token punctuation">;</span>
 <pre class="line-numbers language-properties" data-language="properties"><code class="language-properties"><span class="token attr-name">content-type</span><span class="token punctuation">:</span> <span class="token attr-value">html/text</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>也不太符合 <code>restful</code> 规范.</p>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
+      <categories>
+        <category>SpringBoot</category>
+      </categories>
+      <tags>
+        <tag>SpringBoot</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>SpringBoot项目添加外部Jar包</title>
+    <url>/post/afccf6ff.html</url>
+    <content><![CDATA[<p>  SpringBoot项目引入外部jar包是非常方便的。</p>
+<p>  1，首先在src同级目录建一个lib文件夹，将第三方jar包放到这个文件内，比如我将ojdbc6.jar 这个jar包放到这个地方。<br>  2，接着我们需要在pom.xml文件里配置jar的maven坐标，不过这个坐标比较特殊，我们需要直接定位到我们上一步添加的文件，而不是从Maven仓库里面去下载，以ojdbc6.jar为例，配置依赖如下：</p>
+<span id="more"></span>
+
+<pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">&gt;</span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">&gt;</span></span>com.oracle<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">&gt;</span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">&gt;</span></span>ojdbc6<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">&gt;</span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">&gt;</span></span>12.1.0.2.0<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">&gt;</span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>scope</span><span class="token punctuation">&gt;</span></span>system<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>scope</span><span class="token punctuation">&gt;</span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>systemPath</span><span class="token punctuation">&gt;</span></span>${project.basedir}/lib/ojdbc6.jar<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>systemPath</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">&gt;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>  这里比较特殊的是<code>systemPath</code>，常见的Maven坐标是没有这个的，这里面直接指定该jar的相对路径（相对项目的根目录），这样Maven在编译的时候就不会从中央仓库里面去下载该jar包了。但只配置这个还不行，还需要配置SpringBoot编译时插件属性<code>includeSystemScope</code>，具体如下：</p>
+<pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>plugin</span><span class="token punctuation">&gt;</span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">&gt;</span></span>org.springframework.boot<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">&gt;</span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">&gt;</span></span>spring-boot-maven-plugin<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">&gt;</span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>configuration</span><span class="token punctuation">&gt;</span></span>
+		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>includeSystemScope</span><span class="token punctuation">&gt;</span></span>true<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>includeSystemScope</span><span class="token punctuation">&gt;</span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>configuration</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>plugin</span><span class="token punctuation">&gt;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>  上面配置完毕，我们就可以直接执行<code>mvn clean install</code>进行打包，然后我们查看打好的jar包里面包含的jar包，会发现ojdbc6.jar这个包已经正确被包含进去了。</p>
 <link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
       <categories>
         <category>SpringBoot</category>
