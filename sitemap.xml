@@ -781,13 +781,6 @@
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/tags/Git/</loc>
-    <lastmod>2021-10-30</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.xiaosige.com/tags/Markdown/</loc>
     <lastmod>2021-10-30</lastmod>
     <changefreq>daily</changefreq>
@@ -795,7 +788,7 @@
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/tags/hexo/</loc>
+    <loc>https://www.xiaosige.com/tags/Git/</loc>
     <lastmod>2021-10-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -803,6 +796,13 @@
   
   <url>
     <loc>https://www.xiaosige.com/tags/Test/</loc>
+    <lastmod>2021-10-30</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.xiaosige.com/tags/hexo/</loc>
     <lastmod>2021-10-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -844,14 +844,14 @@
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/tags/Mongo/</loc>
+    <loc>https://www.xiaosige.com/tags/MyBatis-Plus/</loc>
     <lastmod>2021-10-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/tags/MyBatis-Plus/</loc>
+    <loc>https://www.xiaosige.com/tags/Mongo/</loc>
     <lastmod>2021-10-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1000,14 +1000,14 @@
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/categories/Linux/Git/</loc>
+    <loc>https://www.xiaosige.com/categories/Markdown/</loc>
     <lastmod>2021-10-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/categories/Markdown/</loc>
+    <loc>https://www.xiaosige.com/categories/Linux/Git/</loc>
     <lastmod>2021-10-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1021,14 +1021,14 @@
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/categories/hexo%E5%BB%BA%E7%AB%99/</loc>
+    <loc>https://www.xiaosige.com/categories/%E6%B5%8B%E8%AF%95/</loc>
     <lastmod>2021-10-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/categories/%E6%B5%8B%E8%AF%95/</loc>
+    <loc>https://www.xiaosige.com/categories/hexo%E5%BB%BA%E7%AB%99/</loc>
     <lastmod>2021-10-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>

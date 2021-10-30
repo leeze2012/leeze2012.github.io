@@ -899,6 +899,112 @@ docker exec <span class="token punctuation">-</span>it gitlab update<span class=
       </tags>
   </entry>
   <entry>
+    <title>Docker安装部署Jenkins</title>
+    <url>/post/78357a82.html</url>
+    <content><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>  记录下 Docker 下 Jenkins 的安装。<br>  DockerHub: <a href="https://hub.docker.com/r/jenkins/jenkins/">https://hub.docker.com/r/jenkins/jenkins/</a></p>
+<span id="more"></span>
+
+<h3 id="查看docker的jenkins镜像版本"><a href="#查看docker的jenkins镜像版本" class="headerlink" title="查看docker的jenkins镜像版本"></a>查看docker的jenkins镜像版本</h3><pre class="line-numbers language-docker" data-language="docker"><code class="language-docker"><span class="token comment">#查看jenkins版本命令</span>
+docker search jenkins<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<h3 id="远程拉取镜像"><a href="#远程拉取镜像" class="headerlink" title="远程拉取镜像"></a>远程拉取镜像</h3><pre class="line-numbers language-docker" data-language="docker"><code class="language-docker"><span class="token comment">#拉取镜像命令(不标注表示最新的)</span>
+docker pull jenkins/jenkins
+docker pull jenkinsci/blueocean (推荐)
+docker pull jenkins/jenkins<span class="token punctuation">:</span>2.289.1<span class="token punctuation">-</span>lts<span class="token punctuation">-</span>centos<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="创建挂载目录"><a href="#创建挂载目录" class="headerlink" title="创建挂载目录"></a>创建挂载目录</h3><p>  挂载目录用于映射jenkins的jenkins_home下的配置文件等信息。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment">#本文的挂载目录是home下</span>
+<span class="token function">mkdir</span> /home/jenkins<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>  <code>重点：此目录需要设置权限，否则启动容器报错权限错误</code></p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment">#修改权限（1000:1000 是UID和GID）</span>
+<span class="token function">chown</span> -R <span class="token number">1000</span>:1000 /home/jenkins/
+<span class="token function">chmod</span> <span class="token number">777</span> /var/run/docker.sock<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="安装-git"><a href="#安装-git" class="headerlink" title="安装 git"></a>安装 git</h3><pre class="line-numbers language-none"><code class="language-none">yum install git
+git --version<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<h3 id="安装-maven"><a href="#安装-maven" class="headerlink" title="安装 maven"></a>安装 maven</h3><pre class="line-numbers language-none"><code class="language-none">wget https://dlcdn.apache.org/maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.tar.gz
+tar -zxvf apache-maven-3.6.3-bin.tar.gz
+mv apache-maven-3.6.3-bin.tar.gz /usr/local
+ln -s /usr/local/apache-maven-3.6.3 maven<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>修改配置文件<code>settings.xml</code>,使用了阿里云的Maven仓库 （可选）<br><code>cd apache-maven-3.6.3/conf</code><br><code>vi settings.xml</code></p>
+<pre class="line-numbers language-none"><code class="language-none"> &lt;mirror&gt;
+    &lt;id&gt;aliyunmaven&lt;/id&gt;
+    &lt;mirrorOf&gt;*&lt;/mirrorOf&gt;
+    &lt;name&gt;阿里云公共仓库&lt;/name&gt;
+    &lt;url&gt;https://maven.aliyun.com/repository/public&lt;/url&gt;
+&lt;/mirror&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>添加环境变量 <code>vi /etc/profile</code></p>
+<pre class="line-numbers language-none"><code class="language-none">export M2_HOME=/usr/local/maven                                                                                                                                                                                          
+export PATH=$PATH:${M2_HOME}/bin<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p><code>source /etc/profile</code></p>
+<h3 id="启动容器"><a href="#启动容器" class="headerlink" title="启动容器"></a>启动容器</h3><pre class="line-numbers language-docker" data-language="docker"><code class="language-docker">docker run <span class="token punctuation">-</span>d <span class="token punctuation">-</span><span class="token punctuation">-</span>name=myjenkins \
+<span class="token punctuation">-</span>p 8000<span class="token punctuation">:</span>8080 <span class="token punctuation">-</span>p 50000<span class="token punctuation">:</span>50000 \
+<span class="token punctuation">-</span><span class="token punctuation">-</span>restart=unless<span class="token punctuation">-</span>stopped \
+<span class="token punctuation">-</span><span class="token punctuation">-</span>privileged=true \
+<span class="token punctuation">-</span>u root \
+<span class="token punctuation">-</span>e TZ=<span class="token string">"Asia/Shanghai"</span> \
+<span class="token punctuation">-</span>v /etc/localtime<span class="token punctuation">:</span>/etc/localtime \
+<span class="token punctuation">-</span>v /home/jenkins<span class="token punctuation">:</span>/var/jenkins_home \
+<span class="token punctuation">-</span>v /var/run/docker.sock<span class="token punctuation">:</span>/var/run/docker.sock \
+jenkins/jenkins<span class="token punctuation">:</span>2.289.1<span class="token punctuation">-</span>lts<span class="token punctuation">-</span>centos<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>  –network docker-net <br>  –cpus 2 <br>  –memory 2G \</p>
+<ul>
+<li><code>-p</code> : 映射端口，宿主机端口：容器端口</li>
+<li><code>-v</code> : 挂载，宿主机目录：容器目录</li>
+<li><code>--name</code> : 自定义容器名</li>
+<li><code>-u</code> : 权限用户名</li>
+<li><code>--privileged</code> : 使用该参数，container内的root拥有真正的root权限，否则，container（容器）内的root只是外部的一个普通用户权限，privileged启动的容器可以看到很多host上的设备，并且可以执行mount，甚至允许你在docker容器内启动docker容器。</li>
+<li> <code>-p 50000:50000</code> : 如果您在其他机器上设置了一个或多个基于JNLP的Jenkins代理程序，而这些代理程序又与 jenkinsci/blueocean 容器交互（充当“主”Jenkins服务器，或者简称为“Jenkins主”）， 则这是必需的。默认情况下，基于JNLP的Jenkins代理通过TCP端口50000与Jenkins主站进行通信。</li>
+</ul>
+<pre class="line-numbers language-none"><code class="language-none">docker run -d --name=myjenkins \
+--net mynet --ip 172.172.0.12 \
+-p 8000:8080 -p 50000:50000 \
+--restart=unless-stopped \
+--privileged=true \
+-u root \
+-e TZ="Asia/Shanghai" \
+-e JAVA_OPTS=-Duser.timezone=Asia/Shanghai \
+-v /etc/localtime:/etc/localtime \
+-v /root/docker_data/jenkins:/var/jenkins_home \
+-v /usr/java/jdk1.8.0_311-amd64:/usr/local/java \
+-v /usr/local/maven:/usr/local/maven \
+-v /usr/bin/git:/usr/bin/git \
+-v /var/run/docker.sock:/var/run/docker.sock \
+-v /usr/bin/docker:/usr/bin/docker \
+ jenkins/jenkins:2.318-jdk11<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h3><p>  进入刚才设置的挂载目录 /home/jenkins 内:</p>
+<ol>
+<li>首先修改hudson.model.UpdateCenter.xml配置文件<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment">#默认路径</span>
+http://updates.jenkins-ci.org/update-center.json
+
+<span class="token comment">#改成路径</span>
+http://mirror.xmission.com/jenkins/updates/update-center.json<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li>完成后修改 /updates/default.json 配置文件<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment">#默认路径</span>
+<span class="token string">"connectionCheckUrl"</span><span class="token builtin class-name">:</span><span class="token string">"http://www.google.com/"</span> 
+
+<span class="token comment">#改为路径</span>
+<span class="token string">"connectionCheckUrl"</span><span class="token builtin class-name">:</span><span class="token string">"http://www.baidu.com/"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ol>
+<h3 id="重启jenkins容器"><a href="#重启jenkins容器" class="headerlink" title="重启jenkins容器"></a>重启jenkins容器</h3><pre class="line-numbers language-docker" data-language="docker"><code class="language-docker"><span class="token comment">#重启jenkins容器</span>
+docker restart myjenkins<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<h3 id="PS"><a href="#PS" class="headerlink" title="PS"></a>PS</h3><p>  <code>jenkins，插件下载时好多失败的</code>:<br>  进入管理页面，点击高级，更改升级站点下的url为 <code>https://mirrors.tuna.tsinghua.edu.cn/jenkins/updates/update-center.json</code> ，点击提交，再点击立即获取（重要）</p>
+<br>
+
+<blockquote>
+<p>参考：<br><a href="https://www.cnblogs.com/straycats/p/14033405.html"> docker 部署jenkins </a><br><a href="https://www.cnblogs.com/nhdlb/p/12576273.html"> Docker：docker安装部署jenkins </a></p>
+</blockquote>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
+      <categories>
+        <category>Docker</category>
+      </categories>
+      <tags>
+        <tag>Gitea</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Docker中搭建Jira</title>
     <url>/post/4ed27834.html</url>
     <content><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>  JIRA 是 Atlassian 公司出品的项目与事务跟踪工具，被广泛应用于缺陷跟踪、客户服务、需求收集、流程审批、任务跟踪、项目跟踪和敏捷管理等工作领域。<br>  Centos下安装参考：<a href="/post/afb30e04.html" title="Centos下Jira8.x版本安装与破解">Centos下Jira8.x版本安装与破解</a>。<br>  下面介绍是采用<code>docker</code>来进行部署。</p>
@@ -1045,112 +1151,6 @@ jira/jira:latest<span aria-hidden="true" class="line-numbers-rows"><span></span>
       </categories>
       <tags>
         <tag>Jira</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Docker安装部署Jenkins</title>
-    <url>/post/78357a82.html</url>
-    <content><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>  记录下 Docker 下 Jenkins 的安装。<br>  DockerHub: <a href="https://hub.docker.com/r/jenkins/jenkins/">https://hub.docker.com/r/jenkins/jenkins/</a></p>
-<span id="more"></span>
-
-<h3 id="查看docker的jenkins镜像版本"><a href="#查看docker的jenkins镜像版本" class="headerlink" title="查看docker的jenkins镜像版本"></a>查看docker的jenkins镜像版本</h3><pre class="line-numbers language-docker" data-language="docker"><code class="language-docker"><span class="token comment">#查看jenkins版本命令</span>
-docker search jenkins<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<h3 id="远程拉取镜像"><a href="#远程拉取镜像" class="headerlink" title="远程拉取镜像"></a>远程拉取镜像</h3><pre class="line-numbers language-docker" data-language="docker"><code class="language-docker"><span class="token comment">#拉取镜像命令(不标注表示最新的)</span>
-docker pull jenkins/jenkins
-docker pull jenkinsci/blueocean (推荐)
-docker pull jenkins/jenkins<span class="token punctuation">:</span>2.289.1<span class="token punctuation">-</span>lts<span class="token punctuation">-</span>centos<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h3 id="创建挂载目录"><a href="#创建挂载目录" class="headerlink" title="创建挂载目录"></a>创建挂载目录</h3><p>  挂载目录用于映射jenkins的jenkins_home下的配置文件等信息。</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment">#本文的挂载目录是home下</span>
-<span class="token function">mkdir</span> /home/jenkins<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p>  <code>重点：此目录需要设置权限，否则启动容器报错权限错误</code></p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment">#修改权限（1000:1000 是UID和GID）</span>
-<span class="token function">chown</span> -R <span class="token number">1000</span>:1000 /home/jenkins/
-<span class="token function">chmod</span> <span class="token number">777</span> /var/run/docker.sock<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<h3 id="安装-git"><a href="#安装-git" class="headerlink" title="安装 git"></a>安装 git</h3><pre class="line-numbers language-none"><code class="language-none">yum install git
-git --version<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<h3 id="安装-maven"><a href="#安装-maven" class="headerlink" title="安装 maven"></a>安装 maven</h3><pre class="line-numbers language-none"><code class="language-none">wget https://dlcdn.apache.org/maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.tar.gz
-tar -zxvf apache-maven-3.6.3-bin.tar.gz
-mv apache-maven-3.6.3-bin.tar.gz /usr/local
-ln -s /usr/local/apache-maven-3.6.3 maven<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<p>修改配置文件settings.xml,使用了阿里云的Maven仓库 （可选）<br><code>cd apache-maven-3.6.3/conf</code><br><code>vi settings.xml</code></p>
-<pre class="line-numbers language-none"><code class="language-none"> &lt;mirror&gt;
-    &lt;id&gt;aliyunmaven&lt;/id&gt;
-    &lt;mirrorOf&gt;*&lt;/mirrorOf&gt;
-    &lt;name&gt;阿里云公共仓库&lt;/name&gt;
-    &lt;url&gt;https://maven.aliyun.com/repository/public&lt;/url&gt;
-&lt;/mirror&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>添加环境变量 <code>vi /etc/profile</code></p>
-<pre class="line-numbers language-none"><code class="language-none">export M2_HOME=/usr/local/maven                                                                                                                                                                                          
-export PATH=$PATH:${M2_HOME}/bin<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p><code>source /etc/profile</code></p>
-<h3 id="启动容器"><a href="#启动容器" class="headerlink" title="启动容器"></a>启动容器</h3><pre class="line-numbers language-docker" data-language="docker"><code class="language-docker">docker run <span class="token punctuation">-</span>d <span class="token punctuation">-</span><span class="token punctuation">-</span>name=myjenkins \
-<span class="token punctuation">-</span>p 8000<span class="token punctuation">:</span>8080 <span class="token punctuation">-</span>p 50000<span class="token punctuation">:</span>50000 \
-<span class="token punctuation">-</span><span class="token punctuation">-</span>restart=unless<span class="token punctuation">-</span>stopped \
-<span class="token punctuation">-</span><span class="token punctuation">-</span>privileged=true \
-<span class="token punctuation">-</span>u root \
-<span class="token punctuation">-</span>e TZ=<span class="token string">"Asia/Shanghai"</span> \
-<span class="token punctuation">-</span>v /etc/localtime<span class="token punctuation">:</span>/etc/localtime \
-<span class="token punctuation">-</span>v /home/jenkins<span class="token punctuation">:</span>/var/jenkins_home \
-<span class="token punctuation">-</span>v /var/run/docker.sock<span class="token punctuation">:</span>/var/run/docker.sock \
-jenkins/jenkins<span class="token punctuation">:</span>2.289.1<span class="token punctuation">-</span>lts<span class="token punctuation">-</span>centos<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>  –network docker-net <br>  –cpus 2 <br>  –memory 2G \</p>
-<ul>
-<li><code>-p</code> : 映射端口，宿主机端口：容器端口</li>
-<li><code>-v</code> : 挂载，宿主机目录：容器目录</li>
-<li><code>--name</code> : 自定义容器名</li>
-<li><code>-u</code> : 权限用户名</li>
-<li><code>--privileged</code> : 使用该参数，container内的root拥有真正的root权限，否则，container（容器）内的root只是外部的一个普通用户权限，privileged启动的容器可以看到很多host上的设备，并且可以执行mount，甚至允许你在docker容器内启动docker容器。</li>
-<li> <code>-p 50000:50000</code> : 如果您在其他机器上设置了一个或多个基于JNLP的Jenkins代理程序，而这些代理程序又与 jenkinsci/blueocean 容器交互（充当“主”Jenkins服务器，或者简称为“Jenkins主”）， 则这是必需的。默认情况下，基于JNLP的Jenkins代理通过TCP端口50000与Jenkins主站进行通信。</li>
-</ul>
-<pre class="line-numbers language-none"><code class="language-none">docker run -d --name=myjenkins \
---net mynet --ip 172.172.0.12 \
--p 8000:8080 -p 50000:50000 \
---restart=unless-stopped \
---privileged=true \
--u root \
--e TZ="Asia/Shanghai" \
--e JAVA_OPTS=-Duser.timezone=Asia/Shanghai \
--v /etc/localtime:/etc/localtime \
--v /root/docker_data/jenkins:/var/jenkins_home \
--v /usr/java/jdk1.8.0_311-amd64:/usr/local/java \
--v /usr/local/maven:/usr/local/maven \
--v /usr/bin/git:/usr/bin/git \
--v /var/run/docker.sock:/var/run/docker.sock \
--v /usr/bin/docker:/usr/bin/docker \
- jenkins/jenkins:2.318-jdk11<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h3 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h3><p>  进入刚才设置的挂载目录 /home/jenkins 内:</p>
-<ol>
-<li>首先修改hudson.model.UpdateCenter.xml配置文件<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment">#默认路径</span>
-http://updates.jenkins-ci.org/update-center.json
-
-<span class="token comment">#改成路径</span>
-http://mirror.xmission.com/jenkins/updates/update-center.json<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li>完成后修改 /updates/default.json 配置文件<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment">#默认路径</span>
-<span class="token string">"connectionCheckUrl"</span><span class="token builtin class-name">:</span><span class="token string">"http://www.google.com/"</span> 
-
-<span class="token comment">#改为路径</span>
-<span class="token string">"connectionCheckUrl"</span><span class="token builtin class-name">:</span><span class="token string">"http://www.baidu.com/"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-</ol>
-<h3 id="重启jenkins容器"><a href="#重启jenkins容器" class="headerlink" title="重启jenkins容器"></a>重启jenkins容器</h3><pre class="line-numbers language-docker" data-language="docker"><code class="language-docker"><span class="token comment">#重启jenkins容器</span>
-docker restart myjenkins<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<h3 id="PS"><a href="#PS" class="headerlink" title="PS"></a>PS</h3><p>  <code>jenkins，插件下载时好多失败的</code>:<br>  进入管理页面，点击高级，更改升级站点下的url为 <code>https://mirrors.tuna.tsinghua.edu.cn/jenkins/updates/update-center.json</code> ，点击提交，再点击立即获取（重要）</p>
-<br>
-
-<blockquote>
-<p>参考：<br><a href="https://www.cnblogs.com/straycats/p/14033405.html"> docker 部署jenkins </a><br><a href="https://www.cnblogs.com/nhdlb/p/12576273.html"> Docker：docker安装部署jenkins </a></p>
-</blockquote>
-<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
-      <categories>
-        <category>Docker</category>
-      </categories>
-      <tags>
-        <tag>Gitea</tag>
       </tags>
   </entry>
   <entry>
@@ -1537,188 +1537,6 @@ docker images<span class="token punctuation">|</span>grep none<span class="token
       </tags>
   </entry>
   <entry>
-    <title>linux搭建GitLab</title>
-    <url>/post/73879c7f.html</url>
-    <content><![CDATA[<h3 id="1-初始GitLab"><a href="#1-初始GitLab" class="headerlink" title="1.初始GitLab"></a>1.初始GitLab</h3><p>  GitLab是利用Ruby on Rails一个开源的版本管理系统，实现一个自托管的Git项目仓库，可通过Web界面进行访问公开的或者私人项目。<br>  与Github类似，GitLab能够浏览源代码，管理缺陷和注释。可以管理团队对仓库的访问，它非常易于浏览提交过的版本并提供一个文件历史库。团队成员可以利用内置的简单聊天程序(Wall)进行交流。<br>  它还提供一个代码片段收集功能可以轻松实现代码复用，便于日后有需要的时候进行查找。</p>
-<span id="more"></span>
-
-
-<h3 id="2-准备安装GitLab"><a href="#2-准备安装GitLab" class="headerlink" title="2.准备安装GitLab"></a>2.准备安装GitLab</h3><p>  <code>yum install -y postfix sshd policycoreutils-python</code></p>
-<ul>
-<li><code>postfix</code> 邮件通知</li>
-<li><code>sshd</code> ssh服务(一般系统已经有了,可以不装)</li>
-<li><code>policycoreutils-python</code> GitLab必备依赖</li>
-</ul>
-<p>  设置postfix开机自启: <code>chkconfig --add postfix</code></p>
-<h3 id="3-开始安装GitLab"><a href="#3-开始安装GitLab" class="headerlink" title="3.开始安装GitLab"></a>3.开始安装GitLab</h3><p>  官方下载地址：<a href="https://packages.gitlab.com/gitlab/gitlab-ce">https://packages.gitlab.com/gitlab/gitlab-ce</a><br>  国内镜像：<a href="https://mirrors.tuna.tsinghua.edu.cn/gitlab-ce/yum/el6/">https://mirrors.tuna.tsinghua.edu.cn/gitlab-ce/yum/el6/</a></p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">
-<span class="token function">wget</span> https://mirrors.tuna.tsinghua.edu.cn/gitlab-ce/yum/el6/gitlab-ce-12.7.6-ce.0.el6.x86_64.rpm
-yum <span class="token function">install</span> -y gitlab-ce-12.7.6-ce.0.el6.x86_64.rpm
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<h3 id="4-配置GitLab"><a href="#4-配置GitLab" class="headerlink" title="4.配置GitLab"></a>4.配置GitLab</h3><p>  主要配置两个地方: 访问GitLab的IP地址和发送邮件的账号配置</p>
-<p>  <code>vim /etc/gitlab/gitlab.rb</code></p>
-<pre class="line-numbers language-properties" data-language="properties"><code class="language-properties"><span class="token attr-name">external_url</span> <span class="token attr-value">'http://192.168.183.200' # 你自己的IP</span>
-
-<span class="token comment">### Email Settings</span>
-<span class="token attr-name">gitlab_rails['gitlab_email_enabled']</span> <span class="token punctuation">=</span> <span class="token attr-value">true</span>
-<span class="token attr-name">gitlab_rails['gitlab_email_from']</span> <span class="token punctuation">=</span> <span class="token attr-value">'你的邮箱'</span>
-<span class="token attr-name">gitlab_rails['gitlab_email_display_name']</span> <span class="token punctuation">=</span> <span class="token attr-value">'邮件名字'</span>
-
-<span class="token comment">### GitLab email server settings</span>
-<span class="token comment">### 这里邮件服务器使用的是QQ企业邮箱,163自行修改</span>
-<span class="token attr-name">gitlab_rails['smtp_enable']</span> <span class="token punctuation">=</span> <span class="token attr-value">true</span>
-<span class="token attr-name">gitlab_rails['smtp_address']</span> <span class="token punctuation">=</span> <span class="token attr-value">"smtp.exmail.qq.com"</span>
-<span class="token attr-name">gitlab_rails['smtp_port']</span> <span class="token punctuation">=</span> <span class="token attr-value">465</span>
-<span class="token attr-name">gitlab_rails['smtp_user_name']</span> <span class="token punctuation">=</span> <span class="token attr-value">"你的邮箱"</span>
-<span class="token attr-name">gitlab_rails['smtp_password']</span> <span class="token punctuation">=</span> <span class="token attr-value">"邮箱密码"</span>
-<span class="token attr-name">gitlab_rails['smtp_authentication']</span> <span class="token punctuation">=</span> <span class="token attr-value">"login"</span>
-<span class="token attr-name">gitlab_rails['smtp_enable_starttls_auto']</span> <span class="token punctuation">=</span> <span class="token attr-value">true</span>
-<span class="token attr-name">gitlab_rails['smtp_tls']</span> <span class="token punctuation">=</span> <span class="token attr-value">true</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>  ESC保存并退出 :<code>wq</code></p>
-<h3 id="5-更改gitlab默认端口"><a href="#5-更改gitlab默认端口" class="headerlink" title="5.更改gitlab默认端口"></a>5.更改gitlab默认端口</h3><p>  若linux服务器的80和8080端口都已经被使用，则需修改gitlab监听的端口</p>
-<p>  修改路径文件：<code>vim /etc/gitlab/gitlab.rb</code></p>
-<p>  1、修改<code>external_url</code>  （将前面的#注释符号去掉）,我改成了8099</p>
-<pre class="line-numbers language-properties" data-language="properties"><code class="language-properties"><span class="token comment">## GitLab URL</span>
-<span class="token comment">##! URL on which GitLab will be reachable.</span>
-<span class="token comment">##! For more details on configuring external_url see:</span>
-<span class="token comment">##! https://docs.gitlab.com/omnibus/settings/configuration.html#configuring-the-external-url-for-gitlab</span>
-<span class="token comment">##!</span>
-<span class="token comment">##! Note: During installation/upgrades, the value of the environment variable</span>
-<span class="token comment">##! EXTERNAL_URL will be used to populate/replace this value.</span>
-<span class="token comment">##! On AWS EC2 instances, we also attempt to fetch the public hostname/IP</span>
-<span class="token comment">##! address from AWS. For more details, see:</span>
-<span class="token comment">##! https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instancedata-data-retrieval.html</span>
-<span class="token attr-name">external_url</span> <span class="token attr-value">'http://10.211.55.61:8099'</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>  2、找到Advanced settings 下的8080端口 将端口改成自己备用端口号<br>  （<code>不能和上面url端口号相同，会冲突占用！</code>），我改的28080</p>
-<pre class="line-numbers language-properties" data-language="properties"><code class="language-properties"><span class="token comment">### Advanced settings</span>
-<span class="token comment"># unicorn['listen'] = 'localhost'</span>
-<span class="token attr-name"> unicorn['port']</span> <span class="token punctuation">=</span> <span class="token attr-value">28080</span>
-<span class="token comment"># unicorn['socket'] = '/var/opt/gitlab/gitlab-rails/sockets/gitlab.socket'</span>
-<span class="token comment"># unicorn['pidfile'] = '/opt/gitlab/var/unicorn/unicorn.pid'</span>
-<span class="token comment"># unicorn['tcp_nopush'] = true</span>
-<span class="token comment"># unicorn['backlog_socket'] = 1024</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>  3、运行下面命令</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> gitlab-ctl stop --停止服务
-<span class="token function">sudo</span> gitlab-ctl reconfigure --启动服务
-<span class="token function">sudo</span> gitlab-ctl start --启动所有gitlab组件<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-
-<p>  4、若访问不了gitlab，尝试关闭或开放防火墙</p>
-<h3 id="6-启动GitLab"><a href="#6-启动GitLab" class="headerlink" title="6.启动GitLab"></a>6.启动GitLab</h3><p>  刷新配置: <code>gitlab-ctl reconfigure</code><br>  重启服务: <code>gitlab-ctl restart</code></p>
-<h3 id="7-访问GitLab"><a href="#7-访问GitLab" class="headerlink" title="7.访问GitLab"></a>7.访问GitLab</h3><p>  此时还不能访问,需要关闭防火墙 <code>service iptables stop</code> 或者 在防火墙中开放8099端口:</p>
-<p>  编辑iptables <code>vi /etc/sysconfig/iptables</code></p>
-<p>  添加配置 <code>-A INPUT -m state --state NEW -m tcp -p tcp --dport 8099 -j ACCEPT</code></p>
-<p>  重启防火墙 <code>service iptables restart</code></p>
-<p>  访问 <a href="http://10.211.55.61:8099/">http://10.211.55.61:8099/</a></p>
-<p>  第一次登录需要修改<code>root</code>密码, 密码8位以上,修改完就可以登录</p>
-<h3 id="8-Linux下Gitlab个人界面汉化"><a href="#8-Linux下Gitlab个人界面汉化" class="headerlink" title="8.Linux下Gitlab个人界面汉化"></a>8.Linux下Gitlab个人界面汉化</h3><p>  1.进入个人用户界面<br>  点击右上角<code>个人头像-&gt;settings-&gt;profile-&gt;Preferred language</code><br>  2.默认是english,可以切换中文<br>  3.再刷新一下，我们看见语言变成中文了<br>  4.不过其它账号登录依然是英文，只有当前账号登录才会显示成功切换的语言</p>
-<h3 id="9-GitLab基本操作"><a href="#9-GitLab基本操作" class="headerlink" title="9.GitLab基本操作"></a>9.GitLab基本操作</h3><p>  添加用户2种方式: root后台添加和自己注册</p>
-<p>  用户权限:</p>
-<pre class="line-numbers language-properties" data-language="properties"><code class="language-properties"><span class="token attr-name">Regular</span><span class="token punctuation">:</span> <span class="token attr-value">可以访问自己组和项目</span>
-<span class="token attr-name">Admin</span><span class="token punctuation">:</span> <span class="token attr-value">可以访问所有组和项目</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-
-<p>  添加组</p>
-<p>  组权限</p>
-<pre class="line-numbers language-properties" data-language="properties"><code class="language-properties"><span class="token attr-name">Private</span><span class="token punctuation">:</span> <span class="token attr-value">私用,只允许组成员可见</span>
-<span class="token attr-name">Internal</span><span class="token punctuation">:</span> <span class="token attr-value">内部,所有登录用户可见</span>
-<span class="token attr-name">Public</span><span class="token punctuation">:</span> <span class="token attr-value">公共,所有人可见</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<p>  创建仓库和添加成员到组,很简单,不再赘述. 重点说下仓库成员权限,</p>
-<pre class="line-numbers language-properties" data-language="properties"><code class="language-properties"><span class="token attr-name">Guest</span><span class="token punctuation">:</span> <span class="token attr-value">可以创建issue、发表评论，不能读写版本库</span>
-<span class="token attr-name">Reporter</span><span class="token punctuation">:</span> <span class="token attr-value">可以克隆代码，不能提交，QA、PM可以赋予这个权限</span>
-<span class="token attr-name">Developer</span><span class="token punctuation">:</span> <span class="token attr-value">可以克隆代码、开发、提交、push，RD可以赋予这个权限</span>
-<span class="token attr-name">Master</span><span class="token punctuation">:</span> <span class="token attr-value">可以创建项目、添加tag、保护分支、添加项目成员、编辑项目，核心RD负责人可以赋予这个权限</span>
-<span class="token attr-name">Owner</span><span class="token punctuation">:</span> <span class="token attr-value">可以设置项目访问权限 (- Visibility Level、删除项目、迁移项目、管理组成员，开发组leader可以赋予这个权限)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
-<h3 id="10-Gitlab相关操作及说明"><a href="#10-Gitlab相关操作及说明" class="headerlink" title="10.Gitlab相关操作及说明"></a>10.Gitlab相关操作及说明</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">
-/etc/gitlab/gitlab.rb          <span class="token comment">#gitlab配置文件</span>
-/opt/gitlab                    <span class="token comment">#gitlab的程序安装目录</span>
-/var/opt/gitlab                <span class="token comment">#gitlab目录数据目录</span>
-/var/opt/gitlab/git-data       <span class="token comment">#存放仓库数据</span>
-gitlab-ctl reconfigure         <span class="token comment">#重新加载配置</span>
-gitlab-ctl status              <span class="token comment">#查看当前gitlab所有服务运行状态</span>
-gitlab-ctl stop                <span class="token comment">#停止gitlab服务</span>
-gitlab-ctl stop nginx          <span class="token comment">#单独停止某个服务</span>
-gitlab-ctl <span class="token function">tail</span>                <span class="token comment">#查看所有服务的日志</span>
-
-Gitlab的服务构成：
-nginx：                 静态web服务器
-gitlab-workhorse        轻量级反向代理服务器
-<span class="token function">logrotate</span>              日志文件管理工具
-postgresql             数据库
-redis                  缓存数据库
-sidekiq                用于在后台执行队列任务（异步执行）<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-        <tag>GitLab</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Linux安装Git-两种方式详细教程</title>
-    <url>/post/4370af2f.html</url>
-    <content><![CDATA[<h3 id="Git介绍"><a href="#Git介绍" class="headerlink" title="Git介绍"></a>Git介绍</h3><p>  Git — The stupid content tracker, 傻瓜内容跟踪器。Linus Torvalds 是这样给我们介绍 Git 的。<br>  Git 是用于 Linux内核开发的版本控制工具。与常用的版本控制工具 CVS, Subversion 等不同，它采用了分布式版本库的方式，不必服务器端软件支持（wingeddevil注：这得分是用什么样的服务端，使用http协议或者git协议等不太一样。并且在push和pull的时候和服务器端还是有交互的。），使源代码的发布和交流极其方便。 Git 的速度很快，这对于诸如 Linux kernel 这样的大项目来说自然很重要。 Git 最为出色的是它的合并跟踪（merge tracing）能力。</p>
-<span id="more"></span>
-
-<h3 id="yun安装"><a href="#yun安装" class="headerlink" title="yun安装"></a>yun安装</h3><ol>
-<li>在Linux上是有yum安装Git，非常简单，只需要一行命令<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">yum <span class="token function">install</span> curl-devel expat-devel gettext-devel openssl-devel zlib-devel perl-devel
-yum -y <span class="token function">install</span> <span class="token function">git</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
-<li>输入 git –version查看Git是否安装完成以及查看其版本号<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> --version<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li>yum安装git被安装在<code>/usr/libexec/git-core</code>目录下</li>
-</ol>
-<h3 id="从github上下载最新的源码编译后安装"><a href="#从github上下载最新的源码编译后安装" class="headerlink" title="从github上下载最新的源码编译后安装"></a>从github上下载最新的源码编译后安装</h3><p>  yum安装简单，但版本太旧，你不好控制。如果想要使用最新版的git，那还是得自己下载源码安装。</p>
-<ol>
-<li><p>首先我们需要删除旧的Git</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">yum -y remove <span class="token function">git</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li><p>进入<code>git</code>在<code>GitHub</code>上发布版本页面<code>https://github.com/git/git/releases</code> ，这个页面我们可以找到所有git已发布的版本。这里我们选择最新版的<code>tar.gz</code>包。</p>
-<pre class="line-numbers language-html" data-language="html"><code class="language-html">https://github.com/git/git/releases<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li><p>下载最新版本的tar.gz的Git到本地电脑上，利用ftp工具将压缩包上传至Linux服务器的<code>/usr/local</code>目录下</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">wget</span> https://github.com/git/git/archive/v2.28.0.tar.gz<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li><p>进入<code>/usr/local</code> 目录解压git文件</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">tar</span> -zxvf git-2.28.0.tar.gz<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li><p>拿到解压后的源码以后我们需要编译源码了，不过在此之前需要安装编译所需要的依赖。</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">yum <span class="token function">install</span> curl-devel expat-devel gettext-devel openssl-devel zlib-devel gcc perl-ExtUtils-MakeMaker<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>6、提示，安装编译源码所需依赖的时候，yum自动帮你安装了git，这时候你需要先卸载这个旧版的git。</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">yum -y remove <span class="token function">git</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li><p>编译git源码，进入cd <code>/usr/local/git-2.28.0.tar.gz</code> 目录</p>
-<pre class="line-numbers language-cmake" data-language="cmake"><code class="language-cmake">make prefix=/usr/local/git all<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li><p>安装git至/usr/local/git路径</p>
-<pre class="line-numbers language-cmake" data-language="cmake"><code class="language-cmake">make prefix=/usr/local/git install<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li><p>配置环境变量</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">vi</span> /etc/profile 
-
-在底部加上如下
-
-<span class="token builtin class-name">export</span> <span class="token assign-left variable"><span class="token environment constant">PATH</span></span><span class="token operator">=</span><span class="token environment constant">$PATH</span>:/usr/local/git/bin<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li><p>刷新环境变量</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">source</span> /etc/profile<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li><p>查看Git是否安装完成</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">whereis</span> <span class="token function">git</span>
-<span class="token function">git</span> --version<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
-</ol>
-<p>  至此，从github上下载最新的源码编译后安装git完成。</p>
-<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
-      <categories>
-        <category>Linux</category>
-        <category>Git</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-        <tag>Git</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Markdown 编辑器日常使用语法记录</title>
     <url>/post/9c39465b.html</url>
     <content><![CDATA[<h4 id="段首缩进"><a href="#段首缩进" class="headerlink" title="段首缩进"></a>段首缩进</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token operator">&amp;</span>emsp<span class="token punctuation">;</span><span class="token operator">&amp;</span>emsp<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
@@ -2070,6 +1888,188 @@ _ _ _
       </tags>
   </entry>
   <entry>
+    <title>linux搭建GitLab</title>
+    <url>/post/73879c7f.html</url>
+    <content><![CDATA[<h3 id="1-初始GitLab"><a href="#1-初始GitLab" class="headerlink" title="1.初始GitLab"></a>1.初始GitLab</h3><p>  GitLab是利用Ruby on Rails一个开源的版本管理系统，实现一个自托管的Git项目仓库，可通过Web界面进行访问公开的或者私人项目。<br>  与Github类似，GitLab能够浏览源代码，管理缺陷和注释。可以管理团队对仓库的访问，它非常易于浏览提交过的版本并提供一个文件历史库。团队成员可以利用内置的简单聊天程序(Wall)进行交流。<br>  它还提供一个代码片段收集功能可以轻松实现代码复用，便于日后有需要的时候进行查找。</p>
+<span id="more"></span>
+
+
+<h3 id="2-准备安装GitLab"><a href="#2-准备安装GitLab" class="headerlink" title="2.准备安装GitLab"></a>2.准备安装GitLab</h3><p>  <code>yum install -y postfix sshd policycoreutils-python</code></p>
+<ul>
+<li><code>postfix</code> 邮件通知</li>
+<li><code>sshd</code> ssh服务(一般系统已经有了,可以不装)</li>
+<li><code>policycoreutils-python</code> GitLab必备依赖</li>
+</ul>
+<p>  设置postfix开机自启: <code>chkconfig --add postfix</code></p>
+<h3 id="3-开始安装GitLab"><a href="#3-开始安装GitLab" class="headerlink" title="3.开始安装GitLab"></a>3.开始安装GitLab</h3><p>  官方下载地址：<a href="https://packages.gitlab.com/gitlab/gitlab-ce">https://packages.gitlab.com/gitlab/gitlab-ce</a><br>  国内镜像：<a href="https://mirrors.tuna.tsinghua.edu.cn/gitlab-ce/yum/el6/">https://mirrors.tuna.tsinghua.edu.cn/gitlab-ce/yum/el6/</a></p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">
+<span class="token function">wget</span> https://mirrors.tuna.tsinghua.edu.cn/gitlab-ce/yum/el6/gitlab-ce-12.7.6-ce.0.el6.x86_64.rpm
+yum <span class="token function">install</span> -y gitlab-ce-12.7.6-ce.0.el6.x86_64.rpm
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="4-配置GitLab"><a href="#4-配置GitLab" class="headerlink" title="4.配置GitLab"></a>4.配置GitLab</h3><p>  主要配置两个地方: 访问GitLab的IP地址和发送邮件的账号配置</p>
+<p>  <code>vim /etc/gitlab/gitlab.rb</code></p>
+<pre class="line-numbers language-properties" data-language="properties"><code class="language-properties"><span class="token attr-name">external_url</span> <span class="token attr-value">'http://192.168.183.200' # 你自己的IP</span>
+
+<span class="token comment">### Email Settings</span>
+<span class="token attr-name">gitlab_rails['gitlab_email_enabled']</span> <span class="token punctuation">=</span> <span class="token attr-value">true</span>
+<span class="token attr-name">gitlab_rails['gitlab_email_from']</span> <span class="token punctuation">=</span> <span class="token attr-value">'你的邮箱'</span>
+<span class="token attr-name">gitlab_rails['gitlab_email_display_name']</span> <span class="token punctuation">=</span> <span class="token attr-value">'邮件名字'</span>
+
+<span class="token comment">### GitLab email server settings</span>
+<span class="token comment">### 这里邮件服务器使用的是QQ企业邮箱,163自行修改</span>
+<span class="token attr-name">gitlab_rails['smtp_enable']</span> <span class="token punctuation">=</span> <span class="token attr-value">true</span>
+<span class="token attr-name">gitlab_rails['smtp_address']</span> <span class="token punctuation">=</span> <span class="token attr-value">"smtp.exmail.qq.com"</span>
+<span class="token attr-name">gitlab_rails['smtp_port']</span> <span class="token punctuation">=</span> <span class="token attr-value">465</span>
+<span class="token attr-name">gitlab_rails['smtp_user_name']</span> <span class="token punctuation">=</span> <span class="token attr-value">"你的邮箱"</span>
+<span class="token attr-name">gitlab_rails['smtp_password']</span> <span class="token punctuation">=</span> <span class="token attr-value">"邮箱密码"</span>
+<span class="token attr-name">gitlab_rails['smtp_authentication']</span> <span class="token punctuation">=</span> <span class="token attr-value">"login"</span>
+<span class="token attr-name">gitlab_rails['smtp_enable_starttls_auto']</span> <span class="token punctuation">=</span> <span class="token attr-value">true</span>
+<span class="token attr-name">gitlab_rails['smtp_tls']</span> <span class="token punctuation">=</span> <span class="token attr-value">true</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>  ESC保存并退出 :<code>wq</code></p>
+<h3 id="5-更改gitlab默认端口"><a href="#5-更改gitlab默认端口" class="headerlink" title="5.更改gitlab默认端口"></a>5.更改gitlab默认端口</h3><p>  若linux服务器的80和8080端口都已经被使用，则需修改gitlab监听的端口</p>
+<p>  修改路径文件：<code>vim /etc/gitlab/gitlab.rb</code></p>
+<p>  1、修改<code>external_url</code>  （将前面的#注释符号去掉）,我改成了8099</p>
+<pre class="line-numbers language-properties" data-language="properties"><code class="language-properties"><span class="token comment">## GitLab URL</span>
+<span class="token comment">##! URL on which GitLab will be reachable.</span>
+<span class="token comment">##! For more details on configuring external_url see:</span>
+<span class="token comment">##! https://docs.gitlab.com/omnibus/settings/configuration.html#configuring-the-external-url-for-gitlab</span>
+<span class="token comment">##!</span>
+<span class="token comment">##! Note: During installation/upgrades, the value of the environment variable</span>
+<span class="token comment">##! EXTERNAL_URL will be used to populate/replace this value.</span>
+<span class="token comment">##! On AWS EC2 instances, we also attempt to fetch the public hostname/IP</span>
+<span class="token comment">##! address from AWS. For more details, see:</span>
+<span class="token comment">##! https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instancedata-data-retrieval.html</span>
+<span class="token attr-name">external_url</span> <span class="token attr-value">'http://10.211.55.61:8099'</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>  2、找到Advanced settings 下的8080端口 将端口改成自己备用端口号<br>  （<code>不能和上面url端口号相同，会冲突占用！</code>），我改的28080</p>
+<pre class="line-numbers language-properties" data-language="properties"><code class="language-properties"><span class="token comment">### Advanced settings</span>
+<span class="token comment"># unicorn['listen'] = 'localhost'</span>
+<span class="token attr-name"> unicorn['port']</span> <span class="token punctuation">=</span> <span class="token attr-value">28080</span>
+<span class="token comment"># unicorn['socket'] = '/var/opt/gitlab/gitlab-rails/sockets/gitlab.socket'</span>
+<span class="token comment"># unicorn['pidfile'] = '/opt/gitlab/var/unicorn/unicorn.pid'</span>
+<span class="token comment"># unicorn['tcp_nopush'] = true</span>
+<span class="token comment"># unicorn['backlog_socket'] = 1024</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>  3、运行下面命令</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> gitlab-ctl stop --停止服务
+<span class="token function">sudo</span> gitlab-ctl reconfigure --启动服务
+<span class="token function">sudo</span> gitlab-ctl start --启动所有gitlab组件<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+
+<p>  4、若访问不了gitlab，尝试关闭或开放防火墙</p>
+<h3 id="6-启动GitLab"><a href="#6-启动GitLab" class="headerlink" title="6.启动GitLab"></a>6.启动GitLab</h3><p>  刷新配置: <code>gitlab-ctl reconfigure</code><br>  重启服务: <code>gitlab-ctl restart</code></p>
+<h3 id="7-访问GitLab"><a href="#7-访问GitLab" class="headerlink" title="7.访问GitLab"></a>7.访问GitLab</h3><p>  此时还不能访问,需要关闭防火墙 <code>service iptables stop</code> 或者 在防火墙中开放8099端口:</p>
+<p>  编辑iptables <code>vi /etc/sysconfig/iptables</code></p>
+<p>  添加配置 <code>-A INPUT -m state --state NEW -m tcp -p tcp --dport 8099 -j ACCEPT</code></p>
+<p>  重启防火墙 <code>service iptables restart</code></p>
+<p>  访问 <a href="http://10.211.55.61:8099/">http://10.211.55.61:8099/</a></p>
+<p>  第一次登录需要修改<code>root</code>密码, 密码8位以上,修改完就可以登录</p>
+<h3 id="8-Linux下Gitlab个人界面汉化"><a href="#8-Linux下Gitlab个人界面汉化" class="headerlink" title="8.Linux下Gitlab个人界面汉化"></a>8.Linux下Gitlab个人界面汉化</h3><p>  1.进入个人用户界面<br>  点击右上角<code>个人头像-&gt;settings-&gt;profile-&gt;Preferred language</code><br>  2.默认是english,可以切换中文<br>  3.再刷新一下，我们看见语言变成中文了<br>  4.不过其它账号登录依然是英文，只有当前账号登录才会显示成功切换的语言</p>
+<h3 id="9-GitLab基本操作"><a href="#9-GitLab基本操作" class="headerlink" title="9.GitLab基本操作"></a>9.GitLab基本操作</h3><p>  添加用户2种方式: root后台添加和自己注册</p>
+<p>  用户权限:</p>
+<pre class="line-numbers language-properties" data-language="properties"><code class="language-properties"><span class="token attr-name">Regular</span><span class="token punctuation">:</span> <span class="token attr-value">可以访问自己组和项目</span>
+<span class="token attr-name">Admin</span><span class="token punctuation">:</span> <span class="token attr-value">可以访问所有组和项目</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+
+<p>  添加组</p>
+<p>  组权限</p>
+<pre class="line-numbers language-properties" data-language="properties"><code class="language-properties"><span class="token attr-name">Private</span><span class="token punctuation">:</span> <span class="token attr-value">私用,只允许组成员可见</span>
+<span class="token attr-name">Internal</span><span class="token punctuation">:</span> <span class="token attr-value">内部,所有登录用户可见</span>
+<span class="token attr-name">Public</span><span class="token punctuation">:</span> <span class="token attr-value">公共,所有人可见</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>  创建仓库和添加成员到组,很简单,不再赘述. 重点说下仓库成员权限,</p>
+<pre class="line-numbers language-properties" data-language="properties"><code class="language-properties"><span class="token attr-name">Guest</span><span class="token punctuation">:</span> <span class="token attr-value">可以创建issue、发表评论，不能读写版本库</span>
+<span class="token attr-name">Reporter</span><span class="token punctuation">:</span> <span class="token attr-value">可以克隆代码，不能提交，QA、PM可以赋予这个权限</span>
+<span class="token attr-name">Developer</span><span class="token punctuation">:</span> <span class="token attr-value">可以克隆代码、开发、提交、push，RD可以赋予这个权限</span>
+<span class="token attr-name">Master</span><span class="token punctuation">:</span> <span class="token attr-value">可以创建项目、添加tag、保护分支、添加项目成员、编辑项目，核心RD负责人可以赋予这个权限</span>
+<span class="token attr-name">Owner</span><span class="token punctuation">:</span> <span class="token attr-value">可以设置项目访问权限 (- Visibility Level、删除项目、迁移项目、管理组成员，开发组leader可以赋予这个权限)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+<h3 id="10-Gitlab相关操作及说明"><a href="#10-Gitlab相关操作及说明" class="headerlink" title="10.Gitlab相关操作及说明"></a>10.Gitlab相关操作及说明</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">
+/etc/gitlab/gitlab.rb          <span class="token comment">#gitlab配置文件</span>
+/opt/gitlab                    <span class="token comment">#gitlab的程序安装目录</span>
+/var/opt/gitlab                <span class="token comment">#gitlab目录数据目录</span>
+/var/opt/gitlab/git-data       <span class="token comment">#存放仓库数据</span>
+gitlab-ctl reconfigure         <span class="token comment">#重新加载配置</span>
+gitlab-ctl status              <span class="token comment">#查看当前gitlab所有服务运行状态</span>
+gitlab-ctl stop                <span class="token comment">#停止gitlab服务</span>
+gitlab-ctl stop nginx          <span class="token comment">#单独停止某个服务</span>
+gitlab-ctl <span class="token function">tail</span>                <span class="token comment">#查看所有服务的日志</span>
+
+Gitlab的服务构成：
+nginx：                 静态web服务器
+gitlab-workhorse        轻量级反向代理服务器
+<span class="token function">logrotate</span>              日志文件管理工具
+postgresql             数据库
+redis                  缓存数据库
+sidekiq                用于在后台执行队列任务（异步执行）<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>GitLab</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Linux安装Git-两种方式详细教程</title>
+    <url>/post/4370af2f.html</url>
+    <content><![CDATA[<h3 id="Git介绍"><a href="#Git介绍" class="headerlink" title="Git介绍"></a>Git介绍</h3><p>  Git — The stupid content tracker, 傻瓜内容跟踪器。Linus Torvalds 是这样给我们介绍 Git 的。<br>  Git 是用于 Linux内核开发的版本控制工具。与常用的版本控制工具 CVS, Subversion 等不同，它采用了分布式版本库的方式，不必服务器端软件支持（wingeddevil注：这得分是用什么样的服务端，使用http协议或者git协议等不太一样。并且在push和pull的时候和服务器端还是有交互的。），使源代码的发布和交流极其方便。 Git 的速度很快，这对于诸如 Linux kernel 这样的大项目来说自然很重要。 Git 最为出色的是它的合并跟踪（merge tracing）能力。</p>
+<span id="more"></span>
+
+<h3 id="yun安装"><a href="#yun安装" class="headerlink" title="yun安装"></a>yun安装</h3><ol>
+<li>在Linux上是有yum安装Git，非常简单，只需要一行命令<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">yum <span class="token function">install</span> curl-devel expat-devel gettext-devel openssl-devel zlib-devel perl-devel
+yum -y <span class="token function">install</span> <span class="token function">git</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
+<li>输入 git –version查看Git是否安装完成以及查看其版本号<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> --version<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li>yum安装git被安装在<code>/usr/libexec/git-core</code>目录下</li>
+</ol>
+<h3 id="从github上下载最新的源码编译后安装"><a href="#从github上下载最新的源码编译后安装" class="headerlink" title="从github上下载最新的源码编译后安装"></a>从github上下载最新的源码编译后安装</h3><p>  yum安装简单，但版本太旧，你不好控制。如果想要使用最新版的git，那还是得自己下载源码安装。</p>
+<ol>
+<li><p>首先我们需要删除旧的Git</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">yum -y remove <span class="token function">git</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li><p>进入<code>git</code>在<code>GitHub</code>上发布版本页面<code>https://github.com/git/git/releases</code> ，这个页面我们可以找到所有git已发布的版本。这里我们选择最新版的<code>tar.gz</code>包。</p>
+<pre class="line-numbers language-html" data-language="html"><code class="language-html">https://github.com/git/git/releases<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li><p>下载最新版本的tar.gz的Git到本地电脑上，利用ftp工具将压缩包上传至Linux服务器的<code>/usr/local</code>目录下</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">wget</span> https://github.com/git/git/archive/v2.28.0.tar.gz<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li><p>进入<code>/usr/local</code> 目录解压git文件</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">tar</span> -zxvf git-2.28.0.tar.gz<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li><p>拿到解压后的源码以后我们需要编译源码了，不过在此之前需要安装编译所需要的依赖。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">yum <span class="token function">install</span> curl-devel expat-devel gettext-devel openssl-devel zlib-devel gcc perl-ExtUtils-MakeMaker<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>6、提示，安装编译源码所需依赖的时候，yum自动帮你安装了git，这时候你需要先卸载这个旧版的git。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">yum -y remove <span class="token function">git</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li><p>编译git源码，进入cd <code>/usr/local/git-2.28.0.tar.gz</code> 目录</p>
+<pre class="line-numbers language-cmake" data-language="cmake"><code class="language-cmake">make prefix=/usr/local/git all<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li><p>安装git至/usr/local/git路径</p>
+<pre class="line-numbers language-cmake" data-language="cmake"><code class="language-cmake">make prefix=/usr/local/git install<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li><p>配置环境变量</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">vi</span> /etc/profile 
+
+在底部加上如下
+
+<span class="token builtin class-name">export</span> <span class="token assign-left variable"><span class="token environment constant">PATH</span></span><span class="token operator">=</span><span class="token environment constant">$PATH</span>:/usr/local/git/bin<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li><p>刷新环境变量</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">source</span> /etc/profile<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li><p>查看Git是否安装完成</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">whereis</span> <span class="token function">git</span>
+<span class="token function">git</span> --version<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
+</ol>
+<p>  至此，从github上下载最新的源码编译后安装git完成。</p>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
+      <categories>
+        <category>Linux</category>
+        <category>Git</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>Git</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>git常用命令</title>
     <url>/post/423abe9e.html</url>
     <content><![CDATA[<h2 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h2><h5 id="初始配置"><a href="#初始配置" class="headerlink" title="初始配置"></a>初始配置</h5><ol>
@@ -2248,6 +2248,32 @@ commit-id3<span aria-hidden="true" class="line-numbers-rows"><span></span><span>
       </tags>
   </entry>
   <entry>
+    <title>Hello World</title>
+    <url>/post/4a17b156.html</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo new <span class="token string">"My New Post"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<span id="more"></span>
+
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo server<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo generate<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo deploy<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>More info: <a href="https://hexo.io/docs/deployment.html">Deployment</a></p>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
+      <categories>
+        <category>测试</category>
+      </categories>
+      <tags>
+        <tag>Test</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>hexo之404 跳转</title>
     <url>/post/20e74403.html</url>
     <content><![CDATA[<h4 id="新建-404-页面"><a href="#新建-404-页面" class="headerlink" title="新建 404 页面"></a>新建 404 页面</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo new page <span class="token number">404</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
@@ -2285,32 +2311,6 @@ permalink: /404
       </categories>
       <tags>
         <tag>hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/post/4a17b156.html</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo new <span class="token string">"My New Post"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<span id="more"></span>
-
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo server<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo generate<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo deploy<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>More info: <a href="https://hexo.io/docs/deployment.html">Deployment</a></p>
-<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
-      <categories>
-        <category>测试</category>
-      </categories>
-      <tags>
-        <tag>Test</tag>
       </tags>
   </entry>
   <entry>
@@ -3593,34 +3593,6 @@ lrwxrwxrwx. <span class="token number">1</span> root root <span class="token num
       </tags>
   </entry>
   <entry>
-    <title>Maven打包跳过test测试类</title>
-    <url>/post/454608c3.html</url>
-    <content><![CDATA[<h3 id="记录一下，有两种方式："><a href="#记录一下，有两种方式：" class="headerlink" title="记录一下，有两种方式："></a>记录一下，有两种方式：</h3><ol>
-<li> 传统方式<br>  命令带上参数 <code>mvn install -Dmaven.test.skip=true</code> 即可<span id="more"></span></li>
-<li> 使用<code>maven-surefire-plugin</code>插件<br>  在pom.xml的build里添加插件如下：<pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>plugin</span><span class="token punctuation">&gt;</span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">&gt;</span></span>org.apache.maven.plugins<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">&gt;</span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">&gt;</span></span>maven-surefire-plugin<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">&gt;</span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">&gt;</span></span>2.20.1<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">&gt;</span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>configuration</span><span class="token punctuation">&gt;</span></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>skipTests</span><span class="token punctuation">&gt;</span></span>true<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>skipTests</span><span class="token punctuation">&gt;</span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>configuration</span><span class="token punctuation">&gt;</span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>plugin</span><span class="token punctuation">&gt;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li>在<code>properties</code>定义<skiptests>，设置其值为true。<pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>properties</span><span class="token punctuation">&gt;</span></span>
-	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>project.build.sourceEncoding</span><span class="token punctuation">&gt;</span></span>UTF-8<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>project.build.sourceEncoding</span><span class="token punctuation">&gt;</span></span>
-	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>project.reporting.outputEncoding</span><span class="token punctuation">&gt;</span></span>UTF-8<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>project.reporting.outputEncoding</span><span class="token punctuation">&gt;</span></span>
-	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>java.version</span><span class="token punctuation">&gt;</span></span>1.8<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>java.version</span><span class="token punctuation">&gt;</span></span>
-	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>skipTests</span><span class="token punctuation">&gt;</span></span>true<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>skipTests</span><span class="token punctuation">&gt;</span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>properties</span><span class="token punctuation">&gt;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></skiptests></li>
-</ol>
-<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
-      <categories>
-        <category>Maven</category>
-      </categories>
-      <tags>
-        <tag>Maven</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Maven 打包将 system 的文件添加到 war 中</title>
     <url>/post/63dee017.html</url>
     <content><![CDATA[<h4 id="文章背景"><a href="#文章背景" class="headerlink" title="文章背景"></a>文章背景</h4><div class="note info no-icon"><p>   在个人的工作中使用了百度的编辑器的jar文件，但是在阿里云的maven镜像中是没有这个文件的，以前自己的私服里面有这个文件。<br>后面使用，<scope>system</scope> 添加后发现不能打包的war文件中。<br>对于国内的互联网的资料，我个人的意见是能用 English 的还是用这样的方式去查询吧。</p>
@@ -3761,66 +3733,31 @@ lrwxrwxrwx. <span class="token number">1</span> root root <span class="token num
       </tags>
   </entry>
   <entry>
-    <title>linux下mongo启动关闭重启方法</title>
-    <url>/post/91eed2.html</url>
-    <content><![CDATA[<h4 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h4><p>  启动<code>mongodb</code>首先要指定mongo的<code>数据</code>目录和<code>日志</code>文件路径，如:  <code>/data/mongodb/</code>,<code>/var/log/mongodb/mongodb.log</code><br>  启动命令： </p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">/usr/local/mongdb/bin/mongod -port <span class="token number">27017</span> --dbpath /data/mongodb/ --logpath /var/mongodb/mongodb.log<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<span id="more"></span>
-
-<h4 id="通过配置文件配置："><a href="#通过配置文件配置：" class="headerlink" title="通过配置文件配置："></a>通过配置文件配置：</h4><p>  <code>vim mongodb.conf </code>   </p>
-<pre class="line-numbers language-properties" data-language="properties"><code class="language-properties"><span class="token comment">#数据库路径</span>
-<span class="token attr-name">dbpath</span><span class="token punctuation">=</span><span class="token attr-value">/usr/local/mongodb/data/</span>
-
-<span class="token comment">#日志输出文件路径</span>
-<span class="token attr-name">logpath</span><span class="token punctuation">=</span><span class="token attr-value">/usr/local/mongodb/log/mongodb.log</span>
-
-<span class="token comment">#错误日志采用追加模式，配置这个选项后mongodb的日志会追加到现有的日志文件，而不是从新创建一个新文件</span>
-<span class="token attr-name">logappend</span><span class="token punctuation">=</span><span class="token attr-value">true</span>
-
-<span class="token comment">#启用日志文件，默认启用</span>
-<span class="token attr-name">journal</span><span class="token punctuation">=</span><span class="token attr-value">true</span>
-
-<span class="token comment">#这个选项可以过滤掉一些无用的日志信息，若需要调试使用请设置为false</span>
-<span class="token attr-name">quiet</span><span class="token punctuation">=</span><span class="token attr-value">false</span>
-
-<span class="token comment">#是否后台启动，有这个参数，就可以实现后台运行</span>
-<span class="token attr-name">fork</span><span class="token punctuation">=</span><span class="token attr-value">true</span>
-
-<span class="token comment">#端口号 默认为27017</span>
-<span class="token attr-name">port</span><span class="token punctuation">=</span><span class="token attr-value">27017</span>
-
-<span class="token comment">#远程连接</span>
-<span class="token attr-name">bind_ip</span> <span class="token punctuation">=</span> <span class="token attr-value">0.0.0.0</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>  启动命令： </p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">/usr/loca/mongodb/bin/mongod -f mongodb.conf<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h4 id="后台启动"><a href="#后台启动" class="headerlink" title="后台启动"></a>后台启动</h4><ol>
-<li> 使用<font color="LightCoral" size="4"><b>--fork</b></font> 选项将会通知 mongod 在后台运行   </li> 
-
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">/usr/local/mongodb/bin/mongod  -port <span class="token number">10001</span> --dbpath /data/mongodb/ --logpath /var/mongodb/mongodb.log --fork  <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-
-<li> 使用<font color="LightCoral" size="4"><b>&amp;</b></font>后台启动      </li>
-
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">/usr/local/mongodb/bin/mongod  -port <span class="token number">10001</span> --dbpath /data/mongodb/ --logpath /var/mongodb/mongodb.log <span class="token operator">&amp;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-</ol>
-
-<h4 id="关闭"><a href="#关闭" class="headerlink" title="关闭"></a>关闭</h4><ol>
-<li> pkill mongod</li>
-
-<li> 进入mongo shell，运行： </li>
-
-<pre class="line-numbers language-mongodb" data-language="mongodb"><code class="language-mongodb">db<span class="token punctuation">.</span><span class="token function">shuidownServer</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
+    <title>Maven打包跳过test测试类</title>
+    <url>/post/454608c3.html</url>
+    <content><![CDATA[<h3 id="记录一下，有两种方式："><a href="#记录一下，有两种方式：" class="headerlink" title="记录一下，有两种方式："></a>记录一下，有两种方式：</h3><ol>
+<li> 传统方式<br>  命令带上参数 <code>mvn install -Dmaven.test.skip=true</code> 即可<span id="more"></span></li>
+<li> 使用<code>maven-surefire-plugin</code>插件<br>  在pom.xml的build里添加插件如下：<pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>plugin</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">&gt;</span></span>org.apache.maven.plugins<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">&gt;</span></span>maven-surefire-plugin<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">&gt;</span></span>2.20.1<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>configuration</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>skipTests</span><span class="token punctuation">&gt;</span></span>true<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>skipTests</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>configuration</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>plugin</span><span class="token punctuation">&gt;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li>在<code>properties</code>定义<skiptests>，设置其值为true。<pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>properties</span><span class="token punctuation">&gt;</span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>project.build.sourceEncoding</span><span class="token punctuation">&gt;</span></span>UTF-8<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>project.build.sourceEncoding</span><span class="token punctuation">&gt;</span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>project.reporting.outputEncoding</span><span class="token punctuation">&gt;</span></span>UTF-8<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>project.reporting.outputEncoding</span><span class="token punctuation">&gt;</span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>java.version</span><span class="token punctuation">&gt;</span></span>1.8<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>java.version</span><span class="token punctuation">&gt;</span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>skipTests</span><span class="token punctuation">&gt;</span></span>true<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>skipTests</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>properties</span><span class="token punctuation">&gt;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></skiptests></li>
 </ol>
 <link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
       <categories>
-        <category>Linux</category>
+        <category>Maven</category>
       </categories>
       <tags>
-        <tag>Mongo</tag>
+        <tag>Maven</tag>
       </tags>
   </entry>
   <entry>
@@ -3990,6 +3927,69 @@ lrwxrwxrwx. <span class="token number">1</span> root root <span class="token num
       </categories>
       <tags>
         <tag>MyBatis-Plus</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>linux下mongo启动关闭重启方法</title>
+    <url>/post/91eed2.html</url>
+    <content><![CDATA[<h4 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h4><p>  启动<code>mongodb</code>首先要指定mongo的<code>数据</code>目录和<code>日志</code>文件路径，如:  <code>/data/mongodb/</code>,<code>/var/log/mongodb/mongodb.log</code><br>  启动命令： </p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">/usr/local/mongdb/bin/mongod -port <span class="token number">27017</span> --dbpath /data/mongodb/ --logpath /var/mongodb/mongodb.log<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<span id="more"></span>
+
+<h4 id="通过配置文件配置："><a href="#通过配置文件配置：" class="headerlink" title="通过配置文件配置："></a>通过配置文件配置：</h4><p>  <code>vim mongodb.conf </code>   </p>
+<pre class="line-numbers language-properties" data-language="properties"><code class="language-properties"><span class="token comment">#数据库路径</span>
+<span class="token attr-name">dbpath</span><span class="token punctuation">=</span><span class="token attr-value">/usr/local/mongodb/data/</span>
+
+<span class="token comment">#日志输出文件路径</span>
+<span class="token attr-name">logpath</span><span class="token punctuation">=</span><span class="token attr-value">/usr/local/mongodb/log/mongodb.log</span>
+
+<span class="token comment">#错误日志采用追加模式，配置这个选项后mongodb的日志会追加到现有的日志文件，而不是从新创建一个新文件</span>
+<span class="token attr-name">logappend</span><span class="token punctuation">=</span><span class="token attr-value">true</span>
+
+<span class="token comment">#启用日志文件，默认启用</span>
+<span class="token attr-name">journal</span><span class="token punctuation">=</span><span class="token attr-value">true</span>
+
+<span class="token comment">#这个选项可以过滤掉一些无用的日志信息，若需要调试使用请设置为false</span>
+<span class="token attr-name">quiet</span><span class="token punctuation">=</span><span class="token attr-value">false</span>
+
+<span class="token comment">#是否后台启动，有这个参数，就可以实现后台运行</span>
+<span class="token attr-name">fork</span><span class="token punctuation">=</span><span class="token attr-value">true</span>
+
+<span class="token comment">#端口号 默认为27017</span>
+<span class="token attr-name">port</span><span class="token punctuation">=</span><span class="token attr-value">27017</span>
+
+<span class="token comment">#远程连接</span>
+<span class="token attr-name">bind_ip</span> <span class="token punctuation">=</span> <span class="token attr-value">0.0.0.0</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>  启动命令： </p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">/usr/loca/mongodb/bin/mongod -f mongodb.conf<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h4 id="后台启动"><a href="#后台启动" class="headerlink" title="后台启动"></a>后台启动</h4><ol>
+<li> 使用<font color="LightCoral" size="4"><b>--fork</b></font> 选项将会通知 mongod 在后台运行   </li> 
+
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">/usr/local/mongodb/bin/mongod  -port <span class="token number">10001</span> --dbpath /data/mongodb/ --logpath /var/mongodb/mongodb.log --fork  <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+<li> 使用<font color="LightCoral" size="4"><b>&amp;</b></font>后台启动      </li>
+
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">/usr/local/mongodb/bin/mongod  -port <span class="token number">10001</span> --dbpath /data/mongodb/ --logpath /var/mongodb/mongodb.log <span class="token operator">&amp;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</ol>
+
+<h4 id="关闭"><a href="#关闭" class="headerlink" title="关闭"></a>关闭</h4><ol>
+<li> pkill mongod</li>
+
+<li> 进入mongo shell，运行： </li>
+
+<pre class="line-numbers language-mongodb" data-language="mongodb"><code class="language-mongodb">db<span class="token punctuation">.</span><span class="token function">shuidownServer</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+</ol>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Mongo</tag>
       </tags>
   </entry>
   <entry>
