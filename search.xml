@@ -96,10 +96,10 @@ docker run <span class="token punctuation">-</span>d <span class="token punctuat
 <li>proxy，代理仓库，它们被用来代理远程的公共仓库，如maven中央仓库。</li>
 <li>group，仓库组，用来合并多个hosted/proxy仓库，当你的项目希望在多个repository使用资源时就不需要多次引用了，只需要引用一个group即可。</li>
 </ol>
-<img data-src="/post/undefined/nexus001.png" class="" title="repository">
+<img data-src="/post/1ed6a709/nexus001.png" class="" title="repository">
 
 <h4 id="创建-docker-hosted-类型的仓库"><a href="#创建-docker-hosted-类型的仓库" class="headerlink" title="创建 docker(hosted) 类型的仓库"></a>创建 docker(hosted) 类型的仓库</h4><p>  在创建镜像仓库的页面中，设置镜像仓库的相关信息，包括名称、HTTP端口、是否允许匿名拉取镜像等信息。这里需要注意的是，<br>此处的HTTP端口(此处的值为8082)很重要，后续拉取和推送进行是使用此端口进行的，而不是nexus本身对外暴露的端口。</p>
-<img data-src="/post/undefined/nexus001.png" class="" title="hosted">
+<img data-src="/post/1ed6a709/nexus001.png" class="" title="hosted">
 
 <h4 id="修改docker配置"><a href="#修改docker配置" class="headerlink" title="修改docker配置"></a>修改docker配置</h4><p>  在<code>/etc/docker/daemon.json</code>文件中添加下面的内容：</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@xiaosige ~<span class="token punctuation">]</span><span class="token comment"># cat /etc/docker/daemon.json</span>
@@ -149,7 +149,7 @@ The push refers to repository <span class="token punctuation">[</span><span clas
 e07ee1baac5f: Layer already exists 
 <span class="token number">1.0</span>: digest: sha256:f54a58bc1aac5ea1a25d796ae155dc228b3f0e11d046ae276b39c4bf2f13d8c4 size: <span class="token number">525</span>
 <span class="token punctuation">[</span>root@xiaosige .docker<span class="token punctuation">]</span><span class="token comment"># </span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<img data-src="/post/undefined/nexus003.png" class="" title="上传私库成功"></li>
+<img data-src="/post/1ed6a709/nexus003.png" class="" title="上传私库成功"></li>
 <li>拉取镜像<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@xiaosige .docker<span class="token punctuation">]</span><span class="token comment"># docker pull 10.211.55.81:8082/helloworld:1.0 </span>
 <span class="token number">1.0</span>: Pulling from helloworld
 2db29710123e: Pull complete 
@@ -158,9 +158,9 @@ Status: Downloaded newer image <span class="token keyword">for</span> <span clas
 <span class="token number">10.211</span>.55.81:8082/helloworld:1.0<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 </ol>
 <h4 id="权限管理"><a href="#权限管理" class="headerlink" title="权限管理"></a>权限管理</h4><p>  创建用户：<br>  默认是使用admin登录的，权限太高，可以给用户单独创建账号<br>  建立 docker 角色组，权限为 nx-repository-view-docker-<em>-</em></p>
-<img data-src="/post/undefined/nexus004.png" class="" title="新建角色">
+<img data-src="/post/1ed6a709/nexus004.png" class="" title="新建角色">
 <p>  建立新用户，并加入为 docker角色组</p>
-<img data-src="/post/undefined/nexus005.png" class="" title="新建用户">
+<img data-src="/post/1ed6a709/nexus005.png" class="" title="新建用户">
 
 <p>  登录</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@xiaosige .docker<span class="token punctuation">]</span><span class="token comment"># docker logout 10.211.55.81:8082</span>
