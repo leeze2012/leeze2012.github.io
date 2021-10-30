@@ -155,7 +155,7 @@ Digest: sha256:f54a58bc1aac5ea1a25d796ae155dc228b3f0e11d046ae276b39c4bf2f13d8c4
 Status: Downloaded newer image <span class="token keyword">for</span> <span class="token number">10.211</span>.55.81:8082/helloworld:1.0
 <span class="token number">10.211</span>.55.81:8082/helloworld:1.0<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 </ol>
-<h4 id="权限管理"><a href="#权限管理" class="headerlink" title="权限管理"></a>权限管理</h4><p>  创建用户：<br>  默认是使用admin登录的，权限太高，可以给用户单独创建账号<br>  建立 <code>docker</code> 角色组，权限为 <code>nx-repository-view-docker-*-*</code></p>
+<h4 id="权限管理"><a href="#权限管理" class="headerlink" title="权限管理"></a>权限管理</h4><p>  创建用户：<br>  默认是使用<code>admin</code>登录的，权限太高，可以给用户单独创建账号<br>  建立 <code>docker</code> 角色组，权限为 <code>nx-repository-view-docker-*-*</code></p>
 <img data-src="/post/1ed6a709/nexus004.png" class="" title="新建角色">
 <p>  建立新用户，并加入为 <code>docker</code>角色组</p>
 <img data-src="/post/1ed6a709/nexus005.png" class="" title="新建用户">
