@@ -781,13 +781,6 @@
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/tags/Eclipse/</loc>
-    <lastmod>2021-10-30</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.xiaosige.com/tags/Markdown/</loc>
     <lastmod>2021-10-30</lastmod>
     <changefreq>daily</changefreq>
@@ -796,6 +789,13 @@
   
   <url>
     <loc>https://www.xiaosige.com/tags/Git/</loc>
+    <lastmod>2021-10-30</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.xiaosige.com/tags/Eclipse/</loc>
     <lastmod>2021-10-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -928,14 +928,14 @@
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/tags/ssh/</loc>
+    <loc>https://www.xiaosige.com/tags/Tomcat/</loc>
     <lastmod>2021-10-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/tags/Tomcat/</loc>
+    <loc>https://www.xiaosige.com/tags/ssh/</loc>
     <lastmod>2021-10-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1000,13 +1000,6 @@
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/categories/Eclipse/</loc>
-    <lastmod>2021-10-30</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.xiaosige.com/categories/Markdown/</loc>
     <lastmod>2021-10-30</lastmod>
     <changefreq>daily</changefreq>
@@ -1022,6 +1015,13 @@
   
   <url>
     <loc>https://www.xiaosige.com/categories/Git/</loc>
+    <lastmod>2021-10-30</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.xiaosige.com/categories/Eclipse/</loc>
     <lastmod>2021-10-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
