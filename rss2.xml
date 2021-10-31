@@ -15,8 +15,30 @@
     <atom:link href="https://www.xiaosige.com/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>因上努力，果上随缘！</description>
-    <pubDate>Sat, 30 Oct 2021 17:34:20 GMT</pubDate>
+    <pubDate>Sun, 31 Oct 2021 17:24:05 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>Dockerfile构建基础镜像为alpine的jdk1.8镜像</title>
+      <link>https://www.xiaosige.com/post/a90d146c.html</link>
+      <guid>https://www.xiaosige.com/post/a90d146c.html</guid>
+      <pubDate>Sun, 31 Oct 2021 16:41:08 GMT</pubDate>
+      
+      <description>&lt;h3 id=&quot;新建dockerfile目录&quot;&gt;&lt;a href=&quot;#新建dockerfile目录&quot; class=&quot;headerlink&quot; title=&quot;新建dockerfile目录&quot;&gt;&lt;/a&gt;新建&lt;code&gt;dockerfile&lt;/code&gt;目录&lt;/h3&gt;&lt;pre class=&quot;line-numbers language-bash&quot; data-language=&quot;bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function&quot;&gt;mkdir&lt;/span&gt; /opt/mydockerfile&lt;span aria-hidden=&quot;true&quot; class=&quot;line-numbers-rows&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&quot;拉取alpine镜像&quot;&gt;&lt;a href=&quot;#拉取alpine镜像&quot; class=&quot;headerlink&quot; title=&quot;拉取alpine镜像&quot;&gt;&lt;/a&gt;拉取&lt;code&gt;alpine&lt;/code&gt;镜像&lt;/h3&gt;&lt;pre class=&quot;line-numbers language-docker&quot; data-language=&quot;docker&quot;&gt;&lt;code class=&quot;language-docker&quot;&gt;docker pull alpine&lt;span aria-hidden=&quot;true&quot; class=&quot;line-numbers-rows&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;</description>
+      
+      
+      
+      
+      <category domain="https://www.xiaosige.com/categories/Docker/">Docker</category>
+      
+      
+      <category domain="https://www.xiaosige.com/tags/Docker/">Docker</category>
+      
+      
+      <comments>https://www.xiaosige.com/post/a90d146c.html#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>Nexus搭建Docker私有仓库</title>
@@ -418,28 +440,6 @@
       
       
       <comments>https://www.xiaosige.com/post/68713d77.html#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>解决CentOS6停止更新支持后yum源失效</title>
-      <link>https://www.xiaosige.com/post/9bae427b.html</link>
-      <guid>https://www.xiaosige.com/post/9bae427b.html</guid>
-      <pubDate>Sat, 02 Jan 2021 11:18:00 GMT</pubDate>
-      
-      <description>&lt;p&gt;  &lt;code&gt;2020年11月30日 centos6各大开源镜像站已经停止维护了。&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;  最近CentOS 6已经停止更新支持，同时官方也把yum源删除了，目前CentOS 6系统使用yum命令安装软件包基本都是失败，因此需要更换yum源。&lt;/p&gt;</description>
-      
-      
-      
-      
-      <category domain="https://www.xiaosige.com/categories/Linux/">Linux</category>
-      
-      
-      <category domain="https://www.xiaosige.com/tags/Linux/">Linux</category>
-      
-      
-      <comments>https://www.xiaosige.com/post/9bae427b.html#disqus_thread</comments>
       
     </item>
     

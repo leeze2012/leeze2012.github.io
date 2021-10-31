@@ -6,7 +6,7 @@
   <link href="https://www.xiaosige.com/atom.xml" rel="self"/>
   
   <link href="https://www.xiaosige.com/"/>
-  <updated>2021-10-30T17:34:20.328Z</updated>
+  <updated>2021-10-31T17:24:05.299Z</updated>
   <id>https://www.xiaosige.com/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Dockerfile构建基础镜像为alpine的jdk1.8镜像</title>
+    <link href="https://www.xiaosige.com/post/a90d146c.html"/>
+    <id>https://www.xiaosige.com/post/a90d146c.html</id>
+    <published>2021-10-31T16:41:08.000Z</published>
+    <updated>2021-10-31T17:24:05.299Z</updated>
+    
+    
+    <summary type="html">&lt;h3 id=&quot;新建dockerfile目录&quot;&gt;&lt;a href=&quot;#新建dockerfile目录&quot; class=&quot;headerlink&quot; title=&quot;新建dockerfile目录&quot;&gt;&lt;/a&gt;新建&lt;code&gt;dockerfile&lt;/code&gt;目录&lt;/h3&gt;&lt;pre class=&quot;line-numbers language-bash&quot; data-language=&quot;bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function&quot;&gt;mkdir&lt;/span&gt; /opt/mydockerfile&lt;span aria-hidden=&quot;true&quot; class=&quot;line-numbers-rows&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&quot;拉取alpine镜像&quot;&gt;&lt;a href=&quot;#拉取alpine镜像&quot; class=&quot;headerlink&quot; title=&quot;拉取alpine镜像&quot;&gt;&lt;/a&gt;拉取&lt;code&gt;alpine&lt;/code&gt;镜像&lt;/h3&gt;&lt;pre class=&quot;line-numbers language-docker&quot; data-language=&quot;docker&quot;&gt;&lt;code class=&quot;language-docker&quot;&gt;docker pull alpine&lt;span aria-hidden=&quot;true&quot; class=&quot;line-numbers-rows&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;</summary>
+    
+    
+    
+    <category term="Docker" scheme="https://www.xiaosige.com/categories/Docker/"/>
+    
+    
+    <category term="Docker" scheme="https://www.xiaosige.com/tags/Docker/"/>
+    
+  </entry>
   
   <entry>
     <title>Nexus搭建Docker私有仓库</title>
@@ -371,26 +391,6 @@
     
     
     <summary type="html">&lt;p&gt;  在&lt;code&gt;centos7&lt;/code&gt;上，同时支持&lt;code&gt;network.service&lt;/code&gt;和&lt;code&gt;NetworkManager.service&lt;/code&gt;（简称NM）。默认情况下，这2个服务都有开启，但许多人都会将NM禁用掉。&lt;br&gt;  在&lt;code&gt;centos8&lt;/code&gt;上，已&lt;code&gt;废弃network.service&lt;/code&gt;，因此只能通过&lt;code&gt;NM&lt;/code&gt;进行网络配置，包括动态ip和静态ip。换言之，在centos8上，&lt;code&gt;必须开启NM&lt;/code&gt;，否则无法使用网络。&lt;br&gt;  &lt;code&gt;注：centos8依然支持network.service，只是默认没安装&lt;/code&gt;。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="Linux" scheme="https://www.xiaosige.com/categories/Linux/"/>
-    
-    
-    <category term="Linux" scheme="https://www.xiaosige.com/tags/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>解决CentOS6停止更新支持后yum源失效</title>
-    <link href="https://www.xiaosige.com/post/9bae427b.html"/>
-    <id>https://www.xiaosige.com/post/9bae427b.html</id>
-    <published>2021-01-02T11:18:00.000Z</published>
-    <updated>2021-01-02T20:22:21.875Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;  &lt;code&gt;2020年11月30日 centos6各大开源镜像站已经停止维护了。&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;  最近CentOS 6已经停止更新支持，同时官方也把yum源删除了，目前CentOS 6系统使用yum命令安装软件包基本都是失败，因此需要更换yum源。&lt;/p&gt;</summary>
     
     
     

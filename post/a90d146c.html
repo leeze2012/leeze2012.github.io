@@ -23,26 +23,28 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"www.xiaosige.com","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"livere","storage":true,"lazyload":true,"nav":null,"activeClass":"livere"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}}</script><script src="/js/config.js"></script>
-<meta name="description" content="因上努力，果上随缘！">
-<meta property="og:type" content="website">
-<meta property="og:title" content="小四儿">
-<meta property="og:url" content="https://www.xiaosige.com/page/14/index.html">
+<meta name="description" content="新建dockerfile目录mkdir &#x2F;opt&#x2F;mydockerfile 拉取alpine镜像docker pull alpine">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Dockerfile构建基础镜像为alpine的jdk1.8镜像">
+<meta property="og:url" content="https://www.xiaosige.com/post/a90d146c.html">
 <meta property="og:site_name" content="小四儿">
-<meta property="og:description" content="因上努力，果上随缘！">
+<meta property="og:description" content="新建dockerfile目录mkdir &#x2F;opt&#x2F;mydockerfile 拉取alpine镜像docker pull alpine">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-10-31T16:41:08.000Z">
+<meta property="article:modified_time" content="2021-10-31T17:24:05.299Z">
 <meta property="article:author" content="leeze">
-<meta property="article:tag" content="小四儿 leeze">
+<meta property="article:tag" content="Docker">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://www.xiaosige.com/page/14/">
+<link rel="canonical" href="https://www.xiaosige.com/post/a90d146c.html">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":true,"isPost":false,"lang":"zh-CN","comments":"","permalink":"","path":"page/14/index.html","title":""}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://www.xiaosige.com/post/a90d146c.html","path":"post/a90d146c.html","title":"Dockerfile构建基础镜像为alpine的jdk1.8镜像"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>小四儿 - 心之所愿，无所不至！</title>
+<title>Dockerfile构建基础镜像为alpine的jdk1.8镜像 | 小四儿</title>
   
 
   <script src="/js/third-party/analytics/baidu-analytics.js"></script>
@@ -168,7 +170,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -181,6 +183,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B0%E5%BB%BAdockerfile%E7%9B%AE%E5%BD%95"><span class="nav-number">1.</span> <span class="nav-text">新建dockerfile目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8B%89%E5%8F%96alpine%E9%95%9C%E5%83%8F"><span class="nav-number">2.</span> <span class="nav-text">拉取alpine镜像</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BC%96%E5%86%99dockerfile-alpine-jdk1-8%E6%96%87%E4%BB%B6"><span class="nav-number">3.</span> <span class="nav-text">编写dockerfile-alpine-jdk1.8文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9E%84%E5%BB%BA%E9%95%9C%E5%83%8F"><span class="nav-number">4.</span> <span class="nav-text">构建镜像</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E9%95%9C%E5%83%8F"><span class="nav-number">5.</span> <span class="nav-text">查看镜像</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%90%E8%A1%8C%E5%AE%B9%E5%99%A8%EF%BC%8C%E9%AA%8C%E8%AF%81"><span class="nav-number">6.</span> <span class="nav-text">运行容器，验证</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B0%86%E9%95%9C%E5%83%8F%E6%8E%A8%E9%80%81%E5%88%B0%E9%95%9C%E5%83%8F%E4%BB%93%E5%BA%93"><span class="nav-number">7.</span> <span class="nav-text">将镜像推送到镜像仓库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B"><span class="nav-number">8.</span> <span class="nav-text">查看</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PS"><span class="nav-number">9.</span> <span class="nav-text">PS</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0alias-ll-39-ls-al-39"><span class="nav-number">9.1.</span> <span class="nav-text">实现alias ll&#x3D;&#39;ls -al&#39; </span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -556,17 +559,18 @@ canvas#canvas {
 </noscript>
 
 
-    <div class="main-inner index posts-expand">
+    <div class="main-inner post posts-expand">
 
-    
+
+  
 
 
 <div class="post-block">
   
   
 
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://www.xiaosige.com/post/e20d3e6e.html">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.xiaosige.com/post/a90d146c.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://static.xiaosige.com/img/avatar/avatar.jpg">
@@ -578,9 +582,9 @@ canvas#canvas {
       <meta itemprop="name" content="小四儿">
     </span>
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/post/e20d3e6e.html" class="post-title-link" itemprop="url">Hexo之修改内容区域的宽度</a>
-        </h2>
+        <h1 class="post-title" itemprop="name headline">
+          Dockerfile构建基础镜像为alpine的jdk1.8镜像
+        </h1>
 
         <div class="post-meta-container">
           <div class="post-meta">
@@ -589,27 +593,28 @@ canvas#canvas {
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
+      
 
-      <time title="创建时间：2019-09-03 21:54:00" itemprop="dateCreated datePublished" datetime="2019-09-03T21:54:00+08:00">2019-09-03</time>
+      <time title="创建时间：2021-11-01 00:41:08 / 修改时间：01:24:05" itemprop="dateCreated datePublished" datetime="2021-11-01T00:41:08+08:00">2021-11-01</time>
     </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-10-12 17:08:05" itemprop="dateModified" datetime="2020-10-12T17:08:05+08:00">2020-10-12</time>
-      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/hexo%E5%BB%BA%E7%AB%99/" itemprop="url" rel="index"><span itemprop="name">hexo建站</span></a>
+          <a href="/categories/Docker/" itemprop="url" rel="index"><span itemprop="name">Docker</span></a>
         </span>
     </span>
 
   
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
 
 
 
@@ -619,14 +624,14 @@ canvas#canvas {
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>137</span>
+      <span>8.3k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
+      <span>8 分钟</span>
     </span>
 </div>
 
@@ -637,25 +642,353 @@ canvas#canvas {
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="修改内容区域的宽度"><a href="#修改内容区域的宽度" class="headerlink" title="修改内容区域的宽度"></a>修改内容区域的宽度</h2><p>编辑主题的 <code>source/css/_variables/custom.styl</code> 文件，新增变量：</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/post/e20d3e6e.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
+        <h3 id="新建dockerfile目录"><a href="#新建dockerfile目录" class="headerlink" title="新建dockerfile目录"></a>新建<code>dockerfile</code>目录</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">mkdir</span> /opt/mydockerfile<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="拉取alpine镜像"><a href="#拉取alpine镜像" class="headerlink" title="拉取alpine镜像"></a>拉取<code>alpine</code>镜像</h3><pre class="line-numbers language-docker" data-language="docker"><code class="language-docker">docker pull alpine<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<span id="more"></span>
+
+<h3 id="编写dockerfile-alpine-jdk1-8文件"><a href="#编写dockerfile-alpine-jdk1-8文件" class="headerlink" title="编写dockerfile-alpine-jdk1.8文件"></a>编写<code>dockerfile-alpine-jdk1.8</code>文件</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">cd</span> /opt/mydockerfile
+
+<span class="token function">vim</span> dockerfile-alpine-jdk18<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-dockerfile" data-language="dockerfile"><code class="language-dockerfile"><span class="token keyword">FROM</span> alpine<span class="token punctuation">:</span>latest
+<span class="token keyword">MAINTAINER</span> xiaosige <span class="token string">"leeze0216@163.com"</span>
+
+<span class="token comment">#更换aline源</span>
+<span class="token keyword">RUN</span> echo <span class="token string">"http://mirrors.aliyun.com/alpine/latest-stable/community"</span> <span class="token punctuation">&gt;</span> /etc/apk/repositories
+<span class="token keyword">RUN</span> echo <span class="token string">"http://mirrors.aliyun.com/alpine/latest-stable/main"</span> <span class="token punctuation">&gt;</span><span class="token punctuation">&gt;</span> /etc/apk/repositories
+
+<span class="token comment">#update apk</span>
+<span class="token keyword">RUN</span> apk update &amp;&amp; apk upgrade
+<span class="token keyword">RUN</span> apk <span class="token punctuation">-</span><span class="token punctuation">-</span>no<span class="token punctuation">-</span>cache add ca<span class="token punctuation">-</span>certificates
+
+<span class="token comment"># bash vim wget curl net-tools</span>
+<span class="token keyword">RUN</span> apk add bash bash<span class="token punctuation">-</span>doc bash<span class="token punctuation">-</span>completion
+<span class="token keyword">RUN</span> apk add vim wget curl net<span class="token punctuation">-</span>tools
+<span class="token keyword">RUN</span> rm <span class="token punctuation">-</span>rf /var/cache/apk/*
+<span class="token keyword">RUN</span> /bin/bash
+
+<span class="token comment"># setup glibc</span>
+<span class="token comment">#RUN wget https://github.com/sgerrand/alpine-pkg-glibc/releases/download/2.32-r0/glibc-2.34-r0.apk</span>
+<span class="token comment">#RUN wget https://github.com/sgerrand/alpine-pkg-glibc/releases/download/2.32-r0/glibc-bin-2.34-r0.apk</span>
+<span class="token comment">#RUN wget https://github.com/sgerrand/alpine-pkg-glibc/releases/download/2.32-r0/glibc-i18n-2.34-r0.apk</span>
+<span class="token comment">#RUN wget https://github.com/sgerrand/alpine-pkg-glibc/releases/download/2.32-r0/glibc-dev-2.34-r0.apk</span>
+<span class="token comment"># glibc安装包如果从网络下载速度实在是太慢了，先提前下载复制到镜像中</span>
+<span class="token keyword">COPY</span> glibc<span class="token punctuation">-</span>2.34<span class="token punctuation">-</span>r0.apk .
+<span class="token keyword">COPY</span> glibc<span class="token punctuation">-</span>bin<span class="token punctuation">-</span>2.34<span class="token punctuation">-</span>r0.apk .
+<span class="token keyword">COPY</span> glibc<span class="token punctuation">-</span>dev<span class="token punctuation">-</span>2.34<span class="token punctuation">-</span>r0.apk .
+<span class="token keyword">COPY</span> glibc<span class="token punctuation">-</span>i18n<span class="token punctuation">-</span>2.34<span class="token punctuation">-</span>r0.apk .
+<span class="token keyword">RUN</span> wget <span class="token punctuation">-</span>q <span class="token punctuation">-</span>O /etc/apk/keys/sgerrand.rsa.pub https<span class="token punctuation">:</span>//alpine<span class="token punctuation">-</span>pkgs.sgerrand.com/sgerrand.rsa.pub
+<span class="token keyword">RUN</span> apk add glibc<span class="token punctuation">-</span>2.34<span class="token punctuation">-</span>r0.apk
+<span class="token keyword">RUN</span> apk add glibc<span class="token punctuation">-</span>bin<span class="token punctuation">-</span>2.34<span class="token punctuation">-</span>r0.apk
+<span class="token keyword">RUN</span> apk add glibc<span class="token punctuation">-</span>dev<span class="token punctuation">-</span>2.34<span class="token punctuation">-</span>r0.apk
+<span class="token keyword">RUN</span> apk add glibc<span class="token punctuation">-</span>i18n<span class="token punctuation">-</span>2.34<span class="token punctuation">-</span>r0.apk
+<span class="token keyword">RUN</span> rm <span class="token punctuation">-</span>rf *.apk
+
+<span class="token comment">#setup date</span>
+<span class="token keyword">RUN</span> apk add tzdata
+<span class="token keyword">RUN</span> cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+
+<span class="token comment">#setup language 解决中文乱码</span>
+<span class="token keyword">RUN</span> /usr/glibc<span class="token punctuation">-</span>compat/bin/localedef <span class="token punctuation">-</span>i en_US <span class="token punctuation">-</span>f UTF<span class="token punctuation">-</span>8 en_US.UTF<span class="token punctuation">-</span>8
+<span class="token keyword">ENV</span> LANG=en_US.UTF<span class="token punctuation">-</span>8
+
+<span class="token comment"># 添加alias ll='ls -al'</span>
+<span class="token keyword">ADD</span> ./ll /bin/ll
+<span class="token keyword">RUN</span> chmod 777 /bin/ll
+
+<span class="token comment">#copy jdk-8u311-linux-x64.tar.gz</span>
+<span class="token keyword">ADD</span> jdk<span class="token punctuation">-</span>8u311<span class="token punctuation">-</span>linux<span class="token punctuation">-</span>x64.tar.gz /usr/local
+
+<span class="token comment">#setup java env</span>
+<span class="token keyword">ENV</span> JAVA_HOME=/usr/local/jdk1.8.0_311
+<span class="token keyword">ENV</span> PATH=$PATH<span class="token punctuation">:</span>.<span class="token punctuation">:</span>$JAVA_HOME/bin
+<span class="token keyword">ENV</span> CALSSPATH=$JAVA_HOME/jre/lib/rt.jar<span class="token punctuation">:</span>$JAVA_HOME/lib/dt.jar<span class="token punctuation">:</span>$JAVA_HOME/lib/tools.jar<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="构建镜像"><a href="#构建镜像" class="headerlink" title="构建镜像"></a>构建镜像</h3><pre class="line-numbers language-docker" data-language="docker"><code class="language-docker">docker build <span class="token punctuation">-</span>f dockerfile<span class="token punctuation">-</span>alpine<span class="token punctuation">-</span>jdk18 <span class="token punctuation">-</span>t xiaosige/alpine<span class="token punctuation">-</span>jdk<span class="token punctuation">:</span>1.0.0 .<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@xiaosige mydockerfile<span class="token punctuation">]</span><span class="token comment"># docker build -f dockerfile-alpine-jdk18 -t xiaosige/alpine-jdk:1.0.0 .</span>
+Sending build context to Docker daemon  <span class="token number">173</span>.6MB
+Step <span class="token number">1</span>/30 <span class="token builtin class-name">:</span> FROM alpine:latest
+ ---<span class="token operator">&gt;</span> 14119a10abf4
+Step <span class="token number">2</span>/30 <span class="token builtin class-name">:</span> MAINTAINER xiaosige <span class="token string">"leeze0216@163.com"</span>
+ ---<span class="token operator">&gt;</span> Running <span class="token keyword">in</span> 1ca7e3fe8cd4
+Removing intermediate container 1ca7e3fe8cd4
+ ---<span class="token operator">&gt;</span> a12b929884c6
+Step <span class="token number">3</span>/30 <span class="token builtin class-name">:</span> RUN <span class="token builtin class-name">echo</span> <span class="token string">"http://mirrors.aliyun.com/alpine/latest-stable/community"</span> <span class="token operator">&gt;</span> /etc/apk/repositories
+ ---<span class="token operator">&gt;</span> Running <span class="token keyword">in</span> d30141b40989
+Removing intermediate container d30141b40989
+ ---<span class="token operator">&gt;</span> bdd0194242df
+Step <span class="token number">4</span>/30 <span class="token builtin class-name">:</span> RUN <span class="token builtin class-name">echo</span> <span class="token string">"http://mirrors.aliyun.com/alpine/latest-stable/main"</span> <span class="token operator">&gt;&gt;</span> /etc/apk/repositories
+ ---<span class="token operator">&gt;</span> Running <span class="token keyword">in</span> fdef39d291da
+Removing intermediate container fdef39d291da
+ ---<span class="token operator">&gt;</span> 9b05d8656e9f
+Step <span class="token number">5</span>/30 <span class="token builtin class-name">:</span> RUN apk update <span class="token operator">&amp;&amp;</span> apk upgrade
+ ---<span class="token operator">&gt;</span> Running <span class="token keyword">in</span> f0fc168abe7a
+fetch http://mirrors.aliyun.com/alpine/latest-stable/community/x86_64/APKINDEX.tar.gz
+fetch http://mirrors.aliyun.com/alpine/latest-stable/main/x86_64/APKINDEX.tar.gz
+v3.14.2-117-gc76a8e57ec <span class="token punctuation">[</span>http://mirrors.aliyun.com/alpine/latest-stable/community<span class="token punctuation">]</span>
+v3.14.2-116-gea9b052f30 <span class="token punctuation">[</span>http://mirrors.aliyun.com/alpine/latest-stable/main<span class="token punctuation">]</span>
+OK: <span class="token number">14943</span> distinct packages available
+<span class="token punctuation">(</span><span class="token number">1</span>/1<span class="token punctuation">)</span> Upgrading alpine-keys <span class="token punctuation">(</span><span class="token number">2.3</span>-r1 -<span class="token operator">&gt;</span> <span class="token number">2.4</span>-r0<span class="token punctuation">)</span>
+OK: <span class="token number">6</span> MiB <span class="token keyword">in</span> <span class="token number">14</span> packages
+Removing intermediate container f0fc168abe7a
+ ---<span class="token operator">&gt;</span> e4ebb6b07c41
+Step <span class="token number">6</span>/30 <span class="token builtin class-name">:</span> RUN apk --no-cache <span class="token function">add</span> ca-certificates
+ ---<span class="token operator">&gt;</span> Running <span class="token keyword">in</span> 9d150bc9e523
+fetch http://mirrors.aliyun.com/alpine/latest-stable/community/x86_64/APKINDEX.tar.gz
+fetch http://mirrors.aliyun.com/alpine/latest-stable/main/x86_64/APKINDEX.tar.gz
+<span class="token punctuation">(</span><span class="token number">1</span>/1<span class="token punctuation">)</span> Installing ca-certificates <span class="token punctuation">(</span><span class="token number">20191127</span>-r5<span class="token punctuation">)</span>
+Executing busybox-1.33.1-r3.trigger
+Executing ca-certificates-20191127-r5.trigger
+OK: <span class="token number">6</span> MiB <span class="token keyword">in</span> <span class="token number">15</span> packages
+Removing intermediate container 9d150bc9e523
+ ---<span class="token operator">&gt;</span> 07bbec5ac046
+Step <span class="token number">7</span>/30 <span class="token builtin class-name">:</span> RUN apk <span class="token function">add</span> <span class="token function">bash</span> bash-doc bash-completion
+ ---<span class="token operator">&gt;</span> Running <span class="token keyword">in</span> 349dbe49e18d
+<span class="token punctuation">(</span><span class="token number">1</span>/7<span class="token punctuation">)</span> Installing ncurses-terminfo-base <span class="token punctuation">(</span><span class="token number">6</span>.2_p20210612-r0<span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token number">2</span>/7<span class="token punctuation">)</span> Installing ncurses-libs <span class="token punctuation">(</span><span class="token number">6</span>.2_p20210612-r0<span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token number">3</span>/7<span class="token punctuation">)</span> Installing readline <span class="token punctuation">(</span><span class="token number">8.1</span>.0-r0<span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token number">4</span>/7<span class="token punctuation">)</span> Installing <span class="token function">bash</span> <span class="token punctuation">(</span><span class="token number">5.1</span>.4-r0<span class="token punctuation">)</span>
+Executing bash-5.1.4-r0.post-install
+<span class="token punctuation">(</span><span class="token number">5</span>/7<span class="token punctuation">)</span> Installing pkgconf <span class="token punctuation">(</span><span class="token number">1.7</span>.4-r0<span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token number">6</span>/7<span class="token punctuation">)</span> Installing bash-completion <span class="token punctuation">(</span><span class="token number">2.11</span>-r4<span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token number">7</span>/7<span class="token punctuation">)</span> Installing bash-doc <span class="token punctuation">(</span><span class="token number">5.1</span>.4-r0<span class="token punctuation">)</span>
+Executing busybox-1.33.1-r3.trigger
+OK: <span class="token number">13</span> MiB <span class="token keyword">in</span> <span class="token number">22</span> packages
+Removing intermediate container 349dbe49e18d
+ ---<span class="token operator">&gt;</span> c7b45eb58ec3
+Step <span class="token number">8</span>/30 <span class="token builtin class-name">:</span> RUN apk <span class="token function">add</span> <span class="token function">vim</span> <span class="token function">wget</span> <span class="token function">curl</span> net-tools
+ ---<span class="token operator">&gt;</span> Running <span class="token keyword">in</span> 0aa7f4033d62
+<span class="token punctuation">(</span><span class="token number">1</span>/12<span class="token punctuation">)</span> Installing brotli-libs <span class="token punctuation">(</span><span class="token number">1.0</span>.9-r5<span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token number">2</span>/12<span class="token punctuation">)</span> Installing nghttp2-libs <span class="token punctuation">(</span><span class="token number">1.43</span>.0-r0<span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token number">3</span>/12<span class="token punctuation">)</span> Installing libcurl <span class="token punctuation">(</span><span class="token number">7.79</span>.1-r0<span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token number">4</span>/12<span class="token punctuation">)</span> Installing <span class="token function">curl</span> <span class="token punctuation">(</span><span class="token number">7.79</span>.1-r0<span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token number">5</span>/12<span class="token punctuation">)</span> Installing mii-tool <span class="token punctuation">(</span><span class="token number">1</span>.60_git20140218-r2<span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token number">6</span>/12<span class="token punctuation">)</span> Installing net-tools <span class="token punctuation">(</span><span class="token number">1</span>.60_git20140218-r2<span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token number">7</span>/12<span class="token punctuation">)</span> Installing xxd <span class="token punctuation">(</span><span class="token number">8.2</span>.3437-r0<span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token number">8</span>/12<span class="token punctuation">)</span> Installing lua5.3-libs <span class="token punctuation">(</span><span class="token number">5.3</span>.6-r0<span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token number">9</span>/12<span class="token punctuation">)</span> Installing <span class="token function">vim</span> <span class="token punctuation">(</span><span class="token number">8.2</span>.3437-r0<span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token number">10</span>/12<span class="token punctuation">)</span> Installing libunistring <span class="token punctuation">(</span><span class="token number">0.9</span>.10-r1<span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token number">11</span>/12<span class="token punctuation">)</span> Installing libidn2 <span class="token punctuation">(</span><span class="token number">2.3</span>.1-r0<span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token number">12</span>/12<span class="token punctuation">)</span> Installing <span class="token function">wget</span> <span class="token punctuation">(</span><span class="token number">1.21</span>.1-r1<span class="token punctuation">)</span>
+Executing busybox-1.33.1-r3.trigger
+OK: <span class="token number">37</span> MiB <span class="token keyword">in</span> <span class="token number">34</span> packages
+Removing intermediate container 0aa7f4033d62
+ ---<span class="token operator">&gt;</span> a8148d692752
+Step <span class="token number">9</span>/30 <span class="token builtin class-name">:</span> RUN <span class="token function">rm</span> -rf /var/cache/apk/*
+ ---<span class="token operator">&gt;</span> Running <span class="token keyword">in</span> 246b97afc896
+Removing intermediate container 246b97afc896
+ ---<span class="token operator">&gt;</span> 797ad812172c
+Step <span class="token number">10</span>/30 <span class="token builtin class-name">:</span> RUN /bin/bash
+ ---<span class="token operator">&gt;</span> Running <span class="token keyword">in</span> 1451436e6e2f
+Removing intermediate container 1451436e6e2f
+ ---<span class="token operator">&gt;</span> <span class="token number">174286182698</span>
+Step <span class="token number">11</span>/30 <span class="token builtin class-name">:</span> COPY glibc-2.34-r0.apk <span class="token builtin class-name">.</span>
+ ---<span class="token operator">&gt;</span> 652c53def449
+Step <span class="token number">12</span>/30 <span class="token builtin class-name">:</span> COPY glibc-bin-2.34-r0.apk <span class="token builtin class-name">.</span>
+ ---<span class="token operator">&gt;</span> 160e773ea556
+Step <span class="token number">13</span>/30 <span class="token builtin class-name">:</span> COPY glibc-dev-2.34-r0.apk <span class="token builtin class-name">.</span>
+ ---<span class="token operator">&gt;</span> 0ddaa22afa7b
+Step <span class="token number">14</span>/30 <span class="token builtin class-name">:</span> COPY glibc-i18n-2.34-r0.apk <span class="token builtin class-name">.</span>
+ ---<span class="token operator">&gt;</span> e1251741ca54
+Step <span class="token number">15</span>/30 <span class="token builtin class-name">:</span> RUN <span class="token function">wget</span> -q -O /etc/apk/keys/sgerrand.rsa.pub https://alpine-pkgs.sgerrand.com/sgerrand.rsa.pub
+ ---<span class="token operator">&gt;</span> Running <span class="token keyword">in</span> a33efe825376
+Removing intermediate container a33efe825376
+ ---<span class="token operator">&gt;</span> d1cbf5b00ba7
+Step <span class="token number">16</span>/30 <span class="token builtin class-name">:</span> RUN apk <span class="token function">add</span> glibc-2.34-r0.apk
+ ---<span class="token operator">&gt;</span> Running <span class="token keyword">in</span> 5b9e9837c65a
+fetch http://mirrors.aliyun.com/alpine/latest-stable/community/x86_64/APKINDEX.tar.gz
+fetch http://mirrors.aliyun.com/alpine/latest-stable/main/x86_64/APKINDEX.tar.gz
+<span class="token punctuation">(</span><span class="token number">1</span>/1<span class="token punctuation">)</span> Installing glibc <span class="token punctuation">(</span><span class="token number">2.34</span>-r0<span class="token punctuation">)</span>
+OK: <span class="token number">41</span> MiB <span class="token keyword">in</span> <span class="token number">35</span> packages
+Removing intermediate container 5b9e9837c65a
+ ---<span class="token operator">&gt;</span> 0ff4b785adb0
+Step <span class="token number">17</span>/30 <span class="token builtin class-name">:</span> RUN apk <span class="token function">add</span> glibc-bin-2.34-r0.apk
+ ---<span class="token operator">&gt;</span> Running <span class="token keyword">in</span> b65af13f569b
+<span class="token punctuation">(</span><span class="token number">1</span>/2<span class="token punctuation">)</span> Installing libgcc <span class="token punctuation">(</span><span class="token number">10.3</span>.1_git20210424-r2<span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token number">2</span>/2<span class="token punctuation">)</span> Installing glibc-bin <span class="token punctuation">(</span><span class="token number">2.34</span>-r0<span class="token punctuation">)</span>
+Executing glibc-bin-2.34-r0.trigger
+OK: <span class="token number">44</span> MiB <span class="token keyword">in</span> <span class="token number">37</span> packages
+Removing intermediate container b65af13f569b
+ ---<span class="token operator">&gt;</span> 2a553cf15df0
+Step <span class="token number">18</span>/30 <span class="token builtin class-name">:</span> RUN apk <span class="token function">add</span> glibc-dev-2.34-r0.apk
+ ---<span class="token operator">&gt;</span> Running <span class="token keyword">in</span> d40efc59cc3e
+<span class="token punctuation">(</span><span class="token number">1</span>/1<span class="token punctuation">)</span> Installing glibc-dev <span class="token punctuation">(</span><span class="token number">2.34</span>-r0<span class="token punctuation">)</span>
+Executing glibc-bin-2.34-r0.trigger
+OK: <span class="token number">102</span> MiB <span class="token keyword">in</span> <span class="token number">38</span> packages
+Removing intermediate container d40efc59cc3e
+ ---<span class="token operator">&gt;</span> 853e57ef2aeb
+Step <span class="token number">19</span>/30 <span class="token builtin class-name">:</span> RUN apk <span class="token function">add</span> glibc-i18n-2.34-r0.apk
+ ---<span class="token operator">&gt;</span> Running <span class="token keyword">in</span> 1007b18bf054
+<span class="token punctuation">(</span><span class="token number">1</span>/1<span class="token punctuation">)</span> Installing glibc-i18n <span class="token punctuation">(</span><span class="token number">2.34</span>-r0<span class="token punctuation">)</span>
+OK: <span class="token number">128</span> MiB <span class="token keyword">in</span> <span class="token number">39</span> packages
+Removing intermediate container 1007b18bf054
+ ---<span class="token operator">&gt;</span> 2f11ef6e2a3e
+Step <span class="token number">20</span>/30 <span class="token builtin class-name">:</span> RUN <span class="token function">rm</span> -rf *.apk
+ ---<span class="token operator">&gt;</span> Running <span class="token keyword">in</span> a55b3deb9cfa
+Removing intermediate container a55b3deb9cfa
+ ---<span class="token operator">&gt;</span> f4d875a9bde7
+Step <span class="token number">21</span>/30 <span class="token builtin class-name">:</span> RUN apk <span class="token function">add</span> tzdata
+ ---<span class="token operator">&gt;</span> Running <span class="token keyword">in</span> 93f6978051d6
+<span class="token punctuation">(</span><span class="token number">1</span>/1<span class="token punctuation">)</span> Installing tzdata <span class="token punctuation">(</span>2021e-r0<span class="token punctuation">)</span>
+Executing busybox-1.33.1-r3.trigger
+OK: <span class="token number">131</span> MiB <span class="token keyword">in</span> <span class="token number">40</span> packages
+Removing intermediate container 93f6978051d6
+ ---<span class="token operator">&gt;</span> 6ce2d9ce1b20
+Step <span class="token number">22</span>/30 <span class="token builtin class-name">:</span> RUN <span class="token function">cp</span> /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+ ---<span class="token operator">&gt;</span> Running <span class="token keyword">in</span> bc3c55254938
+Removing intermediate container bc3c55254938
+ ---<span class="token operator">&gt;</span> 4d6ed2cd9790
+Step <span class="token number">23</span>/30 <span class="token builtin class-name">:</span> RUN /usr/glibc-compat/bin/localedef -i en_US -f UTF-8 en_US.UTF-8
+ ---<span class="token operator">&gt;</span> Running <span class="token keyword">in</span> 2be0c47a1bae
+Removing intermediate container 2be0c47a1bae
+ ---<span class="token operator">&gt;</span> 9cd2cd39dbbd
+Step <span class="token number">24</span>/30 <span class="token builtin class-name">:</span> ENV <span class="token assign-left variable"><span class="token environment constant">LANG</span></span><span class="token operator">=</span>en_US.UTF-8
+ ---<span class="token operator">&gt;</span> Running <span class="token keyword">in</span> fba634ea0e25
+Removing intermediate container fba634ea0e25
+ ---<span class="token operator">&gt;</span> 8dbd23bae443
+Step <span class="token number">25</span>/30 <span class="token builtin class-name">:</span> ADD ./ll /bin/ll
+ ---<span class="token operator">&gt;</span> d523605d3c0d
+Step <span class="token number">26</span>/30 <span class="token builtin class-name">:</span> RUN <span class="token function">chmod</span> <span class="token number">777</span> /bin/ll
+ ---<span class="token operator">&gt;</span> Running <span class="token keyword">in</span> 1509523a3b4c
+Removing intermediate container 1509523a3b4c
+ ---<span class="token operator">&gt;</span> 687db62a12a2
+Step <span class="token number">27</span>/30 <span class="token builtin class-name">:</span> ADD jdk-8u311-linux-x64.tar.gz /usr/local
+ ---<span class="token operator">&gt;</span> 10f3a0525359
+Step <span class="token number">28</span>/30 <span class="token builtin class-name">:</span> ENV <span class="token assign-left variable">JAVA_HOME</span><span class="token operator">=</span>/usr/local/jdk1.8.0_311
+ ---<span class="token operator">&gt;</span> Running <span class="token keyword">in</span> 3f12a00f6343
+Removing intermediate container 3f12a00f6343
+ ---<span class="token operator">&gt;</span> c20380dbec7f
+Step <span class="token number">29</span>/30 <span class="token builtin class-name">:</span> ENV <span class="token assign-left variable"><span class="token environment constant">PATH</span></span><span class="token operator">=</span><span class="token environment constant">$PATH</span>:.:<span class="token variable">$JAVA_HOME</span>/bin
+ ---<span class="token operator">&gt;</span> Running <span class="token keyword">in</span> 21fb10f3a937
+Removing intermediate container 21fb10f3a937
+ ---<span class="token operator">&gt;</span> a80795139991
+Step <span class="token number">30</span>/30 <span class="token builtin class-name">:</span> ENV <span class="token assign-left variable">CALSSPATH</span><span class="token operator">=</span><span class="token variable">$JAVA_HOME</span>/jre/lib/rt.jar:<span class="token variable">$JAVA_HOME</span>/lib/dt.jar:<span class="token variable">$JAVA_HOME</span>/lib/tools.jar
+ ---<span class="token operator">&gt;</span> Running <span class="token keyword">in</span> 3aee4dfbe86c
+Removing intermediate container 3aee4dfbe86c
+ ---<span class="token operator">&gt;</span> 358c94e522b9
+Successfully built 358c94e522b9
+Successfully tagged xiaosige/alpine-jdk:1.0.0<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="查看镜像"><a href="#查看镜像" class="headerlink" title="查看镜像"></a>查看镜像</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@xiaosige mydockerfile<span class="token punctuation">]</span><span class="token comment"># docker images | grep xiaosige</span>
+xiaosige/alpine-jdk         <span class="token number">1.0</span>.0     358c94e522b9   <span class="token number">20</span> minutes ago   526MB<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<h3 id="运行容器，验证"><a href="#运行容器，验证" class="headerlink" title="运行容器，验证"></a>运行容器，验证</h3><pre class="line-numbers language-docker" data-language="docker"><code class="language-docker">docker run <span class="token punctuation">-</span><span class="token punctuation">-</span>name jdk18 <span class="token punctuation">-</span>it  xiaosige/alpine<span class="token punctuation">-</span>jdk<span class="token punctuation">:</span>1.0.0 /bin/bash<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">ash-5.1<span class="token comment"># java -version</span>
+java version <span class="token string">"1.8.0_311"</span>
+Java<span class="token punctuation">(</span>TM<span class="token punctuation">)</span> SE Runtime Environment <span class="token punctuation">(</span>build <span class="token number">1.8</span>.0_311-b11<span class="token punctuation">)</span>
+Java HotSpot<span class="token punctuation">(</span>TM<span class="token punctuation">)</span> <span class="token number">64</span>-Bit Server VM <span class="token punctuation">(</span>build <span class="token number">25.311</span>-b11, mixed mode<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="将镜像推送到镜像仓库"><a href="#将镜像推送到镜像仓库" class="headerlink" title="将镜像推送到镜像仓库"></a>将镜像推送到镜像仓库</h3><pre class="line-numbers language-docker" data-language="docker"><code class="language-docker">
+docker tag xiaosige/alpine<span class="token punctuation">-</span>jdk<span class="token punctuation">:</span>1.0.0 10.211.55.81<span class="token punctuation">:</span>8082/xiaosige/alpine<span class="token punctuation">-</span>jdk<span class="token punctuation">:</span>1.0.0
+
+docker push 10.211.55.81<span class="token punctuation">:</span>8082/xiaosige/alpine<span class="token punctuation">-</span>jdk<span class="token punctuation">:</span>1.0.0
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="查看"><a href="#查看" class="headerlink" title="查看"></a>查看</h3><pre class="line-numbers language-docker" data-language="docker"><code class="language-docker"><span class="token punctuation">[</span>root@xiaosige mydockerfile<span class="token punctuation">]</span><span class="token comment"># docker search 10.211.55.81:8082/xiaosige/alpine-jdk:1.0.0</span>
+NAME                                          DESCRIPTION   STARS     OFFICIAL   AUTOMATED
+10.211.55.81<span class="token punctuation">:</span>8082/xiaosige/alpine<span class="token punctuation">-</span>jdk<span class="token punctuation">:</span>1.0.0  <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="PS"><a href="#PS" class="headerlink" title="PS"></a>PS</h3><h4 id="实现alias-ll-39-ls-al-39"><a href="#实现alias-ll-39-ls-al-39" class="headerlink" title="实现alias ll='ls -al' "></a>实现<code>alias ll='ls -al' </code></h4><ol>
+<li>编写<code>ll</code>命令文件: <code>ll</code><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token shebang important">#!/bin/sh</span>
+<span class="token builtin class-name">set</span> -e
+<span class="token builtin class-name">alias</span> <span class="token assign-left variable">ll</span><span class="token operator">=</span><span class="token string">"ls -al"</span>
+ll <span class="token string">"<span class="token variable">$@</span>"</span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li>Dockerifle文件关键内容<pre class="line-numbers language-dockerfile" data-language="dockerfile"><code class="language-dockerfile"><span class="token punctuation">...</span>省略<span class="token punctuation">...</span>
+<span class="token keyword">ADD</span> ./ll /bin/ll<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
+</ol>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
     </div>
 
     
     
     
+      
+  <div class="popular-posts-header">相关文章</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/post/d2e31b5e.html" rel="bookmark">Docker 删除所有悬虚镜像（name 为none , tag 为 none）</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/post/cb326ecf.html" rel="bookmark">Docker 查看端口占用列表</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/post/a00f9d53.html" rel="bookmark">Centos8安装Docker</a></div>
+    </li>
+  </ul>
+
 
     <footer class="post-footer">
-        <div class="post-eof"></div>
-      
+<div style="padding-top: 26px;">
+    
+
+    <div class="endlan">
+        <i></i>
+        <p>本文结束--- <img src="https://static.xiaosige.com/img/logo.png" style="display:inline-block;margin-bottom:-7px;height: 25px;"> ---感谢您的阅读</p>
+    </div>
+
+
+    <p id="hitokoto" style="text-align:center;margin-top: 30px;font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, STKaiti, KaiTi, SimKai, DFKai-SB, 'Lato', 'PingFang SC', 'Microsoft YaHei', sans-serif;font-weight: bold;color: #999;">
+     正在加载一言...
+    </p>
+    <div style="margin-top: 30px;">
+      <img id="wechat_subscriber_qcode" src="https://static.xiaosige.com/img/reward-container-back.png" alt="leeze wechat" style="max-width: 100%;">
+    </div>
+    
+
+    
+</div>
+
+
+          <div class="reward-container">
+  <div></div>
+  <button>
+    打赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="https://static.xiaosige.com/img/wechatpay.png" alt="leeze 微信支付">
+        <span>微信支付</span>
+      </div>
+      <div>
+        <img src="https://static.xiaosige.com/img/alipay.png" alt="leeze 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>原作者： </strong>leeze
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://www.xiaosige.com/post/a90d146c.html" title="Dockerfile构建基础镜像为alpine的jdk1.8镜像">https://www.xiaosige.com/post/a90d146c.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/Docker/" rel="tag"><i class="fa fa-tag"></i> Docker</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+            </div>
+            <div class="post-nav-item">
+                <a href="/post/1ed6a709.html" rel="next" title="Nexus搭建Docker私有仓库">
+                  Nexus搭建Docker私有仓库 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
     </footer>
   </article>
 </div>
@@ -663,539 +996,9 @@ canvas#canvas {
 
 
 
-    
 
 
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://www.xiaosige.com/post/6d38bae0.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://static.xiaosige.com/img/avatar/avatar.jpg">
-      <meta itemprop="name" content="leeze">
-      <meta itemprop="description" content="因上努力，果上随缘！">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="小四儿">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/post/6d38bae0.html" class="post-title-link" itemprop="url">Hexo之修改Logo字体</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2019-09-03 21:50:00" itemprop="dateCreated datePublished" datetime="2019-09-03T21:50:00+08:00">2019-09-03</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-10-12 17:08:36" itemprop="dateModified" datetime="2020-10-12T17:08:36+08:00">2020-10-12</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/hexo%E5%BB%BA%E7%AB%99/" itemprop="url" rel="index"><span itemprop="name">hexo建站</span></a>
-        </span>
-    </span>
-
-  
-
-
-
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>314</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="修改Logo字体"><a href="#修改Logo字体" class="headerlink" title="修改Logo字体"></a>修改Logo字体</h2><p>在 <code>themes/*/source/css/_custom/custom.styl</code> 中添加如下代码：</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/post/6d38bae0.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://www.xiaosige.com/post/2db94f1a.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://static.xiaosige.com/img/avatar/avatar.jpg">
-      <meta itemprop="name" content="leeze">
-      <meta itemprop="description" content="因上努力，果上随缘！">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="小四儿">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/post/2db94f1a.html" class="post-title-link" itemprop="url">Hexo之添加背景图</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2019-09-03 21:44:00" itemprop="dateCreated datePublished" datetime="2019-09-03T21:44:00+08:00">2019-09-03</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-10-12 17:08:05" itemprop="dateModified" datetime="2020-10-12T17:08:05+08:00">2020-10-12</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/hexo%E5%BB%BA%E7%AB%99/" itemprop="url" rel="index"><span itemprop="name">hexo建站</span></a>
-        </span>
-    </span>
-
-  
-
-
-
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>205</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="添加背景图"><a href="#添加背景图" class="headerlink" title="添加背景图"></a>添加背景图</h2><p>在 <code>themes/*/source/css/_custom/custom.styl</code> 中添加如下代码：</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/post/2db94f1a.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://www.xiaosige.com/post/78491cc3.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://static.xiaosige.com/img/avatar/avatar.jpg">
-      <meta itemprop="name" content="leeze">
-      <meta itemprop="description" content="因上努力，果上随缘！">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="小四儿">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/post/78491cc3.html" class="post-title-link" itemprop="url">Hexo之文章加密访问</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2019-09-03 21:31:00" itemprop="dateCreated datePublished" datetime="2019-09-03T21:31:00+08:00">2019-09-03</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-10-12 17:08:44" itemprop="dateModified" datetime="2020-10-12T17:08:44+08:00">2020-10-12</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/hexo%E5%BB%BA%E7%AB%99/" itemprop="url" rel="index"><span itemprop="name">hexo建站</span></a>
-        </span>
-    </span>
-
-  
-
-
-
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>1.3k</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="文章加密访问"><a href="#文章加密访问" class="headerlink" title="文章加密访问"></a>文章加密访问</h2><p>下载 <code>hexo-blog-encrypt</code>，它将会被存储在本地浏览器的localStorage中：</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/post/78491cc3.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://www.xiaosige.com/post/ddb18259.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://static.xiaosige.com/img/avatar/avatar.jpg">
-      <meta itemprop="name" content="leeze">
-      <meta itemprop="description" content="因上努力，果上随缘！">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="小四儿">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/post/ddb18259.html" class="post-title-link" itemprop="url">Eclipse安装SVN插件的几种方式</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2019-09-02 13:52:00" itemprop="dateCreated datePublished" datetime="2019-09-02T13:52:00+08:00">2019-09-02</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-08-24 21:52:44" itemprop="dateModified" datetime="2020-08-24T21:52:44+08:00">2020-08-24</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Eclipse/" itemprop="url" rel="index"><span itemprop="name">Eclipse</span></a>
-        </span>
-    </span>
-
-  
-
-
-
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>767</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="SVN"><a href="#SVN" class="headerlink" title="SVN"></a>SVN</h2><h4 id="方式一：通过Eclipse-Marketplace在线安装"><a href="#方式一：通过Eclipse-Marketplace在线安装" class="headerlink" title="方式一：通过Eclipse Marketplace在线安装"></a><font color="red">方式一：通过Eclipse Marketplace在线安装</font></h4><p>  Help–&gt;Eclipse Marketplace，搜索svn</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/post/ddb18259.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://www.xiaosige.com/post/343aa4a8.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://static.xiaosige.com/img/avatar/avatar.jpg">
-      <meta itemprop="name" content="leeze">
-      <meta itemprop="description" content="因上努力，果上随缘！">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="小四儿">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/post/343aa4a8.html" class="post-title-link" itemprop="url">hexo之基本操作</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2019-08-31 17:36:00" itemprop="dateCreated datePublished" datetime="2019-08-31T17:36:00+08:00">2019-08-31</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-10-12 17:08:05" itemprop="dateModified" datetime="2020-10-12T17:08:05+08:00">2020-10-12</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/hexo%E5%BB%BA%E7%AB%99/" itemprop="url" rel="index"><span itemprop="name">hexo建站</span></a>
-        </span>
-    </span>
-
-  
-
-
-
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>526</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="环境配置"><a href="#环境配置" class="headerlink" title="环境配置"></a>环境配置</h2><pre><code>git
-
-Node.js
-</code></pre>
-<h4 id="Hexo安装：npm-install-hexo-g"><a href="#Hexo安装：npm-install-hexo-g" class="headerlink" title="Hexo安装：npm install hexo -g"></a>Hexo安装：npm install hexo -g</h4>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/post/343aa4a8.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/13/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><span class="page-number current">14</span><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/15/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
-  </nav>
-
+    <div class="comments" id="lv-container" data-id="city" data-uid="MTAyMC80NjMzMy8yMjg0NA=="></div>
 </div>
   </main>
 
@@ -1327,7 +1130,7 @@ Node.js
 
 
   <script src="https://cdn.jsdelivr.net/npm/quicklink@2.2.0/dist/quicklink.umd.js" integrity="sha256-4kQf9z5ntdQrzsBC3YSHnEz02Z9C1UeW/E9OgnvlzSY=" crossorigin="anonymous"></script>
-  <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":true,"delay":true,"timeout":3000,"priority":true,"ignores":null,"url":"https://www.xiaosige.com/page/14/"}</script>
+  <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":true,"delay":true,"timeout":3000,"priority":true,"ignores":null,"url":"https://www.xiaosige.com/post/a90d146c.html"}</script>
   <script src="/js/third-party/quicklink.js"></script>
 <script src="/js/third-party/comments/livere.js"></script>
 
