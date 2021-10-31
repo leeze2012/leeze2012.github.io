@@ -6,7 +6,7 @@
   <link href="https://www.xiaosige.com/atom.xml" rel="self"/>
   
   <link href="https://www.xiaosige.com/"/>
-  <updated>2021-10-31T17:28:50.193Z</updated>
+  <updated>2021-10-31T17:30:25.128Z</updated>
   <id>https://www.xiaosige.com/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://www.xiaosige.com/post/a90d146c.html"/>
     <id>https://www.xiaosige.com/post/a90d146c.html</id>
     <published>2021-10-31T16:41:08.000Z</published>
-    <updated>2021-10-31T17:28:50.193Z</updated>
+    <updated>2021-10-31T17:30:25.128Z</updated>
     
     
     <summary type="html">&lt;h3 id=&quot;新建dockerfile目录&quot;&gt;&lt;a href=&quot;#新建dockerfile目录&quot; class=&quot;headerlink&quot; title=&quot;新建dockerfile目录&quot;&gt;&lt;/a&gt;新建&lt;code&gt;dockerfile&lt;/code&gt;目录&lt;/h3&gt;&lt;pre class=&quot;line-numbers language-bash&quot; data-language=&quot;bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function&quot;&gt;mkdir&lt;/span&gt; /opt/mydockerfile&lt;span aria-hidden=&quot;true&quot; class=&quot;line-numbers-rows&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
