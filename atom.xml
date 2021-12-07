@@ -6,7 +6,7 @@
   <link href="https://www.xiaosige.com/atom.xml" rel="self"/>
   
   <link href="https://www.xiaosige.com/"/>
-  <updated>2021-10-31T17:30:25.128Z</updated>
+  <updated>2021-12-07T19:03:03.072Z</updated>
   <id>https://www.xiaosige.com/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Centos7/8 firewall 和 docker 冲突解决</title>
+    <link href="https://www.xiaosige.com/post/76a6f1b6.html"/>
+    <id>https://www.xiaosige.com/post/76a6f1b6.html</id>
+    <published>2021-12-07T18:30:52.000Z</published>
+    <updated>2021-12-07T19:03:03.072Z</updated>
+    
+    
+    <summary type="html">&lt;h3 id=&quot;介绍&quot;&gt;&lt;a href=&quot;#介绍&quot; class=&quot;headerlink&quot; title=&quot;介绍&quot;&gt;&lt;/a&gt;介绍&lt;/h3&gt;&lt;div class=&quot;note success no-icon&quot;&gt;&lt;p&gt;  centos7/8 自带防火墙是firewalld。firewall的底层是使用iptables进行数据过滤，建立在iptables之上，这可能会与 Docker 产生冲突。当 firewalld 启动或者重启的时候，将会从 iptables 中移除 DOCKER 的规则，从而影响了 Docker 的正常工作。当你使用的是 Systemd 的时候， firewalld 会在 Docker 之前启动，但是如果你在 Docker 启动之后再启动 或者重启 firewalld ，你就需要重启 Docker 进程了。&lt;/p&gt;
+&lt;/div&gt;</summary>
+    
+    
+    
+    <category term="Docker" scheme="https://www.xiaosige.com/categories/Docker/"/>
+    
+    
+    <category term="Docker" scheme="https://www.xiaosige.com/tags/Docker/"/>
+    
+  </entry>
   
   <entry>
     <title>Dockerfile构建基础镜像为alpine的jdk1.8镜像</title>
@@ -379,25 +399,6 @@
     
     
     <category term="PHP" scheme="https://www.xiaosige.com/tags/PHP/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>CentOS8通过命令设置静态IP地址</title>
-    <link href="https://www.xiaosige.com/post/68713d77.html"/>
-    <id>https://www.xiaosige.com/post/68713d77.html</id>
-    <published>2021-01-03T14:52:29.000Z</published>
-    <updated>2021-01-03T15:48:06.738Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;  在&lt;code&gt;centos7&lt;/code&gt;上，同时支持&lt;code&gt;network.service&lt;/code&gt;和&lt;code&gt;NetworkManager.service&lt;/code&gt;（简称NM）。默认情况下，这2个服务都有开启，但许多人都会将NM禁用掉。&lt;br&gt;  在&lt;code&gt;centos8&lt;/code&gt;上，已&lt;code&gt;废弃network.service&lt;/code&gt;，因此只能通过&lt;code&gt;NM&lt;/code&gt;进行网络配置，包括动态ip和静态ip。换言之，在centos8上，&lt;code&gt;必须开启NM&lt;/code&gt;，否则无法使用网络。&lt;br&gt;  &lt;code&gt;注：centos8依然支持network.service，只是默认没安装&lt;/code&gt;。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="Linux" scheme="https://www.xiaosige.com/categories/Linux/"/>
-    
-    
-    <category term="Linux" scheme="https://www.xiaosige.com/tags/Linux/"/>
     
   </entry>
   
