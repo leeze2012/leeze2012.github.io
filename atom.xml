@@ -99,7 +99,7 @@
     <link href="https://www.xiaosige.com/post/a6836d41.html"/>
     <id>https://www.xiaosige.com/post/a6836d41.html</id>
     <published>2021-06-22T16:48:12.000Z</published>
-    <updated>2021-06-22T19:22:18.757Z</updated>
+    <updated>2021-12-08T18:01:28.748Z</updated>
     
     
     <summary type="html">&lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;  Nexus 是Maven仓库管理器，如果你使用Maven，你可以从Maven中央仓库 下载所需要的构件（artifact），但这通常不是一个好的做法，你应该在本地架设一个Maven仓库服务器，在代理远程仓库的同时维护本地仓库，以节省带宽和时间，Nexus就可以满足这样的需要。此外，他还提供了强大的仓库管理功能，构件搜索功能，它基于REST，友好的UI是一个extjs的REST客户端，它占用较少的内存，基于简单文件系统而非数据库。这些优点使其日趋成为最流行的Maven仓库管理器。除此之外，Nexus还可以管理Docker镜像。&lt;/p&gt;</summary>
@@ -291,7 +291,7 @@
     <link href="https://www.xiaosige.com/post/a00f9d53.html"/>
     <id>https://www.xiaosige.com/post/a00f9d53.html</id>
     <published>2021-05-10T08:17:18.000Z</published>
-    <updated>2021-10-27T12:37:48.209Z</updated>
+    <updated>2021-12-08T18:06:15.118Z</updated>
     
     
     <summary type="html">&lt;h3 id=&quot;准备&quot;&gt;&lt;a href=&quot;#准备&quot; class=&quot;headerlink&quot; title=&quot;准备&quot;&gt;&lt;/a&gt;准备&lt;/h3&gt;&lt;p&gt;  服务器版本:CentOS 8.2 64位&lt;/p&gt;</summary>

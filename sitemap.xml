@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://www.xiaosige.com/post/a00f9d53.html</loc>
+    
+    <lastmod>2021-12-08</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.xiaosige.com/post/a6836d41.html</loc>
+    
+    <lastmod>2021-12-08</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://www.xiaosige.com/post/3458217c.html</loc>
     
     <lastmod>2021-12-08</lastmod>
@@ -58,13 +72,6 @@
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/post/a00f9d53.html</loc>
-    
-    <lastmod>2021-10-27</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://www.xiaosige.com/post/afb30e04.html</loc>
     
     <lastmod>2021-09-13</lastmod>
@@ -75,13 +82,6 @@
     <loc>https://www.xiaosige.com/post/5086702b.html</loc>
     
     <lastmod>2021-06-27</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.xiaosige.com/post/a6836d41.html</loc>
-    
-    <lastmod>2021-06-22</lastmod>
     
   </url>
   
@@ -872,14 +872,14 @@
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/tags/Mongo/</loc>
+    <loc>https://www.xiaosige.com/tags/MyBatis-Plus/</loc>
     <lastmod>2021-12-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/tags/MyBatis-Plus/</loc>
+    <loc>https://www.xiaosige.com/tags/Mongo/</loc>
     <lastmod>2021-12-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>

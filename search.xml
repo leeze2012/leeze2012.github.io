@@ -723,6 +723,9 @@ firewall-cmd --reload<span aria-hidden="true" class="line-numbers-rows"><span></
 
 
 <h4 id="上传第三方jar"><a href="#上传第三方jar" class="headerlink" title="上传第三方jar"></a>上传第三方jar</h4><img data-src="/post/a6836d41/nexus003.png" class="" title="jar-upload">
+
+
+<h3 id="PS"><a href="#PS" class="headerlink" title="PS"></a>PS</h3><p>一直报错<code> UnknownHostException: rhc.sonatype.com</code>，参考：<a href="/post/3458217c.html" title="解决Docker容器内无法解析DNS的问题">解决Docker容器内无法解析DNS的问题</a></p>
 <link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
       <categories>
         <category>Docker</category>
@@ -1721,7 +1724,7 @@ systemctl restart docker<span aria-hidden="true" class="line-numbers-rows"><span
 <li>portainer中远程连接<img data-src="/post/a00f9d53/portainer001.png" class="" title="portainer-docker"></li>
 </ol>
 <h4 id="IDEA中远程连接"><a href="#IDEA中远程连接" class="headerlink" title="IDEA中远程连接"></a>IDEA中远程连接</h4><p>  TCP-socket:<br>  <code>tcp://10.211.55.81:2375</code></p>
-<h3 id="PS"><a href="#PS" class="headerlink" title="PS"></a>PS</h3><h4 id="网络问题"><a href="#网络问题" class="headerlink" title="网络问题"></a><code>网络问题</code></h4><p>  <code>firewall-cmd，网路配置端口后不好用</code>:</p>
+<h3 id="PS"><a href="#PS" class="headerlink" title="PS"></a>PS</h3><h4 id="网络问题1"><a href="#网络问题1" class="headerlink" title="网络问题1"></a><code>网络问题1</code></h4><p>  <code>firewall-cmd，网路配置端口后不好用</code>:</p>
 <blockquote>
 <p><code>一</code>，查看网卡</p>
 <img data-src="/post/a00f9d53/firewall001.png" class="" title="网络设备">
@@ -1742,6 +1745,7 @@ systemctl restart docker<span aria-hidden="true" class="line-numbers-rows"><span
 firewall-cmd --reload<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <img data-src="/post/a00f9d53/firewall006.png" class="" title="查看3307端口"> 
 </blockquote>
+<h4 id="网络问题2"><a href="#网络问题2" class="headerlink" title="网络问题2"></a><code>网络问题2</code></h4><p><code>网络问题1,不好使</code>，参考：<a href="/post/76a6f1b6.html" title="Centos7/8 firewall 和 docker 冲突解决">Centos7/8 firewall 和 docker 冲突解决</a></p>
 <link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
       <categories>
         <category>Centos</category>

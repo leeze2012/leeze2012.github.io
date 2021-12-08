@@ -38,7 +38,7 @@
 <meta property="og:image" content="https://www.xiaosige.com/post/a00f9d53/firewall005.png">
 <meta property="og:image" content="https://www.xiaosige.com/post/a00f9d53/firewall006.png">
 <meta property="article:published_time" content="2021-05-10T08:17:18.000Z">
-<meta property="article:modified_time" content="2021-10-27T12:37:48.209Z">
+<meta property="article:modified_time" content="2021-12-08T18:06:15.118Z">
 <meta property="article:author" content="leeze">
 <meta property="article:tag" content="Docker">
 <meta name="twitter:card" content="summary">
@@ -191,7 +191,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%87%86%E5%A4%87"><span class="nav-number">1.</span> <span class="nav-text">准备</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%87%86%E5%A4%87%E9%83%A8%E7%BD%B2%E7%8E%AF%E5%A2%83"><span class="nav-number">2.</span> <span class="nav-text">准备部署环境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85"><span class="nav-number">3.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Docker%E6%9C%8D%E5%8A%A1%E7%9B%B8%E5%85%B3"><span class="nav-number">4.</span> <span class="nav-text">Docker服务相关</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Docker%E5%91%BD%E4%BB%A4"><span class="nav-number">5.</span> <span class="nav-text">Docker命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#docker%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5"><span class="nav-number">6.</span> <span class="nav-text">docker远程连接</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#portainer%E4%B8%AD%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5"><span class="nav-number">6.1.</span> <span class="nav-text">portainer中远程连接</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#IDEA%E4%B8%AD%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5"><span class="nav-number">6.2.</span> <span class="nav-text">IDEA中远程连接</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PS"><span class="nav-number">7.</span> <span class="nav-text">PS</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BD%91%E7%BB%9C%E9%97%AE%E9%A2%98"><span class="nav-number">7.1.</span> <span class="nav-text">网络问题</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%87%86%E5%A4%87"><span class="nav-number">1.</span> <span class="nav-text">准备</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%87%86%E5%A4%87%E9%83%A8%E7%BD%B2%E7%8E%AF%E5%A2%83"><span class="nav-number">2.</span> <span class="nav-text">准备部署环境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85"><span class="nav-number">3.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Docker%E6%9C%8D%E5%8A%A1%E7%9B%B8%E5%85%B3"><span class="nav-number">4.</span> <span class="nav-text">Docker服务相关</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Docker%E5%91%BD%E4%BB%A4"><span class="nav-number">5.</span> <span class="nav-text">Docker命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#docker%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5"><span class="nav-number">6.</span> <span class="nav-text">docker远程连接</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#portainer%E4%B8%AD%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5"><span class="nav-number">6.1.</span> <span class="nav-text">portainer中远程连接</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#IDEA%E4%B8%AD%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5"><span class="nav-number">6.2.</span> <span class="nav-text">IDEA中远程连接</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PS"><span class="nav-number">7.</span> <span class="nav-text">PS</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BD%91%E7%BB%9C%E9%97%AE%E9%A2%981"><span class="nav-number">7.1.</span> <span class="nav-text">网络问题1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BD%91%E7%BB%9C%E9%97%AE%E9%A2%982"><span class="nav-number">7.2.</span> <span class="nav-text">网络问题2</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -609,7 +609,7 @@ canvas#canvas {
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2021-10-27 20:37:48" itemprop="dateModified" datetime="2021-10-27T20:37:48+08:00">2021-10-27</time>
+      <time title="修改时间：2021-12-09 02:06:15" itemprop="dateModified" datetime="2021-12-09T02:06:15+08:00">2021-12-09</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -745,7 +745,7 @@ systemctl restart docker<span aria-hidden="true" class="line-numbers-rows"><span
 <li>portainer中远程连接<img data-src="/post/a00f9d53/portainer001.png" class="" title="portainer-docker"></li>
 </ol>
 <h4 id="IDEA中远程连接"><a href="#IDEA中远程连接" class="headerlink" title="IDEA中远程连接"></a>IDEA中远程连接</h4><p>  TCP-socket:<br>  <code>tcp://10.211.55.81:2375</code></p>
-<h3 id="PS"><a href="#PS" class="headerlink" title="PS"></a>PS</h3><h4 id="网络问题"><a href="#网络问题" class="headerlink" title="网络问题"></a><code>网络问题</code></h4><p>  <code>firewall-cmd，网路配置端口后不好用</code>:</p>
+<h3 id="PS"><a href="#PS" class="headerlink" title="PS"></a>PS</h3><h4 id="网络问题1"><a href="#网络问题1" class="headerlink" title="网络问题1"></a><code>网络问题1</code></h4><p>  <code>firewall-cmd，网路配置端口后不好用</code>:</p>
 <blockquote>
 <p><code>一</code>，查看网卡</p>
 <img data-src="/post/a00f9d53/firewall001.png" class="" title="网络设备">
@@ -766,6 +766,7 @@ systemctl restart docker<span aria-hidden="true" class="line-numbers-rows"><span
 firewall-cmd --reload<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <img data-src="/post/a00f9d53/firewall006.png" class="" title="查看3307端口"> 
 </blockquote>
+<h4 id="网络问题2"><a href="#网络问题2" class="headerlink" title="网络问题2"></a><code>网络问题2</code></h4><p><code>网络问题1,不好使</code>，参考：<a href="/post/76a6f1b6.html" title="Centos7/8 firewall 和 docker 冲突解决">Centos7/8 firewall 和 docker 冲突解决</a></p>
 <link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
     </div>
 
@@ -895,13 +896,13 @@ firewall-cmd --reload<span aria-hidden="true" class="line-numbers-rows"><span></
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">208k</span>
+    <span title="站点总字数">209k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">3:09</span>
+    <span title="站点阅读时长">3:10</span>
   </span>
 </div>
 <div class="busuanzi-count">
