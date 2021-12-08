@@ -6,7 +6,7 @@
   <link href="https://www.xiaosige.com/atom.xml" rel="self"/>
   
   <link href="https://www.xiaosige.com/"/>
-  <updated>2021-12-07T19:03:03.072Z</updated>
+  <updated>2021-12-08T17:48:01.164Z</updated>
   <id>https://www.xiaosige.com/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>解决Docker容器内无法解析DNS的问题</title>
+    <link href="https://www.xiaosige.com/post/3458217c.html"/>
+    <id>https://www.xiaosige.com/post/3458217c.html</id>
+    <published>2021-12-08T15:30:05.000Z</published>
+    <updated>2021-12-08T17:48:01.164Z</updated>
+    
+    
+    <summary type="html">&lt;h3 id=&quot;问题描述&quot;&gt;&lt;a href=&quot;#问题描述&quot; class=&quot;headerlink&quot; title=&quot;问题描述&quot;&gt;&lt;/a&gt;问题描述&lt;/h3&gt;&lt;p&gt;  最近Docker上重装Nexus3，&lt;code&gt;一直报错 UnknownHostException: rhc.sonatype.com &lt;/code&gt; (在另一个场景中报 NoRouteToHostException: No route to host )&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Docker" scheme="https://www.xiaosige.com/categories/Docker/"/>
+    
+    
+    <category term="Nexus" scheme="https://www.xiaosige.com/tags/Nexus/"/>
+    
+  </entry>
   
   <entry>
     <title>Centos7/8 firewall 和 docker 冲突解决</title>
@@ -380,25 +399,6 @@
     
     
     <category term="VM" scheme="https://www.xiaosige.com/tags/VM/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>CentOS 7 环境 PHP8.0 编译安装以及开启 JIT</title>
-    <link href="https://www.xiaosige.com/post/421fae74.html"/>
-    <id>https://www.xiaosige.com/post/421fae74.html</id>
-    <published>2021-01-05T16:37:31.000Z</published>
-    <updated>2021-01-05T19:36:49.674Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;  PHP是超文本预处理器(Hypertext Preprocessor)的简称，是一种用于创建动态性交互网站的强有力的语言。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="Linux" scheme="https://www.xiaosige.com/categories/Linux/"/>
-    
-    
-    <category term="PHP" scheme="https://www.xiaosige.com/tags/PHP/"/>
     
   </entry>
   

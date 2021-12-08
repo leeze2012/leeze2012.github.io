@@ -15,8 +15,29 @@
     <atom:link href="https://www.xiaosige.com/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>因上努力，果上随缘！</description>
-    <pubDate>Tue, 07 Dec 2021 19:03:03 GMT</pubDate>
+    <pubDate>Wed, 08 Dec 2021 17:48:01 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>解决Docker容器内无法解析DNS的问题</title>
+      <link>https://www.xiaosige.com/post/3458217c.html</link>
+      <guid>https://www.xiaosige.com/post/3458217c.html</guid>
+      <pubDate>Wed, 08 Dec 2021 15:30:05 GMT</pubDate>
+      
+      <description>&lt;h3 id=&quot;问题描述&quot;&gt;&lt;a href=&quot;#问题描述&quot; class=&quot;headerlink&quot; title=&quot;问题描述&quot;&gt;&lt;/a&gt;问题描述&lt;/h3&gt;&lt;p&gt;  最近Docker上重装Nexus3，&lt;code&gt;一直报错 UnknownHostException: rhc.sonatype.com &lt;/code&gt; (在另一个场景中报 NoRouteToHostException: No route to host )&lt;/p&gt;</description>
+      
+      
+      
+      
+      <category domain="https://www.xiaosige.com/categories/Docker/">Docker</category>
+      
+      
+      <category domain="https://www.xiaosige.com/tags/Nexus/">Nexus</category>
+      
+      
+      <comments>https://www.xiaosige.com/post/3458217c.html#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>Centos7/8 firewall 和 docker 冲突解决</title>
@@ -420,27 +441,6 @@
       
       
       <comments>https://www.xiaosige.com/post/7507a33f.html#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>CentOS 7 环境 PHP8.0 编译安装以及开启 JIT</title>
-      <link>https://www.xiaosige.com/post/421fae74.html</link>
-      <guid>https://www.xiaosige.com/post/421fae74.html</guid>
-      <pubDate>Tue, 05 Jan 2021 16:37:31 GMT</pubDate>
-      
-      <description>&lt;p&gt;  PHP是超文本预处理器(Hypertext Preprocessor)的简称，是一种用于创建动态性交互网站的强有力的语言。&lt;/p&gt;</description>
-      
-      
-      
-      
-      <category domain="https://www.xiaosige.com/categories/Linux/">Linux</category>
-      
-      
-      <category domain="https://www.xiaosige.com/tags/PHP/">PHP</category>
-      
-      
-      <comments>https://www.xiaosige.com/post/421fae74.html#disqus_thread</comments>
       
     </item>
     
