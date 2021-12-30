@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://www.xiaosige.com/links/index.html</loc>
+    
+    <lastmod>2021-12-30</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://www.xiaosige.com/post/a240ffad.html</loc>
     
     <lastmod>2021-12-29</lastmod>
@@ -33,13 +40,6 @@
     <loc>https://www.xiaosige.com/post/76a6f1b6.html</loc>
     
     <lastmod>2021-12-07</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.xiaosige.com/links/index.html</loc>
-    
-    <lastmod>2021-12-04</lastmod>
     
   </url>
   
@@ -725,14 +725,14 @@
 
   
   <url>
-    <loc>https://www.xiaosige.com/tags/Decimal/</loc>
+    <loc>https://www.xiaosige.com/tags/VM/</loc>
     <lastmod>2021-12-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/tags/VM/</loc>
+    <loc>https://www.xiaosige.com/tags/Decimal/</loc>
     <lastmod>2021-12-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -823,14 +823,14 @@
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/tags/hexo/</loc>
+    <loc>https://www.xiaosige.com/tags/Test/</loc>
     <lastmod>2021-12-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/tags/Test/</loc>
+    <loc>https://www.xiaosige.com/tags/hexo/</loc>
     <lastmod>2021-12-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -844,14 +844,14 @@
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/tags/Jenkins/</loc>
+    <loc>https://www.xiaosige.com/tags/Idea/</loc>
     <lastmod>2021-12-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/tags/Idea/</loc>
+    <loc>https://www.xiaosige.com/tags/Jenkins/</loc>
     <lastmod>2021-12-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -914,14 +914,14 @@
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/tags/ShowDoc/</loc>
+    <loc>https://www.xiaosige.com/tags/Redis/</loc>
     <lastmod>2021-12-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/tags/Redis/</loc>
+    <loc>https://www.xiaosige.com/tags/ShowDoc/</loc>
     <lastmod>2021-12-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -972,14 +972,14 @@
 
   
   <url>
-    <loc>https://www.xiaosige.com/categories/JavaScript/</loc>
+    <loc>https://www.xiaosige.com/categories/Mac/</loc>
     <lastmod>2021-12-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/categories/Mac/</loc>
+    <loc>https://www.xiaosige.com/categories/JavaScript/</loc>
     <lastmod>2021-12-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1049,13 +1049,6 @@
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/categories/hexo%E5%BB%BA%E7%AB%99/</loc>
-    <lastmod>2021-12-30</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.xiaosige.com/categories/%E6%B5%8B%E8%AF%95/</loc>
     <lastmod>2021-12-30</lastmod>
     <changefreq>daily</changefreq>
@@ -1063,7 +1056,21 @@
   </url>
   
   <url>
+    <loc>https://www.xiaosige.com/categories/hexo%E5%BB%BA%E7%AB%99/</loc>
+    <lastmod>2021-12-30</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://www.xiaosige.com/categories/Java/</loc>
+    <lastmod>2021-12-30</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.xiaosige.com/categories/Idea/</loc>
     <lastmod>2021-12-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1078,13 +1085,6 @@
   
   <url>
     <loc>https://www.xiaosige.com/categories/Linux/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/</loc>
-    <lastmod>2021-12-30</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.xiaosige.com/categories/Idea/</loc>
     <lastmod>2021-12-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
