@@ -3382,6 +3382,13 @@ to{transform: rotate(360deg)}
 .tabs-comment {
   margin-top: 32px !important;
 }
+/* 评论--畅言 */
+#SOHUCS {
+  margin-top: 10px !important;
+  background: var(--content-bg-color) !important;
+  padding: 10px !important;
+  width: unset !important;
+}
 /* 分页外观 */
 .pagination {
   border-radius: 20px !important;
