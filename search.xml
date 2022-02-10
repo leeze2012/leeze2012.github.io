@@ -492,17 +492,27 @@ docker run <span class="token punctuation">-</span>d <span class="token punctuat
 </ol>
 <img data-src="/post/1ed6a709/nexus001.png" class="" title="repository">
 
-<h4 id="创建-docker-hosted-类型的仓库"><a href="#创建-docker-hosted-类型的仓库" class="headerlink" title="创建 docker(hosted) 类型的仓库"></a>创建 docker(hosted) 类型的仓库</h4><p>  在创建镜像仓库的页面中，设置镜像仓库的相关信息，包括名称、HTTP端口、是否允许匿名拉取镜像等信息。这里需要注意的是，<br>此处的HTTP端口(此处的值为8082)很重要，后续拉取和推送进行是使用此端口进行的，而不是nexus本身对外暴露的端口。</p>
-<img data-src="/post/1ed6a709/nexus001.png" class="" title="hosted">
+<h4 id="创建-docker-hosted-类型的仓库"><a href="#创建-docker-hosted-类型的仓库" class="headerlink" title="创建 docker(hosted) 类型的仓库"></a>创建 docker(hosted) 类型的仓库</h4><p>  用于将自己的镜像上传至私库。<br>  在创建镜像仓库的页面中，设置镜像仓库的相关信息，包括名称、HTTP端口、是否允许匿名拉取镜像等信息。这里需要注意的是，<br>此处的HTTP端口(此处的值为8082)很重要，后续拉取和推送进行是使用此端口进行的，而不是nexus本身对外暴露的端口。</p>
+<img data-src="/post/1ed6a709/nexus002.png" class="" title="hosted">
 
-<h4 id="修改docker配置"><a href="#修改docker配置" class="headerlink" title="修改docker配置"></a>修改docker配置</h4><p>  在<code>/etc/docker/daemon.json</code>文件中添加下面的内容：</p>
+<h4 id="创建-docker-proxy-类型的仓库"><a href="#创建-docker-proxy-类型的仓库" class="headerlink" title="创建 docker(proxy) 类型的仓库"></a>创建 docker(proxy) 类型的仓库</h4><p>  用于从外网仓库中拉取镜像至本地仓库中。点击“create Repository”，选择docker(proxy)进行创建</p>
+
+
+<h4 id="创建-docker-group-类型的仓库"><a href="#创建-docker-group-类型的仓库" class="headerlink" title="创建 docker(group) 类型的仓库"></a>创建 docker(group) 类型的仓库</h4><p>  用于pull镜像至本地使用，可下载外网镜像和从本地push到私库的镜像</p>
+
+
+<h4 id="配置docker-Realm"><a href="#配置docker-Realm" class="headerlink" title="配置docker Realm"></a>配置<code>docker Realm</code></h4><p>  将Docker Bearer Token Realm配置到右边，点击save即可</p>
+<img data-src="/post/1ed6a709/nexus0021.png" class="" title="hosted">
+
+<h4 id="修改docker配置"><a href="#修改docker配置" class="headerlink" title="修改docker配置"></a>修改docker配置</h4><p>    IP地址为私库服务器的IP地址，端口为创建docker group和docker hosted填写的端口,在<code>/etc/docker/daemon.json</code>文件中添加下面的内容：</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@xiaosige ~<span class="token punctuation">]</span><span class="token comment"># cat /etc/docker/daemon.json</span>
 
 <span class="token punctuation">{</span>
 
-    <span class="token string">"insecure-registries"</span>:<span class="token punctuation">[</span><span class="token string">"10.211.55.81:8082"</span><span class="token punctuation">]</span>
+    <span class="token string">"insecure-registries"</span>:<span class="token punctuation">[</span><span class="token string">"10.211.55.81:8082"</span>,<span class="token string">"10.211.55.81:8084"</span><span class="token punctuation">]</span>
 
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@xiaosige ~<span class="token punctuation">]</span><span class="token comment"># systemctl daemon-reload</span>
 
 <span class="token punctuation">[</span>root@xiaosige ~<span class="token punctuation">]</span><span class="token comment"># systemctl restart docker</span>
