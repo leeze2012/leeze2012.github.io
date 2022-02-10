@@ -2,14 +2,14 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://www.xiaosige.com/welfare/index.html</loc>
+    <loc>https://www.xiaosige.com/post/1ed6a709.html</loc>
     
     <lastmod>2022-02-10</lastmod>
     
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/post/1ed6a709.html</loc>
+    <loc>https://www.xiaosige.com/welfare/index.html</loc>
     
     <lastmod>2022-02-10</lastmod>
     
@@ -732,14 +732,14 @@
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/tags/BootStrap/</loc>
+    <loc>https://www.xiaosige.com/tags/Decimal/</loc>
     <lastmod>2022-02-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/tags/Decimal/</loc>
+    <loc>https://www.xiaosige.com/tags/BootStrap/</loc>
     <lastmod>2022-02-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -774,14 +774,14 @@
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/tags/GitLab/</loc>
+    <loc>https://www.xiaosige.com/tags/Gitea/</loc>
     <lastmod>2022-02-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/tags/Gitea/</loc>
+    <loc>https://www.xiaosige.com/tags/GitLab/</loc>
     <lastmod>2022-02-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -802,14 +802,14 @@
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/tags/Markdown/</loc>
+    <loc>https://www.xiaosige.com/tags/Eclipse/</loc>
     <lastmod>2022-02-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/tags/Eclipse/</loc>
+    <loc>https://www.xiaosige.com/tags/Markdown/</loc>
     <lastmod>2022-02-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -979,14 +979,14 @@
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/categories/BootStrap/</loc>
+    <loc>https://www.xiaosige.com/categories/JavaScript/</loc>
     <lastmod>2022-02-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/categories/JavaScript/</loc>
+    <loc>https://www.xiaosige.com/categories/BootStrap/</loc>
     <lastmod>2022-02-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1021,13 +1021,6 @@
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/categories/Markdown/</loc>
-    <lastmod>2022-02-10</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.xiaosige.com/categories/Eclipse/</loc>
     <lastmod>2022-02-10</lastmod>
     <changefreq>daily</changefreq>
@@ -1035,7 +1028,7 @@
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/categories/Git/</loc>
+    <loc>https://www.xiaosige.com/categories/Markdown/</loc>
     <lastmod>2022-02-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1043,6 +1036,13 @@
   
   <url>
     <loc>https://www.xiaosige.com/categories/Linux/Git/</loc>
+    <lastmod>2022-02-10</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.xiaosige.com/categories/Git/</loc>
     <lastmod>2022-02-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
