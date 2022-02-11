@@ -15,8 +15,29 @@
     <atom:link href="https://www.xiaosige.com/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>因上努力，果上随缘！</description>
-    <pubDate>Wed, 08 Dec 2021 17:48:01 GMT</pubDate>
+    <pubDate>Fri, 11 Feb 2022 20:22:26 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>使用Docker安装MongoDB</title>
+      <link>https://www.xiaosige.com/post/a639ff5d.html</link>
+      <guid>https://www.xiaosige.com/post/a639ff5d.html</guid>
+      <pubDate>Fri, 11 Feb 2022 09:05:16 GMT</pubDate>
+      
+      <description>&lt;h3 id=&quot;获取MongoDB镜像&quot;&gt;&lt;a href=&quot;#获取MongoDB镜像&quot; class=&quot;headerlink&quot; title=&quot;获取MongoDB镜像&quot;&gt;&lt;/a&gt;获取MongoDB镜像&lt;/h3&gt;&lt;pre class=&quot;line-numbers language-docker&quot; data-language=&quot;docker&quot;&gt;&lt;code class=&quot;language-docker&quot;&gt;docker pull mongo&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;5.0.6&lt;span aria-hidden=&quot;true&quot; class=&quot;line-numbers-rows&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;</description>
+      
+      
+      
+      
+      <category domain="https://www.xiaosige.com/categories/Docker/">Docker</category>
+      
+      
+      <category domain="https://www.xiaosige.com/tags/Mongo/">Mongo</category>
+      
+      
+      <comments>https://www.xiaosige.com/post/a639ff5d.html#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>解决Docker容器内无法解析DNS的问题</title>
@@ -420,27 +441,6 @@
       
       
       <comments>https://www.xiaosige.com/post/d4875b9e.html#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>Parallels Desktop 16在Big Sur下网络初始化失败解决办法</title>
-      <link>https://www.xiaosige.com/post/7507a33f.html</link>
-      <guid>https://www.xiaosige.com/post/7507a33f.html</guid>
-      <pubDate>Wed, 06 Jan 2021 07:44:27 GMT</pubDate>
-      
-      <description>&lt;p&gt;   Mac最新的操作系统 Big Sur 已经发布，听说一些不兼容，一致没更新，最近手贱，一不小心&lt;code&gt;更新&lt;/code&gt;了，突然发现Parallels Desktop 16报无法联网的问题等。&lt;/p&gt;</description>
-      
-      
-      
-      
-      <category domain="https://www.xiaosige.com/categories/Mac/">Mac</category>
-      
-      
-      <category domain="https://www.xiaosige.com/tags/VM/">VM</category>
-      
-      
-      <comments>https://www.xiaosige.com/post/7507a33f.html#disqus_thread</comments>
       
     </item>
     

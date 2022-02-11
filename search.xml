@@ -68,6 +68,101 @@ lrwxrwxrwx. <span class="token number">1</span> root root <span class="token num
       </tags>
   </entry>
   <entry>
+    <title>使用Docker安装MongoDB</title>
+    <url>/post/a639ff5d.html</url>
+    <content><![CDATA[<h3 id="获取MongoDB镜像"><a href="#获取MongoDB镜像" class="headerlink" title="获取MongoDB镜像"></a>获取MongoDB镜像</h3><pre class="line-numbers language-docker" data-language="docker"><code class="language-docker">docker pull mongo<span class="token punctuation">:</span>5.0.6<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<span id="more"></span>
+
+<h3 id="运行容器"><a href="#运行容器" class="headerlink" title="运行容器"></a>运行容器</h3><pre class="line-numbers language-docker" data-language="docker"><code class="language-docker">docker run <span class="token punctuation">-</span>d <span class="token punctuation">-</span><span class="token punctuation">-</span>restart=always \
+<span class="token punctuation">-</span>p 27017<span class="token punctuation">:</span>27017 \
+<span class="token punctuation">-</span><span class="token punctuation">-</span>net mynet <span class="token punctuation">-</span><span class="token punctuation">-</span>ip 172.172.0.9 \
+<span class="token punctuation">-</span><span class="token punctuation">-</span>name mymongo \
+<span class="token punctuation">-</span>v /root/docker_data/mongo/data/db<span class="token punctuation">:</span>/data/db \
+<span class="token punctuation">-</span>v /root/docker_data/mongo/backup<span class="token punctuation">:</span>/data/backup \
+<span class="token punctuation">-</span>e MONGODB_INITDB_ROOT_USERNAME=admin \       
+<span class="token punctuation">-</span>e MONGODB_INITDB_ROOT_PASSWORD=leeze \
+<span class="token punctuation">-</span>d mongo<span class="token punctuation">:</span>5.0.6<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<div class="note info no-icon"><ol>
+<li><code>-v /root/docker_data/mongo/data/db:/data/db</code> 使用卷持久化数据</li>
+<li><code>-e MONGODB_INITDB_ROOT_USERNAME=admin</code>       授予超级用户权限</li>
+<li><code>-e MONGODB_INITDB_ROOT_PASSWORD=leeze</code>       授予超级用户权限</li>
+<li><code>-e MONGODB_INITDB_ROOT_PASSWORD_FILE=/run/secrets/mongo-root-pw</code> docker inspect用于查看容器的变量时，您的密码都将不可见</li>
+<li><code>-v ./mongo.conf:/etc/mongo/mongo.conf</code>       Mongo 配置文件</li>
+<li><code>-e MONGODB_INITDB_DATABASE=xiaosige</code>         更改此默认数据库</li>
+</ol>
+</div>
+
+
+<h3 id="创建mongoDb用户"><a href="#创建mongoDb用户" class="headerlink" title="创建mongoDb用户"></a>创建mongoDb用户</h3><pre class="line-numbers language-docker" data-language="docker"><code class="language-docker"><span class="token comment">#进入mongoDb容器，创建管理员</span>
+docker exec <span class="token punctuation">-</span>it mongoDb bash
+<span class="token comment">#进入mongoDb</span>
+mongo
+<span class="token punctuation">&gt;</span> use admin
+switched to db admin
+<span class="token punctuation">&gt;</span> db.createUser(<span class="token punctuation">{</span>user<span class="token punctuation">:</span><span class="token string">"admin"</span><span class="token punctuation">,</span>pwd<span class="token punctuation">:</span><span class="token string">"admin"</span><span class="token punctuation">,</span>roles<span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token punctuation">{</span>role<span class="token punctuation">:</span><span class="token string">"root"</span><span class="token punctuation">,</span>db<span class="token punctuation">:</span><span class="token string">"admin"</span><span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">}</span>);
+Successfully added user<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+	<span class="token string">"user"</span> <span class="token punctuation">:</span> <span class="token string">"admin"</span><span class="token punctuation">,</span>
+	<span class="token string">"roles"</span> <span class="token punctuation">:</span> <span class="token punctuation">[</span>
+		<span class="token punctuation">{</span>
+			<span class="token string">"role"</span> <span class="token punctuation">:</span> <span class="token string">"root"</span><span class="token punctuation">,</span>
+			<span class="token string">"db"</span> <span class="token punctuation">:</span> <span class="token string">"admin"</span>
+		<span class="token punctuation">}</span>
+	<span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+<span class="token comment">#出现创建成功提示就对了，退出管理员</span>
+<span class="token punctuation">&gt;</span> exit;
+<span class="token comment">#用刚创建的管理用户登录在创建个普通用户</span>
+mongo <span class="token punctuation">-</span><span class="token punctuation">-</span>port 27017 <span class="token punctuation">-</span>u admin <span class="token punctuation">-</span>p admin <span class="token punctuation">-</span><span class="token punctuation">-</span>authenticationDatabase admin
+<span class="token punctuation">&gt;</span> use test
+switched to db test
+<span class="token punctuation">&gt;</span> db.createUser(<span class="token punctuation">{</span>user<span class="token punctuation">:</span><span class="token string">"tester"</span><span class="token punctuation">,</span>pwd<span class="token punctuation">:</span><span class="token string">"tester"</span><span class="token punctuation">,</span>roles<span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token punctuation">{</span>role<span class="token punctuation">:</span><span class="token string">"readWrite"</span><span class="token punctuation">,</span>db<span class="token punctuation">:</span><span class="token string">"test"</span><span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">}</span>);
+Successfully added user<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+	<span class="token string">"user"</span> <span class="token punctuation">:</span> <span class="token string">"tester"</span><span class="token punctuation">,</span>
+	<span class="token string">"roles"</span> <span class="token punctuation">:</span> <span class="token punctuation">[</span>
+		<span class="token punctuation">{</span>
+			<span class="token string">"role"</span> <span class="token punctuation">:</span> <span class="token string">"readWrite"</span><span class="token punctuation">,</span>
+			<span class="token string">"db"</span> <span class="token punctuation">:</span> <span class="token string">"test"</span>
+		<span class="token punctuation">}</span>
+	<span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+<span class="token punctuation">&gt;</span> exit<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="mongoDb用户角色权限说明"><a href="#mongoDb用户角色权限说明" class="headerlink" title="mongoDb用户角色权限说明"></a>mongoDb用户角色权限说明</h3><div class="note info no-icon"><ul>
+<li>数据库用户角色 <code>read</code>、<code>readWrite</code></li>
+<li>数据库管理角色 <code>dbAdmin</code>、<code>dbOwner</code>、<code>userAdmin</code></li>
+<li>集群管理角色 <code>clusterAdmin</code>、<code>clusterManager</code>、<code>clusterMonitor</code>、 <code>hostManager</code></li>
+<li>备份恢复角色 <code>backup</code>、<code>restore</code></li>
+<li>所有数据库角色 <code>readAnyDatabase</code>、<code>readWriteAnyDatabase</code>、<code>userAdminAnyDatabase</code>、<code>dbAdminAnyDatabase</code></li>
+<li>超级用户角色 <code>root</code></li>
+<li>内部角色 <code>__system</code></li>
+</ul>
+</div>
+
+<p>  角色说明</p>
+<div class="note info no-icon"><ul>
+<li><code>Read</code> 允许用户读取指定数据库</li>
+<li><code>readWrite</code> 允许用户读写指定数据库</li>
+<li><code>dbAdmin</code> 允许用户在指定数据库中执行管理函数，如索引创建、删除，查看统计或访问system.profile</li>
+<li><code>userAdmin</code> 允许用户向system.users集合写入，可以找指定数据库里创建、删除和管理用户</li>
+<li><code>clusterAdmin</code> 只在admin数据库中可用，赋予用户所有分片和复制集相关函数的管理权限。</li>
+<li><code>readAnyDatabase</code> 只在admin数据库中可用，赋予用户所有数据库的读权限</li>
+<li><code>readWriteAnyDatabase</code> 只在admin数据库中可用，赋予用户所有数据库的读写权限</li>
+<li><code>userAdminAnyDatabase</code> 只在admin数据库中可用，赋予用户所有数据库的userAdmin权限</li>
+<li><code>dbAdminAnyDatabase</code> 只在admin数据库中可用，赋予用户所有数据库的dbAdmin权限。</li>
+<li><code>root</code> 只在admin数据库中可用。超级账号，超级权限</li>
+</ul>
+</div>
+<p>  至此mongoDb数据库据安装好了，可以愉快的玩耍使用了</p>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
+      <categories>
+        <category>Docker</category>
+      </categories>
+      <tags>
+        <tag>Mongo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>解决Docker容器内无法解析DNS的问题</title>
     <url>/post/3458217c.html</url>
     <content><![CDATA[<h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><p>  最近Docker上重装Nexus3，<code>一直报错 UnknownHostException: rhc.sonatype.com </code> (在另一个场景中报 NoRouteToHostException: No route to host )</p>
@@ -1689,7 +1784,38 @@ docker info
 <span class="token function">curl</span> -L https://github.com/docker/compose/releases/download/1.3.3/docker-compose-<span class="token variable"><span class="token variable">`</span><span class="token function">uname</span> -s<span class="token variable">`</span></span>-<span class="token variable"><span class="token variable">`</span><span class="token function">uname</span> -m<span class="token variable">`</span></span> <span class="token operator">&gt;</span> /usr/local/bin/docker-compose
 <span class="token comment">#授权docker-compose</span>
 <span class="token function">chmod</span> +x /usr/local/bin/docker-compose
-docker-compose --version <span class="token comment">#查看版本验证安装</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+docker-compose --version <span class="token comment">#查看版本验证安装</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 国内开启pip 下载加速：http://mirrors.aliyun.com/help/pypi</span>
+<span class="token function">mkdir</span> ~/.pip/
+<span class="token function">cat</span> <span class="token operator">&gt;</span> ~/.pip/pip.conf <span class="token operator">&lt;&lt;</span><span class="token string">'EOF'
+[global]
+index-url = https://mirrors.aliyun.com/pypi/simple/
+[install]
+trusted-host=mirrors.aliyun.com
+EOF</span>
+
+<span class="token comment"># 下载pip软件</span>
+yum <span class="token function">install</span> -y python2-pip
+<span class="token comment"># 下载 docker-compose</span>
+pip <span class="token function">install</span> docker-compose<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">yum -y <span class="token function">install</span> libcurl libcurl-devel
+
+<span class="token comment"># 安装 pip</span>
+<span class="token comment"># 安装 EPEL 软件包</span>
+yum -y <span class="token function">install</span> epel-release
+<span class="token comment"># 安装pip </span>
+yum -y <span class="token function">install</span> python-pip
+<span class="token comment">#升级</span>
+pip <span class="token function">install</span> --upgrade pip
+
+<span class="token comment"># yum install python-devel</span>
+
+<span class="token comment">#安装Docker-Compose</span>
+pip <span class="token function">install</span> docker-compose
+<span class="token comment"># pip3 install docker-compose</span>
+<span class="token comment"># pip install docker-compose==1.21.2</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<div class="note info no-icon"><p><a href="http://www.manongjc.com/detail/18-fdycjiwlqqsvecp.html">docker-compose 安装以及遇到的错误解决</a><br><a href="https://www.cnblogs.com/eddie1127/p/12003358.html">安装docker-compose报错解决办法</a><br><a href="https://www.cnblogs.com/felixqiang/p/11946644.html">pip-ERROR</a></p>
+</div></li>
 </ol>
 <h3 id="Docker服务相关"><a href="#Docker服务相关" class="headerlink" title="Docker服务相关"></a>Docker服务相关</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">
 

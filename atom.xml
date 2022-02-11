@@ -6,7 +6,7 @@
   <link href="https://www.xiaosige.com/atom.xml" rel="self"/>
   
   <link href="https://www.xiaosige.com/"/>
-  <updated>2021-12-08T17:48:01.164Z</updated>
+  <updated>2022-02-11T20:22:26.185Z</updated>
   <id>https://www.xiaosige.com/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>使用Docker安装MongoDB</title>
+    <link href="https://www.xiaosige.com/post/a639ff5d.html"/>
+    <id>https://www.xiaosige.com/post/a639ff5d.html</id>
+    <published>2022-02-11T09:05:16.000Z</published>
+    <updated>2022-02-11T20:22:26.185Z</updated>
+    
+    
+    <summary type="html">&lt;h3 id=&quot;获取MongoDB镜像&quot;&gt;&lt;a href=&quot;#获取MongoDB镜像&quot; class=&quot;headerlink&quot; title=&quot;获取MongoDB镜像&quot;&gt;&lt;/a&gt;获取MongoDB镜像&lt;/h3&gt;&lt;pre class=&quot;line-numbers language-docker&quot; data-language=&quot;docker&quot;&gt;&lt;code class=&quot;language-docker&quot;&gt;docker pull mongo&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;5.0.6&lt;span aria-hidden=&quot;true&quot; class=&quot;line-numbers-rows&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;</summary>
+    
+    
+    
+    <category term="Docker" scheme="https://www.xiaosige.com/categories/Docker/"/>
+    
+    
+    <category term="Mongo" scheme="https://www.xiaosige.com/tags/Mongo/"/>
+    
+  </entry>
   
   <entry>
     <title>解决Docker容器内无法解析DNS的问题</title>
@@ -291,7 +310,7 @@
     <link href="https://www.xiaosige.com/post/a00f9d53.html"/>
     <id>https://www.xiaosige.com/post/a00f9d53.html</id>
     <published>2021-05-10T08:17:18.000Z</published>
-    <updated>2021-12-08T18:06:15.118Z</updated>
+    <updated>2022-02-11T20:17:44.896Z</updated>
     
     
     <summary type="html">&lt;h3 id=&quot;准备&quot;&gt;&lt;a href=&quot;#准备&quot; class=&quot;headerlink&quot; title=&quot;准备&quot;&gt;&lt;/a&gt;准备&lt;/h3&gt;&lt;p&gt;  服务器版本:CentOS 8.2 64位&lt;/p&gt;</summary>
@@ -380,25 +399,6 @@
     
     
     <category term="MySQL" scheme="https://www.xiaosige.com/tags/MySQL/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Parallels Desktop 16在Big Sur下网络初始化失败解决办法</title>
-    <link href="https://www.xiaosige.com/post/7507a33f.html"/>
-    <id>https://www.xiaosige.com/post/7507a33f.html</id>
-    <published>2021-01-06T07:44:27.000Z</published>
-    <updated>2021-06-22T17:18:00.355Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;   Mac最新的操作系统 Big Sur 已经发布，听说一些不兼容，一致没更新，最近手贱，一不小心&lt;code&gt;更新&lt;/code&gt;了，突然发现Parallels Desktop 16报无法联网的问题等。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="Mac" scheme="https://www.xiaosige.com/categories/Mac/"/>
-    
-    
-    <category term="VM" scheme="https://www.xiaosige.com/tags/VM/"/>
     
   </entry>
   
