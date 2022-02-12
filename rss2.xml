@@ -15,8 +15,30 @@
     <atom:link href="https://www.xiaosige.com/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>因上努力，果上随缘！</description>
-    <pubDate>Fri, 11 Feb 2022 20:22:26 GMT</pubDate>
+    <pubDate>Sat, 12 Feb 2022 15:39:58 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>Linux编译部署LNMP环境</title>
+      <link>https://www.xiaosige.com/post/7eb6696d.html</link>
+      <guid>https://www.xiaosige.com/post/7eb6696d.html</guid>
+      <pubDate>Sat, 12 Feb 2022 15:25:33 GMT</pubDate>
+      
+      <description>&lt;h3 id=&quot;介绍&quot;&gt;&lt;a href=&quot;#介绍&quot; class=&quot;headerlink&quot; title=&quot;介绍&quot;&gt;&lt;/a&gt;介绍&lt;/h3&gt;&lt;p&gt;  Lnmp架构&lt;br&gt;  Lnmp(web应用软件组合)&lt;br&gt;  Linux+Nginx+Mysql/MariaDB+Perl/PHP/Python一组常用来搭建动态网站或者服务器的开源软件，本身都是各自独立的程序，但是因为常被放在一起使用，拥有了越来越高的兼容度，共同组成了一个强大的Web应用程序平台。&lt;/p&gt;
+&lt;p&gt;  LAMP的架构以及通信过程&lt;br&gt;  Lnmp是一个cs架构的平台（client/server架构， 即客户端/服务器架构)，web客户端基于TCP/IP通过http协议发起传送这个请求可能是动态的也可能是静态的，所有的服务器通过发起请求的后缀来判断，如果是静态的就由web服务器自己处理，然后将资源发给客户端。如果请求是动态的这时web服务器会通过FSATCGI协议发给php，通过php模块去MySQL拿数据在通过Nginx交给客户端。&lt;/p&gt;</description>
+      
+      
+      
+      
+      <category domain="https://www.xiaosige.com/categories/Linux/">Linux</category>
+      
+      
+      <category domain="https://www.xiaosige.com/tags/LNMP/">LNMP</category>
+      
+      
+      <comments>https://www.xiaosige.com/post/7eb6696d.html#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>使用Docker安装MongoDB</title>
@@ -417,29 +439,6 @@
       
       
       <comments>https://www.xiaosige.com/post/6af4ceb4.html#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>Docker 安装mysql8并挂载数据</title>
-      <link>https://www.xiaosige.com/post/d4875b9e.html</link>
-      <guid>https://www.xiaosige.com/post/d4875b9e.html</guid>
-      <pubDate>Sat, 17 Apr 2021 22:12:51 GMT</pubDate>
-      
-      <description>&lt;h3 id=&quot;下载镜像&quot;&gt;&lt;a href=&quot;#下载镜像&quot; class=&quot;headerlink&quot; title=&quot;下载镜像&quot;&gt;&lt;/a&gt;下载镜像&lt;/h3&gt;&lt;pre class=&quot;line-numbers language-bash&quot; data-language=&quot;bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# docker从仓库中拉取最新版的mysql镜像，默认获取最新的版本&lt;/span&gt;
-  docker pull mysql
-&lt;span class=&quot;token comment&quot;&gt;# docker pull mysql:8.0.23&lt;/span&gt;&lt;span aria-hidden=&quot;true&quot; class=&quot;line-numbers-rows&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;</description>
-      
-      
-      
-      
-      <category domain="https://www.xiaosige.com/categories/Docker/">Docker</category>
-      
-      
-      <category domain="https://www.xiaosige.com/tags/MySQL/">MySQL</category>
-      
-      
-      <comments>https://www.xiaosige.com/post/d4875b9e.html#disqus_thread</comments>
       
     </item>
     

@@ -23,26 +23,28 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"www.xiaosige.com","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.10.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"changyan","storage":true,"lazyload":true,"nav":null,"activeClass":"changyan"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}}</script><script src="/js/config.js"></script>
 
-  <meta name="description" content="因上努力，果上随缘！">
+  <meta name="description" content="介绍  Lnmp架构  Lnmp(web应用软件组合)  Linux+Nginx+Mysql&#x2F;MariaDB+Perl&#x2F;PHP&#x2F;Python一组常用来搭建动态网站或者服务器的开源软件，本身都是各自独立的程序，但是因为常被放在一起使用，拥有了越来越高的兼容度，共同组成了一个强大的Web应用程序平台。   LAMP的架构以及通信过程  Lnmp是一个cs架构的平台（client&#x2F;server架构， 即">
 <meta property="og:type" content="website">
-<meta property="og:title" content="小四儿">
-<meta property="og:url" content="https://www.xiaosige.com/archives/2021/05/index.html">
+<meta property="og:title" content="Linux编译部署LNMP环境">
+<meta property="og:url" content="https://www.xiaosige.com/post/7eb6696d.html">
 <meta property="og:site_name" content="小四儿">
-<meta property="og:description" content="因上努力，果上随缘！">
+<meta property="og:description" content="介绍  Lnmp架构  Lnmp(web应用软件组合)  Linux+Nginx+Mysql&#x2F;MariaDB+Perl&#x2F;PHP&#x2F;Python一组常用来搭建动态网站或者服务器的开源软件，本身都是各自独立的程序，但是因为常被放在一起使用，拥有了越来越高的兼容度，共同组成了一个强大的Web应用程序平台。   LAMP的架构以及通信过程  Lnmp是一个cs架构的平台（client&#x2F;server架构， 即">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-02-12T15:25:33.000Z">
+<meta property="article:modified_time" content="2022-02-12T15:39:58.321Z">
 <meta property="article:author" content="leeze">
-<meta property="article:tag" content="小四儿 leeze">
+<meta property="article:tag" content="LNMP">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://www.xiaosige.com/archives/2021/05/">
+<link rel="canonical" href="https://www.xiaosige.com/post/7eb6696d.html">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":false,"lang":"zh-CN","comments":"","permalink":"","path":"archives/2021/05/index.html","title":""}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://www.xiaosige.com/post/7eb6696d.html","path":"post/7eb6696d.html","title":"Linux编译部署LNMP环境"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>归档 | 小四儿</title>
+<title>Linux编译部署LNMP环境 | 小四儿</title>
   
 
   <script src="/js/third-party/analytics/baidu-analytics.js"></script>
@@ -102,7 +104,7 @@
 
     <a href="/" class="brand" rel="start">
       <i class="logo-line"></i>
-      <h1 class="site-title">小四儿</h1>
+      <p class="site-title">小四儿</p>
       <i class="logo-line"></i>
     </a>
       <p class="site-subtitle" itemprop="description">心之所愿，无所不至！</p>
@@ -169,7 +171,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -182,6 +184,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%8B%E7%BB%8D"><span class="nav-number">1.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E5%AE%89%E8%A3%85nginx"><span class="nav-number">2.</span> <span class="nav-text">1. 安装nginx</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E5%AE%89%E8%A3%85PHP"><span class="nav-number">3.</span> <span class="nav-text">2. 安装PHP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E9%85%8D%E7%BD%AEnginx"><span class="nav-number">4.</span> <span class="nav-text">3. 配置nginx</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E5%88%9B%E5%BB%BA%E6%8E%A2%E9%92%88"><span class="nav-number">5.</span> <span class="nav-text">4.创建探针</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-%E5%AE%89%E8%A3%85mysql"><span class="nav-number">6.</span> <span class="nav-text">5. 安装mysql</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -557,151 +560,373 @@ canvas#canvas {
 </noscript>
 
 
-    <div class="main-inner archive posts-collapse">
+    <div class="main-inner post posts-expand">
 
 
   
-  
-  
-  <div class="post-block">
-    <div class="post-content">
-      <div class="collection-title">
-        
-        <span class="collection-header">很好! 目前共计 93 篇日志。 继续努力。</span>
-      </div>
 
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.xiaosige.com/post/7eb6696d.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://static.xiaosige.com/img/avatar/avatar.jpg">
+      <meta itemprop="name" content="leeze">
+      <meta itemprop="description" content="因上努力，果上随缘！">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小四儿">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Linux编译部署LNMP环境
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
       
-    <div class="collection-year">
-      <span class="collection-header">2021</span>
+
+      <time title="创建时间：2022-02-12 23:25:33 / 修改时间：23:39:58" itemprop="dateCreated datePublished" datetime="2022-02-12T23:25:33+08:00">2022-02-12</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Changyan：</span>
+    
+    <a title="Linux编译部署LNMP环境" href="/post/7eb6696d.html#SOHUCS" itemprop="discussionUrl">
+      <span id="sourceId::039140fed29c6ec9e26de0043a890b8a" class="cy_cmt_count" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+<span class="post-meta-item">
+    
+    
+        <span class="post-meta-item-text hvr-bubble-float-left" style="margin: 0 0.5em;box-shadow: 0 15px 18px -6px #00d27a;">
+                <a class="article-topping zhuanzai" target="_blank" href="https://blog.51cto.com/u_14907428/2674624"><i class="fa fa-link fa-fw zhuanzai_i"></i>转载</a>
+        </span>
+</span>
+
+
+
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>6.1k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>6 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>  Lnmp架构<br>  Lnmp(web应用软件组合)<br>  Linux+Nginx+Mysql/MariaDB+Perl/PHP/Python一组常用来搭建动态网站或者服务器的开源软件，本身都是各自独立的程序，但是因为常被放在一起使用，拥有了越来越高的兼容度，共同组成了一个强大的Web应用程序平台。</p>
+<p>  LAMP的架构以及通信过程<br>  Lnmp是一个cs架构的平台（client/server架构， 即客户端/服务器架构)，web客户端基于TCP/IP通过http协议发起传送这个请求可能是动态的也可能是静态的，所有的服务器通过发起请求的后缀来判断，如果是静态的就由web服务器自己处理，然后将资源发给客户端。如果请求是动态的这时web服务器会通过FSATCGI协议发给php，通过php模块去MySQL拿数据在通过Nginx交给客户端。</p>
+<span id="more"></span>
+
+<h3 id="1-安装nginx"><a href="#1-安装nginx" class="headerlink" title="1. 安装nginx"></a>1. 安装nginx</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">
+<span class="token comment">#安装依赖</span>
+yum -y <span class="token function">install</span> gcc gcc-c++ <span class="token function">make</span> zlib zlib-devel pcre pcre-devel libjpeg libjpeg-devel libpng libpng-devel freetypefreetype-devel libxml2 libxml2-devel glibc glibc-devel glib2 glib2-devel <span class="token function">bzip2</span> bzip2-devel ncurses ncurses-devel <span class="token function">curl</span> curl-devel e2fsprogs e2fsprogs-devel krb5 krb5-devel openssl openssl-devel openldap openldap-devel nss_ldap openldap-clients openldap-servers libxslt libxslt-devel  oniguruma oniguruma-devel sqlite-devel
+<span class="token comment">#下载编译包</span>
+<span class="token function">wget</span> http://nginx.org/download/nginx-1.18.0.tar.gz
+<span class="token function">tar</span> xvf nginx-1.18.0.tar.gz
+<span class="token comment">#提前创建文件夹</span>
+<span class="token function">mkdir</span> -p /usr/local/nginx/tmp/nginx/client/
+<span class="token function">mkdir</span> -p  /usr/local/nginx
+<span class="token comment">#创建用户</span>
+<span class="token function">useradd</span> -s /sbin/nologin nginx -M
+<span class="token comment">#进入目录编译</span>
+<span class="token builtin class-name">cd</span> nginx-1.18.0/
+./configure --prefix<span class="token operator">=</span>/usr/local/nginx/nginx --sbin-path<span class="token operator">=</span>/usr/local/nginx/sbin/nginx/nginx --conf-path<span class="token operator">=</span>/usr/local/nginx/conf/nginx.conf --error-log-path<span class="token operator">=</span>/usr/local/nginx/log/error.log --http-log-path<span class="token operator">=</span>/usr/local/nginx/log/access.log --pid-path<span class="token operator">=</span>/usr/local/nginx/run/nginx/nginx.pid --lock-path<span class="token operator">=</span>/usr/local/nginx/lock/nginx.lock --user<span class="token operator">=</span>nginx --group<span class="token operator">=</span>nginx --with-http_ssl_module --with-http_stub_status_module --with-http_gzip_static_module --http-client-body-temp-path<span class="token operator">=</span>/usr/local/nginx/tmp/nginx/client/ --http-proxy-temp-path<span class="token operator">=</span>/usr/local/nginx/tmp/nginx/proxy/ --http-fastcgi-temp-path<span class="token operator">=</span>/usr/local/nginx/tmp/nginx/fcgi/ --http-uwsgi-temp-path<span class="token operator">=</span>/usr/local/nginx/tmp/nginx/uwsgi --http-scgi-temp-path<span class="token operator">=</span>/usr/local/nginx/tmp/nginx/scgi --with-pcre
+<span class="token function">make</span> <span class="token operator">&amp;&amp;</span> <span class="token function">make</span> <span class="token function">install</span>
+<span class="token comment">#配置环境</span>
+<span class="token builtin class-name">cd</span> /usr/local/nginx/sbin/nginx
+<span class="token builtin class-name">echo</span> <span class="token string">"PATH=<span class="token environment constant">$PWD</span>:\<span class="token environment constant">$PATH</span>"</span> <span class="token operator">&gt;</span> /etc/profile.d/nginx.sh<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>  注意通过我的命令编译的目录结构如下，大家可以对比一下，然后酌情处理目录哈</p>
+<h3 id="2-安装PHP"><a href="#2-安装PHP" class="headerlink" title="2. 安装PHP"></a>2. 安装PHP</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token comment">#下载编译包</span>
+<span class="token function">wget</span> http://mirrors.sohu.com/php/php-8.0.0.tar.gz
+<span class="token function">tar</span> xvf php-8.0.0.tar.gz
+<span class="token builtin class-name">cd</span> php-8.0.0/
+<span class="token comment">#编译</span>
+./configure --prefix<span class="token operator">=</span>/usr/local/php8 --with-curl --with-mysql-sock<span class="token operator">=</span>/var/tmp/mysql/mysql.sock --with-jpeg-dir --with-freetype-dir --with-gd --with-gettext --with-iconv-dir --with-kerberos --with-libxml-dir --with-mysqli<span class="token operator">=</span>mysqlnd --with-openssl --with-pcre-regex --with-pdo-mysql<span class="token operator">=</span>mysqlnd --with-pdo-sqlite --with-pear --with-png-dir --with-xmlrpc --with-xsl --with-zlib --with-pdo-mysql --with-fpm-user<span class="token operator">=</span>nginx --with-fpm-group<span class="token operator">=</span>nginx --enable-fpm --enable-bcmath --enable-libxml --enable-inline-optimization --enable-gd-native-ttf --enable-mbregex --enable-mbstring --enable-opcache --enable-pcntl --enable-shmop --enable-soap --enable-sockets --enable-sysvsem --enable-xml --enable-zip --enable-mysqlnd --enable-maintainer-zts
+ <span class="token function">make</span> <span class="token operator">&amp;&amp;</span> <span class="token function">make</span> <span class="token function">install</span>
+<span class="token comment">#配置</span>
+<span class="token function">cp</span> php.ini-production /usr/local/php8/etc/php.ini
+<span class="token builtin class-name">cd</span> /usr/local/php8
+<span class="token builtin class-name">cd</span> /etc
+<span class="token function">cp</span> php-fpm.conf.default php-fpm.conf
+<span class="token builtin class-name">cd</span> php-fpm.d/
+<span class="token function">cp</span> www.conf.default www.conf
+<span class="token comment">#配置环境</span>
+<span class="token builtin class-name">cd</span> /usr/local/php8/sbin
+<span class="token builtin class-name">echo</span> <span class="token string">"PATH=<span class="token environment constant">$PWD</span>:\<span class="token environment constant">$PATH</span>"</span> <span class="token operator">&gt;</span> /etc/profile.d/php.sh<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="3-配置nginx"><a href="#3-配置nginx" class="headerlink" title="3. 配置nginx"></a>3. 配置nginx</h3><pre class="line-numbers language-nginx" data-language="nginx"><code class="language-nginx"><span class="token punctuation">[</span><span class="token keyword">root</span>@study2 <span class="token operator">/</span>usr<span class="token operator">/</span>local<span class="token operator">/</span>nginx<span class="token operator">/</span>conf <span class="token number">10</span><span class="token punctuation">:</span><span class="token number">31</span><span class="token punctuation">:</span><span class="token number">16</span><span class="token punctuation">]</span><span class="token comment">#cat nginx.conf</span>
+<span class="token comment">#user  nobody;</span>
+<span class="token keyword">worker_processes</span>  <span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token comment">#error_log  logs/error.log;</span>
+<span class="token comment">#error_log  logs/error.log  notice;</span>
+<span class="token comment">#error_log  logs/error.log  info;</span>
+<span class="token comment">#pid        logs/nginx.pid;</span>
+<span class="token keyword">events</span> <span class="token punctuation">{</span>
+    <span class="token keyword">worker_connections</span>  <span class="token number">1024</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">http</span> <span class="token punctuation">{</span>
+    <span class="token keyword">include</span>       mime<span class="token punctuation">.</span><span class="token keyword">types</span><span class="token punctuation">;</span>
+    <span class="token keyword">default_type</span>  application<span class="token operator">/</span>octet<span class="token operator">-</span>stream<span class="token punctuation">;</span>
+    <span class="token comment">#log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '</span>
+    <span class="token comment">#                  '$status $body_bytes_sent "$http_referer" '</span>
+    <span class="token comment">#                  '"$http_user_agent" "$http_x_forwarded_for"';</span>
+    <span class="token comment">#access_log  logs/access.log  main;</span>
+    <span class="token keyword">sendfile</span>        on<span class="token punctuation">;</span>
+    <span class="token comment">#tcp_nopush     on;</span>
+    <span class="token comment">#keepalive_timeout  0;</span>
+    <span class="token keyword">keepalive_timeout</span>  <span class="token number">65</span><span class="token punctuation">;</span>
+    <span class="token comment">#gzip  on;</span>
+    <span class="token keyword">server</span> <span class="token punctuation">{</span>
+        <span class="token keyword">listen</span>       <span class="token number">80</span><span class="token punctuation">;</span>
+        <span class="token keyword">server_name</span>  localhost<span class="token punctuation">;</span>
+        <span class="token comment">#charset koi8-r;</span>
+        <span class="token comment">#access_log  logs/host.access.log  main;</span>
+        <span class="token keyword">location</span> <span class="token operator">/</span> <span class="token punctuation">{</span>
+            <span class="token keyword">root</span>   html<span class="token punctuation">;</span>
+            <span class="token keyword">index</span>  <span class="token keyword">index</span><span class="token punctuation">.</span>html <span class="token keyword">index</span><span class="token punctuation">.</span>htm<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token comment">#error_page  404              /404.html;</span>
+        <span class="token comment"># redirect server error pages to the static page /50x.html</span>
+        <span class="token comment">#</span>
+        <span class="token keyword">error_page</span>   <span class="token number">500</span> <span class="token number">502</span> <span class="token number">503</span> <span class="token number">504</span>  <span class="token operator">/</span><span class="token number">50</span>x<span class="token punctuation">.</span>html<span class="token punctuation">;</span>
+        <span class="token keyword">location</span> <span class="token operator">=</span> <span class="token operator">/</span><span class="token number">50</span>x<span class="token punctuation">.</span>html <span class="token punctuation">{</span>
+        <span class="token keyword">root</span>   html<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token comment"># proxy the PHP scripts to Apache listening on 127.0.0.1:80</span>
+        <span class="token comment">#</span>
+        <span class="token comment">#location ~ \.php$ {</span>
+        <span class="token comment">#    proxy_pass   http://127.0.0.1;</span>
+        <span class="token comment">#}</span>
+        <span class="token comment"># pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000</span>
+        <span class="token comment">#</span>
+        <span class="token keyword">location</span> <span class="token operator">~</span> \<span class="token punctuation">.</span>php$ <span class="token punctuation">{</span>
+            <span class="token keyword">root</span>           html<span class="token punctuation">;</span>
+            <span class="token keyword">fastcgi_pass</span>   <span class="token number">127.0</span><span class="token number">.0</span><span class="token number">.1</span><span class="token punctuation">:</span><span class="token number">9000</span><span class="token punctuation">;</span>
+            <span class="token keyword">fastcgi_index</span>  <span class="token keyword">index</span><span class="token punctuation">.</span>php<span class="token punctuation">;</span>
+        <span class="token comment">#    fastcgi_param  SCRIPT_FILENAME  /scripts$fastcgi_script_name;</span>
+            <span class="token keyword">fastcgi_param</span>  SCRIPT_FILENAME  <span class="token variable">$document_root</span><span class="token variable">$fastcgi_script_name</span><span class="token punctuation">;</span>
+            <span class="token keyword">include</span>        fastcgi_params<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token comment"># deny access to .htaccess files, if Apache's document root</span>
+        <span class="token comment"># concurs with nginx's one</span>
+        <span class="token comment">#</span>
+        <span class="token comment">#location ~ /\.ht {</span>
+        <span class="token comment">#    deny  all;</span>
+        <span class="token comment">#}</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment"># another virtual host using mix of IP-, name-, and port-based configuration</span>
+    <span class="token comment">#</span>
+    <span class="token comment">#server {</span>
+    <span class="token comment">#    listen       8000;</span>
+    <span class="token comment">#    listen       somename:8080;</span>
+    <span class="token comment">#    server_name  somename  alias  another.alias;</span>
+    <span class="token comment">#    location / {</span>
+    <span class="token comment">#        root   html;</span>
+    <span class="token comment">#        index  index.html index.htm;</span>
+    <span class="token comment">#    }</span>
+    <span class="token comment">#}</span>
+ <span class="token comment"># HTTPS server</span>
+    <span class="token comment">#</span>
+    <span class="token comment">#server {</span>
+    <span class="token comment">#    listen       443 ssl;</span>
+    <span class="token comment">#    server_name  localhost;</span>
+    <span class="token comment">#    ssl_certificate      cert.pem;</span>
+    <span class="token comment">#    ssl_certificate_key  cert.key;</span>
+    <span class="token comment">#    ssl_session_cache    shared:SSL:1m;</span>
+    <span class="token comment">#    ssl_session_timeout  5m;</span>
+    <span class="token comment">#    ssl_ciphers  HIGH:!aNULL:!MD5;</span>
+    <span class="token comment">#    ssl_prefer_server_ciphers  on;</span>
+    <span class="token comment">#    location / {</span>
+    <span class="token comment">#        root   html;</span>
+    <span class="token comment">#        index  index.html index.htm;</span>
+    <span class="token comment">#    }</span>
+    <span class="token comment">#}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="4-创建探针"><a href="#4-创建探针" class="headerlink" title="4.创建探针"></a>4.创建探针</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token comment">#在html下创建</span>
+<span class="token punctuation">[</span>root@study2 /usr/local/nginx/nginx/html <span class="token number">10</span>:33:52<span class="token punctuation">]</span><span class="token comment">#echo '&lt;?php phpinfo();?&gt;' &gt; index.php</span>
+<span class="token punctuation">[</span>root@study2 /usr/local/nginx/nginx/html <span class="token number">10</span>:34:19<span class="token punctuation">]</span><span class="token comment">#cat index.php</span>
+<span class="token operator">&lt;</span>?php phpinfo<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>?<span class="token operator">&gt;</span>
+<span class="token comment">#启动nginx，php-fpm</span>
+<span class="token punctuation">[</span>root@study2 /usr/local/nginx/nginx/html <span class="token number">10</span>:34:21<span class="token punctuation">]</span><span class="token comment">#nginx</span>
+<span class="token punctuation">[</span>root@study2 /usr/local/nginx/nginx/html <span class="token number">10</span>:34:26<span class="token punctuation">]</span><span class="token comment">#php-fpm</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="5-安装mysql"><a href="#5-安装mysql" class="headerlink" title="5. 安装mysql"></a>5. 安装mysql</h3><p>  这里我才用的rpm包在线安装的方式。当然你也可采用二进制或者离线包安装。</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token comment">#安装并启动</span>
+yum <span class="token function">install</span> -y mariadb-libs mariadb-server mariadb-devel
+systemctl start mariadb
+<span class="token comment">#默认是没有配置账号密码的我们需要开启一下</span>
+mysql_secure_installation
+<span class="token comment">#输入以上命令后，输入你的命令</span>
+<span class="token comment">#然后现在通过客户端连接</span>
+mysql -uroot -ppasswd
+<span class="token comment">#进入mysql后开启这个用户这个密码所有IP可以访问</span>
+GRANT ALL PRIVILEGES ON *.* TO <span class="token string">'root'</span>@<span class="token string">'%'</span> IDENTIFIED BY <span class="token string">'passwd'</span> WITH GRANT OPTION<span class="token punctuation">;</span>
+FLUSH   PRIVILEGES<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>  通过以上数据库的一些操作已经可以远程连接了，还有一些高端的命令与设置我没说。我们的目的是让mysql可以与PHP连接哈，后续会详细说mysql的哈。</p>
+<p>  然后我们用工具连接一下看一下：</p>
+<p>  好了已经确定可以连接了，然后我们创建一个PHP文件，还是原来创建探针的那个目录下哈。</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token punctuation">[</span>root@study2 /usr/local/nginx/nginx/html <span class="token number">11</span>:50:09<span class="token punctuation">]</span><span class="token comment">#ls</span>
+50x.html  index.html  index.php  mysql.php
+<span class="token punctuation">[</span>root@study2 /usr/local/nginx/nginx/html <span class="token number">11</span>:56:42<span class="token punctuation">]</span><span class="token comment">#cat mysql.php</span>
+<span class="token operator">&lt;</span><span class="token operator">!</span>DOCTYPE html<span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span>html<span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span>body<span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span>?php
+<span class="token builtin class-name">echo</span> <span class="token string">"Hello World!&lt;br /&gt;"</span><span class="token punctuation">;</span>
+<span class="token variable">$link</span> <span class="token operator">=</span> mysqli_connect<span class="token punctuation">(</span><span class="token string">'172.16.80.131'</span>, <span class="token string">'root'</span>, <span class="token string">'passwd'</span>, <span class="token string">'mysql'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+if<span class="token punctuation">(</span><span class="token variable">$link</span><span class="token punctuation">)</span>
+    <span class="token builtin class-name">echo</span> <span class="token string">"数据库连接成功&lt;br /&gt;"</span><span class="token punctuation">;</span>
+<span class="token variable">$close</span><span class="token operator">=</span>mysqli_close<span class="token punctuation">(</span><span class="token variable">$link</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+if<span class="token punctuation">(</span><span class="token variable">$close</span><span class="token punctuation">)</span>
+    <span class="token builtin class-name">echo</span> <span class="token string">"数据库关闭成功&lt;br /&gt;"</span><span class="token punctuation">;</span>
+?<span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span>/body<span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span>/html<span class="token operator">&gt;</span>
+<span class="token punctuation">[</span>root@study2 /usr/local/nginx/nginx/html <span class="token number">11</span>:56:57<span class="token punctuation">]</span><span class="token comment">#</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2021-05-27T02:30:16+08:00"
-              content="2021-05-27">
-          05-27
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/post/cb326ecf.html" itemprop="url">
-            <span itemprop="name">Docker 查看端口占用列表</span>
-          </a>
-      </div>
-
+    
+    
+    
       
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2021-05-14T23:59:08+08:00"
-              content="2021-05-14">
-          05-14
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/post/4ed27834.html" itemprop="url">
-            <span itemprop="name">Docker中搭建Jira</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2021-05-10T16:17:18+08:00"
-              content="2021-05-10">
-          05-10
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/post/a00f9d53.html" itemprop="url">
-            <span itemprop="name">Centos8安装Docker</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2021-05-10T15:44:46+08:00"
-              content="2021-05-10">
-          05-10
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/post/5086702b.html" itemprop="url">
-            <span itemprop="name">Docker安装portainer-ce2.0</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2021-05-10T14:44:59+08:00"
-              content="2021-05-10">
-          05-10
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/post/e0840970.html" itemprop="url">
-            <span itemprop="name">Centos8防火墙设置</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2021-05-09T20:12:04+08:00"
-              content="2021-05-09">
-          05-09
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/post/6af4ceb4.html" itemprop="url">
-            <span itemprop="name">Docker 安装 GitLab</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
 
 
+    <footer class="post-footer">
+<div style="padding-top: 26px;">
+    
+
+    <div class="endlan">
+        <i></i>
+        <p>本文结束--- <img src="https://static.xiaosige.com/img/logo.png" style="display:inline-block;margin-bottom:-7px;height: 25px;"> ---感谢您的阅读</p>
     </div>
+
+
+    <p id="hitokoto" style="text-align:center;margin-top: 30px;font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, STKaiti, KaiTi, SimKai, DFKai-SB, 'Lato', 'PingFang SC', 'Microsoft YaHei', sans-serif;font-weight: bold;color: #999;">
+     正在加载一言...
+    </p>
+    <div style="margin-top: 30px;">
+      <img id="wechat_subscriber_qcode" src="https://static.xiaosige.com/img/reward-container-back.png" alt="leeze wechat" style="max-width: 100%;">
+    </div>
+    
+
+    
+</div>
+
+
+          <div class="reward-container">
+  <div></div>
+  <button>
+    打赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="https://static.xiaosige.com/img/wechatpay.png" alt="leeze 微信支付">
+        <span>微信支付</span>
+      </div>
+      <div>
+        <img src="https://static.xiaosige.com/img/alipay.png" alt="leeze 支付宝">
+        <span>支付宝</span>
+      </div>
+
   </div>
-  
-  
-  
+</div>
 
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>原作者： </strong>leeze
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://www.xiaosige.com/post/7eb6696d.html" title="Linux编译部署LNMP环境">https://www.xiaosige.com/post/7eb6696d.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/LNMP/" rel="tag"><i class="fa fa-tag"></i> LNMP</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+            </div>
+            <div class="post-nav-item">
+                <a href="/post/a639ff5d.html" rel="next" title="使用Docker安装MongoDB">
+                  使用Docker安装MongoDB <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments" id="SOHUCS" sid="039140fed29c6ec9e26de0043a890b8a"></div>
 </div>
   </main>
 
@@ -833,7 +1058,7 @@ canvas#canvas {
 
 
   <script src="https://cdn.jsdelivr.net/npm/quicklink@2.2.0/dist/quicklink.umd.js" integrity="sha256-4kQf9z5ntdQrzsBC3YSHnEz02Z9C1UeW/E9OgnvlzSY=" crossorigin="anonymous"></script>
-  <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":true,"delay":true,"timeout":3000,"priority":true,"ignores":null,"url":"https://www.xiaosige.com/archives/2021/05/"}</script>
+  <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":true,"delay":true,"timeout":3000,"priority":true,"ignores":null,"url":"https://www.xiaosige.com/post/7eb6696d.html"}</script>
   <script src="/js/third-party/quicklink.js"></script>
 <script class="next-config" data-name="changyan" type="application/json">{"enable":true,"appid":"cyvSPOTJq","appkey":"4436699688bbb9caa6e8826551a7c0f7"}</script>
 <script src="/js/third-party/comments/changyan.js"></script>
