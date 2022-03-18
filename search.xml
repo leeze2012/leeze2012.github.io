@@ -2355,7 +2355,11 @@ log<span class="token punctuation">-</span>error = /var/log/mysql/error.log
 <span class="token comment"># Disabling symbolic-links is recommended to prevent assorted security risks</span>
 symbolic<span class="token punctuation">-</span>links=0
 
+<span class="token comment"># 创建新表时将使用的默认存储引擎</span>
+default<span class="token punctuation">-</span>storage<span class="token punctuation">-</span>engine=INNODB
 lower_case_table_names=1
+max_allowed_packet=16M
+
 
 init_connect=<span class="token string">'SET collation_connection = utf8_unicode_ci'</span>
 init_connect=<span class="token string">'SET NAMES utf8'</span>
@@ -2363,10 +2367,11 @@ character<span class="token punctuation">-</span>set<span class="token punctuati
 collation<span class="token punctuation">-</span>server=utf8_unicode_ci
 skip<span class="token punctuation">-</span>character<span class="token punctuation">-</span>set<span class="token punctuation">-</span>client<span class="token punctuation">-</span>handshake
 
+<span class="token comment"># 允许最大连接数</span>
 max_connections = 1000
 
 <span class="token comment"># Custom config should go here</span>
-!includedir /etc/mysql/conf.d/<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token comment"># !includedir /etc/mysql/conf.d/</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="运行镜像"><a href="#运行镜像" class="headerlink" title="运行镜像"></a>运行镜像</h3><pre class="line-numbers language-docker" data-language="docker"><code class="language-docker">docker run <span class="token punctuation">-</span><span class="token punctuation">-</span>restart=always <span class="token punctuation">-</span><span class="token punctuation">-</span>privileged=true <span class="token punctuation">-</span>p 3308<span class="token punctuation">:</span>3306 <span class="token punctuation">-</span><span class="token punctuation">-</span>name mysql5 \
 <span class="token punctuation">-</span><span class="token punctuation">-</span>net mynet <span class="token punctuation">-</span><span class="token punctuation">-</span>ip 172.172.0.6  \
 <span class="token punctuation">-</span>e TZ=<span class="token string">"Asia/Shanghai"</span> \
@@ -2384,8 +2389,8 @@ max_connections = 1000
 
 <h3 id="开启远程连接服务"><a href="#开启远程连接服务" class="headerlink" title="开启远程连接服务"></a>开启远程连接服务</h3><pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">mysql&gt; grant all privileges on *.* to root@'%' identified by 'your_root_passwd' with grant option; 
 mysql&gt; flush privilesges;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">ALTER USER 'root'@'localhost' IDENTIFIED BY 'Cn123456';
-ALTER USER 'root'@'%' IDENTIFIED WITH mysql_native_password BY 'Cn123456';
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">ALTER USER 'root'@'localhost' IDENTIFIED BY '12345678';
+ALTER USER 'root'@'%' IDENTIFIED WITH mysql_native_password BY '12345678';
 
 grant all privileges on *.* to 'root'@'%' with grant option;
 
@@ -2393,7 +2398,11 @@ flush privileges;<span aria-hidden="true" class="line-numbers-rows"><span></span
 
 <h3 id="修改密码"><a href="#修改密码" class="headerlink" title="修改密码"></a>修改密码</h3><pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">update mysql.user set authentication_string=password('新密码') where user='root' ;
 flush privileges;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
+
+<h3 id="PS"><a href="#PS" class="headerlink" title="PS"></a>PS</h3><pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql"># 用户信息
+select host,user,plugin,authentication_string from mysql.user;
+# 时区
+show variables like '%time_zone%'; <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
       <categories>
         <category>Docker</category>
       </categories>
@@ -2410,67 +2419,70 @@ flush privileges;<span aria-hidden="true" class="line-numbers-rows"><span></span
 
 <span id="more"></span>
 
-<h3 id="创建挂载目录"><a href="#创建挂载目录" class="headerlink" title="创建挂载目录"></a>创建挂载目录</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">mkdir</span> -p  ~/dockerdata/mysql/<span class="token punctuation">{</span>data,logs,mysql-files,conf<span class="token punctuation">}</span>
-<span class="token function">chmod</span> -R <span class="token number">777</span> ~/dockerdata/mysql/
-<span class="token function">chmod</span> <span class="token number">644</span> /dockerdata/mysql/conf/my.cnf<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<h3 id="新建my-cnf"><a href="#新建my-cnf" class="headerlink" title="新建my.cnf"></a>新建<code>my.cnf</code></h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">vi</span> ~/dockerdata/mysql/conf/my.cnf
+<h3 id="创建挂载目录"><a href="#创建挂载目录" class="headerlink" title="创建挂载目录"></a>创建挂载目录</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">mkdir</span> -p  ~/dockerdata/mysql8/<span class="token punctuation">{</span>data,logs,mysql-files,conf<span class="token punctuation">}</span>
+<span class="token function">chmod</span> -R <span class="token number">777</span> ~/dockerdata/mysql8/
+<span class="token function">chmod</span> <span class="token number">644</span> /dockerdata/mysql8/my.cnf<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h3 id="新建my-cnf"><a href="#新建my-cnf" class="headerlink" title="新建my.cnf"></a>新建<code>my.cnf</code></h3><pre class="line-numbers language-docker" data-language="docker"><code class="language-docker">vi ~/dockerdata/mysql8/my.cnf
 
 <span class="token punctuation">[</span>client<span class="token punctuation">]</span>
 <span class="token comment">#socket = /usr/mysql/mysqld.sock</span>
-default-character-set <span class="token operator">=</span> utf8mb4
+default<span class="token punctuation">-</span>character<span class="token punctuation">-</span>set = utf8mb4
 
 <span class="token punctuation">[</span>mysql<span class="token punctuation">]</span>
-default-character-set<span class="token operator">=</span>utf8mb4
+default<span class="token punctuation">-</span>character<span class="token punctuation">-</span>set=utf8mb4
 
 <span class="token punctuation">[</span>mysqld<span class="token punctuation">]</span>
-<span class="token assign-left variable">user</span><span class="token operator">=</span>mysql
+user=mysql
 <span class="token comment">#pid-file        = /var/run/mysqld/mysqld.pid</span>
 <span class="token comment">#socket          = /var/run/mysqld/mysqld.sock</span>
 <span class="token comment">#datadir         = /var/lib/mysql</span>
+
 <span class="token comment">#socket = /usr/mysql/mysqld.sock</span>
 <span class="token comment">#pid-file = /usr/mysql/mysqld.pid</span>
-
 <span class="token comment">#datadir  = /usr/mysql/data</span>
 
-<span class="token assign-left variable">lower_case_table_names</span><span class="token operator">=</span><span class="token number">1</span>
+<span class="token comment"># 创建新表时将使用的默认存储引擎</span>
+default<span class="token punctuation">-</span>storage<span class="token punctuation">-</span>engine=INNODB
+lower_case_table_names=1
+max_allowed_packet=16M
 
 <span class="token comment">#忘记密码时使用</span>
 <span class="token comment">#skip-grant-tables</span>
 <span class="token comment">#设置协议认证方式</span>
-<span class="token assign-left variable">default_authentication_plugin</span><span class="token operator">=</span>mysql_native_password
-<span class="token assign-left variable">secure_file_priv</span><span class="token operator">=</span>/var/lib/mysql
-<span class="token assign-left variable">expire_logs_days</span><span class="token operator">=</span><span class="token number">7</span>
-<span class="token assign-left variable">sql_mode</span><span class="token operator">=</span>STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION
-<span class="token assign-left variable">max_connections</span><span class="token operator">=</span><span class="token number">1000</span>
+default_authentication_plugin=mysql_native_password
+secure_file_priv=/var/lib/mysql
+expire_logs_days=7
+sql_mode=STRICT_TRANS_TABLES<span class="token punctuation">,</span>NO_ZERO_IN_DATE<span class="token punctuation">,</span>NO_ZERO_DATE<span class="token punctuation">,</span>ERROR_FOR_DIVISION_BY_ZERO<span class="token punctuation">,</span>NO_ENGINE_SUBSTITUTION
+max_connections=1000
 
-general_log <span class="token operator">=</span> <span class="token number">1</span>
-general_log_file <span class="token operator">=</span> /var/log/mysql/access.log
-log-error <span class="token operator">=</span> /var/log/mysql/error.log
+general_log = 1
+general_log_file = /var/log/mysql/access.log
+log<span class="token punctuation">-</span>error = /var/log/mysql/error.log
 
-character_set_server <span class="token operator">=</span> utf8mb4
-collation_server <span class="token operator">=</span> utf8mb4_bin
+character_set_server = utf8mb4
+collation_server = utf8mb4_bin
 <span class="token comment"># Disabling symbolic-links is recommended to prevent assorted security risks</span>
-symbolic-links<span class="token operator">=</span><span class="token number">0</span>
+symbolic<span class="token punctuation">-</span>links=0
 <span class="token comment"># Custom config should go here</span>
-<span class="token operator">!</span>includedir /etc/mysql/conf.d/
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token comment"># !includedir /etc/mysql/conf.d/</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="创建-MySQL-容器并启动"><a href="#创建-MySQL-容器并启动" class="headerlink" title="创建 MySQL 容器并启动"></a>创建 MySQL 容器并启动</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">docker run --restart<span class="token operator">=</span>always --privileged<span class="token operator">=</span>true -p <span class="token number">3307</span>:3306 --name mysql8 <span class="token punctuation">\</span>
 --net mynet --ip <span class="token number">172.172</span>.0.5  <span class="token punctuation">\</span>
 -e <span class="token assign-left variable">TZ</span><span class="token operator">=</span><span class="token string">"Asia/Shanghai"</span> <span class="token punctuation">\</span>
 -v /etc/localtime:/etc/localtime:ro <span class="token punctuation">\</span>
-<span class="token comment">#-v /root/dockerdata/mysql/my.cnf:/etc/mysql/my.cnf \</span>
--v /root/dockerdata/mysql/conf:/etc/mysql/conf.d <span class="token punctuation">\</span>
--v /root/dockerdata/mysql/data:/var/lib/mysql <span class="token punctuation">\</span>
+<span class="token comment">#-v /root/dockerdata/mysql8/my.cnf:/etc/mysql/my.cnf \</span>
+-v /root/dockerdata/mysql8/conf:/etc/mysql/ <span class="token punctuation">\</span>
+-v /root/dockerdata/mysql8/data:/var/lib/mysql <span class="token punctuation">\</span>
 <span class="token comment"># secure_file_priv</span>
-<span class="token comment">#-v /root/dockerdata/mysql/mysql-files:/var/lib/mysql-files/ \</span>
--v /root/dockerdata/mysql/logs:/var/log/mysql <span class="token punctuation">\</span>
+<span class="token comment">#-v /root/dockerdata/mysql8/mysql-files:/var/lib/mysql-files \</span>
+-v /root/dockerdata/mysql8/logs:/var/log/mysql <span class="token punctuation">\</span>
 -e <span class="token assign-left variable">MYSQL_ROOT_PASSWORD</span><span class="token operator">=</span><span class="token number">12345678</span> <span class="token punctuation">\</span>
 -d mysql:8.0.28<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<div class="note info no-icon"><p>参数说明：<br>–restart=always： 当Docker 重启时，容器会自动启动。<br>–privileged=true：容器内的root拥有真正root权限，否则容器内root只是外部普通用户权限<br>-v /root/dockerdata/mysql/conf/my.cnf:/etc/my.cnf：映射配置文件<br>-v /root/dockerdata/mysql/data/:/var/lib/mysql：映射数据目录</p>
+<div class="note info no-icon"><p>参数说明：<br>–restart=always： 当Docker 重启时，容器会自动启动。<br>–privileged=true：容器内的root拥有真正root权限，否则容器内root只是外部普通用户权限<br>-v /root/dockerdata/mysql8/conf/my.cnf:/etc/my.cnf：映射配置文件<br>-v /root/dockerdata/mysql8/data/:/var/lib/mysql：映射数据目录</p>
 </div>
 
 <p><code>注意：启动mysql报如下错误，那是因为MYSQL新特性secure_file_priv对读写文件的影响。</code></p>
-<div class="note info no-icon"><p>解决问题:<br>windows下：修改my.ini 在[mysqld]内加入secure_file_priv=/var/lib/mysql<br>linux下：修改my.cnf 在[mysqld]内加入secure_file_priv=/var/lib/mysql</p>
+<div class="note info no-icon"><p>解决问题:<br>windows下：修改my.ini 在[mysqld]内加入secure_file_priv=/var/lib/mysql<br>linux下：  修改my.cnf 在[mysqld]内加入secure_file_priv=/var/lib/mysql</p>
 </div>
 
 <h3 id="登录容器"><a href="#登录容器" class="headerlink" title="登录容器"></a>登录容器</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">docker <span class="token builtin class-name">exec</span> -it mysql8 /bin/bash
