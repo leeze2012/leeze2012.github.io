@@ -2426,7 +2426,7 @@ ALTER TABLE TABLE_NAME CONVERT TO CHARACTER SET utf8mb4 COLLATEutf8mb4_general_c
 <span id="more"></span>
 
 <h3 id="创建挂载目录"><a href="#创建挂载目录" class="headerlink" title="创建挂载目录"></a>创建挂载目录</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">mkdir</span> -p  ~/dockerdata/mysql8/<span class="token punctuation">{</span>data,logs,mysql-files,conf<span class="token punctuation">}</span>
-<span class="token function">chmod</span> -R <span class="token number">777</span> ~/dockerdata/mysql8/
+<span class="token function">chmod</span> -R <span class="token number">755</span> ~/dockerdata/mysql8/
 <span class="token function">chmod</span> <span class="token number">644</span> /dockerdata/mysql8/my.cnf<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <h3 id="新建my-cnf"><a href="#新建my-cnf" class="headerlink" title="新建my.cnf"></a>新建<code>my.cnf</code></h3><pre class="line-numbers language-docker" data-language="docker"><code class="language-docker">vi ~/dockerdata/mysql8/my.cnf
 
@@ -2507,7 +2507,7 @@ grant all privileges on *.* to <span class="token string">'leeze'</span>@<span c
 flush privileges<span class="token punctuation">;</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="PS"><a href="#PS" class="headerlink" title="PS"></a>PS</h3><blockquote>
-<p><a href="https://www.cnblogs.com/qq931399960/p/11670625.html">docker安装mysql挂载外部配置和数据目录</a></p>
+<p><a href="https://www.cnblogs.com/qq931399960/p/11670625.html">docker安装mysql挂载外部配置和数据目录</a><br><a href="https://www.cnblogs.com/luengmingbiao/p/14747208.html">Docker安装MySQL5和MySQL8</a></p>
 </blockquote>
 <link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
       <categories>
