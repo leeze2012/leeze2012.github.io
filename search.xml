@@ -2335,10 +2335,10 @@ chmod <span class="token punctuation">-</span>R 777  /root/dockerdata/mysql5<spa
 <h3 id="新建my-cnf"><a href="#新建my-cnf" class="headerlink" title="新建my.cnf"></a>新建<code>my.cnf</code></h3><pre class="line-numbers language-docker" data-language="docker"><code class="language-docker">vi /root/dockerdata/mysql5/conf/my.cnf
 
 <span class="token punctuation">[</span>client<span class="token punctuation">]</span>
-default<span class="token punctuation">-</span>character<span class="token punctuation">-</span>set=utf8
+default<span class="token punctuation">-</span>character<span class="token punctuation">-</span>set=utf8mb4
  
 <span class="token punctuation">[</span>mysql<span class="token punctuation">]</span>
-default<span class="token punctuation">-</span>character<span class="token punctuation">-</span>set=utf8
+default<span class="token punctuation">-</span>character<span class="token punctuation">-</span>set=utf8mb4
 
 <span class="token punctuation">[</span>mysqld<span class="token punctuation">]</span> 
 pid<span class="token punctuation">-</span>file        = /var/run/mysqld/mysqld.pid
@@ -2361,17 +2361,17 @@ lower_case_table_names=1
 max_allowed_packet=16M
 
 
-init_connect=<span class="token string">'SET collation_connection = utf8_unicode_ci'</span>
-init_connect=<span class="token string">'SET NAMES utf8'</span>
-character<span class="token punctuation">-</span>set<span class="token punctuation">-</span>server=utf8
-collation<span class="token punctuation">-</span>server=utf8_unicode_ci
+init_connect=<span class="token string">'SET collation_connection = utf8mb4_unicode_ci'</span>
+init_connect=<span class="token string">'SET NAMES utf8mb4'</span>
+character<span class="token punctuation">-</span>set<span class="token punctuation">-</span>server=utf8mb4
+collation<span class="token punctuation">-</span>server=utf8mb4_unicode_ci
 skip<span class="token punctuation">-</span>character<span class="token punctuation">-</span>set<span class="token punctuation">-</span>client<span class="token punctuation">-</span>handshake
 
 <span class="token comment"># 允许最大连接数</span>
 max_connections = 1000
 
 <span class="token comment"># Custom config should go here</span>
-<span class="token comment"># !includedir /etc/mysql/conf.d/</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+!includedir /etc/mysql/conf.d/<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="运行镜像"><a href="#运行镜像" class="headerlink" title="运行镜像"></a>运行镜像</h3><pre class="line-numbers language-docker" data-language="docker"><code class="language-docker">docker run <span class="token punctuation">-</span><span class="token punctuation">-</span>restart=always <span class="token punctuation">-</span><span class="token punctuation">-</span>privileged=true <span class="token punctuation">-</span>p 3308<span class="token punctuation">:</span>3306 <span class="token punctuation">-</span><span class="token punctuation">-</span>name mysql5 \
 <span class="token punctuation">-</span><span class="token punctuation">-</span>net mynet <span class="token punctuation">-</span><span class="token punctuation">-</span>ip 172.172.0.6  \
 <span class="token punctuation">-</span>e TZ=<span class="token string">"Asia/Shanghai"</span> \
@@ -2402,7 +2402,13 @@ flush privileges;<span aria-hidden="true" class="line-numbers-rows"><span></span
 <h3 id="PS"><a href="#PS" class="headerlink" title="PS"></a>PS</h3><pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql"># 用户信息
 select host,user,plugin,authentication_string from mysql.user;
 # 时区
-show variables like '%time_zone%'; <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
+show variables like '%time_zone%';
+# 变量
+SHOW VARIABLES WHERE Variable_name LIKE 'character_set_%' OR Variable_name LIKE 'collation%';
+# 更改数据库编码
+ALTER DATABASE caitu99 CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+# 更改表编码
+ALTER TABLE TABLE_NAME CONVERT TO CHARACTER SET utf8mb4 COLLATEutf8mb4_general_ci; <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
       <categories>
         <category>Docker</category>
       </categories>
@@ -2470,14 +2476,14 @@ symbolic<span class="token punctuation">-</span>links=0
 --net mynet --ip <span class="token number">172.172</span>.0.5  <span class="token punctuation">\</span>
 -e <span class="token assign-left variable">TZ</span><span class="token operator">=</span><span class="token string">"Asia/Shanghai"</span> <span class="token punctuation">\</span>
 -v /etc/localtime:/etc/localtime:ro <span class="token punctuation">\</span>
-<span class="token comment">#-v /root/dockerdata/mysql8/my.cnf:/etc/mysql/my.cnf \</span>
--v /root/dockerdata/mysql8/conf:/etc/mysql/ <span class="token punctuation">\</span>
+-v /root/dockerdata/mysql8/conf:/etc/mysql/conf.d <span class="token punctuation">\</span>
 -v /root/dockerdata/mysql8/data:/var/lib/mysql <span class="token punctuation">\</span>
 <span class="token comment"># secure_file_priv</span>
 <span class="token comment">#-v /root/dockerdata/mysql8/mysql-files:/var/lib/mysql-files \</span>
 -v /root/dockerdata/mysql8/logs:/var/log/mysql <span class="token punctuation">\</span>
 -e <span class="token assign-left variable">MYSQL_ROOT_PASSWORD</span><span class="token operator">=</span><span class="token number">12345678</span> <span class="token punctuation">\</span>
--d mysql:8.0.28<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+-d mysql:8.0.28<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><code>-v /root/dockerdata/mysql8/my.cnf:/etc/mysql/my.cnf \</code></p>
 <div class="note info no-icon"><p>参数说明：<br>–restart=always： 当Docker 重启时，容器会自动启动。<br>–privileged=true：容器内的root拥有真正root权限，否则容器内root只是外部普通用户权限<br>-v /root/dockerdata/mysql8/conf/my.cnf:/etc/my.cnf：映射配置文件<br>-v /root/dockerdata/mysql8/data/:/var/lib/mysql：映射数据目录</p>
 </div>
 
