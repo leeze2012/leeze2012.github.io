@@ -1,0 +1,2791 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="https://static.xiaosige.com/img/favicon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://static.xiaosige.com/img/favicon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://static.xiaosige.com/img/favicon.png">
+  <link rel="mask-icon" href="https://static.xiaosige.com/img/favicon.png" color="#222">
+  <meta name="baidu-site-verification" content="WZilU4QiSZ">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.1/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"www.xiaosige.com","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.10.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"changyan","storage":true,"lazyload":true,"nav":null,"activeClass":"changyan"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="安装方式一拉取Docker的Redis镜像docker pull redis:6.2.6">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Docker安装Redis6并且配置redis.conf">
+<meta property="og:url" content="https://www.xiaosige.com/post/63ae3ee4.html">
+<meta property="og:site_name" content="小四儿">
+<meta property="og:description" content="安装方式一拉取Docker的Redis镜像docker pull redis:6.2.6">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-03-30T16:26:15.000Z">
+<meta property="article:modified_time" content="2022-03-30T16:45:09.814Z">
+<meta property="article:author" content="leeze">
+<meta property="article:tag" content="Redis">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://www.xiaosige.com/post/63ae3ee4.html">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://www.xiaosige.com/post/63ae3ee4.html","path":"post/63ae3ee4.html","title":"Docker安装Redis6并且配置redis.conf"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Docker安装Redis6并且配置redis.conf | 小四儿</title>
+  
+
+  <script src="/js/third-party/analytics/baidu-analytics.js"></script>
+  <script async src="https://hm.baidu.com/hm.js?7a645cfcecaf8f711cd7518386adcc74"></script>
+
+
+
+<!-- https://www.layuicdn.com/layui/css/layui.css -->
+<script src="https://www.layuicdn.com/layui/layui.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.5.1/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/splitting@1.0.6/dist/splitting.min.js"></script>
+<style type="text/css">
+    .char{
+      font-variation-settings: 'wght' var(--weight, 100);
+      color: hsl(var(--hue), calc(var(--saturation) * 1%), 65%);
+    }
+</style>
+
+
+
+<link rel="stylesheet" type="text/css" href="/css/shake.css" />
+
+
+<link rel="stylesheet" type="text/css" href="/css/hover.css" />
+
+
+<link rel="stylesheet" type="text/css" href="/zone/css/i_hover.css" />
+<link rel="stylesheet" type="text/css" href="/css/injector/main.css" /><link rel="preload" as="style" href="/css/injector/light.css" /><link rel="preload" as="style" href="/css/injector/dark.css" />
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="小四儿" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="小四儿" type="application/rss+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">小四儿</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">心之所愿，无所不至！</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">36</span></a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">23</span></a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">96</span></a></li>
+        <li class="menu-item menu-item-welfare"><a href="/welfare" rel="section"><i class="fa fa-star fa-fw"></i>收藏</a></li>
+        <li class="menu-item menu-item-photos"><a href="/photos" rel="section"><i class="fa fa-camera-retro fa-fw"></i>相册</a></li>
+        <li class="menu-item menu-item-links"><a href="/links" rel="section"><i class="fa fa-link fa-fw"></i>友链</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E6%96%B9%E5%BC%8F%E4%B8%80"><span class="nav-number">1.</span> <span class="nav-text">安装方式一</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8B%89%E5%8F%96Docker%E7%9A%84Redis%E9%95%9C%E5%83%8F"><span class="nav-number">1.1.</span> <span class="nav-text">拉取Docker的Redis镜像</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E6%95%B0%E6%8D%AE%E7%9B%AE%E5%BD%95"><span class="nav-number">1.2.</span> <span class="nav-text">创建数据目录</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#redis-conf%E9%85%8D%E7%BD%AE"><span class="nav-number">1.3.</span> <span class="nav-text">redis.conf配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E5%AE%B9%E5%99%A8"><span class="nav-number">1.4.</span> <span class="nav-text">创建容器</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E6%96%B9%E5%BC%8F%E4%BA%8C"><span class="nav-number">2.</span> <span class="nav-text">安装方式二</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="leeze"
+      src="https://static.xiaosige.com/img/avatar/avatar.jpg">
+  <p class="site-author-name" itemprop="name">leeze</p>
+  <div class="site-description" itemprop="description">因上努力，果上随缘！</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">96</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">36</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/leeze2012" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;leeze2012" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.teambition.com/" title="Teambition → https:&#x2F;&#x2F;www.teambition.com" rel="noopener" target="_blank"><i class="fab fa-mixcloud fa-fw"></i>Teambition</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://gitee.com/leeze" title="Gitee → https:&#x2F;&#x2F;gitee.com&#x2F;leeze" rel="noopener" target="_blank"><i class="fab fa-gg fa-fw"></i>Gitee</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.jianshu.com/u/e4c5daf92fa6" title="简书 → https:&#x2F;&#x2F;www.jianshu.com&#x2F;u&#x2F;e4c5daf92fa6" rel="noopener" target="_blank"><i class="fab fa-telegram fa-fw"></i>简书</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://codeup.aliyun.com/" title="Codeup → https:&#x2F;&#x2F;codeup.aliyun.com" rel="noopener" target="_blank"><i class="fab fa-envira fa-fw"></i>Codeup</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://blog.csdn.net/lileeze" title="CSDN → https:&#x2F;&#x2F;blog.csdn.net&#x2F;lileeze" rel="noopener" target="_blank"><i class="fa fa-crosshairs fa-fw"></i>CSDN</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://dev.tencent.com/u/leeze" title="腾讯云 → https:&#x2F;&#x2F;dev.tencent.com&#x2F;u&#x2F;leeze" rel="noopener" target="_blank"><i class="fab fa-jsfiddle fa-fw"></i>腾讯云</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.upyun.com/" title="又拍云 → https:&#x2F;&#x2F;www.upyun.com" rel="noopener" target="_blank"><i class="fab fa-jsfiddle fa-fw"></i>又拍云</a>
+      </span>
+  </div>
+
+
+
+<div class="wrap">
+    <div class="cup">
+        <div class="cup__mouse"></div>
+        <div class="cup__eyes"></div>
+        <div class="cup__label">多喝水</div>
+    </div>
+    <div class="cup-shadow"></div>
+</div>
+
+
+<style>
+
+.wrap {
+  width: 210px;
+  height: 90px;
+  -webkit-transform: translate(-50%, 50%);
+          transform: translate(-50%, 50%);
+  position: relative;
+  left: 40%;
+  top: 20%;
+}
+
+.cup {
+  width: 140px;
+  height: 100px;
+  background: #FFF;
+  box-shadow: inset 0px -10px 0 0 #EDDFE6;
+  border-radius: 5px 5px 50px 50px;
+  -webkit-transform-origin: bottom center;
+          transform-origin: bottom center;
+  -webkit-animation: .6s linear 0s infinite alternate cup;
+          animation: .6s linear 0s infinite alternate cup;
+  border: 3px solid #000;
+  position: absolute;
+  bottom: 0;
+  left: 40px;
+  z-index: 2;
+}
+.cup::before {
+  content: '';
+  width: 140px;
+  background: #91ECED;
+  height: 40px;
+  border-radius: 100%;
+  border: 3px solid #000;
+  box-shadow: inset 0 20px 0 0 #fff;
+  -webkit-animation: .6s linear 0s infinite alternate water;
+          animation: .6s linear 0s infinite alternate water;
+  position: absolute;
+  top: -20px;
+  left: -3px;
+}
+.cup::after {
+  content: '';
+  width: 22px;
+  height: 26px;
+  background: transparent;
+  border-radius: 30% 100% 100% 30%;
+  border: 3px solid #000;
+  border-left: none;
+  box-shadow: 4px 0 0 9px #fff, 6px 0 0 10px #000;
+  position: absolute;
+  bottom: 35px;
+  right: -20px;
+}
+.cup__mouse {
+  top: 45px;
+  left: 45px;
+  position: absolute;
+  height: 30px;
+  width: 50px;
+  border: 3px solid #000;
+  border-radius: 50%;
+  -webkit-clip-path: polygon(50% 10%, 91% 100%, 5% 100%);
+          clip-path: polygon(50% 10%, 91% 100%, 5% 100%);
+}
+.cup__eyes {
+  width: 15px;
+  height: 15px;
+  background: #000;
+  border-radius: 50%;
+  box-shadow: 58px 0 0 0 #000;
+  position: absolute;
+  top: 55px;
+  left: 35px;
+}
+.cup__label {
+  width: 48px;
+  height: 35px;
+  box-sizing: content-box;
+  /*padding-top: 10px;*/
+  background: #ff7600;
+  border: 2px solid #000;
+  border-bottom: none;
+  -webkit-transform-origin: top center;
+          transform-origin: top center;
+  -webkit-animation: .6s linear 0s infinite alternate label;
+          animation: .6s linear 0s infinite alternate label;
+  position: absolute;
+  top: 40px;
+  left: 45px;
+  color: #fff
+}
+.cup__label::before {
+  content: '';
+  width: 3px;
+  height: 15px;
+  background: #000;
+  -webkit-animation: .6s linear 0s infinite alternate label-line;
+          animation: .6s linear 0s infinite alternate label-line;
+  position: absolute;
+  left: 25px;
+  top: -16px;
+}
+.cup__label::after {
+  content: '';
+  position: absolute;
+  left: -1px;
+  bottom: 0;
+  width: 0;
+  height: 0;
+  -webkit-filter: drop-shadow(0 -2px 0 black);
+          filter: drop-shadow(0 -2px 0 black);
+  border-bottom: 7px solid #fff;
+  border-left: 26px solid transparent;
+  border-right: 26px solid transparent;
+}
+
+.cup-shadow {
+  width: 135px;
+  height: 90px;
+  background: #7CE589;
+  border-radius: 40% 40% 100% 100%;
+  -webkit-transform-origin: bottom center;
+          transform-origin: bottom center;
+  -webkit-animation: .6s linear 0s infinite alternate shadow;
+          animation: .6s linear 0s infinite alternate shadow;
+  position: absolute;
+  bottom: -16px;
+  left: 55px;
+  z-index: 1;
+}
+.cup-shadow::after {
+  content: '';
+  width: 20px;
+  height: 25px;
+  background: transparent;
+  border-radius: 30% 100% 100% 30%;
+  border-left: none;
+  box-shadow: 5px 0 0 5px #7CE589;
+  position: absolute;
+  bottom: 35px;
+  right: -10px;
+}
+
+@-webkit-keyframes cup {
+  0% {
+    -webkit-transform: rotate(10deg);
+            transform: rotate(10deg);
+    box-shadow: inset -10px -10px 0 0 #EDDFE6;
+  }
+  100% {
+    -webkit-transform: rotate(-10deg);
+            transform: rotate(-10deg);
+    box-shadow: inset 10px -10px 0 0 #EDDFE6;
+  }
+}
+
+@keyframes cup {
+  0% {
+    -webkit-transform: rotate(10deg);
+            transform: rotate(10deg);
+    box-shadow: inset -10px -10px 0 0 #EDDFE6;
+  }
+  100% {
+    -webkit-transform: rotate(-10deg);
+            transform: rotate(-10deg);
+    box-shadow: inset 10px -10px 0 0 #EDDFE6;
+  }
+}
+@-webkit-keyframes water {
+  0% {
+    box-shadow: inset 30px 20px 0 0 #fff;
+  }
+  100% {
+    box-shadow: inset -30px 20px 0 0 #fff;
+  }
+}
+@keyframes water {
+  0% {
+    box-shadow: inset 30px 20px 0 0 #fff;
+  }
+  100% {
+    box-shadow: inset -30px 20px 0 0 #fff;
+  }
+}
+@-webkit-keyframes label {
+  0% {
+    -webkit-transform: rotate(40deg);
+            transform: rotate(40deg);
+  }
+  100% {
+    -webkit-transform: rotate(-40deg);
+            transform: rotate(-40deg);
+  }
+}
+@keyframes label {
+  0% {
+    -webkit-transform: rotate(40deg);
+            transform: rotate(40deg);
+  }
+  100% {
+    -webkit-transform: rotate(-40deg);
+            transform: rotate(-40deg);
+  }
+}
+@-webkit-keyframes label-line {
+  0% {
+    height: 15px;
+    top: -16px;
+  }
+  25% {
+    height: 22px;
+    top: -22px;
+  }
+  50% {
+    height: 15px;
+    top: -16px;
+  }
+  100% {
+    height: 22px;
+    top: -22px;
+  }
+}
+@keyframes label-line {
+  0% {
+    height: 15px;
+    top: -16px;
+  }
+  25% {
+    height: 22px;
+    top: -22px;
+  }
+  50% {
+    height: 15px;
+    top: -16px;
+  }
+  100% {
+    height: 22px;
+    top: -22px;
+  }
+}
+@-webkit-keyframes shadow {
+  0% {
+    -webkit-transform: skewX(-10deg);
+            transform: skewX(-10deg);
+  }
+  100% {
+    -webkit-transform: skewX(20deg);
+            transform: skewX(20deg);
+  }
+}
+@keyframes shadow {
+  0% {
+    -webkit-transform: skewX(-10deg);
+            transform: skewX(-10deg);
+  }
+  100% {
+    -webkit-transform: skewX(20deg);
+            transform: skewX(20deg);
+  }
+}
+
+.sidebar-panel{
+    min-height: calc(var(--sidebar-wrapper-height) * 0.75);
+}
+.sidebar-toc-active .post-toc-wrap,
+.sidebar-overview-active .site-overview-wrap {
+  display: block;
+}
+</style>
+
+
+
+
+<script src="/zone/js/canvasTime.js" async></script>
+<div style="">
+  <canvas id="canvas" style="width:60%;">当前浏览器不支持canvas，请更换浏览器后再试</canvas>
+</div>
+<style>
+// 粒子时钟样式
+.site-overview {
+  text-align: center;
+}
+
+canvas#canvas {
+  margin-top: 70px;
+}
+</style>
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.xiaosige.com/post/63ae3ee4.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://static.xiaosige.com/img/avatar/avatar.jpg">
+      <meta itemprop="name" content="leeze">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小四儿">
+      <meta itemprop="description" content="因上努力，果上随缘！">
+    </span>
+    
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Docker安装Redis6并且配置redis.conf | 小四儿">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Docker安装Redis6并且配置redis.conf
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2022-03-31 00:26:15 / 修改时间：00:45:09" itemprop="dateCreated datePublished" datetime="2022-03-31T00:26:15+08:00">2022-03-31</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Docker/" itemprop="url" rel="index"><span itemprop="name">Docker</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Changyan：</span>
+    
+    <a title="Docker安装Redis6并且配置redis.conf" href="/post/63ae3ee4.html#SOHUCS" itemprop="discussionUrl">
+      <span id="sourceId::3731c7244b77673944ac02d5987f6a75" class="cy_cmt_count" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+
+
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>35k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>32 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h3 id="安装方式一"><a href="#安装方式一" class="headerlink" title="安装方式一"></a>安装方式一</h3><h4 id="拉取Docker的Redis镜像"><a href="#拉取Docker的Redis镜像" class="headerlink" title="拉取Docker的Redis镜像"></a>拉取Docker的Redis镜像</h4><pre class="line-numbers language-docker" data-language="docker"><code class="language-docker">docker pull redis<span class="token punctuation">:</span>6.2.6<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<span id="more"></span>
+
+<h4 id="创建数据目录"><a href="#创建数据目录" class="headerlink" title="创建数据目录"></a>创建数据目录</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">mkdir</span> /root/dockerdata/redis6/data
+
+<span class="token comment"># 授予权限</span>
+<span class="token function">chmod</span> <span class="token number">777</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="redis-conf配置"><a href="#redis-conf配置" class="headerlink" title="redis.conf配置"></a>redis.conf配置</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">cd</span> /root/dockerdata/redis6
+<span class="token function">wget</span> http://download.redis.io/redis-stable/redis.conf<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-properties" data-language="properties"><code class="language-properties"><span class="token comment"># Redis configuration file example.</span>
+ 
+<span class="token comment">####### Main configuration start #######</span>
+ 
+<span class="token comment">#注释掉bind 127.0.0.1，使redis可以外部访问</span>
+<span class="token comment">#bind 127.0.0.1</span>
+ 
+<span class="token comment"># 端口号</span>
+<span class="token attr-name">port</span> <span class="token attr-value">6379</span>
+ 
+<span class="token comment">#给redis设置密码</span>
+<span class="token attr-name">requirepass</span> <span class="token attr-value">redis123</span>
+ 
+<span class="token comment">##redis持久化　　默认是no</span>
+<span class="token attr-name">appendonly</span> <span class="token attr-value">yes</span>
+ 
+<span class="token comment">#开启protected-mode保护模式，需配置bind ip或者设置访问密码</span>
+<span class="token comment">#关闭protected-mode模式，此时外部网络可以直接访问</span>
+<span class="token attr-name">protected-mode</span> <span class="token attr-value">yes</span>
+ 
+<span class="token comment">#是否开启集群</span>
+<span class="token comment">#cluster-enabled no</span>
+ 
+<span class="token comment">#集群的配置文件,该文件自动生成</span>
+<span class="token comment">#cluster-config-file nodes.conf</span>
+ 
+<span class="token comment">#集群的超时时间</span>
+<span class="token comment">#cluster-node-timeout 5000</span>
+ 
+<span class="token comment">#用守护线程的方式启动</span>
+<span class="token attr-name">daemonize</span> <span class="token attr-value">no   </span>
+ 
+<span class="token comment">#防止出现远程主机强迫关闭了一个现有的连接的错误 默认是300</span>
+<span class="token attr-name">tcp-keepalive</span> <span class="token attr-value">300</span>
+ 
+<span class="token comment">####### Main configuration end #######</span>
+ 
+<span class="token attr-name">timeout</span> <span class="token attr-value">0</span>
+ 
+<span class="token attr-name">tcp-backlog</span> <span class="token attr-value">511</span>
+ 
+<span class="token comment"># Note: these supervision methods only signal "process is ready."</span>
+<span class="token comment">#       They do not enable continuous liveness pings back to your supervisor.</span>
+<span class="token attr-name">supervised</span> <span class="token attr-value">no</span>
+ 
+<span class="token comment"># If a pid file is specified, Redis writes it where specified at startup</span>
+<span class="token comment"># and removes it at exit.</span>
+<span class="token comment">#</span>
+<span class="token comment"># When the server runs non daemonized, no pid file is created if none is</span>
+<span class="token comment"># specified in the configuration. When the server is daemonized, the pid file</span>
+<span class="token comment"># is used even if not specified, defaulting to "/var/run/redis.pid".</span>
+<span class="token comment">#</span>
+<span class="token comment"># Creating a pid file is best effort: if Redis is not able to create it</span>
+<span class="token comment"># nothing bad happens, the server will start and run normally.</span>
+<span class="token attr-name">pidfile</span> <span class="token attr-value">/var/run/redis_6379.pid</span>
+ 
+<span class="token comment"># Specify the server verbosity level.</span>
+<span class="token comment"># This can be one of:</span>
+<span class="token comment"># debug (a lot of information, useful for development/testing)</span>
+<span class="token comment"># verbose (many rarely useful info, but not a mess like the debug level)</span>
+<span class="token comment"># notice (moderately verbose, what you want in production probably)</span>
+<span class="token comment"># warning (only very important / critical messages are logged)</span>
+<span class="token attr-name">loglevel</span> <span class="token attr-value">notice</span>
+ 
+<span class="token comment"># Specify the log file name. Also the empty string can be used to force</span>
+<span class="token comment"># Redis to log on the standard output. Note that if you use standard</span>
+<span class="token comment"># output for logging but daemonize, logs will be sent to /dev/null</span>
+<span class="token attr-name">logfile</span> <span class="token attr-value">""</span>
+ 
+<span class="token comment"># To enable logging to the system logger, just set 'syslog-enabled' to yes,</span>
+<span class="token comment"># and optionally update the other syslog parameters to suit your needs.</span>
+<span class="token comment"># syslog-enabled no</span>
+ 
+<span class="token comment"># Specify the syslog identity.</span>
+<span class="token comment"># syslog-ident redis</span>
+ 
+<span class="token comment"># Specify the syslog facility. Must be USER or between LOCAL0-LOCAL7.</span>
+<span class="token comment"># syslog-facility local0</span>
+ 
+<span class="token comment"># Set the number of databases. The default database is DB 0, you can select</span>
+<span class="token comment"># a different one on a per-connection basis using SELECT &lt;dbid&gt; where</span>
+<span class="token comment"># dbid is a number between 0 and 'databases'-1</span>
+<span class="token attr-name">databases</span> <span class="token attr-value">16</span>
+ 
+<span class="token comment"># By default Redis shows an ASCII art logo only when started to log to the</span>
+<span class="token comment"># standard output and if the standard output is a TTY. Basically this means</span>
+<span class="token comment"># that normally a logo is displayed only in interactive sessions.</span>
+<span class="token comment">#</span>
+<span class="token comment"># However it is possible to force the pre-4.0 behavior and always show a</span>
+<span class="token comment"># ASCII art logo in startup logs by setting the following option to yes.</span>
+<span class="token attr-name">always-show-logo</span> <span class="token attr-value">yes</span>
+ 
+<span class="token comment">################################ SNAPSHOTTING  ################################</span>
+<span class="token comment">#</span>
+<span class="token comment"># Save the DB on disk:</span>
+<span class="token comment">#</span>
+<span class="token comment">#   save &lt;seconds&gt; &lt;changes&gt;</span>
+<span class="token comment">#</span>
+<span class="token comment">#   Will save the DB if both the given number of seconds and the given</span>
+<span class="token comment">#   number of write operations against the DB occurred.</span>
+<span class="token comment">#</span>
+<span class="token comment">#   In the example below the behaviour will be to save:</span>
+<span class="token comment">#   after 900 sec (15 min) if at least 1 key changed</span>
+<span class="token comment">#   after 300 sec (5 min) if at least 10 keys changed</span>
+<span class="token comment">#   after 60 sec if at least 10000 keys changed</span>
+<span class="token comment">#</span>
+<span class="token comment">#   Note: you can disable saving completely by commenting out all "save" lines.</span>
+<span class="token comment">#</span>
+<span class="token comment">#   It is also possible to remove all the previously configured save</span>
+<span class="token comment">#   points by adding a save directive with a single empty string argument</span>
+<span class="token comment">#   like in the following example:</span>
+<span class="token comment">#</span>
+<span class="token comment">#   save ""</span>
+ 
+<span class="token attr-name">save</span> <span class="token attr-value">900 1</span>
+<span class="token attr-name">save</span> <span class="token attr-value">300 10</span>
+<span class="token attr-name">save</span> <span class="token attr-value">60 10000</span>
+ 
+<span class="token comment"># By default Redis will stop accepting writes if RDB snapshots are enabled</span>
+<span class="token comment"># (at least one save point) and the latest background save failed.</span>
+<span class="token comment"># This will make the user aware (in a hard way) that data is not persisting</span>
+<span class="token comment"># on disk properly, otherwise chances are that no one will notice and some</span>
+<span class="token comment"># disaster will happen.</span>
+<span class="token comment">#</span>
+<span class="token comment"># If the background saving process will start working again Redis will</span>
+<span class="token comment"># automatically allow writes again.</span>
+<span class="token comment">#</span>
+<span class="token comment"># However if you have setup your proper monitoring of the Redis server</span>
+<span class="token comment"># and persistence, you may want to disable this feature so that Redis will</span>
+<span class="token comment"># continue to work as usual even if there are problems with disk,</span>
+<span class="token comment"># permissions, and so forth.</span>
+<span class="token attr-name">stop-writes-on-bgsave-error</span> <span class="token attr-value">yes</span>
+ 
+<span class="token comment"># Compress string objects using LZF when dump .rdb databases?</span>
+<span class="token comment"># For default that's set to 'yes' as it's almost always a win.</span>
+<span class="token comment"># If you want to save some CPU in the saving child set it to 'no' but</span>
+<span class="token comment"># the dataset will likely be bigger if you have compressible values or keys.</span>
+<span class="token attr-name">rdbcompression</span> <span class="token attr-value">yes</span>
+ 
+<span class="token comment"># Since version 5 of RDB a CRC64 checksum is placed at the end of the file.</span>
+<span class="token comment"># This makes the format more resistant to corruption but there is a performance</span>
+<span class="token comment"># hit to pay (around 10%) when saving and loading RDB files, so you can disable it</span>
+<span class="token comment"># for maximum performances.</span>
+<span class="token comment">#</span>
+<span class="token comment"># RDB files created with checksum disabled have a checksum of zero that will</span>
+<span class="token comment"># tell the loading code to skip the check.</span>
+<span class="token attr-name">rdbchecksum</span> <span class="token attr-value">yes</span>
+ 
+<span class="token comment"># The filename where to dump the DB</span>
+<span class="token attr-name">dbfilename</span> <span class="token attr-value">dump.rdb</span>
+ 
+<span class="token comment"># Remove RDB files used by replication in instances without persistence</span>
+<span class="token comment"># enabled. By default this option is disabled, however there are environments</span>
+<span class="token comment"># where for regulations or other security concerns, RDB files persisted on</span>
+<span class="token comment"># disk by masters in order to feed replicas, or stored on disk by replicas</span>
+<span class="token comment"># in order to load them for the initial synchronization, should be deleted</span>
+<span class="token comment"># ASAP. Note that this option ONLY WORKS in instances that have both AOF</span>
+<span class="token comment"># and RDB persistence disabled, otherwise is completely ignored.</span>
+<span class="token comment">#</span>
+<span class="token comment"># An alternative (and sometimes better) way to obtain the same effect is</span>
+<span class="token comment"># to use diskless replication on both master and replicas instances. However</span>
+<span class="token comment"># in the case of replicas, diskless is not always an option.</span>
+<span class="token attr-name">rdb-del-sync-files</span> <span class="token attr-value">no</span>
+ 
+<span class="token comment"># The working directory.</span>
+<span class="token comment">#</span>
+<span class="token comment"># The DB will be written inside this directory, with the filename specified</span>
+<span class="token comment"># above using the 'dbfilename' configuration directive.</span>
+<span class="token comment">#</span>
+<span class="token comment"># The Append Only File will also be created inside this directory.</span>
+<span class="token comment">#</span>
+<span class="token comment"># Note that you must specify a directory here, not a file name.</span>
+<span class="token attr-name">dir</span> <span class="token attr-value">./</span>
+ 
+ 
+<span class="token comment"># When a replica loses its connection with the master, or when the replication</span>
+<span class="token comment"># is still in progress, the replica can act in two different ways:</span>
+<span class="token comment">#</span>
+<span class="token comment"># 1) if replica-serve-stale-data is set to 'yes' (the default) the replica will</span>
+<span class="token comment">#    still reply to client requests, possibly with out of date data, or the</span>
+<span class="token comment">#    data set may just be empty if this is the first synchronization.</span>
+<span class="token comment">#</span>
+<span class="token comment"># 2) if replica-serve-stale-data is set to 'no' the replica will reply with</span>
+<span class="token comment">#    an error "SYNC with master in progress" to all the kind of commands</span>
+<span class="token comment">#    but to INFO, replicaOF, AUTH, PING, SHUTDOWN, REPLCONF, ROLE, CONFIG,</span>
+<span class="token comment">#    SUBSCRIBE, UNSUBSCRIBE, PSUBSCRIBE, PUNSUBSCRIBE, PUBLISH, PUBSUB,</span>
+<span class="token comment">#    COMMAND, POST, HOST: and LATENCY.</span>
+<span class="token comment">#</span>
+<span class="token attr-name">replica-serve-stale-data</span> <span class="token attr-value">yes</span>
+ 
+<span class="token comment"># You can configure a replica instance to accept writes or not. Writing against</span>
+<span class="token comment"># a replica instance may be useful to store some ephemeral data (because data</span>
+<span class="token comment"># written on a replica will be easily deleted after resync with the master) but</span>
+<span class="token comment"># may also cause problems if clients are writing to it because of a</span>
+<span class="token comment"># misconfiguration.</span>
+<span class="token comment">#</span>
+<span class="token comment"># Since Redis 2.6 by default replicas are read-only.</span>
+<span class="token comment">#</span>
+<span class="token comment"># Note: read only replicas are not designed to be exposed to untrusted clients</span>
+<span class="token comment"># on the internet. It's just a protection layer against misuse of the instance.</span>
+<span class="token comment"># Still a read only replica exports by default all the administrative commands</span>
+<span class="token comment"># such as CONFIG, DEBUG, and so forth. To a limited extent you can improve</span>
+<span class="token comment"># security of read only replicas using 'rename-command' to shadow all the</span>
+<span class="token comment"># administrative / dangerous commands.</span>
+<span class="token attr-name">replica-read-only</span> <span class="token attr-value">yes</span>
+ 
+ 
+<span class="token comment"># When diskless replication is used, the master waits a configurable amount of</span>
+<span class="token comment"># time (in seconds) before starting the transfer in the hope that multiple</span>
+<span class="token comment"># replicas will arrive and the transfer can be parallelized.</span>
+<span class="token comment">#</span>
+<span class="token comment"># With slow disks and fast (large bandwidth) networks, diskless replication</span>
+<span class="token comment"># works better.</span>
+<span class="token attr-name">repl-diskless-sync</span> <span class="token attr-value">no</span>
+ 
+<span class="token comment"># When diskless replication is enabled, it is possible to configure the delay</span>
+<span class="token comment"># the server waits in order to spawn the child that transfers the RDB via socket</span>
+<span class="token comment"># to the replicas.</span>
+<span class="token comment">#</span>
+<span class="token comment"># This is important since once the transfer starts, it is not possible to serve</span>
+<span class="token comment"># new replicas arriving, that will be queued for the next RDB transfer, so the</span>
+<span class="token comment"># server waits a delay in order to let more replicas arrive.</span>
+<span class="token comment">#</span>
+<span class="token comment"># The delay is specified in seconds, and by default is 5 seconds. To disable</span>
+<span class="token comment"># it entirely just set it to 0 seconds and the transfer will start ASAP.</span>
+<span class="token attr-name">repl-diskless-sync-delay</span> <span class="token attr-value">5</span>
+ 
+ 
+<span class="token comment"># In many cases the disk is slower than the network, and storing and loading</span>
+<span class="token comment"># the RDB file may increase replication time (and even increase the master's</span>
+<span class="token comment"># Copy on Write memory and salve buffers).</span>
+<span class="token comment"># However, parsing the RDB file directly from the socket may mean that we have</span>
+<span class="token comment"># to flush the contents of the current database before the full rdb was</span>
+<span class="token comment"># received. For this reason we have the following options:</span>
+<span class="token comment">#</span>
+<span class="token comment"># "disabled"    - Don't use diskless load (store the rdb file to the disk first)</span>
+<span class="token comment"># "on-empty-db" - Use diskless load only when it is completely safe.</span>
+<span class="token comment"># "swapdb"      - Keep a copy of the current db contents in RAM while parsing</span>
+<span class="token comment">#                 the data directly from the socket. note that this requires</span>
+<span class="token comment">#                 sufficient memory, if you don't have it, you risk an OOM kill.</span>
+<span class="token attr-name">repl-diskless-load</span> <span class="token attr-value">disabled</span>
+ 
+ 
+<span class="token comment"># Disable TCP_NODELAY on the replica socket after SYNC?</span>
+<span class="token comment">#</span>
+<span class="token comment"># If you select "yes" Redis will use a smaller number of TCP packets and</span>
+<span class="token comment"># less bandwidth to send data to replicas. But this can add a delay for</span>
+<span class="token comment"># the data to appear on the replica side, up to 40 milliseconds with</span>
+<span class="token comment"># Linux kernels using a default configuration.</span>
+<span class="token comment">#</span>
+<span class="token comment"># If you select "no" the delay for data to appear on the replica side will</span>
+<span class="token comment"># be reduced but more bandwidth will be used for replication.</span>
+<span class="token comment">#</span>
+<span class="token comment"># By default we optimize for low latency, but in very high traffic conditions</span>
+<span class="token comment"># or when the master and replicas are many hops away, turning this to "yes" may</span>
+<span class="token comment"># be a good idea.</span>
+<span class="token attr-name">repl-disable-tcp-nodelay</span> <span class="token attr-value">no</span>
+ 
+ 
+<span class="token comment"># The replica priority is an integer number published by Redis in the INFO</span>
+<span class="token comment"># output. It is used by Redis Sentinel in order to select a replica to promote</span>
+<span class="token comment"># into a master if the master is no longer working correctly.</span>
+<span class="token comment">#</span>
+<span class="token comment"># A replica with a low priority number is considered better for promotion, so</span>
+<span class="token comment"># for instance if there are three replicas with priority 10, 100, 25 Sentinel</span>
+<span class="token comment"># will pick the one with priority 10, that is the lowest.</span>
+<span class="token comment">#</span>
+<span class="token comment"># However a special priority of 0 marks the replica as not able to perform the</span>
+<span class="token comment"># role of master, so a replica with priority of 0 will never be selected by</span>
+<span class="token comment"># Redis Sentinel for promotion.</span>
+<span class="token comment">#</span>
+<span class="token comment"># By default the priority is 100.</span>
+<span class="token attr-name">replica-priority</span> <span class="token attr-value">100</span>
+ 
+ 
+<span class="token comment"># ACL LOG</span>
+<span class="token comment">#</span>
+<span class="token comment"># The ACL Log tracks failed commands and authentication events associated</span>
+<span class="token comment"># with ACLs. The ACL Log is useful to troubleshoot failed commands blocked </span>
+<span class="token comment"># by ACLs. The ACL Log is stored in memory. You can reclaim memory with </span>
+<span class="token comment"># ACL LOG RESET. Define the maximum entry length of the ACL Log below.</span>
+<span class="token attr-name">acllog-max-len</span> <span class="token attr-value">128</span>
+ 
+<span class="token comment"># Using an external ACL file</span>
+<span class="token comment">#</span>
+<span class="token comment"># Instead of configuring users here in this file, it is possible to use</span>
+<span class="token comment"># a stand-alone file just listing users. The two methods cannot be mixed:</span>
+<span class="token comment"># if you configure users here and at the same time you activate the exteranl</span>
+<span class="token comment"># ACL file, the server will refuse to start.</span>
+<span class="token comment">#</span>
+<span class="token comment"># The format of the external ACL user file is exactly the same as the</span>
+<span class="token comment"># format that is used inside redis.conf to describe users.</span>
+<span class="token comment">#</span>
+<span class="token comment"># aclfile /etc/redis/users.acl</span>
+ 
+ 
+<span class="token comment"># Command renaming (DEPRECATED).</span>
+<span class="token comment">#</span>
+<span class="token comment"># ------------------------------------------------------------------------</span>
+<span class="token comment"># WARNING: avoid using this option if possible. Instead use ACLs to remove</span>
+<span class="token comment"># commands from the default user, and put them only in some admin user you</span>
+<span class="token comment"># create for administrative purposes.</span>
+<span class="token comment"># ------------------------------------------------------------------------</span>
+<span class="token comment">#</span>
+<span class="token comment"># It is possible to change the name of dangerous commands in a shared</span>
+<span class="token comment"># environment. For instance the CONFIG command may be renamed into something</span>
+<span class="token comment"># hard to guess so that it will still be available for internal-use tools</span>
+<span class="token comment"># but not available for general clients.</span>
+<span class="token comment">#</span>
+<span class="token comment"># Example:</span>
+<span class="token comment">#</span>
+<span class="token comment"># rename-command CONFIG b840fc02d524045429941cc15f59e41cb7be6c52</span>
+<span class="token comment">#</span>
+<span class="token comment"># It is also possible to completely kill a command by renaming it into</span>
+<span class="token comment"># an empty string:</span>
+<span class="token comment">#</span>
+<span class="token comment"># rename-command CONFIG ""</span>
+<span class="token comment">#</span>
+<span class="token comment"># Please note that changing the name of commands that are logged into the</span>
+<span class="token comment"># AOF file or transmitted to replicas may cause problems.</span>
+ 
+<span class="token comment">################################### CLIENTS ####################################</span>
+ 
+<span class="token comment"># Set the max number of connected clients at the same time. By default</span>
+<span class="token comment"># this limit is set to 10000 clients, however if the Redis server is not</span>
+<span class="token comment"># able to configure the process file limit to allow for the specified limit</span>
+<span class="token comment"># the max number of allowed clients is set to the current file limit</span>
+<span class="token comment"># minus 32 (as Redis reserves a few file descriptors for internal uses).</span>
+<span class="token comment">#</span>
+<span class="token comment"># Once the limit is reached Redis will close all the new connections sending</span>
+<span class="token comment"># an error 'max number of clients reached'.</span>
+<span class="token comment">#</span>
+<span class="token comment"># IMPORTANT: When Redis Cluster is used, the max number of connections is also</span>
+<span class="token comment"># shared with the cluster bus: every node in the cluster will use two</span>
+<span class="token comment"># connections, one incoming and another outgoing. It is important to size the</span>
+<span class="token comment"># limit accordingly in case of very large clusters.</span>
+<span class="token comment">#</span>
+<span class="token comment"># maxclients 10000</span>
+ 
+<span class="token comment">############################## MEMORY MANAGEMENT ################################</span>
+ 
+<span class="token comment"># Set a memory usage limit to the specified amount of bytes.</span>
+<span class="token comment"># When the memory limit is reached Redis will try to remove keys</span>
+<span class="token comment"># according to the eviction policy selected (see maxmemory-policy).</span>
+<span class="token comment">#</span>
+<span class="token comment"># If Redis can't remove keys according to the policy, or if the policy is</span>
+<span class="token comment"># set to 'noeviction', Redis will start to reply with errors to commands</span>
+<span class="token comment"># that would use more memory, like SET, LPUSH, and so on, and will continue</span>
+<span class="token comment"># to reply to read-only commands like GET.</span>
+<span class="token comment">#</span>
+<span class="token comment"># This option is usually useful when using Redis as an LRU or LFU cache, or to</span>
+<span class="token comment"># set a hard memory limit for an instance (using the 'noeviction' policy).</span>
+<span class="token comment">#</span>
+<span class="token comment"># WARNING: If you have replicas attached to an instance with maxmemory on,</span>
+<span class="token comment"># the size of the output buffers needed to feed the replicas are subtracted</span>
+<span class="token comment"># from the used memory count, so that network problems / resyncs will</span>
+<span class="token comment"># not trigger a loop where keys are evicted, and in turn the output</span>
+<span class="token comment"># buffer of replicas is full with DELs of keys evicted triggering the deletion</span>
+<span class="token comment"># of more keys, and so forth until the database is completely emptied.</span>
+<span class="token comment">#</span>
+<span class="token comment"># In short... if you have replicas attached it is suggested that you set a lower</span>
+<span class="token comment"># limit for maxmemory so that there is some free RAM on the system for replica</span>
+<span class="token comment"># output buffers (but this is not needed if the policy is 'noeviction').</span>
+<span class="token comment">#</span>
+<span class="token comment"># maxmemory &lt;bytes&gt;</span>
+ 
+<span class="token comment"># MAXMEMORY POLICY: how Redis will select what to remove when maxmemory</span>
+<span class="token comment"># is reached. You can select one from the following behaviors:</span>
+<span class="token comment">#</span>
+<span class="token comment"># volatile-lru -&gt; Evict using approximated LRU, only keys with an expire set.</span>
+<span class="token comment"># allkeys-lru -&gt; Evict any key using approximated LRU.</span>
+<span class="token comment"># volatile-lfu -&gt; Evict using approximated LFU, only keys with an expire set.</span>
+<span class="token comment"># allkeys-lfu -&gt; Evict any key using approximated LFU.</span>
+<span class="token comment"># volatile-random -&gt; Remove a random key having an expire set.</span>
+<span class="token comment"># allkeys-random -&gt; Remove a random key, any key.</span>
+<span class="token comment"># volatile-ttl -&gt; Remove the key with the nearest expire time (minor TTL)</span>
+<span class="token comment"># noeviction -&gt; Don't evict anything, just return an error on write operations.</span>
+<span class="token comment">#</span>
+<span class="token comment"># LRU means Least Recently Used</span>
+<span class="token comment"># LFU means Least Frequently Used</span>
+<span class="token comment">#</span>
+<span class="token comment"># Both LRU, LFU and volatile-ttl are implemented using approximated</span>
+<span class="token comment"># randomized algorithms.</span>
+<span class="token comment">#</span>
+<span class="token comment"># Note: with any of the above policies, Redis will return an error on write</span>
+<span class="token comment">#       operations, when there are no suitable keys for eviction.</span>
+<span class="token comment">#</span>
+<span class="token comment">#       At the date of writing these commands are: set setnx setex append</span>
+<span class="token comment">#       incr decr rpush lpush rpushx lpushx linsert lset rpoplpush sadd</span>
+<span class="token comment">#       sinter sinterstore sunion sunionstore sdiff sdiffstore zadd zincrby</span>
+<span class="token comment">#       zunionstore zinterstore hset hsetnx hmset hincrby incrby decrby</span>
+<span class="token comment">#       getset mset msetnx exec sort</span>
+<span class="token comment">#</span>
+<span class="token comment"># The default is:</span>
+<span class="token comment">#</span>
+<span class="token comment"># maxmemory-policy noeviction</span>
+ 
+<span class="token comment"># LRU, LFU and minimal TTL algorithms are not precise algorithms but approximated</span>
+<span class="token comment"># algorithms (in order to save memory), so you can tune it for speed or</span>
+<span class="token comment"># accuracy. For default Redis will check five keys and pick the one that was</span>
+<span class="token comment"># used less recently, you can change the sample size using the following</span>
+<span class="token comment"># configuration directive.</span>
+<span class="token comment">#</span>
+<span class="token comment"># The default of 5 produces good enough results. 10 Approximates very closely</span>
+<span class="token comment"># true LRU but costs more CPU. 3 is faster but not very accurate.</span>
+<span class="token comment">#</span>
+<span class="token comment"># maxmemory-samples 5</span>
+ 
+<span class="token comment"># Starting from Redis 5, by default a replica will ignore its maxmemory setting</span>
+<span class="token comment"># (unless it is promoted to master after a failover or manually). It means</span>
+<span class="token comment"># that the eviction of keys will be just handled by the master, sending the</span>
+<span class="token comment"># DEL commands to the replica as keys evict in the master side.</span>
+<span class="token comment">#</span>
+<span class="token comment"># This behavior ensures that masters and replicas stay consistent, and is usually</span>
+<span class="token comment"># what you want, however if your replica is writable, or you want the replica</span>
+<span class="token comment"># to have a different memory setting, and you are sure all the writes performed</span>
+<span class="token comment"># to the replica are idempotent, then you may change this default (but be sure</span>
+<span class="token comment"># to understand what you are doing).</span>
+<span class="token comment">#</span>
+<span class="token comment"># Note that since the replica by default does not evict, it may end using more</span>
+<span class="token comment"># memory than the one set via maxmemory (there are certain buffers that may</span>
+<span class="token comment"># be larger on the replica, or data structures may sometimes take more memory</span>
+<span class="token comment"># and so forth). So make sure you monitor your replicas and make sure they</span>
+<span class="token comment"># have enough memory to never hit a real out-of-memory condition before the</span>
+<span class="token comment"># master hits the configured maxmemory setting.</span>
+<span class="token comment">#</span>
+<span class="token comment"># replica-ignore-maxmemory yes</span>
+ 
+<span class="token comment"># Redis reclaims expired keys in two ways: upon access when those keys are</span>
+<span class="token comment"># found to be expired, and also in background, in what is called the</span>
+<span class="token comment"># "active expire key". The key space is slowly and interactively scanned</span>
+<span class="token comment"># looking for expired keys to reclaim, so that it is possible to free memory</span>
+<span class="token comment"># of keys that are expired and will never be accessed again in a short time.</span>
+<span class="token comment">#</span>
+<span class="token comment"># The default effort of the expire cycle will try to avoid having more than</span>
+<span class="token comment"># ten percent of expired keys still in memory, and will try to avoid consuming</span>
+<span class="token comment"># more than 25% of total memory and to add latency to the system. However</span>
+<span class="token comment"># it is possible to increase the expire "effort" that is normally set to</span>
+<span class="token comment"># "1", to a greater value, up to the value "10". At its maximum value the</span>
+<span class="token comment"># system will use more CPU, longer cycles (and technically may introduce</span>
+<span class="token comment"># more latency), and will tollerate less already expired keys still present</span>
+<span class="token comment"># in the system. It's a tradeoff betweeen memory, CPU and latecy.</span>
+<span class="token comment">#</span>
+<span class="token comment"># active-expire-effort 1</span>
+ 
+<span class="token comment">############################# LAZY FREEING ####################################</span>
+ 
+<span class="token comment"># Redis has two primitives to delete keys. One is called DEL and is a blocking</span>
+<span class="token comment"># deletion of the object. It means that the server stops processing new commands</span>
+<span class="token comment"># in order to reclaim all the memory associated with an object in a synchronous</span>
+<span class="token comment"># way. If the key deleted is associated with a small object, the time needed</span>
+<span class="token comment"># in order to execute the DEL command is very small and comparable to most other</span>
+<span class="token comment"># O(1) or O(log_N) commands in Redis. However if the key is associated with an</span>
+<span class="token comment"># aggregated value containing millions of elements, the server can block for</span>
+<span class="token comment"># a long time (even seconds) in order to complete the operation.</span>
+<span class="token comment">#</span>
+<span class="token comment"># For the above reasons Redis also offers non blocking deletion primitives</span>
+<span class="token comment"># such as UNLINK (non blocking DEL) and the ASYNC option of FLUSHALL and</span>
+<span class="token comment"># FLUSHDB commands, in order to reclaim memory in background. Those commands</span>
+<span class="token comment"># are executed in constant time. Another thread will incrementally free the</span>
+<span class="token comment"># object in the background as fast as possible.</span>
+<span class="token comment">#</span>
+<span class="token comment"># DEL, UNLINK and ASYNC option of FLUSHALL and FLUSHDB are user-controlled.</span>
+<span class="token comment"># It's up to the design of the application to understand when it is a good</span>
+<span class="token comment"># idea to use one or the other. However the Redis server sometimes has to</span>
+<span class="token comment"># delete keys or flush the whole database as a side effect of other operations.</span>
+<span class="token comment"># Specifically Redis deletes objects independently of a user call in the</span>
+<span class="token comment"># following scenarios:</span>
+<span class="token comment">#</span>
+<span class="token comment"># 1) On eviction, because of the maxmemory and maxmemory policy configurations,</span>
+<span class="token comment">#    in order to make room for new data, without going over the specified</span>
+<span class="token comment">#    memory limit.</span>
+<span class="token comment"># 2) Because of expire: when a key with an associated time to live (see the</span>
+<span class="token comment">#    EXPIRE command) must be deleted from memory.</span>
+<span class="token comment"># 3) Because of a side effect of a command that stores data on a key that may</span>
+<span class="token comment">#    already exist. For example the RENAME command may delete the old key</span>
+<span class="token comment">#    content when it is replaced with another one. Similarly SUNIONSTORE</span>
+<span class="token comment">#    or SORT with STORE option may delete existing keys. The SET command</span>
+<span class="token comment">#    itself removes any old content of the specified key in order to replace</span>
+<span class="token comment">#    it with the specified string.</span>
+<span class="token comment"># 4) During replication, when a replica performs a full resynchronization with</span>
+<span class="token comment">#    its master, the content of the whole database is removed in order to</span>
+<span class="token comment">#    load the RDB file just transferred.</span>
+<span class="token comment">#</span>
+<span class="token comment"># In all the above cases the default is to delete objects in a blocking way,</span>
+<span class="token comment"># like if DEL was called. However you can configure each case specifically</span>
+<span class="token comment"># in order to instead release memory in a non-blocking way like if UNLINK</span>
+<span class="token comment"># was called, using the following configuration directives.</span>
+ 
+<span class="token attr-name">lazyfree-lazy-eviction</span> <span class="token attr-value">no</span>
+<span class="token attr-name">lazyfree-lazy-expire</span> <span class="token attr-value">no</span>
+<span class="token attr-name">lazyfree-lazy-server-del</span> <span class="token attr-value">no</span>
+<span class="token attr-name">replica-lazy-flush</span> <span class="token attr-value">no</span>
+ 
+<span class="token comment"># It is also possible, for the case when to replace the user code DEL calls</span>
+<span class="token comment"># with UNLINK calls is not easy, to modify the default behavior of the DEL</span>
+<span class="token comment"># command to act exactly like UNLINK, using the following configuration</span>
+<span class="token comment"># directive:</span>
+ 
+<span class="token attr-name">lazyfree-lazy-user-del</span> <span class="token attr-value">no</span>
+ 
+ 
+ 
+<span class="token comment"># The name of the append only file (default: "appendonly.aof")</span>
+ 
+<span class="token attr-name">appendfilename</span> <span class="token attr-value">"appendonly.aof"</span>
+ 
+<span class="token comment"># The fsync() call tells the Operating System to actually write data on disk</span>
+<span class="token comment"># instead of waiting for more data in the output buffer. Some OS will really flush</span>
+<span class="token comment"># data on disk, some other OS will just try to do it ASAP.</span>
+<span class="token comment">#</span>
+<span class="token comment"># Redis supports three different modes:</span>
+<span class="token comment">#</span>
+<span class="token comment"># no: don't fsync, just let the OS flush the data when it wants. Faster.</span>
+<span class="token comment"># always: fsync after every write to the append only log. Slow, Safest.</span>
+<span class="token comment"># everysec: fsync only one time every second. Compromise.</span>
+<span class="token comment">#</span>
+<span class="token comment"># The default is "everysec", as that's usually the right compromise between</span>
+<span class="token comment"># speed and data safety. It's up to you to understand if you can relax this to</span>
+<span class="token comment"># "no" that will let the operating system flush the output buffer when</span>
+<span class="token comment"># it wants, for better performances (but if you can live with the idea of</span>
+<span class="token comment"># some data loss consider the default persistence mode that's snapshotting),</span>
+<span class="token comment"># or on the contrary, use "always" that's very slow but a bit safer than</span>
+<span class="token comment"># everysec.</span>
+<span class="token comment">#</span>
+<span class="token comment"># More details please check the following article:</span>
+<span class="token comment"># http://antirez.com/post/redis-persistence-demystified.html</span>
+<span class="token comment">#</span>
+<span class="token comment"># If unsure, use "everysec".</span>
+ 
+<span class="token comment"># appendfsync always</span>
+<span class="token attr-name">appendfsync</span> <span class="token attr-value">everysec</span>
+<span class="token comment"># appendfsync no</span>
+ 
+<span class="token comment"># When the AOF fsync policy is set to always or everysec, and a background</span>
+<span class="token comment"># saving process (a background save or AOF log background rewriting) is</span>
+<span class="token comment"># performing a lot of I/O against the disk, in some Linux configurations</span>
+<span class="token comment"># Redis may block too long on the fsync() call. Note that there is no fix for</span>
+<span class="token comment"># this currently, as even performing fsync in a different thread will block</span>
+<span class="token comment"># our synchronous write(2) call.</span>
+<span class="token comment">#</span>
+<span class="token comment"># In order to mitigate this problem it's possible to use the following option</span>
+<span class="token comment"># that will prevent fsync() from being called in the main process while a</span>
+<span class="token comment"># BGSAVE or BGREWRITEAOF is in progress.</span>
+<span class="token comment">#</span>
+<span class="token comment"># This means that while another child is saving, the durability of Redis is</span>
+<span class="token comment"># the same as "appendfsync none". In practical terms, this means that it is</span>
+<span class="token comment"># possible to lose up to 30 seconds of log in the worst scenario (with the</span>
+<span class="token comment"># default Linux settings).</span>
+<span class="token comment">#</span>
+<span class="token comment"># If you have latency problems turn this to "yes". Otherwise leave it as</span>
+<span class="token comment"># "no" that is the safest pick from the point of view of durability.</span>
+ 
+<span class="token attr-name">no-appendfsync-on-rewrite</span> <span class="token attr-value">no</span>
+ 
+<span class="token comment"># Automatic rewrite of the append only file.</span>
+<span class="token comment"># Redis is able to automatically rewrite the log file implicitly calling</span>
+<span class="token comment"># BGREWRITEAOF when the AOF log size grows by the specified percentage.</span>
+<span class="token comment">#</span>
+<span class="token comment"># This is how it works: Redis remembers the size of the AOF file after the</span>
+<span class="token comment"># latest rewrite (if no rewrite has happened since the restart, the size of</span>
+<span class="token comment"># the AOF at startup is used).</span>
+<span class="token comment">#</span>
+<span class="token comment"># This base size is compared to the current size. If the current size is</span>
+<span class="token comment"># bigger than the specified percentage, the rewrite is triggered. Also</span>
+<span class="token comment"># you need to specify a minimal size for the AOF file to be rewritten, this</span>
+<span class="token comment"># is useful to avoid rewriting the AOF file even if the percentage increase</span>
+<span class="token comment"># is reached but it is still pretty small.</span>
+<span class="token comment">#</span>
+<span class="token comment"># Specify a percentage of zero in order to disable the automatic AOF</span>
+<span class="token comment"># rewrite feature.</span>
+ 
+<span class="token attr-name">auto-aof-rewrite-percentage</span> <span class="token attr-value">100</span>
+<span class="token attr-name">auto-aof-rewrite-min-size</span> <span class="token attr-value">64mb</span>
+ 
+<span class="token comment"># An AOF file may be found to be truncated at the end during the Redis</span>
+<span class="token comment"># startup process, when the AOF data gets loaded back into memory.</span>
+<span class="token comment"># This may happen when the system where Redis is running</span>
+<span class="token comment"># crashes, especially when an ext4 filesystem is mounted without the</span>
+<span class="token comment"># data=ordered option (however this can't happen when Redis itself</span>
+<span class="token comment"># crashes or aborts but the operating system still works correctly).</span>
+<span class="token comment">#</span>
+<span class="token comment"># Redis can either exit with an error when this happens, or load as much</span>
+<span class="token comment"># data as possible (the default now) and start if the AOF file is found</span>
+<span class="token comment"># to be truncated at the end. The following option controls this behavior.</span>
+<span class="token comment">#</span>
+<span class="token comment"># If aof-load-truncated is set to yes, a truncated AOF file is loaded and</span>
+<span class="token comment"># the Redis server starts emitting a log to inform the user of the event.</span>
+<span class="token comment"># Otherwise if the option is set to no, the server aborts with an error</span>
+<span class="token comment"># and refuses to start. When the option is set to no, the user requires</span>
+<span class="token comment"># to fix the AOF file using the "redis-check-aof" utility before to restart</span>
+<span class="token comment"># the server.</span>
+<span class="token comment">#</span>
+<span class="token comment"># Note that if the AOF file will be found to be corrupted in the middle</span>
+<span class="token comment"># the server will still exit with an error. This option only applies when</span>
+<span class="token comment"># Redis will try to read more data from the AOF file but not enough bytes</span>
+<span class="token comment"># will be found.</span>
+<span class="token attr-name">aof-load-truncated</span> <span class="token attr-value">yes</span>
+ 
+<span class="token comment"># When rewriting the AOF file, Redis is able to use an RDB preamble in the</span>
+<span class="token comment"># AOF file for faster rewrites and recoveries. When this option is turned</span>
+<span class="token comment"># on the rewritten AOF file is composed of two different stanzas:</span>
+<span class="token comment">#</span>
+<span class="token comment">#   [RDB file][AOF tail]</span>
+<span class="token comment">#</span>
+<span class="token comment"># When loading Redis recognizes that the AOF file starts with the "REDIS"</span>
+<span class="token comment"># string and loads the prefixed RDB file, and continues loading the AOF</span>
+<span class="token comment"># tail.</span>
+<span class="token attr-name">aof-use-rdb-preamble</span> <span class="token attr-value">yes</span>
+ 
+<span class="token comment">################################ LUA SCRIPTING  ###############################</span>
+ 
+<span class="token comment"># Max execution time of a Lua script in milliseconds.</span>
+<span class="token comment">#</span>
+<span class="token comment"># If the maximum execution time is reached Redis will log that a script is</span>
+<span class="token comment"># still in execution after the maximum allowed time and will start to</span>
+<span class="token comment"># reply to queries with an error.</span>
+<span class="token comment">#</span>
+<span class="token comment"># When a long running script exceeds the maximum execution time only the</span>
+<span class="token comment"># SCRIPT KILL and SHUTDOWN NOSAVE commands are available. The first can be</span>
+<span class="token comment"># used to stop a script that did not yet called write commands. The second</span>
+<span class="token comment"># is the only way to shut down the server in the case a write command was</span>
+<span class="token comment"># already issued by the script but the user doesn't want to wait for the natural</span>
+<span class="token comment"># termination of the script.</span>
+<span class="token comment">#</span>
+<span class="token comment"># Set it to 0 or a negative value for unlimited execution without warnings.</span>
+<span class="token attr-name">lua-time-limit</span> <span class="token attr-value">5000</span>
+ 
+<span class="token comment">################################ REDIS CLUSTER  ###############################</span>
+ 
+<span class="token comment"># Normal Redis instances can't be part of a Redis Cluster; only nodes that are</span>
+<span class="token comment"># started as cluster nodes can. In order to start a Redis instance as a</span>
+<span class="token comment"># cluster node enable the cluster support uncommenting the following:</span>
+<span class="token comment">#</span>
+<span class="token comment"># cluster-enabled yes</span>
+ 
+<span class="token comment"># Every cluster node has a cluster configuration file. This file is not</span>
+<span class="token comment"># intended to be edited by hand. It is created and updated by Redis nodes.</span>
+<span class="token comment"># Every Redis Cluster node requires a different cluster configuration file.</span>
+<span class="token comment"># Make sure that instances running in the same system do not have</span>
+<span class="token comment"># overlapping cluster configuration file names.</span>
+<span class="token comment">#</span>
+<span class="token comment"># cluster-config-file nodes-6379.conf</span>
+ 
+<span class="token comment"># Cluster node timeout is the amount of milliseconds a node must be unreachable</span>
+<span class="token comment"># for it to be considered in failure state.</span>
+<span class="token comment"># Most other internal time limits are multiple of the node timeout.</span>
+<span class="token comment">#</span>
+<span class="token comment"># cluster-node-timeout 15000</span>
+ 
+<span class="token comment"># A replica of a failing master will avoid to start a failover if its data</span>
+<span class="token comment"># looks too old.</span>
+<span class="token comment">#</span>
+<span class="token comment"># There is no simple way for a replica to actually have an exact measure of</span>
+<span class="token comment"># its "data age", so the following two checks are performed:</span>
+<span class="token comment">#</span>
+<span class="token comment"># 1) If there are multiple replicas able to failover, they exchange messages</span>
+<span class="token comment">#    in order to try to give an advantage to the replica with the best</span>
+<span class="token comment">#    replication offset (more data from the master processed).</span>
+<span class="token comment">#    Replicas will try to get their rank by offset, and apply to the start</span>
+<span class="token comment">#    of the failover a delay proportional to their rank.</span>
+<span class="token comment">#</span>
+<span class="token comment"># 2) Every single replica computes the time of the last interaction with</span>
+<span class="token comment">#    its master. This can be the last ping or command received (if the master</span>
+<span class="token comment">#    is still in the "connected" state), or the time that elapsed since the</span>
+<span class="token comment">#    disconnection with the master (if the replication link is currently down).</span>
+<span class="token comment">#    If the last interaction is too old, the replica will not try to failover</span>
+<span class="token comment">#    at all.</span>
+<span class="token comment">#</span>
+<span class="token comment"># The point "2" can be tuned by user. Specifically a replica will not perform</span>
+<span class="token comment"># the failover if, since the last interaction with the master, the time</span>
+<span class="token comment"># elapsed is greater than:</span>
+<span class="token comment">#</span>
+<span class="token comment">#   (node-timeout * replica-validity-factor) + repl-ping-replica-period</span>
+<span class="token comment">#</span>
+<span class="token comment"># So for example if node-timeout is 30 seconds, and the replica-validity-factor</span>
+<span class="token comment"># is 10, and assuming a default repl-ping-replica-period of 10 seconds, the</span>
+<span class="token comment"># replica will not try to failover if it was not able to talk with the master</span>
+<span class="token comment"># for longer than 310 seconds.</span>
+<span class="token comment">#</span>
+<span class="token comment"># A large replica-validity-factor may allow replicas with too old data to failover</span>
+<span class="token comment"># a master, while a too small value may prevent the cluster from being able to</span>
+<span class="token comment"># elect a replica at all.</span>
+<span class="token comment">#</span>
+<span class="token comment"># For maximum availability, it is possible to set the replica-validity-factor</span>
+<span class="token comment"># to a value of 0, which means, that replicas will always try to failover the</span>
+<span class="token comment"># master regardless of the last time they interacted with the master.</span>
+<span class="token comment"># (However they'll always try to apply a delay proportional to their</span>
+<span class="token comment"># offset rank).</span>
+<span class="token comment">#</span>
+<span class="token comment"># Zero is the only value able to guarantee that when all the partitions heal</span>
+<span class="token comment"># the cluster will always be able to continue.</span>
+<span class="token comment">#</span>
+<span class="token comment"># cluster-replica-validity-factor 10</span>
+ 
+<span class="token comment"># Cluster replicas are able to migrate to orphaned masters, that are masters</span>
+<span class="token comment"># that are left without working replicas. This improves the cluster ability</span>
+<span class="token comment"># to resist to failures as otherwise an orphaned master can't be failed over</span>
+<span class="token comment"># in case of failure if it has no working replicas.</span>
+<span class="token comment">#</span>
+<span class="token comment"># Replicas migrate to orphaned masters only if there are still at least a</span>
+<span class="token comment"># given number of other working replicas for their old master. This number</span>
+<span class="token comment"># is the "migration barrier". A migration barrier of 1 means that a replica</span>
+<span class="token comment"># will migrate only if there is at least 1 other working replica for its master</span>
+<span class="token comment"># and so forth. It usually reflects the number of replicas you want for every</span>
+<span class="token comment"># master in your cluster.</span>
+<span class="token comment">#</span>
+<span class="token comment"># Default is 1 (replicas migrate only if their masters remain with at least</span>
+<span class="token comment"># one replica). To disable migration just set it to a very large value.</span>
+<span class="token comment"># A value of 0 can be set but is useful only for debugging and dangerous</span>
+<span class="token comment"># in production.</span>
+<span class="token comment">#</span>
+<span class="token comment"># cluster-migration-barrier 1</span>
+ 
+<span class="token comment"># By default Redis Cluster nodes stop accepting queries if they detect there</span>
+<span class="token comment"># is at least an hash slot uncovered (no available node is serving it).</span>
+<span class="token comment"># This way if the cluster is partially down (for example a range of hash slots</span>
+<span class="token comment"># are no longer covered) all the cluster becomes, eventually, unavailable.</span>
+<span class="token comment"># It automatically returns available as soon as all the slots are covered again.</span>
+<span class="token comment">#</span>
+<span class="token comment"># However sometimes you want the subset of the cluster which is working,</span>
+<span class="token comment"># to continue to accept queries for the part of the key space that is still</span>
+<span class="token comment"># covered. In order to do so, just set the cluster-require-full-coverage</span>
+<span class="token comment"># option to no.</span>
+<span class="token comment">#</span>
+<span class="token comment"># cluster-require-full-coverage yes</span>
+ 
+<span class="token comment"># This option, when set to yes, prevents replicas from trying to failover its</span>
+<span class="token comment"># master during master failures. However the master can still perform a</span>
+<span class="token comment"># manual failover, if forced to do so.</span>
+<span class="token comment">#</span>
+<span class="token comment"># This is useful in different scenarios, especially in the case of multiple</span>
+<span class="token comment"># data center operations, where we want one side to never be promoted if not</span>
+<span class="token comment"># in the case of a total DC failure.</span>
+<span class="token comment">#</span>
+<span class="token comment"># cluster-replica-no-failover no</span>
+ 
+<span class="token comment"># This option, when set to yes, allows nodes to serve read traffic while the</span>
+<span class="token comment"># the cluster is in a down state, as long as it believes it owns the slots. </span>
+<span class="token comment">#</span>
+<span class="token comment"># This is useful for two cases.  The first case is for when an application </span>
+<span class="token comment"># doesn't require consistency of data during node failures or network partitions.</span>
+<span class="token comment"># One example of this is a cache, where as long as the node has the data it</span>
+<span class="token comment"># should be able to serve it. </span>
+<span class="token comment">#</span>
+<span class="token comment"># The second use case is for configurations that don't meet the recommended  </span>
+<span class="token comment"># three shards but want to enable cluster mode and scale later. A </span>
+<span class="token comment"># master outage in a 1 or 2 shard configuration causes a read/write outage to the</span>
+<span class="token comment"># entire cluster without this option set, with it set there is only a write outage.</span>
+<span class="token comment"># Without a quorum of masters, slot ownership will not change automatically. </span>
+<span class="token comment">#</span>
+<span class="token comment"># cluster-allow-reads-when-down no</span>
+ 
+<span class="token comment"># In order to setup your cluster make sure to read the documentation</span>
+<span class="token comment"># available at http://redis.io web site.</span>
+ 
+<span class="token comment">########################## CLUSTER DOCKER/NAT support  ########################</span>
+ 
+<span class="token comment"># In certain deployments, Redis Cluster nodes address discovery fails, because</span>
+<span class="token comment"># addresses are NAT-ted or because ports are forwarded (the typical case is</span>
+<span class="token comment"># Docker and other containers).</span>
+<span class="token comment">#</span>
+<span class="token comment"># In order to make Redis Cluster working in such environments, a static</span>
+<span class="token comment"># configuration where each node knows its public address is needed. The</span>
+<span class="token comment"># following two options are used for this scope, and are:</span>
+<span class="token comment">#</span>
+<span class="token comment"># * cluster-announce-ip</span>
+<span class="token comment"># * cluster-announce-port</span>
+<span class="token comment"># * cluster-announce-bus-port</span>
+<span class="token comment">#</span>
+<span class="token comment"># Each instruct the node about its address, client port, and cluster message</span>
+<span class="token comment"># bus port. The information is then published in the header of the bus packets</span>
+<span class="token comment"># so that other nodes will be able to correctly map the address of the node</span>
+<span class="token comment"># publishing the information.</span>
+<span class="token comment">#</span>
+<span class="token comment"># If the above options are not used, the normal Redis Cluster auto-detection</span>
+<span class="token comment"># will be used instead.</span>
+<span class="token comment">#</span>
+<span class="token comment"># Note that when remapped, the bus port may not be at the fixed offset of</span>
+<span class="token comment"># clients port + 10000, so you can specify any port and bus-port depending</span>
+<span class="token comment"># on how they get remapped. If the bus-port is not set, a fixed offset of</span>
+<span class="token comment"># 10000 will be used as usually.</span>
+<span class="token comment">#</span>
+<span class="token comment"># Example:</span>
+<span class="token comment">#</span>
+<span class="token comment"># cluster-announce-ip 10.1.1.5</span>
+<span class="token comment"># cluster-announce-port 6379</span>
+<span class="token comment"># cluster-announce-bus-port 6380</span>
+ 
+<span class="token comment">################################## SLOW LOG ###################################</span>
+ 
+<span class="token comment"># The Redis Slow Log is a system to log queries that exceeded a specified</span>
+<span class="token comment"># execution time. The execution time does not include the I/O operations</span>
+<span class="token comment"># like talking with the client, sending the reply and so forth,</span>
+<span class="token comment"># but just the time needed to actually execute the command (this is the only</span>
+<span class="token comment"># stage of command execution where the thread is blocked and can not serve</span>
+<span class="token comment"># other requests in the meantime).</span>
+<span class="token comment">#</span>
+<span class="token comment"># You can configure the slow log with two parameters: one tells Redis</span>
+<span class="token comment"># what is the execution time, in microseconds, to exceed in order for the</span>
+<span class="token comment"># command to get logged, and the other parameter is the length of the</span>
+<span class="token comment"># slow log. When a new command is logged the oldest one is removed from the</span>
+<span class="token comment"># queue of logged commands.</span>
+ 
+<span class="token comment"># The following time is expressed in microseconds, so 1000000 is equivalent</span>
+<span class="token comment"># to one second. Note that a negative number disables the slow log, while</span>
+<span class="token comment"># a value of zero forces the logging of every command.</span>
+<span class="token attr-name">slowlog-log-slower-than</span> <span class="token attr-value">10000</span>
+ 
+<span class="token comment"># There is no limit to this length. Just be aware that it will consume memory.</span>
+<span class="token comment"># You can reclaim memory used by the slow log with SLOWLOG RESET.</span>
+<span class="token attr-name">slowlog-max-len</span> <span class="token attr-value">128</span>
+ 
+ 
+<span class="token comment"># By default latency monitoring is disabled since it is mostly not needed</span>
+<span class="token comment"># if you don't have latency issues, and collecting data has a performance</span>
+<span class="token comment"># impact, that while very small, can be measured under big load. Latency</span>
+<span class="token comment"># monitoring can easily be enabled at runtime using the command</span>
+<span class="token comment"># "CONFIG SET latency-monitor-threshold &lt;milliseconds&gt;" if needed.</span>
+<span class="token attr-name">latency-monitor-threshold</span> <span class="token attr-value">0</span>
+ 
+<span class="token comment">#  By default all notifications are disabled because most users don't need</span>
+<span class="token comment">#  this feature and the feature has some overhead. Note that if you don't</span>
+<span class="token comment">#  specify at least one of K or E, no events will be delivered.</span>
+<span class="token attr-name">notify-keyspace-events</span> <span class="token attr-value">""</span>
+ 
+ 
+ 
+<span class="token comment">############################### ADVANCED CONFIG ###############################</span>
+ 
+<span class="token comment"># Hashes are encoded using a memory efficient data structure when they have a</span>
+<span class="token comment"># small number of entries, and the biggest entry does not exceed a given</span>
+<span class="token comment"># threshold. These thresholds can be configured using the following directives.</span>
+<span class="token attr-name">hash-max-ziplist-entries</span> <span class="token attr-value">512</span>
+<span class="token attr-name">hash-max-ziplist-value</span> <span class="token attr-value">64</span>
+ 
+<span class="token comment"># Lists are also encoded in a special way to save a lot of space.</span>
+<span class="token comment"># The number of entries allowed per internal list node can be specified</span>
+<span class="token comment"># as a fixed maximum size or a maximum number of elements.</span>
+<span class="token comment"># For a fixed maximum size, use -5 through -1, meaning:</span>
+<span class="token comment"># -5: max size: 64 Kb  &lt;-- not recommended for normal workloads</span>
+<span class="token comment"># -4: max size: 32 Kb  &lt;-- not recommended</span>
+<span class="token comment"># -3: max size: 16 Kb  &lt;-- probably not recommended</span>
+<span class="token comment"># -2: max size: 8 Kb   &lt;-- good</span>
+<span class="token comment"># -1: max size: 4 Kb   &lt;-- good</span>
+<span class="token comment"># Positive numbers mean store up to _exactly_ that number of elements</span>
+<span class="token comment"># per list node.</span>
+<span class="token comment"># The highest performing option is usually -2 (8 Kb size) or -1 (4 Kb size),</span>
+<span class="token comment"># but if your use case is unique, adjust the settings as necessary.</span>
+<span class="token attr-name">list-max-ziplist-size</span> <span class="token attr-value">-2</span>
+ 
+<span class="token comment"># Lists may also be compressed.</span>
+<span class="token comment"># Compress depth is the number of quicklist ziplist nodes from *each* side of</span>
+<span class="token comment"># the list to *exclude* from compression.  The head and tail of the list</span>
+<span class="token comment"># are always uncompressed for fast push/pop operations.  Settings are:</span>
+<span class="token comment"># 0: disable all list compression</span>
+<span class="token comment"># 1: depth 1 means "don't start compressing until after 1 node into the list,</span>
+<span class="token comment">#    going from either the head or tail"</span>
+<span class="token comment">#    So: [head]-&gt;node-&gt;node-&gt;...-&gt;node-&gt;[tail]</span>
+<span class="token comment">#    [head], [tail] will always be uncompressed; inner nodes will compress.</span>
+<span class="token comment"># 2: [head]-&gt;[next]-&gt;node-&gt;node-&gt;...-&gt;node-&gt;[prev]-&gt;[tail]</span>
+<span class="token comment">#    2 here means: don't compress head or head-&gt;next or tail-&gt;prev or tail,</span>
+<span class="token comment">#    but compress all nodes between them.</span>
+<span class="token comment"># 3: [head]-&gt;[next]-&gt;[next]-&gt;node-&gt;node-&gt;...-&gt;node-&gt;[prev]-&gt;[prev]-&gt;[tail]</span>
+<span class="token comment"># etc.</span>
+<span class="token attr-name">list-compress-depth</span> <span class="token attr-value">0</span>
+ 
+<span class="token comment"># Sets have a special encoding in just one case: when a set is composed</span>
+<span class="token comment"># of just strings that happen to be integers in radix 10 in the range</span>
+<span class="token comment"># of 64 bit signed integers.</span>
+<span class="token comment"># The following configuration setting sets the limit in the size of the</span>
+<span class="token comment"># set in order to use this special memory saving encoding.</span>
+<span class="token attr-name">set-max-intset-entries</span> <span class="token attr-value">512</span>
+ 
+<span class="token comment"># Similarly to hashes and lists, sorted sets are also specially encoded in</span>
+<span class="token comment"># order to save a lot of space. This encoding is only used when the length and</span>
+<span class="token comment"># elements of a sorted set are below the following limits:</span>
+<span class="token attr-name">zset-max-ziplist-entries</span> <span class="token attr-value">128</span>
+<span class="token attr-name">zset-max-ziplist-value</span> <span class="token attr-value">64</span>
+ 
+<span class="token comment"># The suggested value is ~ 3000 in order to have the benefits of</span>
+<span class="token comment"># the space efficient encoding without slowing down too much PFADD,</span>
+<span class="token comment"># which is O(N) with the sparse encoding. The value can be raised to</span>
+<span class="token comment"># ~ 10000 when CPU is not a concern, but space is, and the data set is</span>
+<span class="token comment"># composed of many HyperLogLogs with cardinality in the 0 - 15000 range.</span>
+<span class="token attr-name">hll-sparse-max-bytes</span> <span class="token attr-value">3000</span>
+ 
+<span class="token comment"># Streams macro node max size / items. The stream data structure is a radix</span>
+<span class="token comment"># tree of big nodes that encode multiple items inside. Using this configuration</span>
+<span class="token comment"># it is possible to configure how big a single node can be in bytes, and the</span>
+<span class="token comment"># maximum number of items it may contain before switching to a new node when</span>
+<span class="token comment"># appending new stream entries. If any of the following settings are set to</span>
+<span class="token comment"># zero, the limit is ignored, so for instance it is possible to set just a</span>
+<span class="token comment"># max entires limit by setting max-bytes to 0 and max-entries to the desired</span>
+<span class="token comment"># value.</span>
+<span class="token attr-name">stream-node-max-bytes</span> <span class="token attr-value">4096</span>
+<span class="token attr-name">stream-node-max-entries</span> <span class="token attr-value">100</span>
+ 
+ 
+<span class="token comment"># use "activerehashing yes" if you don't have such hard requirements but</span>
+<span class="token comment"># want to free memory asap when possible.</span>
+<span class="token attr-name">activerehashing</span> <span class="token attr-value">yes</span>
+ 
+ 
+<span class="token comment"># Instead there is a default limit for pubsub and replica clients, since</span>
+<span class="token comment"># subscribers and replicas receive data in a push fashion.</span>
+<span class="token comment">#</span>
+<span class="token comment"># Both the hard or the soft limit can be disabled by setting them to zero.</span>
+<span class="token attr-name">client-output-buffer-limit</span> <span class="token attr-value">normal 0 0 0</span>
+<span class="token attr-name">client-output-buffer-limit</span> <span class="token attr-value">replica 256mb 64mb 60</span>
+<span class="token attr-name">client-output-buffer-limit</span> <span class="token attr-value">pubsub 32mb 8mb 60</span>
+ 
+<span class="token comment"># Client query buffers accumulate new commands. They are limited to a fixed</span>
+<span class="token comment"># amount by default in order to avoid that a protocol desynchronization (for</span>
+<span class="token comment"># instance due to a bug in the client) will lead to unbound memory usage in</span>
+<span class="token comment"># the query buffer. However you can configure it here if you have very special</span>
+<span class="token comment"># needs, such us huge multi/exec requests or alike.</span>
+<span class="token comment">#</span>
+<span class="token comment"># client-query-buffer-limit 1gb</span>
+ 
+<span class="token comment"># In the Redis protocol, bulk requests, that are, elements representing single</span>
+<span class="token comment"># strings, are normally limited ot 512 mb. However you can change this limit</span>
+<span class="token comment"># here.</span>
+<span class="token comment">#</span>
+<span class="token comment"># proto-max-bulk-len 512mb</span>
+ 
+ 
+<span class="token comment"># The range is between 1 and 500, however a value over 100 is usually not</span>
+<span class="token comment"># a good idea. Most users should use the default of 10 and raise this up to</span>
+<span class="token comment"># 100 only in environments where very low latency is required.</span>
+<span class="token attr-name">hz</span> <span class="token attr-value">10</span>
+ 
+ 
+<span class="token comment"># When dynamic HZ is enabled, the actual configured HZ will be used</span>
+<span class="token comment"># as a baseline, but multiples of the configured HZ value will be actually</span>
+<span class="token comment"># used as needed once more clients are connected. In this way an idle</span>
+<span class="token comment"># instance will use very little CPU time while a busy instance will be</span>
+<span class="token comment"># more responsive.</span>
+<span class="token attr-name">dynamic-hz</span> <span class="token attr-value">yes</span>
+ 
+<span class="token comment"># When a child rewrites the AOF file, if the following option is enabled</span>
+<span class="token comment"># the file will be fsync-ed every 32 MB of data generated. This is useful</span>
+<span class="token comment"># in order to commit the file to the disk more incrementally and avoid</span>
+<span class="token comment"># big latency spikes.</span>
+<span class="token attr-name">aof-rewrite-incremental-fsync</span> <span class="token attr-value">yes</span>
+ 
+<span class="token comment"># When redis saves RDB file, if the following option is enabled</span>
+<span class="token comment"># the file will be fsync-ed every 32 MB of data generated. This is useful</span>
+<span class="token comment"># in order to commit the file to the disk more incrementally and avoid</span>
+<span class="token comment"># big latency spikes.</span>
+<span class="token attr-name">rdb-save-incremental-fsync</span> <span class="token attr-value">yes</span>
+ 
+ 
+ 
+<span class="token comment"># Jemalloc background thread for purging will be enabled by default</span>
+<span class="token attr-name">jemalloc-bg-thread</span> <span class="token attr-value">yes</span>
+ 
+ <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="创建容器"><a href="#创建容器" class="headerlink" title="创建容器"></a>创建容器</h4><pre class="line-numbers language-docker" data-language="docker"><code class="language-docker">
+docker run <span class="token punctuation">-</span>p 6379<span class="token punctuation">:</span>6379 <span class="token punctuation">-</span><span class="token punctuation">-</span>name redis6 \
+<span class="token punctuation">-</span><span class="token punctuation">-</span>net mynet <span class="token punctuation">-</span><span class="token punctuation">-</span>ip 172.172.0.10 \
+<span class="token punctuation">-</span>v /root/dockerdata/redis6/redis.conf<span class="token punctuation">:</span>/etc/redis/redis.conf \
+<span class="token punctuation">-</span>v /root/dockerdata/redis6/data<span class="token punctuation">:</span>/data \
+<span class="token punctuation">-</span>d redis<span class="token punctuation">:</span>6.2.6 redis<span class="token punctuation">-</span>server /etc/redis/redis.conf <span class="token punctuation">-</span><span class="token punctuation">-</span>appendonly yes<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="安装方式二"><a href="#安装方式二" class="headerlink" title="安装方式二"></a>安装方式二</h3><pre class="line-numbers language-docker" data-language="docker"><code class="language-docker">version<span class="token punctuation">:</span> <span class="token string">"3"</span>
+services<span class="token punctuation">:</span>
+  redis<span class="token punctuation">:</span>
+    image<span class="token punctuation">:</span> redis<span class="token punctuation">:</span>6.0.6
+    container_name<span class="token punctuation">:</span> myRedis
+    restart<span class="token punctuation">:</span> always
+    ports<span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> 6380<span class="token punctuation">:</span>6379
+    volumes<span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> /var/redis/data<span class="token punctuation">:</span>/data<span class="token punctuation">:</span>rw
+      <span class="token punctuation">-</span> /usr/local/redis/redis.conf<span class="token punctuation">:</span>/etc/redis/redis.conf<span class="token punctuation">:</span>rw
+    command<span class="token punctuation">:</span>
+      redis<span class="token punctuation">-</span>server /etc/redis/redis.conf
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
+    </div>
+
+    
+    
+    
+      
+
+
+    <footer class="post-footer">
+<div style="padding-top: 26px;">
+    
+
+    <div class="endlan">
+        <i></i>
+        <p>本文结束--- <img src="https://static.xiaosige.com/img/logo.png" style="display:inline-block;margin-bottom:-7px;height: 25px;"> ---感谢您的阅读</p>
+    </div>
+
+
+    <p id="hitokoto" style="text-align:center;margin-top: 30px;font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, STKaiti, KaiTi, SimKai, DFKai-SB, 'Lato', 'PingFang SC', 'Microsoft YaHei', sans-serif;font-weight: bold;color: #999;">
+     正在加载一言...
+    </p>
+    <div style="margin-top: 30px;">
+      <img id="wechat_subscriber_qcode" src="https://static.xiaosige.com/img/reward-container-back.png" alt="leeze wechat" style="max-width: 100%;">
+    </div>
+    
+
+    
+</div>
+
+
+          <div class="reward-container">
+  <div></div>
+  <button>
+    打赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="https://static.xiaosige.com/img/wechatpay.png" alt="leeze 微信支付">
+        <span>微信支付</span>
+      </div>
+      <div>
+        <img src="https://static.xiaosige.com/img/alipay.png" alt="leeze 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>原作者： </strong>leeze
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://www.xiaosige.com/post/63ae3ee4.html" title="Docker安装Redis6并且配置redis.conf">https://www.xiaosige.com/post/63ae3ee4.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/Redis/" rel="tag"><i class="fa fa-tag"></i> Redis</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+            </div>
+            <div class="post-nav-item">
+                <a href="/post/f745277d.html" rel="next" title="Docker 启动 WARNING：IPv4 forwarding is disabled. Networking will not work.">
+                  Docker 启动 WARNING：IPv4 forwarding is disabled. Networking will not work. <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments" id="SOHUCS" sid="3731c7244b77673944ac02d5987f6a75"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Xiaosige.com 版权所有</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">258k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">3:54</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+<div calss="ypy" style="text-align:center;display:none;">
+    本网站由
+    <a target="_blank" rel="nofollow noopener" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral" style="border-bottom:none;">
+        <img src="https://static.xiaosige.com/img/ypy_logo.png" style="display:inline-block;margin-bottom:-7px;height: 25px;-webkit-filter: brightness(.8);filter: brightness(.8);">
+    </a>
+    提供CDN加速/云存储服务
+</div>
+
+
+  <div class="beian">
+          <img src="https://static.xiaosige.com/img/gongan.png" style="display: inline-block;vertical-align: text-bottom;padding-right: 6px;"><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11011502004362" rel="noopener" target="_blank">京公网安备 11011502004362 </a>
+    <span></span><a href="http://beian.miit.gov.cn/" rel="noopener" target="_blank">京ICP备2020038036号-1 </a>
+    <span></span>
+    本网站由
+    <a target="_blank" rel="nofollow noopener" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral" style="border-bottom:none;">
+        <img src="https://static.xiaosige.com/img/ypy_logo.png" style="display:inline-block;margin-bottom:-7px;height: 25px;-webkit-filter: brightness(.8);filter: brightness(.8);">
+    </a>
+    提供CDN加速/云存储服务
+  </div>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
+<script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2.0.1/dist/Meting.min.js"></script>
+<meting-js server="netease" type="playlist" id="5066697188" fixed="true" autoplay="false" order="random" lrc-type=1  theme="#eb7aab"></meting-js>
+
+
+<div class="bg-box" id="bg-box1"></div>
+<div class="bg-box" id="bg-box2"></div>
+<style>
+.bg-box {
+ background-repeat:no-repeat;
+ background-attachment:fixed;
+ background-position:50% 50%;
+ background-size:cover;
+ position:fixed;
+ left:0;
+ right:0;
+ top:0;
+ bottom:0
+}
+#bg-box1 {
+ z-index:-998
+}
+#bg-box2 {
+ z-index:-999
+}
+</style>
+
+
+
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@next-theme/pjax@0.5.0/pjax.min.js" integrity="sha256-3NkoLDrmHLTYj7csHIZSr0MHAFTXth7Ua/DDt4MRUAg=" crossorigin="anonymous"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lozad@1.16.0/dist/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  
+<script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+  <script class="next-config" data-name="pdf" type="application/json">{"object_url":{"url":"https://cdn.jsdelivr.net/npm/pdfobject@2.2.7/pdfobject.min.js","integrity":"sha256-ph3Dk89VmuTVXG6x/RDzk53SU9LPdAh1tpv0UvnDZ2I="},"url":"/lib/pdf/web/viewer.html"}</script>
+  <script src="/js/third-party/tags/pdf.js"></script>
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/quicklink@2.2.0/dist/quicklink.umd.js" integrity="sha256-4kQf9z5ntdQrzsBC3YSHnEz02Z9C1UeW/E9OgnvlzSY=" crossorigin="anonymous"></script>
+  <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":true,"delay":true,"timeout":3000,"priority":true,"ignores":null,"url":"https://www.xiaosige.com/post/63ae3ee4.html"}</script>
+  <script src="/js/third-party/quicklink.js"></script>
+<script class="next-config" data-name="changyan" type="application/json">{"enable":true,"appid":"cyvSPOTJq","appkey":"4436699688bbb9caa6e8826551a7c0f7"}</script>
+<script src="/js/third-party/comments/changyan.js"></script>
+
+
+<!-- 提示信息 -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery-toast-plugin@1.3.2/dist/jquery.toast.min.css"/>
+<script src="https://cdn.jsdelivr.net/npm/jquery-toast-plugin@1.3.2/dist/jquery.toast.min.js"></script>
+<!-- 樱花特效 -->
+<!-- 下雪 -->
+
+<!-- 天气 -->
+
+<!-- 文字闪烁（变色） -->
+<script>
+function magicColor(mode,t){
+  t=t||10;
+  let elem=document.getElementsByClassName("magic-color");
+  if(!elem){
+      setTimeout(function(){
+          magicColor(mode,t-1);
+      },400);
+      return;
+  }
+  if(window.mcHandler==undefined){
+      window.mcHandler={elements:[]};
+      window.mcHandler.colorIndex=0;
+      window.mcHandler.run=function(mode){
+          let color=mode=="random"?("rgb("+Math.floor(Math.random()*256)+","+Math.floor(Math.random()*256)+","+Math.floor(Math.random()*256)+",1)"):["#CC0000","#9999CC","#CC3366","#669999","#FFCC00","#00CCCC","#CC00CC"][(window.mcHandler.colorIndex++)%7];
+          for(var i=0,L=window.mcHandler.elements.length;i<L;i++)window.mcHandler.elements[i].style.color=color;
+      }
+  }
+  window.mcHandler.elements=elem;
+  if(window.mcHandler.timer==undefined){
+      window.mcHandler.timer=setInterval(()=>{window.mcHandler.run(mode)},500);
+  }
+}
+magicColor("random");//random为随机颜色，否则为固定颜色随机；上方“闪烁（变色）”字样为固定颜色随机
+</script>
+
+
+<!-- 一言API -->
+<!-- 现代写法，推荐 -->
+<!-- 兼容低版本浏览器 (包括 IE)，可移除 -->
+<script src="https://cdn.jsdelivr.net/npm/bluebird@3/js/browser/bluebird.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/whatwg-fetch@2.0.3/fetch.min.js"></script>
+<!--End-->
+<script>
+fetch('https://v1.hitokoto.cn')
+  .then(function (res){
+    return res.json();
+  })
+  .then(function (data) {
+    var hitokoto = document.getElementById('hitokoto');
+    if(hitokoto){
+      hitokoto.innerHTML = "<i class='fa fa-volume-up magic-color' style='margin-right:6px;'></i>" + data.hitokoto + '——【' + data.from + '】';
+    }
+  })
+  .catch(function (err) {
+    console.error(err);
+  })
+</script>
+
+
+<!-- 代码块自动隐藏 -->
+<script>
+$(function(){
+    const CODE_MAX_HEIGHT = 200;
+    const containers = [];
+
+    // 展开
+    $('body').on('click', '.js_unfold_code_btn', function () {
+        $(this).closest('.js_highlight_container').addClass('on');
+    });
+    // 收起
+    $('body').on('click', '.js_retract_code_btn', function () {
+        const $container = $(this).closest('.js_highlight_container').removeClass('on');
+        const winTop = $(window).scrollTop();
+        const offsetTop = $container.offset().top;
+        $(this).css('top', 0);
+        if (winTop > offsetTop) {
+            // 设置滚动条位置
+            $('body, html').animate({
+                scrollTop: $container.offset().top - CODE_MAX_HEIGHT
+            }, 600);
+        }
+    });
+    // 滚动事件，触发动画效果
+    $(window).on('scroll', function () {
+        const scrollTop = $(window).scrollTop();
+        const temp = [];
+        for (let i = 0; i < containers.length; i++) {
+            const item = containers[i];
+            const { $container, height, $hide, hasHorizontalScrollbar } = item;
+            if ($container.closest('body').length === 0) {
+                // 如果 $container 元素已经不在页面上, 则删除该元素
+                // 防止pjax页面跳转之后，元素未删除
+                continue;
+            }
+            temp.push(item);
+            if (!$container.hasClass('on')) {
+                continue;
+            }
+            const offsetTop = $container.offset().top;
+            const hideBtnHeight = $hide.outerHeight();
+            // 减去按钮高度，减去底部滚动条高度
+            const maxTop = parseInt(height - (hasHorizontalScrollbar ? 17 : 0) - hideBtnHeight);
+            let top = parseInt(
+                Math.min(
+                    Math.max(scrollTop - offsetTop, 0), // 如果小于 0 ，则取 0
+                    maxTop,// 如果大于 height ，则取 height
+                )
+            );
+            // 根据 sin 曲线设置"收起阅读"位置
+            const halfHeight = parseInt($(window).height() / 2 * Math.sin((top / maxTop) * 90 * (2 * Math.PI/360)));
+            $hide.css('top', Math.min(top + halfHeight, maxTop));
+        }
+        //containers = temp;
+    });
+
+    // 添加隐藏容器
+    const addCodeWrap = ($node) => {
+        const $container = $node.wrap('<div class="js_highlight_container highlight-container"><div class="highlight-wrap"></div></div>').closest('.js_highlight_container');
+
+        // 底部 "阅读更多" 与 侧边栏 "收起阅读"
+        const $btn = $(`
+        <div class="highlight-footer">
+          <a class="js_unfold_code_btn show-btn" href="javascript:;">
+              <span class="btn-inner">
+                阅读更多<i class="fa fa-angle-right fa-lg" aria-hidden="true"></i>
+              </span>
+              <div class="btnbg-x"></div>
+          </a>
+        </div>
+        <a class="js_retract_code_btn hide-btn" href="javascript:;"><i class="fa fa-angle-up fa-lg" aria-hidden="true"></i>收起阅读</a>
+      `);
+
+        $container.append($btn);
+        return $container;
+    };
+
+    $('.highlight').each(function () {
+        // 防止重复渲染
+        if (this.__render__ === true) {
+            return true;
+        }
+        this.__render__ = true;
+        const $this = $(this);
+        const height = $(this).outerHeight();
+        if (height > CODE_MAX_HEIGHT) {
+            // 添加展开&收起容器
+            const $container = addCodeWrap($this, height);
+            containers.push({
+                $container,
+                height,
+                $hide: $container.find('.js_retract_code_btn'),
+                hasHorizontalScrollbar: this.scrollWidth > this.offsetWidth,
+            });
+        }
+    });
+
+    $('.line-numbers').each(function () {
+        // 防止重复渲染
+        if (this.__render__ === true) {
+            return true;
+        }
+        this.__render__ = true;
+        const $this = $(this);
+        const height = $(this).outerHeight();
+        if (height > CODE_MAX_HEIGHT) {
+            // 添加展开&收起容器
+            const $container = addCodeWrap($this, height);
+            containers.push({
+                $container,
+                height,
+                $hide: $container.find('.js_retract_code_btn'),
+                hasHorizontalScrollbar: this.scrollWidth > this.offsetWidth,
+            });
+        }
+    });
+
+    $('.table-container').each(function () {
+        // 防止重复渲染
+        if (this.__render__ === true) {
+            return true;
+        }
+        this.__render__ = true;
+        const $this = $(this);
+        const height = $(this).outerHeight();
+        if (height > CODE_MAX_HEIGHT) {
+            // 添加展开&收起容器
+            const $container = addCodeWrap($this, height);
+            containers.push({
+                $container,
+                height,
+                $hide: $container.find('.js_retract_code_btn'),
+                hasHorizontalScrollbar: this.scrollWidth > this.offsetWidth,
+            });
+        }
+    });
+
+});
+</script>
+
+
+<script  type="text/javascript">
+
+layui.use(['jquery', 'layer'], function(){
+
+  var $ = layui.$,layer = layui.layer;
+
+  <!-- wobble窗口摆动特效 -->
+  
+
+
+     var wobbleWindow = function(object, params) {
+          var canvas,
+              ctx;
+          var mousePos = {
+              x: 0,
+              y: 0
+          };
+          var isResizing = false;
+          var delayId = 0;
+          var canvasContent = {};
+          var points = {};
+
+          var settings = {};
+          settings.name = 'wobblew'; //name
+          settings.position = 'relative'; //relative or absolute
+          settings.depth = -1; //depth for zIndex
+          settings.overflowX = 'visible';
+          settings.overflowY = 'visible';
+          settings.offsetX = 0; //+ or - value the size of the div
+          settings.offsetY = 0; //+ or - value the size of the div
+          settings.moveTypeIn = 'move'; //method points follow the mouse
+          settings.moveTypeOut = 'wobble'; //method points go back to init position
+          settings.wobbleFactor = 0.95; //control the wobble effect
+          settings.wobbleSpeed = 0.1; //control the wobble effect
+          settings.moveSpeed = 6; //control the move speed
+          settings.lineWidth = 1; //lineWidth
+
+          settings.transplantLineColor = false; //true Use Object border-color
+          settings.lineColor = ''; //no value = no line. Use hex/rgba values
+          settings.transplantBodyColor = true; //true Use Object background Color
+          settings.bodyColor = ''; //no value = no body color. Use hex/rgba values
+          settings.radius = 50; //
+          settings.pointCountX = 7; //quantity of points horizontal. must be an odd int
+          settings.pointCountY = 5; //quantity of points vertical. must be an odd int
+          settings.movementLeft = true; //enable/disable movement directions
+          settings.movementRight = true; //enable/disable movement directions
+          settings.movementTop = true; //enable/disable movement directions
+          settings.movementBottom = true; //enable/disable movement directions
+          settings.autoResize = true; //if true size will be automatically adjusted
+          settings.debug = false; //enable/disable debug mode
+
+          // ---
+          if (params !== undefined) {
+              for (var prop in params) {
+                  if (params.hasOwnProperty(prop) && settings.hasOwnProperty(prop)) {
+                      settings[prop] = params[prop];
+                  }
+              }
+          }
+
+          // ---
+          if (!object) {
+              throw Error('\n' + 'No div element found');
+          }
+          if ((settings.pointCountX % 2) === 0) {
+              throw Error('\n' + 'Param pointCountX must be an odd integer');
+          }
+          if ((settings.pointCountY % 2) === 0) {
+              throw Error('\n' + 'Param pointCountY must be an odd integer');
+          }
+
+          // ---
+          HTMLElement.prototype.__defineGetter__("currentStyle", function() {
+              return this.ownerDocument.defaultView.getComputedStyle(this, null);
+          });
+          // ---
+          function init() {
+              canvas = document.createElement('canvas');
+              canvas.id = settings.name;
+              canvas.style.position = 'absolute';
+              canvas.style.zIndex = settings.depth.toString();
+              canvas.addEventListener('mousemove', mouseMoveHandler);
+              canvas.addEventListener('mouseleave', mouseLeaveHandler);
+              ctx = canvas.getContext('2d');
+
+              // element.insertBefore(canvas, element.firstChild);
+              object.appendChild(canvas);
+              object.style.position = settings.position;
+              object.style.zIndex = (settings.depth + 1).toString();
+              if (settings.overflowX.length > 0) {
+                  object.parentElement.style.overflowX = settings.overflowX;
+              };
+              if (settings.overflowY.length > 0) {
+                  object.parentElement.style.overflowY = settings.overflowY;
+              };
+              if (settings.transplantBodyColor) {
+                  if (object.currentStyle.backgroundColor.length > 0) {
+                      settings.bodyColor = object.currentStyle.backgroundColor;
+                  }
+              };
+              if (settings.transplantLineColor) {
+                  if (object.currentStyle.borderColor.length > 0) {
+                      settings.lineColor = object.currentStyle.borderColor;
+                  }
+              };
+              canvasContent.elementWidth = object.offsetWidth;
+              canvasContent.elementHeight = object.offsetHeight;
+              // ---
+              resizeCanvas();
+              addWindow();
+              animloop();
+              // -----------
+              if (settings.transplantBodyColor) {
+                  if (object.currentStyle.backgroundColor.length > 0) {
+                      if (object.className.length > 0) {
+                          object.className += ' wobbleTransparentBK';
+                      } else {
+                          object.className = ' wobbleTransparentBK';
+                      };
+                  }
+              };
+              if (settings.transplantLineColor) {
+                  if (object.currentStyle.borderColor.length > 0) {
+                      if (object.className.length > 0) {
+                          object.className += ' wobbleTransparentLine';
+                      } else {
+                          object.className = ' wobbleTransparentLine';
+                      };
+                  }
+              };
+          };
+
+          // ---
+          function resizeCanvas() {
+              canvasContent.width = canvasContent.elementWidth + settings.offsetX * 2;
+              canvasContent.height = canvasContent.elementHeight + settings.offsetY * 2;
+
+              if (settings.radius > 0) { //round,  ceil
+                  settings.pointCountX = Math.round(canvasContent.width / settings.radius);
+                  settings.pointCountY = Math.round(canvasContent.height / settings.radius);
+              };
+              if (settings.pointCountX % 2 == 0) {
+                  settings.pointCountX = settings.pointCountX + 1;
+              };
+              if (settings.pointCountY % 2 == 0) {
+                  settings.pointCountY = settings.pointCountY + 1;
+              };
+
+              points.spaceX = Math.min(canvasContent.elementWidth, canvasContent.width / (settings.pointCountX - 1));
+              points.spaceY = Math.min(canvasContent.elementHeight, canvasContent.height / (settings.pointCountY + 1));
+              points.radius = Math.ceil(Math.max(points.spaceX, points.spaceY));
+
+              ///--------------new1------------------
+              canvasContent.left = 0;
+              canvasContent.top = 0;
+              settings.canvasWidth = canvasContent.elementWidth;
+              if (settings.movementLeft) {
+                  canvas.style.left = -points.radius + 'px';
+                  settings.canvasWidth += points.radius;
+                  canvasContent.left = points.radius - settings.offsetX;
+              } else {
+                  canvas.style.left = -settings.offsetX + 'px';
+              };
+              if (settings.movementRight)
+                  settings.canvasWidth += points.radius;
+
+              settings.canvasHeight = canvasContent.elementHeight;
+              if (settings.movementTop) {
+                  canvas.style.top = -points.radius + 'px';
+                  settings.canvasHeight += points.radius;
+                  canvasContent.top = points.radius - settings.offsetY;
+              } else {
+                  canvas.style.top = -settings.offsetY + 'px';
+              };
+              if (settings.movementBottom)
+                  settings.canvasHeight += points.radius;
+
+              canvas.width = settings.canvasWidth;
+              canvas.height = settings.canvasHeight;
+          };
+
+          // ---
+          function addWindow() {
+              points.pointHolder = [];
+              // ---
+              var point;
+              var flag;
+              var i,
+                  l;
+              // ---
+              //top
+              flag = true;
+              for (i = 0, l = settings.pointCountX; i < l; i++) {
+                  if (settings.movementTop) {
+                      if (flag) {
+                          point = addPoint(canvasContent.left + i * points.spaceX, canvasContent.top, 0, 0, 0, true, points.spaceX, 'P', settings.debug);
+                          flag = false;
+                      } else {
+                          point = addPoint(canvasContent.left + i * points.spaceX, canvasContent.top, 0, 0, 0, true, points.spaceX, 'C', settings.debug);
+                          flag = true;
+                      }
+                      if (i === 0 || i === l - 1) {
+                          point.color = '#00FF00';
+                          point.movement = false;
+                      }
+                      points.pointHolder.push(point);
+                  } else {
+                      if (i === 0 || i === l - 1) {
+                          point = addPoint(canvasContent.left + i * points.spaceX, canvasContent.top, 0, 0, 0, false, 0, 'P', settings.debug);
+                      }
+                      points.pointHolder.push(point);
+                  }
+              }
+
+              // ---
+              //right
+              flag = false;
+              for (i = 1, l = settings.pointCountY + 1; i < l; i++) {
+                  if (settings.movementRight) {
+                      if (flag) {
+                          point = addPoint(canvasContent.left + canvasContent.width, canvasContent.top + i * points.spaceY, 0, 0, 0, true, points.spaceY, 'P', settings.debug);
+                          flag = false;
+                      } else {
+                          point = addPoint(canvasContent.left + canvasContent.width, canvasContent.top + i * points.spaceY, 0, 0, 0, true, points.spaceY, 'C', settings.debug);
+                          flag = true;
+                      }
+                      points.pointHolder.push(point);
+                  } else {
+                      if (i === 1) {
+                          point = addPoint(canvasContent.left + canvasContent.width, canvasContent.top + (i - 1) * points.spaceY, 0, 0, 0, false, 0, 'P', settings.debug);
+                      } else if (i === settings.pointCountY) {
+                          point = addPoint(canvasContent.left + canvasContent.width, canvasContent.top + (i + 1) * points.spaceY, 0, 0, 0, false, 0, 'P', settings.debug);
+                      }
+                      points.pointHolder.push(point);
+                  }
+              }
+
+              // ---
+              //bottom
+              flag = true;
+              for (i = settings.pointCountX - 1, l = -1; i > l; i--) {
+                  if (settings.movementBottom) {
+                      if (flag) {
+                          point = addPoint(canvasContent.left + i * points.spaceX, canvasContent.top + canvasContent.height, 0, 0, 0, true, points.spaceX, 'P', settings.debug);
+                          flag = false;
+                      } else {
+                          point = addPoint(canvasContent.left + i * points.spaceX, canvasContent.top + canvasContent.height, 0, 0, 0, true, points.spaceX, 'C', settings.debug);
+                          flag = true;
+                      }
+                      if (i === 0 || i === settings.pointCountX - 1) {
+                          point.color = '#00FF00';
+                          point.movement = false;
+                      }
+                      points.pointHolder.push(point);
+                  } else {
+                      if (i === 0 || i === settings.pointCountX - 1) {
+                          point = addPoint(canvasContent.left + i * points.spaceX, canvasContent.top + canvasContent.height, 0, 0, 0, false, 0, 'P', settings.debug);
+                      }
+                      points.pointHolder.push(point);
+                  }
+              }
+
+              // ---
+              //left
+              flag = false;
+              for (i = settings.pointCountY, l = -1; i > l; i--) {
+                  if (settings.movementLeft) {
+                      if (flag) {
+                          point = addPoint(canvasContent.left, canvasContent.top + i * points.spaceY, 0, 0, 0, true, points.spaceY, 'P', settings.debug);
+                          flag = false;
+                      } else {
+                          point = addPoint(canvasContent.left, canvasContent.top + i * points.spaceY, 0, 0, 0, true, points.spaceY, 'C', settings.debug);
+                          flag = true;
+                      }
+                      points.pointHolder.push(point);
+                  } else {
+                      if (i === 0) {
+                          point = addPoint(canvasContent.left, canvasContent.top + i * points.spaceY, 0, 0, 0, false, 0, 'P', settings.debug);
+                      } else if (i === settings.pointCountY) {
+                          point = addPoint(canvasContent.left, canvasContent.top + (i + 1) * points.spaceY, 0, 0, 0, false, 0, 'P', settings.debug);
+                      }
+                      points.pointHolder.push(point);
+                  }
+              }
+          }
+
+          // ---
+          function addPoint(x, y, xp, yp, distance, movement, radius, type, visible) {
+              var point = {};
+              point.x = x;
+              point.y = y;
+              point.xp = x;
+              point.yp = y;
+              point.sx = 0;
+              point.sy = 0;
+              point.distance = distance;
+              point.movement = movement;
+              point.radius = radius;
+              point.type = type;
+              point.visible = visible;
+              return point;
+          };
+
+          // ---
+          window.requestAnimFrame = (function() {
+              return window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || function(callback) {
+                  window.setTimeout(callback, 1000 / 60);
+              };
+          })();
+
+          function animloop() {
+              requestAnimFrame(animloop);
+              render();
+              if (settings.autoResize) {
+                  resize();
+              }
+          };
+
+          // ---
+          function render() {
+              ctx.clearRect(0, 0, settings.canvasWidth, settings.canvasHeight);
+
+              // ---
+              var windowPoints = points.pointHolder;
+              var i,
+                  l;
+
+              // ---
+              ctx.beginPath();
+              ctx.moveTo(windowPoints[0].x, windowPoints[0].y);
+              for (i = 1, l = windowPoints.length; i < l; i += 2) {
+                  var point = windowPoints[i];
+
+                  // ---
+                  var dx = mousePos.x - point.xp;
+                  var dy = mousePos.y - point.yp;
+                  point.distance = Math.sqrt(dx * dx + dy * dy);
+                  if (point.distance < point.radius) {
+                      if (settings.moveTypeIn === 'wobble') {
+                          point.sx = point.sx * settings.wobbleFactor + (mousePos.x - point.x) * settings.wobbleSpeed;
+                          point.sy = point.sy * settings.wobbleFactor + (mousePos.y - point.y) * settings.wobbleSpeed;
+                          point.x = point.x + point.sx;
+                          point.y = point.y + point.sy;
+                      } else if (settings.moveTypeIn === 'move') {
+                          point.x -= (point.x - mousePos.x) / settings.moveSpeed;
+                          point.y -= (point.y - mousePos.y) / settings.moveSpeed;
+                      }
+                  } else {
+                      if (settings.moveTypeOut === 'wobble') {
+                          point.sx = point.sx * settings.wobbleFactor + (point.xp - point.x) * settings.wobbleSpeed;
+                          point.sy = point.sy * settings.wobbleFactor + (point.yp - point.y) * settings.wobbleSpeed;
+                          point.x = point.x + point.sx;
+                          point.y = point.y + point.sy;
+                      } else if (settings.moveTypeOut === 'move') {
+                          point.x -= (point.x - point.xp) / settings.moveSpeed;
+                          point.y -= (point.y - point.yp) / settings.moveSpeed;
+                      }
+                  }
+
+                  // ---
+                  var pointBefor = windowPoints[i - 1];
+                  var pointAfter = windowPoints[i + 1];
+                  if (i > 2 && i < windowPoints.length - 2) {
+                      if (pointBefor.movement) {
+                          pointBefor.x = (windowPoints[i - 2].x + point.x) / 2;
+                          pointBefor.y = (windowPoints[i - 2].y + point.y) / 2;
+                      }
+                      if (pointAfter.movement) {
+                          pointAfter.x = (windowPoints[i + 2].x + point.x) / 2;
+                          pointAfter.y = (windowPoints[i + 2].y + point.y) / 2;
+                      }
+                  }
+                  ctx.quadraticCurveTo(point.x, point.y, pointAfter.x, pointAfter.y);
+              }
+
+              // ---
+              if (settings.lineColor.length > 0) {
+                  ctx.lineWidth = settings.lineWidth;
+                  ctx.strokeStyle = settings.lineColor;
+                  ctx.stroke();
+              }
+              if (settings.bodyColor.length > 0) {
+                  ctx.fillStyle = settings.bodyColor;
+                  ctx.fill();
+              }
+              // ctx.globalCompositeOperation = 'source-out';
+              // ctx.fillStyle = "rgba(0, 0, 0, 1)";
+              // ctx.fill();
+
+              // ---
+              if (settings.debug) {
+                  for (i = 0, l = windowPoints.length; i < l; i++) {
+                      var point = windowPoints[i];
+                      if (point.visible) {
+                          if (point.type === 'P') {
+                              drawCircle(point.x, point.y, 3, '#FF0000');
+                          } else {
+                              drawCircle(point.x, point.y, 6, '#FF00FF');
+                          }
+                          if (point.color) {
+                              drawCircle(point.x, point.y, 12, point.color);
+                          }
+                      }
+                  }
+                  ctx.strokeStyle = '#000000';
+                  ctx.strokeRect(0, 0, settings.canvasWidth, settings.canvasHeight);
+              }
+          };
+
+          // ---
+          function delayFlag() {
+              resizeCanvas();
+              addWindow();
+              isResizing = false;
+          };
+
+          function resize() {
+              if (!isResizing) {
+                  if (canvasContent.elementWidth !== object.offsetWidth || canvasContent.elementHeight !== object.offsetHeight) {
+                      // -----------
+                      isResizing = true;
+                      canvasContent.elementWidth = object.offsetWidth;
+                      canvasContent.elementHeight = object.offsetHeight;
+                      // 防止闪白
+                      delayId = window.setTimeout(delayFlag, 10);
+                  }
+              }
+          };
+
+          // ---
+          function drawCircle(x, y, radius, color) {
+              ctx.beginPath();
+              ctx.arc(x, y, radius, 0, 2 * Math.PI);
+              ctx.strokeStyle = color;
+              ctx.stroke();
+          };
+
+          // ---
+          function mouseMoveHandler(event) {
+              mousePos = getMousePos(canvas, event);
+          };
+
+          function mouseLeaveHandler(event) {
+              mousePos.x = -10000;
+              mousePos.y = -10000;
+          };
+
+          // ---
+          function getMousePos(canvas, event) {
+              var rect = canvas.getBoundingClientRect();
+              return {
+                  x: event.clientX - rect.left,
+                  y: event.clientY - rect.top
+              };
+          };
+
+          // ---
+          init();
+      };
+
+
+  var settings = {
+        radius: 20,
+        wobbleFactor: 0.98,
+        wobbleSpeed: 0.05,
+        moveSpeed: 3,
+        lineWidth: 3,
+        lineColor: '#000',
+        bodyColor: '#EEE'
+
+  };
+/*
+  var footers=document.querySelectorAll(".footer");
+  wobbleWindow(footers[footers.length-1],{
+                radius: 20,
+                depth:-2,
+                movementBottom: false,
+                movementLeft: false,
+                movementRight: false,
+                debug: false
+  });*/
+
+  var postblocks=document.querySelectorAll(".main-inner .post-block ");
+  [].forEach.call(postblocks, function(elm) {
+      wobbleWindow(elm,settings);
+  });
+
+  
+
+});
+
+</script>
+
+
+<!-- 页面背景图片动态加载 -->
+<script>
+
+     //获取指定长度的uuid
+     function uuid(len, radix) {
+        var chars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'.split('');
+        var uuid = [], i;
+        radix = radix || chars.length;
+
+        if (len) {
+          // Compact form
+          for (i = 0; i < len; i++) uuid[i] = chars[0 | Math.random()*radix];
+        } else {
+          // rfc4122, version 4 form
+          var r;
+
+          // rfc4122 requires these characters
+          uuid[8] = uuid[13] = uuid[18] = uuid[23] = '-';
+          uuid[14] = '4';
+
+          // Fill in random data.  At i==19 set the high bits of clock sequence as
+          // per rfc4122, sec. 4.1.5
+          for (i = 0; i < 36; i++) {
+            if (!uuid[i]) {
+              r = 0 | Math.random()*16;
+              uuid[i] = chars[(i == 19) ? (r & 0x3) | 0x8 : r];
+            }
+          }
+        }
+
+        return uuid.join('');
+    }
+
+    function animatechangbgimg(elm,opacityvalue,bgimgurl){
+        $(elm).animate(
+        　　{opacity:opacityvalue},
+        　　"slow",
+        　　null,
+        　　function(){
+               $(elm).css("background-image","url("+bgimgurl+")");
+        　　}
+        );
+    }
+
+    function checktime(time){
+        var oldtime = localStorage.getItem("pjax-imgurl-leeze-lastvisitedtime");
+        return Math.floor(((new Date).getTime()-oldtime)/1e3) >= time;
+    }
+
+    function changbgimgurl(){
+
+          if(checktime(13)){//每次打开新页面，都会触发一个新的调度器，固加入lastvisitedtime校验，确保循环时间
+                //var tc = "https://cdn.jsdelivr.net/gh/maplesugarr/blog-assets/imgs/body-bg/body-bg-" + Math.floor(23 * Math.random()) + ".jpg";
+                //var bgimgurl = 'https://source.unsplash.com/collection/30327996/2000x1000';
+                //var initbgurl = null,newbgurl = "https://cdn.jsdelivr.net/gh/leeze2012/blog-assets/img/body-bg-" + Math.floor(26 * Math.random()) + ".jpg";
+                var initbgurl = null,newbgurl = "https://static.xiaosige.com/img/bg/body-bg-" + Math.floor(26 * Math.random()) + ".jpg";
+                if(localStorage.hasOwnProperty('pjax-imgurl-leeze')){
+                  initbgurl = localStorage.getItem("pjax-imgurl-leeze");
+                }else{
+                  initbgurl = newbgurl;
+                }
+
+                if($("#bg-box1").css('opacity')==="1"){
+                      animatechangbgimg("#bg-box1",0,newbgurl);
+                      animatechangbgimg("#bg-box2",1,initbgurl);
+                }else{
+                      animatechangbgimg("#bg-box1",1,initbgurl);
+                      animatechangbgimg("#bg-box2",0,newbgurl);
+                }
+
+                localStorage.setItem("pjax-imgurl-leeze", newbgurl);
+                localStorage.setItem("pjax-imgurl-leeze-lastvisitedtime",(new Date).getTime());
+          }
+
+    };
+
+    setInterval(changbgimgurl,15000);
+
+</script>
+
+<!-- 标题文字闪烁效果 -->
+<script>
+
+document.getElementsByClassName('site-title')[0].setAttribute('data-splitting','chars');
+
+Splitting();
+gsap.set('.char', {
+  '--hue': gsap.utils.distribute({
+    base: 0,
+    amount: 330,
+  })
+});
+gsap.to('.char', {
+  '--weight': 700,
+  '--saturation': 80,
+  ease: 'sine.inOut',
+  duration: 0.5,
+  stagger: {
+    yoyo: true,
+    repeat: -1,
+    each: 0.15,
+  }
+}).time(2);
+</script>
+
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        <!-- 站点作者头像 -->
+        if($('.site-author:first').children().first().prop("tagName").toLowerCase() === "img"){
+            <!-- 头像站点作者头像连接到关于我 -->
+            $('.site-author-image').prop('outerHTML', "<a href='/about' title='关于我'>"+$('.site-author-image').prop("outerHTML")+"</a>");
+            <!-- 站点作者头像动画阴影 -->
+            $(".site-author-image").hover(function(){
+                $(this).toggleClass('site-author-image-yy');
+            },function(){
+                $(this).toggleClass('site-author-image-yy');
+            });
+        }
+        <!-- 五星好评 -->
+        if($("#wpac-rating").length > 0){
+            $("#wpac-rating").before("<div style='color: rgba(0, 0, 0, 0.75); font-size:13px; letter-spacing:3px'>(&gt; 看完记得五星好评哦亲 &lt;)</div>");
+            $(".wp_rating").css("height","30px");
+        }
+        if($(".copyright").length > 0){
+            <!-- footer追加邮箱 -->
+            if($(".leezeEmail").length === 0){
+                $(".copyright").append("<span class='leezeEmail post-meta-item'><i style='margin-right:6px;' class='fa fa-fw fa-envelope with-love'></i><a href='mailto:leeze0216@163.com' title='E-Mail → mailto:leeze0216@163.com' target='_blank'>leeze0216@163.com</a></span>");
+            }
+            <!-- 版权图标 -->
+            $(".copyright span[class='with-love']").css("display","none");
+        }
+        <!-- footer的阅读次数位置调整 -->
+        if($(".busuanzi-count").length > 0){
+            $(".wordcount").append($(".busuanzi-count").html());
+            $(".busuanzi-count").remove();
+        }
+        <!-- 标签页追加抖动样式 -->
+        if($('.tag-cloud-tags a').length > 0){
+            $('.tag-cloud-tags a').each(function(){
+              $(this).addClass('shake shake-slow');
+            });
+        }
+        <!-- 社交链接增加hover样式 -->
+        if($('.links-of-author-item a').length > 0){
+            $('.links-of-author-item a').each(function(index,element){
+                if((index+1)%2 === 1){
+                    $(this).addClass('hvr-bounce-to-right');
+                }else{
+                    $(this).addClass('hvr-bounce-to-left');
+                }
+                if($(this).children('i').length > 0){
+                    $(this).children('i').addClass('faa-spin');
+                }
+            });
+        }
+        <!-- 主菜单hover样式 -->
+        if($('.main-menu .menu-item a').length > 0){
+            $('.main-menu .menu-item a').each(function(index,element){
+                $(this).addClass('hvr-grow-shadow');
+                if($(this).children('i').length > 0){
+                    $(this).children('i').addClass('faa-wrench');
+                }
+            });
+        }
+        <!-- 移动端 隐藏音乐 -->
+        if (/(iPhone|iPad|iPod|iOS|Android)/i.test(navigator.userAgent)) {
+            $('meting-js').css('display','none');
+        }
+
+        <!-- 转载 -->
+        if($('.zhuanzai').length > 0){
+            $('.zhuanzai').each(function(index,element){
+                $(this).hover(function(){
+                    var tipmsg = this.getAttribute('href');
+                    if( tipmsg === 'javascript:;'){
+                        tipmsg = "抱歉，忘记转载地址了！";
+                    }
+                    layer.tips(tipmsg, $(this), {
+                      tips: 3
+                    });
+                },function(){
+                    layer.closeAll('tips');
+                });
+            });
+        }
+
+    });
+</script>
+<!-- 自定义 -->
+<script src="/zone/js/leeze.js"></script>
+<div class="moon-menu">
+  <div class="moon-menu-items">
+    
+    <div id="moon-menu-item-back2bottom" class="moon-menu-item" onclick="back2bottom()">
+      <i class='fa fa-chevron-down'></i>    </div>
+    
+    <div id="moon-menu-item-back2top" class="moon-menu-item" onclick="back2top()">
+      <i class='fa fa-chevron-up'></i>    </div>
+    
+  </div>
+  <div class="moon-menu-button">
+    <svg class="moon-menu-bg">
+      <circle class="moon-menu-cricle" cx="50%" cy="50%" r="44%"></circle>
+      <circle class="moon-menu-border" cx="50%" cy="50%" r="48%"></circle>
+    </svg>
+    <div class="moon-menu-content">
+      <div class="moon-menu-icon"><i class='fas fa-ellipsis-v'></i></div>
+      <div class="moon-menu-text"></div>
+    </div>
+  </div>
+</div><script src="/js/injector.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</body>
+</html>

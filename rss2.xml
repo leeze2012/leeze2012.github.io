@@ -15,8 +15,29 @@
     <atom:link href="https://www.xiaosige.com/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>因上努力，果上随缘！</description>
-    <pubDate>Wed, 30 Mar 2022 15:07:24 GMT</pubDate>
+    <pubDate>Wed, 30 Mar 2022 16:45:09 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>Docker安装Redis6并且配置redis.conf</title>
+      <link>https://www.xiaosige.com/post/63ae3ee4.html</link>
+      <guid>https://www.xiaosige.com/post/63ae3ee4.html</guid>
+      <pubDate>Wed, 30 Mar 2022 16:26:15 GMT</pubDate>
+      
+      <description>&lt;h3 id=&quot;安装方式一&quot;&gt;&lt;a href=&quot;#安装方式一&quot; class=&quot;headerlink&quot; title=&quot;安装方式一&quot;&gt;&lt;/a&gt;安装方式一&lt;/h3&gt;&lt;h4 id=&quot;拉取Docker的Redis镜像&quot;&gt;&lt;a href=&quot;#拉取Docker的Redis镜像&quot; class=&quot;headerlink&quot; title=&quot;拉取Docker的Redis镜像&quot;&gt;&lt;/a&gt;拉取Docker的Redis镜像&lt;/h4&gt;&lt;pre class=&quot;line-numbers language-docker&quot; data-language=&quot;docker&quot;&gt;&lt;code class=&quot;language-docker&quot;&gt;docker pull redis&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;6.2.6&lt;span aria-hidden=&quot;true&quot; class=&quot;line-numbers-rows&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;</description>
+      
+      
+      
+      
+      <category domain="https://www.xiaosige.com/categories/Docker/">Docker</category>
+      
+      
+      <category domain="https://www.xiaosige.com/tags/Redis/">Redis</category>
+      
+      
+      <comments>https://www.xiaosige.com/post/63ae3ee4.html#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>Docker 启动 WARNING：IPv4 forwarding is disabled. Networking will not work.</title>
@@ -419,27 +440,6 @@
       
       
       <comments>https://www.xiaosige.com/post/5086702b.html#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>Centos8防火墙设置</title>
-      <link>https://www.xiaosige.com/post/e0840970.html</link>
-      <guid>https://www.xiaosige.com/post/e0840970.html</guid>
-      <pubDate>Mon, 10 May 2021 06:44:59 GMT</pubDate>
-      
-      <description>&lt;h3 id=&quot;介绍&quot;&gt;&lt;a href=&quot;#介绍&quot; class=&quot;headerlink&quot; title=&quot;介绍&quot;&gt;&lt;/a&gt;介绍&lt;/h3&gt;&lt;p&gt;  centos7以前的版本默认使用iptables服务进行管理防火墙规则。centos7以及其以上版本默认使用firewalld服务管理防火墙。所以在centos8中，就使用其默认的firewalld配置防火墙。&lt;br&gt;  firewalld和iptables的官方说明可以参照&lt;a href=&quot;https://access.redhat.com/documentation/zh-cn/red_hat_enterprise_linux/7/html/security_guide/sec-using_firewalls#sec-Comparison_of_Firewalld_to_system-config-firewall_and_iptables&quot;&gt;https://access.redhat.com/documentation/zh-cn/red_hat_enterprise_linux/7/html/security_guide/sec-using_firewalls#sec-Comparison_of_Firewalld_to_system-config-firewall_and_iptables&lt;/a&gt;&lt;/p&gt;</description>
-      
-      
-      
-      
-      <category domain="https://www.xiaosige.com/categories/Linux/">Linux</category>
-      
-      
-      <category domain="https://www.xiaosige.com/tags/Linux/">Linux</category>
-      
-      
-      <comments>https://www.xiaosige.com/post/e0840970.html#disqus_thread</comments>
       
     </item>
     
