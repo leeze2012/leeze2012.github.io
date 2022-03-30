@@ -23,15 +23,15 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"www.xiaosige.com","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.10.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"changyan","storage":true,"lazyload":true,"nav":null,"activeClass":"changyan"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="获取MongoDB镜像docker pull mongo:5.0.6">
+    <meta name="description" content="安装mongodb获取MongoDB镜像docker pull mongo:5.0.6">
 <meta property="og:type" content="article">
 <meta property="og:title" content="使用Docker安装MongoDB">
 <meta property="og:url" content="https://www.xiaosige.com/post/a639ff5d.html">
 <meta property="og:site_name" content="小四儿">
-<meta property="og:description" content="获取MongoDB镜像docker pull mongo:5.0.6">
+<meta property="og:description" content="安装mongodb获取MongoDB镜像docker pull mongo:5.0.6">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-02-11T09:05:16.000Z">
-<meta property="article:modified_time" content="2022-02-12T14:06:05.901Z">
+<meta property="article:modified_time" content="2022-03-30T19:08:22.087Z">
 <meta property="article:author" content="leeze">
 <meta property="article:tag" content="Mongo">
 <meta name="twitter:card" content="summary">
@@ -184,7 +184,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96MongoDB%E9%95%9C%E5%83%8F"><span class="nav-number">1.</span> <span class="nav-text">获取MongoDB镜像</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%AC%E5%9C%B0%E5%88%9B%E5%BB%BA%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9B%AE%E5%BD%95"><span class="nav-number">2.</span> <span class="nav-text">本地创建数据库目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA-mongodb%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="nav-number">3.</span> <span class="nav-text">创建 mongodb配置文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%90%E8%A1%8C%E5%AE%B9%E5%99%A8"><span class="nav-number">4.</span> <span class="nav-text">运行容器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BAmongoDb%E7%94%A8%E6%88%B7"><span class="nav-number">5.</span> <span class="nav-text">创建mongoDb用户</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mongoDb%E7%94%A8%E6%88%B7%E8%A7%92%E8%89%B2%E6%9D%83%E9%99%90%E8%AF%B4%E6%98%8E"><span class="nav-number">6.</span> <span class="nav-text">mongoDb用户角色权限说明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PS"><span class="nav-number">7.</span> <span class="nav-text">PS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%82%E8%80%83"><span class="nav-number">8.</span> <span class="nav-text">参考</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85mongodb"><span class="nav-number">1.</span> <span class="nav-text">安装mongodb</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96MongoDB%E9%95%9C%E5%83%8F"><span class="nav-number">1.1.</span> <span class="nav-text">获取MongoDB镜像</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9C%AC%E5%9C%B0%E5%88%9B%E5%BB%BA%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9B%AE%E5%BD%95"><span class="nav-number">1.2.</span> <span class="nav-text">本地创建数据库目录</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA-mongodb%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="nav-number">1.3.</span> <span class="nav-text">创建 mongodb配置文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BF%90%E8%A1%8C%E5%AE%B9%E5%99%A8"><span class="nav-number">1.4.</span> <span class="nav-text">运行容器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%9B%E5%BB%BAmongoDb%E7%94%A8%E6%88%B7"><span class="nav-number">1.5.</span> <span class="nav-text">创建mongoDb用户</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#mongoDb%E7%94%A8%E6%88%B7%E8%A7%92%E8%89%B2%E6%9D%83%E9%99%90%E8%AF%B4%E6%98%8E"><span class="nav-number">1.6.</span> <span class="nav-text">mongoDb用户角色权限说明</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mongodb%E5%89%AF%E6%9C%AC%E9%9B%86"><span class="nav-number">2.</span> <span class="nav-text">mongodb副本集</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%9B%E5%BB%BAmongodb%E8%8A%82%E7%82%B9"><span class="nav-number">2.1.</span> <span class="nav-text">创建mongodb节点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E8%8A%82%E7%82%B9"><span class="nav-number">2.2.</span> <span class="nav-text">配置节点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E7%94%A8%E6%88%B7"><span class="nav-number">2.3.</span> <span class="nav-text">创建用户</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BC%80%E5%90%AF%E8%AE%A4%E8%AF%81"><span class="nav-number">2.4.</span> <span class="nav-text">开启认证</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PS"><span class="nav-number">3.</span> <span class="nav-text">PS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%82%E8%80%83"><span class="nav-number">4.</span> <span class="nav-text">参考</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -607,7 +607,7 @@ canvas#canvas {
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-02-12 22:06:05" itemprop="dateModified" datetime="2022-02-12T22:06:05+08:00">2022-02-12</time>
+      <time title="修改时间：2022-03-31 03:08:22" itemprop="dateModified" datetime="2022-03-31T03:08:22+08:00">2022-03-31</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -650,14 +650,14 @@ canvas#canvas {
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>3.3k</span>
+      <span>5.4k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>3 分钟</span>
+      <span>5 分钟</span>
     </span>
 </div>
 
@@ -668,56 +668,67 @@ canvas#canvas {
     
     
     <div class="post-body" itemprop="articleBody">
-        <h3 id="获取MongoDB镜像"><a href="#获取MongoDB镜像" class="headerlink" title="获取MongoDB镜像"></a>获取MongoDB镜像</h3><pre class="line-numbers language-docker" data-language="docker"><code class="language-docker">docker pull mongo<span class="token punctuation">:</span>5.0.6<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+        <h3 id="安装mongodb"><a href="#安装mongodb" class="headerlink" title="安装mongodb"></a>安装mongodb</h3><h4 id="获取MongoDB镜像"><a href="#获取MongoDB镜像" class="headerlink" title="获取MongoDB镜像"></a>获取MongoDB镜像</h4><pre class="line-numbers language-docker" data-language="docker"><code class="language-docker">docker pull mongo<span class="token punctuation">:</span>5.0.6<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <span id="more"></span>
 
-<h3 id="本地创建数据库目录"><a href="#本地创建数据库目录" class="headerlink" title="本地创建数据库目录"></a>本地创建数据库目录</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">mkdir</span> -p /root/docker_data/mongo/<span class="token punctuation">{</span>data,configdb,backup<span class="token punctuation">}</span>
+<h4 id="本地创建数据库目录"><a href="#本地创建数据库目录" class="headerlink" title="本地创建数据库目录"></a>本地创建数据库目录</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">mkdir</span> -p /root/dockerdata/mongo/<span class="token punctuation">{</span>data,configdb,backup,logs<span class="token punctuation">}</span>
 
-<span class="token function">sudo</span> <span class="token function">chmod</span> <span class="token number">777</span> -R /root/docker_data/mongo<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<h3 id="创建-mongodb配置文件"><a href="#创建-mongodb配置文件" class="headerlink" title="创建 mongodb配置文件"></a>创建 mongodb配置文件</h3><p>  创建 mongodb配置文件</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">nano</span> mongo.conf
-
-systemLog:
-  destination: <span class="token function">file</span>
-  path: /var/log/mongodb/mongod.log
-  logAppend: <span class="token boolean">true</span>
-storage:
-  dbPath: /data/db
-net:
-  port: <span class="token number">27037</span>
-  bindIp: <span class="token number">0.0</span>.0.0
-<span class="token comment">#security:</span>
-  <span class="token comment">#authorization: enabled</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<div class="note info no-icon"><p>注意<br>systemLog:<br>destination: file<br>path: /var/log/mongodb/mongod.log<br>logAppend: true<br>写入日志文件的地址是容器中的路径(不是宿主机里的地址)</p>
-<p>storage:<br>dbPath: /data/db<br>数据库目录是容器中的路径 (不是宿主机里的地址路径)</p>
-<p>net:<br>port: 27037<br>bindIp: 0.0.0.0<br>指定容器mongodb启动监听 27037 端口<br>0.0.0.0 是为了让宿主机可以访问容器的mongodb服务.</p>
-<p>security:<br>是开启账号密码登录验证方式,用井号做了注释,暂时不需要账号密码验证方式登录.</p>
+<span class="token function">sudo</span> <span class="token function">chmod</span> <span class="token number">777</span> -R /root/dockerdata/mongo<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<div class="note info no-icon"><p>data :     数据文件<br>configdb : 配置文件<br>backup :   备份文件<br>logs :     日志文件</p>
 </div>
 
-<h3 id="运行容器"><a href="#运行容器" class="headerlink" title="运行容器"></a>运行容器</h3><pre class="line-numbers language-docker" data-language="docker"><code class="language-docker">docker run <span class="token punctuation">-</span>d <span class="token punctuation">-</span><span class="token punctuation">-</span>restart=always \
-<span class="token punctuation">-</span><span class="token punctuation">-</span>privileged \
-<span class="token punctuation">-</span><span class="token punctuation">-</span>bind_ip_all \
+<h4 id="创建-mongodb配置文件"><a href="#创建-mongodb配置文件" class="headerlink" title="创建 mongodb配置文件"></a>创建 mongodb配置文件</h4><p>  创建 mongo.conf配置文件</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">cd</span> /root/dockerdata/mongo/configdb
+<span class="token function">vi</span> mongo.conf
+
+port <span class="token operator">=</span> <span class="token number">27017</span>
+<span class="token assign-left variable">dbpath</span><span class="token operator">=</span>/data/db
+maxConns <span class="token operator">=</span> <span class="token number">10000</span>
+auth <span class="token operator">=</span> <span class="token boolean">true</span>
+bind_ip <span class="token operator">=</span> <span class="token number">0.0</span>.0.0
+<span class="token assign-left variable">logpath</span><span class="token operator">=</span>/data/log/mongo.log
+<span class="token assign-left variable">logappend</span><span class="token operator">=</span>true
+objcheck <span class="token operator">=</span> <span class="token boolean">true</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<div class="note info no-icon"><p>注意<br>logpath: /data/log/mongo.log<br>logAppend: true<br>写入日志文件的地址是容器中的路径(不是宿主机里的地址)</p>
+<p>dbpath: /data/db<br>数据库目录是容器中的路径 (不是宿主机里的地址路径)</p>
+<p>port: 27037<br>bind_ip: 0.0.0.0<br>指定容器mongodb启动监听 27037 端口<br>0.0.0.0 是为了让宿主机可以访问容器的mongodb服务.</p>
+<p>auth:<br>是开启账号密码登录验证方式,用井号做了注释,暂时不需要账号密码验证方式登录.</p>
+</div>
+
+<h4 id="运行容器"><a href="#运行容器" class="headerlink" title="运行容器"></a>运行容器</h4><pre class="line-numbers language-docker" data-language="docker"><code class="language-docker">docker run <span class="token punctuation">-</span>d <span class="token punctuation">-</span><span class="token punctuation">-</span>restart=always \
+<span class="token punctuation">-</span><span class="token punctuation">-</span>privileged=true \
 <span class="token punctuation">-</span>p 27017<span class="token punctuation">:</span>27017 \
 <span class="token punctuation">-</span><span class="token punctuation">-</span>net mynet <span class="token punctuation">-</span><span class="token punctuation">-</span>ip 172.172.0.9 \
 <span class="token punctuation">-</span><span class="token punctuation">-</span>name mymongo \
-<span class="token punctuation">-</span>v /root/docker_data/mongo/logs<span class="token punctuation">:</span>/data/log/ \
-<span class="token punctuation">-</span>v /root/docker_data/mongo/data<span class="token punctuation">:</span>/data/db \
-<span class="token punctuation">-</span>v /root/docker_data/mongo/backup<span class="token punctuation">:</span>/data/backup \
-<span class="token punctuation">-</span>v /root/docker_data/mongo/configdb<span class="token punctuation">:</span>/data/configdb  \
+<span class="token punctuation">-</span>v /root/dockerdata/mongo/logs<span class="token punctuation">:</span>/data/log/ \
+<span class="token punctuation">-</span>v /root/dockerdata/mongo/data<span class="token punctuation">:</span>/data/db \
+<span class="token punctuation">-</span>v /root/dockerdata/mongo/backup<span class="token punctuation">:</span>/data/backup 
+<span class="token punctuation">-</span>v /root/dockerdata/mongo/configdb<span class="token punctuation">:</span>/data/configdb  \
+<span class="token punctuation">-</span>v /root/dockerdata/mongo/configdb/mongo.conf<span class="token punctuation">:</span>/data/configdb/mongo.conf \
 <span class="token punctuation">-</span>e MONGODB_INITDB_ROOT_USERNAME=admin \
-<span class="token punctuation">-</span>e MONGODB_INITDB_ROOT_PASSWORD=leeze \
-<span class="token punctuation">-</span>d mongo<span class="token punctuation">:</span>5.0.6<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<pre class="line-numbers language-docker" data-language="docker"><code class="language-docker"> docker run <span class="token punctuation">-</span><span class="token punctuation">-</span>name mongodb \
-<span class="token punctuation">-</span>v /root/docker_data/mongo/data<span class="token punctuation">:</span>/data/db \ 
-<span class="token punctuation">-</span>v /root/docker_data/mongo/configdb/mongo.conf<span class="token punctuation">:</span>/data/configdb/mongo.conf 
-<span class="token comment">#-v /mnt/mongodb/backup:/data/backup -v /mnt/mongodb/conf:/data/configdb</span>
-<span class="token punctuation">-</span>p 27037<span class="token punctuation">:</span>27037 
-<span class="token punctuation">-</span>d mongo 
-<span class="token punctuation">-</span>f /data/configdb/mongo.conf<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">-</span>e MONGODB_INITDB_ROOT_PASSWORD=Cn123456 \
+<span class="token punctuation">-</span>d mongo<span class="token punctuation">:</span>5.0.6 <span class="token punctuation">-</span><span class="token punctuation">-</span>auth <span class="token punctuation">-</span><span class="token punctuation">-</span>bind_ip_all
+
+<span class="token comment"># 如果想要使用配置文件启动mongodb，则执行自己的启动命令：</span>
+
+docker run <span class="token punctuation">-</span>d <span class="token punctuation">-</span><span class="token punctuation">-</span>restart=always \
+<span class="token punctuation">-</span><span class="token punctuation">-</span>privileged=true \
+<span class="token punctuation">-</span>p 27017<span class="token punctuation">:</span>27017 \
+<span class="token punctuation">-</span><span class="token punctuation">-</span>net mynet <span class="token punctuation">-</span><span class="token punctuation">-</span>ip 172.172.0.9 \
+<span class="token punctuation">-</span><span class="token punctuation">-</span>name mymongo \
+<span class="token punctuation">-</span>v /root/dockerdata/mongo/logs<span class="token punctuation">:</span>/data/log/ \
+<span class="token punctuation">-</span>v /root/dockerdata/mongo/data<span class="token punctuation">:</span>/data/db \
+<span class="token punctuation">-</span>v /root/dockerdata/mongo/backup<span class="token punctuation">:</span>/data/backup 
+<span class="token punctuation">-</span>v /root/dockerdata/mongo/configdb<span class="token punctuation">:</span>/data/configdb  \
+<span class="token punctuation">-</span>v /root/dockerdata/mongo/configdb/mongo.conf<span class="token punctuation">:</span>/data/configdb/mongo.conf \
+<span class="token punctuation">-</span>e MONGODB_INITDB_ROOT_USERNAME=admin \
+<span class="token punctuation">-</span>e MONGODB_INITDB_ROOT_PASSWORD=Cn123456 \
+<span class="token punctuation">-</span>d mongo<span class="token punctuation">:</span>5.0.6 \
+mongod <span class="token punctuation">-</span>f /data/configdb/mongo.conf <span class="token punctuation">-</span><span class="token punctuation">-</span>auth <span class="token punctuation">-</span><span class="token punctuation">-</span>bind_ip_all<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><code>记住：自己的mongod启动命令是在容器内执行的，因此使用的配置文件路径是相对于容器的内部路径。</code></p>
 <div class="note info no-icon"><ol>
-<li><code>-v /root/docker_data/mongo/data/db:/data/db</code> 使用卷持久化数据</li>
+<li><code>-v /root/dockerdata/mongo/data/db:/data/db</code> 使用卷持久化数据</li>
 <li><code>-e MONGODB_INITDB_ROOT_USERNAME=admin</code>       授予超级用户权限</li>
 <li><code>-e MONGODB_INITDB_ROOT_PASSWORD=leeze</code>       授予超级用户权限</li>
 <li><code>-e MONGODB_INITDB_ROOT_PASSWORD_FILE=/run/secrets/mongo-root-pw</code> docker inspect用于查看容器的变量时，您的密码都将不可见</li>
@@ -732,13 +743,13 @@ net:
 </div>
 
 
-<h3 id="创建mongoDb用户"><a href="#创建mongoDb用户" class="headerlink" title="创建mongoDb用户"></a>创建mongoDb用户</h3><pre class="line-numbers language-docker" data-language="docker"><code class="language-docker"><span class="token comment">#进入mongoDb容器，创建管理员</span>
+<h4 id="创建mongoDb用户"><a href="#创建mongoDb用户" class="headerlink" title="创建mongoDb用户"></a>创建mongoDb用户</h4><pre class="line-numbers language-docker" data-language="docker"><code class="language-docker"><span class="token comment">#进入mongoDb容器，创建管理员</span>
 docker exec <span class="token punctuation">-</span>it mongoDb bash
 <span class="token comment">#进入mongoDb</span>
 mongo
 <span class="token punctuation">&gt;</span> use admin
 switched to db admin
-<span class="token punctuation">&gt;</span> db.createUser(<span class="token punctuation">{</span>user<span class="token punctuation">:</span><span class="token string">"admin"</span><span class="token punctuation">,</span>pwd<span class="token punctuation">:</span><span class="token string">"admin"</span><span class="token punctuation">,</span>roles<span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token punctuation">{</span>role<span class="token punctuation">:</span><span class="token string">"root"</span><span class="token punctuation">,</span>db<span class="token punctuation">:</span><span class="token string">"admin"</span><span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">}</span>);
+<span class="token punctuation">&gt;</span> db.createUser(<span class="token punctuation">{</span>user<span class="token punctuation">:</span><span class="token string">"admin"</span><span class="token punctuation">,</span>pwd<span class="token punctuation">:</span><span class="token string">"123456"</span><span class="token punctuation">,</span>roles<span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token punctuation">{</span>role<span class="token punctuation">:</span><span class="token string">"root"</span><span class="token punctuation">,</span>db<span class="token punctuation">:</span><span class="token string">"admin"</span><span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">}</span>);
 Successfully added user<span class="token punctuation">:</span> <span class="token punctuation">{</span>
 	<span class="token string">"user"</span> <span class="token punctuation">:</span> <span class="token string">"admin"</span><span class="token punctuation">,</span>
 	<span class="token string">"roles"</span> <span class="token punctuation">:</span> <span class="token punctuation">[</span>
@@ -748,6 +759,7 @@ Successfully added user<span class="token punctuation">:</span> <span class="tok
 		<span class="token punctuation">}</span>
 	<span class="token punctuation">]</span>
 <span class="token punctuation">}</span>
+<span class="token punctuation">&gt;</span> db.auth(<span class="token string">'admin'</span><span class="token punctuation">,</span><span class="token string">'123456'</span>) <span class="token comment"># 认证</span>
 <span class="token comment">#出现创建成功提示就对了，退出管理员</span>
 <span class="token punctuation">&gt;</span> exit;
 <span class="token comment">#用刚创建的管理用户登录在创建个普通用户</span>
@@ -764,9 +776,9 @@ Successfully added user<span class="token punctuation">:</span> <span class="tok
 		<span class="token punctuation">}</span>
 	<span class="token punctuation">]</span>
 <span class="token punctuation">}</span>
-<span class="token punctuation">&gt;</span> exit<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">&gt;</span> exit<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="mongoDb用户角色权限说明"><a href="#mongoDb用户角色权限说明" class="headerlink" title="mongoDb用户角色权限说明"></a>mongoDb用户角色权限说明</h3><div class="note info no-icon"><ul>
+<h4 id="mongoDb用户角色权限说明"><a href="#mongoDb用户角色权限说明" class="headerlink" title="mongoDb用户角色权限说明"></a>mongoDb用户角色权限说明</h4><div class="note info no-icon"><ul>
 <li>数据库用户角色 <code>read</code>、<code>readWrite</code></li>
 <li>数据库管理角色 <code>dbAdmin</code>、<code>dbOwner</code>、<code>userAdmin</code></li>
 <li>集群管理角色 <code>clusterAdmin</code>、<code>clusterManager</code>、<code>clusterMonitor</code>、 <code>hostManager</code></li>
@@ -792,6 +804,63 @@ Successfully added user<span class="token punctuation">:</span> <span class="tok
 </ul>
 </div>
 <p>  至此mongoDb数据库据安装好了，可以愉快的玩耍使用了</p>
+<h3 id="mongodb副本集"><a href="#mongodb副本集" class="headerlink" title="mongodb副本集"></a>mongodb副本集</h3><p>  一个最小的副本集为3个成员，包括主节点，备节点和仲裁节点，如果没有仲裁节点，备节点是不会自动升级为主节点的。</p>
+<h4 id="创建mongodb节点"><a href="#创建mongodb节点" class="headerlink" title="创建mongodb节点"></a>创建mongodb节点</h4><pre class="line-numbers language-docker" data-language="docker"><code class="language-docker"><span class="token comment"># 创建一个网络</span>
+docker network create tms
+
+docker run <span class="token punctuation">-</span><span class="token punctuation">-</span>name m1 <span class="token punctuation">-</span>p 27001<span class="token punctuation">:</span>27017  <span class="token punctuation">-</span><span class="token punctuation">-</span>network tms <span class="token punctuation">-</span><span class="token punctuation">-</span>network<span class="token punctuation">-</span>alias m1 <span class="token punctuation">-</span>d mongo<span class="token punctuation">:</span>5.0.6 <span class="token punctuation">-</span><span class="token punctuation">-</span>replSet mset <span class="token punctuation">-</span><span class="token punctuation">-</span>bind_ip 0.0.0.0
+docker run <span class="token punctuation">-</span><span class="token punctuation">-</span>name m2 <span class="token punctuation">-</span>p 27002<span class="token punctuation">:</span>27017  <span class="token punctuation">-</span><span class="token punctuation">-</span>network tms <span class="token punctuation">-</span><span class="token punctuation">-</span>network<span class="token punctuation">-</span>alias m2 <span class="token punctuation">-</span>d mongo<span class="token punctuation">:</span>5.0.6 <span class="token punctuation">-</span><span class="token punctuation">-</span>replSet mset <span class="token punctuation">-</span><span class="token punctuation">-</span>bind_ip 0.0.0.0
+docker run <span class="token punctuation">-</span><span class="token punctuation">-</span>name m3 <span class="token punctuation">-</span>p 27003<span class="token punctuation">:</span>27017  <span class="token punctuation">-</span><span class="token punctuation">-</span>network tms <span class="token punctuation">-</span><span class="token punctuation">-</span>network<span class="token punctuation">-</span>alias m3 <span class="token punctuation">-</span>d mongo<span class="token punctuation">:</span>5.0.6 <span class="token punctuation">-</span><span class="token punctuation">-</span>replSet mset <span class="token punctuation">-</span><span class="token punctuation">-</span>bind_ip 0.0.0.0<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><code>注意一定要将bind_ip设置成不是只有本地访问，否则副本集不能初始化成功。</code></p>
+<h4 id="配置节点"><a href="#配置节点" class="headerlink" title="配置节点"></a>配置节点</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">rs.initiate<span class="token punctuation">(</span><span class="token punctuation">{</span> _id:<span class="token string">"mset"</span>, members:<span class="token punctuation">[</span>
+<span class="token punctuation">{</span>_id:0,host:<span class="token string">"m1:27017"</span>,priority:2<span class="token punctuation">}</span>, <span class="token punctuation">{</span>_id:1,host:<span class="token string">"m2:27017"</span>,priority:1<span class="token punctuation">}</span>, <span class="token punctuation">{</span>_id:2,host:<span class="token string">"m3:27017"</span>,arbiterOnly:true<span class="token punctuation">}</span>
+<span class="token punctuation">]</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+priority：设置优先级，数字越大优先级越高，优先级最高的是主节点
+
+rs.status<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment"># 查看状态</span>
+
+<span class="token comment"># 默认备份节点不能读写，可以设置</span>
+rs.slaveOk<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment"># 增加节点，需要进入主节点执行</span>
+rs.add<span class="token punctuation">(</span><span class="token string">'ip:port'</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="创建用户"><a href="#创建用户" class="headerlink" title="创建用户"></a>创建用户</h4><pre class="line-numbers language-docker" data-language="docker"><code class="language-docker">use admin
+db.createUser(<span class="token punctuation">{</span> 
+    user<span class="token punctuation">:</span><span class="token string">'admin'</span><span class="token punctuation">,</span>
+    pwd<span class="token punctuation">:</span><span class="token string">'123456'</span><span class="token punctuation">,</span>
+    roles<span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token punctuation">{</span>role<span class="token punctuation">:</span><span class="token string">'root'</span><span class="token punctuation">,</span>db<span class="token punctuation">:</span><span class="token string">'admin'</span><span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span>)
+
+db.auth(<span class="token string">'admin'</span><span class="token punctuation">,</span><span class="token string">'123456'</span>) <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="开启认证"><a href="#开启认证" class="headerlink" title="开启认证"></a>开启认证</h4><p>  如果需要开启认证，使用ssl的keyfile文件作为认证文件：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">openssl rand -base64 <span class="token number">666</span> <span class="token operator">&gt;</span> mongodb.key <span class="token comment"># 生成认证文件</span>
+<span class="token function">chmod</span> <span class="token number">600</span> mongodb.key <span class="token comment"># 设置执行权限</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<ul>
+<li>设置配置文件<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># /mnt/mongodb/mconf/mongod.conf</span>
+net:
+  port: <span class="token number">27017</span>
+  bindIp: <span class="token number">0.0</span>.0.0
+
+systemLog:
+  logAppend: <span class="token boolean">true</span>
+
+processManagement:
+  fork: <span class="token boolean">false</span>
+
+security:
+  keyFile: <span class="token string">"/data/configdb/mongodb.key"</span>
+  clusterAuthMode: <span class="token string">"keyFile"</span>
+  authorization: <span class="token string">"enabled"</span>
+
+replication:
+  replSetName: <span class="token string">"mset"</span>
+  secondaryIndexPrefetch: <span class="token string">"all"</span>
+ <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li>启动容器<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">docker run --name m1 -p <span class="token number">27001</span>:27017 -v /mnt/mongodb/mconf:/data/configdb --network tms --network-alias m1 -d mongo:5.0.6 mongod -f /data/configdb/mongod.conf
+docker run --name m2 -p <span class="token number">27002</span>:27017 -v /mnt/mongodb/mconf:/data/configdb --network tms --network-alias m2 -d mongo:5.0.6 mongod -f /data/configdb/mongod.conf
+docker run --name m3 -p <span class="token number">27003</span>:27017 -v /mnt/mongodb/mconf:/data/configdb --network tms --network-alias m3 -d mongo:5.0.6 mongod -f /data/configdb/mongod.conf
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
+</ul>
 <h3 id="PS"><a href="#PS" class="headerlink" title="PS"></a>PS</h3><p><code>mongodb://10.211.55.81:27017</code><br><code>mongodb://leeze:leeze@10.211.55.81:27017/?authSource=flux</code></p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment">#更新源 </span>
 <span class="token function">apt-get</span> update 
@@ -915,13 +984,13 @@ Successfully added user<span class="token punctuation">:</span> <span class="tok
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">258k</span>
+    <span title="站点总字数">260k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">3:54</span>
+    <span title="站点阅读时长">3:56</span>
   </span>
 </div>
 <div class="busuanzi-count">
