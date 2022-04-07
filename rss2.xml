@@ -15,8 +15,29 @@
     <atom:link href="https://www.xiaosige.com/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>因上努力，果上随缘！</description>
-    <pubDate>Wed, 30 Mar 2022 16:45:09 GMT</pubDate>
+    <pubDate>Thu, 07 Apr 2022 05:38:53 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>Linux 解决开机启动时的 systemd-modules-load.service 失败的问题</title>
+      <link>https://www.xiaosige.com/post/f25aacc.html</link>
+      <guid>https://www.xiaosige.com/post/f25aacc.html</guid>
+      <pubDate>Thu, 07 Apr 2022 04:50:34 GMT</pubDate>
+      
+      <description>&lt;p&gt;  !解决开机启动时的systemd-modules-load.service失败的问题&lt;/p&gt;</description>
+      
+      
+      
+      
+      <category domain="https://www.xiaosige.com/categories/Linux/">Linux</category>
+      
+      
+      <category domain="https://www.xiaosige.com/tags/Linux/">Linux</category>
+      
+      
+      <comments>https://www.xiaosige.com/post/f25aacc.html#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>Docker安装Redis6并且配置redis.conf</title>
@@ -419,27 +440,6 @@
       
       
       <comments>https://www.xiaosige.com/post/a00f9d53.html#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>Docker安装portainer-ce2.0</title>
-      <link>https://www.xiaosige.com/post/5086702b.html</link>
-      <guid>https://www.xiaosige.com/post/5086702b.html</guid>
-      <pubDate>Mon, 10 May 2021 07:44:46 GMT</pubDate>
-      
-      <description>&lt;h3 id=&quot;介绍&quot;&gt;&lt;a href=&quot;#介绍&quot; class=&quot;headerlink&quot; title=&quot;介绍&quot;&gt;&lt;/a&gt;介绍&lt;/h3&gt;&lt;p&gt;  Portainer是Docker的图形化管理工具，提供状态显示面板、应用模板快速部署、容器镜像网络数据卷的基本操作（包括上传下载镜像，创建容器等操作）、事件日志显示、容器控制台操作、Swarm集群和服务等集中管理和操作、登录用户管理和控制等功能。功能十分全面，基本能满足中小型单位对容器管理的全部需求。&lt;/p&gt;</description>
-      
-      
-      
-      
-      <category domain="https://www.xiaosige.com/categories/Docker/">Docker</category>
-      
-      
-      <category domain="https://www.xiaosige.com/tags/GitLab/">GitLab</category>
-      
-      
-      <comments>https://www.xiaosige.com/post/5086702b.html#disqus_thread</comments>
       
     </item>
     

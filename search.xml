@@ -68,6 +68,79 @@ lrwxrwxrwx. <span class="token number">1</span> root root <span class="token num
       </tags>
   </entry>
   <entry>
+    <title>Linux 解决开机启动时的 systemd-modules-load.service 失败的问题</title>
+    <url>/post/f25aacc.html</url>
+    <content><![CDATA[<p>  !解决开机启动时的systemd-modules-load.service失败的问题</p>
+<span id="more"></span>
+
+<h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>  昨天我运行了<code>dnf</code>更新,<code>Centos Stream 8</code> 内核是 4.18.0-365.el8.x86_64，重新启动多次失败。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@Harbor ~<span class="token punctuation">]</span><span class="token comment"># systemctl status systemd-modules-load.service</span>
+● systemd-modules-load.service - Load Kernel Modules
+   Loaded: loaded <span class="token punctuation">(</span>/usr/lib/systemd/system/systemd-modules-load.service<span class="token punctuation">;</span> static<span class="token punctuation">;</span> vendor preset: disabled<span class="token punctuation">)</span>
+   Active: failed <span class="token punctuation">(</span>Result: exit-code<span class="token punctuation">)</span> since Mon <span class="token number">2022</span>-03-07 <span class="token number">16</span>:22:22 CST<span class="token punctuation">;</span> 52s ago
+     Docs: man:systemd-modules-load.service<span class="token punctuation">(</span><span class="token number">8</span><span class="token punctuation">)</span>
+           man:modules-load.d<span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span>
+  Process: <span class="token number">923</span> <span class="token assign-left variable">ExecStart</span><span class="token operator">=</span>/usr/lib/systemd/systemd-modules-load <span class="token punctuation">(</span>code<span class="token operator">=</span>exited, <span class="token assign-left variable">status</span><span class="token operator">=</span><span class="token number">1</span>/FAILURE<span class="token punctuation">)</span>
+ Main PID: <span class="token number">923</span> <span class="token punctuation">(</span>code<span class="token operator">=</span>exited, <span class="token assign-left variable">status</span><span class="token operator">=</span><span class="token number">1</span>/FAILURE<span class="token punctuation">)</span>
+
+<span class="token number">3</span>月 07 <span class="token number">16</span>:22:22 Harbor systemd-modules-load<span class="token punctuation">[</span><span class="token number">923</span><span class="token punctuation">]</span>: Module <span class="token string">'msr'</span> is <span class="token builtin class-name">builtin</span>
+<span class="token number">3</span>月 07 <span class="token number">16</span>:22:22 Harbor systemd-modules-load<span class="token punctuation">[</span><span class="token number">923</span><span class="token punctuation">]</span>: Failed to insert <span class="token string">'ipmi_si'</span><span class="token builtin class-name">:</span> No such device
+<span class="token number">3</span>月 07 <span class="token number">16</span>:22:22 Harbor systemd<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>: systemd-modules-load.service: Main process exited, <span class="token assign-left variable">code</span><span class="token operator">=</span>exited, <span class="token assign-left variable">status</span><span class="token operator">=</span><span class="token number">1</span>/FAILURE
+<span class="token number">3</span>月 07 <span class="token number">16</span>:22:22 Harbor systemd<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>: systemd-modules-load.service: Failed with result <span class="token string">'exit-code'</span><span class="token builtin class-name">.</span>
+<span class="token number">3</span>月 07 <span class="token number">16</span>:22:22 Harbor systemd<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>: Failed to start Load Kernel Modules.
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@Harbor ~<span class="token punctuation">]</span><span class="token comment"># journalctl _PID=912</span>
+-- Logs begin at Mon <span class="token number">2022</span>-03-07 <span class="token number">16</span>:38:27 CST, end at Mon <span class="token number">2022</span>-03-07 <span class="token number">16</span>:39:43 CST. --
+<span class="token number">3</span>月 07 <span class="token number">16</span>:38:33 Harbor systemd-modules-load<span class="token punctuation">[</span><span class="token number">912</span><span class="token punctuation">]</span>: Module <span class="token string">'msr'</span> is <span class="token builtin class-name">builtin</span>
+<span class="token number">3</span>月 07 <span class="token number">16</span>:38:33 Harbor systemd-modules-load<span class="token punctuation">[</span><span class="token number">912</span><span class="token punctuation">]</span>: Failed to insert <span class="token string">'ipmi_si'</span><span class="token builtin class-name">:</span> No such device
+<span class="token punctuation">[</span>root@Harbor ~<span class="token punctuation">]</span><span class="token comment"># journalctl _SYSTEMD_UNIT=systemd-modules-load.service</span>
+-- Logs begin at Mon <span class="token number">2022</span>-03-07 <span class="token number">16</span>:38:27 CST, end at Mon <span class="token number">2022</span>-03-07 <span class="token number">16</span>:39:43 CST. --
+<span class="token number">3</span>月 07 <span class="token number">16</span>:38:33 Harbor systemd-modules-load<span class="token punctuation">[</span><span class="token number">912</span><span class="token punctuation">]</span>: Module <span class="token string">'msr'</span> is <span class="token builtin class-name">builtin</span>
+<span class="token number">3</span>月 07 <span class="token number">16</span>:38:33 Harbor systemd-modules-load<span class="token punctuation">[</span><span class="token number">912</span><span class="token punctuation">]</span>: Failed to insert <span class="token string">'ipmi_si'</span><span class="token builtin class-name">:</span> No such device
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+<p>  解决办法如下：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">vi</span> /etc/modprobe.d/blacklist-ipmi.conf 
+blacklist ipmi_si
+blacklist ipmi_devintf
+blacklist ipmi_msghandler
+blacklist ipmi_ssif
+blacklist ipmi_watchdog
+blacklist ipmi_poweroff
+blacklist acpi_ipmi
+blacklist ibmaem
+blacklist ibmpex
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>  启动正常了！</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@Harbor ~<span class="token punctuation">]</span><span class="token comment"># systemctl restart systemd-modules-load.service</span>
+<span class="token punctuation">[</span>root@Harbor ~<span class="token punctuation">]</span><span class="token comment"># systemctl status systemd-modules-load.service</span>
+● systemd-modules-load.service - Load Kernel Modules
+   Loaded: loaded <span class="token punctuation">(</span>/usr/lib/systemd/system/systemd-modules-load.service<span class="token punctuation">;</span> static<span class="token punctuation">;</span> vendor preset: disabled<span class="token punctuation">)</span>
+   Active: active <span class="token punctuation">(</span>exited<span class="token punctuation">)</span> since Mon <span class="token number">2022</span>-03-07 <span class="token number">16</span>:51:50 CST<span class="token punctuation">;</span> 1s ago
+     Docs: man:systemd-modules-load.service<span class="token punctuation">(</span><span class="token number">8</span><span class="token punctuation">)</span>
+           man:modules-load.d<span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span>
+  Process: <span class="token number">1860</span> <span class="token assign-left variable">ExecStart</span><span class="token operator">=</span>/usr/lib/systemd/systemd-modules-load <span class="token punctuation">(</span>code<span class="token operator">=</span>exited, <span class="token assign-left variable">status</span><span class="token operator">=</span><span class="token number">0</span>/SUCCESS<span class="token punctuation">)</span>
+ Main PID: <span class="token number">1860</span> <span class="token punctuation">(</span>code<span class="token operator">=</span>exited, <span class="token assign-left variable">status</span><span class="token operator">=</span><span class="token number">0</span>/SUCCESS<span class="token punctuation">)</span>
+
+<span class="token number">3</span>月 07 <span class="token number">16</span>:51:50 Harbor systemd<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>: Starting Load Kernel Modules<span class="token punctuation">..</span>.
+<span class="token number">3</span>月 07 <span class="token number">16</span>:51:50 Harbor systemd<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>: Started Load Kernel Modules.
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<br>
+
+<div class="note info no-icon"><p>  <a href="https://blog.csdn.net/x_idea/article/details/123334398">【Linux】解决开机启动时的systemd-modules-load.service失败的问题 </a></p>
+</div>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Docker安装Redis6并且配置redis.conf</title>
     <url>/post/63ae3ee4.html</url>
     <content><![CDATA[<h3 id="安装方式一"><a href="#安装方式一" class="headerlink" title="安装方式一"></a>安装方式一</h3><h4 id="拉取Docker的Redis镜像"><a href="#拉取Docker的Redis镜像" class="headerlink" title="拉取Docker的Redis镜像"></a>拉取Docker的Redis镜像</h4><pre class="line-numbers language-docker" data-language="docker"><code class="language-docker">docker pull redis<span class="token punctuation">:</span>6.2.6<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
