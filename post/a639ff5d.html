@@ -31,7 +31,7 @@
 <meta property="og:description" content="安装mongodb获取MongoDB镜像docker pull mongo:5.0.6">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-02-11T09:05:16.000Z">
-<meta property="article:modified_time" content="2022-03-30T19:08:22.087Z">
+<meta property="article:modified_time" content="2022-04-08T08:43:23.965Z">
 <meta property="article:author" content="leeze">
 <meta property="article:tag" content="Mongo">
 <meta name="twitter:card" content="summary">
@@ -120,7 +120,7 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">36</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">23</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">97</span></a></li><li class="menu-item menu-item-welfare"><a href="/welfare" rel="section"><i class="fa fa-star fa-fw"></i>收藏</a></li><li class="menu-item menu-item-photos"><a href="/photos" rel="section"><i class="fa fa-camera-retro fa-fw"></i>相册</a></li><li class="menu-item menu-item-links"><a href="/links" rel="section"><i class="fa fa-link fa-fw"></i>友链</a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">38</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">23</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">99</span></a></li><li class="menu-item menu-item-welfare"><a href="/welfare" rel="section"><i class="fa fa-star fa-fw"></i>收藏</a></li><li class="menu-item menu-item-photos"><a href="/photos" rel="section"><i class="fa fa-camera-retro fa-fw"></i>相册</a></li><li class="menu-item menu-item-links"><a href="/links" rel="section"><i class="fa fa-link fa-fw"></i>友链</a></li>
       <li class="menu-item menu-item-search">
         <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
         </a>
@@ -192,7 +192,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">97</span>
+          <span class="site-state-item-count">99</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -203,7 +203,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">36</span>
+        <span class="site-state-item-count">38</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -600,7 +600,7 @@ canvas#canvas {
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-03-31 03:08:22" itemprop="dateModified" datetime="2022-03-31T03:08:22+08:00">2022-03-31</time>
+      <time title="修改时间：2022-04-08 16:43:23" itemprop="dateModified" datetime="2022-04-08T16:43:23+08:00">2022-04-08</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -700,7 +700,7 @@ objcheck <span class="token operator">=</span> <span class="token boolean">true<
 <span class="token punctuation">-</span>v /root/dockerdata/mongo/configdb<span class="token punctuation">:</span>/data/configdb  \
 <span class="token punctuation">-</span>v /root/dockerdata/mongo/configdb/mongo.conf<span class="token punctuation">:</span>/data/configdb/mongo.conf \
 <span class="token punctuation">-</span>e MONGODB_INITDB_ROOT_USERNAME=admin \
-<span class="token punctuation">-</span>e MONGODB_INITDB_ROOT_PASSWORD=Cn123456 \
+<span class="token punctuation">-</span>e MONGODB_INITDB_ROOT_PASSWORD=12345678 \
 <span class="token punctuation">-</span>d mongo<span class="token punctuation">:</span>5.0.6 <span class="token punctuation">-</span><span class="token punctuation">-</span>auth <span class="token punctuation">-</span><span class="token punctuation">-</span>bind_ip_all
 
 <span class="token comment"># 如果想要使用配置文件启动mongodb，则执行自己的启动命令：</span>
@@ -716,7 +716,7 @@ docker run <span class="token punctuation">-</span>d <span class="token punctuat
 <span class="token punctuation">-</span>v /root/dockerdata/mongo/configdb<span class="token punctuation">:</span>/data/configdb  \
 <span class="token punctuation">-</span>v /root/dockerdata/mongo/configdb/mongo.conf<span class="token punctuation">:</span>/data/configdb/mongo.conf \
 <span class="token punctuation">-</span>e MONGODB_INITDB_ROOT_USERNAME=admin \
-<span class="token punctuation">-</span>e MONGODB_INITDB_ROOT_PASSWORD=Cn123456 \
+<span class="token punctuation">-</span>e MONGODB_INITDB_ROOT_PASSWORD=12345678 \
 <span class="token punctuation">-</span>d mongo<span class="token punctuation">:</span>5.0.6 \
 mongod <span class="token punctuation">-</span>f /data/configdb/mongo.conf <span class="token punctuation">-</span><span class="token punctuation">-</span>auth <span class="token punctuation">-</span><span class="token punctuation">-</span>bind_ip_all<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><code>记住：自己的mongod启动命令是在容器内执行的，因此使用的配置文件路径是相对于容器的内部路径。</code></p>
@@ -977,13 +977,13 @@ docker run --name m3 -p <span class="token number">27003</span>:27017 -v /mnt/mo
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">262k</span>
+    <span title="站点总字数">264k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">3:59</span>
+    <span title="站点阅读时长">4:01</span>
   </span>
 </div>
 <div class="busuanzi-count">

@@ -1392,7 +1392,7 @@ objcheck <span class="token operator">=</span> <span class="token boolean">true<
 <span class="token punctuation">-</span>v /root/dockerdata/mongo/configdb<span class="token punctuation">:</span>/data/configdb  \
 <span class="token punctuation">-</span>v /root/dockerdata/mongo/configdb/mongo.conf<span class="token punctuation">:</span>/data/configdb/mongo.conf \
 <span class="token punctuation">-</span>e MONGODB_INITDB_ROOT_USERNAME=admin \
-<span class="token punctuation">-</span>e MONGODB_INITDB_ROOT_PASSWORD=Cn123456 \
+<span class="token punctuation">-</span>e MONGODB_INITDB_ROOT_PASSWORD=12345678 \
 <span class="token punctuation">-</span>d mongo<span class="token punctuation">:</span>5.0.6 <span class="token punctuation">-</span><span class="token punctuation">-</span>auth <span class="token punctuation">-</span><span class="token punctuation">-</span>bind_ip_all
 
 <span class="token comment"># 如果想要使用配置文件启动mongodb，则执行自己的启动命令：</span>
@@ -1408,7 +1408,7 @@ docker run <span class="token punctuation">-</span>d <span class="token punctuat
 <span class="token punctuation">-</span>v /root/dockerdata/mongo/configdb<span class="token punctuation">:</span>/data/configdb  \
 <span class="token punctuation">-</span>v /root/dockerdata/mongo/configdb/mongo.conf<span class="token punctuation">:</span>/data/configdb/mongo.conf \
 <span class="token punctuation">-</span>e MONGODB_INITDB_ROOT_USERNAME=admin \
-<span class="token punctuation">-</span>e MONGODB_INITDB_ROOT_PASSWORD=Cn123456 \
+<span class="token punctuation">-</span>e MONGODB_INITDB_ROOT_PASSWORD=12345678 \
 <span class="token punctuation">-</span>d mongo<span class="token punctuation">:</span>5.0.6 \
 mongod <span class="token punctuation">-</span>f /data/configdb/mongo.conf <span class="token punctuation">-</span><span class="token punctuation">-</span>auth <span class="token punctuation">-</span><span class="token punctuation">-</span>bind_ip_all<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><code>记住：自己的mongod启动命令是在容器内执行的，因此使用的配置文件路径是相对于容器的内部路径。</code></p>
@@ -3687,6 +3687,47 @@ flush privileges<span class="token punctuation">;</span>
       </tags>
   </entry>
   <entry>
+    <title>Mac下安装Python2和Python3共存</title>
+    <url>/post/688f1a31.html</url>
+    <content><![CDATA[<p>  一般是python2默认安装了，python3没有安装，这时候一般使用命令：<code>brew install python3</code> 进行安装<br>  这里有个基础知识要记录一下，就是不同方法安装python的路径是不一样的，如下所示：</p>
+<ol>
+<table>
+    <tbody><tr>
+        <td align="center">来源</td><td align="right">Python安装路径</td>
+    </tr>
+    <tr>
+        <td>系统安装路径</td><td style="text-align:right;color:#ff7600;font-size: 16px;">/System/Library/Frameworks/Python.framework/Versions/2.7</td>
+    </tr>
+    <tr>
+        <td>brew安装</td><td style="text-align:right;color:#ff7600;font-size: 16px;">/usr/local/Cellar/python</td>
+    </tr>
+    <tr>
+        <td>官网PKG安装</td><td style="text-align:right;color:#ff7600;font-size: 16px;">/Library/Frameworks/Python.framework/Versions/2.7</td>
+    </tr>
+</tbody></table>
+</ol>
+
+<ol>
+<li>控制台输入：<code>vim ~/.bash_profile</code> 并输入如下代码：<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># Setting PATH for Python 2.7</span>
+<span class="token assign-left variable"><span class="token environment constant">PATH</span></span><span class="token operator">=</span><span class="token string">"/System/Library/Frameworks/Python.framework/Versions/2.7/bin:<span class="token variable">${<span class="token environment constant">PATH</span>}</span>"</span>
+<span class="token builtin class-name">export</span> <span class="token environment constant">PATH</span>
+<span class="token comment"># Setting PATH for Python 3.7.3</span>
+<span class="token assign-left variable"><span class="token environment constant">PATH</span></span><span class="token operator">=</span><span class="token string">"/usr/local/Cellar/python/3.7.3/bin:<span class="token variable">${<span class="token environment constant">PATH</span>}</span>"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li>控制台输入：<code>vim ~/.bashrc</code> 完成别名的命名<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">alias</span> <span class="token assign-left variable">python2</span><span class="token operator">=</span><span class="token string">'/System/Library/Frameworks/Python.framework/Versions/2.7/bin/python2.7'</span>
+<span class="token builtin class-name">alias</span> <span class="token assign-left variable">python3</span><span class="token operator">=</span><span class="token string">'/usr/local/Cellar/python/3.7.3/bin/python3.7'</span>
+<span class="token builtin class-name">alias</span> <span class="token assign-left variable">python</span><span class="token operator">=</span>python3<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
+<li>需要<code>source</code>一下<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">source</span> ~/.bash_profile
+<span class="token builtin class-name">source</span> ~/.bashrc<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
+</ol>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
+      <categories>
+        <category>Mac</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Parallels Desktop 16在Big Sur下网络初始化失败解决办法</title>
     <url>/post/7507a33f.html</url>
     <content><![CDATA[<p>   Mac最新的操作系统 Big Sur 已经发布，听说一些不兼容，一致没更新，最近手贱，一不小心<code>更新</code>了，突然发现Parallels Desktop 16报无法联网的问题等。</p>
@@ -4018,7 +4059,47 @@ nmcli m
 nmcli
 
 <span class="token comment"># 检测NM是否在线可用</span>
-nm-online<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
+nm-online<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="配置语言环境"><a href="#配置语言环境" class="headerlink" title="配置语言环境"></a>配置语言环境</h2><ol>
+<li>设置中文环境<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># vim /etc/profile.d/locale.sh</span>
+<span class="token builtin class-name">export</span> <span class="token assign-left variable">LC_CTYPE</span><span class="token operator">=</span>zh_CN.UTF-8
+<span class="token builtin class-name">export</span> <span class="token assign-left variable"><span class="token environment constant">LC_ALL</span></span><span class="token operator">=</span>zh_CN.UTF-8
+
+<span class="token comment"># vim /etc/locale.conf</span>
+<span class="token assign-left variable"><span class="token environment constant">LANG</span></span><span class="token operator">=</span>zh_CN.UTF-8
+
+<span class="token comment"># vim /etc/sysconfig/i18n</span>
+<span class="token assign-left variable"><span class="token environment constant">LANG</span></span><span class="token operator">=</span>zh_CN.UTF-8
+
+<span class="token comment"># vim /etc/environment</span>
+<span class="token assign-left variable"><span class="token environment constant">LANG</span></span><span class="token operator">=</span>zh_CN.UTF-8
+<span class="token assign-left variable"><span class="token environment constant">LC_ALL</span></span><span class="token operator">=</span>zh_CN.UTF-8
+
+<span class="token comment"># source /etc/profile.d/locale.sh</span>
+<span class="token comment"># source /etc/locale.conf</span>
+<span class="token comment"># source /etc/sysconfig/i18n</span>
+<span class="token comment"># source /etc/environment</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li>设置英文环境<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># vim /etc/profile.d/locale.sh</span>
+<span class="token builtin class-name">export</span> <span class="token assign-left variable">LC_CTYPE</span><span class="token operator">=</span>en_US.UTF-8
+<span class="token builtin class-name">export</span> <span class="token assign-left variable"><span class="token environment constant">LC_ALL</span></span><span class="token operator">=</span>en_US.UTF-8
+
+<span class="token comment"># vim /etc/locale.conf</span>
+<span class="token assign-left variable"><span class="token environment constant">LANG</span></span><span class="token operator">=</span>en_US.UTF-8
+
+<span class="token comment"># vim /etc/sysconfig/i18n</span>
+<span class="token assign-left variable"><span class="token environment constant">LANG</span></span><span class="token operator">=</span>en_US.UTF-8
+
+<span class="token comment"># vim /etc/environment</span>
+<span class="token assign-left variable"><span class="token environment constant">LANG</span></span><span class="token operator">=</span>en_US.UTF-8
+<span class="token assign-left variable"><span class="token environment constant">LC_ALL</span></span><span class="token operator">=</span>en_US.UTF-8
+
+<span class="token comment"># source /etc/profile.d/locale.sh</span>
+<span class="token comment"># source /etc/locale.conf</span>
+<span class="token comment"># source /etc/sysconfig/i18n</span>
+<span class="token comment"># source /etc/environment</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ol>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
       <categories>
         <category>Linux</category>
       </categories>
@@ -7475,6 +7556,31 @@ flush <span class="token keyword">privileges</span><span class="token punctuatio
       </categories>
       <tags>
         <tag>MySQL</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>VMWare安装CentOS8</title>
+    <url>/post/ea7d9732.html</url>
+    <content><![CDATA[<h3 id="VMware虚拟机"><a href="#VMware虚拟机" class="headerlink" title="VMware虚拟机"></a>VMware虚拟机</h3><div class="note info no-icon"><p>vmware是什么？<br>有了这个软件，大家就不需要为了学习linux特意再去买一台电脑了，虚拟机能让用户在一台机器上模拟出多个操作系统的软件，一般的机器配置足够胜任虚拟机的任务。<br>虚拟机不但可以虚拟出硬件资源，把实验环境与真机文件分离保证数据安全，更nb的是当你手残删掉系统核心配置时，还能有”快照“的功能，立即恢复到出错前的状态，省去装机的超长时间。。。。</p>
+<p>(Windows用户)VMware Workstation是一款功能强大的桌面虚拟计算机软件，提供用户可在单一的桌面上同时运行不同的操作系统，和进行开发、测试 、部署新的应用程序的最佳解决方案。<br>(Mac用户) VMware fusion<br>简单的说，虚拟机（virtual Machine）软件就是一套特殊的软件，同时可以用“多个操作系统”<br>虚拟出硬件+操作系统==服务器+OS<br>误区：学Linux不需要再物理机上安装，费时费力，采用虚拟机是最合适的方式</p>
+</div>
+
+<span id="more"></span>
+<table>
+    <tbody><tr>
+        <td><img data-src="/post/ea7d9732/VM-001.png" class="" title="VMware Workstation"></td>
+        <td><img data-src="/post/ea7d9732/VM-002.png" class="" title="VMware fusion"></td>
+    </tr>
+</tbody></table>
+
+
+<h5 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h5><p><a href="https://www.cnblogs.com/zyling/p/12845191.html"> VMware与Centos系统安装、重置root密码 </a><br><a href="https://www.bilibili.com/read/cv9694457/"> VMware Workstation 16 Pro破解—CentOS8 Linux安装 </a><br><a href="https://www.jb51.net/article/162824.htm"> Mac VMware Fusion CentOS7配置静态IP的教程图解 </a></p>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>VMWare</tag>
       </tags>
   </entry>
   <entry>

@@ -31,7 +31,7 @@
 <meta property="og:description" content="在centos7上，同时支持network.service和NetworkManager.service（简称NM）。默认情况下，这2个服务都有开启，但许多人都会将NM禁用掉。  在centos8上，已废弃network.service，因此只能通过NM进行网络配置，包括动态ip和静态ip。换言之，在centos8上，必须开启NM，否则无法使用网络。  注：centos8依然支持network">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-01-03T14:52:29.000Z">
-<meta property="article:modified_time" content="2021-01-03T15:48:06.738Z">
+<meta property="article:modified_time" content="2022-04-07T06:36:21.667Z">
 <meta property="article:author" content="leeze">
 <meta property="article:tag" content="Linux">
 <meta name="twitter:card" content="summary">
@@ -120,7 +120,7 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">36</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">23</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">97</span></a></li><li class="menu-item menu-item-welfare"><a href="/welfare" rel="section"><i class="fa fa-star fa-fw"></i>收藏</a></li><li class="menu-item menu-item-photos"><a href="/photos" rel="section"><i class="fa fa-camera-retro fa-fw"></i>相册</a></li><li class="menu-item menu-item-links"><a href="/links" rel="section"><i class="fa fa-link fa-fw"></i>友链</a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">38</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">23</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">99</span></a></li><li class="menu-item menu-item-welfare"><a href="/welfare" rel="section"><i class="fa fa-star fa-fw"></i>收藏</a></li><li class="menu-item menu-item-photos"><a href="/photos" rel="section"><i class="fa fa-camera-retro fa-fw"></i>相册</a></li><li class="menu-item menu-item-links"><a href="/links" rel="section"><i class="fa fa-link fa-fw"></i>友链</a></li>
       <li class="menu-item menu-item-search">
         <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
         </a>
@@ -177,7 +177,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9D%99%E6%80%81IP%E8%AE%BE%E7%BD%AE"><span class="nav-number">1.</span> <span class="nav-text">静态IP设置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B3%E9%97%AD%E5%9B%BE%E5%BD%A2%E7%95%8C%E9%9D%A2%E7%99%BB%E5%BD%95"><span class="nav-number">2.</span> <span class="nav-text">关闭图形界面登录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E4%B8%BB%E6%9C%BA%E5%90%8D"><span class="nav-number">3.</span> <span class="nav-text">修改主机名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#nmcli%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E4%B8%80%E8%A7%88"><span class="nav-number">4.</span> <span class="nav-text">nmcli常用命令一览</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9D%99%E6%80%81IP%E8%AE%BE%E7%BD%AE"><span class="nav-number">1.</span> <span class="nav-text">静态IP设置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B3%E9%97%AD%E5%9B%BE%E5%BD%A2%E7%95%8C%E9%9D%A2%E7%99%BB%E5%BD%95"><span class="nav-number">2.</span> <span class="nav-text">关闭图形界面登录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E4%B8%BB%E6%9C%BA%E5%90%8D"><span class="nav-number">3.</span> <span class="nav-text">修改主机名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#nmcli%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E4%B8%80%E8%A7%88"><span class="nav-number">4.</span> <span class="nav-text">nmcli常用命令一览</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E8%AF%AD%E8%A8%80%E7%8E%AF%E5%A2%83"><span class="nav-number">5.</span> <span class="nav-text">配置语言环境</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -192,7 +192,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">97</span>
+          <span class="site-state-item-count">99</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -203,7 +203,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">36</span>
+        <span class="site-state-item-count">38</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -592,9 +592,15 @@ canvas#canvas {
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2021-01-03 22:52:29 / 修改时间：23:48:06" itemprop="dateCreated datePublished" datetime="2021-01-03T22:52:29+08:00">2021-01-03</time>
+      <time title="创建时间：2021-01-03 22:52:29" itemprop="dateCreated datePublished" datetime="2021-01-03T22:52:29+08:00">2021-01-03</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-04-07 14:36:21" itemprop="dateModified" datetime="2022-04-07T14:36:21+08:00">2022-04-07</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -637,14 +643,14 @@ canvas#canvas {
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>2.4k</span>
+      <span>3.1k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>2 分钟</span>
+      <span>3 分钟</span>
     </span>
 </div>
 
@@ -780,7 +786,47 @@ nmcli m
 nmcli
 
 <span class="token comment"># 检测NM是否在线可用</span>
-nm-online<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
+nm-online<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="配置语言环境"><a href="#配置语言环境" class="headerlink" title="配置语言环境"></a>配置语言环境</h2><ol>
+<li>设置中文环境<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># vim /etc/profile.d/locale.sh</span>
+<span class="token builtin class-name">export</span> <span class="token assign-left variable">LC_CTYPE</span><span class="token operator">=</span>zh_CN.UTF-8
+<span class="token builtin class-name">export</span> <span class="token assign-left variable"><span class="token environment constant">LC_ALL</span></span><span class="token operator">=</span>zh_CN.UTF-8
+
+<span class="token comment"># vim /etc/locale.conf</span>
+<span class="token assign-left variable"><span class="token environment constant">LANG</span></span><span class="token operator">=</span>zh_CN.UTF-8
+
+<span class="token comment"># vim /etc/sysconfig/i18n</span>
+<span class="token assign-left variable"><span class="token environment constant">LANG</span></span><span class="token operator">=</span>zh_CN.UTF-8
+
+<span class="token comment"># vim /etc/environment</span>
+<span class="token assign-left variable"><span class="token environment constant">LANG</span></span><span class="token operator">=</span>zh_CN.UTF-8
+<span class="token assign-left variable"><span class="token environment constant">LC_ALL</span></span><span class="token operator">=</span>zh_CN.UTF-8
+
+<span class="token comment"># source /etc/profile.d/locale.sh</span>
+<span class="token comment"># source /etc/locale.conf</span>
+<span class="token comment"># source /etc/sysconfig/i18n</span>
+<span class="token comment"># source /etc/environment</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li>设置英文环境<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># vim /etc/profile.d/locale.sh</span>
+<span class="token builtin class-name">export</span> <span class="token assign-left variable">LC_CTYPE</span><span class="token operator">=</span>en_US.UTF-8
+<span class="token builtin class-name">export</span> <span class="token assign-left variable"><span class="token environment constant">LC_ALL</span></span><span class="token operator">=</span>en_US.UTF-8
+
+<span class="token comment"># vim /etc/locale.conf</span>
+<span class="token assign-left variable"><span class="token environment constant">LANG</span></span><span class="token operator">=</span>en_US.UTF-8
+
+<span class="token comment"># vim /etc/sysconfig/i18n</span>
+<span class="token assign-left variable"><span class="token environment constant">LANG</span></span><span class="token operator">=</span>en_US.UTF-8
+
+<span class="token comment"># vim /etc/environment</span>
+<span class="token assign-left variable"><span class="token environment constant">LANG</span></span><span class="token operator">=</span>en_US.UTF-8
+<span class="token assign-left variable"><span class="token environment constant">LC_ALL</span></span><span class="token operator">=</span>en_US.UTF-8
+
+<span class="token comment"># source /etc/profile.d/locale.sh</span>
+<span class="token comment"># source /etc/locale.conf</span>
+<span class="token comment"># source /etc/sysconfig/i18n</span>
+<span class="token comment"># source /etc/environment</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ol>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
     </div>
 
     
@@ -894,13 +940,13 @@ nm-online<span aria-hidden="true" class="line-numbers-rows"><span></span><span><
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">262k</span>
+    <span title="站点总字数">264k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">3:59</span>
+    <span title="站点阅读时长">4:01</span>
   </span>
 </div>
 <div class="busuanzi-count">

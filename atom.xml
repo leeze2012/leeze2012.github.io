@@ -99,7 +99,7 @@
     <link href="https://www.xiaosige.com/post/a639ff5d.html"/>
     <id>https://www.xiaosige.com/post/a639ff5d.html</id>
     <published>2022-02-11T09:05:16.000Z</published>
-    <updated>2022-03-30T19:08:22.087Z</updated>
+    <updated>2022-04-08T08:43:23.965Z</updated>
     
     
     <summary type="html">&lt;h3 id=&quot;安装mongodb&quot;&gt;&lt;a href=&quot;#安装mongodb&quot; class=&quot;headerlink&quot; title=&quot;安装mongodb&quot;&gt;&lt;/a&gt;安装mongodb&lt;/h3&gt;&lt;h4 id=&quot;获取MongoDB镜像&quot;&gt;&lt;a href=&quot;#获取MongoDB镜像&quot; class=&quot;headerlink&quot; title=&quot;获取MongoDB镜像&quot;&gt;&lt;/a&gt;获取MongoDB镜像&lt;/h4&gt;&lt;pre class=&quot;line-numbers language-docker&quot; data-language=&quot;docker&quot;&gt;&lt;code class=&quot;language-docker&quot;&gt;docker pull mongo&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;5.0.6&lt;span aria-hidden=&quot;true&quot; class=&quot;line-numbers-rows&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;</summary>
