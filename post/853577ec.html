@@ -32,7 +32,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.xiaosige.com/post/853577ec/gitea-001.png">
 <meta property="article:published_time" content="2021-06-11T18:42:29.000Z">
-<meta property="article:modified_time" content="2021-06-12T09:04:23.015Z">
+<meta property="article:modified_time" content="2022-04-08T11:10:02.512Z">
 <meta property="article:author" content="leeze">
 <meta property="article:tag" content="Gitea">
 <meta name="twitter:card" content="summary">
@@ -179,7 +179,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AE%80%E4%BB%8B"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8A%9F%E8%83%BD"><span class="nav-number">2.</span> <span class="nav-text">功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8B%E8%BD%BD%E9%95%9C%E5%83%8F"><span class="nav-number">3.</span> <span class="nav-text">下载镜像</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E7%9B%AE%E5%BD%95"><span class="nav-number">4.</span> <span class="nav-text">创建目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%90%E8%A1%8C%E9%95%9C%E5%83%8F"><span class="nav-number">5.</span> <span class="nav-text">运行镜像</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%80%E6%94%BE%E7%AB%AF%E5%8F%A3"><span class="nav-number">6.</span> <span class="nav-text">开放端口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8C%81%E4%B9%85%E5%8C%96%E9%9C%80%E8%A6%81%E7%94%A8%E5%88%B0%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="nav-number">7.</span> <span class="nav-text">持久化需要用到数据库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E9%85%8D%E7%BD%AE"><span class="nav-number">8.</span> <span class="nav-text">修改配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PS-gogs"><span class="nav-number">9.</span> <span class="nav-text">PS gogs</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AE%80%E4%BB%8B"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8A%9F%E8%83%BD"><span class="nav-number">2.</span> <span class="nav-text">功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8B%E8%BD%BD%E9%95%9C%E5%83%8F"><span class="nav-number">3.</span> <span class="nav-text">下载镜像</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E7%9B%AE%E5%BD%95"><span class="nav-number">4.</span> <span class="nav-text">创建目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%90%E8%A1%8C%E9%95%9C%E5%83%8F"><span class="nav-number">5.</span> <span class="nav-text">运行镜像</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%80%E6%94%BE%E7%AB%AF%E5%8F%A3"><span class="nav-number">6.</span> <span class="nav-text">开放端口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8C%81%E4%B9%85%E5%8C%96%E9%9C%80%E8%A6%81%E7%94%A8%E5%88%B0%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="nav-number">7.</span> <span class="nav-text">持久化需要用到数据库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E9%85%8D%E7%BD%AE"><span class="nav-number">8.</span> <span class="nav-text">修改配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PS-gogs"><span class="nav-number">9.</span> <span class="nav-text">PS gogs</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%97%AE%E9%A2%98"><span class="nav-number">10.</span> <span class="nav-text">问题</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -594,9 +594,15 @@ canvas#canvas {
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2021-06-12 02:42:29 / 修改时间：17:04:23" itemprop="dateCreated datePublished" datetime="2021-06-12T02:42:29+08:00">2021-06-12</time>
+      <time title="创建时间：2021-06-12 02:42:29" itemprop="dateCreated datePublished" datetime="2021-06-12T02:42:29+08:00">2021-06-12</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-04-08 19:10:02" itemprop="dateModified" datetime="2022-04-08T19:10:02+08:00">2022-04-08</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -639,14 +645,14 @@ canvas#canvas {
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>2.5k</span>
+      <span>2.8k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>2 分钟</span>
+      <span>3 分钟</span>
     </span>
 </div>
 
@@ -756,6 +762,12 @@ firewall-cmd --reload<span aria-hidden="true" class="line-numbers-rows"><span></
 -v /root/.docker/gogs/data:/data <span class="token punctuation">\</span>
 -d gogs/gogs<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
+<h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><ol>
+<li><code>Webhook报错 webhook.ALLOWED_HOST_LIST setting</code><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">Delivery: Post <span class="token string">"http://192.168.107.128:3080/hook?secret=tPSP4BPvclfFKPPT2XPgPnIs7fNcC0jQ"</span><span class="token builtin class-name">:</span> dial tcp <span class="token number">192.168</span>.107.128:3080: webhook can only call allowed HTTP servers <span class="token punctuation">(</span>check your webhook.ALLOWED_HOST_LIST setting<span class="token punctuation">)</span>, deny <span class="token string">'192.168.107.128(192.168.107.128:3080)'</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+  修改 <code>/data/gitea/conf/app.ini</code> 配置文件，确保存在如下配置<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>webhook<span class="token punctuation">]</span>
+ALLOWED_HOST_LIST <span class="token operator">=</span> <span class="token number">192.168</span>.107.128<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+  重启服务就好了</li>
+</ol>
 <link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
     </div>
 
@@ -870,7 +882,7 @@ firewall-cmd --reload<span aria-hidden="true" class="line-numbers-rows"><span></
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">264k</span>
+    <span title="站点总字数">265k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
