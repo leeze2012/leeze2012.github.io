@@ -3169,7 +3169,7 @@ docker-engine<span aria-hidden="true" class="line-numbers-rows"><span></span><sp
 <li>生成缓存，提高搜索安装软件的速度<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> yum makecache fast<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 <li>解决problem with installed package podman-1.6.4-10.的报错<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">yum erase podman buildah<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 <li>安装Docker<br>  安装社区版docker:<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">yum <span class="token function">install</span> -y docker-ce docker-ce-cli  containerd.io --nobest<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<code>在线安装：curl -fsSL https://get.docker.com | bash -s docker</code></li>
+<code>在线安装：curl -fsSL https://get.docker.com | bash -s docker</code><br><code>curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun</code></li>
 <li>修改docker 镜像源地址加速<br>  创建或修改 <code>/etc/docker/daemon.json</code> 文件，修改为如下形式<br>  内容为（可以选择163加速或者去阿里云自己生成一个docker加速地址）：<pre class="line-numbers language-properties" data-language="properties"><code class="language-properties">{
 <span class="token attr-name">  "registry-mirrors"</span><span class="token punctuation">:</span> <span class="token attr-value">[</span>
 <span class="token attr-name">    "https</span><span class="token punctuation">:</span><span class="token attr-value">//registry.docker-cn.com",</span>
@@ -3222,7 +3222,14 @@ pip <span class="token function">install</span> --upgrade pip
 pip <span class="token function">install</span> docker-compose
 <span class="token comment"># pip3 install docker-compose</span>
 <span class="token comment"># pip install docker-compose==1.21.2</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<div class="note info no-icon"><p><a href="http://www.manongjc.com/detail/18-fdycjiwlqqsvecp.html">docker-compose 安装以及遇到的错误解决</a><br><a href="https://www.cnblogs.com/eddie1127/p/12003358.html">安装docker-compose报错解决办法</a><br><a href="https://www.cnblogs.com/felixqiang/p/11946644.html">pip-ERROR</a></p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token assign-left variable">DOCKER_CONFIG</span><span class="token operator">=</span><span class="token variable">${DOCKER_CONFIG<span class="token operator">:-</span>$HOME<span class="token operator">/</span>.docker}</span>
+<span class="token function">mkdir</span> -p <span class="token variable">$DOCKER_CONFIG</span>/cli-plugins
+<span class="token function">curl</span> -SL https://github.com/docker/compose/releases/download/v2.2.3/docker-compose-linux-x86_64 -o <span class="token variable">$DOCKER_CONFIG</span>/cli-plugins/docker-compose
+
+<span class="token function">chmod</span> +x <span class="token variable">$DOCKER_CONFIG</span>/cli-plugins/docker-compose
+
+docker compose version<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<div class="note info no-icon"><p><a href="https://docs.docker.com/compose/cli-command/">Compose V2</a><br><a href="http://www.manongjc.com/detail/18-fdycjiwlqqsvecp.html">docker-compose 安装以及遇到的错误解决</a><br><a href="https://www.cnblogs.com/eddie1127/p/12003358.html">安装docker-compose报错解决办法</a><br><a href="https://www.cnblogs.com/felixqiang/p/11946644.html">pip-ERROR</a></p>
 </div></li>
 </ol>
 <h3 id="Docker服务相关"><a href="#Docker服务相关" class="headerlink" title="Docker服务相关"></a>Docker服务相关</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">
