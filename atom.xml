@@ -291,7 +291,7 @@
     <link href="https://www.xiaosige.com/post/853577ec.html"/>
     <id>https://www.xiaosige.com/post/853577ec.html</id>
     <published>2021-06-11T18:42:29.000Z</published>
-    <updated>2022-04-08T11:10:02.512Z</updated>
+    <updated>2022-04-08T11:12:08.431Z</updated>
     
     
     <summary type="html">&lt;h3 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h3&gt;&lt;p&gt;  Gitea是一个极易安装，运行非常快速，安装和使用体验良好的自建Git服务。采用Go作为后端语言，这使得只要生成一个可执行程序即可。并且他还支持跨平台，支持Linux、macOS和Windows以及各种架构，除了x86，amd64，还包括ARM和 PowerPC。&lt;/p&gt;
