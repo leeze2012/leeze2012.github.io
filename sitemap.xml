@@ -830,14 +830,14 @@
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/tags/Gitea/</loc>
+    <loc>https://www.xiaosige.com/tags/GitLab/</loc>
     <lastmod>2022-04-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/tags/GitLab/</loc>
+    <loc>https://www.xiaosige.com/tags/Gitea/</loc>
     <lastmod>2022-04-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -851,14 +851,14 @@
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/tags/Mongo/</loc>
+    <loc>https://www.xiaosige.com/tags/MySQL/</loc>
     <lastmod>2022-04-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/tags/MySQL/</loc>
+    <loc>https://www.xiaosige.com/tags/Mongo/</loc>
     <lastmod>2022-04-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -886,13 +886,6 @@
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/tags/Test/</loc>
-    <lastmod>2022-04-08</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.xiaosige.com/tags/hexo/</loc>
     <lastmod>2022-04-08</lastmod>
     <changefreq>daily</changefreq>
@@ -907,13 +900,6 @@
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/tags/Jenkins/</loc>
-    <lastmod>2022-04-08</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.xiaosige.com/tags/Idea/</loc>
     <lastmod>2022-04-08</lastmod>
     <changefreq>daily</changefreq>
@@ -921,7 +907,28 @@
   </url>
   
   <url>
+    <loc>https://www.xiaosige.com/tags/Jenkins/</loc>
+    <lastmod>2022-04-08</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.xiaosige.com/tags/Test/</loc>
+    <lastmod>2022-04-08</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://www.xiaosige.com/tags/LNMP/</loc>
+    <lastmod>2022-04-08</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.xiaosige.com/tags/Python/</loc>
     <lastmod>2022-04-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -936,13 +943,6 @@
   
   <url>
     <loc>https://www.xiaosige.com/tags/Meting/</loc>
-    <lastmod>2022-04-08</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.xiaosige.com/tags/Python/</loc>
     <lastmod>2022-04-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -998,13 +998,6 @@
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/tags/SpringBoot/</loc>
-    <lastmod>2022-04-08</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.xiaosige.com/tags/snowflake/</loc>
     <lastmod>2022-04-08</lastmod>
     <changefreq>daily</changefreq>
@@ -1012,7 +1005,7 @@
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/tags/SpringMVC/</loc>
+    <loc>https://www.xiaosige.com/tags/SpringBoot/</loc>
     <lastmod>2022-04-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1020,6 +1013,13 @@
   
   <url>
     <loc>https://www.xiaosige.com/tags/ssh/</loc>
+    <lastmod>2022-04-08</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.xiaosige.com/tags/SpringMVC/</loc>
     <lastmod>2022-04-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1084,14 +1084,14 @@
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/categories/Docker/</loc>
+    <loc>https://www.xiaosige.com/categories/BootStrap/table/</loc>
     <lastmod>2022-04-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/categories/BootStrap/table/</loc>
+    <loc>https://www.xiaosige.com/categories/Docker/</loc>
     <lastmod>2022-04-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1126,13 +1126,6 @@
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/categories/%E6%B5%8B%E8%AF%95/</loc>
-    <lastmod>2022-04-08</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.xiaosige.com/categories/hexo%E5%BB%BA%E7%AB%99/</loc>
     <lastmod>2022-04-08</lastmod>
     <changefreq>daily</changefreq>
@@ -1147,13 +1140,6 @@
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/categories/Jenkins/</loc>
-    <lastmod>2022-04-08</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.xiaosige.com/categories/Idea/</loc>
     <lastmod>2022-04-08</lastmod>
     <changefreq>daily</changefreq>
@@ -1161,7 +1147,21 @@
   </url>
   
   <url>
+    <loc>https://www.xiaosige.com/categories/Jenkins/</loc>
+    <lastmod>2022-04-08</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://www.xiaosige.com/categories/Linux/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/</loc>
+    <lastmod>2022-04-08</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.xiaosige.com/categories/%E6%B5%8B%E8%AF%95/</loc>
     <lastmod>2022-04-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
