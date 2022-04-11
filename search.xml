@@ -68,6 +68,24 @@ lrwxrwxrwx. <span class="token number">1</span> root root <span class="token num
       </tags>
   </entry>
   <entry>
+    <title>Mac使用VMWare虚拟，设置网络</title>
+    <url>/post/942dd570.html</url>
+    <content><![CDATA[<h3 id="vmnet8重启网卡"><a href="#vmnet8重启网卡" class="headerlink" title="vmnet8重启网卡"></a>vmnet8重启网卡</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span>  /Applications/VMware<span class="token punctuation">\</span> Fusion.app/Contents/Library/vmnet-cli --start
+<span class="token function">sudo</span>  /Applications/VMware<span class="token punctuation">\</span> Fusion.app/Contents/Library/vmnet-cli --stop
+<span class="token function">sudo</span>  /Applications/VMware<span class="token punctuation">\</span> Fusion.app/Contents/Library/vmnet-cli --status<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<span id="more"></span>
+
+<h3 id="网卡配置文件路径"><a href="#网卡配置文件路径" class="headerlink" title="网卡配置文件路径"></a>网卡配置文件路径</h3><p>  <code>/Library/Preferences/VMware\ Fusion/networking</code><br>  查看<code>vmnet8</code>的网关，配置文件<code>/Library/Preferences/VMware\ Fusion/vmnet8/nat.conf</code>，默认网关是<code>xxx.xxx.xxx.2</code>，可修改。</p>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
+      <categories>
+        <category>Mac</category>
+      </categories>
+      <tags>
+        <tag>VM</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Linux 解决开机启动时的 systemd-modules-load.service 失败的问题</title>
     <url>/post/f25aacc.html</url>
     <content><![CDATA[<p>  !解决开机启动时的systemd-modules-load.service失败的问题</p>
@@ -3705,6 +3723,8 @@ flush privileges<span class="token punctuation">;</span>
     <title>Mac下安装Python2和Python3共存</title>
     <url>/post/688f1a31.html</url>
     <content><![CDATA[<p>  一般是python2默认安装了，python3没有安装，这时候一般使用命令：<code>brew install python3</code> 进行安装<br>  这里有个基础知识要记录一下，就是不同方法安装python的路径是不一样的，如下所示：</p>
+<span id="more"></span>
+
 <ol>
 <table>
     <tbody><tr>

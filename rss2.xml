@@ -15,8 +15,31 @@
     <atom:link href="https://www.xiaosige.com/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>因上努力，果上随缘！</description>
-    <pubDate>Thu, 07 Apr 2022 05:38:53 GMT</pubDate>
+    <pubDate>Mon, 11 Apr 2022 10:25:00 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>Mac使用VMWare虚拟，设置网络</title>
+      <link>https://www.xiaosige.com/post/942dd570.html</link>
+      <guid>https://www.xiaosige.com/post/942dd570.html</guid>
+      <pubDate>Mon, 11 Apr 2022 10:15:59 GMT</pubDate>
+      
+      <description>&lt;h3 id=&quot;vmnet8重启网卡&quot;&gt;&lt;a href=&quot;#vmnet8重启网卡&quot; class=&quot;headerlink&quot; title=&quot;vmnet8重启网卡&quot;&gt;&lt;/a&gt;vmnet8重启网卡&lt;/h3&gt;&lt;pre class=&quot;line-numbers language-bash&quot; data-language=&quot;bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function&quot;&gt;sudo&lt;/span&gt;  /Applications/VMware&lt;span class=&quot;token punctuation&quot;&gt;\&lt;/span&gt; Fusion.app/Contents/Library/vmnet-cli --start
+&lt;span class=&quot;token function&quot;&gt;sudo&lt;/span&gt;  /Applications/VMware&lt;span class=&quot;token punctuation&quot;&gt;\&lt;/span&gt; Fusion.app/Contents/Library/vmnet-cli --stop
+&lt;span class=&quot;token function&quot;&gt;sudo&lt;/span&gt;  /Applications/VMware&lt;span class=&quot;token punctuation&quot;&gt;\&lt;/span&gt; Fusion.app/Contents/Library/vmnet-cli --status&lt;span aria-hidden=&quot;true&quot; class=&quot;line-numbers-rows&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;</description>
+      
+      
+      
+      
+      <category domain="https://www.xiaosige.com/categories/Mac/">Mac</category>
+      
+      
+      <category domain="https://www.xiaosige.com/tags/VM/">VM</category>
+      
+      
+      <comments>https://www.xiaosige.com/post/942dd570.html#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>Linux 解决开机启动时的 systemd-modules-load.service 失败的问题</title>
@@ -419,27 +442,6 @@
       
       
       <comments>https://www.xiaosige.com/post/4ed27834.html#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>Centos8安装Docker</title>
-      <link>https://www.xiaosige.com/post/a00f9d53.html</link>
-      <guid>https://www.xiaosige.com/post/a00f9d53.html</guid>
-      <pubDate>Mon, 10 May 2021 08:17:18 GMT</pubDate>
-      
-      <description>&lt;h3 id=&quot;准备&quot;&gt;&lt;a href=&quot;#准备&quot; class=&quot;headerlink&quot; title=&quot;准备&quot;&gt;&lt;/a&gt;准备&lt;/h3&gt;&lt;p&gt;  服务器版本:CentOS 8.2 64位&lt;/p&gt;</description>
-      
-      
-      
-      
-      <category domain="https://www.xiaosige.com/categories/Centos/">Centos</category>
-      
-      
-      <category domain="https://www.xiaosige.com/tags/Docker/">Docker</category>
-      
-      
-      <comments>https://www.xiaosige.com/post/a00f9d53.html#disqus_thread</comments>
       
     </item>
     

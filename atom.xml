@@ -6,7 +6,7 @@
   <link href="https://www.xiaosige.com/atom.xml" rel="self"/>
   
   <link href="https://www.xiaosige.com/"/>
-  <updated>2022-04-07T05:38:53.917Z</updated>
+  <updated>2022-04-11T10:25:00.982Z</updated>
   <id>https://www.xiaosige.com/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Mac使用VMWare虚拟，设置网络</title>
+    <link href="https://www.xiaosige.com/post/942dd570.html"/>
+    <id>https://www.xiaosige.com/post/942dd570.html</id>
+    <published>2022-04-11T10:15:59.000Z</published>
+    <updated>2022-04-11T10:25:00.982Z</updated>
+    
+    
+    <summary type="html">&lt;h3 id=&quot;vmnet8重启网卡&quot;&gt;&lt;a href=&quot;#vmnet8重启网卡&quot; class=&quot;headerlink&quot; title=&quot;vmnet8重启网卡&quot;&gt;&lt;/a&gt;vmnet8重启网卡&lt;/h3&gt;&lt;pre class=&quot;line-numbers language-bash&quot; data-language=&quot;bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function&quot;&gt;sudo&lt;/span&gt;  /Applications/VMware&lt;span class=&quot;token punctuation&quot;&gt;\&lt;/span&gt; Fusion.app/Contents/Library/vmnet-cli --start
+&lt;span class=&quot;token function&quot;&gt;sudo&lt;/span&gt;  /Applications/VMware&lt;span class=&quot;token punctuation&quot;&gt;\&lt;/span&gt; Fusion.app/Contents/Library/vmnet-cli --stop
+&lt;span class=&quot;token function&quot;&gt;sudo&lt;/span&gt;  /Applications/VMware&lt;span class=&quot;token punctuation&quot;&gt;\&lt;/span&gt; Fusion.app/Contents/Library/vmnet-cli --status&lt;span aria-hidden=&quot;true&quot; class=&quot;line-numbers-rows&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;</summary>
+    
+    
+    
+    <category term="Mac" scheme="https://www.xiaosige.com/categories/Mac/"/>
+    
+    
+    <category term="VM" scheme="https://www.xiaosige.com/tags/VM/"/>
+    
+  </entry>
   
   <entry>
     <title>Linux 解决开机启动时的 systemd-modules-load.service 失败的问题</title>
@@ -379,25 +400,6 @@
     
     
     <category term="Jira" scheme="https://www.xiaosige.com/tags/Jira/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Centos8安装Docker</title>
-    <link href="https://www.xiaosige.com/post/a00f9d53.html"/>
-    <id>https://www.xiaosige.com/post/a00f9d53.html</id>
-    <published>2021-05-10T08:17:18.000Z</published>
-    <updated>2022-04-08T13:51:21.768Z</updated>
-    
-    
-    <summary type="html">&lt;h3 id=&quot;准备&quot;&gt;&lt;a href=&quot;#准备&quot; class=&quot;headerlink&quot; title=&quot;准备&quot;&gt;&lt;/a&gt;准备&lt;/h3&gt;&lt;p&gt;  服务器版本:CentOS 8.2 64位&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="Centos" scheme="https://www.xiaosige.com/categories/Centos/"/>
-    
-    
-    <category term="Docker" scheme="https://www.xiaosige.com/tags/Docker/"/>
     
   </entry>
   
