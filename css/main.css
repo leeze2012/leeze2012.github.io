@@ -4024,6 +4024,11 @@ article .post-copyright{
 }
 */
 /*********新年皮肤******end*****/
+@media (min-width: 1600px) {
+  .main {
+    width: 80%;
+  }
+}
 @-moz-keyframes Gradient {
   0% {
     background-position: 0 50%;

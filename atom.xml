@@ -139,7 +139,7 @@
     <link href="https://www.xiaosige.com/post/3458217c.html"/>
     <id>https://www.xiaosige.com/post/3458217c.html</id>
     <published>2021-12-08T15:30:05.000Z</published>
-    <updated>2021-12-08T17:48:01.164Z</updated>
+    <updated>2022-04-12T15:31:12.539Z</updated>
     
     
     <summary type="html">&lt;h3 id=&quot;问题描述&quot;&gt;&lt;a href=&quot;#问题描述&quot; class=&quot;headerlink&quot; title=&quot;问题描述&quot;&gt;&lt;/a&gt;问题描述&lt;/h3&gt;&lt;p&gt;  最近Docker上重装Nexus3，&lt;code&gt;一直报错 UnknownHostException: rhc.sonatype.com &lt;/code&gt; (在另一个场景中报 NoRouteToHostException: No route to host )&lt;/p&gt;</summary>

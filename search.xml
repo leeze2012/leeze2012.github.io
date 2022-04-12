@@ -1604,7 +1604,9 @@ systemctl restart firewalld
 systemctl restart docker<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
   还看到另一个方法，未测试有效性，先放在这里<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">// https://blog.csdn.net/mostone/article/details/105815866
 // 将网络接口 docker0 加入 trusted zone
-firewall-cmd --permanent --zone<span class="token operator">=</span>trusted --add-interface<span class="token operator">=</span>docker0<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
+firewall-cmd --permanent --zone<span class="token operator">=</span>trusted --add-interface<span class="token operator">=</span>docker0
+
+firewall-cmd --permanent --zone<span class="token operator">=</span>trusted --change-interface<span class="token operator">=</span>br-d2aa50162455<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 <li>方法3. 通过host模式启动容器<br>  这是最简单的方法，容器启动即可直接访问外网，但是无法指定容器对外暴漏的端口，将使用默认端口。<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">docker run -it --net<span class="token operator">=</span>host centos<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 </ol>
 <br>
