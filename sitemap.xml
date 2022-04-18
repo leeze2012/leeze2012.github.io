@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://www.xiaosige.com/localdev/index.html</loc>
+    
+    <lastmod>2022-04-18</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://www.xiaosige.com/post/a8863134.html</loc>
     
     <lastmod>2022-04-18</lastmod>
@@ -40,13 +47,6 @@
     <loc>https://www.xiaosige.com/post/a90d146c.html</loc>
     
     <lastmod>2022-04-09</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.xiaosige.com/localdev/index.html</loc>
-    
-    <lastmod>2022-04-08</lastmod>
     
   </url>
   
@@ -1040,14 +1040,14 @@
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/tags/VMWare/</loc>
+    <loc>https://www.xiaosige.com/tags/Yarn/</loc>
     <lastmod>2022-04-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/tags/Yarn/</loc>
+    <loc>https://www.xiaosige.com/tags/VMWare/</loc>
     <lastmod>2022-04-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
