@@ -27,7 +27,7 @@
             .txt-scroll .txt,
             .txt-scroll .txt-clone{ display: inline; position: relative; }
 
-            table a {
+            span a {
                 text-decoration:none;
                 color: #fc6423;
                 padding: 4px;
@@ -35,41 +35,190 @@
                 border-color: #ff7600;
             }
 
+
+            .tangseng {
+                position: absolute;
+                top: 30px;
+                /*right: 310px;*/
+                left:10%;
+                background: url(https://static.xiaosige.com/img/xiyouji/tangseng.png) 0 0 no-repeat;
+                z-index: 999999;
+                width: 170px;
+                height: 240px;
+                animation: tszou 1s steps(8) infinite;
+                -webkit-animation: tszou 1s steps(8) infinite;
+                -moz-animation: tszou 1s steps(8) infinite;
+                -o-animation: tszou 1s steps(8) infinite;
+            }
+
+            @keyframes tszou {
+                to {
+                    background-position: -1360px 0;
+                }
+            }
+
+            @-webkit-keyframes tszou {
+                to {
+                    background-position: -1360px 0;
+                }
+            }
+
+            @-moz-keyframes tszou {
+                to {
+                    background-position: -1360px 0;
+                }
+            }
+
+            @-o-keyframes tszou {
+                to {
+                    background-position: -1360px 0;
+                }
+            }
+
+            .wukong{
+                position: fixed;
+                right: 0;
+                bottom: 200px;
+                z-index: 999999;
+                animation: mymove 5s infinite ease-in-out;
+            }
+            @keyframes mymove {
+                0% {
+                    bottom: 180px;
+                }
+                50% {
+                    bottom: 100px;
+                }
+                100% {
+                    bottom: 180px;
+                }
+            }
+
+            .wukong .wukong-img{
+                width: 150px;
+                height: 150px;
+                overflow: hidden;
+            }
+            .wukong-img img{
+                width: 150px;
+                height: 150px;
+            }
+
+            .bajie {
+                position: absolute;
+                top: 60px;
+                /*right: 458px;*/
+                left:35%;
+                background: url(https://static.xiaosige.com/img/xiyouji/bajie.png) 0 0 no-repeat;
+                z-index: 999999;
+                width: 200px;
+                height: 180px;
+                animation: bjzou 1s steps(8) infinite;
+                /*! -webkit-animation: bjzou 1s steps(8) infinite; */
+                /*! -moz-animation: bjzou 1s steps(8) infinite; */
+                -o-animation: bjzou 1s steps(8) infinite;
+            }
+
+            @keyframes bjzou {
+                to {
+                    background-position: -1600px 0;
+                }
+            }
+
+            @-webkit-keyframes bjzou {
+                to {
+                    background-position: -1600px 0;
+                }
+            }
+
+            @-moz-keyframes bjzou {
+                to {
+                    background-position: -1600px 0;
+                }
+            }
+
+            @-o-keyframes bjzou {
+                to {
+                    background-position: -1600px 0;
+                }
+            }
+
+            .shaseng {
+                position: absolute;
+                top: 60px;
+                /*right: 100px;*/
+                left:60%;
+                background: url(https://static.xiaosige.com/img/xiyouji/shaseng.png) 0 0 no-repeat;
+                z-index: 999999;
+                width: 210px;
+                height: 200px;
+                animation: sszou 1s steps(8) infinite;
+                -webkit-animation: sszou 1s steps(8) infinite;
+                -moz-animation: sszou 1s steps(8) infinite;
+                -o-animation: sszou 1s steps(8) infinite;
+            }
+
+            @keyframes sszou {
+                to {
+                    background-position: -1680px 0;
+                }
+            }
+
+            @-webkit-keyframes sszou {
+                to {
+                    background-position: -1680px 0;
+                }
+            }
+
+            @-moz-keyframes sszou {
+                to {
+                    background-position: -1680px 0;
+                }
+            }
+
+            @-o-keyframes sszou {
+                to {
+                    background-position: -1680px 0;
+                }
+            }
+
         </style>
     </head>
     <body>
-        <table style="width: 100%;">
-            <tr>
-                <td>
-                    <iframe style="width: 100%;" src="//player.bilibili.com/player.html?aid=243056306&bvid=BV16e411p7mc&cid=189177558&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
-                </td>
-                <td>
-                    <iframe style="width: 100%;" src="//player.bilibili.com/player.html?aid=24266901&bvid=BV1uW411N7xr&cid=40695101&page=1&auto=true" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
-                </td>
-            </tr>
-            <tr>
-                <div class="txt-scroll">
-                    <div class="scrollbox">
-                        <div class="txt">
-                            欢迎光临小四儿站点。好脑瓜不如烂笔头，本站为个人日常知识点、生活趣事记录，有任何不妥的地方，请及时联系本人（<span style="color: #f37055">leeze0216@163.com</span>），欢迎批评指正。
-                        </div>
+
+        <div style="position :absolute;width: 100%;text-align: center;height:40px;top:10px;">
+            <div class="txt-scroll">
+                <div class="scrollbox">
+                    <div class="txt">
+                        欢迎光临小四儿站点。好脑瓜不如烂笔头，本站为个人日常知识点、生活趣事记录，有任何不妥的地方，请及时联系本人（<span style="color: #f37055">leeze0216@163.com</span>），欢迎批评指正。
                     </div>
                 </div>
-            </tr>
-            <tr style="width: 100%;text-align: center;">
-                <td colspan="2">
-                    <span>
-                        <a href="/covid19" class="hvr-radial-out" target="_blank"><i class="fa fa-heartbeat fa-fw"></i>疫情图</a>
-                    </span>
-                    <span>
-                        <a href="/stars" class="hvr-bounce-to-bottom" onclick="parent.location.href='/stars' "><i class="fa fa-star fa-fw"></i>我的收藏</a>
-                    </span>
-                    <span>
-                        <a href="/localdev" class="hvr-bounce-to-top" onclick="parent.location.href='/localdev' "><i class="fab fa-dev fa-fw"></i>个人开发</a>
-                    </span>
-                </td>
-            </tr>
-        </table>
+            </div>
+        </div>
+
+        <div style="position :absolute;width: 100%;text-align: center;height:auto;">
+            <div class="wukong">
+                <div class="wukong-img">
+                    <img src="https://static.xiaosige.com/img/xiyouji/wukong.png">
+                </div>
+            </div>
+            <div class="bajie"></div>
+            <div class="tangseng"></div>
+            <div class="shaseng"></div>
+        </div>
+
+        <div style="position :absolute;width: 100%;text-align: center;height:40px;bottom:10px;">
+            <span>
+                <a href="/covid19" class="hvr-radial-out" target="_blank"><i class="fa fa-heartbeat fa-fw"></i>疫情图</a>
+            </span>
+            <span>
+                <a href="/stars" class="hvr-bounce-to-bottom" onclick="parent.location.href='/stars' "><i class="fa fa-star fa-fw"></i>我的收藏</a>
+            </span>
+            <span>
+                <a href="/localdev" class="hvr-bounce-to-top" onclick="parent.location.href='/localdev' "><i class="fab fa-dev fa-fw"></i>个人开发</a>
+            </span>
+        </div>
+
         <script>
             $(document).ready(function(){
                 $('.txt-scroll').txtscroll({
