@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://www.xiaosige.com/post/ea7d9732.html</loc>
+    
+    <lastmod>2022-04-19</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://www.xiaosige.com/localdev/index.html</loc>
     
     <lastmod>2022-04-19</lastmod>
@@ -66,13 +73,6 @@
   
   <url>
     <loc>https://www.xiaosige.com/post/853577ec.html</loc>
-    
-    <lastmod>2022-04-08</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.xiaosige.com/post/ea7d9732.html</loc>
     
     <lastmod>2022-04-08</lastmod>
     
@@ -795,14 +795,14 @@
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/tags/Decimal/</loc>
+    <loc>https://www.xiaosige.com/tags/BootStrap/</loc>
     <lastmod>2022-04-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/tags/BootStrap/</loc>
+    <loc>https://www.xiaosige.com/tags/Decimal/</loc>
     <lastmod>2022-04-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1063,14 +1063,14 @@
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/categories/JavaScript/</loc>
+    <loc>https://www.xiaosige.com/categories/BootStrap/</loc>
     <lastmod>2022-04-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/categories/BootStrap/</loc>
+    <loc>https://www.xiaosige.com/categories/JavaScript/</loc>
     <lastmod>2022-04-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1119,14 +1119,14 @@
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/categories/Linux/Git/</loc>
+    <loc>https://www.xiaosige.com/categories/Git/</loc>
     <lastmod>2022-04-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/categories/Git/</loc>
+    <loc>https://www.xiaosige.com/categories/Linux/Git/</loc>
     <lastmod>2022-04-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
