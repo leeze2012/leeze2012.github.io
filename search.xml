@@ -68,6 +68,139 @@ lrwxrwxrwx. <span class="token number">1</span> root root <span class="token num
       </tags>
   </entry>
   <entry>
+    <title>Tomcat---setenv.sh</title>
+    <url>/post/38ddfd80.html</url>
+    <content><![CDATA[<h2 id="tomcat-setenv-sh"><a href="#tomcat-setenv-sh" class="headerlink" title="tomcat,setenv.sh"></a>tomcat,setenv.sh</h2><p>  代码比较简单</p>
+<span id="more"></span>
+<pre class="line-numbers language-properties" data-language="properties"><code class="language-properties">
+<span class="token comment">#!/bin/sh</span>
+
+<span class="token comment"># 使用的Tomcat目录</span>
+<span class="token attr-name">export</span> <span class="token attr-value">CATALINA_HOME=/usr/local/tomcat8</span>
+
+<span class="token comment"># JAVA_OPTS参数需要CATALINA_PID参数，windows下不配CATALINA_PID</span>
+<span class="token attr-name">export</span> <span class="token attr-value">CATALINA_PID="$CATALINA_HOME/tomcat.pid"</span>
+
+
+<span class="token comment">#CATALINA_OPTS</span>
+<span class="token attr-name">CATALINA_OPTS</span><span class="token punctuation">=</span><span class="token attr-value">"$CATALINA_OPTS -Djava.awt.headless=true"</span>
+<span class="token attr-name">CATALINA_OPTS</span><span class="token punctuation">=</span><span class="token attr-value">"$CATALINA_OPTS -Dcom.sun.management.jmxremote"</span>
+<span class="token attr-name">CATALINA_OPTS</span><span class="token punctuation">=</span><span class="token attr-value">"$CATALINA_OPTS -Dcom.sun.management.jmxremote.port=8998"</span>
+<span class="token attr-name">CATALINA_OPTS</span><span class="token punctuation">=</span><span class="token attr-value">"$CATALINA_OPTS -Dcom.sun.management.jmxremote.rmi.port=8999"</span>
+<span class="token attr-name">CATALINA_OPTS</span><span class="token punctuation">=</span><span class="token attr-value">"$CATALINA_OPTS -Dcom.sun.management.jmxremote.ssl=false"</span>
+<span class="token attr-name">CATALINA_OPTS</span><span class="token punctuation">=</span><span class="token attr-value">"$CATALINA_OPTS -Dcom.sun.management.jmxremote.authenticate=true"</span>
+<span class="token attr-name">CATALINA_OPTS</span><span class="token punctuation">=</span><span class="token attr-value">"$CATALINA_OPTS -Dcom.sun.management.jmxremote.password.file=../conf/jmxremote.passwd"</span>
+<span class="token attr-name">CATALINA_OPTS</span><span class="token punctuation">=</span><span class="token attr-value">"$CATALINA_OPTS -Dcom.sun.management.jmxremote.access.file=../conf/jmxremote.access"</span>
+<span class="token attr-name">CATALINA_OPTS</span><span class="token punctuation">=</span><span class="token attr-value">"$CATALINA_OPTS -Djava.rmi.server.hostname=10.211.55.81"</span>
+<span class="token attr-name">export</span> <span class="token attr-value">CATALINA_OPTS</span>
+
+<span class="token comment"># 使用的jdk目录</span>
+<span class="token attr-name">export</span> <span class="token attr-value">JAVA_HOME=/usr/java/jdk1.8.0_321-amd64</span>
+
+<span class="token comment"># Tomcat的JVM参数设置</span>
+<span class="token attr-name">JAVA_OPTS</span><span class="token punctuation">=</span><span class="token attr-value">"$JAVA_OPTS -server "</span>
+<span class="token attr-name">JAVA_OPTS</span><span class="token punctuation">=</span><span class="token attr-value">"$JAVA_OPTS -Duser.timezone=GMT+08 "</span>
+<span class="token attr-name">JAVA_OPTS</span><span class="token punctuation">=</span><span class="token attr-value">"$JAVA_OPTS -Xms512m -Xmx512m"</span>
+<span class="token attr-name">JAVA_OPTS</span><span class="token punctuation">=</span><span class="token attr-value">"$JAVA_OPTS -Xss256k"</span>
+<span class="token attr-name">JAVA_OPTS</span><span class="token punctuation">=</span><span class="token attr-value">"$JAVA_OPTS -XX:NewSize=128m -XX:MaxNewSize=256m"</span>
+<span class="token attr-name">JAVA_OPTS</span><span class="token punctuation">=</span><span class="token attr-value">"$JAVA_OPTS -XX:+DisableExplicitGC"</span>
+<span class="token attr-name">JAVA_OPTS</span><span class="token punctuation">=</span><span class="token attr-value">"$JAVA_OPTS -XX:+AggressiveOpts"</span>
+<span class="token attr-name">JAVA_OPTS</span><span class="token punctuation">=</span><span class="token attr-value">"$JAVA_OPTS -XX:+UseBiasedLocking"</span>
+<span class="token attr-name">JAVA_OPTS</span><span class="token punctuation">=</span><span class="token attr-value">"$JAVA_OPTS -XX:MaxTenuringThreshold=15"</span>
+<span class="token attr-name">JAVA_OPTS</span><span class="token punctuation">=</span><span class="token attr-value">"$JAVA_OPTS -XX:+UseConcMarkSweepGC"</span>
+<span class="token attr-name">JAVA_OPTS</span><span class="token punctuation">=</span><span class="token attr-value">"$JAVA_OPTS -XX:+UseParNewGC"</span>
+<span class="token attr-name">JAVA_OPTS</span><span class="token punctuation">=</span><span class="token attr-value">"$JAVA_OPTS -XX:+CMSParallelRemarkEnabled"</span>
+<span class="token attr-name">JAVA_OPTS</span><span class="token punctuation">=</span><span class="token attr-value">"$JAVA_OPTS -XX:LargePageSizeInBytes=128m"</span>
+<span class="token attr-name">JAVA_OPTS</span><span class="token punctuation">=</span><span class="token attr-value">"$JAVA_OPTS -XX:+UseFastAccessorMethods"</span>
+<span class="token attr-name">JAVA_OPTS</span><span class="token punctuation">=</span><span class="token attr-value">"$JAVA_OPTS -XX:+UseCMSInitiatingOccupancyOnly"</span>
+<span class="token attr-name">JAVA_OPTS</span><span class="token punctuation">=</span><span class="token attr-value">"$JAVA_OPTS -Djava.awt.headless=true"</span>
+<span class="token attr-name">export</span> <span class="token attr-value">JAVA_OPTS</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Tomcat</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>java visualVM(jconsole)远程监控服务器java进程</title>
+    <url>/post/dc26ce6d.html</url>
+    <content><![CDATA[<h2 id="JMX方式（jconsole也可通过此方式进行连接）"><a href="#JMX方式（jconsole也可通过此方式进行连接）" class="headerlink" title="JMX方式（jconsole也可通过此方式进行连接）"></a>JMX方式（jconsole也可通过此方式进行连接）</h2><p>  jmx方式能监控到CPU信息，但无法使用visualVM的visualVM GC插件</p>
+<span id="more"></span>
+
+<h3 id="jmx无密码方式"><a href="#jmx无密码方式" class="headerlink" title="jmx无密码方式"></a>jmx无密码方式</h3><h4 id="监控普通的java进程"><a href="#监控普通的java进程" class="headerlink" title="监控普通的java进程"></a>监控普通的java进程</h4><ol>
+<li>设置hostname<br>  在<code>/etc/hosts</code>中添加<code>hostname</code>解析，解析地址可以不是外网<code>ip</code>（可通过hostname命令查看hostname是多少）</li>
+<li>启动时添加参数<pre class="line-numbers language-java" data-language="java"><code class="language-java">java <span class="token operator">-</span><span class="token class-name">Djava</span><span class="token punctuation">.</span>rmi<span class="token punctuation">.</span>server<span class="token punctuation">.</span>hostname<span class="token operator">=</span>xxx<span class="token punctuation">.</span>xxx<span class="token punctuation">.</span>xxx 
+        <span class="token operator">-</span><span class="token class-name">Dcom</span><span class="token punctuation">.</span>sun<span class="token punctuation">.</span>management<span class="token punctuation">.</span>jmxremote<span class="token punctuation">.</span>port<span class="token operator">=</span><span class="token number">22334</span> 
+        <span class="token operator">-</span><span class="token class-name">Dcom</span><span class="token punctuation">.</span>sun<span class="token punctuation">.</span>management<span class="token punctuation">.</span>jmxremote<span class="token punctuation">.</span>authenticate<span class="token operator">=</span><span class="token boolean">false</span> 
+        <span class="token operator">-</span><span class="token class-name">Dcom</span><span class="token punctuation">.</span>sun<span class="token punctuation">.</span>management<span class="token punctuation">.</span>jmxremote<span class="token punctuation">.</span>ssl<span class="token operator">=</span><span class="token boolean">false</span> <span class="token class-name">Hello</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+  其中<code>xxx.xxx.xxx</code>为本机外网ip,<code>22334</code>为提供<code>jmx</code>访问的端口，可自己指定<br>  如果没有配置<code>hostname</code>解析可能会出现如下异常：<br><code>Error: Exception thrown by the agent : java.net.MalformedURLException: Local host name unknown: java.net.UnknownHostException:</code><pre class="line-numbers language-java" data-language="java"><code class="language-java">nohup java <span class="token operator">-</span><span class="token class-name">Xms64m</span> <span class="token operator">-</span><span class="token class-name">Xmx128m</span> 
+        <span class="token operator">-</span><span class="token class-name">Djava</span><span class="token punctuation">.</span>rmi<span class="token punctuation">.</span>server<span class="token punctuation">.</span>hostname<span class="token operator">=</span><span class="token number">10.211</span><span class="token number">.55</span><span class="token number">.81</span> 
+        <span class="token operator">-</span><span class="token class-name">Dcom</span><span class="token punctuation">.</span>sun<span class="token punctuation">.</span>management<span class="token punctuation">.</span>jmxremote 
+        <span class="token operator">-</span><span class="token class-name">Dcom</span><span class="token punctuation">.</span>sun<span class="token punctuation">.</span>management<span class="token punctuation">.</span>jmxremote<span class="token punctuation">.</span>port<span class="token operator">=</span><span class="token number">22334</span> 
+        <span class="token operator">-</span><span class="token class-name">Dcom</span><span class="token punctuation">.</span>sun<span class="token punctuation">.</span>management<span class="token punctuation">.</span>jmxremote<span class="token punctuation">.</span>rmi<span class="token punctuation">.</span>port<span class="token operator">=</span><span class="token number">22335</span> 
+        <span class="token operator">-</span><span class="token class-name">Dcom</span><span class="token punctuation">.</span>sun<span class="token punctuation">.</span>management<span class="token punctuation">.</span>jmxremote<span class="token punctuation">.</span>authenticate<span class="token operator">=</span><span class="token boolean">false</span> 
+        <span class="token operator">-</span><span class="token class-name">Dcom</span><span class="token punctuation">.</span>sun<span class="token punctuation">.</span>management<span class="token punctuation">.</span>jmxremote<span class="token punctuation">.</span>ssl<span class="token operator">=</span><span class="token boolean">false</span> 
+        <span class="token operator">-</span><span class="token class-name">Dserver</span><span class="token punctuation">.</span>port<span class="token operator">=</span><span class="token number">9091</span> <span class="token operator">-</span>jar mybatisplus<span class="token punctuation">.</span>jar  <span class="token number">1</span><span class="token operator">&gt;</span><span class="token operator">/</span>dev<span class="token operator">/</span><span class="token keyword">null</span> <span class="token number">2</span><span class="token operator">&gt;</span><span class="token operator">&amp;</span><span class="token number">1</span> <span class="token operator">&amp;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li>在防火墙中开放端口<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">lsof</span> -i <span class="token operator">|</span> <span class="token function">grep</span> java <span class="token operator">|</span> <span class="token function">grep</span> “启动的java进程pid”<span class="token punctuation">(</span>可通过jps查看<span class="token punctuation">)</span> <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+  将查看上一步查看到的<code>tcp</code>监听端口全部在防火墙中进行开放，注意关闭该<code>java</code>进程后重新启动需要重新配置开发的端口，因为监听的端口会发生变化</li>
+<li>打开<code>visualVm</code>或<code>jconsole</code><br>  输入<code>ip</code>（<code>2</code>中配置的<code>xxx.xxx.xxx</code>）和端口（<code>22334</code>）进行连接即可查看监控，无需输入用户名和密码</li>
+</ol>
+<h4 id="监控普通的tomcat"><a href="#监控普通的tomcat" class="headerlink" title="监控普通的tomcat"></a>监控普通的tomcat</h4><ol>
+<li>下载<code>catalina-jmx-remote.jar</code>，放在<code>tomcat/lib</code>目录下面<br>  请根据自己的tomcat版本选择对应的包:<br>  地址示例： <a href="http://mirror.bit.edu.cn/apache/tomcat/tomcat-8/v8.5.35/bin/extras/"><code>http://mirror.bit.edu.cn/apache/tomcat/tomcat-8/v8.5.35/bin/extras/</code></a><br>  地址示例： <a href="http://archive.apache.org/dist/tomcat/tomcat-8/v8.5.35/bin/extras/"><code>http://archive.apache.org/dist/tomcat/tomcat-8/v8.5.35/bin/extras/</code></a></li>
+<li>配置<code>conf/server.xml</code><br>  在<code>server.xml</code>中添加如下监听配置:<pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Listener</span> <span class="token attr-name">className</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>org.apache.catalina.mbeans.JmxRemoteLifecycleListener<span class="token punctuation">"</span></span>  
+       <span class="token attr-name">rmiRegistryPortPlatform</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>22334<span class="token punctuation">"</span></span> <span class="token attr-name">rmiServerPortPlatform</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>22334<span class="token punctuation">"</span></span> <span class="token punctuation">/&gt;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+  有了该可使得每次重启<code>tomat</code>不需要重新在防火墙中开放端口，因为会使用配置的<code>22334</code>端口</li>
+<li>修改<code>bin/catalina.sh</code>或<code>bin/setenv.sh</code><br>  添加配置：<pre class="line-numbers language-properties" data-language="properties"><code class="language-properties"><span class="token attr-name">CATALINA_OPTS</span><span class="token punctuation">=</span><span class="token attr-value">"${CATALINA_OPTS} -Djava.rmi.server.hostname=服务器的外网ip地址"                                                                                                                                                                                                      </span>
+<span class="token attr-name">CATALINA_OPTS</span><span class="token punctuation">=</span><span class="token attr-value">"${CATALINA_OPTS} -Dcom.sun.management.jmxremote=true"</span>
+<span class="token attr-name">CATALINA_OPTS</span><span class="token punctuation">=</span><span class="token attr-value">"${CATALINA_OPTS} -Dcom.sun.management.jmxremote.ssl=false"</span>
+<span class="token attr-name">CATALINA_OPTS</span><span class="token punctuation">=</span><span class="token attr-value">"${CATALINA_OPTS} -Dcom.sun.management.jmxremote.authenticate=false"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li>在防火墙中开放端口<br>  在防火墙中开发<code>22334</code>端口<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">firewall-cmd --zone<span class="token operator">=</span>public --add-port<span class="token operator">=</span><span class="token number">22334</span>/tcp --permanent<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li>打开<code>visualVm</code>或<code>jconsole</code><br>  输入<code>ip</code>（<code>3</code>中配置的服务器的外网<code>ip</code>地址）和端口（<code>22334</code>）进行连接即可查看监控，无需输入用户名和密码</li>
+</ol>
+<h3 id="jmx有密码方式"><a href="#jmx有密码方式" class="headerlink" title="jmx有密码方式"></a>jmx有密码方式</h3><ol>
+<li>添加账号<br>  进入<code>/usr/java/jdk1.8.0_321-amd64/jre/lib/management/</code>目录（可通过<code>jinfo  pid|grep java.home</code>的查看自己的<code>java.home</code>）<br>  执行命令：<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">cp</span> jmxremote.password.template jmxremote.password
+<span class="token function">chmod</span> <span class="token number">600</span> jmxremote.password
+<span class="token function">vim</span> jmxremote.password
+
+<span class="token comment"># 将被注释的monitorRole，和controlRole放开，并修改密码123456</span>
+monitorRole  <span class="token number">123456</span>
+controlRole  <span class="token number">123456</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li>修改之前的启动配置<pre class="line-numbers language-properties" data-language="properties"><code class="language-properties"><span class="token comment">#CATALINA_OPTS</span>
+<span class="token attr-name">CATALINA_OPTS</span><span class="token punctuation">=</span><span class="token attr-value">"$CATALINA_OPTS -Djava.awt.headless=true"</span>
+<span class="token attr-name">CATALINA_OPTS</span><span class="token punctuation">=</span><span class="token attr-value">"$CATALINA_OPTS -Dcom.sun.management.jmxremote"</span>
+<span class="token attr-name">CATALINA_OPTS</span><span class="token punctuation">=</span><span class="token attr-value">"$CATALINA_OPTS -Dcom.sun.management.jmxremote.port=22334"</span>
+<span class="token attr-name">CATALINA_OPTS</span><span class="token punctuation">=</span><span class="token attr-value">"$CATALINA_OPTS -Dcom.sun.management.jmxremote.rmi.port=22335"</span>
+<span class="token attr-name">CATALINA_OPTS</span><span class="token punctuation">=</span><span class="token attr-value">"$CATALINA_OPTS -Dcom.sun.management.jmxremote.ssl=false"</span>
+<span class="token attr-name">CATALINA_OPTS</span><span class="token punctuation">=</span><span class="token attr-value">"$CATALINA_OPTS -Dcom.sun.management.jmxremote.authenticate=true"</span>
+<span class="token attr-name">CATALINA_OPTS</span><span class="token punctuation">=</span><span class="token attr-value">"$CATALINA_OPTS -Dcom.sun.management.jmxremote.password.file=../conf/jmxremote.passwd"</span>
+<span class="token attr-name">CATALINA_OPTS</span><span class="token punctuation">=</span><span class="token attr-value">"$CATALINA_OPTS -Dcom.sun.management.jmxremote.access.file=../conf/jmxremote.access"</span>
+<span class="token attr-name">CATALINA_OPTS</span><span class="token punctuation">=</span><span class="token attr-value">"$CATALINA_OPTS -Djava.rmi.server.hostname=10.211.55.81"</span>
+<span class="token attr-name">export</span> <span class="token attr-value">CATALINA_OPTS</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li>启动<br>  打开<code>visualVm</code>或<code>jconsole</code>输入<code>ip+端口</code>，然后输入之前设置的账号<code>controlRole</code> 和密码 <code>123456</code>即可连上</li>
+</ol>
+<h2 id="jstatd方式"><a href="#jstatd方式" class="headerlink" title="jstatd方式"></a>jstatd方式</h2><p>  jstatd方式能使用visualVM的visualVM GC插件，但无法监控到CPU信息</p>
+<ol>
+<li>开启权限<br>  在<code>/usr/java/jdk1.8.0_321-amd64/jre/lib/security/java.policy</code>中添加<br><code>permission java.security.AllPermission;</code></li>
+<li>启动<pre class="line-numbers language-java" data-language="java"><code class="language-java">rmiregistry <span class="token number">2020</span><span class="token operator">&amp;</span>jstatd <span class="token operator">-</span><span class="token class-name">J</span><span class="token operator">-</span><span class="token class-name">Djava</span><span class="token punctuation">.</span>security<span class="token punctuation">.</span>policy<span class="token operator">=</span>all<span class="token punctuation">.</span>policy <span class="token operator">-</span><span class="token class-name">J</span><span class="token operator">-</span><span class="token class-name">Djava</span><span class="token punctuation">.</span>rmi<span class="token punctuation">.</span>server<span class="token punctuation">.</span>logCalls<span class="token operator">=</span><span class="token boolean">true</span> 
+        <span class="token operator">-</span><span class="token class-name">J</span><span class="token operator">-</span><span class="token class-name">Djava</span><span class="token punctuation">.</span>rmi<span class="token punctuation">.</span>server<span class="token punctuation">.</span>hostname<span class="token operator">=</span>服务器外网ip <span class="token operator">-</span>p <span class="token number">1099</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
+<li>开放端口<br>  通过<code>netstat -ntlp|grep jstatd</code>查看监听的端口（注意有两个监听端口），在防火墙中进行开放该端口<br>如果出现：<code>java.rmi.NotBoundException: JStatRemoteHost</code><br>一般等一段时间就恢复正常了</li>
+<li>打开<code>visualVm</code>添加远程主机会自动加载远程<code>java</code>进程</li>
+</ol>
+<h2 id="PS"><a href="#PS" class="headerlink" title="PS"></a>PS</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">vi</span> setenv.sh
+<span class="token function">chmod</span> +x setenv.sh
+<span class="token function">chmod</span> <span class="token number">600</span> jmxremote.password
+<span class="token function">chmod</span> <span class="token number">600</span> jxmremote.access<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>Jdk</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Mac使用VMWare虚拟，设置网络</title>
     <url>/post/942dd570.html</url>
     <content><![CDATA[<h3 id="vmnet8重启网卡"><a href="#vmnet8重启网卡" class="headerlink" title="vmnet8重启网卡"></a>vmnet8重启网卡</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span>  /Applications/VMware<span class="token punctuation">\</span> Fusion.app/Contents/Library/vmnet-cli --start
@@ -3525,6 +3658,138 @@ docker exec <span class="token punctuation">-</span>it gitlab update<span class=
       </categories>
       <tags>
         <tag>GitLab</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>java调用远程服务器shell脚本</title>
+    <url>/post/4caea52a.html</url>
+    <content><![CDATA[<p>  代码比较简单</p>
+<span id="more"></span>
+
+
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">
+<span class="token keyword">package</span> <span class="token namespace">com<span class="token punctuation">.</span>springboot<span class="token punctuation">.</span>information<span class="token punctuation">.</span>utils</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">java<span class="token punctuation">.</span>io<span class="token punctuation">.</span></span><span class="token class-name">IOException</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">java<span class="token punctuation">.</span>io<span class="token punctuation">.</span></span><span class="token class-name">InputStream</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">java<span class="token punctuation">.</span>io<span class="token punctuation">.</span></span><span class="token class-name">UnsupportedEncodingException</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">java<span class="token punctuation">.</span>nio<span class="token punctuation">.</span>charset<span class="token punctuation">.</span></span><span class="token class-name">Charset</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>commons<span class="token punctuation">.</span>io<span class="token punctuation">.</span></span><span class="token class-name">IOUtils</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">ch<span class="token punctuation">.</span>ethz<span class="token punctuation">.</span>ssh2<span class="token punctuation">.</span></span><span class="token class-name">ChannelCondition</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">ch<span class="token punctuation">.</span>ethz<span class="token punctuation">.</span>ssh2<span class="token punctuation">.</span></span><span class="token class-name">Connection</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">ch<span class="token punctuation">.</span>ethz<span class="token punctuation">.</span>ssh2<span class="token punctuation">.</span></span><span class="token class-name">Session</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">ch<span class="token punctuation">.</span>ethz<span class="token punctuation">.</span>ssh2<span class="token punctuation">.</span></span><span class="token class-name">StreamGobbler</span><span class="token punctuation">;</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">RemoteShellExecutor</span> <span class="token punctuation">{</span>
+    <span class="token keyword">private</span> <span class="token class-name">Connection</span> conn<span class="token punctuation">;</span>
+    <span class="token comment">/** 远程机器IP */</span>
+    <span class="token keyword">private</span> <span class="token class-name">String</span> ip<span class="token punctuation">;</span>
+    <span class="token comment">/** 用户名 */</span>
+    <span class="token keyword">private</span> <span class="token class-name">String</span> osUsername<span class="token punctuation">;</span>
+    <span class="token comment">/** 密码 */</span>
+    <span class="token keyword">private</span> <span class="token class-name">String</span> password<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token class-name">String</span> charset <span class="token operator">=</span> <span class="token class-name">Charset</span><span class="token punctuation">.</span><span class="token function">defaultCharset</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token keyword">int</span> TIME_OUT <span class="token operator">=</span> <span class="token number">1000</span> <span class="token operator">*</span> <span class="token number">5</span> <span class="token operator">*</span> <span class="token number">60</span><span class="token punctuation">;</span>
+    <span class="token comment">/**
+     * 构造函数
+     * @param ip
+     * @param usr
+     * @param pasword
+     */</span>
+    <span class="token keyword">public</span> <span class="token class-name">RemoteShellExecutor</span><span class="token punctuation">(</span><span class="token class-name">String</span> ip<span class="token punctuation">,</span> <span class="token class-name">String</span> usr<span class="token punctuation">,</span> <span class="token class-name">String</span> pasword<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>ip <span class="token operator">=</span> ip<span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>osUsername <span class="token operator">=</span> usr<span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>password <span class="token operator">=</span> pasword<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment">/**
+     * 登录
+     * @return
+     * @throws IOException
+     */</span>
+    <span class="token keyword">private</span> <span class="token keyword">boolean</span> <span class="token function">login</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">IOException</span> <span class="token punctuation">{</span>
+        conn <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Connection</span><span class="token punctuation">(</span>ip<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        conn<span class="token punctuation">.</span><span class="token function">connect</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> conn<span class="token punctuation">.</span><span class="token function">authenticateWithPassword</span><span class="token punctuation">(</span>osUsername<span class="token punctuation">,</span> password<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment">/**
+     * 执行脚本
+     *
+     * @param cmds
+     * @return
+     * @throws Exception
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">exec</span><span class="token punctuation">(</span><span class="token class-name">String</span> cmds<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">Exception</span> <span class="token punctuation">{</span>
+        <span class="token class-name">InputStream</span> stdOut <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+        <span class="token class-name">InputStream</span> stdErr <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+        <span class="token class-name">String</span> outStr <span class="token operator">=</span> <span class="token string">""</span><span class="token punctuation">;</span>
+        <span class="token class-name">String</span> outErr <span class="token operator">=</span> <span class="token string">""</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span> ret <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token keyword">try</span> <span class="token punctuation">{</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">login</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"login success"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token comment">// Open a new {@link Session} on this connection</span>
+                <span class="token class-name">Session</span> session <span class="token operator">=</span> conn<span class="token punctuation">.</span><span class="token function">openSession</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token comment">// Execute a command on the remote machine.</span>
+                <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"session success"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                session<span class="token punctuation">.</span><span class="token function">execCommand</span><span class="token punctuation">(</span>cmds<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"exec:"</span><span class="token operator">+</span>cmds<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"session:"</span><span class="token operator">+</span>session<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                stdOut <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">StreamGobbler</span><span class="token punctuation">(</span>session<span class="token punctuation">.</span><span class="token function">getStdout</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"stdOut:"</span><span class="token operator">+</span>stdOut<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                outStr <span class="token operator">=</span> <span class="token function">processStream</span><span class="token punctuation">(</span>stdOut<span class="token punctuation">,</span> charset<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"stdOut"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                stdErr <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">StreamGobbler</span><span class="token punctuation">(</span>session<span class="token punctuation">.</span><span class="token function">getStderr</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                outErr <span class="token operator">=</span> <span class="token function">processStream</span><span class="token punctuation">(</span>stdErr<span class="token punctuation">,</span> charset<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"stdErr"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                session<span class="token punctuation">.</span><span class="token function">waitForCondition</span><span class="token punctuation">(</span><span class="token class-name">ChannelCondition</span><span class="token punctuation">.</span>EXIT_STATUS<span class="token punctuation">,</span> TIME_OUT<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"outStr="</span> <span class="token operator">+</span> outStr<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"outErr="</span> <span class="token operator">+</span> outErr<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                ret <span class="token operator">=</span> session<span class="token punctuation">.</span><span class="token function">getExitStatus</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+                <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">Exception</span><span class="token punctuation">(</span><span class="token string">"登录远程机器失败"</span> <span class="token operator">+</span> ip<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 自定义异常类 实现略</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span> <span class="token keyword">finally</span> <span class="token punctuation">{</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>conn <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                conn<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token class-name">IOUtils</span><span class="token punctuation">.</span><span class="token function">closeQuietly</span><span class="token punctuation">(</span>stdOut<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token class-name">IOUtils</span><span class="token punctuation">.</span><span class="token function">closeQuietly</span><span class="token punctuation">(</span>stdErr<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> ret<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment">/**
+     * @param in
+     * @param charset
+     * @return
+     * @throws IOException
+     * @throws UnsupportedEncodingException
+     */</span>
+    <span class="token keyword">private</span> <span class="token class-name">String</span> <span class="token function">processStream</span><span class="token punctuation">(</span><span class="token class-name">InputStream</span> in<span class="token punctuation">,</span> <span class="token class-name">String</span> charset<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">Exception</span> <span class="token punctuation">{</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"ininin"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">byte</span><span class="token punctuation">[</span><span class="token punctuation">]</span> buf <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token keyword">byte</span><span class="token punctuation">[</span><span class="token number">1024</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token class-name">StringBuilder</span> sb <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">StringBuilder</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span> num <span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token keyword">while</span> <span class="token punctuation">(</span>in<span class="token punctuation">.</span><span class="token function">read</span><span class="token punctuation">(</span>buf<span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            num<span class="token operator">++</span><span class="token punctuation">;</span>
+            <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"number:"</span><span class="token operator">+</span>num<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            sb<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">String</span><span class="token punctuation">(</span>buf<span class="token punctuation">,</span> charset<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"sb:"</span><span class="token operator">+</span>sb<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"buf:"</span><span class="token operator">+</span>in<span class="token punctuation">.</span><span class="token function">read</span><span class="token punctuation">(</span>buf<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"enene22"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> sb<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span> args<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">Exception</span> <span class="token punctuation">{</span>
+        <span class="token class-name">RemoteShellExecutor</span> executor <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">RemoteShellExecutor</span><span class="token punctuation">(</span><span class="token string">"XXXX"</span><span class="token punctuation">,</span> <span class="token string">"XX"</span><span class="token punctuation">,</span> <span class="token string">"XXX"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">// 执行myTest.sh 参数为java Know dummy</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>executor<span class="token punctuation">.</span><span class="token function">exec</span><span class="token punctuation">(</span><span class="token string">"/home/zh/Documents/start/note.sh"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>Jdk</tag>
       </tags>
   </entry>
   <entry>

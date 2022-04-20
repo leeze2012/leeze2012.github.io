@@ -15,8 +15,50 @@
     <atom:link href="https://www.xiaosige.com/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>因上努力，果上随缘！</description>
-    <pubDate>Mon, 11 Apr 2022 10:25:00 GMT</pubDate>
+    <pubDate>Wed, 20 Apr 2022 10:31:23 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>Tomcat---setenv.sh</title>
+      <link>https://www.xiaosige.com/post/38ddfd80.html</link>
+      <guid>https://www.xiaosige.com/post/38ddfd80.html</guid>
+      <pubDate>Wed, 20 Apr 2022 10:28:23 GMT</pubDate>
+      
+      <description>&lt;h2 id=&quot;tomcat-setenv-sh&quot;&gt;&lt;a href=&quot;#tomcat-setenv-sh&quot; class=&quot;headerlink&quot; title=&quot;tomcat,setenv.sh&quot;&gt;&lt;/a&gt;tomcat,setenv.sh&lt;/h2&gt;&lt;p&gt;  代码比较简单&lt;/p&gt;</description>
+      
+      
+      
+      
+      <category domain="https://www.xiaosige.com/categories/Linux/">Linux</category>
+      
+      
+      <category domain="https://www.xiaosige.com/tags/Tomcat/">Tomcat</category>
+      
+      
+      <comments>https://www.xiaosige.com/post/38ddfd80.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>java visualVM(jconsole)远程监控服务器java进程</title>
+      <link>https://www.xiaosige.com/post/dc26ce6d.html</link>
+      <guid>https://www.xiaosige.com/post/dc26ce6d.html</guid>
+      <pubDate>Wed, 20 Apr 2022 06:37:13 GMT</pubDate>
+      
+      <description>&lt;h2 id=&quot;JMX方式（jconsole也可通过此方式进行连接）&quot;&gt;&lt;a href=&quot;#JMX方式（jconsole也可通过此方式进行连接）&quot; class=&quot;headerlink&quot; title=&quot;JMX方式（jconsole也可通过此方式进行连接）&quot;&gt;&lt;/a&gt;JMX方式（jconsole也可通过此方式进行连接）&lt;/h2&gt;&lt;p&gt;  jmx方式能监控到CPU信息，但无法使用visualVM的visualVM GC插件&lt;/p&gt;</description>
+      
+      
+      
+      
+      <category domain="https://www.xiaosige.com/categories/Java/">Java</category>
+      
+      
+      <category domain="https://www.xiaosige.com/tags/Jdk/">Jdk</category>
+      
+      
+      <comments>https://www.xiaosige.com/post/dc26ce6d.html#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>Mac使用VMWare虚拟，设置网络</title>
@@ -400,48 +442,6 @@
       
       
       <comments>https://www.xiaosige.com/post/b7c3ab9f.html#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>Docker 查看端口占用列表</title>
-      <link>https://www.xiaosige.com/post/cb326ecf.html</link>
-      <guid>https://www.xiaosige.com/post/cb326ecf.html</guid>
-      <pubDate>Wed, 26 May 2021 18:30:16 GMT</pubDate>
-      
-      <description>&lt;p&gt;  我们在部署新项目时，不知道启动的容器都占用了那些端口，docker ps 眼花缭乱。我们可以使用netstat看一下。&lt;/p&gt;</description>
-      
-      
-      
-      
-      <category domain="https://www.xiaosige.com/categories/Docker/">Docker</category>
-      
-      
-      <category domain="https://www.xiaosige.com/tags/Docker/">Docker</category>
-      
-      
-      <comments>https://www.xiaosige.com/post/cb326ecf.html#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>Docker中搭建Jira</title>
-      <link>https://www.xiaosige.com/post/4ed27834.html</link>
-      <guid>https://www.xiaosige.com/post/4ed27834.html</guid>
-      <pubDate>Fri, 14 May 2021 15:59:08 GMT</pubDate>
-      
-      <description>&lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;  JIRA 是 Atlassian 公司出品的项目与事务跟踪工具，被广泛应用于缺陷跟踪、客户服务、需求收集、流程审批、任务跟踪、项目跟踪和敏捷管理等工作领域。&lt;br&gt;  Centos下安装参考：&lt;a href=&quot;/post/afb30e04.html&quot; title=&quot;Centos下Jira8.x版本安装与破解&quot;&gt;Centos下Jira8.x版本安装与破解&lt;/a&gt;。&lt;br&gt;  下面介绍是采用&lt;code&gt;docker&lt;/code&gt;来进行部署。&lt;/p&gt;</description>
-      
-      
-      
-      
-      <category domain="https://www.xiaosige.com/categories/Docker/">Docker</category>
-      
-      
-      <category domain="https://www.xiaosige.com/tags/Jira/">Jira</category>
-      
-      
-      <comments>https://www.xiaosige.com/post/4ed27834.html#disqus_thread</comments>
       
     </item>
     
