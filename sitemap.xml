@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://www.xiaosige.com/links/index.html</loc>
+    
+    <lastmod>2022-04-20</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://www.xiaosige.com/post/dc26ce6d.html</loc>
     
     <lastmod>2022-04-20</lastmod>
@@ -17,13 +24,6 @@
   
   <url>
     <loc>https://www.xiaosige.com/post/4caea52a.html</loc>
-    
-    <lastmod>2022-04-20</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.xiaosige.com/links/index.html</loc>
     
     <lastmod>2022-04-20</lastmod>
     
@@ -851,13 +851,6 @@
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/tags/Drone/</loc>
-    <lastmod>2022-04-20</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.xiaosige.com/tags/Gitea/</loc>
     <lastmod>2022-04-20</lastmod>
     <changefreq>daily</changefreq>
@@ -865,14 +858,14 @@
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/tags/GitLab/</loc>
+    <loc>https://www.xiaosige.com/tags/Drone/</loc>
     <lastmod>2022-04-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/tags/Jira/</loc>
+    <loc>https://www.xiaosige.com/tags/GitLab/</loc>
     <lastmod>2022-04-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -887,6 +880,13 @@
   
   <url>
     <loc>https://www.xiaosige.com/tags/MySQL/</loc>
+    <lastmod>2022-04-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.xiaosige.com/tags/Jira/</loc>
     <lastmod>2022-04-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -970,14 +970,14 @@
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/tags/Meting/</loc>
+    <loc>https://www.xiaosige.com/tags/MyBatis-Plus/</loc>
     <lastmod>2022-04-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/tags/MyBatis-Plus/</loc>
+    <loc>https://www.xiaosige.com/tags/Meting/</loc>
     <lastmod>2022-04-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
