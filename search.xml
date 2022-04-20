@@ -68,6 +68,70 @@ lrwxrwxrwx. <span class="token number">1</span> root root <span class="token num
       </tags>
   </entry>
   <entry>
+    <title>Nginx 配置 HTTPS（多域名）</title>
+    <url>/post/643b08ac.html</url>
+    <content><![CDATA[<h3 id="Nginx-配置"><a href="#Nginx-配置" class="headerlink" title="Nginx 配置"></a>Nginx 配置</h3><p>  首先, 需要把 <code>http</code> 都转发到 <code>https</code>, 需要使用 <code>rewrite</code>, 这样, 当访问 <code>http://example.cn</code> 会自动转发到 <code>https://example.cn</code></p>
+<span id="more"></span>
+
+<pre class="line-numbers language-nginx" data-language="nginx"><code class="language-nginx"><span class="token keyword">server</span> <span class="token punctuation">{</span>
+   	<span class="token keyword">listen</span> <span class="token number">80</span><span class="token punctuation">;</span> <span class="token comment"># redirect to 443</span>
+    	<span class="token keyword">server_name</span> AAA<span class="token punctuation">.</span>example<span class="token punctuation">.</span>cn www<span class="token punctuation">.</span>AAA<span class="token punctuation">.</span>example<span class="token punctuation">.</span>cn<span class="token punctuation">;</span>
+    	<span class="token keyword">rewrite</span> <span class="token operator">^</span><span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token operator">*</span><span class="token punctuation">)</span>$  <span class="token keyword">https</span><span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span><span class="token variable">$host</span>$<span class="token number">1</span> permanent<span class="token punctuation">;</span> 
+<span class="token punctuation">}</span>
+
+   <span class="token keyword">server</span> <span class="token punctuation">{</span>
+           <span class="token keyword">listen</span> <span class="token number">80</span><span class="token punctuation">;</span> <span class="token comment"># redirect to 443</span>
+           <span class="token keyword">server_name</span> BBB<span class="token punctuation">.</span>example<span class="token punctuation">.</span>cn www<span class="token punctuation">.</span>BBB<span class="token punctuation">.</span>example<span class="token punctuation">.</span>cn<span class="token punctuation">;</span>
+           <span class="token keyword">rewrite</span> <span class="token operator">^</span><span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token operator">*</span><span class="token punctuation">)</span>$  <span class="token keyword">https</span><span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span><span class="token variable">$host</span>$<span class="token number">1</span> permanent<span class="token punctuation">;</span>
+   <span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>然后就是真正的 <code>https</code> 部分了, 虽然域名不同, 但都监听 <code>443</code> 端口, 但有着不同的 <code>server_name</code>, 这样当收到请求时就可以根据请求的 <code>server_name</code> 不同来转发到不同的服务.</p>
+<p>而服务自身像往常一样只要继续监听 <code>8090</code>、<code>8091</code> 即可.</p>
+<pre class="line-numbers language-nginx" data-language="nginx"><code class="language-nginx"><span class="token keyword">server</span> <span class="token punctuation">{</span>
+           	<span class="token keyword">listen</span> <span class="token number">443</span> <span class="token keyword">ssl</span><span class="token punctuation">;</span>
+           	<span class="token keyword">server_name</span> AAA<span class="token punctuation">.</span>example<span class="token punctuation">.</span>cn www<span class="token punctuation">.</span>AAA<span class="token punctuation">.</span>example<span class="token punctuation">.</span>cn<span class="token punctuation">;</span>    
+
+           	<span class="token keyword">ssl_certificate</span> <span class="token string">"/home/yushan/demontf/2076603_AAA.example.cn.pem"</span><span class="token punctuation">;</span>   
+           	<span class="token keyword">ssl_certificate_key</span> <span class="token string">"/home/yushan/demontf/2076603_AAA.example.cn.key"</span><span class="token punctuation">;</span>    
+           
+           	<span class="token keyword">location</span> <span class="token operator">/</span> <span class="token punctuation">{</span>
+               			<span class="token keyword">proxy_pass</span> <span class="token keyword">http</span><span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span><span class="token number">127.0</span><span class="token number">.0</span><span class="token number">.1</span><span class="token punctuation">:</span><span class="token number">8090</span><span class="token punctuation">;</span>
+               			<span class="token keyword">proxy_set_header</span> X<span class="token operator">-</span>Real<span class="token operator">-</span>IP <span class="token variable">$remote_addr</span><span class="token punctuation">;</span>
+               			<span class="token keyword">proxy_set_header</span> X<span class="token operator">-</span>Forwarded<span class="token operator">-</span>For <span class="token variable">$proxy_add_x_forwarded_for</span><span class="token punctuation">;</span>
+               			<span class="token keyword">proxy_set_header</span> Host <span class="token variable">$http_host</span><span class="token punctuation">;</span>
+               			<span class="token keyword">proxy_set_header</span> X<span class="token operator">-</span>NginX<span class="token operator">-</span><span class="token keyword">Proxy</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+               			<span class="token keyword">proxy_redirect</span> default<span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+
+<span class="token keyword">server</span> <span class="token punctuation">{</span>
+   		<span class="token keyword">listen</span> <span class="token number">443</span> <span class="token keyword">ssl</span><span class="token punctuation">;</span> <span class="token comment"># redirect to https</span>
+   		<span class="token keyword">server_name</span> BBB<span class="token punctuation">.</span>example<span class="token punctuation">.</span>cn www<span class="token punctuation">.</span>BBB<span class="token punctuation">.</span>example<span class="token punctuation">.</span>cn<span class="token punctuation">;</span>
+   		
+   		<span class="token keyword">ssl_certificate</span> <span class="token string">"/home/yushan/demontf/2005538_BBB.example.cn.pem"</span><span class="token punctuation">;</span>
+   		<span class="token keyword">ssl_certificate_key</span> <span class="token string">"/home/yushan/demontf/2005538_BBB.example.cn.key"</span><span class="token punctuation">;</span>
+   		
+   		<span class="token keyword">location</span> <span class="token operator">/</span> <span class="token punctuation">{</span>
+   		              <span class="token keyword">proxy_pass</span> <span class="token keyword">http</span><span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span><span class="token number">127.0</span><span class="token number">.0</span><span class="token number">.1</span><span class="token punctuation">:</span><span class="token number">8091</span><span class="token punctuation">;</span>
+   		              <span class="token keyword">proxy_set_header</span> X<span class="token operator">-</span>Real<span class="token operator">-</span>IP <span class="token variable">$remote_addr</span><span class="token punctuation">;</span>
+   		              <span class="token keyword">proxy_set_header</span> X<span class="token operator">-</span>Forwarded<span class="token operator">-</span>For <span class="token variable">$proxy_add_x_forwarded_for</span><span class="token punctuation">;</span>
+   		              <span class="token keyword">proxy_set_header</span> Host <span class="token variable">$http_host</span><span class="token punctuation">;</span>
+   		              <span class="token keyword">proxy_set_header</span> X<span class="token operator">-</span>NginX<span class="token operator">-</span><span class="token keyword">Proxy</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+   		              <span class="token keyword">proxy_redirect</span> default<span class="token punctuation">;</span>
+   		<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>配置修改好之后, 需要重启 Nginx.</p>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
+      <categories>
+        <category>Nginx</category>
+      </categories>
+      <tags>
+        <tag>Nginx</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Tomcat---setenv.sh</title>
     <url>/post/38ddfd80.html</url>
     <content><![CDATA[<h2 id="tomcat-setenv-sh"><a href="#tomcat-setenv-sh" class="headerlink" title="tomcat,setenv.sh"></a>tomcat,setenv.sh</h2><p>  代码比较简单</p>
