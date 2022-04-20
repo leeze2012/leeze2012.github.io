@@ -40,7 +40,7 @@
     <link href="https://www.xiaosige.com/post/dc26ce6d.html"/>
     <id>https://www.xiaosige.com/post/dc26ce6d.html</id>
     <published>2022-04-20T06:37:13.000Z</published>
-    <updated>2022-04-20T10:27:14.533Z</updated>
+    <updated>2022-04-20T13:43:45.950Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;JMX方式（jconsole也可通过此方式进行连接）&quot;&gt;&lt;a href=&quot;#JMX方式（jconsole也可通过此方式进行连接）&quot; class=&quot;headerlink&quot; title=&quot;JMX方式（jconsole也可通过此方式进行连接）&quot;&gt;&lt;/a&gt;JMX方式（jconsole也可通过此方式进行连接）&lt;/h2&gt;&lt;p&gt;  jmx方式能监控到CPU信息，但无法使用visualVM的visualVM GC插件&lt;/p&gt;</summary>

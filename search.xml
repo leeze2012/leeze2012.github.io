@@ -148,7 +148,7 @@ lrwxrwxrwx. <span class="token number">1</span> root root <span class="token num
 <li>打开<code>visualVm</code>或<code>jconsole</code><br>  输入<code>ip</code>（<code>2</code>中配置的<code>xxx.xxx.xxx</code>）和端口（<code>22334</code>）进行连接即可查看监控，无需输入用户名和密码</li>
 </ol>
 <h4 id="监控普通的tomcat"><a href="#监控普通的tomcat" class="headerlink" title="监控普通的tomcat"></a>监控普通的tomcat</h4><ol>
-<li>下载<code>catalina-jmx-remote.jar</code>，放在<code>tomcat/lib</code>目录下面<br>  请根据自己的tomcat版本选择对应的包:<br>  地址示例： <a href="http://mirror.bit.edu.cn/apache/tomcat/tomcat-8/v8.5.35/bin/extras/"><code>http://mirror.bit.edu.cn/apache/tomcat/tomcat-8/v8.5.35/bin/extras/</code></a><br>  地址示例： <a href="http://archive.apache.org/dist/tomcat/tomcat-8/v8.5.35/bin/extras/"><code>http://archive.apache.org/dist/tomcat/tomcat-8/v8.5.35/bin/extras/</code></a></li>
+<li>下载<code>catalina-jmx-remote.jar</code>，放在<code>tomcat/lib</code>目录下面<br>  请根据自己的tomcat版本选择对应的包:<br>  地址示例： <a href="http://mirror.bit.edu.cn/apache/tomcat/tomcat-8/v8.5.35/bin/extras/"><code>http://mirror.bit.edu.cn/apache/tomcat/tomcat-8/v8.5.35/bin/extras/</code></a><br>  地址示例： <a href="http://archive.apache.org/dist/tomcat/tomcat-8/v8.5.35/bin/extras/"><code>http://archive.apache.org/dist/tomcat/tomcat-8/v8.5.35/bin/extras/</code></a><br>  下载地址： <a href="http://mvnrepository.com/artifact/org.apache.tomcat/tomcat-catalina-jmx-remote"><code>http://mvnrepository.com/artifact/org.apache.tomcat/tomcat-catalina-jmx-remote</code></a> </li>
 <li>配置<code>conf/server.xml</code><br>  在<code>server.xml</code>中添加如下监听配置:<pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Listener</span> <span class="token attr-name">className</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>org.apache.catalina.mbeans.JmxRemoteLifecycleListener<span class="token punctuation">"</span></span>  
        <span class="token attr-name">rmiRegistryPortPlatform</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>22334<span class="token punctuation">"</span></span> <span class="token attr-name">rmiServerPortPlatform</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>22334<span class="token punctuation">"</span></span> <span class="token punctuation">/&gt;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
   有了该可使得每次重启<code>tomat</code>不需要重新在防火墙中开放端口，因为会使用配置的<code>22334</code>端口</li>
@@ -166,7 +166,15 @@ lrwxrwxrwx. <span class="token number">1</span> root root <span class="token num
 
 <span class="token comment"># 将被注释的monitorRole，和controlRole放开，并修改密码123456</span>
 monitorRole  <span class="token number">123456</span>
-controlRole  <span class="token number">123456</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+controlRole  <span class="token number">123456</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+  <code>或</code><br>  进入<code>/tomcat/conf/</code>目录   <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">vi</span> jmxremote.access
+username  readwrite
+
+<span class="token function">vi</span> jmxremote.password
+username password
+
+<span class="token function">chmod</span> <span class="token number">600</span> jmxremote.access
+<span class="token function">chmod</span> <span class="token number">600</span> jmxremote.password<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 <li>修改之前的启动配置<pre class="line-numbers language-properties" data-language="properties"><code class="language-properties"><span class="token comment">#CATALINA_OPTS</span>
 <span class="token attr-name">CATALINA_OPTS</span><span class="token punctuation">=</span><span class="token attr-value">"$CATALINA_OPTS -Djava.awt.headless=true"</span>
 <span class="token attr-name">CATALINA_OPTS</span><span class="token punctuation">=</span><span class="token attr-value">"$CATALINA_OPTS -Dcom.sun.management.jmxremote"</span>
@@ -174,10 +182,18 @@ controlRole  <span class="token number">123456</span><span aria-hidden="true" cl
 <span class="token attr-name">CATALINA_OPTS</span><span class="token punctuation">=</span><span class="token attr-value">"$CATALINA_OPTS -Dcom.sun.management.jmxremote.rmi.port=22335"</span>
 <span class="token attr-name">CATALINA_OPTS</span><span class="token punctuation">=</span><span class="token attr-value">"$CATALINA_OPTS -Dcom.sun.management.jmxremote.ssl=false"</span>
 <span class="token attr-name">CATALINA_OPTS</span><span class="token punctuation">=</span><span class="token attr-value">"$CATALINA_OPTS -Dcom.sun.management.jmxremote.authenticate=true"</span>
-<span class="token attr-name">CATALINA_OPTS</span><span class="token punctuation">=</span><span class="token attr-value">"$CATALINA_OPTS -Dcom.sun.management.jmxremote.password.file=../conf/jmxremote.passwd"</span>
+<span class="token attr-name">CATALINA_OPTS</span><span class="token punctuation">=</span><span class="token attr-value">"$CATALINA_OPTS -Dcom.sun.management.jmxremote.password.file=../conf/jmxremote.password"</span>
 <span class="token attr-name">CATALINA_OPTS</span><span class="token punctuation">=</span><span class="token attr-value">"$CATALINA_OPTS -Dcom.sun.management.jmxremote.access.file=../conf/jmxremote.access"</span>
 <span class="token attr-name">CATALINA_OPTS</span><span class="token punctuation">=</span><span class="token attr-value">"$CATALINA_OPTS -Djava.rmi.server.hostname=10.211.55.81"</span>
-<span class="token attr-name">export</span> <span class="token attr-value">CATALINA_OPTS</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<span class="token attr-name">export</span> <span class="token attr-value">CATALINA_OPTS</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+  <code>或</code><pre class="line-numbers language-properties" data-language="properties"><code class="language-properties"><span class="token attr-name">JAVA_OPTS</span><span class="token punctuation">=</span><span class="token attr-value">"$JAVA_OPTS -Dcom.sun.management.jmxremote"</span>
+<span class="token attr-name">JAVA_OPTS</span><span class="token punctuation">=</span><span class="token attr-value">"$JAVA_OPTS -Dcom.sun.management.jmxremote.port=8998"</span>
+<span class="token attr-name">JAVA_OPTS</span><span class="token punctuation">=</span><span class="token attr-value">"$JAVA_OPTS -Dcom.sun.management.jmxremote.rmi.port=8998"</span>
+<span class="token attr-name">JAVA_OPTS</span><span class="token punctuation">=</span><span class="token attr-value">"$JAVA_OPTS -Dcom.sun.management.jmxremote.ssl=false"</span>
+<span class="token attr-name">JAVA_OPTS</span><span class="token punctuation">=</span><span class="token attr-value">"$JAVA_OPTS -Dcom.sun.management.jmxremote.authenticate=ture"</span>
+<span class="token attr-name">JAVA_OPTS</span><span class="token punctuation">=</span><span class="token attr-value">"$JAVA_OPTS -Dcom.sun.management.jmxremote.password.file=../conf/jmxremote.password"</span>
+<span class="token attr-name">JAVA_OPTS</span><span class="token punctuation">=</span><span class="token attr-value">"$JAVA_OPTS -Dcom.sun.management.jmxremote.access.file=../conf/jmxremote.access"</span>
+<span class="token attr-name">JAVA_OPTS</span><span class="token punctuation">=</span><span class="token attr-value">"$JAVA_OPTS -Djava.rmi.server.hostname=10.211.55.81"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 <li>启动<br>  打开<code>visualVm</code>或<code>jconsole</code>输入<code>ip+端口</code>，然后输入之前设置的账号<code>controlRole</code> 和密码 <code>123456</code>即可连上</li>
 </ol>
 <h2 id="jstatd方式"><a href="#jstatd方式" class="headerlink" title="jstatd方式"></a>jstatd方式</h2><p>  jstatd方式能使用visualVM的visualVM GC插件，但无法监控到CPU信息</p>
@@ -188,10 +204,20 @@ controlRole  <span class="token number">123456</span><span aria-hidden="true" cl
 <li>开放端口<br>  通过<code>netstat -ntlp|grep jstatd</code>查看监听的端口（注意有两个监听端口），在防火墙中进行开放该端口<br>如果出现：<code>java.rmi.NotBoundException: JStatRemoteHost</code><br>一般等一段时间就恢复正常了</li>
 <li>打开<code>visualVm</code>添加远程主机会自动加载远程<code>java</code>进程</li>
 </ol>
-<h2 id="PS"><a href="#PS" class="headerlink" title="PS"></a>PS</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">vi</span> setenv.sh
+<h2 id="PS"><a href="#PS" class="headerlink" title="PS"></a>PS</h2><ol>
+<li>setenv.sh<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">vi</span> setenv.sh
 <span class="token function">chmod</span> +x setenv.sh
 <span class="token function">chmod</span> <span class="token number">600</span> jmxremote.password
-<span class="token function">chmod</span> <span class="token number">600</span> jxmremote.access<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token function">chmod</span> <span class="token number">600</span> jxmremote.access<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li><code>java.rmi.server.ExportException: internal error: ObjID already in use</code><br>  把文件<code>server.xml</code>中的下面<code>删除</code>即可。<pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Listener</span> <span class="token attr-name">className</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>org.apache.catalina.mbeans.JmxRemoteLifecycleListener<span class="token punctuation">"</span></span>  
+ <span class="token attr-name">rmiRegistryPortPlatform</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>8998<span class="token punctuation">"</span></span> <span class="token attr-name">rmiServerPortPlatform</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>8999<span class="token punctuation">"</span></span><span class="token punctuation">/&gt;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
+<li>Mac 下 java 的路径：<br><code>/usr/libexec/java_home -V</code></li>
+</ol>
+<br>
+
+<blockquote>
+<p>参考<br><a href="https://www.cnblogs.com/zhengshiqiang47/p/7634522.html">visualVM使用jstatd和jmx连接远程jvm及遇到的问题解决</a><br><a href="https://www.iteye.com/blog/ganxueyun-2511891"> visualvm远程连接配置 </a><br><a href="https://visualvm.github.io/index.html">visualvm 下载</a><br><a href="https://visualvm.github.io/pluginscenters.html">visualvm 插件</a></p>
+</blockquote>
 <link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
       <categories>
         <category>Java</category>
