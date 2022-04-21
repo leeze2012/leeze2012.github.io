@@ -231,6 +231,10 @@
 
         <script>
             $(document).ready(function(){
+                <!-- 移动端 wukong -->
+                if (/(iPhone|iPad|iPod|iOS|Android)/i.test(navigator.userAgent)) {
+                    $('.wukong').css('display','none');
+                }
                 $('.txt-scroll').txtscroll({
                     'speed': 50
                 });
