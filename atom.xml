@@ -6,7 +6,7 @@
   <link href="https://www.xiaosige.com/atom.xml" rel="self"/>
   
   <link href="https://www.xiaosige.com/"/>
-  <updated>2022-04-20T22:16:54.807Z</updated>
+  <updated>2022-04-26T20:22:19.627Z</updated>
   <id>https://www.xiaosige.com/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>【解决】Idea中Pom.xml变灰并加横线</title>
+    <link href="https://www.xiaosige.com/post/454169be.html"/>
+    <id>https://www.xiaosige.com/post/454169be.html</id>
+    <published>2022-04-26T20:12:56.000Z</published>
+    <updated>2022-04-26T20:22:19.627Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;  问题描述：有时候我们在删除某些项目，重新新建之后有时候会发现&lt;code&gt;pom.xml&lt;/code&gt;文件上有&lt;code&gt;一条横线&lt;/code&gt;，解决方式如下:&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Idea" scheme="https://www.xiaosige.com/categories/Idea/"/>
+    
+    
+    <category term="Idea" scheme="https://www.xiaosige.com/tags/Idea/"/>
+    
+  </entry>
   
   <entry>
     <title>Nginx 配置 HTTPS（多域名）</title>
@@ -381,25 +400,6 @@
     
     
     <category term="Gitea" scheme="https://www.xiaosige.com/tags/Gitea/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>MyBatis-Plus 实现敏感数据的加密</title>
-    <link href="https://www.xiaosige.com/post/55d89d2f.html"/>
-    <id>https://www.xiaosige.com/post/55d89d2f.html</id>
-    <published>2021-06-11T10:56:49.000Z</published>
-    <updated>2021-06-13T14:27:01.690Z</updated>
-    
-    
-    <summary type="html">&lt;h3 id=&quot;介绍&quot;&gt;&lt;a href=&quot;#介绍&quot; class=&quot;headerlink&quot; title=&quot;介绍&quot;&gt;&lt;/a&gt;介绍&lt;/h3&gt;&lt;p&gt;  在做项目时，需要实现对身份证,密码等敏感数据的加密，即不能以明文存储密码到数据库。&lt;br&gt;  以下采用&lt;code&gt;TypeHandler&lt;/code&gt;形式。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="Java" scheme="https://www.xiaosige.com/categories/Java/"/>
-    
-    
-    <category term="MyBatis-Plus" scheme="https://www.xiaosige.com/tags/MyBatis-Plus/"/>
     
   </entry>
   

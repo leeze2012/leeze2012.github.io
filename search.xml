@@ -64,6 +64,24 @@ lrwxrwxrwx. <span class="token number">1</span> root root <span class="token num
       </tags>
   </entry>
   <entry>
+    <title>【解决】Idea中Pom.xml变灰并加横线</title>
+    <url>/post/454169be.html</url>
+    <content><![CDATA[<p>  问题描述：有时候我们在删除某些项目，重新新建之后有时候会发现<code>pom.xml</code>文件上有<code>一条横线</code>，解决方式如下:</p>
+<span id="more"></span>
+
+
+<img data-src="/post/454169be/ideapom001.png" class="" title="IDEA-Maven-Pom.xml变灰,出现删除线">
+
+<p>  设置完成后，重启IDEA。</p>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
+      <categories>
+        <category>Idea</category>
+      </categories>
+      <tags>
+        <tag>Idea</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Nginx 配置 HTTPS（多域名）</title>
     <url>/post/643b08ac.html</url>
     <content><![CDATA[<h3 id="Nginx-配置"><a href="#Nginx-配置" class="headerlink" title="Nginx 配置"></a>Nginx 配置</h3><p>  首先, 需要把 <code>http</code> 都转发到 <code>https</code>, 需要使用 <code>rewrite</code>, 这样, 当访问 <code>http://example.cn</code> 会自动转发到 <code>https://example.cn</code></p>
