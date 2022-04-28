@@ -893,14 +893,14 @@
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/tags/MySQL/</loc>
+    <loc>https://www.xiaosige.com/tags/Mongo/</loc>
     <lastmod>2022-04-28</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/tags/Mongo/</loc>
+    <loc>https://www.xiaosige.com/tags/MySQL/</loc>
     <lastmod>2022-04-28</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -928,13 +928,6 @@
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/tags/hexo/</loc>
-    <lastmod>2022-04-28</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.xiaosige.com/tags/Test/</loc>
     <lastmod>2022-04-28</lastmod>
     <changefreq>daily</changefreq>
@@ -942,7 +935,7 @@
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/tags/Idea/</loc>
+    <loc>https://www.xiaosige.com/tags/hexo/</loc>
     <lastmod>2022-04-28</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -950,6 +943,13 @@
   
   <url>
     <loc>https://www.xiaosige.com/tags/Jdk/</loc>
+    <lastmod>2022-04-28</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.xiaosige.com/tags/Idea/</loc>
     <lastmod>2022-04-28</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1161,13 +1161,6 @@
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/categories/hexo%E5%BB%BA%E7%AB%99/</loc>
-    <lastmod>2022-04-28</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.xiaosige.com/categories/Git/</loc>
     <lastmod>2022-04-28</lastmod>
     <changefreq>daily</changefreq>
@@ -1182,7 +1175,7 @@
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/categories/Idea/</loc>
+    <loc>https://www.xiaosige.com/categories/hexo%E5%BB%BA%E7%AB%99/</loc>
     <lastmod>2022-04-28</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1190,6 +1183,13 @@
   
   <url>
     <loc>https://www.xiaosige.com/categories/Java/</loc>
+    <lastmod>2022-04-28</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.xiaosige.com/categories/Idea/</loc>
     <lastmod>2022-04-28</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
