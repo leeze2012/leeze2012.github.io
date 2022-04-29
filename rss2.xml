@@ -15,7 +15,7 @@
     <atom:link href="https://www.xiaosige.com/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>因上努力，果上随缘！</description>
-    <pubDate>Fri, 29 Apr 2022 03:37:17 GMT</pubDate>
+    <pubDate>Fri, 29 Apr 2022 03:43:23 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     <item>
@@ -24,14 +24,8 @@
       <guid>https://www.xiaosige.com/post/887706e1.html</guid>
       <pubDate>Fri, 29 Apr 2022 03:17:56 GMT</pubDate>
       
-        
-        
-          
-          
       <description>&lt;h3 id=&quot;打包镜像&quot;&gt;&lt;a href=&quot;#打包镜像&quot; class=&quot;headerlink&quot; title=&quot;打包镜像&quot;&gt;&lt;/a&gt;打包镜像&lt;/h3&gt;&lt;p&gt;  在Dockerfile 目录下cmd窗口执行以下命令：&lt;/p&gt;
-&lt;pre class=&quot;line-numbers</description>
-          
-        
+&lt;pre class=&quot;line-numbers language-docker&quot; data-language=&quot;docker&quot;&gt;&lt;code class=&quot;language-docker&quot;&gt;docker build &lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt;t 镜像名称 &lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt;f Dockerfile .&lt;span aria-hidden=&quot;true&quot; class=&quot;line-numbers-rows&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;</description>
       
       
       
