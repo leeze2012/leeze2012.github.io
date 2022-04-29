@@ -15,8 +15,36 @@
     <atom:link href="https://www.xiaosige.com/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>因上努力，果上随缘！</description>
-    <pubDate>Tue, 26 Apr 2022 20:22:19 GMT</pubDate>
+    <pubDate>Fri, 29 Apr 2022 03:37:17 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>Dockerfile 镜像打包，保存镜像至本地，导入镜像</title>
+      <link>https://www.xiaosige.com/post/887706e1.html</link>
+      <guid>https://www.xiaosige.com/post/887706e1.html</guid>
+      <pubDate>Fri, 29 Apr 2022 03:17:56 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;h3 id=&quot;打包镜像&quot;&gt;&lt;a href=&quot;#打包镜像&quot; class=&quot;headerlink&quot; title=&quot;打包镜像&quot;&gt;&lt;/a&gt;打包镜像&lt;/h3&gt;&lt;p&gt;  在Dockerfile 目录下cmd窗口执行以下命令：&lt;/p&gt;
+&lt;pre class=&quot;line-numbers</description>
+          
+        
+      
+      
+      
+      
+      <category domain="https://www.xiaosige.com/categories/Docker/">Docker</category>
+      
+      
+      <category domain="https://www.xiaosige.com/tags/Docker/">Docker</category>
+      
+      
+      <comments>https://www.xiaosige.com/post/887706e1.html#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>【解决】Idea中Pom.xml变灰并加横线</title>
@@ -420,28 +448,6 @@
       
       
       <comments>https://www.xiaosige.com/post/3abef87b.html#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>Docker安装Gitea</title>
-      <link>https://www.xiaosige.com/post/853577ec.html</link>
-      <guid>https://www.xiaosige.com/post/853577ec.html</guid>
-      <pubDate>Fri, 11 Jun 2021 18:42:29 GMT</pubDate>
-      
-      <description>&lt;h3 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h3&gt;&lt;p&gt;  Gitea是一个极易安装，运行非常快速，安装和使用体验良好的自建Git服务。采用Go作为后端语言，这使得只要生成一个可执行程序即可。并且他还支持跨平台，支持Linux、macOS和Windows以及各种架构，除了x86，amd64，还包括ARM和 PowerPC。&lt;/p&gt;
-&lt;p&gt;  Github地址：&lt;a href=&quot;https://github.com/go-gitea/gitea&quot;&gt;https://github.com/go-gitea/gitea&lt;/a&gt;&lt;/p&gt;</description>
-      
-      
-      
-      
-      <category domain="https://www.xiaosige.com/categories/Docker/">Docker</category>
-      
-      
-      <category domain="https://www.xiaosige.com/tags/Gitea/">Gitea</category>
-      
-      
-      <comments>https://www.xiaosige.com/post/853577ec.html#disqus_thread</comments>
       
     </item>
     

@@ -6,7 +6,7 @@
   <link href="https://www.xiaosige.com/atom.xml" rel="self"/>
   
   <link href="https://www.xiaosige.com/"/>
-  <updated>2022-04-26T20:22:19.627Z</updated>
+  <updated>2022-04-29T03:37:17.915Z</updated>
   <id>https://www.xiaosige.com/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Dockerfile 镜像打包，保存镜像至本地，导入镜像</title>
+    <link href="https://www.xiaosige.com/post/887706e1.html"/>
+    <id>https://www.xiaosige.com/post/887706e1.html</id>
+    <published>2022-04-29T03:17:56.000Z</published>
+    <updated>2022-04-29T03:37:17.915Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;打包镜像&quot;&gt;&lt;a href=&quot;#打包镜像&quot; class=&quot;headerlink&quot; title=&quot;打包镜像&quot;&gt;&lt;/a&gt;打包镜像&lt;/h3&gt;&lt;p&gt;  在Dockerfile 目录下cmd窗口执行以下命令：&lt;/p&gt;
+&lt;pre class=&quot;line-numbers</summary>
+        
+      
+    
+    
+    
+    <category term="Docker" scheme="https://www.xiaosige.com/categories/Docker/"/>
+    
+    
+    <category term="Docker" scheme="https://www.xiaosige.com/tags/Docker/"/>
+    
+  </entry>
   
   <entry>
     <title>【解决】Idea中Pom.xml变灰并加横线</title>
@@ -380,26 +406,6 @@
     
     
     <category term="Drone" scheme="https://www.xiaosige.com/tags/Drone/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Docker安装Gitea</title>
-    <link href="https://www.xiaosige.com/post/853577ec.html"/>
-    <id>https://www.xiaosige.com/post/853577ec.html</id>
-    <published>2021-06-11T18:42:29.000Z</published>
-    <updated>2022-04-08T11:12:08.431Z</updated>
-    
-    
-    <summary type="html">&lt;h3 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h3&gt;&lt;p&gt;  Gitea是一个极易安装，运行非常快速，安装和使用体验良好的自建Git服务。采用Go作为后端语言，这使得只要生成一个可执行程序即可。并且他还支持跨平台，支持Linux、macOS和Windows以及各种架构，除了x86，amd64，还包括ARM和 PowerPC。&lt;/p&gt;
-&lt;p&gt;  Github地址：&lt;a href=&quot;https://github.com/go-gitea/gitea&quot;&gt;https://github.com/go-gitea/gitea&lt;/a&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="Docker" scheme="https://www.xiaosige.com/categories/Docker/"/>
-    
-    
-    <category term="Gitea" scheme="https://www.xiaosige.com/tags/Gitea/"/>
     
   </entry>
   
