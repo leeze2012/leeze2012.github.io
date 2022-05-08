@@ -6,7 +6,7 @@
   <link href="https://www.xiaosige.com/atom.xml" rel="self"/>
   
   <link href="https://www.xiaosige.com/"/>
-  <updated>2022-04-29T03:43:23.675Z</updated>
+  <updated>2022-05-08T15:56:38.482Z</updated>
   <id>https://www.xiaosige.com/</id>
   
   <author>
@@ -15,6 +15,51 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>【Docker】之安装 RabbitMQ</title>
+    <link href="https://www.xiaosige.com/post/c0af152c.html"/>
+    <id>https://www.xiaosige.com/post/c0af152c.html</id>
+    <published>2022-05-08T14:42:50.000Z</published>
+    <updated>2022-05-08T15:56:38.482Z</updated>
+    
+    
+    <summary type="html">&lt;h3 id=&quot;拉取镜像&quot;&gt;&lt;a href=&quot;#拉取镜像&quot; class=&quot;headerlink&quot; title=&quot;拉取镜像&quot;&gt;&lt;/a&gt;拉取镜像&lt;/h3&gt;&lt;pre class=&quot;line-numbers language-docker&quot; data-language=&quot;docker&quot;&gt;&lt;code class=&quot;language-docker&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# (镜像未配有控制台)&lt;/span&gt;
+docker pull rabbitmq:3.9.16
+&lt;span class=&quot;token comment&quot;&gt;# (镜像配有控制台)&lt;/span&gt;
+docker pull rabbitmq:3.9.16-management&lt;span aria-hidden=&quot;true&quot; class=&quot;line-numbers-rows&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;  &lt;code&gt;注意此处需要安装management的版本才有界面，其他tag的版本是没有管理界面的&lt;/code&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Docker" scheme="https://www.xiaosige.com/categories/Docker/"/>
+    
+    
+    <category term="MQ" scheme="https://www.xiaosige.com/tags/MQ/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【Docker】之安装 ElasticSearch</title>
+    <link href="https://www.xiaosige.com/post/5aa01560.html"/>
+    <id>https://www.xiaosige.com/post/5aa01560.html</id>
+    <published>2022-05-08T12:48:43.000Z</published>
+    <updated>2022-05-08T13:35:22.589Z</updated>
+    
+    
+    <summary type="html">&lt;h3 id=&quot;下载-ElasticSearch-和-Kibana-镜像&quot;&gt;&lt;a href=&quot;#下载-ElasticSearch-和-Kibana-镜像&quot; class=&quot;headerlink&quot; title=&quot;下载 ElasticSearch 和 Kibana 镜像&quot;&gt;&lt;/a&gt;下载 &lt;code&gt;ElasticSearch&lt;/code&gt; 和 &lt;code&gt;Kibana&lt;/code&gt; 镜像&lt;/h3&gt;&lt;p&gt;  以 &lt;code&gt;7.17.3&lt;/code&gt; 版本为例，&lt;code&gt;elasticsearch&lt;/code&gt; 和 &lt;code&gt;kibana&lt;/code&gt; 的版本要对应：&lt;/p&gt;
+&lt;pre class=&quot;line-numbers language-docker&quot; data-language=&quot;docker&quot;&gt;&lt;code class=&quot;language-docker&quot;&gt;docker pull elasticsearch:7.17.3
+docker pull kibana:7.17.3&lt;span aria-hidden=&quot;true&quot; class=&quot;line-numbers-rows&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;  更多版本的镜像可以访问 Docker 官网：&lt;a href=&quot;https://hub.docker.com/_/elasticsearch?tab=tags****&quot;&gt;https://hub.docker.com/_/elasticsearch?tab=tags&lt;/a&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Docker" scheme="https://www.xiaosige.com/categories/Docker/"/>
+    
+    
+    <category term="ElasticSearch" scheme="https://www.xiaosige.com/tags/ElasticSearch/"/>
+    
+  </entry>
   
   <entry>
     <title>Dockerfile 镜像打包，保存镜像至本地，导入镜像</title>
@@ -361,45 +406,6 @@
     
     
     <category term="Gitea" scheme="https://www.xiaosige.com/tags/Gitea/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Docker 删除所有悬虚镜像（name 为none , tag 为 none）</title>
-    <link href="https://www.xiaosige.com/post/d2e31b5e.html"/>
-    <id>https://www.xiaosige.com/post/d2e31b5e.html</id>
-    <published>2021-06-13T17:30:37.000Z</published>
-    <updated>2021-06-14T05:42:24.520Z</updated>
-    
-    
-    <summary type="html">&lt;h3 id=&quot;什么是-悬虚镜像&quot;&gt;&lt;a href=&quot;#什么是-悬虚镜像&quot; class=&quot;headerlink&quot; title=&quot;什么是 悬虚镜像&quot;&gt;&lt;/a&gt;什么是 悬虚镜像&lt;/h3&gt;&lt;p&gt;  悬虚镜像就是镜像没有仓库名或没有标签查询显示虚悬镜像，在列表中展示为&lt;code&gt; &amp;lt;none&amp;gt;:&amp;lt;none&amp;gt;&lt;/code&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="Docker" scheme="https://www.xiaosige.com/categories/Docker/"/>
-    
-    
-    <category term="Docker" scheme="https://www.xiaosige.com/tags/Docker/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Docker使用Gitea+Drone实现持续集成(CI/CD)</title>
-    <link href="https://www.xiaosige.com/post/3abef87b.html"/>
-    <id>https://www.xiaosige.com/post/3abef87b.html</id>
-    <published>2021-06-12T22:19:21.000Z</published>
-    <updated>2021-06-13T18:20:24.486Z</updated>
-    
-    
-    <summary type="html">&lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;div class=&quot;note success no-icon&quot;&gt;&lt;p&gt;  在开发或生产环境中，我们经常会搞一套自动化部署方案（俗称一键部署）。比较流行的一种就是Gitlab+Jenkins实现方案，不过这种方案占用内存比较大，没有个8G内存，很难流畅运行，而且部署起来也不快。最近发现一款神器Drone，轻量级CI/DI工具，结合Gogs使用内存占用不到1G，几行脚本就能实现自动化部署，推荐给大家！&lt;/p&gt;
-&lt;/div&gt;</summary>
-    
-    
-    
-    <category term="Docker" scheme="https://www.xiaosige.com/categories/Docker/"/>
-    
-    
-    <category term="Drone" scheme="https://www.xiaosige.com/tags/Drone/"/>
     
   </entry>
   

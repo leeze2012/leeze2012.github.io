@@ -64,6 +64,140 @@ lrwxrwxrwx. <span class="token number">1</span> root root <span class="token num
       </tags>
   </entry>
   <entry>
+    <title>【Docker】之安装 RabbitMQ</title>
+    <url>/post/c0af152c.html</url>
+    <content><![CDATA[<h3 id="拉取镜像"><a href="#拉取镜像" class="headerlink" title="拉取镜像"></a>拉取镜像</h3><pre class="line-numbers language-docker" data-language="docker"><code class="language-docker"><span class="token comment"># (镜像未配有控制台)</span>
+docker pull rabbitmq:3.9.16
+<span class="token comment"># (镜像配有控制台)</span>
+docker pull rabbitmq:3.9.16-management<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>  <code>注意此处需要安装management的版本才有界面，其他tag的版本是没有管理界面的</code></p>
+<span id="more"></span>
+
+<h3 id="创建并启动RabbitMQ容器"><a href="#创建并启动RabbitMQ容器" class="headerlink" title="创建并启动RabbitMQ容器"></a>创建并启动RabbitMQ容器</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">mkdir</span> -p /root/.docker/voldata/rabbitmq/<span class="token punctuation">{</span>data,etc,log<span class="token punctuation">}</span>
+<span class="token function">chmod</span> <span class="token number">777</span> -R rabbitmq
+
+<span class="token function">docker</span> <span class="token function">cp</span> -a <span class="token function">docker</span> <span class="token function">cp</span> -a 容器ID:/var/lib/rabbitmq /home/rabbitmq/lib/
+<span class="token function">docker</span> <span class="token function">cp</span> -a 容器ID:/etc/rabbitmq /home/rabbitmq/etc/
+<span class="token function">docker</span> <span class="token function">cp</span> -a 容器ID:/var/log/rabbitmq /home/rabbitmq/log/<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-docker" data-language="docker"><code class="language-docker">docker run -d --name rabbitmq \
+-p 5672:5672 -p 15672:15672 \
+--restart=always \
+-v `pwd`/rabbitmq/data:/var/lib/rabbitmq \
+-v `pwd`/rabbitmq/log:/var/log/rabbitmq \
+-v `pwd`/rabbitmq/etc:/etc/rabbitmq \
+--hostname myRabbit \
+-e RABBITMQ_DEFAULT_VHOST=my_vhost  \
+-e RABBITMQ_DEFAULT_USER=admin \
+-e RABBITMQ_DEFAULT_PASS=admin rabbitmq:3.9.16-management<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-docker" data-language="docker"><code class="language-docker"><span class="token comment"># 启动rabbitmq_management, rabbitmq 为容器的名称，使用id也可以</span>
+docker exec -it rabbitmq rabbitmq-plugins enable rabbitmq_management<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<div class="note info no-icon"><ul>
+<li><code>-d</code> 后台运行容器；</li>
+<li><code>--name</code> 指定容器名；</li>
+<li><code>-p</code> 指定服务运行的端口（5672：应用访问端口；15672：控制台Web端口号）</li>
+<li><code>-v</code> 映射目录或文件；</li>
+<li><code>--hostname</code> 主机名（RabbitMQ的一个重要注意事项是它根据所谓的 “节点名称” 存储数据，默认为主机名）</li>
+<li><code>-e</code> 指定环境变量；（RABBITMQ_DEFAULT_VHOST：默认虚拟机名，RABBITMQ_DEFAULT_USER：默认的用户名，RABBITMQ_DEFAULT_PASS：默认用户名的密码）</li>
+</ul>
+</div>
+<h3 id="开启防火墙15672端口"><a href="#开启防火墙15672端口" class="headerlink" title="开启防火墙15672端口"></a>开启防火墙<code>15672</code>端口</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">firewall-cmd --zone<span class="token operator">=</span>public --add-port<span class="token operator">=</span><span class="token number">15672</span>/tcp --permanent
+firewall-cmd --reload <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h3 id="访问web管理端"><a href="#访问web管理端" class="headerlink" title="访问web管理端"></a>访问web管理端</h3><pre class="line-numbers language-none"><code class="language-none">http://Server-IP:15672<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
+      <categories>
+        <category>Docker</category>
+      </categories>
+      <tags>
+        <tag>MQ</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【Docker】之安装 ElasticSearch</title>
+    <url>/post/5aa01560.html</url>
+    <content><![CDATA[<h3 id="下载-ElasticSearch-和-Kibana-镜像"><a href="#下载-ElasticSearch-和-Kibana-镜像" class="headerlink" title="下载 ElasticSearch 和 Kibana 镜像"></a>下载 <code>ElasticSearch</code> 和 <code>Kibana</code> 镜像</h3><p>  以 <code>7.17.3</code> 版本为例，<code>elasticsearch</code> 和 <code>kibana</code> 的版本要对应：</p>
+<pre class="line-numbers language-docker" data-language="docker"><code class="language-docker">docker pull elasticsearch:7.17.3
+docker pull kibana:7.17.3<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>  更多版本的镜像可以访问 Docker 官网：<a href="https://hub.docker.com/_/elasticsearch?tab=tags****">https://hub.docker.com/_/elasticsearch?tab=tags</a></p>
+<span id="more"></span>
+
+<h3 id="创建并运行-ElasticSearch-容器"><a href="#创建并运行-ElasticSearch-容器" class="headerlink" title="创建并运行 ElasticSearch 容器"></a>创建并运行 <code>ElasticSearch</code> 容器</h3><p>  配置相关映射文件：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 创建挂载目录</span>
+<span class="token function">mkdir</span> -p /root/.docker/voldata/elasticsearch/<span class="token punctuation">{</span>config,data,plugin<span class="token punctuation">}</span>
+
+<span class="token comment"># 创建配置文件</span>
+<span class="token builtin class-name">echo</span> <span class="token string">"http.host: 0.0.0.0"</span> <span class="token operator">&gt;</span> /root/.docker/voldata/elasticsearch/config/elasticsearch.yml
+
+<span class="token comment"># 给挂载目录添加权限</span>
+<span class="token function">chmod</span> -R <span class="token number">777</span> /root/.docker/voldata/elasticsearch/<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>  启动容器：</p>
+<pre class="line-numbers language-docker" data-language="docker"><code class="language-docker">docker run -d -p 9200:9200 -p 9300:9300 \
+-e "discovery.type=single-node" \
+-e ES_JAVA_OPTS="-Xms84m -Xmx512m" \
+-v /root/.docker/voldata/elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml \
+-v /root/.docker/voldata/elasticsearch/data:/usr/share/elasticsearch/data \
+-v /root/.docker/voldata/elasticsearch/plugins:/usr/share/elasticsearch/plugins \
+--name elasticsearch \
+elasticsearch:7.17.3 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<div class="note info no-icon"><ul>
+<li><code>-d</code>：表示在后台运行容器；</li>
+<li><code>-p</code>：将容器的端口 9200（TCP 请求端口） 和 9300（HTTP 请求端口）映射到主机上对应的端口；</li>
+<li><code>-e</code>：设置环境变量；</li>
+<li><code>-v</code>：挂载目录；</li>
+<li><code>--name</code>：设置容器名称；</li>
+<li><code>elasticsearch:7.17.3</code>：容器使用的镜像名称；</li>
+</ul>
+</div>
+<p>  查看启动情况：</p>
+<pre class="line-numbers language-docker" data-language="docker"><code class="language-docker">docker ps -l<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>  设置 <code>docker</code> 启动时自动运行：</p>
+<pre class="line-numbers language-docker" data-language="docker"><code class="language-docker">docker update elasticsearch --restart=always<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="创建并运行启动-Kibana-容器"><a href="#创建并运行启动-Kibana-容器" class="headerlink" title="创建并运行启动 Kibana 容器"></a>创建并运行启动 <code>Kibana</code> 容器</h3><p>  启动命令：</p>
+<pre class="line-numbers language-docker" data-language="docker"><code class="language-docker">docker run -d -p 5601:5601 \
+-e ELASTICSEARCH_HOSTS=http://10.211.55.81:9200 \
+--name kibana \
+kibana:7.17.3<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<div class="note info no-icon"><ul>
+<li><code>-d</code>：表示在后台运行容器；</li>
+<li><code>-p 5601:5601</code>：将容器的 5601 端口映射到主机的 5601 端口上；</li>
+<li><code>-e ELASTICSEARCH_HOSTS</code>：设置环境变量，ELASTICSEARCH_HOSTS 指定了 elasticsearch 服务运行的 IP 地址；</li>
+<li><code>--name kibana</code>：设置容器名称；</li>
+<li><code>kibana:7.17.3</code>：容器使用的镜像名称；</li>
+</ul>
+</div>
+<p>  查看启动情况：</p>
+<pre class="line-numbers language-docker" data-language="docker"><code class="language-docker">docker ps -l<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>  设置 docker 启动时自动运行：</p>
+<pre class="line-numbers language-docker" data-language="docker"><code class="language-docker">docker update kibana --restart=always<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="访问-ElasticSearch-和-Kibana"><a href="#访问-ElasticSearch-和-Kibana" class="headerlink" title="访问 ElasticSearch 和 Kibana"></a>访问 <code>ElasticSearch</code> 和 <code>Kibana</code></h3><p>1）查看 <code>elasticsearch</code> 版本信息：浏览器输入地址 <code>http://10.211.55.81:9200</code></p>
+<pre class="line-numbers language-json" data-language="json"><code class="language-json"><span class="token punctuation">{</span>
+  <span class="token property">"name"</span> <span class="token operator">:</span> <span class="token string">"57eae3752c89"</span><span class="token punctuation">,</span>
+  <span class="token property">"cluster_name"</span> <span class="token operator">:</span> <span class="token string">"elasticsearch"</span><span class="token punctuation">,</span>
+  <span class="token property">"cluster_uuid"</span> <span class="token operator">:</span> <span class="token string">"qiyzlDQ7Sb69Kmh9uW9bYQ"</span><span class="token punctuation">,</span>
+  <span class="token property">"version"</span> <span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">"number"</span> <span class="token operator">:</span> <span class="token string">"7.17.3"</span><span class="token punctuation">,</span>
+    <span class="token property">"build_flavor"</span> <span class="token operator">:</span> <span class="token string">"default"</span><span class="token punctuation">,</span>
+    <span class="token property">"build_type"</span> <span class="token operator">:</span> <span class="token string">"docker"</span><span class="token punctuation">,</span>
+    <span class="token property">"build_hash"</span> <span class="token operator">:</span> <span class="token string">"5ad023604c8d7416c9eb6c0eadb62b14e766caff"</span><span class="token punctuation">,</span>
+    <span class="token property">"build_date"</span> <span class="token operator">:</span> <span class="token string">"2022-04-19T08:11:19.070913226Z"</span><span class="token punctuation">,</span>
+    <span class="token property">"build_snapshot"</span> <span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+    <span class="token property">"lucene_version"</span> <span class="token operator">:</span> <span class="token string">"8.11.1"</span><span class="token punctuation">,</span>
+    <span class="token property">"minimum_wire_compatibility_version"</span> <span class="token operator">:</span> <span class="token string">"6.8.0"</span><span class="token punctuation">,</span>
+    <span class="token property">"minimum_index_compatibility_version"</span> <span class="token operator">:</span> <span class="token string">"6.0.0-beta1"</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token property">"tagline"</span> <span class="token operator">:</span> <span class="token string">"You Know, for Search"</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>2）显示 <code>elasticsearch</code> 节点信息：浏览器输入地址 <code>http://10.211.55.81:9200/_cat/nodes</code></p>
+<pre class="line-numbers language-json" data-language="json"><code class="language-json"><span class="token number">127.0</span>.<span class="token number">0.1</span> <span class="token number">19</span> <span class="token number">97</span> <span class="token number">5</span> <span class="token number">0.09</span> <span class="token number">0.24</span> <span class="token number">0.24</span> cdfhilmrstw * 57eae3752c89<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>3）访问 <code>Kibana</code>：浏览器输入地址 <code>http://10.211.55.81:5601/app/kibana</code></p>
+<img data-src="/post/5aa01560/kibana-001.png" class="" title="kibana"><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
+      <categories>
+        <category>Docker</category>
+      </categories>
+      <tags>
+        <tag>ElasticSearch</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Dockerfile 镜像打包，保存镜像至本地，导入镜像</title>
     <url>/post/887706e1.html</url>
     <content><![CDATA[<h3 id="打包镜像"><a href="#打包镜像" class="headerlink" title="打包镜像"></a>打包镜像</h3><p>  在Dockerfile 目录下cmd窗口执行以下命令：</p>

@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://www.xiaosige.com/post/c0af152c.html</loc>
+    
+    <lastmod>2022-05-08</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.xiaosige.com/post/5aa01560.html</loc>
+    
+    <lastmod>2022-05-08</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://www.xiaosige.com/welfare/index.html</loc>
     
     <lastmod>2022-05-08</lastmod>
@@ -879,6 +893,13 @@
   </url>
   
   <url>
+    <loc>https://www.xiaosige.com/tags/ElasticSearch/</loc>
+    <lastmod>2022-05-08</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://www.xiaosige.com/tags/Gitea/</loc>
     <lastmod>2022-05-08</lastmod>
     <changefreq>daily</changefreq>
@@ -908,6 +929,13 @@
   
   <url>
     <loc>https://www.xiaosige.com/tags/MySQL/</loc>
+    <lastmod>2022-05-08</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.xiaosige.com/tags/MQ/</loc>
     <lastmod>2022-05-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -949,14 +977,14 @@
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/tags/Idea/</loc>
+    <loc>https://www.xiaosige.com/tags/Jdk/</loc>
     <lastmod>2022-05-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/tags/Jdk/</loc>
+    <loc>https://www.xiaosige.com/tags/Idea/</loc>
     <lastmod>2022-05-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1189,14 +1217,14 @@
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/categories/Idea/</loc>
+    <loc>https://www.xiaosige.com/categories/Java/</loc>
     <lastmod>2022-05-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/categories/Java/</loc>
+    <loc>https://www.xiaosige.com/categories/Idea/</loc>
     <lastmod>2022-05-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
