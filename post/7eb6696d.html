@@ -21,7 +21,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"www.xiaosige.com","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.11.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"changyan","storage":true,"lazyload":true,"nav":null,"activeClass":"changyan"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"www.xiaosige.com","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.11.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"changyan","storage":true,"lazyload":true,"nav":null,"activeClass":"changyan"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="介绍  Lnmp架构  Lnmp(web应用软件组合)  Linux+Nginx+Mysql&#x2F;MariaDB+Perl&#x2F;PHP&#x2F;Python一组常用来搭建动态网站或者服务器的开源软件，本身都是各自独立的程序，但是因为常被放在一起使用，拥有了越来越高的兼容度，共同组成了一个强大的Web应用程序平台。   LAMP的架构以及通信过程  Lnmp是一个cs架构的平台（client&#x2F;server架构， 即">
 <meta property="og:type" content="article">
@@ -650,14 +650,14 @@ canvas#canvas {
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>5.9k</span>
+      <span>6.1k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>5 分钟</span>
+      <span>6 分钟</span>
     </span>
 </div>
 
@@ -709,43 +709,43 @@ yum -y <span class="token function">install</span> gcc gcc-c++ <span class="toke
 <span class="token builtin class-name">cd</span> /usr/local/php8/sbin
 <span class="token builtin class-name">echo</span> <span class="token string">"PATH=<span class="token environment constant">$PWD</span>:\<span class="token environment constant">$PATH</span>"</span> <span class="token operator">&gt;</span> /etc/profile.d/php.sh<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="3-配置nginx"><a href="#3-配置nginx" class="headerlink" title="3. 配置nginx"></a>3. 配置nginx</h3><pre class="line-numbers language-nginx" data-language="nginx"><code class="language-nginx"><span class="token punctuation">[</span><span class="token keyword">root</span>@study2 <span class="token operator">/</span>usr<span class="token operator">/</span>local<span class="token operator">/</span>nginx<span class="token operator">/</span>conf <span class="token number">10</span><span class="token punctuation">:</span><span class="token number">31</span><span class="token punctuation">:</span><span class="token number">16</span><span class="token punctuation">]</span><span class="token comment">#cat nginx.conf</span>
+<h3 id="3-配置nginx"><a href="#3-配置nginx" class="headerlink" title="3. 配置nginx"></a>3. 配置nginx</h3><pre class="line-numbers language-nginx" data-language="nginx"><code class="language-nginx">[root@study2 /usr/local/nginx/conf <span class="token directive"><span class="token keyword">10:31:16]#cat</span> nginx.conf
 <span class="token comment">#user  nobody;</span>
-<span class="token keyword">worker_processes</span>  <span class="token number">1</span><span class="token punctuation">;</span>
+worker_processes  <span class="token number">1</span></span><span class="token punctuation">;</span>
 <span class="token comment">#error_log  logs/error.log;</span>
 <span class="token comment">#error_log  logs/error.log  notice;</span>
 <span class="token comment">#error_log  logs/error.log  info;</span>
 <span class="token comment">#pid        logs/nginx.pid;</span>
-<span class="token keyword">events</span> <span class="token punctuation">{</span>
-    <span class="token keyword">worker_connections</span>  <span class="token number">1024</span><span class="token punctuation">;</span>
+<span class="token directive"><span class="token keyword">events</span></span> <span class="token punctuation">{</span>
+    <span class="token directive"><span class="token keyword">worker_connections</span>  <span class="token number">1024</span></span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
-<span class="token keyword">http</span> <span class="token punctuation">{</span>
-    <span class="token keyword">include</span>       mime<span class="token punctuation">.</span><span class="token keyword">types</span><span class="token punctuation">;</span>
-    <span class="token keyword">default_type</span>  application<span class="token operator">/</span>octet<span class="token operator">-</span>stream<span class="token punctuation">;</span>
+<span class="token directive"><span class="token keyword">http</span></span> <span class="token punctuation">{</span>
+    <span class="token directive"><span class="token keyword">include</span>       mime.types</span><span class="token punctuation">;</span>
+    <span class="token directive"><span class="token keyword">default_type</span>  application/octet-stream</span><span class="token punctuation">;</span>
     <span class="token comment">#log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '</span>
     <span class="token comment">#                  '$status $body_bytes_sent "$http_referer" '</span>
     <span class="token comment">#                  '"$http_user_agent" "$http_x_forwarded_for"';</span>
     <span class="token comment">#access_log  logs/access.log  main;</span>
-    <span class="token keyword">sendfile</span>        on<span class="token punctuation">;</span>
+    <span class="token directive"><span class="token keyword">sendfile</span>        <span class="token boolean">on</span></span><span class="token punctuation">;</span>
     <span class="token comment">#tcp_nopush     on;</span>
     <span class="token comment">#keepalive_timeout  0;</span>
-    <span class="token keyword">keepalive_timeout</span>  <span class="token number">65</span><span class="token punctuation">;</span>
+    <span class="token directive"><span class="token keyword">keepalive_timeout</span>  <span class="token number">65</span></span><span class="token punctuation">;</span>
     <span class="token comment">#gzip  on;</span>
-    <span class="token keyword">server</span> <span class="token punctuation">{</span>
-        <span class="token keyword">listen</span>       <span class="token number">80</span><span class="token punctuation">;</span>
-        <span class="token keyword">server_name</span>  localhost<span class="token punctuation">;</span>
+    <span class="token directive"><span class="token keyword">server</span></span> <span class="token punctuation">{</span>
+        <span class="token directive"><span class="token keyword">listen</span>       <span class="token number">80</span></span><span class="token punctuation">;</span>
+        <span class="token directive"><span class="token keyword">server_name</span>  localhost</span><span class="token punctuation">;</span>
         <span class="token comment">#charset koi8-r;</span>
         <span class="token comment">#access_log  logs/host.access.log  main;</span>
-        <span class="token keyword">location</span> <span class="token operator">/</span> <span class="token punctuation">{</span>
-            <span class="token keyword">root</span>   html<span class="token punctuation">;</span>
-            <span class="token keyword">index</span>  <span class="token keyword">index</span><span class="token punctuation">.</span>html <span class="token keyword">index</span><span class="token punctuation">.</span>htm<span class="token punctuation">;</span>
+        <span class="token directive"><span class="token keyword">location</span> /</span> <span class="token punctuation">{</span>
+            <span class="token directive"><span class="token keyword">root</span>   html</span><span class="token punctuation">;</span>
+            <span class="token directive"><span class="token keyword">index</span>  index.html index.htm</span><span class="token punctuation">;</span>
         <span class="token punctuation">}</span>
         <span class="token comment">#error_page  404              /404.html;</span>
         <span class="token comment"># redirect server error pages to the static page /50x.html</span>
         <span class="token comment">#</span>
-        <span class="token keyword">error_page</span>   <span class="token number">500</span> <span class="token number">502</span> <span class="token number">503</span> <span class="token number">504</span>  <span class="token operator">/</span><span class="token number">50</span>x<span class="token punctuation">.</span>html<span class="token punctuation">;</span>
-        <span class="token keyword">location</span> <span class="token operator">=</span> <span class="token operator">/</span><span class="token number">50</span>x<span class="token punctuation">.</span>html <span class="token punctuation">{</span>
-        <span class="token keyword">root</span>   html<span class="token punctuation">;</span>
+        <span class="token directive"><span class="token keyword">error_page</span>   <span class="token number">500</span> <span class="token number">502</span> <span class="token number">503</span> <span class="token number">504</span>  /50x.html</span><span class="token punctuation">;</span>
+        <span class="token directive"><span class="token keyword">location</span> = /50x.html</span> <span class="token punctuation">{</span>
+        <span class="token directive"><span class="token keyword">root</span>   html</span><span class="token punctuation">;</span>
         <span class="token punctuation">}</span>
         <span class="token comment"># proxy the PHP scripts to Apache listening on 127.0.0.1:80</span>
         <span class="token comment">#</span>
@@ -754,13 +754,13 @@ yum -y <span class="token function">install</span> gcc gcc-c++ <span class="toke
         <span class="token comment">#}</span>
         <span class="token comment"># pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000</span>
         <span class="token comment">#</span>
-        <span class="token keyword">location</span> <span class="token operator">~</span> \<span class="token punctuation">.</span>php$ <span class="token punctuation">{</span>
-            <span class="token keyword">root</span>           html<span class="token punctuation">;</span>
-            <span class="token keyword">fastcgi_pass</span>   <span class="token number">127.0</span><span class="token number">.0</span><span class="token number">.1</span><span class="token punctuation">:</span><span class="token number">9000</span><span class="token punctuation">;</span>
-            <span class="token keyword">fastcgi_index</span>  <span class="token keyword">index</span><span class="token punctuation">.</span>php<span class="token punctuation">;</span>
+        <span class="token directive"><span class="token keyword">location</span> ~ \.php$</span> <span class="token punctuation">{</span>
+            <span class="token directive"><span class="token keyword">root</span>           html</span><span class="token punctuation">;</span>
+            <span class="token directive"><span class="token keyword">fastcgi_pass</span>   127.0.0.1:9000</span><span class="token punctuation">;</span>
+            <span class="token directive"><span class="token keyword">fastcgi_index</span>  index.php</span><span class="token punctuation">;</span>
         <span class="token comment">#    fastcgi_param  SCRIPT_FILENAME  /scripts$fastcgi_script_name;</span>
-            <span class="token keyword">fastcgi_param</span>  SCRIPT_FILENAME  <span class="token variable">$document_root</span><span class="token variable">$fastcgi_script_name</span><span class="token punctuation">;</span>
-            <span class="token keyword">include</span>        fastcgi_params<span class="token punctuation">;</span>
+            <span class="token directive"><span class="token keyword">fastcgi_param</span>  SCRIPT_FILENAME  <span class="token variable">$document_root</span><span class="token variable">$fastcgi_script_name</span></span><span class="token punctuation">;</span>
+            <span class="token directive"><span class="token keyword">include</span>        fastcgi_params</span><span class="token punctuation">;</span>
         <span class="token punctuation">}</span>
         <span class="token comment"># deny access to .htaccess files, if Apache's document root</span>
         <span class="token comment"># concurs with nginx's one</span>
@@ -954,13 +954,13 @@ if<span class="token punctuation">(</span><span class="token variable">$close</s
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">264k</span>
+    <span title="站点总字数">277k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:01</span>
+    <span title="站点阅读时长">4:12</span>
   </span>
 </div>
 <div class="busuanzi-count">

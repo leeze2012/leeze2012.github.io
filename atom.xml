@@ -25,7 +25,7 @@
     
     
     <summary type="html">&lt;h3 id=&quot;打包镜像&quot;&gt;&lt;a href=&quot;#打包镜像&quot; class=&quot;headerlink&quot; title=&quot;打包镜像&quot;&gt;&lt;/a&gt;打包镜像&lt;/h3&gt;&lt;p&gt;  在Dockerfile 目录下cmd窗口执行以下命令：&lt;/p&gt;
-&lt;pre class=&quot;line-numbers language-docker&quot; data-language=&quot;docker&quot;&gt;&lt;code class=&quot;language-docker&quot;&gt;docker build &lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt;t 镜像名称 &lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt;f Dockerfile .&lt;span aria-hidden=&quot;true&quot; class=&quot;line-numbers-rows&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;</summary>
+&lt;pre class=&quot;line-numbers language-docker&quot; data-language=&quot;docker&quot;&gt;&lt;code class=&quot;language-docker&quot;&gt;docker build -t 镜像名称 -f Dockerfile .&lt;span aria-hidden=&quot;true&quot; class=&quot;line-numbers-rows&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;</summary>
     
     
     
@@ -160,7 +160,7 @@
     <updated>2022-03-30T16:45:09.814Z</updated>
     
     
-    <summary type="html">&lt;h3 id=&quot;安装方式一&quot;&gt;&lt;a href=&quot;#安装方式一&quot; class=&quot;headerlink&quot; title=&quot;安装方式一&quot;&gt;&lt;/a&gt;安装方式一&lt;/h3&gt;&lt;h4 id=&quot;拉取Docker的Redis镜像&quot;&gt;&lt;a href=&quot;#拉取Docker的Redis镜像&quot; class=&quot;headerlink&quot; title=&quot;拉取Docker的Redis镜像&quot;&gt;&lt;/a&gt;拉取Docker的Redis镜像&lt;/h4&gt;&lt;pre class=&quot;line-numbers language-docker&quot; data-language=&quot;docker&quot;&gt;&lt;code class=&quot;language-docker&quot;&gt;docker pull redis&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;6.2.6&lt;span aria-hidden=&quot;true&quot; class=&quot;line-numbers-rows&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;</summary>
+    <summary type="html">&lt;h3 id=&quot;安装方式一&quot;&gt;&lt;a href=&quot;#安装方式一&quot; class=&quot;headerlink&quot; title=&quot;安装方式一&quot;&gt;&lt;/a&gt;安装方式一&lt;/h3&gt;&lt;h4 id=&quot;拉取Docker的Redis镜像&quot;&gt;&lt;a href=&quot;#拉取Docker的Redis镜像&quot; class=&quot;headerlink&quot; title=&quot;拉取Docker的Redis镜像&quot;&gt;&lt;/a&gt;拉取Docker的Redis镜像&lt;/h4&gt;&lt;pre class=&quot;line-numbers language-docker&quot; data-language=&quot;docker&quot;&gt;&lt;code class=&quot;language-docker&quot;&gt;docker pull redis:6.2.6&lt;span aria-hidden=&quot;true&quot; class=&quot;line-numbers-rows&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;</summary>
     
     
     
@@ -219,7 +219,7 @@
     <updated>2022-04-08T08:43:23.965Z</updated>
     
     
-    <summary type="html">&lt;h3 id=&quot;安装mongodb&quot;&gt;&lt;a href=&quot;#安装mongodb&quot; class=&quot;headerlink&quot; title=&quot;安装mongodb&quot;&gt;&lt;/a&gt;安装mongodb&lt;/h3&gt;&lt;h4 id=&quot;获取MongoDB镜像&quot;&gt;&lt;a href=&quot;#获取MongoDB镜像&quot; class=&quot;headerlink&quot; title=&quot;获取MongoDB镜像&quot;&gt;&lt;/a&gt;获取MongoDB镜像&lt;/h4&gt;&lt;pre class=&quot;line-numbers language-docker&quot; data-language=&quot;docker&quot;&gt;&lt;code class=&quot;language-docker&quot;&gt;docker pull mongo&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;5.0.6&lt;span aria-hidden=&quot;true&quot; class=&quot;line-numbers-rows&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;</summary>
+    <summary type="html">&lt;h3 id=&quot;安装mongodb&quot;&gt;&lt;a href=&quot;#安装mongodb&quot; class=&quot;headerlink&quot; title=&quot;安装mongodb&quot;&gt;&lt;/a&gt;安装mongodb&lt;/h3&gt;&lt;h4 id=&quot;获取MongoDB镜像&quot;&gt;&lt;a href=&quot;#获取MongoDB镜像&quot; class=&quot;headerlink&quot; title=&quot;获取MongoDB镜像&quot;&gt;&lt;/a&gt;获取MongoDB镜像&lt;/h4&gt;&lt;pre class=&quot;line-numbers language-docker&quot; data-language=&quot;docker&quot;&gt;&lt;code class=&quot;language-docker&quot;&gt;docker pull mongo:5.0.6&lt;span aria-hidden=&quot;true&quot; class=&quot;line-numbers-rows&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;</summary>
     
     
     

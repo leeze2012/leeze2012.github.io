@@ -21,7 +21,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"www.xiaosige.com","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.11.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"changyan","storage":true,"lazyload":true,"nav":null,"activeClass":"changyan"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"www.xiaosige.com","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.11.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"changyan","storage":true,"lazyload":true,"nav":null,"activeClass":"changyan"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="文章加密访问下载 hexo-blog-encrypt，它将会被存储在本地浏览器的localStorage中：">
 <meta property="og:type" content="article">
@@ -643,7 +643,7 @@ canvas#canvas {
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>1.2k</span>
+      <span>1.3k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -667,36 +667,36 @@ canvas#canvas {
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> --save hexo-blog-encrypt
 <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<h5 id="文章信息头，将-password-字段添加到文章信息头："><a href="#文章信息头，将-password-字段添加到文章信息头：" class="headerlink" title="文章信息头，将 password 字段添加到文章信息头："></a>文章信息头，将 <code>password</code> 字段添加到文章信息头：</h5><pre class="line-numbers language-properties" data-language="properties"><code class="language-properties"><span class="token attr-name">title</span><span class="token punctuation">:</span> <span class="token attr-value">Hello World</span>
-<span class="token attr-name">date</span><span class="token punctuation">:</span> <span class="token attr-value">2016-03-30 21:18:02</span>
-<span class="token attr-name">password</span><span class="token punctuation">:</span> <span class="token attr-value">abcd1234xxx</span>
+<h5 id="文章信息头，将-password-字段添加到文章信息头："><a href="#文章信息头，将-password-字段添加到文章信息头：" class="headerlink" title="文章信息头，将 password 字段添加到文章信息头："></a>文章信息头，将 <code>password</code> 字段添加到文章信息头：</h5><pre class="line-numbers language-properties" data-language="properties"><code class="language-properties"><span class="token key attr-name">title</span><span class="token punctuation">:</span> <span class="token value attr-value">Hello World</span>
+<span class="token key attr-name">date</span><span class="token punctuation">:</span> <span class="token value attr-value">2016-03-30 21:18:02</span>
+<span class="token key attr-name">password</span><span class="token punctuation">:</span> <span class="token value attr-value">abcd1234xxx</span>
 ---
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
-<pre class="line-numbers language-properties" data-language="properties"><code class="language-properties"><span class="token attr-name">title</span><span class="token punctuation">:</span> <span class="token attr-value">Hello World</span>
-<span class="token attr-name">tags</span><span class="token punctuation">:</span>
-<span class="token attr-name">-</span> <span class="token attr-value">加密文章tag</span>
-<span class="token attr-name">date</span><span class="token punctuation">:</span> <span class="token attr-value">2019-10-26 20:22:58</span>
-<span class="token attr-name">password</span><span class="token punctuation">:</span> <span class="token attr-value">mikemessi</span>
-<span class="token attr-name">abstract</span><span class="token punctuation">:</span> <span class="token attr-value">该文章已加密, 请输入密码查看。</span>
-<span class="token attr-name">message</span><span class="token punctuation">:</span> <span class="token attr-value">该文章已加密, 请输入密码查看。</span>
-<span class="token attr-name">wrong_pass_message</span><span class="token punctuation">:</span> <span class="token attr-value">密码不正确，请重新输入！</span>
-<span class="token attr-name">wrong_hash_message</span><span class="token punctuation">:</span> <span class="token attr-value">文章不能被校验, 不过您还是能看看解密后的内容！</span>
+<pre class="line-numbers language-properties" data-language="properties"><code class="language-properties"><span class="token key attr-name">title</span><span class="token punctuation">:</span> <span class="token value attr-value">Hello World</span>
+<span class="token key attr-name">tags</span><span class="token punctuation">:</span>
+<span class="token key attr-name">-</span> <span class="token value attr-value">加密文章tag</span>
+<span class="token key attr-name">date</span><span class="token punctuation">:</span> <span class="token value attr-value">2019-10-26 20:22:58</span>
+<span class="token key attr-name">password</span><span class="token punctuation">:</span> <span class="token value attr-value">mikemessi</span>
+<span class="token key attr-name">abstract</span><span class="token punctuation">:</span> <span class="token value attr-value">该文章已加密, 请输入密码查看。</span>
+<span class="token key attr-name">message</span><span class="token punctuation">:</span> <span class="token value attr-value">该文章已加密, 请输入密码查看。</span>
+<span class="token key attr-name">wrong_pass_message</span><span class="token punctuation">:</span> <span class="token value attr-value">密码不正确，请重新输入！</span>
+<span class="token key attr-name">wrong_hash_message</span><span class="token punctuation">:</span> <span class="token value attr-value">文章不能被校验, 不过您还是能看看解密后的内容！</span>
 ---
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>再使用<code>hexo clean &amp;&amp; hexo g &amp;&amp; hexo s</code>在本地预览加密的文章。</p>
 <h5 id="或者-修改-config-yml"><a href="#或者-修改-config-yml" class="headerlink" title="或者,修改_config.yml"></a><code>或者</code>,修改<code>_config.yml</code></h5><pre class="line-numbers language-properties" data-language="properties"><code class="language-properties">
 <span class="token comment"># Security</span>
-<span class="token attr-name">encrypt</span><span class="token punctuation">:</span> <span class="token attr-value"># hexo-blog-encrypt</span>
-<span class="token attr-name">  abstract</span><span class="token punctuation">:</span> <span class="token attr-value">有东西被加密了, 请输入密码查看.</span>
-<span class="token attr-name">  message</span><span class="token punctuation">:</span> <span class="token attr-value">您好, 这里需要密码.</span>
-<span class="token attr-name">  tags</span><span class="token punctuation">:</span>
-<span class="token attr-name">  -</span> <span class="token attr-value">{name: tagName, password: 密码A}</span>
-<span class="token attr-name">  -</span> <span class="token attr-value">{name: tagName, password: 密码B}</span>
-<span class="token attr-name">  template</span><span class="token punctuation">:</span> <span class="token attr-value">&lt;div id="hexo-blog-encrypt" data-wpm="{{hbeWrongPassMessage}}" data-whm="{{hbeWrongHashMessage}}"&gt;&lt;div class="hbe-input-container"&gt;&lt;input type="password" id="hbePass" placeholder="{{hbeMessage}}" /&gt;&lt;label&gt;{{hbeMessage}}&lt;/label&gt;&lt;div class="bottom-line"&gt;&lt;/div&gt;&lt;/div&gt;&lt;script id="hbeData" type="hbeData" data-hmacdigest="{{hbeHmacDigest}}"&gt;{{hbeEncryptedData}}&lt;/script&gt;&lt;/div&gt;</span>
-<span class="token attr-name">  wrong_pass_message</span><span class="token punctuation">:</span> <span class="token attr-value">抱歉, 这个密码看着不太对, 请再试试.</span>
-<span class="token attr-name">  wrong_hash_message</span><span class="token punctuation">:</span> <span class="token attr-value">抱歉, 这个文章不能被校验, 不过您还是能看看解密后的内容.</span>
+<span class="token key attr-name">encrypt</span><span class="token punctuation">:</span> <span class="token value attr-value"># hexo-blog-encrypt</span>
+<span class="token key attr-name">  abstract</span><span class="token punctuation">:</span> <span class="token value attr-value">有东西被加密了, 请输入密码查看.</span>
+<span class="token key attr-name">  message</span><span class="token punctuation">:</span> <span class="token value attr-value">您好, 这里需要密码.</span>
+<span class="token key attr-name">  tags</span><span class="token punctuation">:</span>
+<span class="token key attr-name">  -</span> <span class="token value attr-value">{name: tagName, password: 密码A}</span>
+<span class="token key attr-name">  -</span> <span class="token value attr-value">{name: tagName, password: 密码B}</span>
+<span class="token key attr-name">  template</span><span class="token punctuation">:</span> <span class="token value attr-value">&lt;div id="hexo-blog-encrypt" data-wpm="{{hbeWrongPassMessage}}" data-whm="{{hbeWrongHashMessage}}"&gt;&lt;div class="hbe-input-container"&gt;&lt;input type="password" id="hbePass" placeholder="{{hbeMessage}}" /&gt;&lt;label&gt;{{hbeMessage}}&lt;/label&gt;&lt;div class="bottom-line"&gt;&lt;/div&gt;&lt;/div&gt;&lt;script id="hbeData" type="hbeData" data-hmacdigest="{{hbeHmacDigest}}"&gt;{{hbeEncryptedData}}&lt;/script&gt;&lt;/div&gt;</span>
+<span class="token key attr-name">  wrong_pass_message</span><span class="token punctuation">:</span> <span class="token value attr-value">抱歉, 这个密码看着不太对, 请再试试.</span>
+<span class="token key attr-name">  wrong_hash_message</span><span class="token punctuation">:</span> <span class="token value attr-value">抱歉, 这个文章不能被校验, 不过您还是能看看解密后的内容.</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>注：若文章中采用<code>_config.yml</code>中的全局配置，则文章的tags只能有一个，若有多个tags，则失效。</p>
@@ -815,13 +815,13 @@ canvas#canvas {
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">264k</span>
+    <span title="站点总字数">277k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:01</span>
+    <span title="站点阅读时长">4:12</span>
   </span>
 </div>
 <div class="busuanzi-count">

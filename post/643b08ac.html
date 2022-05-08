@@ -21,7 +21,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"www.xiaosige.com","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.11.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"changyan","storage":true,"lazyload":true,"nav":null,"activeClass":"changyan"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"www.xiaosige.com","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.11.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"changyan","storage":true,"lazyload":true,"nav":null,"activeClass":"changyan"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="Nginx 配置  首先, 需要把 http 都转发到 https, 需要使用 rewrite, 这样, 当访问 http:&#x2F;&#x2F;example.cn 会自动转发到 https:&#x2F;&#x2F;example.cn">
 <meta property="og:type" content="article">
@@ -644,7 +644,7 @@ canvas#canvas {
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>1.3k</span>
+      <span>1.4k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -665,52 +665,52 @@ canvas#canvas {
         <h3 id="Nginx-配置"><a href="#Nginx-配置" class="headerlink" title="Nginx 配置"></a>Nginx 配置</h3><p>  首先, 需要把 <code>http</code> 都转发到 <code>https</code>, 需要使用 <code>rewrite</code>, 这样, 当访问 <code>http://example.cn</code> 会自动转发到 <code>https://example.cn</code></p>
 <span id="more"></span>
 
-<pre class="line-numbers language-nginx" data-language="nginx"><code class="language-nginx"><span class="token keyword">server</span> <span class="token punctuation">{</span>
-   	<span class="token keyword">listen</span> <span class="token number">80</span><span class="token punctuation">;</span> <span class="token comment"># redirect to 443</span>
-    	<span class="token keyword">server_name</span> AAA<span class="token punctuation">.</span>example<span class="token punctuation">.</span>cn www<span class="token punctuation">.</span>AAA<span class="token punctuation">.</span>example<span class="token punctuation">.</span>cn<span class="token punctuation">;</span>
-    	<span class="token keyword">rewrite</span> <span class="token operator">^</span><span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token operator">*</span><span class="token punctuation">)</span>$  <span class="token keyword">https</span><span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span><span class="token variable">$host</span>$<span class="token number">1</span> permanent<span class="token punctuation">;</span> 
+<pre class="line-numbers language-nginx" data-language="nginx"><code class="language-nginx"><span class="token directive"><span class="token keyword">server</span></span> <span class="token punctuation">{</span>
+   	<span class="token directive"><span class="token keyword">listen</span> <span class="token number">80</span></span><span class="token punctuation">;</span> <span class="token comment"># redirect to 443</span>
+    	<span class="token directive"><span class="token keyword">server_name</span> AAA.example.cn www.AAA.example.cn</span><span class="token punctuation">;</span>
+    	<span class="token directive"><span class="token keyword">rewrite</span> ^(.*)$  https://<span class="token variable">$host</span><span class="token variable">$1</span> permanent</span><span class="token punctuation">;</span> 
 <span class="token punctuation">}</span>
 
-   <span class="token keyword">server</span> <span class="token punctuation">{</span>
-           <span class="token keyword">listen</span> <span class="token number">80</span><span class="token punctuation">;</span> <span class="token comment"># redirect to 443</span>
-           <span class="token keyword">server_name</span> BBB<span class="token punctuation">.</span>example<span class="token punctuation">.</span>cn www<span class="token punctuation">.</span>BBB<span class="token punctuation">.</span>example<span class="token punctuation">.</span>cn<span class="token punctuation">;</span>
-           <span class="token keyword">rewrite</span> <span class="token operator">^</span><span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token operator">*</span><span class="token punctuation">)</span>$  <span class="token keyword">https</span><span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span><span class="token variable">$host</span>$<span class="token number">1</span> permanent<span class="token punctuation">;</span>
+   <span class="token directive"><span class="token keyword">server</span></span> <span class="token punctuation">{</span>
+           <span class="token directive"><span class="token keyword">listen</span> <span class="token number">80</span></span><span class="token punctuation">;</span> <span class="token comment"># redirect to 443</span>
+           <span class="token directive"><span class="token keyword">server_name</span> BBB.example.cn www.BBB.example.cn</span><span class="token punctuation">;</span>
+           <span class="token directive"><span class="token keyword">rewrite</span> ^(.*)$  https://<span class="token variable">$host</span><span class="token variable">$1</span> permanent</span><span class="token punctuation">;</span>
    <span class="token punctuation">}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>然后就是真正的 <code>https</code> 部分了, 虽然域名不同, 但都监听 <code>443</code> 端口, 但有着不同的 <code>server_name</code>, 这样当收到请求时就可以根据请求的 <code>server_name</code> 不同来转发到不同的服务.</p>
 <p>而服务自身像往常一样只要继续监听 <code>8090</code>、<code>8091</code> 即可.</p>
-<pre class="line-numbers language-nginx" data-language="nginx"><code class="language-nginx"><span class="token keyword">server</span> <span class="token punctuation">{</span>
-           	<span class="token keyword">listen</span> <span class="token number">443</span> <span class="token keyword">ssl</span><span class="token punctuation">;</span>
-           	<span class="token keyword">server_name</span> AAA<span class="token punctuation">.</span>example<span class="token punctuation">.</span>cn www<span class="token punctuation">.</span>AAA<span class="token punctuation">.</span>example<span class="token punctuation">.</span>cn<span class="token punctuation">;</span>    
+<pre class="line-numbers language-nginx" data-language="nginx"><code class="language-nginx"><span class="token directive"><span class="token keyword">server</span></span> <span class="token punctuation">{</span>
+           	<span class="token directive"><span class="token keyword">listen</span> <span class="token number">443</span> ssl</span><span class="token punctuation">;</span>
+           	<span class="token directive"><span class="token keyword">server_name</span> AAA.example.cn www.AAA.example.cn</span><span class="token punctuation">;</span>    
 
-           	<span class="token keyword">ssl_certificate</span> <span class="token string">"/home/yushan/demontf/2076603_AAA.example.cn.pem"</span><span class="token punctuation">;</span>   
-           	<span class="token keyword">ssl_certificate_key</span> <span class="token string">"/home/yushan/demontf/2076603_AAA.example.cn.key"</span><span class="token punctuation">;</span>    
+           	<span class="token directive"><span class="token keyword">ssl_certificate</span> <span class="token string">"/home/yushan/demontf/2076603_AAA.example.cn.pem"</span></span><span class="token punctuation">;</span>   
+           	<span class="token directive"><span class="token keyword">ssl_certificate_key</span> <span class="token string">"/home/yushan/demontf/2076603_AAA.example.cn.key"</span></span><span class="token punctuation">;</span>    
            
-           	<span class="token keyword">location</span> <span class="token operator">/</span> <span class="token punctuation">{</span>
-               			<span class="token keyword">proxy_pass</span> <span class="token keyword">http</span><span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span><span class="token number">127.0</span><span class="token number">.0</span><span class="token number">.1</span><span class="token punctuation">:</span><span class="token number">8090</span><span class="token punctuation">;</span>
-               			<span class="token keyword">proxy_set_header</span> X<span class="token operator">-</span>Real<span class="token operator">-</span>IP <span class="token variable">$remote_addr</span><span class="token punctuation">;</span>
-               			<span class="token keyword">proxy_set_header</span> X<span class="token operator">-</span>Forwarded<span class="token operator">-</span>For <span class="token variable">$proxy_add_x_forwarded_for</span><span class="token punctuation">;</span>
-               			<span class="token keyword">proxy_set_header</span> Host <span class="token variable">$http_host</span><span class="token punctuation">;</span>
-               			<span class="token keyword">proxy_set_header</span> X<span class="token operator">-</span>NginX<span class="token operator">-</span><span class="token keyword">Proxy</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
-               			<span class="token keyword">proxy_redirect</span> default<span class="token punctuation">;</span>
+           	<span class="token directive"><span class="token keyword">location</span> /</span> <span class="token punctuation">{</span>
+               			<span class="token directive"><span class="token keyword">proxy_pass</span> http://127.0.0.1:8090</span><span class="token punctuation">;</span>
+               			<span class="token directive"><span class="token keyword">proxy_set_header</span> X-Real-IP <span class="token variable">$remote_addr</span></span><span class="token punctuation">;</span>
+               			<span class="token directive"><span class="token keyword">proxy_set_header</span> X-Forwarded-For <span class="token variable">$proxy_add_x_forwarded_for</span></span><span class="token punctuation">;</span>
+               			<span class="token directive"><span class="token keyword">proxy_set_header</span> Host <span class="token variable">$http_host</span></span><span class="token punctuation">;</span>
+               			<span class="token directive"><span class="token keyword">proxy_set_header</span> X-NginX-Proxy true</span><span class="token punctuation">;</span>
+               			<span class="token directive"><span class="token keyword">proxy_redirect</span> default</span><span class="token punctuation">;</span>
 	<span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 
 
-<span class="token keyword">server</span> <span class="token punctuation">{</span>
-   		<span class="token keyword">listen</span> <span class="token number">443</span> <span class="token keyword">ssl</span><span class="token punctuation">;</span> <span class="token comment"># redirect to https</span>
-   		<span class="token keyword">server_name</span> BBB<span class="token punctuation">.</span>example<span class="token punctuation">.</span>cn www<span class="token punctuation">.</span>BBB<span class="token punctuation">.</span>example<span class="token punctuation">.</span>cn<span class="token punctuation">;</span>
+<span class="token directive"><span class="token keyword">server</span></span> <span class="token punctuation">{</span>
+   		<span class="token directive"><span class="token keyword">listen</span> <span class="token number">443</span> ssl</span><span class="token punctuation">;</span> <span class="token comment"># redirect to https</span>
+   		<span class="token directive"><span class="token keyword">server_name</span> BBB.example.cn www.BBB.example.cn</span><span class="token punctuation">;</span>
    		
-   		<span class="token keyword">ssl_certificate</span> <span class="token string">"/home/yushan/demontf/2005538_BBB.example.cn.pem"</span><span class="token punctuation">;</span>
-   		<span class="token keyword">ssl_certificate_key</span> <span class="token string">"/home/yushan/demontf/2005538_BBB.example.cn.key"</span><span class="token punctuation">;</span>
+   		<span class="token directive"><span class="token keyword">ssl_certificate</span> <span class="token string">"/home/yushan/demontf/2005538_BBB.example.cn.pem"</span></span><span class="token punctuation">;</span>
+   		<span class="token directive"><span class="token keyword">ssl_certificate_key</span> <span class="token string">"/home/yushan/demontf/2005538_BBB.example.cn.key"</span></span><span class="token punctuation">;</span>
    		
-   		<span class="token keyword">location</span> <span class="token operator">/</span> <span class="token punctuation">{</span>
-   		              <span class="token keyword">proxy_pass</span> <span class="token keyword">http</span><span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span><span class="token number">127.0</span><span class="token number">.0</span><span class="token number">.1</span><span class="token punctuation">:</span><span class="token number">8091</span><span class="token punctuation">;</span>
-   		              <span class="token keyword">proxy_set_header</span> X<span class="token operator">-</span>Real<span class="token operator">-</span>IP <span class="token variable">$remote_addr</span><span class="token punctuation">;</span>
-   		              <span class="token keyword">proxy_set_header</span> X<span class="token operator">-</span>Forwarded<span class="token operator">-</span>For <span class="token variable">$proxy_add_x_forwarded_for</span><span class="token punctuation">;</span>
-   		              <span class="token keyword">proxy_set_header</span> Host <span class="token variable">$http_host</span><span class="token punctuation">;</span>
-   		              <span class="token keyword">proxy_set_header</span> X<span class="token operator">-</span>NginX<span class="token operator">-</span><span class="token keyword">Proxy</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
-   		              <span class="token keyword">proxy_redirect</span> default<span class="token punctuation">;</span>
+   		<span class="token directive"><span class="token keyword">location</span> /</span> <span class="token punctuation">{</span>
+   		              <span class="token directive"><span class="token keyword">proxy_pass</span> http://127.0.0.1:8091</span><span class="token punctuation">;</span>
+   		              <span class="token directive"><span class="token keyword">proxy_set_header</span> X-Real-IP <span class="token variable">$remote_addr</span></span><span class="token punctuation">;</span>
+   		              <span class="token directive"><span class="token keyword">proxy_set_header</span> X-Forwarded-For <span class="token variable">$proxy_add_x_forwarded_for</span></span><span class="token punctuation">;</span>
+   		              <span class="token directive"><span class="token keyword">proxy_set_header</span> Host <span class="token variable">$http_host</span></span><span class="token punctuation">;</span>
+   		              <span class="token directive"><span class="token keyword">proxy_set_header</span> X-NginX-Proxy true</span><span class="token punctuation">;</span>
+   		              <span class="token directive"><span class="token keyword">proxy_redirect</span> default</span><span class="token punctuation">;</span>
    		<span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
@@ -829,13 +829,13 @@ canvas#canvas {
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">264k</span>
+    <span title="站点总字数">277k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:01</span>
+    <span title="站点阅读时长">4:12</span>
   </span>
 </div>
 <div class="busuanzi-count">

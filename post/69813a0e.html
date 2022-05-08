@@ -21,7 +21,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"www.xiaosige.com","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.11.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"changyan","storage":true,"lazyload":true,"nav":null,"activeClass":"changyan"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"www.xiaosige.com","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.11.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"changyan","storage":true,"lazyload":true,"nav":null,"activeClass":"changyan"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="介绍  Nginx是一个高性能的Web和反向代理服务器,它具有有很多非常优越的特性:  作为Web服务器: 相比Apache，Nginx 使用更少的资源，支持更多 的并发连接，体现更高的效率，这点使Nginx尤其受到虚拟主机提供商的欢迎。能够支持高达50,000个并发连接数的响应，感谢Nginx为我们选择了epoll and kqueue作为开发模型.">
 <meta property="og:type" content="article">
@@ -653,7 +653,7 @@ canvas#canvas {
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>13 分钟</span>
+      <span>14 分钟</span>
     </span>
 </div>
 
@@ -668,23 +668,23 @@ canvas#canvas {
 <span id="more"></span>
 <p>  <b>作为负载均衡服务器</b>: Nginx 既可以在内部直接支持Rails和PHP，也可以支持作为HTTP代理服务器对外进行服务。Nginx 用C编写,不论是系统资源开销还是CPU使用效率都比Perlbal要好的多。<br>  <b>作为邮件代理服务器</b>: Nginx 同时也是一个非常优秀的邮件代理服务器(最早开发这个产品的目的之一也是作为邮件代理服务器)，Last.fm 描述了成功并且美妙的使用经验。<br>  <b>Nginx安装非常的简单，配置文件非常简洁(还能够支持perl语法)，Bugs非常少的服务器</b>: Nginx启动特别容易，并且几乎可以做到7*24不间断运行，即使运行数个月也不需要重新启动。你还能够在不间断服务的情况下进行软件版本的升级。</p>
 <h3 id="yum安装"><a href="#yum安装" class="headerlink" title="yum安装"></a>yum安装</h3><h4 id="yum仓库配置"><a href="#yum仓库配置" class="headerlink" title="yum仓库配置"></a>yum仓库配置</h4><p>  在<code>/etc/yum.repos.d/</code>下新建一个nginx.repo，加入<a target="_blank" rel="noopener" href="http://nginx.org/en/linux_packages.html">nginx官方提供的源</a> , <a target="_blank" rel="noopener" href="https://docs.nginx.com/nginx/admin-guide/installing-nginx/installing-nginx-open-source/">Installing NGINX Open Source</a></p>
-<pre class="line-numbers language-nginx" data-language="nginx"><code class="language-nginx"><span class="token punctuation">[</span>nginx<span class="token punctuation">]</span>
-name<span class="token operator">=</span>nginx repo
-baseurl<span class="token operator">=</span><span class="token keyword">http</span><span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span>nginx<span class="token punctuation">.</span>org<span class="token operator">/</span>packages<span class="token operator">/</span><span class="token operator">&lt;</span>OS<span class="token operator">&gt;</span><span class="token operator">/</span><span class="token operator">&lt;</span>OSRELEASE<span class="token operator">&gt;</span><span class="token operator">/</span><span class="token variable">$basearch</span><span class="token operator">/</span>
-gpgcheck<span class="token operator">=</span><span class="token number">0</span>
-enabled<span class="token operator">=</span><span class="token number">1</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-nginx" data-language="nginx"><code class="language-nginx">[nginx]
+name=nginx repo
+baseurl=http://nginx.org/packages/&lt;OS&gt;/&lt;OSRELEASE&gt;/$basearch/
+gpgcheck=0
+enabled=1<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>  注意其中的<code>&lt;OS&gt;</code> 为系统名，<code>&lt;OSRELEASE&gt;</code>为系统大版本</p>
 <ol>
-<li>CentOS7<br><code>vi /etc/yum.repos.d/nginx.repo</code><pre class="line-numbers language-nginx" data-language="nginx"><code class="language-nginx"><span class="token punctuation">[</span>nginx<span class="token punctuation">]</span>
-name<span class="token operator">=</span>nginx repo
-baseurl<span class="token operator">=</span><span class="token keyword">http</span><span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span>nginx<span class="token punctuation">.</span>org<span class="token operator">/</span>packages<span class="token operator">/</span>centos<span class="token operator">/</span><span class="token number">7</span><span class="token operator">/</span><span class="token variable">$basearch</span><span class="token operator">/</span>
-gpgcheck<span class="token operator">=</span><span class="token number">0</span>
-enabled<span class="token operator">=</span><span class="token number">1</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li>CentOS6<br><code>vi /etc/yum.repos.d/nginx.repo</code><pre class="line-numbers language-nginx" data-language="nginx"><code class="language-nginx"><span class="token punctuation">[</span>nginx<span class="token punctuation">]</span>
-name<span class="token operator">=</span>nginx repo
-baseurl<span class="token operator">=</span><span class="token keyword">http</span><span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span>nginx<span class="token punctuation">.</span>org<span class="token operator">/</span>packages<span class="token operator">/</span>centos<span class="token operator">/</span><span class="token number">6</span><span class="token operator">/</span><span class="token variable">$basearch</span><span class="token operator">/</span>
-gpgcheck<span class="token operator">=</span><span class="token number">0</span>
-enabled<span class="token operator">=</span><span class="token number">1</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li>CentOS7<br><code>vi /etc/yum.repos.d/nginx.repo</code><pre class="line-numbers language-nginx" data-language="nginx"><code class="language-nginx">[nginx]
+name=nginx repo
+baseurl=http://nginx.org/packages/centos/7/$basearch/
+gpgcheck=0
+enabled=1<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li>CentOS6<br><code>vi /etc/yum.repos.d/nginx.repo</code><pre class="line-numbers language-nginx" data-language="nginx"><code class="language-nginx">[nginx]
+name=nginx repo
+baseurl=http://nginx.org/packages/centos/6/$basearch/
+gpgcheck=0
+enabled=1<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 </ol>
 <h4 id="安装nginx"><a href="#安装nginx" class="headerlink" title="安装nginx"></a>安装nginx</h4><ol>
 <li>直接安装会安装当前的最新版本<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">yum <span class="token function">install</span> -y nginx<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
@@ -694,7 +694,7 @@ enabled<span class="token operator">=</span><span class="token number">1</span><
 yum <span class="token function">install</span> -y <span class="token number">1.18</span>.0-1.el6.ngx<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
 </ol>
 <h4 id="禁止更新"><a href="#禁止更新" class="headerlink" title="禁止更新"></a>禁止更新</h4><p>  我们在安装之后，为了能够正常运行，我们一般会禁止Nginx进行更新。因为在yum更新了Nginx之后，Nginx会自动重启。这对于我们来说是没有必要的，所以我们可以屏蔽更新。我们可以这样，将下列指定放到你的<code>/etc/yum.conf</code>文件中：</p>
-<pre class="line-numbers language-properties" data-language="properties"><code class="language-properties"><span class="token attr-name">exclude</span><span class="token punctuation">=</span><span class="token attr-value">nginx</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-properties" data-language="properties"><code class="language-properties"><span class="token key attr-name">exclude</span><span class="token punctuation">=</span><span class="token value attr-value">nginx</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h4 id="更新Nginx"><a href="#更新Nginx" class="headerlink" title="更新Nginx"></a>更新Nginx</h4><p>  一般在生产环境，我们都是禁用更新的。所以说，这里只是作为一个参考<br>  我们需要执行的命令就是：</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">yum update nginx<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>  <code> 注意： 在使用 yum 更新之后，Nginx会自动重启。</code></p>
@@ -1415,13 +1415,13 @@ systemctl diasble nginx <span class="token comment"># 禁止开机启动</span><
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">264k</span>
+    <span title="站点总字数">277k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:01</span>
+    <span title="站点阅读时长">4:12</span>
   </span>
 </div>
 <div class="busuanzi-count">

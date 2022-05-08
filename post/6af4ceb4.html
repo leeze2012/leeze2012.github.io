@@ -21,7 +21,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"www.xiaosige.com","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.11.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"changyan","storage":true,"lazyload":true,"nav":null,"activeClass":"changyan"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"www.xiaosige.com","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.11.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"changyan","storage":true,"lazyload":true,"nav":null,"activeClass":"changyan"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="一，介绍  GitLab 分为社区版（Community Edition，缩写为 CE）和 企业版（Enterprise Edition，缩写为 EE）。社区版是免费的，而企业版包含一些收费服务，一般来说个人开发者用社区版就足够了。">
 <meta property="og:type" content="article">
@@ -646,7 +646,7 @@ canvas#canvas {
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>1.8k</span>
+      <span>1.9k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -669,59 +669,59 @@ canvas#canvas {
 
 <h3 id="二，开始安装"><a href="#二，开始安装" class="headerlink" title="二，开始安装"></a>二，开始安装</h3><h4 id="Mac-OS-X下操作"><a href="#Mac-OS-X下操作" class="headerlink" title="Mac OS X下操作"></a><code>Mac OS X</code>下操作</h4><p>  基于Docker在<code>Mac OS X</code>系统中的部署和设置GitLab的具体过程如下：</p>
 <ol>
-<li>搜索Gitlab<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">docker search gitlab<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li>下载<code>Gitlab</code>镜像<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">docker pull gitlab/gitlab-ce:latest<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li>查看<code>Gitlab</code>镜像文件<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">docker images<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<li>搜索Gitlab<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> search gitlab<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li>下载<code>Gitlab</code>镜像<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> pull gitlab/gitlab-ce:latest<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li>查看<code>Gitlab</code>镜像文件<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> images<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <img data-src="/post/6af4ceb4/gitlab001.png" class="" title="拉取的GitLab镜像"></li>
 <li>创建<code>Gitlab</code>挂载目录,日志,数据,配置的路径<br>  通常会在构建容器的时间,会把配置 (etc) 、 日志 (log) 、数据 (data) 放到容器外面,方便后期数据迁移或者修改配置,在<code>~/docker/gitlab</code>下分别创建<code>etc,logs,data</code>目录:<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">cd</span> ~/docker
 <span class="token function">mkdir</span> -p ./gitlab/etc
 <span class="token function">mkdir</span> -p ./gitlab/logs
 <span class="token function">mkdir</span> -p ./gitlab/data<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li>创建docker中的网络<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">docker network create gitlab_net<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-  查看<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">docker network <span class="token function">ls</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<li>创建docker中的网络<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> network create gitlab_net<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+  查看<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> network <span class="token function">ls</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <img data-src="/post/6af4ceb4/gitlab002.png" class="" title="network"></li>
-<li>使用镜像启动<code>Gitlab</code>容器<pre class="line-numbers language-docker" data-language="docker"><code class="language-docker">docker run <span class="token punctuation">-</span>d \
-<span class="token punctuation">-</span>e TZ=Asia/Shanghai \
-<span class="token punctuation">-</span><span class="token punctuation">-</span>name mygitlab \
-<span class="token punctuation">-</span><span class="token punctuation">-</span>net=gitlab_net \
-<span class="token punctuation">-</span><span class="token punctuation">-</span>privileged=true \
-<span class="token punctuation">-</span><span class="token punctuation">-</span>restart unless<span class="token punctuation">-</span>stopped \
-<span class="token punctuation">-</span>p 6443<span class="token punctuation">:</span>443 \
-<span class="token punctuation">-</span>p 82<span class="token punctuation">:</span>82 \
-<span class="token punctuation">-</span>p 6022<span class="token punctuation">:</span>22 \
-<span class="token punctuation">-</span>v /Users/lizhang/docker/gitlab/etc<span class="token punctuation">:</span>/etc/gitlab \
-<span class="token punctuation">-</span>v /Users/lizhang/docker/gitlab/logs<span class="token punctuation">:</span>/var/log/gitlab  \
-<span class="token punctuation">-</span>v /Users/lizhang/docker/gitlab/data<span class="token punctuation">:</span>/var/opt/gitlab  \
-gitlab/gitlab<span class="token punctuation">-</span>ce<span class="token punctuation">:</span>latest<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-  命令解释：<pre class="line-numbers language-properties" data-language="properties"><code class="language-properties"><span class="token attr-name">-e</span> <span class="token attr-value">TZ=Asia/Shanghai 时间同步</span>
-<span class="token attr-name">-i</span> <span class="token attr-value">          以交互模式运行容器，通常与 -t 同时使用命令解释：</span>
-<span class="token attr-name">-t</span> <span class="token attr-value">          为容器重新分配一个伪输入终端，通常与 -i 同时使用</span>
-<span class="token attr-name">-d</span> <span class="token attr-value">          后台运行容器，并返回容器ID</span>
-<span class="token attr-name">-p</span> <span class="token attr-value">82:82   将容器内82端口映射至宿主机82端口，这是访问gitlab的端口</span>
-<span class="token attr-name">-p</span> <span class="token attr-value">6022:22   将容器内22端口映射至宿主机6022端口，这是访问ssh的端口 </span>
-<span class="token attr-name">               vim</span> <span class="token attr-value">~/.ssh/config</span>
-<span class="token attr-name">               HOST</span> <span class="token attr-value">gitlab.xxx.com</span>
-<span class="token attr-name">               HOSTNAME</span> <span class="token attr-value">gitlab.xxx.com</span>
-<span class="token attr-name">               port</span> <span class="token attr-value">6022</span>
-<span class="token attr-name">-p</span> <span class="token attr-value">6443:443 将容器内443端口映射至宿主机6443端口，这是访问https的端口</span>
-<span class="token attr-name">–-name</span> <span class="token attr-value">      设置容器的名字；</span>
-<span class="token attr-name">--restart</span> <span class="token attr-value">   使用unless-stopped 作为重启策略，因为这样可以手工停止容器，方便维护。</span>
-<span class="token attr-name">--privileged</span><span class="token punctuation">=</span><span class="token attr-value">true  让容器获取宿主机root权限</span>
-<span class="token attr-name">-v</span> <span class="token attr-value">          将容器内数据文件夹或者日志、配置等文件夹挂载到宿主机指定目录</span>
-<span class="token attr-name">gitlab/gitlab-ce</span><span class="token punctuation">:</span><span class="token attr-value">latest  镜像的名称，这里也可以写镜像ID</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li>使用镜像启动<code>Gitlab</code>容器<pre class="line-numbers language-docker" data-language="docker"><code class="language-docker">docker run -d \
+-e TZ=Asia/Shanghai \
+--name mygitlab \
+--net=gitlab_net \
+--privileged=true \
+--restart unless-stopped \
+-p 6443:443 \
+-p 82:82 \
+-p 6022:22 \
+-v /Users/lizhang/docker/gitlab/etc:/etc/gitlab \
+-v /Users/lizhang/docker/gitlab/logs:/var/log/gitlab  \
+-v /Users/lizhang/docker/gitlab/data:/var/opt/gitlab  \
+gitlab/gitlab-ce:latest<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+  命令解释：<pre class="line-numbers language-properties" data-language="properties"><code class="language-properties"><span class="token key attr-name">-e</span> <span class="token value attr-value">TZ=Asia/Shanghai 时间同步</span>
+<span class="token key attr-name">-i</span> <span class="token value attr-value">          以交互模式运行容器，通常与 -t 同时使用命令解释：</span>
+<span class="token key attr-name">-t</span> <span class="token value attr-value">          为容器重新分配一个伪输入终端，通常与 -i 同时使用</span>
+<span class="token key attr-name">-d</span> <span class="token value attr-value">          后台运行容器，并返回容器ID</span>
+<span class="token key attr-name">-p</span> <span class="token value attr-value">82:82   将容器内82端口映射至宿主机82端口，这是访问gitlab的端口</span>
+<span class="token key attr-name">-p</span> <span class="token value attr-value">6022:22   将容器内22端口映射至宿主机6022端口，这是访问ssh的端口 </span>
+<span class="token key attr-name">               vim</span> <span class="token value attr-value">~/.ssh/config</span>
+<span class="token key attr-name">               HOST</span> <span class="token value attr-value">gitlab.xxx.com</span>
+<span class="token key attr-name">               HOSTNAME</span> <span class="token value attr-value">gitlab.xxx.com</span>
+<span class="token key attr-name">               port</span> <span class="token value attr-value">6022</span>
+<span class="token key attr-name">-p</span> <span class="token value attr-value">6443:443 将容器内443端口映射至宿主机6443端口，这是访问https的端口</span>
+<span class="token key attr-name">–-name</span> <span class="token value attr-value">      设置容器的名字；</span>
+<span class="token key attr-name">--restart</span> <span class="token value attr-value">   使用unless-stopped 作为重启策略，因为这样可以手工停止容器，方便维护。</span>
+<span class="token key attr-name">--privileged</span><span class="token punctuation">=</span><span class="token value attr-value">true  让容器获取宿主机root权限</span>
+<span class="token key attr-name">-v</span> <span class="token value attr-value">          将容器内数据文件夹或者日志、配置等文件夹挂载到宿主机指定目录</span>
+<span class="token key attr-name">gitlab/gitlab-ce</span><span class="token punctuation">:</span><span class="token value attr-value">latest  镜像的名称，这里也可以写镜像ID</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 <li>配置<pre class="line-numbers language-none"><code class="language-none">vi ~/docker/gitlab/config/gitlab.rb<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <pre class="line-numbers language-properties" data-language="properties"><code class="language-properties">
-<span class="token attr-name">external_url</span> <span class="token attr-value">'http://192.168.3.3:82'</span>
-<span class="token attr-name">nginx['redirect_http_to_https_port']</span> <span class="token punctuation">=</span> <span class="token attr-value">82</span>
-<span class="token attr-name">nginx['listen_port']</span> <span class="token punctuation">=</span> <span class="token attr-value">82</span>
-<span class="token attr-name">gitlab_rails['gitlab_shell_ssh_port']</span> <span class="token punctuation">=</span> <span class="token attr-value">6022</span>
+<span class="token key attr-name">external_url</span> <span class="token value attr-value">'http://192.168.3.3:82'</span>
+<span class="token key attr-name">nginx['redirect_http_to_https_port']</span> <span class="token punctuation">=</span> <span class="token value attr-value">82</span>
+<span class="token key attr-name">nginx['listen_port']</span> <span class="token punctuation">=</span> <span class="token value attr-value">82</span>
+<span class="token key attr-name">gitlab_rails['gitlab_shell_ssh_port']</span> <span class="token punctuation">=</span> <span class="token value attr-value">6022</span>
 
 <span class="token punctuation">:</span>wq #保存配置文件并退出<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <pre class="line-numbers language-docker" data-language="docker"><code class="language-docker"><span class="token comment"># 重启gitlab容器</span>
 docker restart mygitlab<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
 <li>登陆<br>输入：<code>http://192.168.3.3:82</code></li>
-<li> 进入容器<pre class="line-numbers language-docker" data-language="docker"><code class="language-docker">docker exec <span class="token punctuation">-</span>it mygitlab /bin/bash
-gitlab<span class="token punctuation">-</span>ctl restart              重启gitlab
+<li> 进入容器<pre class="line-numbers language-docker" data-language="docker"><code class="language-docker">docker exec -it mygitlab /bin/bash
+gitlab-ctl restart              重启gitlab
 exit                            退出容器<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
 </ol>
 <h4 id="Centos-8下操作"><a href="#Centos-8下操作" class="headerlink" title="Centos 8下操作"></a><code>Centos 8</code>下操作</h4><p>  基于Docker在<code>Centos 8</code>系统中的部署和设置GitLab的具体过程如下：</p>
@@ -729,7 +729,7 @@ exit                            退出容器<span aria-hidden="true" class="line
 <h3 id="三、PS"><a href="#三、PS" class="headerlink" title="三、PS"></a>三、PS</h3><ol>
 <li>中文设置<br>在<code>User Settings &gt; Profile &gt; Preferred language</code>设置</li>
 <li>如果页面访问出现502<pre class="line-numbers language-docker" data-language="docker"><code class="language-docker"><span class="token comment"># 修改下权限</span>
-docker exec <span class="token punctuation">-</span>it gitlab update<span class="token punctuation">-</span>permissions<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+docker exec -it gitlab update-permissions<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
   或<br><code>确保Docker内存大于4G</code> </li>
 </ol>
 <link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
@@ -846,13 +846,13 @@ docker exec <span class="token punctuation">-</span>it gitlab update<span class=
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">264k</span>
+    <span title="站点总字数">277k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:01</span>
+    <span title="站点阅读时长">4:12</span>
   </span>
 </div>
 <div class="busuanzi-count">

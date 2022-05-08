@@ -21,7 +21,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"www.xiaosige.com","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.11.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"changyan","storage":true,"lazyload":true,"nav":null,"activeClass":"changyan"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"www.xiaosige.com","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.11.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"changyan","storage":true,"lazyload":true,"nav":null,"activeClass":"changyan"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="1.初始GitLab  GitLab是利用Ruby on Rails一个开源的版本管理系统，实现一个自托管的Git项目仓库，可通过Web界面进行访问公开的或者私人项目。  与Github类似，GitLab能够浏览源代码，管理缺陷和注释。可以管理团队对仓库的访问，它非常易于浏览提交过的版本并提供一个文件历史库。团队成员可以利用内置的简单聊天程序(Wall)进行交流。  它还提供一个代码片段收集功能可">
 <meta property="og:type" content="article">
@@ -644,14 +644,14 @@ canvas#canvas {
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>3.6k</span>
+      <span>4k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>3 分钟</span>
+      <span>4 分钟</span>
     </span>
 </div>
 
@@ -681,23 +681,23 @@ yum <span class="token function">install</span> -y gitlab-ce-12.7.6-ce.0.el6.x86
 
 <h3 id="4-配置GitLab"><a href="#4-配置GitLab" class="headerlink" title="4.配置GitLab"></a>4.配置GitLab</h3><p>  主要配置两个地方: 访问GitLab的IP地址和发送邮件的账号配置</p>
 <p>  <code>vim /etc/gitlab/gitlab.rb</code></p>
-<pre class="line-numbers language-properties" data-language="properties"><code class="language-properties"><span class="token attr-name">external_url</span> <span class="token attr-value">'http://192.168.183.200' # 你自己的IP</span>
+<pre class="line-numbers language-properties" data-language="properties"><code class="language-properties"><span class="token key attr-name">external_url</span> <span class="token value attr-value">'http://192.168.183.200' # 你自己的IP</span>
 
 <span class="token comment">### Email Settings</span>
-<span class="token attr-name">gitlab_rails['gitlab_email_enabled']</span> <span class="token punctuation">=</span> <span class="token attr-value">true</span>
-<span class="token attr-name">gitlab_rails['gitlab_email_from']</span> <span class="token punctuation">=</span> <span class="token attr-value">'你的邮箱'</span>
-<span class="token attr-name">gitlab_rails['gitlab_email_display_name']</span> <span class="token punctuation">=</span> <span class="token attr-value">'邮件名字'</span>
+<span class="token key attr-name">gitlab_rails['gitlab_email_enabled']</span> <span class="token punctuation">=</span> <span class="token value attr-value">true</span>
+<span class="token key attr-name">gitlab_rails['gitlab_email_from']</span> <span class="token punctuation">=</span> <span class="token value attr-value">'你的邮箱'</span>
+<span class="token key attr-name">gitlab_rails['gitlab_email_display_name']</span> <span class="token punctuation">=</span> <span class="token value attr-value">'邮件名字'</span>
 
 <span class="token comment">### GitLab email server settings</span>
 <span class="token comment">### 这里邮件服务器使用的是QQ企业邮箱,163自行修改</span>
-<span class="token attr-name">gitlab_rails['smtp_enable']</span> <span class="token punctuation">=</span> <span class="token attr-value">true</span>
-<span class="token attr-name">gitlab_rails['smtp_address']</span> <span class="token punctuation">=</span> <span class="token attr-value">"smtp.exmail.qq.com"</span>
-<span class="token attr-name">gitlab_rails['smtp_port']</span> <span class="token punctuation">=</span> <span class="token attr-value">465</span>
-<span class="token attr-name">gitlab_rails['smtp_user_name']</span> <span class="token punctuation">=</span> <span class="token attr-value">"你的邮箱"</span>
-<span class="token attr-name">gitlab_rails['smtp_password']</span> <span class="token punctuation">=</span> <span class="token attr-value">"邮箱密码"</span>
-<span class="token attr-name">gitlab_rails['smtp_authentication']</span> <span class="token punctuation">=</span> <span class="token attr-value">"login"</span>
-<span class="token attr-name">gitlab_rails['smtp_enable_starttls_auto']</span> <span class="token punctuation">=</span> <span class="token attr-value">true</span>
-<span class="token attr-name">gitlab_rails['smtp_tls']</span> <span class="token punctuation">=</span> <span class="token attr-value">true</span>
+<span class="token key attr-name">gitlab_rails['smtp_enable']</span> <span class="token punctuation">=</span> <span class="token value attr-value">true</span>
+<span class="token key attr-name">gitlab_rails['smtp_address']</span> <span class="token punctuation">=</span> <span class="token value attr-value">"smtp.exmail.qq.com"</span>
+<span class="token key attr-name">gitlab_rails['smtp_port']</span> <span class="token punctuation">=</span> <span class="token value attr-value">465</span>
+<span class="token key attr-name">gitlab_rails['smtp_user_name']</span> <span class="token punctuation">=</span> <span class="token value attr-value">"你的邮箱"</span>
+<span class="token key attr-name">gitlab_rails['smtp_password']</span> <span class="token punctuation">=</span> <span class="token value attr-value">"邮箱密码"</span>
+<span class="token key attr-name">gitlab_rails['smtp_authentication']</span> <span class="token punctuation">=</span> <span class="token value attr-value">"login"</span>
+<span class="token key attr-name">gitlab_rails['smtp_enable_starttls_auto']</span> <span class="token punctuation">=</span> <span class="token value attr-value">true</span>
+<span class="token key attr-name">gitlab_rails['smtp_tls']</span> <span class="token punctuation">=</span> <span class="token value attr-value">true</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>  ESC保存并退出 :<code>wq</code></p>
@@ -714,12 +714,12 @@ yum <span class="token function">install</span> -y gitlab-ce-12.7.6-ce.0.el6.x86
 <span class="token comment">##! On AWS EC2 instances, we also attempt to fetch the public hostname/IP</span>
 <span class="token comment">##! address from AWS. For more details, see:</span>
 <span class="token comment">##! https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instancedata-data-retrieval.html</span>
-<span class="token attr-name">external_url</span> <span class="token attr-value">'http://10.211.55.61:8099'</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token key attr-name">external_url</span> <span class="token value attr-value">'http://10.211.55.61:8099'</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>  2、找到Advanced settings 下的8080端口 将端口改成自己备用端口号<br>  （<code>不能和上面url端口号相同，会冲突占用！</code>），我改的28080</p>
 <pre class="line-numbers language-properties" data-language="properties"><code class="language-properties"><span class="token comment">### Advanced settings</span>
 <span class="token comment"># unicorn['listen'] = 'localhost'</span>
-<span class="token attr-name"> unicorn['port']</span> <span class="token punctuation">=</span> <span class="token attr-value">28080</span>
+<span class="token key attr-name"> unicorn['port']</span> <span class="token punctuation">=</span> <span class="token value attr-value">28080</span>
 <span class="token comment"># unicorn['socket'] = '/var/opt/gitlab/gitlab-rails/sockets/gitlab.socket'</span>
 <span class="token comment"># unicorn['pidfile'] = '/opt/gitlab/var/unicorn/unicorn.pid'</span>
 <span class="token comment"># unicorn['tcp_nopush'] = true</span>
@@ -742,22 +742,22 @@ yum <span class="token function">install</span> -y gitlab-ce-12.7.6-ce.0.el6.x86
 <h3 id="8-Linux下Gitlab个人界面汉化"><a href="#8-Linux下Gitlab个人界面汉化" class="headerlink" title="8.Linux下Gitlab个人界面汉化"></a>8.Linux下Gitlab个人界面汉化</h3><p>  1.进入个人用户界面<br>  点击右上角<code>个人头像-&gt;settings-&gt;profile-&gt;Preferred language</code><br>  2.默认是english,可以切换中文<br>  3.再刷新一下，我们看见语言变成中文了<br>  4.不过其它账号登录依然是英文，只有当前账号登录才会显示成功切换的语言</p>
 <h3 id="9-GitLab基本操作"><a href="#9-GitLab基本操作" class="headerlink" title="9.GitLab基本操作"></a>9.GitLab基本操作</h3><p>  添加用户2种方式: root后台添加和自己注册</p>
 <p>  用户权限:</p>
-<pre class="line-numbers language-properties" data-language="properties"><code class="language-properties"><span class="token attr-name">Regular</span><span class="token punctuation">:</span> <span class="token attr-value">可以访问自己组和项目</span>
-<span class="token attr-name">Admin</span><span class="token punctuation">:</span> <span class="token attr-value">可以访问所有组和项目</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-properties" data-language="properties"><code class="language-properties"><span class="token key attr-name">Regular</span><span class="token punctuation">:</span> <span class="token value attr-value">可以访问自己组和项目</span>
+<span class="token key attr-name">Admin</span><span class="token punctuation">:</span> <span class="token value attr-value">可以访问所有组和项目</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 
 <p>  添加组</p>
 <p>  组权限</p>
-<pre class="line-numbers language-properties" data-language="properties"><code class="language-properties"><span class="token attr-name">Private</span><span class="token punctuation">:</span> <span class="token attr-value">私用,只允许组成员可见</span>
-<span class="token attr-name">Internal</span><span class="token punctuation">:</span> <span class="token attr-value">内部,所有登录用户可见</span>
-<span class="token attr-name">Public</span><span class="token punctuation">:</span> <span class="token attr-value">公共,所有人可见</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-properties" data-language="properties"><code class="language-properties"><span class="token key attr-name">Private</span><span class="token punctuation">:</span> <span class="token value attr-value">私用,只允许组成员可见</span>
+<span class="token key attr-name">Internal</span><span class="token punctuation">:</span> <span class="token value attr-value">内部,所有登录用户可见</span>
+<span class="token key attr-name">Public</span><span class="token punctuation">:</span> <span class="token value attr-value">公共,所有人可见</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <p>  创建仓库和添加成员到组,很简单,不再赘述. 重点说下仓库成员权限,</p>
-<pre class="line-numbers language-properties" data-language="properties"><code class="language-properties"><span class="token attr-name">Guest</span><span class="token punctuation">:</span> <span class="token attr-value">可以创建issue、发表评论，不能读写版本库</span>
-<span class="token attr-name">Reporter</span><span class="token punctuation">:</span> <span class="token attr-value">可以克隆代码，不能提交，QA、PM可以赋予这个权限</span>
-<span class="token attr-name">Developer</span><span class="token punctuation">:</span> <span class="token attr-value">可以克隆代码、开发、提交、push，RD可以赋予这个权限</span>
-<span class="token attr-name">Master</span><span class="token punctuation">:</span> <span class="token attr-value">可以创建项目、添加tag、保护分支、添加项目成员、编辑项目，核心RD负责人可以赋予这个权限</span>
-<span class="token attr-name">Owner</span><span class="token punctuation">:</span> <span class="token attr-value">可以设置项目访问权限 (- Visibility Level、删除项目、迁移项目、管理组成员，开发组leader可以赋予这个权限)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-properties" data-language="properties"><code class="language-properties"><span class="token key attr-name">Guest</span><span class="token punctuation">:</span> <span class="token value attr-value">可以创建issue、发表评论，不能读写版本库</span>
+<span class="token key attr-name">Reporter</span><span class="token punctuation">:</span> <span class="token value attr-value">可以克隆代码，不能提交，QA、PM可以赋予这个权限</span>
+<span class="token key attr-name">Developer</span><span class="token punctuation">:</span> <span class="token value attr-value">可以克隆代码、开发、提交、push，RD可以赋予这个权限</span>
+<span class="token key attr-name">Master</span><span class="token punctuation">:</span> <span class="token value attr-value">可以创建项目、添加tag、保护分支、添加项目成员、编辑项目，核心RD负责人可以赋予这个权限</span>
+<span class="token key attr-name">Owner</span><span class="token punctuation">:</span> <span class="token value attr-value">可以设置项目访问权限 (- Visibility Level、删除项目、迁移项目、管理组成员，开发组leader可以赋予这个权限)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
 <h3 id="10-Gitlab相关操作及说明"><a href="#10-Gitlab相关操作及说明" class="headerlink" title="10.Gitlab相关操作及说明"></a>10.Gitlab相关操作及说明</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">
@@ -894,13 +894,13 @@ sidekiq                用于在后台执行队列任务（异步执行）<span 
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">264k</span>
+    <span title="站点总字数">277k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:01</span>
+    <span title="站点阅读时长">4:12</span>
   </span>
 </div>
 <div class="busuanzi-count">

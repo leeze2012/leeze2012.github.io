@@ -21,7 +21,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"www.xiaosige.com","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.11.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"changyan","storage":true,"lazyload":true,"nav":null,"activeClass":"changyan"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"www.xiaosige.com","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.11.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"changyan","storage":true,"lazyload":true,"nav":null,"activeClass":"changyan"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="从仓库下拉镜像sudo docker pull mysql:5.7.37">
 <meta property="og:type" content="article">
@@ -643,7 +643,7 @@ canvas#canvas {
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>2.5k</span>
+      <span>2.6k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -661,66 +661,66 @@ canvas#canvas {
     
     
     <div class="post-body" itemprop="articleBody">
-        <h3 id="从仓库下拉镜像"><a href="#从仓库下拉镜像" class="headerlink" title="从仓库下拉镜像"></a>从仓库下拉镜像</h3><pre class="line-numbers language-docker" data-language="docker"><code class="language-docker">sudo docker pull mysql<span class="token punctuation">:</span>5.7.37<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+        <h3 id="从仓库下拉镜像"><a href="#从仓库下拉镜像" class="headerlink" title="从仓库下拉镜像"></a>从仓库下拉镜像</h3><pre class="line-numbers language-docker" data-language="docker"><code class="language-docker">sudo docker pull mysql:5.7.37<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <span id="more"></span>
 
-<h3 id="新建挂载目录"><a href="#新建挂载目录" class="headerlink" title="新建挂载目录"></a>新建挂载目录</h3><pre class="line-numbers language-docker" data-language="docker"><code class="language-docker">sudo mkdir <span class="token punctuation">-</span>p /root/dockerdata/mysql5/<span class="token punctuation">{</span>data<span class="token punctuation">,</span>logs<span class="token punctuation">,</span>conf<span class="token punctuation">}</span>
-chmod <span class="token punctuation">-</span>R 777  /root/dockerdata/mysql5<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h3 id="新建挂载目录"><a href="#新建挂载目录" class="headerlink" title="新建挂载目录"></a>新建挂载目录</h3><pre class="line-numbers language-docker" data-language="docker"><code class="language-docker">sudo mkdir -p /root/dockerdata/mysql5/{data,logs,conf}
+chmod -R 777  /root/dockerdata/mysql5<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <h3 id="新建my-cnf"><a href="#新建my-cnf" class="headerlink" title="新建my.cnf"></a>新建<code>my.cnf</code></h3><pre class="line-numbers language-docker" data-language="docker"><code class="language-docker">vi /root/dockerdata/mysql5/conf/my.cnf
 
-<span class="token punctuation">[</span>client<span class="token punctuation">]</span>
-default<span class="token punctuation">-</span>character<span class="token punctuation">-</span>set=utf8mb4
+[client]
+default-character-set=utf8mb4
  
-<span class="token punctuation">[</span>mysql<span class="token punctuation">]</span>
-default<span class="token punctuation">-</span>character<span class="token punctuation">-</span>set=utf8mb4
+[mysql]
+default-character-set=utf8mb4
 
-<span class="token punctuation">[</span>mysqld<span class="token punctuation">]</span> 
-pid<span class="token punctuation">-</span>file        = /var/run/mysqld/mysqld.pid
+[mysqld] 
+pid-file        = /var/run/mysqld/mysqld.pid
 socket          = /var/run/mysqld/mysqld.sock
 datadir         = /var/lib/mysql
 <span class="token comment">#log-error      = /var/log/mysql/error.log</span>
 
 general_log = 1
 general_log_file = /var/log/mysql/access.log
-log<span class="token punctuation">-</span>error = /var/log/mysql/error.log
+log-error = /var/log/mysql/error.log
 
 <span class="token comment"># By default we only accept connections from localhost</span>
 <span class="token comment">#bind-address   = 127.0.0.1</span>
 <span class="token comment"># Disabling symbolic-links is recommended to prevent assorted security risks</span>
-symbolic<span class="token punctuation">-</span>links=0
+symbolic-links=0
 
 <span class="token comment"># 创建新表时将使用的默认存储引擎</span>
-default<span class="token punctuation">-</span>storage<span class="token punctuation">-</span>engine=INNODB
+default-storage-engine=INNODB
 lower_case_table_names=1
 max_allowed_packet=16M
 
 
-init_connect=<span class="token string">'SET collation_connection = utf8mb4_unicode_ci'</span>
-init_connect=<span class="token string">'SET NAMES utf8mb4'</span>
-character<span class="token punctuation">-</span>set<span class="token punctuation">-</span>server=utf8mb4
-collation<span class="token punctuation">-</span>server=utf8mb4_unicode_ci
-skip<span class="token punctuation">-</span>character<span class="token punctuation">-</span>set<span class="token punctuation">-</span>client<span class="token punctuation">-</span>handshake
+init_connect='SET collation_connection = utf8mb4_unicode_ci'
+init_connect='SET NAMES utf8mb4'
+character-set-server=utf8mb4
+collation-server=utf8mb4_unicode_ci
+skip-character-set-client-handshake
 
 <span class="token comment"># 允许最大连接数</span>
 max_connections = 1000
 
 <span class="token comment"># Custom config should go here</span>
 !includedir /etc/mysql/conf.d/<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="运行镜像"><a href="#运行镜像" class="headerlink" title="运行镜像"></a>运行镜像</h3><pre class="line-numbers language-docker" data-language="docker"><code class="language-docker">docker run <span class="token punctuation">-</span><span class="token punctuation">-</span>restart=always <span class="token punctuation">-</span><span class="token punctuation">-</span>privileged=true <span class="token punctuation">-</span>p 3308<span class="token punctuation">:</span>3306 <span class="token punctuation">-</span><span class="token punctuation">-</span>name mysql5 \
-<span class="token punctuation">-</span><span class="token punctuation">-</span>net mynet <span class="token punctuation">-</span><span class="token punctuation">-</span>ip 172.172.0.6  \
-<span class="token punctuation">-</span>e TZ=<span class="token string">"Asia/Shanghai"</span> \
-<span class="token punctuation">-</span>v /etc/localtime<span class="token punctuation">:</span>/etc/localtime<span class="token punctuation">:</span>ro \
-<span class="token punctuation">-</span>v /root/dockerdata/mysql5/conf<span class="token punctuation">:</span>/etc/mysql/conf.d \
-<span class="token punctuation">-</span>v /root/dockerdata/mysql5/data<span class="token punctuation">:</span>/var/lib/mysql \
-<span class="token punctuation">-</span>v /root/dockerdata/mysql5/logs<span class="token punctuation">:</span>/var/log/mysql \
-<span class="token punctuation">-</span>e MYSQL_ROOT_PASSWORD=12345678 \
-<span class="token punctuation">-</span>d mysql<span class="token punctuation">:</span>5.7.37<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="运行镜像"><a href="#运行镜像" class="headerlink" title="运行镜像"></a>运行镜像</h3><pre class="line-numbers language-docker" data-language="docker"><code class="language-docker">docker run --restart=always --privileged=true -p 3308:3306 --name mysql5 \
+--net mynet --ip 172.172.0.6  \
+-e TZ="Asia/Shanghai" \
+-v /etc/localtime:/etc/localtime:ro \
+-v /root/dockerdata/mysql5/conf:/etc/mysql/conf.d \
+-v /root/dockerdata/mysql5/data:/var/lib/mysql \
+-v /root/dockerdata/mysql5/logs:/var/log/mysql \
+-e MYSQL_ROOT_PASSWORD=12345678 \
+-d mysql:5.7.37<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <div class="note info no-icon"><p>相关参数描述：<br>-p 3308:3306：将容器的 3306 端口映射到主机的 3308 端口。<br>-v $PWD/conf:/etc/mysql/conf.d：将主机当前目录下的 conf/my.cnf 挂载到容器的 /etc/mysql/my.cnf。<br>-v $PWD/logs:/logs：将主机当前目录下的 logs 目录挂载到容器的 /logs。<br>-v $PWD/data:/var/lib/mysql ：将主机当前目录下的data目录挂载到容器的 /var/lib/mysql 。<br>-e MYSQL_ROOT_PASSWORD=your_root_passwd：初始化 root 用户的密码。<br>-v /etc/localtime:/etc/localtime:ro   设置容器的时间与宿主机同步<br>-d :表示在后台运行 mysql:5.7.37 镜像名+版本号</p>
 </div>
 
 
-<h3 id="登录容器"><a href="#登录容器" class="headerlink" title="登录容器"></a>登录容器</h3><pre class="line-numbers language-docker" data-language="docker"><code class="language-docker">sudo docker exec <span class="token punctuation">-</span>it mysql5 bash mysql <span class="token punctuation">-</span>uroot <span class="token punctuation">-</span>pyour_root_passwd<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="登录容器"><a href="#登录容器" class="headerlink" title="登录容器"></a>登录容器</h3><pre class="line-numbers language-docker" data-language="docker"><code class="language-docker">sudo docker exec -it mysql5 bash mysql -uroot -pyour_root_passwd<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <h3 id="开启远程连接服务"><a href="#开启远程连接服务" class="headerlink" title="开启远程连接服务"></a>开启远程连接服务</h3><pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">mysql&gt; grant all privileges on *.* to root@'%' identified by 'your_root_passwd' with grant option; 
 mysql&gt; flush privilesges;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
@@ -857,13 +857,13 @@ ALTER TABLE TABLE_NAME CONVERT TO CHARACTER SET utf8mb4 COLLATEutf8mb4_general_c
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">264k</span>
+    <span title="站点总字数">277k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:01</span>
+    <span title="站点阅读时长">4:12</span>
   </span>
 </div>
 <div class="busuanzi-count">

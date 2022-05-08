@@ -21,7 +21,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"www.xiaosige.com","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.11.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"changyan","storage":true,"lazyload":true,"nav":null,"activeClass":"changyan"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"www.xiaosige.com","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.11.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"changyan","storage":true,"lazyload":true,"nav":null,"activeClass":"changyan"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="一、Linux下MySQL安装(YUM)1、检查并删除已经安装的MySql 检查MariaDB  shell&gt; rpm -qa|grep mariadb mariadb-server-5.5.60-1.el7_5.x86_64 mariadb-5.5.60-1.el7_5.x86_64 mariadb-libs-5.5.60-1.el7_5.x86_64">
 <meta property="og:type" content="article">
@@ -643,14 +643,14 @@ canvas#canvas {
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>3.7k</span>
+      <span>3.9k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>3 分钟</span>
+      <span>4 分钟</span>
     </span>
 </div>
 
@@ -747,20 +747,20 @@ shell<span class="token operator">&gt;</span> <span class="token function">sudo<
 <p>  除了使用yum-config-manager之外，还可以直接编辑<code>/etc/yum.repos.d/mysql-community.repo</code>文件</p>
 <p>  enabled=0禁用</p>
 <pre class="line-numbers language-properties" data-language="properties"><code class="language-properties">[mysql80-community]
-<span class="token attr-name">name</span><span class="token punctuation">=</span><span class="token attr-value">MySQL 8.0 Community Server</span>
-<span class="token attr-name">baseurl</span><span class="token punctuation">=</span><span class="token attr-value">http://repo.mysql.com/yum/mysql-8.0-community/el/7/$basearch/</span>
-<span class="token attr-name">enabled</span><span class="token punctuation">=</span><span class="token attr-value">0</span>
-<span class="token attr-name">gpgcheck</span><span class="token punctuation">=</span><span class="token attr-value">1</span>
-<span class="token attr-name">gpgkey</span><span class="token punctuation">=</span><span class="token attr-value">file:///etc/pki/rpm-gpg/RPM-GPG-KEY-mysql</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token key attr-name">name</span><span class="token punctuation">=</span><span class="token value attr-value">MySQL 8.0 Community Server</span>
+<span class="token key attr-name">baseurl</span><span class="token punctuation">=</span><span class="token value attr-value">http://repo.mysql.com/yum/mysql-8.0-community/el/7/$basearch/</span>
+<span class="token key attr-name">enabled</span><span class="token punctuation">=</span><span class="token value attr-value">0</span>
+<span class="token key attr-name">gpgcheck</span><span class="token punctuation">=</span><span class="token value attr-value">1</span>
+<span class="token key attr-name">gpgkey</span><span class="token punctuation">=</span><span class="token value attr-value">file:///etc/pki/rpm-gpg/RPM-GPG-KEY-mysql</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>  enabled=1启用</p>
 <pre class="line-numbers language-properties" data-language="properties"><code class="language-properties"><span class="token comment"># Enable to use MySQL 5.7</span>
 [mysql57-community]
-<span class="token attr-name">name</span><span class="token punctuation">=</span><span class="token attr-value">MySQL 5.7 Community Server</span>
-<span class="token attr-name">baseurl</span><span class="token punctuation">=</span><span class="token attr-value">http://repo.mysql.com/yum/mysql-5.7-community/el/7/$basearch/</span>
-<span class="token attr-name">enabled</span><span class="token punctuation">=</span><span class="token attr-value">1</span>
-<span class="token attr-name">gpgcheck</span><span class="token punctuation">=</span><span class="token attr-value">1</span>
-<span class="token attr-name">gpgkey</span><span class="token punctuation">=</span><span class="token attr-value">file:///etc/pki/rpm-gpg/RPM-GPG-KEY-mysql</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token key attr-name">name</span><span class="token punctuation">=</span><span class="token value attr-value">MySQL 5.7 Community Server</span>
+<span class="token key attr-name">baseurl</span><span class="token punctuation">=</span><span class="token value attr-value">http://repo.mysql.com/yum/mysql-5.7-community/el/7/$basearch/</span>
+<span class="token key attr-name">enabled</span><span class="token punctuation">=</span><span class="token value attr-value">1</span>
+<span class="token key attr-name">gpgcheck</span><span class="token punctuation">=</span><span class="token value attr-value">1</span>
+<span class="token key attr-name">gpgkey</span><span class="token punctuation">=</span><span class="token value attr-value">file:///etc/pki/rpm-gpg/RPM-GPG-KEY-mysql</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <ul>
 <li>检查当前启用的MySQL仓库</li>
@@ -778,17 +778,17 @@ shell<span class="token operator">&gt;</span> <span class="token function">sudo<
 <h4 id="5、查询是否安装成功"><a href="#5、查询是否安装成功" class="headerlink" title="5、查询是否安装成功"></a>5、查询是否安装成功</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">mysqladmin -V<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <h4 id="6、启动MySQL"><a href="#6、启动MySQL" class="headerlink" title="6、启动MySQL"></a>6、启动MySQL</h4><p>  启动前<code>最好</code>修改<code>/etc/my.cnf</code>配置文件</p>
-<pre class="line-numbers language-properties" data-language="properties"><code class="language-properties"><span class="token attr-name">vi</span> <span class="token attr-value">/etc/my.cnf</span>
+<pre class="line-numbers language-properties" data-language="properties"><code class="language-properties"><span class="token key attr-name">vi</span> <span class="token value attr-value">/etc/my.cnf</span>
 
  添加：
 
 <span class="token comment"># leeze</span>
-<span class="token attr-name">port</span> <span class="token punctuation">=</span> <span class="token attr-value">3306</span>
-<span class="token attr-name">character-set-server</span><span class="token punctuation">=</span><span class="token attr-value">utf8</span>
+<span class="token key attr-name">port</span> <span class="token punctuation">=</span> <span class="token value attr-value">3306</span>
+<span class="token key attr-name">character-set-server</span><span class="token punctuation">=</span><span class="token value attr-value">utf8</span>
 <span class="token comment">#忘记密码时使用</span>
 <span class="token comment">#skip-grant-tables</span>
 <span class="token comment">#设置协议认证方式</span>
-<span class="token attr-name">default_authentication_plugin</span><span class="token punctuation">=</span><span class="token attr-value">mysql_native_password</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token key attr-name">default_authentication_plugin</span><span class="token punctuation">=</span><span class="token value attr-value">mysql_native_password</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <br>
 
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">shell<span class="token operator">&gt;</span> <span class="token function">sudo</span> <span class="token function">service</span> mysqld start<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
@@ -972,13 +972,13 @@ mysql<span class="token operator">&gt;</span>flush <span class="token keyword">p
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">264k</span>
+    <span title="站点总字数">277k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:01</span>
+    <span title="站点阅读时长">4:12</span>
   </span>
 </div>
 <div class="busuanzi-count">

@@ -21,7 +21,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"www.xiaosige.com","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.11.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"changyan","storage":true,"lazyload":true,"nav":null,"activeClass":"changyan"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"www.xiaosige.com","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.11.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"changyan","storage":true,"lazyload":true,"nav":null,"activeClass":"changyan"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="前言  在开发或生产环境中，我们经常会搞一套自动化部署方案（俗称一键部署）。比较流行的一种就是Gitlab+Jenkins实现方案，不过这种方案占用内存比较大，没有个8G内存，很难流畅运行，而且部署起来也不快。最近发现一款神器Drone，轻量级CI&#x2F;DI工具，结合Gogs使用内存占用不到1G，几行脚本就能实现自动化部署，推荐给大家！">
 <meta property="og:type" content="article">
@@ -657,14 +657,14 @@ canvas#canvas {
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>6k</span>
+      <span>6.4k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>5 分钟</span>
+      <span>6 分钟</span>
     </span>
 </div>
 
@@ -689,7 +689,7 @@ canvas#canvas {
 <li>首先下载Drone的Server和Runner的镜像；<pre class="line-numbers language-docker" data-language="docker"><code class="language-docker"><span class="token comment"># Drone的Server</span>
 docker pull drone/drone
 <span class="token comment"># Drone的Runner</span>
-docker pull drone/drone<span class="token punctuation">-</span>runner<span class="token punctuation">-</span>docker<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+docker pull drone/drone-runner-docker<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <div class="note info no-icon"><ul>
 <li>这里有个Server和Runner的概念，我们先来理解下； <ul>
 <li>Server：为Drone的管理提供了Web页面，用于管理从Git上获取的仓库中的流水线任务。 </li>
@@ -699,58 +699,58 @@ docker pull drone/drone<span class="token punctuation">-</span>runner<span class
 </ul>
 </div></li>
 <li>生成GiteaOauth<br>  gitea右上角-&gt;设置-&gt;应用-&gt;创建应用  <img data-src="/post/3abef87b/drone001.png" class="" title="创建新的 OAuth2 应用程序">   
-<pre class="line-numbers language-properties" data-language="properties"><code class="language-properties"><span class="token attr-name">客户端id</span> <span class="token punctuation">:</span> <span class="token attr-value">f4d1e22d-b092-4e86-bedd-dffb362b1c70</span>
-<span class="token attr-name">客户端秘钥</span> <span class="token punctuation">:</span> <span class="token attr-value">EBjiksxi7QBaAtY9cIisGY36Ghr81Y4vtk2uqj8g5qEa</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-properties" data-language="properties"><code class="language-properties"><span class="token key attr-name">客户端id</span> <span class="token punctuation">:</span> <span class="token value attr-value">f4d1e22d-b092-4e86-bedd-dffb362b1c70</span>
+<span class="token key attr-name">客户端秘钥</span> <span class="token punctuation">:</span> <span class="token value attr-value">EBjiksxi7QBaAtY9cIisGY36Ghr81Y4vtk2uqj8g5qEa</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
   生成rpc秘钥: <code>openssl rand -hex 16 </code><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@loaclhost build<span class="token punctuation">]</span><span class="token comment"># openssl rand -hex 16 </span>
 1bd0710533d6ade9ab943df6822e7e1d<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
   这个用于<code>DRONE_RPC_SECRET</code>，当然也可随便设置值（dronerpc666）</li>
 <li>接下来我们来安装<code>drone-server</code>，使用如下命令即可；<pre class="line-numbers language-docker" data-language="docker"><code class="language-docker">docker run \
-<span class="token punctuation">-</span><span class="token punctuation">-</span>net docker<span class="token punctuation">-</span>mynet <span class="token punctuation">-</span><span class="token punctuation">-</span>ip 172.172.0.12 \
-<span class="token punctuation">-</span><span class="token punctuation">-</span>volume=/root/.docker/drone/data<span class="token punctuation">:</span>/data/docker/drone \
-<span class="token punctuation">-</span><span class="token punctuation">-</span>env=DRONE_AGENTS_ENABLED=true \
-<span class="token punctuation">-</span><span class="token punctuation">-</span>env=DRONE_GIT_ALWAYS_AUTH=true \
-<span class="token punctuation">-</span><span class="token punctuation">-</span>env=DRONE_GITEA_SERVER=http<span class="token punctuation">:</span>//10.211.55.81<span class="token punctuation">:</span>3000 \
-<span class="token punctuation">-</span><span class="token punctuation">-</span>env=DRONE_GITEA_CLIENT_ID=f4d1e22d<span class="token punctuation">-</span>b092<span class="token punctuation">-</span>4e86<span class="token punctuation">-</span>bedd<span class="token punctuation">-</span>dffb362b1c70 \
-<span class="token punctuation">-</span><span class="token punctuation">-</span>env=DRONE_GITEA_CLIENT_SECRET=EBjiksxi7QBaAtY9cIisGY36Ghr81Y4vtk2uqj8g5qEa \
-<span class="token punctuation">-</span><span class="token punctuation">-</span>env=DRONE_RPC_SECRET=1bd0710533d6ade9ab943df6822e7e1d \
-<span class="token punctuation">-</span><span class="token punctuation">-</span>env=DRONE_SERVER_HOST=10.211.55.81<span class="token punctuation">:</span>3080 \
-<span class="token punctuation">-</span><span class="token punctuation">-</span>env=DRONE_SERVER_PROTO=http \
-<span class="token punctuation">-</span><span class="token punctuation">-</span>env=DRONE_USER_CREATE=username<span class="token punctuation">:</span>leeze<span class="token punctuation">,</span>admin<span class="token punctuation">:</span>true \
-<span class="token punctuation">-</span><span class="token punctuation">-</span>publish=3080<span class="token punctuation">:</span>80 \
-<span class="token punctuation">-</span><span class="token punctuation">-</span>publish=10443<span class="token punctuation">:</span>443 \
-<span class="token punctuation">-</span><span class="token punctuation">-</span>restart=always \
-<span class="token punctuation">-</span><span class="token punctuation">-</span>detach=true \
-<span class="token punctuation">-</span><span class="token punctuation">-</span>name=drone \
-drone/drone<span class="token punctuation">:</span>latest<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+--net docker-mynet --ip 172.172.0.12 \
+--volume=/root/.docker/drone/data:/data/docker/drone \
+--env=DRONE_AGENTS_ENABLED=true \
+--env=DRONE_GIT_ALWAYS_AUTH=true \
+--env=DRONE_GITEA_SERVER=http://10.211.55.81:3000 \
+--env=DRONE_GITEA_CLIENT_ID=f4d1e22d-b092-4e86-bedd-dffb362b1c70 \
+--env=DRONE_GITEA_CLIENT_SECRET=EBjiksxi7QBaAtY9cIisGY36Ghr81Y4vtk2uqj8g5qEa \
+--env=DRONE_RPC_SECRET=1bd0710533d6ade9ab943df6822e7e1d \
+--env=DRONE_SERVER_HOST=10.211.55.81:3080 \
+--env=DRONE_SERVER_PROTO=http \
+--env=DRONE_USER_CREATE=username:leeze,admin:true \
+--publish=3080:80 \
+--publish=10443:443 \
+--restart=always \
+--detach=true \
+--name=drone \
+drone/drone:latest<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <pre class="line-numbers language-properties" data-language="properties"><code class="language-properties"><span class="token comment"># 这里的配置参数比较多，下面统一解释下；</span>
-<span class="token attr-name">DRONE_AGENTS_ENABLED</span> <span class="token punctuation">:</span> <span class="token attr-value">是否开启身份验证</span>
-<span class="token attr-name">DRONE_GITEA_SERVER</span> <span class="token punctuation">:</span> <span class="token attr-value">Gitea服务器地址((建议填写宿主机地址+端口, 需要`http://`开头))</span>
-<span class="token attr-name">DRONE_GITEA_CLIENT_ID</span> <span class="token punctuation">:</span> <span class="token attr-value">应用的客户端id(gitea上生成的Client ID)</span>
-<span class="token attr-name">DRONE_GITEA_CLIENT_SECRET</span> <span class="token punctuation">:</span> <span class="token attr-value">应用的客户端秘钥(gitea上生成的Client Secret)</span>
-<span class="token attr-name">DRONE_RPC_SECRET</span> <span class="token punctuation">:</span> <span class="token attr-value">Drone的共享秘钥，用于验证连接到server的rpc连接，server和runner需要提供同样的秘钥。(后面安装runner使用相同的秘钥)</span>
-<span class="token attr-name">DRONE_SERVER_HOST</span> <span class="token punctuation">:</span> <span class="token attr-value">Drone服务地址，外部可访问的域名或IP地址(建议填写宿主机地址+端口, 不需要`http://`开头)</span>
-<span class="token attr-name">DRONE_SERVER_PROTO</span> <span class="token punctuation">:</span> <span class="token attr-value">Drone提供服务的协议类型(可选为`http`或`https`)</span>
-<span class="token attr-name">DRONE_USER_CREATE</span> <span class="token punctuation">:</span> <span class="token attr-value">设置Drone管理员账号(`注意设置的是Gitea平台里的账号`), `Drone`是直接使用`Gogs账号`登录的</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token key attr-name">DRONE_AGENTS_ENABLED</span> <span class="token punctuation">:</span> <span class="token value attr-value">是否开启身份验证</span>
+<span class="token key attr-name">DRONE_GITEA_SERVER</span> <span class="token punctuation">:</span> <span class="token value attr-value">Gitea服务器地址((建议填写宿主机地址+端口, 需要`http://`开头))</span>
+<span class="token key attr-name">DRONE_GITEA_CLIENT_ID</span> <span class="token punctuation">:</span> <span class="token value attr-value">应用的客户端id(gitea上生成的Client ID)</span>
+<span class="token key attr-name">DRONE_GITEA_CLIENT_SECRET</span> <span class="token punctuation">:</span> <span class="token value attr-value">应用的客户端秘钥(gitea上生成的Client Secret)</span>
+<span class="token key attr-name">DRONE_RPC_SECRET</span> <span class="token punctuation">:</span> <span class="token value attr-value">Drone的共享秘钥，用于验证连接到server的rpc连接，server和runner需要提供同样的秘钥。(后面安装runner使用相同的秘钥)</span>
+<span class="token key attr-name">DRONE_SERVER_HOST</span> <span class="token punctuation">:</span> <span class="token value attr-value">Drone服务地址，外部可访问的域名或IP地址(建议填写宿主机地址+端口, 不需要`http://`开头)</span>
+<span class="token key attr-name">DRONE_SERVER_PROTO</span> <span class="token punctuation">:</span> <span class="token value attr-value">Drone提供服务的协议类型(可选为`http`或`https`)</span>
+<span class="token key attr-name">DRONE_USER_CREATE</span> <span class="token punctuation">:</span> <span class="token value attr-value">设置Drone管理员账号(`注意设置的是Gitea平台里的账号`), `Drone`是直接使用`Gogs账号`登录的</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
   调试阶段建议启动设置<code>detach=false</code>, 这样可以查看日志输出</li>
-<li>接下来安装<code>drone-runner-docker</code>，当有需要执行的任务时，会启动临时的容器来执行流水线任务；<pre class="line-numbers language-docker" data-language="docker"><code class="language-docker">docker run <span class="token punctuation">-</span>d \
-<span class="token punctuation">-</span>v /var/run/docker.sock<span class="token punctuation">:</span>/var/run/docker.sock \
-<span class="token punctuation">-</span><span class="token punctuation">-</span>net docker<span class="token punctuation">-</span>mynet <span class="token punctuation">-</span><span class="token punctuation">-</span>ip 172.172.0.13 \
-<span class="token punctuation">-</span>e DRONE_RPC_PROTO=http \
-<span class="token punctuation">-</span>e DRONE_RPC_HOST=10.211.55.81<span class="token punctuation">:</span>3080 \
-<span class="token punctuation">-</span>e DRONE_RPC_SECRET=1bd0710533d6ade9ab943df6822e7e1d \
-<span class="token punctuation">-</span>e DRONE_RUNNER_CAPACITY=2 \
-<span class="token punctuation">-</span>e DRONE_RUNNER_NAME=runner<span class="token punctuation">-</span>docker \
-<span class="token punctuation">-</span>e TZ=<span class="token string">"Asia/Shanghai"</span> \
-<span class="token punctuation">-</span>p 3010<span class="token punctuation">:</span>3000 \
-<span class="token punctuation">-</span><span class="token punctuation">-</span>restart always \
-<span class="token punctuation">-</span><span class="token punctuation">-</span>name runner<span class="token punctuation">-</span>docker \
-drone/drone<span class="token punctuation">-</span>runner<span class="token punctuation">-</span>docker<span class="token punctuation">:</span>latest<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<li>接下来安装<code>drone-runner-docker</code>，当有需要执行的任务时，会启动临时的容器来执行流水线任务；<pre class="line-numbers language-docker" data-language="docker"><code class="language-docker">docker run -d \
+-v /var/run/docker.sock:/var/run/docker.sock \
+--net docker-mynet --ip 172.172.0.13 \
+-e DRONE_RPC_PROTO=http \
+-e DRONE_RPC_HOST=10.211.55.81:3080 \
+-e DRONE_RPC_SECRET=1bd0710533d6ade9ab943df6822e7e1d \
+-e DRONE_RUNNER_CAPACITY=2 \
+-e DRONE_RUNNER_NAME=runner-docker \
+-e TZ="Asia/Shanghai" \
+-p 3010:3000 \
+--restart always \
+--name runner-docker \
+drone/drone-runner-docker:latest<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <pre class="line-numbers language-properties" data-language="properties"><code class="language-properties"><span class="token comment"># 这里的配置参数比较多，下面统一解释下。</span>
-<span class="token attr-name">DRONE_RPC_PROTO</span> <span class="token punctuation">:</span> <span class="token attr-value">用于配置连接到Drone server的协议(必须是`http`或`https`)</span>
-<span class="token attr-name">DRONE_RPC_HOST</span> <span class="token punctuation">:</span> <span class="token attr-value">用于配置Drone server的访问地址，runner会连接到server获取流水线任务并执行。</span>
-<span class="token attr-name">DRONE_RPC_SECRET</span> <span class="token punctuation">:</span> <span class="token attr-value">用于配置连接到Drone server的共享秘钥。</span>
-<span class="token attr-name">DRONE_RUNNER_CAPACITY</span> <span class="token punctuation">:</span> <span class="token attr-value">限制runner并发执行的流水线任务数量(默认2)。</span>
-<span class="token attr-name">DRONE_RUNNER_NAME</span> <span class="token punctuation">:</span> <span class="token attr-value">自定义runner的名称。</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<span class="token key attr-name">DRONE_RPC_PROTO</span> <span class="token punctuation">:</span> <span class="token value attr-value">用于配置连接到Drone server的协议(必须是`http`或`https`)</span>
+<span class="token key attr-name">DRONE_RPC_HOST</span> <span class="token punctuation">:</span> <span class="token value attr-value">用于配置Drone server的访问地址，runner会连接到server获取流水线任务并执行。</span>
+<span class="token key attr-name">DRONE_RPC_SECRET</span> <span class="token punctuation">:</span> <span class="token value attr-value">用于配置连接到Drone server的共享秘钥。</span>
+<span class="token key attr-name">DRONE_RUNNER_CAPACITY</span> <span class="token punctuation">:</span> <span class="token value attr-value">限制runner并发执行的流水线任务数量(默认2)。</span>
+<span class="token key attr-name">DRONE_RUNNER_NAME</span> <span class="token punctuation">:</span> <span class="token value attr-value">自定义runner的名称。</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 <li>开放相关端口：<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">firewall-cmd  --zone<span class="token operator">=</span>public --add-port<span class="token operator">=</span><span class="token number">3080</span>/tcp --permanent
 firewall-cmd --reload<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <h3 id="Drone使用"><a href="#Drone使用" class="headerlink" title="Drone使用"></a><code>Drone</code>使用</h3>  让我们来访问下<code>Drone</code>的控制台页面，第一次登录需要输入账号密码（在Gitea中注册的账号），访问地址：<a target="_blank" rel="noopener" href="http://10.211.55.81:3080/">http://10.211.55.81:3080/</a></li>
@@ -818,46 +818,46 @@ firewall-cmd --reload<span aria-hidden="true" class="line-numbers-rows"><span></
     <span class="token key atrule">host</span><span class="token punctuation">:</span>
       <span class="token key atrule">path</span><span class="token punctuation">:</span> /mydata/maven/cache<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 <li>Dockerfile<pre class="line-numbers language-dockerfile" data-language="dockerfile"><code class="language-dockerfile"><span class="token comment"># 该镜像需要依赖的基础镜像</span>
-<span class="token keyword">FROM</span> clockard/alpine<span class="token punctuation">-</span>java<span class="token punctuation">:</span>8_jdk
-<span class="token keyword">LABEL</span> maintainer=<span class="token string">"mybatisplus"</span> \
-      version=<span class="token string">"1.0.0"</span> \
-      description=<span class="token string">"This is mybatisplus's test."</span>
-<span class="token keyword">RUN</span> echo <span class="token string">"Asia/Shanghai"</span> <span class="token punctuation">&gt;</span> /etc/timezone
+<span class="token instruction"><span class="token keyword">FROM</span> clockard/alpine-java:8_jdk</span>
+<span class="token instruction"><span class="token keyword">LABEL</span> maintainer=<span class="token string">"mybatisplus"</span> <span class="token operator">\</span>
+      version=<span class="token string">"1.0.0"</span> <span class="token operator">\</span>
+      description=<span class="token string">"This is mybatisplus's test."</span></span>
+<span class="token instruction"><span class="token keyword">RUN</span> echo <span class="token string">"Asia/Shanghai"</span> &gt; /etc/timezone</span>
 <span class="token comment"># 将当前目录下的jar包复制到docker容器的/目录下</span>
-<span class="token keyword">ADD</span> mybatisplus.jar /app/mybatisplus.jar
+<span class="token instruction"><span class="token keyword">ADD</span> mybatisplus.jar /app/mybatisplus.jar</span>
 <span class="token comment"># 指定docker容器启动时运行jar包</span>
 <span class="token comment">#在容器启动的时候运行命令，来启动我们的项目</span>
-<span class="token keyword">ENTRYPOINT</span> <span class="token punctuation">[</span><span class="token string">"java"</span><span class="token punctuation">,</span><span class="token string">"-Djava.security.egd=file:/dev/./urandom"</span><span class="token punctuation">,</span><span class="token string">"-jar"</span><span class="token punctuation">,</span><span class="token string">"/app/mybatisplus.jar"</span><span class="token punctuation">,</span><span class="token string">"-Xms128m"</span><span class="token punctuation">,</span><span class="token string">"-Xmx128m"</span><span class="token punctuation">,</span><span class="token string">"-c"</span><span class="token punctuation">]</span>
+<span class="token instruction"><span class="token keyword">ENTRYPOINT</span> [<span class="token string">"java"</span>,<span class="token string">"-Djava.security.egd=file:/dev/./urandom"</span>,<span class="token string">"-jar"</span>,<span class="token string">"/app/mybatisplus.jar"</span>,<span class="token string">"-Xms128m"</span>,<span class="token string">"-Xmx128m"</span>,<span class="token string">"-c"</span>]</span>
 <span class="token comment"># 指定维护者的名字</span>
-<span class="token keyword">MAINTAINER</span> leeze
+<span class="token instruction"><span class="token keyword">MAINTAINER</span> leeze</span>
 ```   
 5. `run.sh`执行脚本可以实现打包应用和运行容器镜像
 ```bash
 <span class="token comment">#!/usr/bin/env bash</span>
 <span class="token comment"># 定义应用组名</span>
-group_name=<span class="token string">'zancunli'</span>
+group_name='zancunli'
 <span class="token comment"># 定义应用名称</span>
-app_name=<span class="token string">'mybatisplus'</span>
+app_name='mybatisplus'
 <span class="token comment"># 定义应用版本</span>
-app_version=<span class="token string">'1.0.0'</span>
+app_version='1.0.0'
 <span class="token comment"># 定义应用环境</span>
 <span class="token comment">#profile_active='prod'</span>
-echo <span class="token string">'----copy jar----'</span>
-docker stop $<span class="token punctuation">{</span>app_name<span class="token punctuation">}</span>
-echo <span class="token string">'----stop container----'</span>
-docker rm $<span class="token punctuation">{</span>app_name<span class="token punctuation">}</span>
-echo <span class="token string">'----rm container----'</span>
-docker rmi $<span class="token punctuation">{</span>group_name<span class="token punctuation">}</span>/$<span class="token punctuation">{</span>app_name<span class="token punctuation">}</span><span class="token punctuation">:</span>$<span class="token punctuation">{</span>app_version<span class="token punctuation">}</span>
-echo <span class="token string">'----rm image----'</span>
+echo '----copy jar----'
+docker stop ${app_name}
+echo '----stop container----'
+docker rm ${app_name}
+echo '----rm container----'
+docker rmi ${group_name}/${app_name}:${app_version}
+echo '----rm image----'
 <span class="token comment"># 打包编译docker镜像</span>
-docker build <span class="token punctuation">-</span>t $<span class="token punctuation">{</span>group_name<span class="token punctuation">}</span>/$<span class="token punctuation">{</span>app_name<span class="token punctuation">}</span><span class="token punctuation">:</span>$<span class="token punctuation">{</span>app_version<span class="token punctuation">}</span> .
-echo <span class="token string">'----build image----'</span>
-docker run <span class="token punctuation">-</span>p 7080<span class="token punctuation">:</span>9091 <span class="token punctuation">-</span><span class="token punctuation">-</span>name $<span class="token punctuation">{</span>app_name<span class="token punctuation">}</span>  <span class="token punctuation">-</span><span class="token punctuation">-</span>net docker<span class="token punctuation">-</span>mynet <span class="token punctuation">-</span><span class="token punctuation">-</span>ip 172.172.0.88 \
-<span class="token punctuation">-</span>e TZ=<span class="token string">"Asia/Shanghai"</span> \
-<span class="token punctuation">-</span>v /etc/localtime<span class="token punctuation">:</span>/etc/localtime \
-<span class="token punctuation">-</span>v /mydata/app/$<span class="token punctuation">{</span>app_name<span class="token punctuation">}</span>/logs<span class="token punctuation">:</span>/var/logs \
-<span class="token punctuation">-</span>d $<span class="token punctuation">{</span>group_name<span class="token punctuation">}</span>/$<span class="token punctuation">{</span>app_name<span class="token punctuation">}</span><span class="token punctuation">:</span>$<span class="token punctuation">{</span>app_version<span class="token punctuation">}</span> \
-echo <span class="token string">'----start container----'</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+docker build -t ${group_name}/${app_name}:${app_version} .
+echo '----build image----'
+docker run -p 7080:9091 --name ${app_name}  --net docker-mynet --ip 172.172.0.88 \
+-e TZ="Asia/Shanghai" \
+-v /etc/localtime:/etc/localtime \
+-v /mydata/app/${app_name}/logs:/var/logs \
+-d ${group_name}/${app_name}:${app_version} \
+echo '----start container----'<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 <li>运行成功<br>  浏览器：<a target="_blank" rel="noopener" href="http://10.211.55.81:7080/user/list">http://10.211.55.81:7080/user/list</a>    ，成功取到数据</li>
 </ol>
 <h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><blockquote>
@@ -977,13 +977,13 @@ echo <span class="token string">'----start container----'</span><span aria-hidde
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">264k</span>
+    <span title="站点总字数">277k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:01</span>
+    <span title="站点阅读时长">4:12</span>
   </span>
 </div>
 <div class="busuanzi-count">

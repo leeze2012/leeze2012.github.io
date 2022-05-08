@@ -21,7 +21,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"www.xiaosige.com","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.11.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"changyan","storage":true,"lazyload":true,"nav":null,"activeClass":"changyan"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"www.xiaosige.com","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.11.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"changyan","storage":true,"lazyload":true,"nav":null,"activeClass":"changyan"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="新建dockerfile目录mkdir &#x2F;opt&#x2F;mydockerfile">
 <meta property="og:type" content="article">
@@ -643,7 +643,7 @@ canvas#canvas {
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>8.9k</span>
+      <span>8.8k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -670,22 +670,22 @@ canvas#canvas {
 <h3 id="编写dockerfile-alpine-jdk1-8文件"><a href="#编写dockerfile-alpine-jdk1-8文件" class="headerlink" title="编写dockerfile-alpine-jdk1.8文件"></a>编写<code>dockerfile-alpine-jdk1.8</code>文件</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">cd</span> /opt/mydockerfile
 
 <span class="token function">vim</span> dockerfile-alpine-jdk18<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<pre class="line-numbers language-dockerfile" data-language="dockerfile"><code class="language-dockerfile"><span class="token keyword">FROM</span> alpine<span class="token punctuation">:</span>latest
-<span class="token keyword">MAINTAINER</span> xiaosige <span class="token string">"leeze0216@163.com"</span>
+<pre class="line-numbers language-dockerfile" data-language="dockerfile"><code class="language-dockerfile"><span class="token instruction"><span class="token keyword">FROM</span> alpine:latest</span>
+<span class="token instruction"><span class="token keyword">MAINTAINER</span> xiaosige <span class="token string">"leeze0216@163.com"</span></span>
 
 <span class="token comment">#更换aline源</span>
-<span class="token keyword">RUN</span> echo <span class="token string">"http://mirrors.aliyun.com/alpine/latest-stable/community"</span> <span class="token punctuation">&gt;</span> /etc/apk/repositories
-<span class="token keyword">RUN</span> echo <span class="token string">"http://mirrors.aliyun.com/alpine/latest-stable/main"</span> <span class="token punctuation">&gt;</span><span class="token punctuation">&gt;</span> /etc/apk/repositories
+<span class="token instruction"><span class="token keyword">RUN</span> echo <span class="token string">"http://mirrors.aliyun.com/alpine/latest-stable/community"</span> &gt; /etc/apk/repositories</span>
+<span class="token instruction"><span class="token keyword">RUN</span> echo <span class="token string">"http://mirrors.aliyun.com/alpine/latest-stable/main"</span> &gt;&gt; /etc/apk/repositories</span>
 
 <span class="token comment">#update apk</span>
-<span class="token keyword">RUN</span> apk update &amp;&amp; apk upgrade
-<span class="token keyword">RUN</span> apk <span class="token punctuation">-</span><span class="token punctuation">-</span>no<span class="token punctuation">-</span>cache add ca<span class="token punctuation">-</span>certificates
+<span class="token instruction"><span class="token keyword">RUN</span> apk update &amp;&amp; apk upgrade</span>
+<span class="token instruction"><span class="token keyword">RUN</span> apk --no-cache add ca-certificates</span>
 
 <span class="token comment"># bash vim wget curl net-tools</span>
-<span class="token keyword">RUN</span> apk add bash bash<span class="token punctuation">-</span>doc bash<span class="token punctuation">-</span>completion
-<span class="token keyword">RUN</span> apk add vim wget curl net<span class="token punctuation">-</span>tools
-<span class="token keyword">RUN</span> rm <span class="token punctuation">-</span>rf /var/cache/apk/*
-<span class="token keyword">RUN</span> /bin/bash
+<span class="token instruction"><span class="token keyword">RUN</span> apk add bash bash-doc bash-completion</span>
+<span class="token instruction"><span class="token keyword">RUN</span> apk add vim wget curl net-tools</span>
+<span class="token instruction"><span class="token keyword">RUN</span> rm -rf /var/cache/apk/*</span>
+<span class="token instruction"><span class="token keyword">RUN</span> /bin/bash</span>
 
 <span class="token comment"># setup glibc</span>
 <span class="token comment">#RUN wget https://github.com/sgerrand/alpine-pkg-glibc/releases/download/2.32-r0/glibc-2.34-r0.apk</span>
@@ -693,38 +693,38 @@ canvas#canvas {
 <span class="token comment">#RUN wget https://github.com/sgerrand/alpine-pkg-glibc/releases/download/2.32-r0/glibc-i18n-2.34-r0.apk</span>
 <span class="token comment">#RUN wget https://github.com/sgerrand/alpine-pkg-glibc/releases/download/2.32-r0/glibc-dev-2.34-r0.apk</span>
 <span class="token comment"># glibc安装包如果从网络下载速度实在是太慢了，先提前下载复制到镜像中</span>
-<span class="token keyword">COPY</span> glibc<span class="token punctuation">-</span>2.34<span class="token punctuation">-</span>r0.apk .
-<span class="token keyword">COPY</span> glibc<span class="token punctuation">-</span>bin<span class="token punctuation">-</span>2.34<span class="token punctuation">-</span>r0.apk .
-<span class="token keyword">COPY</span> glibc<span class="token punctuation">-</span>dev<span class="token punctuation">-</span>2.34<span class="token punctuation">-</span>r0.apk .
-<span class="token keyword">COPY</span> glibc<span class="token punctuation">-</span>i18n<span class="token punctuation">-</span>2.34<span class="token punctuation">-</span>r0.apk .
-<span class="token keyword">RUN</span> wget <span class="token punctuation">-</span>q <span class="token punctuation">-</span>O /etc/apk/keys/sgerrand.rsa.pub https<span class="token punctuation">:</span>//alpine<span class="token punctuation">-</span>pkgs.sgerrand.com/sgerrand.rsa.pub
-<span class="token keyword">RUN</span> apk add glibc<span class="token punctuation">-</span>2.34<span class="token punctuation">-</span>r0.apk
-<span class="token keyword">RUN</span> apk add glibc<span class="token punctuation">-</span>bin<span class="token punctuation">-</span>2.34<span class="token punctuation">-</span>r0.apk
-<span class="token keyword">RUN</span> apk add glibc<span class="token punctuation">-</span>dev<span class="token punctuation">-</span>2.34<span class="token punctuation">-</span>r0.apk
-<span class="token keyword">RUN</span> apk add glibc<span class="token punctuation">-</span>i18n<span class="token punctuation">-</span>2.34<span class="token punctuation">-</span>r0.apk
-<span class="token keyword">RUN</span> rm <span class="token punctuation">-</span>rf *.apk
+<span class="token instruction"><span class="token keyword">COPY</span> glibc-2.34-r0.apk .</span>
+<span class="token instruction"><span class="token keyword">COPY</span> glibc-bin-2.34-r0.apk .</span>
+<span class="token instruction"><span class="token keyword">COPY</span> glibc-dev-2.34-r0.apk .</span>
+<span class="token instruction"><span class="token keyword">COPY</span> glibc-i18n-2.34-r0.apk .</span>
+<span class="token instruction"><span class="token keyword">RUN</span> wget -q -O /etc/apk/keys/sgerrand.rsa.pub https://alpine-pkgs.sgerrand.com/sgerrand.rsa.pub</span>
+<span class="token instruction"><span class="token keyword">RUN</span> apk add glibc-2.34-r0.apk</span>
+<span class="token instruction"><span class="token keyword">RUN</span> apk add glibc-bin-2.34-r0.apk</span>
+<span class="token instruction"><span class="token keyword">RUN</span> apk add glibc-dev-2.34-r0.apk</span>
+<span class="token instruction"><span class="token keyword">RUN</span> apk add glibc-i18n-2.34-r0.apk</span>
+<span class="token instruction"><span class="token keyword">RUN</span> rm -rf *.apk</span>
 
 <span class="token comment">#setup date</span>
-<span class="token keyword">RUN</span> apk add tzdata
-<span class="token keyword">RUN</span> cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+<span class="token instruction"><span class="token keyword">RUN</span> apk add tzdata</span>
+<span class="token instruction"><span class="token keyword">RUN</span> cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime</span>
 
 <span class="token comment">#setup language 解决中文乱码</span>
-<span class="token keyword">RUN</span> /usr/glibc<span class="token punctuation">-</span>compat/bin/localedef <span class="token punctuation">-</span>i en_US <span class="token punctuation">-</span>f UTF<span class="token punctuation">-</span>8 en_US.UTF<span class="token punctuation">-</span>8
-<span class="token keyword">ENV</span> LANG=en_US.UTF<span class="token punctuation">-</span>8
+<span class="token instruction"><span class="token keyword">RUN</span> /usr/glibc-compat/bin/localedef -i en_US -f UTF-8 en_US.UTF-8</span>
+<span class="token instruction"><span class="token keyword">ENV</span> LANG=en_US.UTF-8</span>
 
 <span class="token comment"># 添加alias ll='ls -al'</span>
-<span class="token keyword">ADD</span> ./ll /bin/ll
-<span class="token keyword">RUN</span> chmod 777 /bin/ll
+<span class="token instruction"><span class="token keyword">ADD</span> ./ll /bin/ll</span>
+<span class="token instruction"><span class="token keyword">RUN</span> chmod 777 /bin/ll</span>
 
 <span class="token comment">#copy jdk-8u311-linux-x64.tar.gz</span>
-<span class="token keyword">ADD</span> jdk<span class="token punctuation">-</span>8u311<span class="token punctuation">-</span>linux<span class="token punctuation">-</span>x64.tar.gz /usr/local
+<span class="token instruction"><span class="token keyword">ADD</span> jdk-8u311-linux-x64.tar.gz /usr/local</span>
 
 <span class="token comment">#setup java env</span>
-<span class="token keyword">ENV</span> JAVA_HOME=/usr/local/jdk1.8.0_311
-<span class="token keyword">ENV</span> PATH=$PATH<span class="token punctuation">:</span>.<span class="token punctuation">:</span>$JAVA_HOME/bin
-<span class="token keyword">ENV</span> CALSSPATH=$JAVA_HOME/jre/lib/rt.jar<span class="token punctuation">:</span>$JAVA_HOME/lib/dt.jar<span class="token punctuation">:</span>$JAVA_HOME/lib/tools.jar<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token instruction"><span class="token keyword">ENV</span> JAVA_HOME=/usr/local/jdk1.8.0_311</span>
+<span class="token instruction"><span class="token keyword">ENV</span> PATH=<span class="token variable">$PATH</span>:.:<span class="token variable">$JAVA_HOME</span>/bin</span>
+<span class="token instruction"><span class="token keyword">ENV</span> CALSSPATH=<span class="token variable">$JAVA_HOME</span>/jre/lib/rt.jar:<span class="token variable">$JAVA_HOME</span>/lib/dt.jar:<span class="token variable">$JAVA_HOME</span>/lib/tools.jar</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="构建镜像"><a href="#构建镜像" class="headerlink" title="构建镜像"></a>构建镜像</h3><pre class="line-numbers language-docker" data-language="docker"><code class="language-docker">docker build <span class="token punctuation">-</span>f dockerfile<span class="token punctuation">-</span>alpine<span class="token punctuation">-</span>jdk18 <span class="token punctuation">-</span>t xiaosige/alpine<span class="token punctuation">-</span>jdk<span class="token punctuation">:</span>1.0.0 .<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="构建镜像"><a href="#构建镜像" class="headerlink" title="构建镜像"></a>构建镜像</h3><pre class="line-numbers language-docker" data-language="docker"><code class="language-docker">docker build -f dockerfile-alpine-jdk18 -t xiaosige/alpine-jdk:1.0.0 .<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@xiaosige mydockerfile<span class="token punctuation">]</span><span class="token comment"># docker build -f dockerfile-alpine-jdk18 -t xiaosige/alpine-jdk:1.0.0 .</span>
 Sending build context to Docker daemon  <span class="token number">173</span>.6MB
 Step <span class="token number">1</span>/30 <span class="token builtin class-name">:</span> FROM alpine:latest
@@ -892,31 +892,31 @@ Successfully tagged xiaosige/alpine-jdk:1.0.0<span aria-hidden="true" class="lin
 <h3 id="查看镜像"><a href="#查看镜像" class="headerlink" title="查看镜像"></a>查看镜像</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@xiaosige mydockerfile<span class="token punctuation">]</span><span class="token comment"># docker images | grep xiaosige</span>
 xiaosige/alpine-jdk         <span class="token number">1.0</span>.0     358c94e522b9   <span class="token number">20</span> minutes ago   526MB<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
-<h3 id="运行容器，验证"><a href="#运行容器，验证" class="headerlink" title="运行容器，验证"></a>运行容器，验证</h3><pre class="line-numbers language-docker" data-language="docker"><code class="language-docker">docker run <span class="token punctuation">-</span><span class="token punctuation">-</span>name jdk18 <span class="token punctuation">-</span>it  xiaosige/alpine<span class="token punctuation">-</span>jdk<span class="token punctuation">:</span>1.0.0 /bin/bash
+<h3 id="运行容器，验证"><a href="#运行容器，验证" class="headerlink" title="运行容器，验证"></a>运行容器，验证</h3><pre class="line-numbers language-docker" data-language="docker"><code class="language-docker">docker run --name jdk18 -it  xiaosige/alpine-jdk:1.0.0 /bin/bash
 
-docker run <span class="token punctuation">-</span>it <span class="token punctuation">-</span><span class="token punctuation">-</span>rm xiaosige/maven<span class="token punctuation">:</span>3.8<span class="token punctuation">-</span>jdk<span class="token punctuation">-</span>8<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+docker run -it --rm xiaosige/maven:3.8-jdk-8<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">ash-5.1<span class="token comment"># java -version</span>
 java version <span class="token string">"1.8.0_311"</span>
 Java<span class="token punctuation">(</span>TM<span class="token punctuation">)</span> SE Runtime Environment <span class="token punctuation">(</span>build <span class="token number">1.8</span>.0_311-b11<span class="token punctuation">)</span>
 Java HotSpot<span class="token punctuation">(</span>TM<span class="token punctuation">)</span> <span class="token number">64</span>-Bit Server VM <span class="token punctuation">(</span>build <span class="token number">25.311</span>-b11, mixed mode<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h3 id="将镜像推送到镜像仓库"><a href="#将镜像推送到镜像仓库" class="headerlink" title="将镜像推送到镜像仓库"></a>将镜像推送到镜像仓库</h3><pre class="line-numbers language-docker" data-language="docker"><code class="language-docker">
-docker tag xiaosige/alpine<span class="token punctuation">-</span>jdk<span class="token punctuation">:</span>1.0.0 10.211.55.81<span class="token punctuation">:</span>8082/xiaosige/alpine<span class="token punctuation">-</span>jdk<span class="token punctuation">:</span>1.0.0
+docker tag xiaosige/alpine-jdk:1.0.0 10.211.55.81:8082/xiaosige/alpine-jdk:1.0.0
 
-docker push 10.211.55.81<span class="token punctuation">:</span>8082/xiaosige/alpine<span class="token punctuation">-</span>jdk<span class="token punctuation">:</span>1.0.0
+docker push 10.211.55.81:8082/xiaosige/alpine-jdk:1.0.0
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="查看"><a href="#查看" class="headerlink" title="查看"></a>查看</h3><pre class="line-numbers language-docker" data-language="docker"><code class="language-docker"><span class="token punctuation">[</span>root@xiaosige mydockerfile<span class="token punctuation">]</span><span class="token comment"># docker search 10.211.55.81:8082/xiaosige/alpine-jdk:1.0.0</span>
+<h3 id="查看"><a href="#查看" class="headerlink" title="查看"></a>查看</h3><pre class="line-numbers language-docker" data-language="docker"><code class="language-docker">[root@xiaosige mydockerfile]# docker search 10.211.55.81:8082/xiaosige/alpine-jdk:1.0.0
 NAME                                          DESCRIPTION   STARS     OFFICIAL   AUTOMATED
-10.211.55.81<span class="token punctuation">:</span>8082/xiaosige/alpine<span class="token punctuation">-</span>jdk<span class="token punctuation">:</span>1.0.0  <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+10.211.55.81:8082/xiaosige/alpine-jdk:1.0.0  <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <h3 id="PS"><a href="#PS" class="headerlink" title="PS"></a>PS</h3><h4 id="实现alias-ll-39-ls-al-39"><a href="#实现alias-ll-39-ls-al-39" class="headerlink" title="实现alias ll='ls -al' "></a>实现<code>alias ll='ls -al' </code></h4><ol>
 <li>编写<code>ll</code>命令文件: <code>ll</code><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token shebang important">#!/bin/sh</span>
 <span class="token builtin class-name">set</span> -e
 <span class="token builtin class-name">alias</span> <span class="token assign-left variable">ll</span><span class="token operator">=</span><span class="token string">"ls -al"</span>
 ll <span class="token string">"<span class="token variable">$@</span>"</span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li>Dockerifle文件关键内容<pre class="line-numbers language-dockerfile" data-language="dockerfile"><code class="language-dockerfile"><span class="token punctuation">...</span>省略<span class="token punctuation">...</span>
-<span class="token keyword">ADD</span> ./ll /bin/ll<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
+<li>Dockerifle文件关键内容<pre class="line-numbers language-dockerfile" data-language="dockerfile"><code class="language-dockerfile">...省略...
+<span class="token instruction"><span class="token keyword">ADD</span> ./ll /bin/ll</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
 </ol>
 <h4 id="opt-mydockerfile文件结构"><a href="#opt-mydockerfile文件结构" class="headerlink" title="/opt/mydockerfile文件结构"></a><code>/opt/mydockerfile</code>文件结构</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">-rw-r--r--. <span class="token number">1</span> root root      <span class="token number">1898</span> Oct <span class="token number">31</span> <span class="token number">12</span>:35 dockerfile-alpine-jdk18
 -rwxr-xr-x. <span class="token number">1</span> root root   <span class="token number">1940882</span> Oct <span class="token number">31</span> <span class="token number">11</span>:53 glibc-2.34-r0.apk
@@ -1040,13 +1040,13 @@ ll <span class="token string">"<span class="token variable">$@</span>"</span> <s
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">264k</span>
+    <span title="站点总字数">277k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:01</span>
+    <span title="站点阅读时长">4:12</span>
   </span>
 </div>
 <div class="busuanzi-count">

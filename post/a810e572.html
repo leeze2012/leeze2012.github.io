@@ -21,7 +21,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"www.xiaosige.com","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.11.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"changyan","storage":true,"lazyload":true,"nav":null,"activeClass":"changyan"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"www.xiaosige.com","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.11.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"changyan","storage":true,"lazyload":true,"nav":null,"activeClass":"changyan"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="由于对接的项目比较老，要与其数据库进行交互，而且数据库类型不一致，所以我们的项目需要支持多数据源（接口平台），这个还是非常好配置的，SpringBoot给我们提供了多数据源配置的方案，并且每个数据源对应一个JdbcTemplate，这样就方便很多，具体配置如下：">
 <meta property="og:type" content="article">
@@ -643,14 +643,14 @@ canvas#canvas {
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>2.7k</span>
+      <span>2.8k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>2 分钟</span>
+      <span>3 分钟</span>
     </span>
 </div>
 
@@ -666,17 +666,17 @@ canvas#canvas {
 
 <h4 id="application-properties文件内配置多数据源信息"><a href="#application-properties文件内配置多数据源信息" class="headerlink" title="application.properties文件内配置多数据源信息"></a>application.properties文件内配置多数据源信息</h4><p>  首先在application.properties或者yml文件内配置多数据源信息，具体配置如下：</p>
 <pre class="line-numbers language-properties" data-language="properties"><code class="language-properties"><span class="token comment"># ds1数据源配置</span>
-<span class="token attr-name">spring.datasource.ds1.type</span><span class="token punctuation">=</span><span class="token attr-value">com.alibaba.druid.pool.DruidDataSource</span>
-<span class="token attr-name">spring.datasource.ds1.driver-class-name</span><span class="token punctuation">=</span><span class="token attr-value">com.mysql.jdbc.Driver</span>
-<span class="token attr-name">spring.datasource.ds1.url</span><span class="token punctuation">=</span><span class="token attr-value">jdbc:mysql://localhost:3306/zz?useUnicode=true&amp;characterEncoding=utf8</span>
-<span class="token attr-name">spring.datasource.ds1.username</span><span class="token punctuation">=</span><span class="token attr-value">zz</span>
-<span class="token attr-name">spring.datasource.ds1.password</span><span class="token punctuation">=</span><span class="token attr-value">zz</span>
+<span class="token key attr-name">spring.datasource.ds1.type</span><span class="token punctuation">=</span><span class="token value attr-value">com.alibaba.druid.pool.DruidDataSource</span>
+<span class="token key attr-name">spring.datasource.ds1.driver-class-name</span><span class="token punctuation">=</span><span class="token value attr-value">com.mysql.jdbc.Driver</span>
+<span class="token key attr-name">spring.datasource.ds1.url</span><span class="token punctuation">=</span><span class="token value attr-value">jdbc:mysql://localhost:3306/zz?useUnicode=true&amp;characterEncoding=utf8</span>
+<span class="token key attr-name">spring.datasource.ds1.username</span><span class="token punctuation">=</span><span class="token value attr-value">zz</span>
+<span class="token key attr-name">spring.datasource.ds1.password</span><span class="token punctuation">=</span><span class="token value attr-value">zz</span>
 
 <span class="token comment"># ds2数据源配置</span>
-<span class="token attr-name">spring.datasource.ds2.driver-class-name</span><span class="token punctuation">=</span><span class="token attr-value">oracle.jdbc.driver.OracleDriver</span>
-<span class="token attr-name">spring.datasource.ds2.url</span><span class="token punctuation">=</span><span class="token attr-value">jdbc:oracle:thin:@localhost:1521:orcl</span>
-<span class="token attr-name">spring.datasource.ds2.username</span><span class="token punctuation">=</span><span class="token attr-value">system</span>
-<span class="token attr-name">spring.datasource.ds2.password</span><span class="token punctuation">=</span><span class="token attr-value">050508</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token key attr-name">spring.datasource.ds2.driver-class-name</span><span class="token punctuation">=</span><span class="token value attr-value">oracle.jdbc.driver.OracleDriver</span>
+<span class="token key attr-name">spring.datasource.ds2.url</span><span class="token punctuation">=</span><span class="token value attr-value">jdbc:oracle:thin:@localhost:1521:orcl</span>
+<span class="token key attr-name">spring.datasource.ds2.username</span><span class="token punctuation">=</span><span class="token value attr-value">system</span>
+<span class="token key attr-name">spring.datasource.ds2.password</span><span class="token punctuation">=</span><span class="token value attr-value">050508</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h4 id="指定数据源与配置信息"><a href="#指定数据源与配置信息" class="headerlink" title="指定数据源与配置信息"></a>指定数据源与配置信息</h4><p>  上面我们配置好了数据源，但是已经不是SpringBoot默认的数据源配置信息了，所以我们还要指定不同的数据源实例对应哪个配置信息，配置如下：</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">/**
@@ -891,13 +891,13 @@ canvas#canvas {
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">264k</span>
+    <span title="站点总字数">277k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:01</span>
+    <span title="站点阅读时长">4:12</span>
   </span>
 </div>
 <div class="busuanzi-count">

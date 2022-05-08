@@ -21,7 +21,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"www.xiaosige.com","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.11.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"changyan","storage":true,"lazyload":true,"nav":null,"activeClass":"changyan"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"www.xiaosige.com","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.11.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"changyan","storage":true,"lazyload":true,"nav":null,"activeClass":"changyan"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="简介  Gitea是一个极易安装，运行非常快速，安装和使用体验良好的自建Git服务。采用Go作为后端语言，这使得只要生成一个可执行程序即可。并且他还支持跨平台，支持Linux、macOS和Windows以及各种架构，除了x86，amd64，还包括ARM和 PowerPC。   Github地址：https:&#x2F;&#x2F;github.com&#x2F;go-gitea&#x2F;gitea">
 <meta property="og:type" content="article">
@@ -645,7 +645,7 @@ canvas#canvas {
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>2.8k</span>
+      <span>2.9k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -687,13 +687,13 @@ canvas#canvas {
 </ol>
 </div>
 
-<h3 id="下载镜像"><a href="#下载镜像" class="headerlink" title="下载镜像"></a>下载镜像</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">docker pull gitea/gitea<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="下载镜像"><a href="#下载镜像" class="headerlink" title="下载镜像"></a>下载镜像</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> pull gitea/gitea<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <h3 id="创建目录"><a href="#创建目录" class="headerlink" title="创建目录"></a>创建目录</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">mkdir</span> -p /home/dockerdata/gitea/data
 
 <span class="token function">chmod</span> -R <span class="token number">777</span> data<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="运行镜像"><a href="#运行镜像" class="headerlink" title="运行镜像"></a>运行镜像</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">docker run -p <span class="token number">10022</span>:22 -p <span class="token number">3000</span>:3000 --name<span class="token operator">=</span>gitea <span class="token punctuation">\</span>
+<h3 id="运行镜像"><a href="#运行镜像" class="headerlink" title="运行镜像"></a>运行镜像</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> run -p <span class="token number">10022</span>:22 -p <span class="token number">3000</span>:3000 --name<span class="token operator">=</span>gitea <span class="token punctuation">\</span>
 -e <span class="token assign-left variable">TZ</span><span class="token operator">=</span>Asia/Shanghai <span class="token punctuation">\</span>
 --privileged<span class="token operator">=</span>true <span class="token punctuation">\</span>
 --restart<span class="token operator">=</span>always <span class="token punctuation">\</span>
@@ -711,7 +711,7 @@ firewall-cmd  --zone<span class="token operator">=</span>public --add-port<span 
 firewall-cmd --reload<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <h3 id="持久化需要用到数据库"><a href="#持久化需要用到数据库" class="headerlink" title="持久化需要用到数据库"></a>持久化需要用到数据库</h3><ol>
-<li>创建mysql容器<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">docker run --restart<span class="token operator">=</span>always --privileged<span class="token operator">=</span>true -p <span class="token number">3307</span>:3306 --name mysql8 <span class="token punctuation">\</span>
+<li>创建mysql容器<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> run --restart<span class="token operator">=</span>always --privileged<span class="token operator">=</span>true -p <span class="token number">3307</span>:3306 --name mysql8 <span class="token punctuation">\</span>
 --net docker-mynet --ip <span class="token number">172.172</span>.0.5  <span class="token punctuation">\</span>
 -v /Users/lizhang/docker/mysql/conf/my.cnf:/etc/mysql/conf.d/mysqld.cnf <span class="token punctuation">\</span>
 -v /Users/lizhang/docker/mysql/data:/var/lib/mysql <span class="token punctuation">\</span>
@@ -730,32 +730,32 @@ firewall-cmd --reload<span aria-hidden="true" class="line-numbers-rows"><span></
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">cd</span> /root/.docker/gitea/data/gitea/conf
 <span class="token function">vi</span> app.ini<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <pre class="line-numbers language-properties" data-language="properties"><code class="language-properties">[server]
-<span class="token attr-name">APP_DATA_PATH</span>    <span class="token punctuation">=</span> <span class="token attr-value">/data/gitea</span>
-<span class="token attr-name">DOMAIN</span>           <span class="token punctuation">=</span> <span class="token attr-value">10.211.55.81</span>
-<span class="token attr-name">SSH_DOMAIN</span>       <span class="token punctuation">=</span> <span class="token attr-value">10.211.55.81</span>
-<span class="token attr-name">HTTP_PORT</span>        <span class="token punctuation">=</span> <span class="token attr-value">3000</span>
-<span class="token attr-name">ROOT_URL</span>         <span class="token punctuation">=</span> <span class="token attr-value">http://10.211.55.81:3000/</span>
-<span class="token attr-name">DISABLE_SSH</span>      <span class="token punctuation">=</span> <span class="token attr-value">false</span>
-<span class="token attr-name">SSH_PORT</span>         <span class="token punctuation">=</span> <span class="token attr-value">10022</span>
-<span class="token attr-name">SSH_LISTEN_PORT</span>  <span class="token punctuation">=</span> <span class="token attr-value">22</span>
-<span class="token attr-name">LFS_START_SERVER</span> <span class="token punctuation">=</span> <span class="token attr-value">true</span>
-<span class="token attr-name">LFS_CONTENT_PATH</span> <span class="token punctuation">=</span> <span class="token attr-value">/data/git/lfs</span>
-<span class="token attr-name">LFS_JWT_SECRET</span>   <span class="token punctuation">=</span> <span class="token attr-value">kah2Fn5CWTTvaNpJopZUcsIsSLvNF91c1xdwS49BPJQ</span>
-<span class="token attr-name">OFFLINE_MODE</span>     <span class="token punctuation">=</span> <span class="token attr-value">false</span>
+<span class="token key attr-name">APP_DATA_PATH</span>    <span class="token punctuation">=</span> <span class="token value attr-value">/data/gitea</span>
+<span class="token key attr-name">DOMAIN</span>           <span class="token punctuation">=</span> <span class="token value attr-value">10.211.55.81</span>
+<span class="token key attr-name">SSH_DOMAIN</span>       <span class="token punctuation">=</span> <span class="token value attr-value">10.211.55.81</span>
+<span class="token key attr-name">HTTP_PORT</span>        <span class="token punctuation">=</span> <span class="token value attr-value">3000</span>
+<span class="token key attr-name">ROOT_URL</span>         <span class="token punctuation">=</span> <span class="token value attr-value">http://10.211.55.81:3000/</span>
+<span class="token key attr-name">DISABLE_SSH</span>      <span class="token punctuation">=</span> <span class="token value attr-value">false</span>
+<span class="token key attr-name">SSH_PORT</span>         <span class="token punctuation">=</span> <span class="token value attr-value">10022</span>
+<span class="token key attr-name">SSH_LISTEN_PORT</span>  <span class="token punctuation">=</span> <span class="token value attr-value">22</span>
+<span class="token key attr-name">LFS_START_SERVER</span> <span class="token punctuation">=</span> <span class="token value attr-value">true</span>
+<span class="token key attr-name">LFS_CONTENT_PATH</span> <span class="token punctuation">=</span> <span class="token value attr-value">/data/git/lfs</span>
+<span class="token key attr-name">LFS_JWT_SECRET</span>   <span class="token punctuation">=</span> <span class="token value attr-value">kah2Fn5CWTTvaNpJopZUcsIsSLvNF91c1xdwS49BPJQ</span>
+<span class="token key attr-name">OFFLINE_MODE</span>     <span class="token punctuation">=</span> <span class="token value attr-value">false</span>
 
 [database]
-<span class="token attr-name">PATH</span>     <span class="token punctuation">=</span> <span class="token attr-value">/data/gitea/gitea.db</span>
-<span class="token attr-name">DB_TYPE</span>  <span class="token punctuation">=</span> <span class="token attr-value">mysql</span>
-<span class="token attr-name">HOST</span>     <span class="token punctuation">=</span> <span class="token attr-value">10.211.55.81:3306</span>
-<span class="token attr-name">NAME</span>     <span class="token punctuation">=</span> <span class="token attr-value">gitea</span>
-<span class="token attr-name">USER</span>     <span class="token punctuation">=</span> <span class="token attr-value">root</span>
-<span class="token attr-name">PASSWD</span>   <span class="token punctuation">=</span> <span class="token attr-value">Cn123456</span>
-<span class="token attr-name">LOG_SQL</span>  <span class="token punctuation">=</span> <span class="token attr-value">false</span>
-<span class="token attr-name">SCHEMA</span> <span class="token attr-value">  =</span>
-<span class="token attr-name">SSL_MODE</span> <span class="token punctuation">=</span> <span class="token attr-value">disable</span>
-<span class="token attr-name">CHARSET</span>  <span class="token punctuation">=</span> <span class="token attr-value">utf8</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token key attr-name">PATH</span>     <span class="token punctuation">=</span> <span class="token value attr-value">/data/gitea/gitea.db</span>
+<span class="token key attr-name">DB_TYPE</span>  <span class="token punctuation">=</span> <span class="token value attr-value">mysql</span>
+<span class="token key attr-name">HOST</span>     <span class="token punctuation">=</span> <span class="token value attr-value">10.211.55.81:3306</span>
+<span class="token key attr-name">NAME</span>     <span class="token punctuation">=</span> <span class="token value attr-value">gitea</span>
+<span class="token key attr-name">USER</span>     <span class="token punctuation">=</span> <span class="token value attr-value">root</span>
+<span class="token key attr-name">PASSWD</span>   <span class="token punctuation">=</span> <span class="token value attr-value">Cn123456</span>
+<span class="token key attr-name">LOG_SQL</span>  <span class="token punctuation">=</span> <span class="token value attr-value">false</span>
+<span class="token key attr-name">SCHEMA</span> <span class="token value attr-value">  =</span>
+<span class="token key attr-name">SSL_MODE</span> <span class="token punctuation">=</span> <span class="token value attr-value">disable</span>
+<span class="token key attr-name">CHARSET</span>  <span class="token punctuation">=</span> <span class="token value attr-value">utf8</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="PS-gogs"><a href="#PS-gogs" class="headerlink" title="PS gogs"></a>PS gogs</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">docker run -p <span class="token number">10023</span>:22 -p <span class="token number">3001</span>:3000 --name<span class="token operator">=</span>gogs <span class="token punctuation">\</span>
+<h3 id="PS-gogs"><a href="#PS-gogs" class="headerlink" title="PS gogs"></a>PS gogs</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">docker</span> run -p <span class="token number">10023</span>:22 -p <span class="token number">3001</span>:3000 --name<span class="token operator">=</span>gogs <span class="token punctuation">\</span>
 --net docker-mynet --ip <span class="token number">172.172</span>.0.11 <span class="token punctuation">\</span>
 --restart<span class="token operator">=</span>always <span class="token punctuation">\</span>
 -e <span class="token assign-left variable">TZ</span><span class="token operator">=</span><span class="token string">"Asia/Shanghai"</span> <span class="token punctuation">\</span>
@@ -882,13 +882,13 @@ ALLOWED_HOST_LIST <span class="token operator">=</span> <span class="token numbe
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">264k</span>
+    <span title="站点总字数">277k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:01</span>
+    <span title="站点阅读时长">4:12</span>
   </span>
 </div>
 <div class="busuanzi-count">

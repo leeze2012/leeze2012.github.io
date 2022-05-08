@@ -21,7 +21,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"www.xiaosige.com","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.11.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"changyan","storage":true,"lazyload":true,"nav":null,"activeClass":"changyan"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"www.xiaosige.com","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.11.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"changyan","storage":true,"lazyload":true,"nav":null,"activeClass":"changyan"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="介绍    Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。hexo 博客在 Linux 系统中搭建是非常简单的，在 WIN 系统中比较复杂，我们接触的手机📱永远要比电脑的时间要多那么我们可以在安卓手机上使用 termux 来搭建，这样随时随地都可以写做和发表文章。">
 <meta property="og:type" content="article">
@@ -647,14 +647,14 @@ canvas#canvas {
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>14k</span>
+      <span>15k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>12 分钟</span>
+      <span>14 分钟</span>
     </span>
 </div>
 
@@ -876,17 +876,17 @@ try <span class="token punctuation">{</span>
 			exit<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 		<span class="token punctuation">}</span>
-		<span class="token keyword">if</span> <span class="token punctuation">(</span>exec<span class="token punctuation">(</span><span class="token string">'git commit -am "Form auto backup script\'s commit"'</span><span class="token punctuation">)</span>.code <span class="token operator">!=</span><span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-			echo<span class="token punctuation">(</span><span class="token string">'Error: Git commit failed'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-			exit<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token keyword">if</span> <span class="token punctuation">(</span>exec<span class="token punctuation">(</span><span class="token string">'git commit -am "Form auto backup script\'</span>s commit<span class="token string">"').code !== 0) {
+			echo('Error: Git commit failed');
+			exit(1);
 
-		<span class="token punctuation">}</span>
-		<span class="token keyword">if</span> <span class="token punctuation">(</span>exec<span class="token punctuation">(</span><span class="token string">'git push origin master'</span><span class="token punctuation">)</span>.code <span class="token operator">!=</span><span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-			echo<span class="token punctuation">(</span><span class="token string">'Error: Git push failed'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-			exit<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		}
+		if (exec('git push origin master').code !== 0) {
+			echo('Error: Git push failed');
+			exit(1);
 
-		<span class="token punctuation">}</span>
-		echo<span class="token punctuation">(</span><span class="token string">"==================Auto Backup Complete============================"</span><span class="token punctuation">)</span>
+		}
+		echo("</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span>Auto Backup <span class="token assign-left variable">Complete</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span>"<span class="token punctuation">)</span>
 	<span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
@@ -1000,50 +1000,50 @@ hexo init
 <div id="pkJson"></div>
 
 <pre class="line-numbers language-properties" data-language="properties"><code class="language-properties">{
-<span class="token attr-name">  "name"</span><span class="token punctuation">:</span> <span class="token attr-value">"hexo-site",</span>
-<span class="token attr-name">  "version"</span><span class="token punctuation">:</span> <span class="token attr-value">"0.0.0",</span>
-<span class="token attr-name">  "private"</span><span class="token punctuation">:</span> <span class="token attr-value">true,</span>
-<span class="token attr-name">  "scripts"</span><span class="token punctuation">:</span> <span class="token attr-value">{</span>
-<span class="token attr-name">    "build"</span><span class="token punctuation">:</span> <span class="token attr-value">"hexo generate",</span>
-<span class="token attr-name">    "clean"</span><span class="token punctuation">:</span> <span class="token attr-value">"hexo clean",</span>
-<span class="token attr-name">    "deploy"</span><span class="token punctuation">:</span> <span class="token attr-value">"hexo deploy",</span>
-<span class="token attr-name">    "server"</span><span class="token punctuation">:</span> <span class="token attr-value">"hexo server"</span>
+<span class="token key attr-name">  "name"</span><span class="token punctuation">:</span> <span class="token value attr-value">"hexo-site",</span>
+<span class="token key attr-name">  "version"</span><span class="token punctuation">:</span> <span class="token value attr-value">"0.0.0",</span>
+<span class="token key attr-name">  "private"</span><span class="token punctuation">:</span> <span class="token value attr-value">true,</span>
+<span class="token key attr-name">  "scripts"</span><span class="token punctuation">:</span> <span class="token value attr-value">{</span>
+<span class="token key attr-name">    "build"</span><span class="token punctuation">:</span> <span class="token value attr-value">"hexo generate",</span>
+<span class="token key attr-name">    "clean"</span><span class="token punctuation">:</span> <span class="token value attr-value">"hexo clean",</span>
+<span class="token key attr-name">    "deploy"</span><span class="token punctuation">:</span> <span class="token value attr-value">"hexo deploy",</span>
+<span class="token key attr-name">    "server"</span><span class="token punctuation">:</span> <span class="token value attr-value">"hexo server"</span>
   },
-<span class="token attr-name">  "hexo"</span><span class="token punctuation">:</span> <span class="token attr-value">{</span>
-<span class="token attr-name">    "version"</span><span class="token punctuation">:</span> <span class="token attr-value">"5.2.0"</span>
+<span class="token key attr-name">  "hexo"</span><span class="token punctuation">:</span> <span class="token value attr-value">{</span>
+<span class="token key attr-name">    "version"</span><span class="token punctuation">:</span> <span class="token value attr-value">"5.2.0"</span>
   },
-<span class="token attr-name">  "dependencies"</span><span class="token punctuation">:</span> <span class="token attr-value">{</span>
-<span class="token attr-name">    "hexo"</span><span class="token punctuation">:</span> <span class="token attr-value">"^5.2.0",</span>
-<span class="token attr-name">    "hexo-abbrlink"</span><span class="token punctuation">:</span> <span class="token attr-value">"^2.2.1",</span>
-<span class="token attr-name">    "hexo-asset-image"</span><span class="token punctuation">:</span> <span class="token attr-value">"^1.0.0",</span>
-<span class="token attr-name">    "hexo-baidu-url-submit"</span><span class="token punctuation">:</span> <span class="token attr-value">"0.0.6",</span>
-<span class="token attr-name">    "hexo-blog-encrypt"</span><span class="token punctuation">:</span> <span class="token attr-value">"^3.0.13",</span>
-<span class="token attr-name">    "hexo-cake-moon-menu"</span><span class="token punctuation">:</span> <span class="token attr-value">"^2.3.1",</span>
-<span class="token attr-name">    "hexo-deployer-git"</span><span class="token punctuation">:</span> <span class="token attr-value">"^2.1.0",</span>
-<span class="token attr-name">    "hexo-filter-github-emojis"</span><span class="token punctuation">:</span> <span class="token attr-value">"^2.1.0",</span>
-<span class="token attr-name">    "hexo-generator-archive"</span><span class="token punctuation">:</span> <span class="token attr-value">"^1.0.0",</span>
-<span class="token attr-name">    "hexo-generator-baidu-sitemap"</span><span class="token punctuation">:</span> <span class="token attr-value">"^0.1.9",</span>
-<span class="token attr-name">    "hexo-generator-category"</span><span class="token punctuation">:</span> <span class="token attr-value">"^1.0.0",</span>
-<span class="token attr-name">    "hexo-generator-feed"</span><span class="token punctuation">:</span> <span class="token attr-value">"^3.0.0",</span>
-<span class="token attr-name">    "hexo-generator-index-pin-top"</span><span class="token punctuation">:</span> <span class="token attr-value">"^0.2.2",</span>
-<span class="token attr-name">    "hexo-generator-searchdb"</span><span class="token punctuation">:</span> <span class="token attr-value">"^1.3.3",</span>
-<span class="token attr-name">    "hexo-generator-sitemap"</span><span class="token punctuation">:</span> <span class="token attr-value">"^2.1.0",</span>
-<span class="token attr-name">    "hexo-generator-tag"</span><span class="token punctuation">:</span> <span class="token attr-value">"^1.0.0",</span>
-<span class="token attr-name">    "hexo-hide-posts"</span><span class="token punctuation">:</span> <span class="token attr-value">"^0.1.1",</span>
-<span class="token attr-name">    "hexo-inject"</span><span class="token punctuation">:</span> <span class="token attr-value">"^1.0.0",</span>
-<span class="token attr-name">    "hexo-neat"</span><span class="token punctuation">:</span> <span class="token attr-value">"^1.0.9",</span>
-<span class="token attr-name">    "hexo-related-popular-posts"</span><span class="token punctuation">:</span> <span class="token attr-value">"^5.0.1",</span>
-<span class="token attr-name">    "hexo-renderer-ejs"</span><span class="token punctuation">:</span> <span class="token attr-value">"^1.0.0",</span>
-<span class="token attr-name">    "hexo-renderer-marked"</span><span class="token punctuation">:</span> <span class="token attr-value">"^3.3.0",</span>
-<span class="token attr-name">    "hexo-renderer-pug"</span><span class="token punctuation">:</span> <span class="token attr-value">"^1.0.0",</span>
-<span class="token attr-name">    "hexo-renderer-stylus"</span><span class="token punctuation">:</span> <span class="token attr-value">"^2.0.1",</span>
-<span class="token attr-name">    "hexo-server"</span><span class="token punctuation">:</span> <span class="token attr-value">"^2.0.0",</span>
-<span class="token attr-name">    "hexo-sliding-spoiler"</span><span class="token punctuation">:</span> <span class="token attr-value">"^1.2.1",</span>
-<span class="token attr-name">    "hexo-symbols-count-time"</span><span class="token punctuation">:</span> <span class="token attr-value">"^0.7.1",</span>
-<span class="token attr-name">    "hexo-tag-friends"</span><span class="token punctuation">:</span> <span class="token attr-value">"^0.3.4",</span>
-<span class="token attr-name">    "prismjs"</span><span class="token punctuation">:</span> <span class="token attr-value">"^1.21.0",</span>
-<span class="token attr-name">    "shelljs"</span><span class="token punctuation">:</span> <span class="token attr-value">"^0.8.4",</span>
-<span class="token attr-name">    "valine"</span><span class="token punctuation">:</span> <span class="token attr-value">"^1.4.14"</span>
+<span class="token key attr-name">  "dependencies"</span><span class="token punctuation">:</span> <span class="token value attr-value">{</span>
+<span class="token key attr-name">    "hexo"</span><span class="token punctuation">:</span> <span class="token value attr-value">"^5.2.0",</span>
+<span class="token key attr-name">    "hexo-abbrlink"</span><span class="token punctuation">:</span> <span class="token value attr-value">"^2.2.1",</span>
+<span class="token key attr-name">    "hexo-asset-image"</span><span class="token punctuation">:</span> <span class="token value attr-value">"^1.0.0",</span>
+<span class="token key attr-name">    "hexo-baidu-url-submit"</span><span class="token punctuation">:</span> <span class="token value attr-value">"0.0.6",</span>
+<span class="token key attr-name">    "hexo-blog-encrypt"</span><span class="token punctuation">:</span> <span class="token value attr-value">"^3.0.13",</span>
+<span class="token key attr-name">    "hexo-cake-moon-menu"</span><span class="token punctuation">:</span> <span class="token value attr-value">"^2.3.1",</span>
+<span class="token key attr-name">    "hexo-deployer-git"</span><span class="token punctuation">:</span> <span class="token value attr-value">"^2.1.0",</span>
+<span class="token key attr-name">    "hexo-filter-github-emojis"</span><span class="token punctuation">:</span> <span class="token value attr-value">"^2.1.0",</span>
+<span class="token key attr-name">    "hexo-generator-archive"</span><span class="token punctuation">:</span> <span class="token value attr-value">"^1.0.0",</span>
+<span class="token key attr-name">    "hexo-generator-baidu-sitemap"</span><span class="token punctuation">:</span> <span class="token value attr-value">"^0.1.9",</span>
+<span class="token key attr-name">    "hexo-generator-category"</span><span class="token punctuation">:</span> <span class="token value attr-value">"^1.0.0",</span>
+<span class="token key attr-name">    "hexo-generator-feed"</span><span class="token punctuation">:</span> <span class="token value attr-value">"^3.0.0",</span>
+<span class="token key attr-name">    "hexo-generator-index-pin-top"</span><span class="token punctuation">:</span> <span class="token value attr-value">"^0.2.2",</span>
+<span class="token key attr-name">    "hexo-generator-searchdb"</span><span class="token punctuation">:</span> <span class="token value attr-value">"^1.3.3",</span>
+<span class="token key attr-name">    "hexo-generator-sitemap"</span><span class="token punctuation">:</span> <span class="token value attr-value">"^2.1.0",</span>
+<span class="token key attr-name">    "hexo-generator-tag"</span><span class="token punctuation">:</span> <span class="token value attr-value">"^1.0.0",</span>
+<span class="token key attr-name">    "hexo-hide-posts"</span><span class="token punctuation">:</span> <span class="token value attr-value">"^0.1.1",</span>
+<span class="token key attr-name">    "hexo-inject"</span><span class="token punctuation">:</span> <span class="token value attr-value">"^1.0.0",</span>
+<span class="token key attr-name">    "hexo-neat"</span><span class="token punctuation">:</span> <span class="token value attr-value">"^1.0.9",</span>
+<span class="token key attr-name">    "hexo-related-popular-posts"</span><span class="token punctuation">:</span> <span class="token value attr-value">"^5.0.1",</span>
+<span class="token key attr-name">    "hexo-renderer-ejs"</span><span class="token punctuation">:</span> <span class="token value attr-value">"^1.0.0",</span>
+<span class="token key attr-name">    "hexo-renderer-marked"</span><span class="token punctuation">:</span> <span class="token value attr-value">"^3.3.0",</span>
+<span class="token key attr-name">    "hexo-renderer-pug"</span><span class="token punctuation">:</span> <span class="token value attr-value">"^1.0.0",</span>
+<span class="token key attr-name">    "hexo-renderer-stylus"</span><span class="token punctuation">:</span> <span class="token value attr-value">"^2.0.1",</span>
+<span class="token key attr-name">    "hexo-server"</span><span class="token punctuation">:</span> <span class="token value attr-value">"^2.0.0",</span>
+<span class="token key attr-name">    "hexo-sliding-spoiler"</span><span class="token punctuation">:</span> <span class="token value attr-value">"^1.2.1",</span>
+<span class="token key attr-name">    "hexo-symbols-count-time"</span><span class="token punctuation">:</span> <span class="token value attr-value">"^0.7.1",</span>
+<span class="token key attr-name">    "hexo-tag-friends"</span><span class="token punctuation">:</span> <span class="token value attr-value">"^0.3.4",</span>
+<span class="token key attr-name">    "prismjs"</span><span class="token punctuation">:</span> <span class="token value attr-value">"^1.21.0",</span>
+<span class="token key attr-name">    "shelljs"</span><span class="token punctuation">:</span> <span class="token value attr-value">"^0.8.4",</span>
+<span class="token key attr-name">    "valine"</span><span class="token punctuation">:</span> <span class="token value attr-value">"^1.4.14"</span>
   }
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
@@ -1498,13 +1498,13 @@ tags:
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">264k</span>
+    <span title="站点总字数">277k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:01</span>
+    <span title="站点阅读时长">4:12</span>
   </span>
 </div>
 <div class="busuanzi-count">

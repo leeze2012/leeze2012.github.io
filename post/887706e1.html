@@ -21,7 +21,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"www.xiaosige.com","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.11.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"changyan","storage":true,"lazyload":true,"nav":null,"activeClass":"changyan"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"www.xiaosige.com","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.11.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"changyan","storage":true,"lazyload":true,"nav":null,"activeClass":"changyan"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="打包镜像  在Dockerfile 目录下cmd窗口执行以下命令： docker build -t 镜像名称 -f Dockerfile .">
 <meta property="og:type" content="article">
@@ -637,7 +637,7 @@ canvas#canvas {
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>430</span>
+      <span>514</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -656,26 +656,26 @@ canvas#canvas {
     
     <div class="post-body" itemprop="articleBody">
         <h3 id="打包镜像"><a href="#打包镜像" class="headerlink" title="打包镜像"></a>打包镜像</h3><p>  在Dockerfile 目录下cmd窗口执行以下命令：</p>
-<pre class="line-numbers language-docker" data-language="docker"><code class="language-docker">docker build <span class="token punctuation">-</span>t 镜像名称 <span class="token punctuation">-</span>f Dockerfile .<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-docker" data-language="docker"><code class="language-docker">docker build -t 镜像名称 -f Dockerfile .<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <span id="more"></span>
 
 <div class="note success no-icon"><p><code>-t</code> : 镜像名和版本。<br><code>-f</code> : Dockerfile，默认当前目录Dockerfile，当然也可以是其他名字。<br><code>.</code>  : 注意，最后这个<code>.</code>，必须有。</p>
 </div>
 <p>  例如：</p>
-<pre class="line-numbers language-docker" data-language="docker"><code class="language-docker">docker build <span class="token punctuation">-</span>f Dockerfile <span class="token punctuation">-</span>t user<span class="token punctuation">:</span>v1.0 .
-docker build <span class="token punctuation">-</span>f dockerfile<span class="token punctuation">-</span>alpine<span class="token punctuation">-</span>glibc<span class="token punctuation">-</span>jdk18 <span class="token punctuation">-</span>t xiaosige/alpine<span class="token punctuation">-</span>glibc<span class="token punctuation">:</span>8_jdk .<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-docker" data-language="docker"><code class="language-docker">docker build -f Dockerfile -t user:v1.0 .
+docker build -f dockerfile-alpine-glibc-jdk18 -t xiaosige/alpine-glibc:8_jdk .<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 
 <h3 id="镜像保存"><a href="#镜像保存" class="headerlink" title="镜像保存"></a>镜像保存</h3><p>  cmd窗口执行：</p>
-<pre class="line-numbers language-docker" data-language="docker"><code class="language-docker">docker save <span class="token punctuation">-</span>o 保存至本地文件名 待保存镜像<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-docker" data-language="docker"><code class="language-docker">docker save -o 保存至本地文件名 待保存镜像<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>  例如：</p>
-<pre class="line-numbers language-docker" data-language="docker"><code class="language-docker">docker save <span class="token punctuation">-</span>o user.tar user<span class="token punctuation">:</span>v1.0<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-docker" data-language="docker"><code class="language-docker">docker save -o user.tar user:v1.0<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <h3 id="镜像导入"><a href="#镜像导入" class="headerlink" title="镜像导入"></a>镜像导入</h3><p>  cmd窗口执行：</p>
-<pre class="line-numbers language-docker" data-language="docker"><code class="language-docker">docker load <span class="token punctuation">-</span><span class="token punctuation">-</span>input 本地文件名<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-docker" data-language="docker"><code class="language-docker">docker load --input 本地文件名<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>  例如：</p>
-<pre class="line-numbers language-docker" data-language="docker"><code class="language-docker">docker load <span class="token punctuation">-</span>i user.tar <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-docker" data-language="docker"><code class="language-docker">docker load -i user.tar <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <h3 id="PS"><a href="#PS" class="headerlink" title="PS"></a>PS</h3><ol>
 <li>如果镜像保存的时候为 <code>save</code> 那么导入应该使用<code>load</code></li>
@@ -792,13 +792,13 @@ docker build <span class="token punctuation">-</span>f dockerfile<span class="to
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">264k</span>
+    <span title="站点总字数">277k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:01</span>
+    <span title="站点阅读时长">4:12</span>
   </span>
 </div>
 <div class="busuanzi-count">
