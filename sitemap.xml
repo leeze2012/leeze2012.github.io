@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://www.xiaosige.com/links/index.html</loc>
+    
+    <lastmod>2022-05-09</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.xiaosige.com/post/4612f524.html</loc>
+    
+    <lastmod>2022-05-09</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://www.xiaosige.com/post/cb326ecf.html</loc>
     
     <lastmod>2022-05-09</lastmod>
@@ -93,13 +107,6 @@
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/post/4612f524.html</loc>
-    
-    <lastmod>2022-05-09</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://www.xiaosige.com/post/c0af152c.html</loc>
     
     <lastmod>2022-05-08</lastmod>
@@ -110,13 +117,6 @@
     <loc>https://www.xiaosige.com/welfare/index.html</loc>
     
     <lastmod>2022-05-08</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.xiaosige.com/links/index.html</loc>
-    
-    <lastmod>2022-04-29</lastmod>
     
   </url>
   
@@ -858,13 +858,6 @@
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/tags/Decimal/</loc>
-    <lastmod>2022-05-09</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.xiaosige.com/tags/BootStrap/</loc>
     <lastmod>2022-05-09</lastmod>
     <changefreq>daily</changefreq>
@@ -873,6 +866,13 @@
   
   <url>
     <loc>https://www.xiaosige.com/tags/Linux/</loc>
+    <lastmod>2022-05-09</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.xiaosige.com/tags/Decimal/</loc>
     <lastmod>2022-05-09</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -991,14 +991,14 @@
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/tags/Idea/</loc>
+    <loc>https://www.xiaosige.com/tags/Jdk/</loc>
     <lastmod>2022-05-09</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/tags/Jdk/</loc>
+    <loc>https://www.xiaosige.com/tags/Idea/</loc>
     <lastmod>2022-05-09</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1089,14 +1089,14 @@
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/tags/SpringBoot/</loc>
+    <loc>https://www.xiaosige.com/tags/snowflake/</loc>
     <lastmod>2022-05-09</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/tags/snowflake/</loc>
+    <loc>https://www.xiaosige.com/tags/SpringBoot/</loc>
     <lastmod>2022-05-09</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1147,13 +1147,6 @@
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/categories/JavaScript/</loc>
-    <lastmod>2022-05-09</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.xiaosige.com/categories/BootStrap/</loc>
     <lastmod>2022-05-09</lastmod>
     <changefreq>daily</changefreq>
@@ -1162,6 +1155,13 @@
   
   <url>
     <loc>https://www.xiaosige.com/categories/Linux/</loc>
+    <lastmod>2022-05-09</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.xiaosige.com/categories/JavaScript/</loc>
     <lastmod>2022-05-09</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1231,14 +1231,14 @@
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/categories/Idea/</loc>
+    <loc>https://www.xiaosige.com/categories/Java/</loc>
     <lastmod>2022-05-09</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/categories/Java/</loc>
+    <loc>https://www.xiaosige.com/categories/Idea/</loc>
     <lastmod>2022-05-09</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
