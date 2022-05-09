@@ -674,7 +674,7 @@ blacklist ibmpex
       </tags>
   </entry>
   <entry>
-    <title>Docker安装Redis6并且配置redis.conf</title>
+    <title>【Docker】之安装Redis6并且配置redis.conf</title>
     <url>/post/63ae3ee4.html</url>
     <content><![CDATA[<h3 id="安装方式一"><a href="#安装方式一" class="headerlink" title="安装方式一"></a>安装方式一</h3><h4 id="拉取Docker的Redis镜像"><a href="#拉取Docker的Redis镜像" class="headerlink" title="拉取Docker的Redis镜像"></a>拉取Docker的Redis镜像</h4><pre class="line-numbers language-docker" data-language="docker"><code class="language-docker">docker pull redis:6.2.6<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
@@ -1884,7 +1884,7 @@ if<span class="token punctuation">(</span><span class="token variable">$close</s
       </tags>
   </entry>
   <entry>
-    <title>使用Docker安装MongoDB</title>
+    <title>【Docker】之安装MongoDB</title>
     <url>/post/a639ff5d.html</url>
     <content><![CDATA[<h3 id="安装mongodb"><a href="#安装mongodb" class="headerlink" title="安装mongodb"></a>安装mongodb</h3><h4 id="获取MongoDB镜像"><a href="#获取MongoDB镜像" class="headerlink" title="获取MongoDB镜像"></a>获取MongoDB镜像</h4><pre class="line-numbers language-docker" data-language="docker"><code class="language-docker">docker pull mongo:5.0.6<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
@@ -2620,7 +2620,7 @@ Login Succeeded
       </tags>
   </entry>
   <entry>
-    <title>Docker 安装 Maven私服 Nexus3</title>
+    <title>【Docker】之安装 Maven私服 Nexus3</title>
     <url>/post/a6836d41.html</url>
     <content><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>  Nexus 是Maven仓库管理器，如果你使用Maven，你可以从Maven中央仓库 下载所需要的构件（artifact），但这通常不是一个好的做法，你应该在本地架设一个Maven仓库服务器，在代理远程仓库的同时维护本地仓库，以节省带宽和时间，Nexus就可以满足这样的需要。此外，他还提供了强大的仓库管理功能，构件搜索功能，它基于REST，友好的UI是一个extjs的REST客户端，它占用较少的内存，基于简单文件系统而非数据库。这些优点使其日趋成为最流行的Maven仓库管理器。除此之外，Nexus还可以管理Docker镜像。</p>
 <span id="more"></span>
@@ -2825,7 +2825,7 @@ firewall-cmd --reload<span aria-hidden="true" class="line-numbers-rows"><span></
       </tags>
   </entry>
   <entry>
-    <title>Docker安装部署Jenkins</title>
+    <title>【Docker】之安装部署Jenkins</title>
     <url>/post/78357a82.html</url>
     <content><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>  记录下 Docker 下 Jenkins 的安装。<br>  DockerHub: <a href="https://hub.docker.com/r/jenkins/jenkins/">https://hub.docker.com/r/jenkins/jenkins/</a></p>
 <span id="more"></span>
@@ -2960,7 +2960,7 @@ docker images|grep none|awk '{print $3}'|xargs docker rmi
       </tags>
   </entry>
   <entry>
-    <title>Docker使用Gitea+Drone实现持续集成(CI/CD)</title>
+    <title>【Docker】之使用Gitea+Drone实现持续集成(CI/CD)</title>
     <url>/post/3abef87b.html</url>
     <content><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><div class="note success no-icon"><p>  在开发或生产环境中，我们经常会搞一套自动化部署方案（俗称一键部署）。比较流行的一种就是Gitlab+Jenkins实现方案，不过这种方案占用内存比较大，没有个8G内存，很难流畅运行，而且部署起来也不快。最近发现一款神器Drone，轻量级CI/DI工具，结合Gogs使用内存占用不到1G，几行脚本就能实现自动化部署，推荐给大家！</p>
 </div>
@@ -2968,7 +2968,7 @@ docker images|grep none|awk '{print $3}'|xargs docker rmi
 
 <h3 id="安装Gitea"><a href="#安装Gitea" class="headerlink" title="安装Gitea"></a>安装<code>Gitea</code></h3><div class="note success no-icon"><p>  Gitea 是一个开源社区驱动的 Gogs 克隆, 是一个轻量级的代码托管解决方案，后端采用 Go 编写，采用 MIT 许可证.<br>  Gitea的是创建一个极易安装，运行非常快速，安装和使用体验良好的自建 Git 服务。采用Go作为后端语言，只要生成一个可执行程序即可。并且它还支持跨平台，支持 Linux, macOS 和 Windows 以及各种架构，除了x86，amd64，还包括 ARM 和 PowerPC。</p>
 </div>
-<p>  安装过程，参考：<a href="/post/853577ec.html" title="Docker安装Gitea">Docker安装Gitea</a></p>
+<p>  安装过程，参考：<a href="/post/853577ec.html" title="【Docker】之安装Gitea">【Docker】之安装Gitea</a></p>
 <h3 id="安装Drone"><a href="#安装Drone" class="headerlink" title="安装Drone"></a>安装<code>Drone</code></h3><div class="note success no-icon"><p>  Drone是一种基于容器技术的持续交付系统。Drone使用简单的YAML配置文件（docker-compose的超集）来定义和执行Docker容器中的Pipelines。<br>  Drone与流行的源代码管理系统无缝集成，包括GitHub，GitHub Enterprise，Bitbucket等。<br>  Drone附上官网文档地址：<a href="https://docs.drone.io/">https://docs.drone.io/</a></p>
 </div>
 
@@ -3159,7 +3159,7 @@ echo '----start container----'<span aria-hidden="true" class="line-numbers-rows"
       </tags>
   </entry>
   <entry>
-    <title>Docker安装Gitea</title>
+    <title>【Docker】之安装Gitea</title>
     <url>/post/853577ec.html</url>
     <content><![CDATA[<h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>  Gitea是一个极易安装，运行非常快速，安装和使用体验良好的自建Git服务。采用Go作为后端语言，这使得只要生成一个可执行程序即可。并且他还支持跨平台，支持Linux、macOS和Windows以及各种架构，除了x86，amd64，还包括ARM和 PowerPC。</p>
 <p>  Github地址：<a href="https://github.com/go-gitea/gitea">https://github.com/go-gitea/gitea</a></p>
@@ -3508,7 +3508,7 @@ personInDb <span class="token operator">=</span> personMapper<span class="token 
       </tags>
   </entry>
   <entry>
-    <title>Docker 查看端口占用列表</title>
+    <title>【Docker】之查看端口占用列表</title>
     <url>/post/cb326ecf.html</url>
     <content><![CDATA[<p>  我们在部署新项目时，不知道启动的容器都占用了那些端口，docker ps 眼花缭乱。我们可以使用netstat看一下。</p>
 <span id="more"></span>
@@ -3534,7 +3534,7 @@ personInDb <span class="token operator">=</span> personMapper<span class="token 
       </tags>
   </entry>
   <entry>
-    <title>Docker中搭建Jira</title>
+    <title>【Docker】之搭建Jira</title>
     <url>/post/4ed27834.html</url>
     <content><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>  JIRA 是 Atlassian 公司出品的项目与事务跟踪工具，被广泛应用于缺陷跟踪、客户服务、需求收集、流程审批、任务跟踪、项目跟踪和敏捷管理等工作领域。<br>  Centos下安装参考：<a href="/post/afb30e04.html" title="Centos下Jira8.x版本安装与破解">Centos下Jira8.x版本安装与破解</a>。<br>  下面介绍是采用<code>docker</code>来进行部署。</p>
 <span id="more"></span>
@@ -3843,7 +3843,7 @@ firewall-cmd --reload<span aria-hidden="true" class="line-numbers-rows"><span></
       </tags>
   </entry>
   <entry>
-    <title>Docker安装portainer-ce2.0</title>
+    <title>【Docker】之安装portainer-ce2.0</title>
     <url>/post/5086702b.html</url>
     <content><![CDATA[<h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>  Portainer是Docker的图形化管理工具，提供状态显示面板、应用模板快速部署、容器镜像网络数据卷的基本操作（包括上传下载镜像，创建容器等操作）、事件日志显示、容器控制台操作、Swarm集群和服务等集中管理和操作、登录用户管理和控制等功能。功能十分全面，基本能满足中小型单位对容器管理的全部需求。</p>
 <span id="more"></span>
@@ -3964,7 +3964,7 @@ firwall-cmd：是Linux提供的操作firewall的一个工具（服务）命令
       </tags>
   </entry>
   <entry>
-    <title>Docker 安装 GitLab</title>
+    <title>【Docker】之安装 GitLab</title>
     <url>/post/6af4ceb4.html</url>
     <content><![CDATA[<h3 id="一，介绍"><a href="#一，介绍" class="headerlink" title="一，介绍"></a>一，介绍</h3><p>  GitLab 分为社区版（Community Edition，缩写为 CE）和 企业版（Enterprise Edition，缩写为 EE）。社区版是免费的，而企业版包含一些收费服务，一般来说个人开发者用社区版就足够了。</p>
 <span id="more"></span>
@@ -4175,7 +4175,7 @@ docker exec -it gitlab update-permissions<span aria-hidden="true" class="line-nu
       </tags>
   </entry>
   <entry>
-    <title>Docker 安装MySQL5并挂载数据</title>
+    <title>【Docker】之安装MySQL5并挂载数据</title>
     <url>/post/4b28e03f.html</url>
     <content><![CDATA[<h3 id="从仓库下拉镜像"><a href="#从仓库下拉镜像" class="headerlink" title="从仓库下拉镜像"></a>从仓库下拉镜像</h3><pre class="line-numbers language-docker" data-language="docker"><code class="language-docker">sudo docker pull mysql:5.7.37<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
@@ -4268,7 +4268,7 @@ ALTER TABLE TABLE_NAME CONVERT TO CHARACTER SET utf8mb4 COLLATEutf8mb4_general_c
       </tags>
   </entry>
   <entry>
-    <title>Docker 安装MySQL8并挂载数据</title>
+    <title>【Docker】之安装MySQL8并挂载数据</title>
     <url>/post/d4875b9e.html</url>
     <content><![CDATA[<h3 id="下载镜像"><a href="#下载镜像" class="headerlink" title="下载镜像"></a>下载镜像</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># docker从仓库中拉取最新版的mysql镜像，默认获取最新的版本</span>
   <span class="token function">docker</span> pull mysql

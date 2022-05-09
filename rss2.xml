@@ -236,7 +236,7 @@ docker pull rabbitmq:3.9.16-management&lt;span aria-hidden=&quot;true&quot; clas
     </item>
     
     <item>
-      <title>Docker安装Redis6并且配置redis.conf</title>
+      <title>【Docker】之安装Redis6并且配置redis.conf</title>
       <link>https://www.xiaosige.com/post/63ae3ee4.html</link>
       <guid>https://www.xiaosige.com/post/63ae3ee4.html</guid>
       <pubDate>Wed, 30 Mar 2022 16:26:15 GMT</pubDate>
@@ -301,7 +301,7 @@ docker pull rabbitmq:3.9.16-management&lt;span aria-hidden=&quot;true&quot; clas
     </item>
     
     <item>
-      <title>使用Docker安装MongoDB</title>
+      <title>【Docker】之安装MongoDB</title>
       <link>https://www.xiaosige.com/post/a639ff5d.html</link>
       <guid>https://www.xiaosige.com/post/a639ff5d.html</guid>
       <pubDate>Fri, 11 Feb 2022 09:05:16 GMT</pubDate>
@@ -407,7 +407,7 @@ docker pull rabbitmq:3.9.16-management&lt;span aria-hidden=&quot;true&quot; clas
     </item>
     
     <item>
-      <title>Docker 安装 Maven私服 Nexus3</title>
+      <title>【Docker】之安装 Maven私服 Nexus3</title>
       <link>https://www.xiaosige.com/post/a6836d41.html</link>
       <guid>https://www.xiaosige.com/post/a6836d41.html</guid>
       <pubDate>Tue, 22 Jun 2021 16:48:12 GMT</pubDate>
