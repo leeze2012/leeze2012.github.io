@@ -15,7 +15,7 @@
     <atom:link href="https://www.xiaosige.com/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>因上努力，果上随缘！</description>
-    <pubDate>Mon, 09 May 2022 14:42:00 GMT</pubDate>
+    <pubDate>Mon, 09 May 2022 15:39:03 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     <item>
@@ -24,11 +24,12 @@
       <guid>https://www.xiaosige.com/post/95ad3e48.html</guid>
       <pubDate>Mon, 09 May 2022 13:04:19 GMT</pubDate>
       
-      <description>&lt;h3 id=&quot;概述&quot;&gt;&lt;a href=&quot;#概述&quot; class=&quot;headerlink&quot; title=&quot;概述&quot;&gt;&lt;/a&gt;概述&lt;/h3&gt;&lt;ol&gt;
-&lt;li&gt;保证每个红包最少分得0.01元&lt;/li&gt;
+      <description>&lt;h3 id=&quot;概述&quot;&gt;&lt;a href=&quot;#概述&quot; class=&quot;headerlink&quot; title=&quot;概述&quot;&gt;&lt;/a&gt;概述&lt;/h3&gt;&lt;div class=&quot;note success no-icon&quot;&gt;&lt;ol&gt;
+&lt;li&gt;保证每个红包最少分得&lt;code&gt;0.01&lt;/code&gt;元&lt;/li&gt;
 &lt;li&gt;保证每个红包金额概率尽量均衡&lt;/li&gt;
 &lt;li&gt;所有红包累计金额登于红包总金额&lt;/li&gt;
-&lt;/ol&gt;</description>
+&lt;/ol&gt;
+&lt;/div&gt;</description>
       
       
       
@@ -49,7 +50,7 @@
       <guid>https://www.xiaosige.com/post/4612f524.html</guid>
       <pubDate>Mon, 09 May 2022 05:07:58 GMT</pubDate>
       
-      <description>&lt;img data-src=&quot;/post/4612f524/skywalking-001.png&quot; class=&quot;&quot;&gt;</description>
+      <description>&lt;img data-src=&quot;/post/4612f524/skywalking-001.png&quot; style=&quot;box-shadow:none!important;&quot;&gt;</description>
       
       
       
@@ -95,7 +96,7 @@ docker pull rabbitmq:3.9.16-management&lt;span aria-hidden=&quot;true&quot; clas
       <guid>https://www.xiaosige.com/post/5aa01560.html</guid>
       <pubDate>Sun, 08 May 2022 12:48:43 GMT</pubDate>
       
-      <description>&lt;img data-src=&quot;/post/5aa01560/docker001.jpeg&quot; class=&quot;&quot;&gt;</description>
+      <description>&lt;img data-src=&quot;/post/5aa01560/docker001.jpeg&quot; style=&quot;box-shadow:none!important;&quot;&gt;</description>
       
       
       

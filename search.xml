@@ -66,20 +66,24 @@ lrwxrwxrwx. <span class="token number">1</span> root root <span class="token num
   <entry>
     <title>Java实现4种微信抢红包算法</title>
     <url>/post/95ad3e48.html</url>
-    <content><![CDATA[<h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><ol>
-<li>保证每个红包最少分得0.01元</li>
+    <content><![CDATA[<h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><div class="note success no-icon"><ol>
+<li>保证每个红包最少分得<code>0.01</code>元</li>
 <li>保证每个红包金额概率尽量均衡</li>
 <li>所有红包累计金额登于红包总金额</li>
 </ol>
+</div>
+
 <span id="more"></span>
 
-<h3 id="红包算法"><a href="#红包算法" class="headerlink" title="红包算法"></a>红包算法</h3><h4 id="剩余金额随机法"><a href="#剩余金额随机法" class="headerlink" title="剩余金额随机法"></a>剩余金额随机法</h4><p>  以<code>10</code>元<code>10</code>个红包为例，去除每个红包的最小金额后，红包剩余<code>9.9</code>元；</p>
+<h3 id="红包算法"><a href="#红包算法" class="headerlink" title="红包算法"></a>红包算法</h3><h4 id="剩余金额随机法"><a href="#剩余金额随机法" class="headerlink" title="剩余金额随机法"></a>剩余金额随机法</h4><div class="note success no-icon"><p>  以<code>10</code>元<code>10</code>个红包为例，去除每个红包的最小金额后，红包剩余<code>9.9</code>元；</p>
 <ol>
 <li>第一个红包在<code>[0,9.9]</code>范围随机，假设随机得<code>1</code>元，则第一个红包金额为<code>1.1</code>元，红包剩余<code>8.9</code>元。</li>
 <li>第二个红包在<code>[0,8.9]</code>范围随机，假设随机得<code>1.5</code>元，则第二个红包金额为<code>1.6</code>元，红包剩余<code>7.4</code>元。</li>
 <li>第三个红包在<code>[0,7.4]</code>范围随机，假设随机得<code>0.5</code>元，则第三个红包金额为<code>0.6</code>元，红包剩余<code>6.9</code>元。</li>
 <li>以此类推。</li>
 </ol>
+</div>
+
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token comment">//初始化测试场景</span>
     <span class="token class-name">BigDecimal</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token punctuation">]</span> rrr <span class="token operator">=</span> <span class="token punctuation">{</span>
@@ -175,13 +179,15 @@ lrwxrwxrwx. <span class="token number">1</span> root root <span class="token num
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
-<h4 id="二倍均值法-微信红包采用此法"><a href="#二倍均值法-微信红包采用此法" class="headerlink" title="二倍均值法(微信红包采用此法)"></a>二倍均值法(微信红包采用此法)</h4><p>  还是以<code>10</code>元<code>10</code>个红包为例，去除每个红包的最小金额后，红包剩余<code>9.9</code>元，二倍均值计算公式：<code>2 * 剩余金额/剩余红包数</code></p>
+<h4 id="二倍均值法-微信红包采用此法"><a href="#二倍均值法-微信红包采用此法" class="headerlink" title="二倍均值法(微信红包采用此法)"></a>二倍均值法(<code>微信红包采用此法</code>)</h4><div class="note success no-icon"><p>  还是以<code>10</code>元<code>10</code>个红包为例，去除每个红包的最小金额后，红包剩余<code>9.9</code>元，二倍均值计算公式：<code>2 * 剩余金额/剩余红包数</code></p>
 <ol>
 <li>第一个红包在<code>[0,1.98]</code>范围随机，假设随机得<code>1.9</code>，则第一个红包金额为<code>2.0</code>，红包剩余<code>8</code>元。</li>
 <li>第二个红包在<code>[0,2]</code>范围随机，假设随机的<code>1</code>元，则第二个红包金额为<code>1.1</code>元，红包剩余<code>7</code>元。</li>
 <li>第三个红包在<code>[0,2]</code>范围随机，假设随机的<code>0.5</code>元，则第三个红包金额为<code>0.6</code>元，红包剩余<code>5.5</code>元。</li>
 <li>以此类推。</li>
 </ol>
+</div>
+
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token comment">//初始化测试场景</span>
     <span class="token class-name">BigDecimal</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token punctuation">]</span> rrr <span class="token operator">=</span> <span class="token punctuation">{</span>
@@ -279,13 +285,15 @@ lrwxrwxrwx. <span class="token number">1</span> root root <span class="token num
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
-<h4 id="整体随机法"><a href="#整体随机法" class="headerlink" title="整体随机法"></a>整体随机法</h4><p>  还是以<code>10</code>元<code>10</code>个红包为例，随机<code>10</code>个数，红包金额公式为：<code>红包总额 * 随机数/随机数总和</code>，假设<code>10</code>个随机数为<code>[5,9,8,7,6,5,4,3,2,1]</code>,<code>10</code>个随机数总和为<code>50</code>，</p>
+<h4 id="整体随机法"><a href="#整体随机法" class="headerlink" title="整体随机法"></a>整体随机法</h4><div class="note success no-icon"><p>  还是以<code>10</code>元<code>10</code>个红包为例，随机<code>10</code>个数，红包金额公式为：<code>红包总额 * 随机数/随机数总和</code>，假设<code>10</code>个随机数为<code>[5,9,8,7,6,5,4,3,2,1]</code>,<code>10</code>个随机数总和为<code>50</code>，</p>
 <ol>
 <li>第一个红包<code>10*5/50</code>，得<code>1</code>元。</li>
 <li>第二个红包<code>10*9/50</code>，得<code>1.8</code>元。</li>
 <li>第三个红包<code>10*8/50</code>，得<code>1.6</code>元。</li>
 <li>以此类推。</li>
 </ol>
+</div>
+
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token comment">//初始化测试场景</span>
     <span class="token class-name">BigDecimal</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token punctuation">]</span> rrr <span class="token operator">=</span> <span class="token punctuation">{</span>
@@ -387,13 +395,15 @@ lrwxrwxrwx. <span class="token number">1</span> root root <span class="token num
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
-<h4 id="割线法"><a href="#割线法" class="headerlink" title="割线法"></a>割线法</h4><p>  还是以<code>10</code>元<code>10</code>个红包为例，在<code>(0,10)</code>范围随机<code>9</code>个间隔<code>大于等于0.01</code>数，假设为<code>[1,1.2,2,3,4,5,6,7,8]</code></p>
+<h4 id="割线法"><a href="#割线法" class="headerlink" title="割线法"></a>割线法</h4><div class="note success no-icon"><p>  还是以<code>10</code>元<code>10</code>个红包为例，在<code>(0,10)</code>范围随机<code>9</code>个间隔<code>大于等于0.01</code>数，假设为<code>[1,1.2,2,3,4,5,6,7,8]</code></p>
 <ol>
 <li>第一个红包得<code>1</code>元</li>
 <li>第二个红包得<code>0.2</code>元</li>
 <li>第三个红得<code>0.8</code>元。</li>
 <li>以此类推。</li>
 </ol>
+</div>
+
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token comment">//初始化测试场景</span>
     <span class="token class-name">BigDecimal</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token punctuation">]</span> rrr <span class="token operator">=</span> <span class="token punctuation">{</span>
@@ -507,7 +517,7 @@ lrwxrwxrwx. <span class="token number">1</span> root root <span class="token num
   <entry>
     <title>【Docker】之部署skywalking实现全链路监控功能</title>
     <url>/post/4612f524.html</url>
-    <content><![CDATA[<img data-src="/post/4612f524/skywalking-001.png" class="">
+    <content><![CDATA[<img data-src="/post/4612f524/skywalking-001.png" style="box-shadow:none!important;">
 
 <span id="more"></span>
 
@@ -742,7 +752,8 @@ firewall-cmd --reload <span aria-hidden="true" class="line-numbers-rows"><span><
   <entry>
     <title>【Docker】之安装 ElasticSearch</title>
     <url>/post/5aa01560.html</url>
-    <content><![CDATA[<img data-src="/post/5aa01560/docker001.jpeg" class="">
+    <content><![CDATA[<img data-src="/post/5aa01560/docker001.jpeg" style="box-shadow:none!important;">
+
 <span id="more"></span>
 <h3 id="下载-ElasticSearch-和-Kibana-镜像"><a href="#下载-ElasticSearch-和-Kibana-镜像" class="headerlink" title="下载 ElasticSearch 和 Kibana 镜像"></a>下载 <code>ElasticSearch</code> 和 <code>Kibana</code> 镜像</h3><p>  以 <code>7.17.3</code> 版本为例，<code>elasticsearch</code> 和 <code>kibana</code> 的版本要对应：</p>
 <pre class="line-numbers language-docker" data-language="docker"><code class="language-docker">docker pull elasticsearch:7.17.3
