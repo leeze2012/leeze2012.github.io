@@ -6,7 +6,7 @@
   <link href="https://www.xiaosige.com/atom.xml" rel="self"/>
   
   <link href="https://www.xiaosige.com/"/>
-  <updated>2022-05-09T07:25:05.460Z</updated>
+  <updated>2022-05-09T14:42:00.955Z</updated>
   <id>https://www.xiaosige.com/</id>
   
   <author>
@@ -17,11 +17,34 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Java实现4种微信抢红包算法</title>
+    <link href="https://www.xiaosige.com/post/95ad3e48.html"/>
+    <id>https://www.xiaosige.com/post/95ad3e48.html</id>
+    <published>2022-05-09T13:04:19.000Z</published>
+    <updated>2022-05-09T14:42:00.955Z</updated>
+    
+    
+    <summary type="html">&lt;h3 id=&quot;概述&quot;&gt;&lt;a href=&quot;#概述&quot; class=&quot;headerlink&quot; title=&quot;概述&quot;&gt;&lt;/a&gt;概述&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;保证每个红包最少分得0.01元&lt;/li&gt;
+&lt;li&gt;保证每个红包金额概率尽量均衡&lt;/li&gt;
+&lt;li&gt;所有红包累计金额登于红包总金额&lt;/li&gt;
+&lt;/ol&gt;</summary>
+    
+    
+    
+    <category term="Java" scheme="https://www.xiaosige.com/categories/Java/"/>
+    
+    
+    <category term="算法" scheme="https://www.xiaosige.com/tags/%E7%AE%97%E6%B3%95/"/>
+    
+  </entry>
+  
+  <entry>
     <title>【Docker】之部署skywalking实现全链路监控功能</title>
     <link href="https://www.xiaosige.com/post/4612f524.html"/>
     <id>https://www.xiaosige.com/post/4612f524.html</id>
     <published>2022-05-09T05:07:58.000Z</published>
-    <updated>2022-05-09T07:25:05.460Z</updated>
+    <updated>2022-05-09T15:12:59.122Z</updated>
     
     
     <summary type="html">&lt;img data-src=&quot;/post/4612f524/skywalking-001.png&quot; class=&quot;&quot;&gt;</summary>
@@ -384,25 +407,6 @@ docker pull rabbitmq:3.9.16-management&lt;span aria-hidden=&quot;true&quot; clas
     
     
     <category term="Nexus" scheme="https://www.xiaosige.com/tags/Nexus/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Linux 字符颜色输出</title>
-    <link href="https://www.xiaosige.com/post/120400e.html"/>
-    <id>https://www.xiaosige.com/post/120400e.html</id>
-    <published>2021-06-17T18:06:32.000Z</published>
-    <updated>2021-06-17T18:16:50.847Z</updated>
-    
-    
-    <summary type="html">&lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;  没啥的，搞点颜色看看。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="Linux" scheme="https://www.xiaosige.com/categories/Linux/"/>
-    
-    
-    <category term="Linux" scheme="https://www.xiaosige.com/tags/Linux/"/>
     
   </entry>
   

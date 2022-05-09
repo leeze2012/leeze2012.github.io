@@ -64,6 +64,447 @@ lrwxrwxrwx. <span class="token number">1</span> root root <span class="token num
       </tags>
   </entry>
   <entry>
+    <title>Java实现4种微信抢红包算法</title>
+    <url>/post/95ad3e48.html</url>
+    <content><![CDATA[<h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><ol>
+<li>保证每个红包最少分得0.01元</li>
+<li>保证每个红包金额概率尽量均衡</li>
+<li>所有红包累计金额登于红包总金额</li>
+</ol>
+<span id="more"></span>
+
+<h3 id="红包算法"><a href="#红包算法" class="headerlink" title="红包算法"></a>红包算法</h3><h4 id="剩余金额随机法"><a href="#剩余金额随机法" class="headerlink" title="剩余金额随机法"></a>剩余金额随机法</h4><p>  以<code>10</code>元<code>10</code>个红包为例，去除每个红包的最小金额后，红包剩余<code>9.9</code>元；</p>
+<ol>
+<li>第一个红包在<code>[0,9.9]</code>范围随机，假设随机得<code>1</code>元，则第一个红包金额为<code>1.1</code>元，红包剩余<code>8.9</code>元。</li>
+<li>第二个红包在<code>[0,8.9]</code>范围随机，假设随机得<code>1.5</code>元，则第二个红包金额为<code>1.6</code>元，红包剩余<code>7.4</code>元。</li>
+<li>第三个红包在<code>[0,7.4]</code>范围随机，假设随机得<code>0.5</code>元，则第三个红包金额为<code>0.6</code>元，红包剩余<code>6.9</code>元。</li>
+<li>以此类推。</li>
+</ol>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">//初始化测试场景</span>
+    <span class="token class-name">BigDecimal</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token punctuation">]</span> rrr <span class="token operator">=</span> <span class="token punctuation">{</span>
+            <span class="token punctuation">{</span><span class="token keyword">new</span> <span class="token class-name">BigDecimal</span><span class="token punctuation">(</span><span class="token string">"0.1"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">BigDecimal</span><span class="token punctuation">(</span><span class="token string">"10"</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+            <span class="token punctuation">{</span><span class="token keyword">new</span> <span class="token class-name">BigDecimal</span><span class="token punctuation">(</span><span class="token string">"1"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">BigDecimal</span><span class="token punctuation">(</span><span class="token string">"10"</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+            <span class="token punctuation">{</span><span class="token keyword">new</span> <span class="token class-name">BigDecimal</span><span class="token punctuation">(</span><span class="token string">"100"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">BigDecimal</span><span class="token punctuation">(</span><span class="token string">"10"</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+            <span class="token punctuation">{</span><span class="token keyword">new</span> <span class="token class-name">BigDecimal</span><span class="token punctuation">(</span><span class="token string">"1000"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">BigDecimal</span><span class="token punctuation">(</span><span class="token string">"10"</span><span class="token punctuation">)</span><span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token class-name">BigDecimal</span> min <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">BigDecimal</span><span class="token punctuation">(</span><span class="token string">"0.01"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">//测试个场景</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token class-name">BigDecimal</span><span class="token punctuation">[</span><span class="token punctuation">]</span> decimals <span class="token operator">:</span> rrr<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">final</span> <span class="token class-name">BigDecimal</span> amount <span class="token operator">=</span> decimals<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token keyword">final</span> <span class="token class-name">BigDecimal</span> num <span class="token operator">=</span> decimals<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>amount <span class="token operator">+</span> <span class="token string">"元"</span> <span class="token operator">+</span> num <span class="token operator">+</span> <span class="token string">"个人抢======================================================="</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">test1</span><span class="token punctuation">(</span>amount<span class="token punctuation">,</span> min<span class="token punctuation">,</span> num<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">test1</span><span class="token punctuation">(</span><span class="token class-name">BigDecimal</span> amount<span class="token punctuation">,</span> <span class="token class-name">BigDecimal</span> min<span class="token punctuation">,</span> <span class="token class-name">BigDecimal</span> num<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token class-name">BigDecimal</span> remain <span class="token operator">=</span> amount<span class="token punctuation">.</span><span class="token function">subtract</span><span class="token punctuation">(</span>min<span class="token punctuation">.</span><span class="token function">multiply</span><span class="token punctuation">(</span>num<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">final</span> <span class="token class-name">Random</span> random <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Random</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">final</span> <span class="token class-name">BigDecimal</span> hundred <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">BigDecimal</span><span class="token punctuation">(</span><span class="token string">"100"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token class-name">BigDecimal</span> sum <span class="token operator">=</span> <span class="token class-name">BigDecimal</span><span class="token punctuation">.</span>ZERO<span class="token punctuation">;</span>
+    <span class="token class-name">BigDecimal</span> redpeck<span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> num<span class="token punctuation">.</span><span class="token function">intValue</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">final</span> <span class="token keyword">int</span> nextInt <span class="token operator">=</span> random<span class="token punctuation">.</span><span class="token function">nextInt</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>i <span class="token operator">==</span> num<span class="token punctuation">.</span><span class="token function">intValue</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            redpeck <span class="token operator">=</span> remain<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+            redpeck <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">BigDecimal</span><span class="token punctuation">(</span>nextInt<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">multiply</span><span class="token punctuation">(</span>remain<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">divide</span><span class="token punctuation">(</span>hundred<span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token class-name">RoundingMode</span><span class="token punctuation">.</span>FLOOR<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>remain<span class="token punctuation">.</span><span class="token function">compareTo</span><span class="token punctuation">(</span>redpeck<span class="token punctuation">)</span> <span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            remain <span class="token operator">=</span> remain<span class="token punctuation">.</span><span class="token function">subtract</span><span class="token punctuation">(</span>redpeck<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+            remain <span class="token operator">=</span> <span class="token class-name">BigDecimal</span><span class="token punctuation">.</span>ZERO<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        sum <span class="token operator">=</span> sum<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>min<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>redpeck<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"第"</span> <span class="token operator">+</span> <span class="token punctuation">(</span>i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">"个人抢到红包金额为："</span> <span class="token operator">+</span> min<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>redpeck<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"校验每个红包累计额度是否等于红包总额结果："</span> <span class="token operator">+</span> <span class="token punctuation">(</span>amount<span class="token punctuation">.</span><span class="token function">compareTo</span><span class="token punctuation">(</span>sum<span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>  测试结果如下:可以看出此算法有明显缺陷，即：先领取的红包金额较大，后领取的红包金额较小，这就使得抢红包便的不公平。</p>
+<pre class="line-numbers language-log" data-language="log"><code class="language-log"><span class="token number">0.1</span>元<span class="token number">10</span>个人抢<span class="token separator comment">=======================================================</span>
+第<span class="token number">1</span>个人抢到红包金额为：<span class="token number">0.01</span>
+第<span class="token number">2</span>个人抢到红包金额为：<span class="token number">0.01</span>
+第<span class="token number">3</span>个人抢到红包金额为：<span class="token number">0.01</span>
+第<span class="token number">4</span>个人抢到红包金额为：<span class="token number">0.01</span>
+第<span class="token number">5</span>个人抢到红包金额为：<span class="token number">0.01</span>
+第<span class="token number">6</span>个人抢到红包金额为：<span class="token number">0.01</span>
+第<span class="token number">7</span>个人抢到红包金额为：<span class="token number">0.01</span>
+第<span class="token number">8</span>个人抢到红包金额为：<span class="token number">0.01</span>
+第<span class="token number">9</span>个人抢到红包金额为：<span class="token number">0.01</span>
+第<span class="token number">10</span>个人抢到红包金额为：<span class="token number">0.01</span>
+校验每个红包累计额度是否等于红包总额结果：<span class="token boolean">true</span>
+<span class="token number">1</span>元<span class="token number">10</span>个人抢<span class="token separator comment">=======================================================</span>
+第<span class="token number">1</span>个人抢到红包金额为：<span class="token number">0.09</span>
+第<span class="token number">2</span>个人抢到红包金额为：<span class="token number">0.28</span>
+第<span class="token number">3</span>个人抢到红包金额为：<span class="token number">0.19</span>
+第<span class="token number">4</span>个人抢到红包金额为：<span class="token number">0.20</span>
+第<span class="token number">5</span>个人抢到红包金额为：<span class="token number">0.15</span>
+第<span class="token number">6</span>个人抢到红包金额为：<span class="token number">0.02</span>
+第<span class="token number">7</span>个人抢到红包金额为：<span class="token number">0.03</span>
+第<span class="token number">8</span>个人抢到红包金额为：<span class="token number">0.01</span>
+第<span class="token number">9</span>个人抢到红包金额为：<span class="token number">0.01</span>
+第<span class="token number">10</span>个人抢到红包金额为：<span class="token number">0.02</span>
+校验每个红包累计额度是否等于红包总额结果：<span class="token boolean">true</span>
+<span class="token number">100</span>元<span class="token number">10</span>个人抢<span class="token separator comment">=======================================================</span>
+第<span class="token number">1</span>个人抢到红包金额为：<span class="token number">19.99</span>
+第<span class="token number">2</span>个人抢到红包金额为：<span class="token number">29.58</span>
+第<span class="token number">3</span>个人抢到红包金额为：<span class="token number">38.27</span>
+第<span class="token number">4</span>个人抢到红包金额为：<span class="token number">11.85</span>
+第<span class="token number">5</span>个人抢到红包金额为：<span class="token number">0.11</span>
+第<span class="token number">6</span>个人抢到红包金额为：<span class="token number">0.13</span>
+第<span class="token number">7</span>个人抢到红包金额为：<span class="token number">0.01</span>
+第<span class="token number">8</span>个人抢到红包金额为：<span class="token number">0.01</span>
+第<span class="token number">9</span>个人抢到红包金额为：<span class="token number">0.03</span>
+第<span class="token number">10</span>个人抢到红包金额为：<span class="token number">0.02</span>
+校验每个红包累计额度是否等于红包总额结果：<span class="token boolean">true</span>
+<span class="token number">1000</span>元<span class="token number">10</span>个人抢<span class="token separator comment">=======================================================</span>
+第<span class="token number">1</span>个人抢到红包金额为：<span class="token number">60.00</span>
+第<span class="token number">2</span>个人抢到红包金额为：<span class="token number">695.54</span>
+第<span class="token number">3</span>个人抢到红包金额为：<span class="token number">229.72</span>
+第<span class="token number">4</span>个人抢到红包金额为：<span class="token number">8.95</span>
+第<span class="token number">5</span>个人抢到红包金额为：<span class="token number">0.29</span>
+第<span class="token number">6</span>个人抢到红包金额为：<span class="token number">4.64</span>
+第<span class="token number">7</span>个人抢到红包金额为：<span class="token number">0.01</span>
+第<span class="token number">8</span>个人抢到红包金额为：<span class="token number">0.69</span>
+第<span class="token number">9</span>个人抢到红包金额为：<span class="token number">0.12</span>
+第<span class="token number">10</span>个人抢到红包金额为：<span class="token number">0.04</span>
+校验每个红包累计额度是否等于红包总额结果：<span class="token boolean">true</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+<h4 id="二倍均值法-微信红包采用此法"><a href="#二倍均值法-微信红包采用此法" class="headerlink" title="二倍均值法(微信红包采用此法)"></a>二倍均值法(微信红包采用此法)</h4><p>  还是以<code>10</code>元<code>10</code>个红包为例，去除每个红包的最小金额后，红包剩余<code>9.9</code>元，二倍均值计算公式：<code>2 * 剩余金额/剩余红包数</code></p>
+<ol>
+<li>第一个红包在<code>[0,1.98]</code>范围随机，假设随机得<code>1.9</code>，则第一个红包金额为<code>2.0</code>，红包剩余<code>8</code>元。</li>
+<li>第二个红包在<code>[0,2]</code>范围随机，假设随机的<code>1</code>元，则第二个红包金额为<code>1.1</code>元，红包剩余<code>7</code>元。</li>
+<li>第三个红包在<code>[0,2]</code>范围随机，假设随机的<code>0.5</code>元，则第三个红包金额为<code>0.6</code>元，红包剩余<code>5.5</code>元。</li>
+<li>以此类推。</li>
+</ol>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">//初始化测试场景</span>
+    <span class="token class-name">BigDecimal</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token punctuation">]</span> rrr <span class="token operator">=</span> <span class="token punctuation">{</span>
+            <span class="token punctuation">{</span><span class="token keyword">new</span> <span class="token class-name">BigDecimal</span><span class="token punctuation">(</span><span class="token string">"0.1"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">BigDecimal</span><span class="token punctuation">(</span><span class="token string">"10"</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+            <span class="token punctuation">{</span><span class="token keyword">new</span> <span class="token class-name">BigDecimal</span><span class="token punctuation">(</span><span class="token string">"1"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">BigDecimal</span><span class="token punctuation">(</span><span class="token string">"10"</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+            <span class="token punctuation">{</span><span class="token keyword">new</span> <span class="token class-name">BigDecimal</span><span class="token punctuation">(</span><span class="token string">"100"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">BigDecimal</span><span class="token punctuation">(</span><span class="token string">"10"</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+            <span class="token punctuation">{</span><span class="token keyword">new</span> <span class="token class-name">BigDecimal</span><span class="token punctuation">(</span><span class="token string">"1000"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">BigDecimal</span><span class="token punctuation">(</span><span class="token string">"10"</span><span class="token punctuation">)</span><span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token class-name">BigDecimal</span> min <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">BigDecimal</span><span class="token punctuation">(</span><span class="token string">"0.01"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">//测试个场景</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token class-name">BigDecimal</span><span class="token punctuation">[</span><span class="token punctuation">]</span> decimals <span class="token operator">:</span> rrr<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">final</span> <span class="token class-name">BigDecimal</span> amount <span class="token operator">=</span> decimals<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token keyword">final</span> <span class="token class-name">BigDecimal</span> num <span class="token operator">=</span> decimals<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>amount <span class="token operator">+</span> <span class="token string">"元"</span> <span class="token operator">+</span> num <span class="token operator">+</span> <span class="token string">"个人抢======================================================="</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">test2</span><span class="token punctuation">(</span>amount<span class="token punctuation">,</span> min<span class="token punctuation">,</span> num<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+
+<span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">test2</span><span class="token punctuation">(</span><span class="token class-name">BigDecimal</span> amount<span class="token punctuation">,</span><span class="token class-name">BigDecimal</span> min <span class="token punctuation">,</span><span class="token class-name">BigDecimal</span> num<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token class-name">BigDecimal</span> remain <span class="token operator">=</span> amount<span class="token punctuation">.</span><span class="token function">subtract</span><span class="token punctuation">(</span>min<span class="token punctuation">.</span><span class="token function">multiply</span><span class="token punctuation">(</span>num<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">final</span> <span class="token class-name">Random</span> random <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Random</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">final</span> <span class="token class-name">BigDecimal</span> hundred <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">BigDecimal</span><span class="token punctuation">(</span><span class="token string">"100"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">final</span> <span class="token class-name">BigDecimal</span> two <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">BigDecimal</span><span class="token punctuation">(</span><span class="token string">"2"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token class-name">BigDecimal</span> sum <span class="token operator">=</span> <span class="token class-name">BigDecimal</span><span class="token punctuation">.</span>ZERO<span class="token punctuation">;</span>
+    <span class="token class-name">BigDecimal</span> redpeck<span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> num<span class="token punctuation">.</span><span class="token function">intValue</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">final</span> <span class="token keyword">int</span> nextInt <span class="token operator">=</span> random<span class="token punctuation">.</span><span class="token function">nextInt</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>i <span class="token operator">==</span> num<span class="token punctuation">.</span><span class="token function">intValue</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            redpeck <span class="token operator">=</span> remain<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
+            redpeck <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">BigDecimal</span><span class="token punctuation">(</span>nextInt<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">multiply</span><span class="token punctuation">(</span>remain<span class="token punctuation">.</span><span class="token function">multiply</span><span class="token punctuation">(</span>two<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">divide</span><span class="token punctuation">(</span>num<span class="token punctuation">.</span><span class="token function">subtract</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">BigDecimal</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token class-name">RoundingMode</span><span class="token punctuation">.</span>CEILING<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">divide</span><span class="token punctuation">(</span>hundred<span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token class-name">RoundingMode</span><span class="token punctuation">.</span>FLOOR<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>remain<span class="token punctuation">.</span><span class="token function">compareTo</span><span class="token punctuation">(</span>redpeck<span class="token punctuation">)</span> <span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            remain <span class="token operator">=</span> remain<span class="token punctuation">.</span><span class="token function">subtract</span><span class="token punctuation">(</span>redpeck<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
+            remain <span class="token operator">=</span> <span class="token class-name">BigDecimal</span><span class="token punctuation">.</span>ZERO<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        sum <span class="token operator">=</span> sum<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>min<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>redpeck<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"第"</span><span class="token operator">+</span><span class="token punctuation">(</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token string">"个人抢到红包金额为："</span><span class="token operator">+</span>min<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>redpeck<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"校验每个红包累计额度是否等于红包总额结果："</span><span class="token operator">+</span>amount<span class="token punctuation">.</span><span class="token function">compareTo</span><span class="token punctuation">(</span>sum<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>  测试结果如下:此算法很好的保证了抢红包几率大致均等。</p>
+<pre class="line-numbers language-log" data-language="log"><code class="language-log"><span class="token number">0.1</span>元<span class="token number">10</span>个人抢<span class="token separator comment">=======================================================</span>
+第<span class="token number">1</span>个人抢到红包金额为：<span class="token number">0.01</span>
+第<span class="token number">2</span>个人抢到红包金额为：<span class="token number">0.01</span>
+第<span class="token number">3</span>个人抢到红包金额为：<span class="token number">0.01</span>
+第<span class="token number">4</span>个人抢到红包金额为：<span class="token number">0.01</span>
+第<span class="token number">5</span>个人抢到红包金额为：<span class="token number">0.01</span>
+第<span class="token number">6</span>个人抢到红包金额为：<span class="token number">0.01</span>
+第<span class="token number">7</span>个人抢到红包金额为：<span class="token number">0.01</span>
+第<span class="token number">8</span>个人抢到红包金额为：<span class="token number">0.01</span>
+第<span class="token number">9</span>个人抢到红包金额为：<span class="token number">0.01</span>
+第<span class="token number">10</span>个人抢到红包金额为：<span class="token number">0.01</span>
+校验每个红包累计额度是否等于红包总额结果：<span class="token boolean">true</span>
+<span class="token number">100</span>元<span class="token number">10</span>个人抢<span class="token separator comment">=======================================================</span>
+第<span class="token number">1</span>个人抢到红包金额为：<span class="token number">6.20</span>
+第<span class="token number">2</span>个人抢到红包金额为：<span class="token number">7.09</span>
+第<span class="token number">3</span>个人抢到红包金额为：<span class="token number">10.62</span>
+第<span class="token number">4</span>个人抢到红包金额为：<span class="token number">18.68</span>
+第<span class="token number">5</span>个人抢到红包金额为：<span class="token number">18.74</span>
+第<span class="token number">6</span>个人抢到红包金额为：<span class="token number">2.32</span>
+第<span class="token number">7</span>个人抢到红包金额为：<span class="token number">15.44</span>
+第<span class="token number">8</span>个人抢到红包金额为：<span class="token number">5.43</span>
+第<span class="token number">9</span>个人抢到红包金额为：<span class="token number">15.16</span>
+第<span class="token number">10</span>个人抢到红包金额为：<span class="token number">0.32</span>
+校验每个红包累计额度是否等于红包总额结果：<span class="token boolean">true</span>
+<span class="token number">1</span>元<span class="token number">10</span>个人抢<span class="token separator comment">=======================================================</span>
+第<span class="token number">1</span>个人抢到红包金额为：<span class="token number">0.08</span>
+第<span class="token number">2</span>个人抢到红包金额为：<span class="token number">0.05</span>
+第<span class="token number">3</span>个人抢到红包金额为：<span class="token number">0.17</span>
+第<span class="token number">4</span>个人抢到红包金额为：<span class="token number">0.17</span>
+第<span class="token number">5</span>个人抢到红包金额为：<span class="token number">0.08</span>
+第<span class="token number">6</span>个人抢到红包金额为：<span class="token number">0.06</span>
+第<span class="token number">7</span>个人抢到红包金额为：<span class="token number">0.18</span>
+第<span class="token number">8</span>个人抢到红包金额为：<span class="token number">0.10</span>
+第<span class="token number">9</span>个人抢到红包金额为：<span class="token number">0.02</span>
+第<span class="token number">10</span>个人抢到红包金额为：<span class="token number">0.09</span>
+校验每个红包累计额度是否等于红包总额结果：<span class="token boolean">true</span>
+<span class="token number">1000</span>元<span class="token number">10</span>个人抢<span class="token separator comment">=======================================================</span>
+第<span class="token number">1</span>个人抢到红包金额为：<span class="token number">125.99</span>
+第<span class="token number">2</span>个人抢到红包金额为：<span class="token number">165.08</span>
+第<span class="token number">3</span>个人抢到红包金额为：<span class="token number">31.90</span>
+第<span class="token number">4</span>个人抢到红包金额为：<span class="token number">94.78</span>
+第<span class="token number">5</span>个人抢到红包金额为：<span class="token number">137.79</span>
+第<span class="token number">6</span>个人抢到红包金额为：<span class="token number">88.89</span>
+第<span class="token number">7</span>个人抢到红包金额为：<span class="token number">156.44</span>
+第<span class="token number">8</span>个人抢到红包金额为：<span class="token number">7.97</span>
+第<span class="token number">9</span>个人抢到红包金额为：<span class="token number">151.01</span>
+第<span class="token number">10</span>个人抢到红包金额为：<span class="token number">40.15</span>
+校验每个红包累计额度是否等于红包总额结果：<span class="token boolean">true</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+<h4 id="整体随机法"><a href="#整体随机法" class="headerlink" title="整体随机法"></a>整体随机法</h4><p>  还是以<code>10</code>元<code>10</code>个红包为例，随机<code>10</code>个数，红包金额公式为：<code>红包总额 * 随机数/随机数总和</code>，假设<code>10</code>个随机数为<code>[5,9,8,7,6,5,4,3,2,1]</code>,<code>10</code>个随机数总和为<code>50</code>，</p>
+<ol>
+<li>第一个红包<code>10*5/50</code>，得<code>1</code>元。</li>
+<li>第二个红包<code>10*9/50</code>，得<code>1.8</code>元。</li>
+<li>第三个红包<code>10*8/50</code>，得<code>1.6</code>元。</li>
+<li>以此类推。</li>
+</ol>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">//初始化测试场景</span>
+    <span class="token class-name">BigDecimal</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token punctuation">]</span> rrr <span class="token operator">=</span> <span class="token punctuation">{</span>
+            <span class="token punctuation">{</span><span class="token keyword">new</span> <span class="token class-name">BigDecimal</span><span class="token punctuation">(</span><span class="token string">"0.1"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">BigDecimal</span><span class="token punctuation">(</span><span class="token string">"10"</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+            <span class="token punctuation">{</span><span class="token keyword">new</span> <span class="token class-name">BigDecimal</span><span class="token punctuation">(</span><span class="token string">"1"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">BigDecimal</span><span class="token punctuation">(</span><span class="token string">"10"</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+            <span class="token punctuation">{</span><span class="token keyword">new</span> <span class="token class-name">BigDecimal</span><span class="token punctuation">(</span><span class="token string">"100"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">BigDecimal</span><span class="token punctuation">(</span><span class="token string">"10"</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+            <span class="token punctuation">{</span><span class="token keyword">new</span> <span class="token class-name">BigDecimal</span><span class="token punctuation">(</span><span class="token string">"1000"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">BigDecimal</span><span class="token punctuation">(</span><span class="token string">"10"</span><span class="token punctuation">)</span><span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token class-name">BigDecimal</span> min <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">BigDecimal</span><span class="token punctuation">(</span><span class="token string">"0.01"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">//测试个场景</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token class-name">BigDecimal</span><span class="token punctuation">[</span><span class="token punctuation">]</span> decimals <span class="token operator">:</span> rrr<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">final</span> <span class="token class-name">BigDecimal</span> amount <span class="token operator">=</span> decimals<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token keyword">final</span> <span class="token class-name">BigDecimal</span> num <span class="token operator">=</span> decimals<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>amount <span class="token operator">+</span> <span class="token string">"元"</span> <span class="token operator">+</span> num <span class="token operator">+</span> <span class="token string">"个人抢======================================================="</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">test3</span><span class="token punctuation">(</span>amount<span class="token punctuation">,</span> min<span class="token punctuation">,</span> num<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">test3</span><span class="token punctuation">(</span><span class="token class-name">BigDecimal</span> amount<span class="token punctuation">,</span><span class="token class-name">BigDecimal</span> min <span class="token punctuation">,</span><span class="token class-name">BigDecimal</span> num<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">final</span> <span class="token class-name">Random</span> random <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Random</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">final</span> <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> rand <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token keyword">int</span><span class="token punctuation">[</span>num<span class="token punctuation">.</span><span class="token function">intValue</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token class-name">BigDecimal</span> sum1 <span class="token operator">=</span> <span class="token class-name">BigDecimal</span><span class="token punctuation">.</span>ZERO<span class="token punctuation">;</span>
+    <span class="token class-name">BigDecimal</span> redpeck <span class="token punctuation">;</span>
+    <span class="token keyword">int</span> sum <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> num<span class="token punctuation">.</span><span class="token function">intValue</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        rand<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> random<span class="token punctuation">.</span><span class="token function">nextInt</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        sum <span class="token operator">+=</span> rand<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">final</span> <span class="token class-name">BigDecimal</span> bigDecimal <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">BigDecimal</span><span class="token punctuation">(</span>sum<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token class-name">BigDecimal</span> remain <span class="token operator">=</span> amount<span class="token punctuation">.</span><span class="token function">subtract</span><span class="token punctuation">(</span>min<span class="token punctuation">.</span><span class="token function">multiply</span><span class="token punctuation">(</span>num<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> rand<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>i <span class="token operator">==</span> num<span class="token punctuation">.</span><span class="token function">intValue</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            redpeck <span class="token operator">=</span> remain<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
+            redpeck <span class="token operator">=</span> remain<span class="token punctuation">.</span><span class="token function">multiply</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">BigDecimal</span><span class="token punctuation">(</span>rand<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">divide</span><span class="token punctuation">(</span>bigDecimal<span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token class-name">RoundingMode</span><span class="token punctuation">.</span>FLOOR<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>remain<span class="token punctuation">.</span><span class="token function">compareTo</span><span class="token punctuation">(</span>redpeck<span class="token punctuation">)</span> <span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            remain <span class="token operator">=</span> remain<span class="token punctuation">.</span><span class="token function">subtract</span><span class="token punctuation">(</span>redpeck<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
+            remain <span class="token operator">=</span> <span class="token class-name">BigDecimal</span><span class="token punctuation">.</span>ZERO<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        sum1<span class="token operator">=</span> sum1<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>min<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>redpeck<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"第"</span><span class="token operator">+</span><span class="token punctuation">(</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token string">"个人抢到红包金额为："</span><span class="token operator">+</span>min<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>redpeck<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"校验每个红包累计额度是否等于红包总额结果："</span><span class="token operator">+</span><span class="token punctuation">(</span>amount<span class="token punctuation">.</span><span class="token function">compareTo</span><span class="token punctuation">(</span>sum1<span class="token punctuation">)</span><span class="token operator">==</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>  测试结果如下:此算法随机性较大。</p>
+<pre class="line-numbers language-log" data-language="log"><code class="language-log"><span class="token number">0.1</span>元<span class="token number">10</span>个人抢<span class="token separator comment">=======================================================</span>
+第<span class="token number">1</span>个人抢到红包金额为：<span class="token number">0.01</span>
+第<span class="token number">2</span>个人抢到红包金额为：<span class="token number">0.01</span>
+第<span class="token number">3</span>个人抢到红包金额为：<span class="token number">0.01</span>
+第<span class="token number">4</span>个人抢到红包金额为：<span class="token number">0.01</span>
+第<span class="token number">5</span>个人抢到红包金额为：<span class="token number">0.01</span>
+第<span class="token number">6</span>个人抢到红包金额为：<span class="token number">0.01</span>
+第<span class="token number">7</span>个人抢到红包金额为：<span class="token number">0.01</span>
+第<span class="token number">8</span>个人抢到红包金额为：<span class="token number">0.01</span>
+第<span class="token number">9</span>个人抢到红包金额为：<span class="token number">0.01</span>
+第<span class="token number">10</span>个人抢到红包金额为：<span class="token number">0.01</span>
+校验每个红包累计额度是否等于红包总额结果：<span class="token boolean">true</span>
+<span class="token number">100</span>元<span class="token number">10</span>个人抢<span class="token separator comment">=======================================================</span>
+第<span class="token number">1</span>个人抢到红包金额为：<span class="token number">2.35</span>
+第<span class="token number">2</span>个人抢到红包金额为：<span class="token number">14.12</span>
+第<span class="token number">3</span>个人抢到红包金额为：<span class="token number">5.74</span>
+第<span class="token number">4</span>个人抢到红包金额为：<span class="token number">6.61</span>
+第<span class="token number">5</span>个人抢到红包金额为：<span class="token number">0.65</span>
+第<span class="token number">6</span>个人抢到红包金额为：<span class="token number">10.97</span>
+第<span class="token number">7</span>个人抢到红包金额为：<span class="token number">9.15</span>
+第<span class="token number">8</span>个人抢到红包金额为：<span class="token number">7.93</span>
+第<span class="token number">9</span>个人抢到红包金额为：<span class="token number">1.31</span>
+第<span class="token number">10</span>个人抢到红包金额为：<span class="token number">41.17</span>
+校验每个红包累计额度是否等于红包总额结果：<span class="token boolean">true</span>
+<span class="token number">1</span>元<span class="token number">10</span>个人抢<span class="token separator comment">=======================================================</span>
+第<span class="token number">1</span>个人抢到红包金额为：<span class="token number">0.10</span>
+第<span class="token number">2</span>个人抢到红包金额为：<span class="token number">0.02</span>
+第<span class="token number">3</span>个人抢到红包金额为：<span class="token number">0.12</span>
+第<span class="token number">4</span>个人抢到红包金额为：<span class="token number">0.03</span>
+第<span class="token number">5</span>个人抢到红包金额为：<span class="token number">0.05</span>
+第<span class="token number">6</span>个人抢到红包金额为：<span class="token number">0.12</span>
+第<span class="token number">7</span>个人抢到红包金额为：<span class="token number">0.06</span>
+第<span class="token number">8</span>个人抢到红包金额为：<span class="token number">0.01</span>
+第<span class="token number">9</span>个人抢到红包金额为：<span class="token number">0.04</span>
+第<span class="token number">10</span>个人抢到红包金额为：<span class="token number">0.45</span>
+校验每个红包累计额度是否等于红包总额结果：<span class="token boolean">true</span>
+<span class="token number">1000</span>元<span class="token number">10</span>个人抢<span class="token separator comment">=======================================================</span>
+第<span class="token number">1</span>个人抢到红包金额为：<span class="token number">148.96</span>
+第<span class="token number">2</span>个人抢到红包金额为：<span class="token number">116.57</span>
+第<span class="token number">3</span>个人抢到红包金额为：<span class="token number">80.49</span>
+第<span class="token number">4</span>个人抢到红包金额为：<span class="token number">32.48</span>
+第<span class="token number">5</span>个人抢到红包金额为：<span class="token number">89.39</span>
+第<span class="token number">6</span>个人抢到红包金额为：<span class="token number">65.60</span>
+第<span class="token number">7</span>个人抢到红包金额为：<span class="token number">20.77</span>
+第<span class="token number">8</span>个人抢到红包金额为：<span class="token number">16.03</span>
+第<span class="token number">9</span>个人抢到红包金额为：<span class="token number">36.79</span>
+第<span class="token number">10</span>个人抢到红包金额为：<span class="token number">392.92</span>
+校验每个红包累计额度是否等于红包总额结果：<span class="token boolean">true</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+<h4 id="割线法"><a href="#割线法" class="headerlink" title="割线法"></a>割线法</h4><p>  还是以<code>10</code>元<code>10</code>个红包为例，在<code>(0,10)</code>范围随机<code>9</code>个间隔<code>大于等于0.01</code>数，假设为<code>[1,1.2,2,3,4,5,6,7,8]</code></p>
+<ol>
+<li>第一个红包得<code>1</code>元</li>
+<li>第二个红包得<code>0.2</code>元</li>
+<li>第三个红得<code>0.8</code>元。</li>
+<li>以此类推。</li>
+</ol>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">//初始化测试场景</span>
+    <span class="token class-name">BigDecimal</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token punctuation">]</span> rrr <span class="token operator">=</span> <span class="token punctuation">{</span>
+            <span class="token punctuation">{</span><span class="token keyword">new</span> <span class="token class-name">BigDecimal</span><span class="token punctuation">(</span><span class="token string">"0.1"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">BigDecimal</span><span class="token punctuation">(</span><span class="token string">"10"</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+            <span class="token punctuation">{</span><span class="token keyword">new</span> <span class="token class-name">BigDecimal</span><span class="token punctuation">(</span><span class="token string">"1"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">BigDecimal</span><span class="token punctuation">(</span><span class="token string">"10"</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+            <span class="token punctuation">{</span><span class="token keyword">new</span> <span class="token class-name">BigDecimal</span><span class="token punctuation">(</span><span class="token string">"100"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">BigDecimal</span><span class="token punctuation">(</span><span class="token string">"10"</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+            <span class="token punctuation">{</span><span class="token keyword">new</span> <span class="token class-name">BigDecimal</span><span class="token punctuation">(</span><span class="token string">"1000"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">BigDecimal</span><span class="token punctuation">(</span><span class="token string">"10"</span><span class="token punctuation">)</span><span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token class-name">BigDecimal</span> min <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">BigDecimal</span><span class="token punctuation">(</span><span class="token string">"0.01"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">//测试个场景</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token class-name">BigDecimal</span><span class="token punctuation">[</span><span class="token punctuation">]</span> decimals <span class="token operator">:</span> rrr<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">final</span> <span class="token class-name">BigDecimal</span> amount <span class="token operator">=</span> decimals<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token keyword">final</span> <span class="token class-name">BigDecimal</span> num <span class="token operator">=</span> decimals<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>amount <span class="token operator">+</span> <span class="token string">"元"</span> <span class="token operator">+</span> num <span class="token operator">+</span> <span class="token string">"个人抢======================================================="</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">test3</span><span class="token punctuation">(</span>amount<span class="token punctuation">,</span> min<span class="token punctuation">,</span> num<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">test3</span><span class="token punctuation">(</span><span class="token class-name">BigDecimal</span> amount<span class="token punctuation">,</span><span class="token class-name">BigDecimal</span> min <span class="token punctuation">,</span><span class="token class-name">BigDecimal</span> num<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">final</span> <span class="token class-name">Random</span> random <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Random</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">final</span> <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> rand <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token keyword">int</span><span class="token punctuation">[</span>num<span class="token punctuation">.</span><span class="token function">intValue</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token class-name">BigDecimal</span> sum1 <span class="token operator">=</span> <span class="token class-name">BigDecimal</span><span class="token punctuation">.</span>ZERO<span class="token punctuation">;</span>
+    <span class="token class-name">BigDecimal</span> redpeck <span class="token punctuation">;</span>
+    <span class="token keyword">int</span> sum <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> num<span class="token punctuation">.</span><span class="token function">intValue</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        rand<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> random<span class="token punctuation">.</span><span class="token function">nextInt</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        sum <span class="token operator">+=</span> rand<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">final</span> <span class="token class-name">BigDecimal</span> bigDecimal <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">BigDecimal</span><span class="token punctuation">(</span>sum<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token class-name">BigDecimal</span> remain <span class="token operator">=</span> amount<span class="token punctuation">.</span><span class="token function">subtract</span><span class="token punctuation">(</span>min<span class="token punctuation">.</span><span class="token function">multiply</span><span class="token punctuation">(</span>num<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> rand<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>i <span class="token operator">==</span> num<span class="token punctuation">.</span><span class="token function">intValue</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            redpeck <span class="token operator">=</span> remain<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
+            redpeck <span class="token operator">=</span> remain<span class="token punctuation">.</span><span class="token function">multiply</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">BigDecimal</span><span class="token punctuation">(</span>rand<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">divide</span><span class="token punctuation">(</span>bigDecimal<span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token class-name">RoundingMode</span><span class="token punctuation">.</span>FLOOR<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>remain<span class="token punctuation">.</span><span class="token function">compareTo</span><span class="token punctuation">(</span>redpeck<span class="token punctuation">)</span> <span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            remain <span class="token operator">=</span> remain<span class="token punctuation">.</span><span class="token function">subtract</span><span class="token punctuation">(</span>redpeck<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
+            remain <span class="token operator">=</span> <span class="token class-name">BigDecimal</span><span class="token punctuation">.</span>ZERO<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        sum1<span class="token operator">=</span> sum1<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>min<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>redpeck<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"第"</span><span class="token operator">+</span><span class="token punctuation">(</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token string">"个人抢到红包金额为："</span><span class="token operator">+</span>min<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>redpeck<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"校验每个红包累计额度是否等于红包总额结果："</span><span class="token operator">+</span><span class="token punctuation">(</span>amount<span class="token punctuation">.</span><span class="token function">compareTo</span><span class="token punctuation">(</span>sum1<span class="token punctuation">)</span><span class="token operator">==</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>  测试结果如下:此算法随机性较大，且性能不好</p>
+<pre class="line-numbers language-log" data-language="log"><code class="language-log"><span class="token number">0.1</span>元<span class="token number">10</span>个人抢<span class="token separator comment">=======================================================</span>
+第<span class="token number">1</span>个人抢到红包金额为：<span class="token number">0.01</span>
+第<span class="token number">2</span>个人抢到红包金额为：<span class="token number">0.01</span>
+第<span class="token number">3</span>个人抢到红包金额为：<span class="token number">0.01</span>
+第<span class="token number">4</span>个人抢到红包金额为：<span class="token number">0.01</span>
+第<span class="token number">5</span>个人抢到红包金额为：<span class="token number">0.01</span>
+第<span class="token number">6</span>个人抢到红包金额为：<span class="token number">0.01</span>
+第<span class="token number">7</span>个人抢到红包金额为：<span class="token number">0.01</span>
+第<span class="token number">8</span>个人抢到红包金额为：<span class="token number">0.01</span>
+第<span class="token number">9</span>个人抢到红包金额为：<span class="token number">0.01</span>
+第<span class="token number">10</span>个人抢到红包金额为：<span class="token number">0.01</span>
+校验每个红包累计额度是否等于红包总额结果：<span class="token boolean">true</span>
+<span class="token number">100</span>元<span class="token number">10</span>个人抢<span class="token separator comment">=======================================================</span>
+第<span class="token number">1</span>个人抢到红包金额为：<span class="token number">19.84</span>
+第<span class="token number">2</span>个人抢到红包金额为：<span class="token number">2.73</span>
+第<span class="token number">3</span>个人抢到红包金额为：<span class="token number">8.95</span>
+第<span class="token number">4</span>个人抢到红包金额为：<span class="token number">14.10</span>
+第<span class="token number">5</span>个人抢到红包金额为：<span class="token number">18.60</span>
+第<span class="token number">6</span>个人抢到红包金额为：<span class="token number">3.66</span>
+第<span class="token number">7</span>个人抢到红包金额为：<span class="token number">9.17</span>
+第<span class="token number">8</span>个人抢到红包金额为：<span class="token number">15.49</span>
+第<span class="token number">9</span>个人抢到红包金额为：<span class="token number">5.61</span>
+第<span class="token number">10</span>个人抢到红包金额为：<span class="token number">1.85</span>
+校验每个红包累计额度是否等于红包总额结果：<span class="token boolean">true</span>
+<span class="token number">1</span>元<span class="token number">10</span>个人抢<span class="token separator comment">=======================================================</span>
+第<span class="token number">1</span>个人抢到红包金额为：<span class="token number">0.02</span>
+第<span class="token number">2</span>个人抢到红包金额为：<span class="token number">0.28</span>
+第<span class="token number">3</span>个人抢到红包金额为：<span class="token number">0.03</span>
+第<span class="token number">4</span>个人抢到红包金额为：<span class="token number">0.02</span>
+第<span class="token number">5</span>个人抢到红包金额为：<span class="token number">0.11</span>
+第<span class="token number">6</span>个人抢到红包金额为：<span class="token number">0.23</span>
+第<span class="token number">7</span>个人抢到红包金额为：<span class="token number">0.18</span>
+第<span class="token number">8</span>个人抢到红包金额为：<span class="token number">0.09</span>
+第<span class="token number">9</span>个人抢到红包金额为：<span class="token number">0.03</span>
+第<span class="token number">10</span>个人抢到红包金额为：<span class="token number">0.01</span>
+校验每个红包累计额度是否等于红包总额结果：<span class="token boolean">true</span>
+<span class="token number">1000</span>元<span class="token number">10</span>个人抢<span class="token separator comment">=======================================================</span>
+第<span class="token number">1</span>个人抢到红包金额为：<span class="token number">69.28</span>
+第<span class="token number">2</span>个人抢到红包金额为：<span class="token number">14.68</span>
+第<span class="token number">3</span>个人抢到红包金额为：<span class="token number">373.16</span>
+第<span class="token number">4</span>个人抢到红包金额为：<span class="token number">274.73</span>
+第<span class="token number">5</span>个人抢到红包金额为：<span class="token number">30.77</span>
+第<span class="token number">6</span>个人抢到红包金额为：<span class="token number">30.76</span>
+第<span class="token number">7</span>个人抢到红包金额为：<span class="token number">95.55</span>
+第<span class="token number">8</span>个人抢到红包金额为：<span class="token number">85.20</span>
+第<span class="token number">9</span>个人抢到红包金额为：<span class="token number">10.44</span>
+第<span class="token number">10</span>个人抢到红包金额为：<span class="token number">15.43</span>
+校验每个红包累计额度是否等于红包总额结果：<span class="token boolean">true</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+<h3 id="PS"><a href="#PS" class="headerlink" title="PS"></a>PS</h3><p><a href="https://www.zybuluo.com/yulin718/note/93148">微信红包的架构设计简介</a><br><a href="https://www.cnblogs.com/chenyanbin/p/13587508.html">java实现qq抢红包_Redis秒杀实战</a><br><a href="https://blog.csdn.net/linkingfei/article/details/109541118">实用算法原理及简介</a></p>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>【Docker】之部署skywalking实现全链路监控功能</title>
     <url>/post/4612f524.html</url>
     <content><![CDATA[<img data-src="/post/4612f524/skywalking-001.png" class="">
@@ -82,6 +523,13 @@ lrwxrwxrwx. <span class="token number">1</span> root root <span class="token num
 <h3 id="快速部署"><a href="#快速部署" class="headerlink" title="快速部署"></a>快速部署</h3><h4 id="下载镜像"><a href="#下载镜像" class="headerlink" title="下载镜像"></a>下载镜像</h4><pre class="line-numbers language-docker" data-language="docker"><code class="language-docker">docker pull elasticsearch:7.17.3
 docker pull apache/skywalking-oap-server:9.0.0
 docker pull apache/skywalking-ui:9.0.0<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<div class="note success no-icon"><ol>
+<li><code>elasticsearch</code> 作为 skywalking 的存储，保存链路和日志数据等</li>
+<li><code>oap</code> 数据接收和分析 Observability Analysis Platform</li>
+<li><code>ui</code>  web端的数据展示</li>
+</ol>
+</div>
+
 <h4 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h4><h5 id="安装elasticsearch"><a href="#安装elasticsearch" class="headerlink" title="安装elasticsearch"></a>安装<code>elasticsearch</code></h5><p>  安装过程，参考：  <a href="/post/5aa01560.html" title="【Docker】之安装 ElasticSearch">【Docker】之安装 ElasticSearch</a> </p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 修改系统参数</span>
 <span class="token function">vi</span> /etc/sysctl.conf
@@ -154,6 +602,76 @@ apache/skywalking-ui:9.0.0<span aria-hidden="true" class="line-numbers-rows"><sp
 apache/skywalking-ui:8.6.0<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
+<h3 id="docker-compose-的方式"><a href="#docker-compose-的方式" class="headerlink" title="docker-compose 的方式"></a>docker-compose 的方式</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 创建配置文件保存的目录</span>
+<span class="token function">mkdir</span> -p /data/docker/admin/skywalking
+<span class="token comment"># 切换到刚创建的目录</span>
+<span class="token builtin class-name">cd</span> /data/docker/admin/skywalking
+<span class="token comment"># 将下面的 docker-compose.yml 文件保存到这个目录</span>
+<span class="token function">vi</span> docker-compose.yml
+<span class="token comment"># 拉去镜像并启动</span>
+<span class="token function">docker-compose</span> up -d
+<span class="token comment"># 查看日志</span>
+<span class="token function">docker-compose</span> logs -f<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>  <code>docker-compose.yml</code></p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">version</span><span class="token punctuation">:</span> <span class="token string">'3.8'</span>
+<span class="token key atrule">services</span><span class="token punctuation">:</span>
+  <span class="token key atrule">elasticsearch</span><span class="token punctuation">:</span>
+    <span class="token key atrule">image</span><span class="token punctuation">:</span> docker.elastic.co/elasticsearch/elasticsearch<span class="token punctuation">:</span>7.14.1
+    <span class="token key atrule">container_name</span><span class="token punctuation">:</span> elasticsearch
+    <span class="token key atrule">restart</span><span class="token punctuation">:</span> always
+    <span class="token key atrule">ports</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> 9200<span class="token punctuation">:</span><span class="token number">9200</span>
+    <span class="token key atrule">healthcheck</span><span class="token punctuation">:</span>
+      <span class="token key atrule">test</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">"CMD-SHELL"</span><span class="token punctuation">,</span> <span class="token string">"curl --silent --fail localhost:9200/_cluster/health || exit 1"</span><span class="token punctuation">]</span>
+      <span class="token key atrule">interval</span><span class="token punctuation">:</span> 30s
+      <span class="token key atrule">timeout</span><span class="token punctuation">:</span> 10s
+      <span class="token key atrule">retries</span><span class="token punctuation">:</span> <span class="token number">3</span>
+      <span class="token key atrule">start_period</span><span class="token punctuation">:</span> 40s
+    <span class="token key atrule">environment</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> discovery.type=single<span class="token punctuation">-</span>node
+      <span class="token punctuation">-</span> bootstrap.memory_lock=true
+      <span class="token punctuation">-</span> <span class="token string">"ES_JAVA_OPTS=-Xms512m -Xmx512m"</span>
+      <span class="token punctuation">-</span> TZ=Asia/Shanghai
+    <span class="token key atrule">ulimits</span><span class="token punctuation">:</span>
+      <span class="token key atrule">memlock</span><span class="token punctuation">:</span>
+        <span class="token key atrule">soft</span><span class="token punctuation">:</span> <span class="token number">-1</span>
+        <span class="token key atrule">hard</span><span class="token punctuation">:</span> <span class="token number">-1</span>
+  <span class="token key atrule">oap</span><span class="token punctuation">:</span>
+    <span class="token key atrule">image</span><span class="token punctuation">:</span> apache/skywalking<span class="token punctuation">-</span>oap<span class="token punctuation">-</span>server<span class="token punctuation">:</span>8.7.0<span class="token punctuation">-</span>es7
+    <span class="token key atrule">container_name</span><span class="token punctuation">:</span> oap
+    <span class="token key atrule">depends_on</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> elasticsearch
+    <span class="token key atrule">links</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> elasticsearch
+    <span class="token key atrule">restart</span><span class="token punctuation">:</span> always
+    <span class="token key atrule">ports</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> 11800<span class="token punctuation">:</span><span class="token number">11800</span>
+      <span class="token punctuation">-</span> 12800<span class="token punctuation">:</span><span class="token number">12800</span>
+    <span class="token key atrule">healthcheck</span><span class="token punctuation">:</span>
+      <span class="token key atrule">test</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">"CMD-SHELL"</span><span class="token punctuation">,</span> <span class="token string">"/skywalking/bin/swctl"</span><span class="token punctuation">]</span>
+      <span class="token key atrule">interval</span><span class="token punctuation">:</span> 30s
+      <span class="token key atrule">timeout</span><span class="token punctuation">:</span> 10s
+      <span class="token key atrule">retries</span><span class="token punctuation">:</span> <span class="token number">3</span>
+      <span class="token key atrule">start_period</span><span class="token punctuation">:</span> 40s
+    <span class="token key atrule">environment</span><span class="token punctuation">:</span>
+      <span class="token key atrule">TZ</span><span class="token punctuation">:</span> Asia/Shanghai
+      <span class="token key atrule">SW_STORAGE</span><span class="token punctuation">:</span> elasticsearch7
+      <span class="token key atrule">SW_STORAGE_ES_CLUSTER_NODES</span><span class="token punctuation">:</span> elasticsearch<span class="token punctuation">:</span><span class="token number">9200</span>
+  <span class="token key atrule">ui</span><span class="token punctuation">:</span>
+    <span class="token key atrule">image</span><span class="token punctuation">:</span> apache/skywalking<span class="token punctuation">-</span>ui<span class="token punctuation">:</span>8.7.0
+    <span class="token key atrule">container_name</span><span class="token punctuation">:</span> ui
+    <span class="token key atrule">depends_on</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> oap
+    <span class="token key atrule">links</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> oap
+    <span class="token key atrule">restart</span><span class="token punctuation">:</span> always
+    <span class="token key atrule">ports</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> 8088<span class="token punctuation">:</span><span class="token number">8080</span>
+    <span class="token key atrule">environment</span><span class="token punctuation">:</span>
+      <span class="token key atrule">TZ</span><span class="token punctuation">:</span> Asia/Shanghai
+      <span class="token key atrule">SW_OAP_ADDRESS</span><span class="token punctuation">:</span> http<span class="token punctuation">:</span>//oap<span class="token punctuation">:</span><span class="token number">12800</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
 <h3 id="Spring-boot实例部署"><a href="#Spring-boot实例部署" class="headerlink" title="Spring-boot实例部署"></a>Spring-boot实例部署</h3><p>  下载agent：<a href="https://skywalking.apache.org/downloads/">https://skywalking.apache.org/downloads/</a></p>
 <img data-src="/post/4612f524/skywalking-003.png" class="" title="Agents">
 <p>  以agent的方式启动，对代码没有侵入性，直接在启动命令上指定javaagent即可。<br>  启动命令javaagent参数添加：</p>
@@ -164,7 +682,7 @@ apache/skywalking-ui:8.6.0<span aria-hidden="true" class="line-numbers-rows"><sp
 
 
 <h3 id="查看监控情况"><a href="#查看监控情况" class="headerlink" title="查看监控情况"></a>查看监控情况</h3><p>  启动程序后，登录skywalking查看监控情况：<code>http://10.211.55.81:8086</code></p>
-<h3 id="PS"><a href="#PS" class="headerlink" title="PS"></a>PS</h3><p><a href="http://dljz.nicethemes.cn/news/show-121700.html">链路追踪：SkyWalking</a></p>
+<h3 id="PS"><a href="#PS" class="headerlink" title="PS"></a>PS</h3><p><a href="http://dljz.nicethemes.cn/news/show-121700.html">链路追踪：SkyWalking</a><br><a href="http://yelog.org/2021/09/26/spring-cloud-skywalking/">SpringCloud系列之接入SkyWalking进行链路追踪和日志收集</a></p>
 <link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
       <categories>
         <category>Docker</category>
@@ -4043,6 +4561,135 @@ docker exec -it gitlab update-permissions<span aria-hidden="true" class="line-nu
       </categories>
       <tags>
         <tag>GitLab</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>java-jar维护脚本</title>
+    <url>/post/343d655c.html</url>
+    <content><![CDATA[<h3 id="脚本内容"><a href="#脚本内容" class="headerlink" title="脚本内容"></a>脚本内容</h3><p>  现在越来越多的程序都用docker容器来管理了，不过依旧有很多的程序，是直接在linux上使用jar方式管理的，那么编写一个易用的脚本来管理是必不可少的。</p>
+<span id="more"></span>
+
+<p>  脚本示例：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token shebang important">#!/bin/bash</span>
+
+<span class="token assign-left variable">jar_path</span><span class="token operator">=</span><span class="token string">'/home/pro-mall/ex-pro.jar'</span>
+
+<span class="token comment"># JVM参数</span>
+<span class="token assign-left variable">JVM_OPTS</span><span class="token operator">=</span><span class="token string">"-Dspring.profiles.active=prod"</span>
+<span class="token comment"># JVM参数 debug模式</span>
+<span class="token assign-left variable">JVM_OPTS_DEBUG</span><span class="token operator">=</span><span class="token string">"-Dspring.profiles.active=prod -Xdebug -Xrunjdwp:server=y,transport=dt_socket,address=10000,suspend=n"</span>
+
+<span class="token keyword">function</span> <span class="token function-name function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token assign-left variable">PID</span><span class="token operator">=</span><span class="token variable"><span class="token variable">`</span><span class="token function">ps</span> -ef <span class="token operator">|</span><span class="token function">grep</span> java<span class="token operator">|</span><span class="token function">grep</span> $jar_path<span class="token operator">|</span><span class="token function">grep</span> -v <span class="token function">grep</span><span class="token operator">|</span><span class="token function">awk</span> <span class="token string">'{print $2}'</span><span class="token variable">`</span></span>
+
+	<span class="token keyword">if</span> <span class="token punctuation">[</span> x<span class="token string">"<span class="token variable">$PID</span>"</span> <span class="token operator">!=</span> x<span class="token string">""</span> <span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token keyword">then</span>
+	    <span class="token builtin class-name">echo</span>  -e <span class="token string">"<span class="token entity" title="\033">\033</span>[0;31m 程序 <span class="token variable">$jar_path</span> 正在运行中，请先停止！ <span class="token entity" title="\033">\033</span>[0m"</span>
+	<span class="token keyword">else</span>
+	    <span class="token keyword">if</span> <span class="token punctuation">[</span><span class="token punctuation">[</span> <span class="token operator">!</span> -f <span class="token string">"<span class="token variable">$jar_path</span>"</span> <span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token keyword">then</span>
+            <span class="token builtin class-name">echo</span>  -e <span class="token string">"<span class="token entity" title="\033">\033</span>[0;31m <span class="token variable">$jar_path</span> 不存在，无法操作命令！ <span class="token entity" title="\033">\033</span>[0m"</span>
+        <span class="token keyword">else</span>
+            <span class="token function">nohup</span> java -jar <span class="token variable">$JVM_OPTS</span> <span class="token variable">$jar_path</span>  <span class="token operator">&gt;</span> /dev/null <span class="token operator"><span class="token file-descriptor important">2</span>&gt;</span><span class="token file-descriptor important">&amp;1</span> <span class="token operator">&amp;</span>
+		    <span class="token builtin class-name">echo</span>  -e <span class="token string">"<span class="token entity" title="\033">\033</span>[0;34m 启动 <span class="token variable">$jar_path</span> 成功！<span class="token entity" title="\033">\033</span>[0m"</span>
+        <span class="token keyword">fi</span>
+	<span class="token keyword">fi</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function-name function">debug</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token assign-left variable">PID</span><span class="token operator">=</span><span class="token variable"><span class="token variable">`</span><span class="token function">ps</span> -ef <span class="token operator">|</span><span class="token function">grep</span> java<span class="token operator">|</span><span class="token function">grep</span> $jar_path<span class="token operator">|</span><span class="token function">grep</span> -v <span class="token function">grep</span><span class="token operator">|</span><span class="token function">awk</span> <span class="token string">'{print $2}'</span><span class="token variable">`</span></span>
+
+	<span class="token keyword">if</span> <span class="token punctuation">[</span> x<span class="token string">"<span class="token variable">$PID</span>"</span> <span class="token operator">!=</span> x<span class="token string">""</span> <span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token keyword">then</span>
+	    <span class="token builtin class-name">echo</span>  -e <span class="token string">"<span class="token entity" title="\033">\033</span>[0;31m 程序 <span class="token variable">$jar_path</span> 正在运行中，请先停止！ <span class="token entity" title="\033">\033</span>[0m"</span>
+	<span class="token keyword">else</span>
+        <span class="token keyword">if</span> <span class="token punctuation">[</span><span class="token punctuation">[</span> <span class="token operator">!</span> -f <span class="token string">"<span class="token variable">$jar_path</span>"</span> <span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token keyword">then</span>
+            <span class="token builtin class-name">echo</span>  -e <span class="token string">"<span class="token entity" title="\033">\033</span>[0;31m <span class="token variable">$jar_path</span> 不存在，无法操作命令！ <span class="token entity" title="\033">\033</span>[0m"</span>
+        <span class="token keyword">else</span>
+            <span class="token function">nohup</span> java -jar <span class="token variable">$JVM_OPTS_DEBUG</span> <span class="token variable">$jar_path</span>  <span class="token operator">&gt;</span> /dev/null <span class="token operator"><span class="token file-descriptor important">2</span>&gt;</span><span class="token file-descriptor important">&amp;1</span> <span class="token operator">&amp;</span>
+		    <span class="token builtin class-name">echo</span> -e <span class="token string">"<span class="token entity" title="\033">\033</span>[0;34m Debug模式 启动 <span class="token variable">$jar_path</span> 成功！端口：10000 <span class="token entity" title="\033">\033</span>[0m"</span>
+        <span class="token keyword">fi</span>
+	<span class="token keyword">fi</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function-name function">stop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+	<span class="token assign-left variable">PID</span><span class="token operator">=</span><span class="token variable"><span class="token variable">`</span><span class="token function">ps</span> -ef <span class="token operator">|</span><span class="token function">grep</span> java<span class="token operator">|</span><span class="token function">grep</span> $jar_path<span class="token operator">|</span><span class="token function">grep</span> -v <span class="token function">grep</span><span class="token operator">|</span><span class="token function">awk</span> <span class="token string">'{print $2}'</span><span class="token variable">`</span></span>
+
+	<span class="token keyword">if</span> <span class="token punctuation">[</span> x<span class="token string">"<span class="token variable">$PID</span>"</span> <span class="token operator">!=</span> x<span class="token string">""</span> <span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token keyword">then</span>
+		<span class="token function">kill</span> -9 <span class="token variable">$PID</span>
+		<span class="token builtin class-name">echo</span> -e <span class="token string">"<span class="token entity" title="\033">\033</span>[0;34m <span class="token variable">$jar_path</span> 已停止 <span class="token entity" title="\033">\033</span>[0m"</span>
+	<span class="token keyword">else</span>
+		<span class="token builtin class-name">echo</span> -e <span class="token string">"<span class="token entity" title="\033">\033</span>[0;31m 程序 <span class="token variable">$jar_path</span> 未启动，不能操作！ <span class="token entity" title="\033">\033</span>[0m"</span>
+	<span class="token keyword">fi</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function-name function">restart</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    stop
+    <span class="token function">sleep</span> <span class="token number">2</span>
+    start
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function-name function">status</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token assign-left variable">PID</span><span class="token operator">=</span><span class="token variable"><span class="token variable">`</span><span class="token function">ps</span> -ef <span class="token operator">|</span><span class="token function">grep</span> java<span class="token operator">|</span><span class="token function">grep</span> $jar_path<span class="token operator">|</span><span class="token function">grep</span> -v <span class="token function">grep</span><span class="token operator">|</span><span class="token function">wc</span> -l<span class="token variable">`</span></span>
+    <span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token variable">$PID</span> <span class="token operator">!=</span> <span class="token number">0</span> <span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token keyword">then</span>
+        <span class="token builtin class-name">echo</span> -e <span class="token string">"<span class="token entity" title="\033">\033</span>[0;34m 程序 <span class="token variable">$jar_path</span> 正在运行中 <span class="token entity" title="\033">\033</span>[0m"</span>
+        <span class="token assign-left variable">PID_NUM</span><span class="token operator">=</span><span class="token variable"><span class="token variable">`</span><span class="token function">ps</span> -ef <span class="token operator">|</span><span class="token function">grep</span> java<span class="token operator">|</span><span class="token function">grep</span> $jar_path<span class="token operator">|</span><span class="token function">grep</span> -v <span class="token function">grep</span><span class="token operator">|</span><span class="token function">awk</span> <span class="token string">'{print $2}'</span><span class="token variable">`</span></span>
+        <span class="token builtin class-name">echo</span> -e <span class="token string">"<span class="token entity" title="\033">\033</span>[0;34m 程序对应的PID： <span class="token variable">$PID_NUM</span> <span class="token entity" title="\033">\033</span>[0m"</span>
+    <span class="token keyword">else</span>
+        <span class="token builtin class-name">echo</span> -e <span class="token string">"<span class="token entity" title="\033">\033</span>[0;31m 程序 <span class="token variable">$jar_path</span> 没有运行！ <span class="token entity" title="\033">\033</span>[0m"</span>
+    <span class="token keyword">fi</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function-name function">find_help</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token builtin class-name">echo</span> -e <span class="token string">"<span class="token entity" title="\033">\033</span>[0;31m 请输入正确的操作命令！ <span class="token entity" title="\033">\033</span>[0m"</span>
+    <span class="token builtin class-name">echo</span> -e <span class="token string">"<span class="token entity" title="\033">\033</span>[0;34m 命令参数：{start|stop|restart|status|debug} <span class="token entity" title="\033">\033</span>[0m"</span>
+    <span class="token builtin class-name">echo</span> -e <span class="token string">"<span class="token entity" title="\033">\033</span>[0;34m 用法： <span class="token entity" title="\033">\033</span>[0m"</span>
+    <span class="token builtin class-name">echo</span> -e <span class="token string">"<span class="token entity" title="\033">\033</span>[0;34m     start    启动应用程序 <span class="token entity" title="\033">\033</span>[0m"</span>
+    <span class="token builtin class-name">echo</span> -e <span class="token string">"<span class="token entity" title="\033">\033</span>[0;34m     stop     停止应用程序 <span class="token entity" title="\033">\033</span>[0m"</span>
+    <span class="token builtin class-name">echo</span> -e <span class="token string">"<span class="token entity" title="\033">\033</span>[0;34m     restart  重启应用程序 <span class="token entity" title="\033">\033</span>[0m"</span>
+    <span class="token builtin class-name">echo</span> -e <span class="token string">"<span class="token entity" title="\033">\033</span>[0;34m     status   查看应用程序运行状态和PID <span class="token entity" title="\033">\033</span>[0m"</span>
+    <span class="token builtin class-name">echo</span> -e <span class="token string">"<span class="token entity" title="\033">\033</span>[0;34m     debug    Debug模式启动应用程序 <span class="token entity" title="\033">\033</span>[0m"</span>
+    <span class="token builtin class-name">exit</span> <span class="token number">1</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token string">"<span class="token variable">$1</span>"</span> <span class="token operator">=</span> <span class="token string">""</span> <span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token keyword">then</span>
+    find_help<span class="token punctuation">;</span>
+    <span class="token builtin class-name">exit</span> <span class="token number">1</span>
+<span class="token keyword">fi</span>
+
+<span class="token keyword">case</span> <span class="token variable">$1</span> <span class="token keyword">in</span>
+    start<span class="token punctuation">)</span>
+    start<span class="token punctuation">;</span><span class="token punctuation">;</span>
+    stop<span class="token punctuation">)</span>
+    stop<span class="token punctuation">;</span><span class="token punctuation">;</span>
+    restart<span class="token punctuation">)</span>
+    restart<span class="token punctuation">;</span><span class="token punctuation">;</span>
+    status<span class="token punctuation">)</span>
+    status<span class="token punctuation">;</span><span class="token punctuation">;</span>
+    debug<span class="token punctuation">)</span>
+    debug<span class="token punctuation">;</span><span class="token punctuation">;</span>
+    *<span class="token punctuation">)</span>
+    find_help<span class="token punctuation">;</span><span class="token punctuation">;</span>
+<span class="token keyword">esac</span>
+
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="设置别名"><a href="#设置别名" class="headerlink" title="设置别名"></a>设置别名</h3><p>  通常情况，我们运行一个脚本，需要使用“sh + 脚本路径 + 参数”的方式，管理起来可能不太方便，所以我们一般会给他设置一个别名来管理。<br>  语法：</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token builtin class-name">alias</span> <span class="token operator">&lt;</span>别名<span class="token operator">&gt;=</span><span class="token operator">&lt;</span>sh脚本路径<span class="token operator">&gt;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>  了解了alias命令的语法后，我们直接执行就好了吗？不是的，如果直接执行，那么在你关闭ssh终端后重新连接，命令就失效啦。<br>  我们需要将这个命令追加到<code>~/.bashrc</code>文件中，才能保证命令不会失效。<br>  我们来试试吧，示例：</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">chmod</span> <span class="token number">777</span> /home/pro-mall/c.sh
+<span class="token builtin class-name">echo</span> <span class="token string">"alias mall=/home/pro-mall/c.sh"</span> <span class="token operator">&gt;&gt;</span> ~/.bashrc
+<span class="token builtin class-name">source</span> ~/.bashrc<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>  设置好别名后的使用方法，如：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">mall start
+mall stop
+mall debug
+<span class="token punctuation">..</span>.
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>jar</tag>
       </tags>
   </entry>
   <entry>
