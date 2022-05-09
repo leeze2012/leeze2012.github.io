@@ -70,21 +70,21 @@ lrwxrwxrwx. <span class="token number">1</span> root root <span class="token num
 <span id="more"></span>
 
 <h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><h4 id="拉取镜像"><a href="#拉取镜像" class="headerlink" title="拉取镜像"></a>拉取镜像</h4><pre class="line-numbers language-docker" data-language="docker"><code class="language-docker">docker pull zookeeper:3.8.0<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<h4 id="数据目录"><a href="#数据目录" class="headerlink" title="数据目录"></a>数据目录</h4><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">mkdir</span> -p /root/.docker/voldata/zookeeper/<span class="token punctuation">{</span>conf,data,log<span class="token punctuation">}</span>
+<h4 id="数据目录"><a href="#数据目录" class="headerlink" title="数据目录"></a>数据目录</h4><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">mkdir -p /root/.docker/voldata/zookeeper/{conf,data,log}
 
-<span class="token builtin class-name">cd</span> conf
-<span class="token function">vi</span>  zoo.cfg
-<span class="token assign-left variable">dataDir</span><span class="token operator">=</span>/data
-<span class="token assign-left variable">dataLogDir</span><span class="token operator">=</span>/datalog
-<span class="token assign-left variable">tickTime</span><span class="token operator">=</span><span class="token number">2000</span>
-<span class="token assign-left variable">initLimit</span><span class="token operator">=</span><span class="token number">5</span>
-<span class="token assign-left variable">syncLimit</span><span class="token operator">=</span><span class="token number">2</span>
-autopurge.snapRetainCount<span class="token operator">=</span><span class="token number">3</span>
-autopurge.purgeInterval<span class="token operator">=</span><span class="token number">0</span>
-<span class="token assign-left variable">maxClientCnxns</span><span class="token operator">=</span><span class="token number">60</span>
-<span class="token assign-left variable">standaloneEnabled</span><span class="token operator">=</span>true
-admin.enableServer<span class="token operator">=</span>true
-<span class="token assign-left variable">clientPort</span><span class="token operator">=</span><span class="token number">2181</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+cd conf
+vi  zoo.cfg
+dataDir=/data
+dataLogDir=/datalog
+tickTime=2000
+initLimit=5
+syncLimit=2
+autopurge.snapRetainCount=3
+autopurge.purgeInterval=0
+maxClientCnxns=60
+standaloneEnabled=true
+admin.enableServer=true
+clientPort=2181<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h4 id="启动容器"><a href="#启动容器" class="headerlink" title="启动容器"></a>启动容器</h4><pre class="line-numbers language-docker" data-language="docker"><code class="language-docker">docker run -dit -p 2181:2181 \
 --name zookeeper \
 --privileged=true \
@@ -101,7 +101,7 @@ zookeeper:3.8.0<span aria-hidden="true" class="line-numbers-rows"><span></span><
         <category>Docker</category>
       </categories>
       <tags>
-        <tag>Docker</tag>
+        <tag>zookeeper</tag>
       </tags>
   </entry>
   <entry>
