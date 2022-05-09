@@ -15,8 +15,61 @@
     <atom:link href="https://www.xiaosige.com/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>因上努力，果上随缘！</description>
-    <pubDate>Mon, 09 May 2022 15:39:03 GMT</pubDate>
+    <pubDate>Mon, 09 May 2022 18:03:22 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>【Docker】之部署安装zookeeper</title>
+      <link>https://www.xiaosige.com/post/aa05fc91.html</link>
+      <guid>https://www.xiaosige.com/post/aa05fc91.html</guid>
+      <pubDate>Mon, 09 May 2022 17:38:29 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;h3 id=&quot;介绍&quot;&gt;&lt;a href=&quot;#介绍&quot; class=&quot;headerlink&quot;</description>
+          
+        
+      
+      
+      
+      
+      <category domain="https://www.xiaosige.com/categories/Docker/">Docker</category>
+      
+      
+      <category domain="https://www.xiaosige.com/tags/Docker/">Docker</category>
+      
+      
+      <comments>https://www.xiaosige.com/post/aa05fc91.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>【Docker】之 docker exec 命令简化</title>
+      <link>https://www.xiaosige.com/post/787150d6.html</link>
+      <guid>https://www.xiaosige.com/post/787150d6.html</guid>
+      <pubDate>Mon, 09 May 2022 16:05:53 GMT</pubDate>
+      
+      <description>&lt;h3 id=&quot;进入容器&quot;&gt;&lt;a href=&quot;#进入容器&quot; class=&quot;headerlink&quot; title=&quot;进入容器&quot;&gt;&lt;/a&gt;进入容器&lt;/h3&gt;&lt;p&gt;  某些时候需要进入容器进行操作，可以使用 &lt;code&gt;attach&lt;/code&gt; 、&lt;code&gt;exec&lt;/code&gt; 进入容器。&lt;/p&gt;
+&lt;pre class=&quot;line-numbers language-docker&quot; data-language=&quot;docker&quot;&gt;&lt;code class=&quot;language-docker&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# 不安全的，ctrl+d 退出时容器也会终止&lt;/span&gt;
+docker attach [容器Name]
+
+&lt;span class=&quot;token comment&quot;&gt;# 以交互式命令行进入，安全的，推荐使用&lt;/span&gt;
+docker exec -it [容器Name] /bin/bash&lt;span aria-hidden=&quot;true&quot; class=&quot;line-numbers-rows&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;</description>
+      
+      
+      
+      
+      <category domain="https://www.xiaosige.com/categories/Docker/">Docker</category>
+      
+      
+      <category domain="https://www.xiaosige.com/tags/Docker/">Docker</category>
+      
+      
+      <comments>https://www.xiaosige.com/post/787150d6.html#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>Java实现4种微信抢红包算法</title>
@@ -408,48 +461,6 @@ docker pull rabbitmq:3.9.16-management&lt;span aria-hidden=&quot;true&quot; clas
       
       
       <comments>https://www.xiaosige.com/post/a90d146c.html#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>Nexus搭建Docker私有仓库</title>
-      <link>https://www.xiaosige.com/post/1ed6a709.html</link>
-      <guid>https://www.xiaosige.com/post/1ed6a709.html</guid>
-      <pubDate>Sat, 30 Oct 2021 16:19:29 GMT</pubDate>
-      
-      <description>&lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;  Nexus3是Sonatype提供的仓库管理平台，Nuexus Repository OSS3能够支持Maven、npm、Docker、YUM、Helm等格式数据的存储和发布；并且能够与Jekins、SonaQube和Eclipse等工具进行集成。Nexus3支持作为宿主和代理存储库的Docker存储库，可以直接将这些存储库暴露给客户端工具；也可以以存储库组的方式暴露给客户端工具，存储库组是合并了多个存储库的内容的存储库，能够通过一个URL将多个存储库暴露给客户端工具，从而便于用户的使用。通过nexus3自建能够有效减少访问获取镜像的时间和对带宽使用，并能够通过自有的镜像仓库共享企业自己的镜像。在本文中，采用Docker方式安装部署Nexus3。&lt;/p&gt;</description>
-      
-      
-      
-      
-      <category domain="https://www.xiaosige.com/categories/Docker/">Docker</category>
-      
-      
-      <category domain="https://www.xiaosige.com/tags/Nexus/">Nexus</category>
-      
-      
-      <comments>https://www.xiaosige.com/post/1ed6a709.html#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>【Docker】之安装 Maven私服 Nexus3</title>
-      <link>https://www.xiaosige.com/post/a6836d41.html</link>
-      <guid>https://www.xiaosige.com/post/a6836d41.html</guid>
-      <pubDate>Tue, 22 Jun 2021 16:48:12 GMT</pubDate>
-      
-      <description>&lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;  Nexus 是Maven仓库管理器，如果你使用Maven，你可以从Maven中央仓库 下载所需要的构件（artifact），但这通常不是一个好的做法，你应该在本地架设一个Maven仓库服务器，在代理远程仓库的同时维护本地仓库，以节省带宽和时间，Nexus就可以满足这样的需要。此外，他还提供了强大的仓库管理功能，构件搜索功能，它基于REST，友好的UI是一个extjs的REST客户端，它占用较少的内存，基于简单文件系统而非数据库。这些优点使其日趋成为最流行的Maven仓库管理器。除此之外，Nexus还可以管理Docker镜像。&lt;/p&gt;</description>
-      
-      
-      
-      
-      <category domain="https://www.xiaosige.com/categories/Docker/">Docker</category>
-      
-      
-      <category domain="https://www.xiaosige.com/tags/Nexus/">Nexus</category>
-      
-      
-      <comments>https://www.xiaosige.com/post/a6836d41.html#disqus_thread</comments>
       
     </item>
     

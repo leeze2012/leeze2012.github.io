@@ -64,6 +64,77 @@ lrwxrwxrwx. <span class="token number">1</span> root root <span class="token num
       </tags>
   </entry>
   <entry>
+    <title>【Docker】之部署安装zookeeper</title>
+    <url>/post/aa05fc91.html</url>
+    <content><![CDATA[<h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>  ZooKeeper是一个分布式的，开放源码的分布式应用程序协调服务，是Google的Chubby一个开源的实现，是Hadoop和Hbase的重要组件。它是一个为分布式应用提供一致性服务的软件，提供的功能包括：配置维护、域名服务、分布式同步、组服务等。<br>  ZooKeeper的目标就是封装好复杂易出错的关键服务，将简单易用的接口和性能高效、功能稳定的系统提供给用户。</p>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><h4 id="拉取镜像"><a href="#拉取镜像" class="headerlink" title="拉取镜像"></a>拉取镜像</h4><pre class="line-numbers language-docker" data-language="docker"><code class="language-docker">docker pull zookeeper:3.8.0<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h4 id="数据目录"><a href="#数据目录" class="headerlink" title="数据目录"></a>数据目录</h4><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">mkdir</span> -p /root/.docker/voldata/zookeeper/<span class="token punctuation">{</span>conf,data,log<span class="token punctuation">}</span>
+
+<span class="token builtin class-name">cd</span> conf
+<span class="token function">vi</span>  zoo.cfg
+<span class="token assign-left variable">dataDir</span><span class="token operator">=</span>/data
+<span class="token assign-left variable">dataLogDir</span><span class="token operator">=</span>/datalog
+<span class="token assign-left variable">tickTime</span><span class="token operator">=</span><span class="token number">2000</span>
+<span class="token assign-left variable">initLimit</span><span class="token operator">=</span><span class="token number">5</span>
+<span class="token assign-left variable">syncLimit</span><span class="token operator">=</span><span class="token number">2</span>
+autopurge.snapRetainCount<span class="token operator">=</span><span class="token number">3</span>
+autopurge.purgeInterval<span class="token operator">=</span><span class="token number">0</span>
+<span class="token assign-left variable">maxClientCnxns</span><span class="token operator">=</span><span class="token number">60</span>
+<span class="token assign-left variable">standaloneEnabled</span><span class="token operator">=</span>true
+admin.enableServer<span class="token operator">=</span>true
+<span class="token assign-left variable">clientPort</span><span class="token operator">=</span><span class="token number">2181</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="启动容器"><a href="#启动容器" class="headerlink" title="启动容器"></a>启动容器</h4><pre class="line-numbers language-docker" data-language="docker"><code class="language-docker">docker run -dit -p 2181:2181 \
+--name zookeeper \
+--privileged=true \
+--restart always \
+-v /root/.docker/voldata/zookeeper/data:/data \
+-v /root/.docker/voldata/zookeeper/log:/datalog \
+-v /root/.docker/voldata/zookeeper/conf:/conf \
+zookeeper:3.8.0<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+<h3 id="ps"><a href="#ps" class="headerlink" title="ps"></a>ps</h3><p><a href="https://blog.51cto.com/u_14834727/2994070"> 使用docker快速搭建zookeeper集群 原创 </a></p>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
+      <categories>
+        <category>Docker</category>
+      </categories>
+      <tags>
+        <tag>Docker</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【Docker】之 docker exec 命令简化</title>
+    <url>/post/787150d6.html</url>
+    <content><![CDATA[<h3 id="进入容器"><a href="#进入容器" class="headerlink" title="进入容器"></a>进入容器</h3><p>  某些时候需要进入容器进行操作，可以使用 <code>attach</code> 、<code>exec</code> 进入容器。</p>
+<pre class="line-numbers language-docker" data-language="docker"><code class="language-docker"><span class="token comment"># 不安全的，ctrl+d 退出时容器也会终止</span>
+docker attach [容器Name]
+
+<span class="token comment"># 以交互式命令行进入，安全的，推荐使用</span>
+docker exec -it [容器Name] /bin/bash<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span id="more"></span>
+
+<h3 id="命令优化"><a href="#命令优化" class="headerlink" title="命令优化"></a>命令优化</h3><ol>
+<li>使用 <code>docker exec</code> 命令时，好用，但是命令过长，我们可以通过自定义命令来简化使用</li>
+<li>创建文件 <code>/user/bin/ctn</code> 命令文件，内容如下:<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> <span class="token builtin class-name">exec</span> -it <span class="token variable">$1</span> /bin/bash<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+  检查环境变量有没有配置目录 <code>/usr/bin</code> （一般是有配置在环境变量里面的，不过最好再确认一下）<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token environment constant">$PATH</span>
+bash: /usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games: No such <span class="token function">file</span> or directory<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+  完成上面步骤后，就可以直接通过命令 <code>ctn</code> 来进入容器<div class="note info no-icon"><p>注意：如果是使用非 root 账号创建的命令，而 docker 命令是 root 权限，可能存在权限问题，可以通过设置 <code>chmod 777 /usr/bin/ctn</code> 设置权限，使用 <code>sudo ctn [容器Name] </code> 即可进入容器</p>
+</div>
+<pre class="line-numbers language-docker" data-language="docker"><code class="language-docker">$ ctn [容器Name]<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+  使用上面命令时，容器Name 需要手动输入，容器出错。我们可以借助 <code>complete</code> 命令来补全 容器Name，在 <code>~/.bashrc</code> （作用于当前用户，如果想要所要用户上校，可以修改 <code>/etc/bashrc</code>）文件中添加一行，内容如下。保存后执行 <code>source ~/.bashrc</code> 使之生效，之后我们输入 <code>ctn</code> 后，按 <code>tab</code> 就会提示或自动补全容器名了了<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># ctn auto complete</span>
+complete -W <span class="token string">"<span class="token variable"><span class="token variable">$(</span><span class="token function">docker</span> <span class="token function">ps</span> --format<span class="token string">"{{.Names}}"</span><span class="token variable">)</span></span>"</span> ctn<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<div class="note info no-icon"><p>注意： 由于提示的 容器Name 是 <code>~/.bashrc</code> 生效时的列表，所有如果之后 <code>docker</code> 容器列表有变动，需要重新执行 <code>source ~/.bashrc</code> 使之更新提示列表</p>
+</div></li>
+</ol>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
+      <categories>
+        <category>Docker</category>
+      </categories>
+      <tags>
+        <tag>Docker</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Java实现4种微信抢红包算法</title>
     <url>/post/95ad3e48.html</url>
     <content><![CDATA[<h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><div class="note success no-icon"><ol>
