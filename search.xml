@@ -64,6 +64,113 @@ lrwxrwxrwx. <span class="token number">1</span> root root <span class="token num
       </tags>
   </entry>
   <entry>
+    <title>【Docker】之部署skywalking实现全链路监控功能</title>
+    <url>/post/4612f524.html</url>
+    <content><![CDATA[<img data-src="/post/4612f524/skywalking-001.png" class="">
+
+<span id="more"></span>
+
+<h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>  skywalking是一个开放源码的，用于收集、分析，聚合，可视化来自于不同服务和本地基础服务的数据的可观察的平台，<br>  skywalking提供了一个简单的方法来让你对你的分布式系统甚至是跨云的服务有清晰的了解。<br>  它更像是一个现代的系统性能管理，特别为分布式系统而设计。</p>
+<h3 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h3><p>  skywalking提供了在很多不同的场景下用于观察和监控分布式系统的方式。 首先，像传统的方法，skywalking为java,c#,Node.js等提供了自动探针代理. 同时，它为Go,C++提供了手工探针。<br>  随着本地服务越来越多，需要越来越多的语言，掌控代码的风险也在增加， Skywalking可以使用网状服务探针收集数据，以了解整个分布式系统。 通常，skywalking提供了观察service,service instance,endpoint的能力。</p>
+<div class="note success no-icon"><ul>
+<li>service: 一个服务</li>
+<li>Service Instance: 服务的实例(1个服务会启动多个节点)</li>
+<li>Endpoint: 一个服务中的其中一个接口</li>
+</ul>
+</div>
+<h3 id="架构图"><a href="#架构图" class="headerlink" title="架构图"></a>架构图</h3><img data-src="/post/4612f524/skywalking-002.jpg" class="" title="skywalking架构图">
+<h3 id="快速部署"><a href="#快速部署" class="headerlink" title="快速部署"></a>快速部署</h3><h4 id="下载镜像部署"><a href="#下载镜像部署" class="headerlink" title="下载镜像部署"></a>下载镜像部署</h4><pre class="line-numbers language-docker" data-language="docker"><code class="language-docker">docker pull elasticsearch:7.17.3
+docker pull apache/skywalking-oap-server:9.0.0
+docker pull apache/skywalking-ui:9.0.0<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<h5 id="安装elasticsearch"><a href="#安装elasticsearch" class="headerlink" title="安装elasticsearch"></a>安装<code>elasticsearch</code></h5><p>  安装过程，参考：  <a href="/post/5aa01560.html" title="【Docker】之安装 ElasticSearch">【Docker】之安装 ElasticSearch</a> </p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 修改系统参数</span>
+<span class="token function">vi</span> /etc/sysctl.conf
+<span class="token comment"># 调整参数</span>
+vm.max_map_count<span class="token operator">=</span><span class="token number">262144</span>
+<span class="token comment"># 刷新参数</span>
+sysctl -p<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>  启动elasticsearch</p>
+<pre class="line-numbers language-docker" data-language="docker"><code class="language-docker">docker run -d --name=es7 \
+-p 9200:9200 -p 9300:9300 \
+-e "discovery.type=single-node" elasticsearch:7.17.3<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>  等待30秒左右，查看docker日志，如果有出现</p>
+<pre class="line-numbers language-docker" data-language="docker"><code class="language-docker">"publish_address {172.17.0.2:9300}, bound_addresses {0.0.0.0:9300}"<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>  说明启动成功了。<br>  创建持久化目录，并重启启动elasticsearch</p>
+<pre class="line-numbers language-docker" data-language="docker"><code class="language-docker">mkdir -p /data/elasticsearch
+docker cp es7:/usr/share/elasticsearch/data /data/elasticsearch/
+docker cp es7:/usr/share/elasticsearch/logs /data/elasticsearch/
+docker rm -f es7
+docker run -d --name=es7 \
+  --restart=always \
+  -p 9200:9200 -p 9300:9300 \
+  -e "discovery.type=single-node" \
+  -v /data/elasticsearch/data:/usr/share/elasticsearch/data \
+  -v /data/elasticsearch/logs:/usr/share/elasticsearch/logs \
+elasticsearch:7.17.3<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h5 id="安装oap"><a href="#安装oap" class="headerlink" title="安装oap"></a>安装<code>oap</code></h5><p>  注意：<code>等待elasticsearch完全启动之后，再启动oap</code><br>参考：<a href="https://skywalking.apache.org/docs/main/latest/en/setup/backend/backend-docker/">https://skywalking.apache.org/docs/main/latest/en/setup/backend/backend-docker/</a></p>
+<pre class="line-numbers language-docker" data-language="docker"><code class="language-docker">docker run \
+--name skywalking-oap \
+--restart always \
+-p 11800:11800 \
+-p 12800:12800 -d \
+--privileged=true \
+-e TZ=Asia/Shanghai \
+-e SW_STORAGE=elasticsearch \
+-e SW_STORAGE_ES_CLUSTER_NODES=10.211.55.81:9200 \
+-v /etc/localtime:/etc/localtime:ro \
+apache/skywalking-oap-server:9.0.0<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-docker" data-language="docker"><code class="language-docker">docker run \
+--name skywalking-oap \
+--restart always \
+-p 11800:11800 \
+-p 12800:12800 -d \
+--privileged=true \
+-e TZ=Asia/Shanghai \
+-e SW_STORAGE=elasticsearch7 \
+-e SW_STORAGE_ES_CLUSTER_NODES=10.211.55.81:9200 \
+-v /etc/localtime:/etc/localtime:ro \
+apache/skywalking-oap-server:8.6.0-es7<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>  说明：这里指定<code>elasticsearch</code> 来存储数据</p>
+<h5 id="安装ui"><a href="#安装ui" class="headerlink" title="安装ui"></a>安装<code>ui</code></h5><p>参考： <a href="https://skywalking.apache.org/docs/main/latest/en/setup/backend/ui-setup/">https://skywalking.apache.org/docs/main/latest/en/setup/backend/ui-setup/</a></p>
+<pre class="line-numbers language-docker" data-language="docker"><code class="language-docker">docker run \
+--name skywalking-ui \
+--restart always \
+-p 8086:8080 -d \
+--privileged=true \
+--link skywalking-oap:skywalking-oap \
+-e TZ=Asia/Shanghai \
+-e SW_OAP_ADDRESS=http://10.211.55.81:12800 \
+-v /etc/localtime:/etc/localtime:ro \
+apache/skywalking-ui:9.0.0<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-docker" data-language="docker"><code class="language-docker">docker run \
+--name skywalking-ui \
+--restart always \
+-p 8086:8080 -d \
+--privileged=true \
+--link skywalking-oap:skywalking-oap \
+-e TZ=Asia/Shanghai \
+-e SW_OAP_ADDRESS=10.211.55.81:12800 \
+-v /etc/localtime:/etc/localtime:ro \
+apache/skywalking-ui:8.6.0<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+<h3 id="Spring-boot实例部署"><a href="#Spring-boot实例部署" class="headerlink" title="Spring-boot实例部署"></a>Spring-boot实例部署</h3><p>  下载agent：<a href="https://skywalking.apache.org/downloads/">https://skywalking.apache.org/downloads/</a></p>
+<img data-src="/post/4612f524/skywalking-003.png" class="" title="Agents">
+<p>  以agent的方式启动，对代码没有侵入性，直接在启动命令上指定javaagent即可。<br>  启动命令javaagent参数添加：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">java -javaagent:/Users/xiaosige/Downloads/skywalking-agent/skywalking-agent.jar -DSW_AGENT_COLLECTOR_BACKEND_SERVICES<span class="token operator">=</span><span class="token number">10.211</span>.55.81:11800 -DSW_AGENT_NAME<span class="token operator">=</span>user-ser -jar user-service-1.0-SNAPSHOT.jar<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+<h3 id="登录skywalking查看监控情况"><a href="#登录skywalking查看监控情况" class="headerlink" title="登录skywalking查看监控情况"></a>登录skywalking查看监控情况</h3><p>  启动程序后，登录skywalking查看监控情况：<code>http://10.211.55.81:8086</code></p>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
+      <categories>
+        <category>Docker</category>
+      </categories>
+      <tags>
+        <tag>APM</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>【Docker】之安装 RabbitMQ</title>
     <url>/post/c0af152c.html</url>
     <content><![CDATA[<h3 id="拉取镜像"><a href="#拉取镜像" class="headerlink" title="拉取镜像"></a>拉取镜像</h3><pre class="line-numbers language-docker" data-language="docker"><code class="language-docker"><span class="token comment"># (镜像未配有控制台)</span>
@@ -114,12 +221,12 @@ firewall-cmd --reload <span aria-hidden="true" class="line-numbers-rows"><span><
   <entry>
     <title>【Docker】之安装 ElasticSearch</title>
     <url>/post/5aa01560.html</url>
-    <content><![CDATA[<h3 id="下载-ElasticSearch-和-Kibana-镜像"><a href="#下载-ElasticSearch-和-Kibana-镜像" class="headerlink" title="下载 ElasticSearch 和 Kibana 镜像"></a>下载 <code>ElasticSearch</code> 和 <code>Kibana</code> 镜像</h3><p>  以 <code>7.17.3</code> 版本为例，<code>elasticsearch</code> 和 <code>kibana</code> 的版本要对应：</p>
+    <content><![CDATA[<img data-src="/post/5aa01560/docker001.jpeg" class="">
+<span id="more"></span>
+<h3 id="下载-ElasticSearch-和-Kibana-镜像"><a href="#下载-ElasticSearch-和-Kibana-镜像" class="headerlink" title="下载 ElasticSearch 和 Kibana 镜像"></a>下载 <code>ElasticSearch</code> 和 <code>Kibana</code> 镜像</h3><p>  以 <code>7.17.3</code> 版本为例，<code>elasticsearch</code> 和 <code>kibana</code> 的版本要对应：</p>
 <pre class="line-numbers language-docker" data-language="docker"><code class="language-docker">docker pull elasticsearch:7.17.3
 docker pull kibana:7.17.3<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p>  更多版本的镜像可以访问 Docker 官网：<a href="https://hub.docker.com/_/elasticsearch?tab=tags****">https://hub.docker.com/_/elasticsearch?tab=tags</a></p>
-<span id="more"></span>
-
 <h3 id="创建并运行-ElasticSearch-容器"><a href="#创建并运行-ElasticSearch-容器" class="headerlink" title="创建并运行 ElasticSearch 容器"></a>创建并运行 <code>ElasticSearch</code> 容器</h3><p>  配置相关映射文件：</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 创建挂载目录</span>
 <span class="token function">mkdir</span> -p /root/.docker/voldata/elasticsearch/<span class="token punctuation">{</span>config,data,plugin<span class="token punctuation">}</span>

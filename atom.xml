@@ -6,7 +6,7 @@
   <link href="https://www.xiaosige.com/atom.xml" rel="self"/>
   
   <link href="https://www.xiaosige.com/"/>
-  <updated>2022-05-08T15:56:38.482Z</updated>
+  <updated>2022-05-09T06:25:07.227Z</updated>
   <id>https://www.xiaosige.com/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>【Docker】之部署skywalking实现全链路监控功能</title>
+    <link href="https://www.xiaosige.com/post/4612f524.html"/>
+    <id>https://www.xiaosige.com/post/4612f524.html</id>
+    <published>2022-05-09T05:07:58.000Z</published>
+    <updated>2022-05-09T06:25:07.227Z</updated>
+    
+    
+    <summary type="html">&lt;img data-src=&quot;/post/4612f524/skywalking-001.png&quot; class=&quot;&quot;&gt;</summary>
+    
+    
+    
+    <category term="Docker" scheme="https://www.xiaosige.com/categories/Docker/"/>
+    
+    
+    <category term="APM" scheme="https://www.xiaosige.com/tags/APM/"/>
+    
+  </entry>
   
   <entry>
     <title>【Docker】之安装 RabbitMQ</title>
@@ -44,13 +63,10 @@ docker pull rabbitmq:3.9.16-management&lt;span aria-hidden=&quot;true&quot; clas
     <link href="https://www.xiaosige.com/post/5aa01560.html"/>
     <id>https://www.xiaosige.com/post/5aa01560.html</id>
     <published>2022-05-08T12:48:43.000Z</published>
-    <updated>2022-05-08T13:35:22.589Z</updated>
+    <updated>2022-05-09T06:25:39.991Z</updated>
     
     
-    <summary type="html">&lt;h3 id=&quot;下载-ElasticSearch-和-Kibana-镜像&quot;&gt;&lt;a href=&quot;#下载-ElasticSearch-和-Kibana-镜像&quot; class=&quot;headerlink&quot; title=&quot;下载 ElasticSearch 和 Kibana 镜像&quot;&gt;&lt;/a&gt;下载 &lt;code&gt;ElasticSearch&lt;/code&gt; 和 &lt;code&gt;Kibana&lt;/code&gt; 镜像&lt;/h3&gt;&lt;p&gt;  以 &lt;code&gt;7.17.3&lt;/code&gt; 版本为例，&lt;code&gt;elasticsearch&lt;/code&gt; 和 &lt;code&gt;kibana&lt;/code&gt; 的版本要对应：&lt;/p&gt;
-&lt;pre class=&quot;line-numbers language-docker&quot; data-language=&quot;docker&quot;&gt;&lt;code class=&quot;language-docker&quot;&gt;docker pull elasticsearch:7.17.3
-docker pull kibana:7.17.3&lt;span aria-hidden=&quot;true&quot; class=&quot;line-numbers-rows&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;  更多版本的镜像可以访问 Docker 官网：&lt;a href=&quot;https://hub.docker.com/_/elasticsearch?tab=tags****&quot;&gt;https://hub.docker.com/_/elasticsearch?tab=tags&lt;/a&gt;&lt;/p&gt;</summary>
+    <summary type="html">&lt;img data-src=&quot;/post/5aa01560/docker001.jpeg&quot; class=&quot;&quot;&gt;</summary>
     
     
     
@@ -387,25 +403,6 @@ docker pull kibana:7.17.3&lt;span aria-hidden=&quot;true&quot; class=&quot;line-
     
     
     <category term="Linux" scheme="https://www.xiaosige.com/tags/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Docker安装部署Jenkins</title>
-    <link href="https://www.xiaosige.com/post/78357a82.html"/>
-    <id>https://www.xiaosige.com/post/78357a82.html</id>
-    <published>2021-06-17T17:28:48.000Z</published>
-    <updated>2021-10-30T10:30:50.993Z</updated>
-    
-    
-    <summary type="html">&lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;  记录下 Docker 下 Jenkins 的安装。&lt;br&gt;  DockerHub: &lt;a href=&quot;https://hub.docker.com/r/jenkins/jenkins/&quot;&gt;https://hub.docker.com/r/jenkins/jenkins/&lt;/a&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="Docker" scheme="https://www.xiaosige.com/categories/Docker/"/>
-    
-    
-    <category term="Gitea" scheme="https://www.xiaosige.com/tags/Gitea/"/>
     
   </entry>
   
