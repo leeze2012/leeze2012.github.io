@@ -15,7 +15,7 @@
     <atom:link href="https://www.xiaosige.com/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>因上努力，果上随缘！</description>
-    <pubDate>Mon, 09 May 2022 18:03:22 GMT</pubDate>
+    <pubDate>Mon, 09 May 2022 18:27:33 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     <item>
@@ -24,13 +24,7 @@
       <guid>https://www.xiaosige.com/post/aa05fc91.html</guid>
       <pubDate>Mon, 09 May 2022 17:38:29 GMT</pubDate>
       
-        
-        
-          
-          
-      <description>&lt;h3 id=&quot;介绍&quot;&gt;&lt;a href=&quot;#介绍&quot; class=&quot;headerlink&quot;</description>
-          
-        
+      <description>&lt;h3 id=&quot;介绍&quot;&gt;&lt;a href=&quot;#介绍&quot; class=&quot;headerlink&quot; title=&quot;介绍&quot;&gt;&lt;/a&gt;介绍&lt;/h3&gt;&lt;p&gt;  ZooKeeper是一个分布式的，开放源码的分布式应用程序协调服务，是Google的Chubby一个开源的实现，是Hadoop和Hbase的重要组件。它是一个为分布式应用提供一致性服务的软件，提供的功能包括：配置维护、域名服务、分布式同步、组服务等。&lt;br&gt;  ZooKeeper的目标就是封装好复杂易出错的关键服务，将简单易用的接口和性能高效、功能稳定的系统提供给用户。&lt;/p&gt;</description>
       
       
       

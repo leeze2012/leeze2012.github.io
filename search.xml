@@ -67,6 +67,8 @@ lrwxrwxrwx. <span class="token number">1</span> root root <span class="token num
     <title>【Docker】之部署安装zookeeper</title>
     <url>/post/aa05fc91.html</url>
     <content><![CDATA[<h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>  ZooKeeper是一个分布式的，开放源码的分布式应用程序协调服务，是Google的Chubby一个开源的实现，是Hadoop和Hbase的重要组件。它是一个为分布式应用提供一致性服务的软件，提供的功能包括：配置维护、域名服务、分布式同步、组服务等。<br>  ZooKeeper的目标就是封装好复杂易出错的关键服务，将简单易用的接口和性能高效、功能稳定的系统提供给用户。</p>
+<span id="more"></span>
+
 <h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><h4 id="拉取镜像"><a href="#拉取镜像" class="headerlink" title="拉取镜像"></a>拉取镜像</h4><pre class="line-numbers language-docker" data-language="docker"><code class="language-docker">docker pull zookeeper:3.8.0<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h4 id="数据目录"><a href="#数据目录" class="headerlink" title="数据目录"></a>数据目录</h4><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">mkdir</span> -p /root/.docker/voldata/zookeeper/<span class="token punctuation">{</span>conf,data,log<span class="token punctuation">}</span>
 
