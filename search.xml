@@ -64,27 +64,84 @@ lrwxrwxrwx. <span class="token number">1</span> root root <span class="token num
       </tags>
   </entry>
   <entry>
+    <title>Mac终端查看CPU资源信息</title>
+    <url>/post/55e5c59c.html</url>
+    <content><![CDATA[<h5 id="查看所有信息"><a href="#查看所有信息" class="headerlink" title="查看所有信息"></a>查看所有信息</h5><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">sysctl machdep.cpu<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<span id="more"></span>
+<p>  此命令会将所有CPU信息列出，根据需要查看即可。<br>  如果只关心部分信息，可添加更详细的查询参数。<br>  注：下面的-n参数，表示是否显示查询的变量名。</p>
+<h5 id="显示CPU型号"><a href="#显示CPU型号" class="headerlink" title="显示CPU型号"></a>显示CPU型号</h5><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">sysctl -n machdep.cpu.brand_string<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h5 id="显示CPU核心数（物理核）"><a href="#显示CPU核心数（物理核）" class="headerlink" title="显示CPU核心数（物理核）"></a>显示CPU核心数（物理核）</h5><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">sysctl -n machdep.cpu.core_count<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h5 id="显示线程数（逻辑核）"><a href="#显示线程数（逻辑核）" class="headerlink" title="显示线程数（逻辑核）"></a>显示线程数（逻辑核）</h5><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">sysctl -n machdep.cpu.thread_count<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
+      <categories>
+        <category>Mac</category>
+      </categories>
+      <tags>
+        <tag>cpu</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>MacOS使用top命令查看进程使用内存</title>
+    <url>/post/516b0bfa.html</url>
+    <content><![CDATA[<p>  在linux中我们一般会使用top或ps命令查看进程的内存、CPU等资源使用情况，但是MacOS计算内存方式有点不太一样，什么意思呢？就是说用ps命令查看进程的内存值和在活动监视器中看到的内存值不一样。</p>
+<span id="more"></span>
+
+<h5 id="1-活动监视器查看"><a href="#1-活动监视器查看" class="headerlink" title="1,活动监视器查看"></a>1,活动监视器查看</h5><h5 id="2-使用ps命令查看"><a href="#2-使用ps命令查看" class="headerlink" title="2,使用ps命令查看"></a>2,使用<code>ps</code>命令查看</h5><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">ps</span> aux <span class="token operator">|</span> <span class="token function">grep</span> XXXX<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h5 id="3-使用top命令查看"><a href="#3-使用top命令查看" class="headerlink" title="3,使用top命令查看"></a>3,使用<code>top</code>命令查看</h5><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">top</span> -pid <span class="token number">2211</span> -l <span class="token number">1</span> <span class="token operator">|</span> <span class="token function">tail</span> -n <span class="token number">1</span> <span class="token operator">|</span> <span class="token function">awk</span> <span class="token string">'{print $8}'</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h5 id="4-推荐"><a href="#4-推荐" class="headerlink" title="4,推荐"></a>4,<code>推荐</code></h5><p>  1/3一样，与2不一样。</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token comment"># 用法</span>
+<span class="token function">top</span> -pid <span class="token punctuation">{</span>pid<span class="token punctuation">}</span> -l <span class="token number">1</span> <span class="token operator">|</span> <span class="token function">tail</span> -n <span class="token number">1</span> <span class="token operator">|</span> <span class="token function">awk</span> <span class="token string">'{print $8}'</span>
+<span class="token comment"># 示例</span>
+<span class="token function">top</span> -pid <span class="token number">2211</span> -l <span class="token number">1</span> <span class="token operator">|</span> <span class="token function">tail</span> -n <span class="token number">1</span> <span class="token operator">|</span> <span class="token function">awk</span> <span class="token string">'{print $8}'</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<div class="note success no-icon"><ul>
+<li><code>【-l 1】</code>表示<code>只执行1次</code>，</li>
+<li><code>【tail -n 1】</code>表示取<code>最后一行</code>结果，</li>
+<li><code>【awk '{print $8}'】</code>表示取<code>第8列</code>的值（即内存值）。</li>
+</ul>
+</div>
+
+<p>  根据应用名（如：Infoflow）查看进程号</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">ps</span> -ef <span class="token operator">|</span> <span class="token function">grep</span> Infoflow <span class="token operator">|</span> <span class="token function">grep</span> -v <span class="token function">grep</span> <span class="token operator">|</span> <span class="token function">awk</span> <span class="token string">'{print $2}'</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>  上面说了MacOS计算内存方式与Linux有点不太一样，一般linux系统看某个进程的内存使用情况，有两种计算方式：（1）实际使用内存，（2）实际使用内存 + cache使用内存。但是在MacOS计算内存时，有个交换内存SwSS，如下所示。<br>  参考：<a href="http://wuzhou.github.io/programming/2019/06/01/macos-ios-memory.html">MacOS, iOS 内存的基本概念和分析工具</a></p>
+<p><code>Virtual Memory（虚拟内存）</code><br>  虚拟内存指的是一个程序程序运行时，使用的内存空间。<br>  虚拟内存的大小一般使用 VSS（Virtual Set Size）表示。它的大小一般这样计算：</p>
+<pre class="line-numbers language-properties" data-language="properties"><code class="language-properties"><span class="token key attr-name">VSS</span> <span class="token punctuation">=</span> <span class="token value attr-value">RSS + LSS + SwSS </span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<div class="note success no-icon"><p>RSS 的全称为：Resident Set Size，表示当前程序进程实际使用的内存大小。</p>
+<p>LSS 的全称为：”Lazy” Set Size，表示系统同意给程序进程分配的，但是还没分配完成的内存大小。</p>
+<p>SwSS 的全称为：”Swap” Set Size，指交换内存的大小，与 MacOS 不同，iOS 没有交换内存（移动设备物理存储空间相对有限）。</p>
+</div><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
+      <categories>
+        <category>Mac</category>
+      </categories>
+      <tags>
+        <tag>top</tag>
+        <tag>free</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>【Docker】之部署安装zookeeper</title>
     <url>/post/aa05fc91.html</url>
     <content><![CDATA[<h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>  ZooKeeper是一个分布式的，开放源码的分布式应用程序协调服务，是Google的Chubby一个开源的实现，是Hadoop和Hbase的重要组件。它是一个为分布式应用提供一致性服务的软件，提供的功能包括：配置维护、域名服务、分布式同步、组服务等。<br>  ZooKeeper的目标就是封装好复杂易出错的关键服务，将简单易用的接口和性能高效、功能稳定的系统提供给用户。</p>
 <span id="more"></span>
 
 <h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><h4 id="拉取镜像"><a href="#拉取镜像" class="headerlink" title="拉取镜像"></a>拉取镜像</h4><pre class="line-numbers language-docker" data-language="docker"><code class="language-docker">docker pull zookeeper:3.8.0<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<h4 id="数据目录"><a href="#数据目录" class="headerlink" title="数据目录"></a>数据目录</h4><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">mkdir -p /root/.docker/voldata/zookeeper/{conf,data,log}
+<h4 id="数据目录"><a href="#数据目录" class="headerlink" title="数据目录"></a>数据目录</h4><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">mkdir</span> -p /root/.docker/voldata/zookeeper/<span class="token punctuation">{</span>conf,data,log<span class="token punctuation">}</span>
 
-cd conf
-vi  zoo.cfg
-dataDir=/data
-dataLogDir=/datalog
-tickTime=2000
-initLimit=5
-syncLimit=2
-autopurge.snapRetainCount=3
-autopurge.purgeInterval=0
-maxClientCnxns=60
-standaloneEnabled=true
-admin.enableServer=true
-clientPort=2181<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token builtin class-name">cd</span> conf
+<span class="token function">vi</span>  zoo.cfg
+<span class="token assign-left variable">dataDir</span><span class="token operator">=</span>/data
+<span class="token assign-left variable">dataLogDir</span><span class="token operator">=</span>/datalog
+<span class="token assign-left variable">tickTime</span><span class="token operator">=</span><span class="token number">2000</span>
+<span class="token assign-left variable">initLimit</span><span class="token operator">=</span><span class="token number">5</span>
+<span class="token assign-left variable">syncLimit</span><span class="token operator">=</span><span class="token number">2</span>
+autopurge.snapRetainCount<span class="token operator">=</span><span class="token number">3</span>
+autopurge.purgeInterval<span class="token operator">=</span><span class="token number">0</span>
+<span class="token assign-left variable">maxClientCnxns</span><span class="token operator">=</span><span class="token number">60</span>
+<span class="token assign-left variable">standaloneEnabled</span><span class="token operator">=</span>true
+admin.enableServer<span class="token operator">=</span>true
+<span class="token assign-left variable">clientPort</span><span class="token operator">=</span><span class="token number">2181</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h4 id="启动容器"><a href="#启动容器" class="headerlink" title="启动容器"></a>启动容器</h4><pre class="line-numbers language-docker" data-language="docker"><code class="language-docker">docker run -dit -p 2181:2181 \
 --name zookeeper \
 --privileged=true \

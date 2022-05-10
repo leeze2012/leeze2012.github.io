@@ -15,8 +15,52 @@
     <atom:link href="https://www.xiaosige.com/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>因上努力，果上随缘！</description>
-    <pubDate>Mon, 09 May 2022 18:40:22 GMT</pubDate>
+    <pubDate>Tue, 10 May 2022 06:57:33 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>Mac终端查看CPU资源信息</title>
+      <link>https://www.xiaosige.com/post/55e5c59c.html</link>
+      <guid>https://www.xiaosige.com/post/55e5c59c.html</guid>
+      <pubDate>Tue, 10 May 2022 06:48:00 GMT</pubDate>
+      
+      <description>&lt;h5 id=&quot;查看所有信息&quot;&gt;&lt;a href=&quot;#查看所有信息&quot; class=&quot;headerlink&quot; title=&quot;查看所有信息&quot;&gt;&lt;/a&gt;查看所有信息&lt;/h5&gt;&lt;pre class=&quot;line-numbers language-shell&quot; data-language=&quot;shell&quot;&gt;&lt;code class=&quot;language-shell&quot;&gt;sysctl machdep.cpu&lt;span aria-hidden=&quot;true&quot; class=&quot;line-numbers-rows&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;</description>
+      
+      
+      
+      
+      <category domain="https://www.xiaosige.com/categories/Mac/">Mac</category>
+      
+      
+      <category domain="https://www.xiaosige.com/tags/cpu/">cpu</category>
+      
+      
+      <comments>https://www.xiaosige.com/post/55e5c59c.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>MacOS使用top命令查看进程使用内存</title>
+      <link>https://www.xiaosige.com/post/516b0bfa.html</link>
+      <guid>https://www.xiaosige.com/post/516b0bfa.html</guid>
+      <pubDate>Tue, 10 May 2022 06:02:05 GMT</pubDate>
+      
+      <description>&lt;p&gt;  在linux中我们一般会使用top或ps命令查看进程的内存、CPU等资源使用情况，但是MacOS计算内存方式有点不太一样，什么意思呢？就是说用ps命令查看进程的内存值和在活动监视器中看到的内存值不一样。&lt;/p&gt;</description>
+      
+      
+      
+      
+      <category domain="https://www.xiaosige.com/categories/Mac/">Mac</category>
+      
+      
+      <category domain="https://www.xiaosige.com/tags/top/">top</category>
+      
+      <category domain="https://www.xiaosige.com/tags/free/">free</category>
+      
+      
+      <comments>https://www.xiaosige.com/post/516b0bfa.html#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>【Docker】之部署安装zookeeper</title>
@@ -412,49 +456,6 @@ docker pull rabbitmq:3.9.16-management&lt;span aria-hidden=&quot;true&quot; clas
       
       
       <comments>https://www.xiaosige.com/post/3458217c.html#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>Centos7/8 firewall 和 docker 冲突解决</title>
-      <link>https://www.xiaosige.com/post/76a6f1b6.html</link>
-      <guid>https://www.xiaosige.com/post/76a6f1b6.html</guid>
-      <pubDate>Tue, 07 Dec 2021 18:30:52 GMT</pubDate>
-      
-      <description>&lt;h3 id=&quot;介绍&quot;&gt;&lt;a href=&quot;#介绍&quot; class=&quot;headerlink&quot; title=&quot;介绍&quot;&gt;&lt;/a&gt;介绍&lt;/h3&gt;&lt;div class=&quot;note success no-icon&quot;&gt;&lt;p&gt;  centos7/8 自带防火墙是firewalld。firewall的底层是使用iptables进行数据过滤，建立在iptables之上，这可能会与 Docker 产生冲突。当 firewalld 启动或者重启的时候，将会从 iptables 中移除 DOCKER 的规则，从而影响了 Docker 的正常工作。当你使用的是 Systemd 的时候， firewalld 会在 Docker 之前启动，但是如果你在 Docker 启动之后再启动 或者重启 firewalld ，你就需要重启 Docker 进程了。&lt;/p&gt;
-&lt;/div&gt;</description>
-      
-      
-      
-      
-      <category domain="https://www.xiaosige.com/categories/Docker/">Docker</category>
-      
-      
-      <category domain="https://www.xiaosige.com/tags/Docker/">Docker</category>
-      
-      
-      <comments>https://www.xiaosige.com/post/76a6f1b6.html#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>Dockerfile构建基础镜像为alpine的jdk1.8镜像</title>
-      <link>https://www.xiaosige.com/post/a90d146c.html</link>
-      <guid>https://www.xiaosige.com/post/a90d146c.html</guid>
-      <pubDate>Sun, 31 Oct 2021 16:41:08 GMT</pubDate>
-      
-      <description>&lt;h3 id=&quot;新建dockerfile目录&quot;&gt;&lt;a href=&quot;#新建dockerfile目录&quot; class=&quot;headerlink&quot; title=&quot;新建dockerfile目录&quot;&gt;&lt;/a&gt;新建&lt;code&gt;dockerfile&lt;/code&gt;目录&lt;/h3&gt;&lt;pre class=&quot;line-numbers language-bash&quot; data-language=&quot;bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function&quot;&gt;mkdir&lt;/span&gt; /opt/mydockerfile&lt;span aria-hidden=&quot;true&quot; class=&quot;line-numbers-rows&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;</description>
-      
-      
-      
-      
-      <category domain="https://www.xiaosige.com/categories/Docker/">Docker</category>
-      
-      
-      <category domain="https://www.xiaosige.com/tags/Docker/">Docker</category>
-      
-      
-      <comments>https://www.xiaosige.com/post/a90d146c.html#disqus_thread</comments>
       
     </item>
     

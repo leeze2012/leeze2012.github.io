@@ -6,7 +6,7 @@
   <link href="https://www.xiaosige.com/atom.xml" rel="self"/>
   
   <link href="https://www.xiaosige.com/"/>
-  <updated>2022-05-09T18:40:22.264Z</updated>
+  <updated>2022-05-10T06:57:33.973Z</updated>
   <id>https://www.xiaosige.com/</id>
   
   <author>
@@ -15,6 +15,46 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Mac终端查看CPU资源信息</title>
+    <link href="https://www.xiaosige.com/post/55e5c59c.html"/>
+    <id>https://www.xiaosige.com/post/55e5c59c.html</id>
+    <published>2022-05-10T06:48:00.000Z</published>
+    <updated>2022-05-10T06:57:33.973Z</updated>
+    
+    
+    <summary type="html">&lt;h5 id=&quot;查看所有信息&quot;&gt;&lt;a href=&quot;#查看所有信息&quot; class=&quot;headerlink&quot; title=&quot;查看所有信息&quot;&gt;&lt;/a&gt;查看所有信息&lt;/h5&gt;&lt;pre class=&quot;line-numbers language-shell&quot; data-language=&quot;shell&quot;&gt;&lt;code class=&quot;language-shell&quot;&gt;sysctl machdep.cpu&lt;span aria-hidden=&quot;true&quot; class=&quot;line-numbers-rows&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;</summary>
+    
+    
+    
+    <category term="Mac" scheme="https://www.xiaosige.com/categories/Mac/"/>
+    
+    
+    <category term="cpu" scheme="https://www.xiaosige.com/tags/cpu/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>MacOS使用top命令查看进程使用内存</title>
+    <link href="https://www.xiaosige.com/post/516b0bfa.html"/>
+    <id>https://www.xiaosige.com/post/516b0bfa.html</id>
+    <published>2022-05-10T06:02:05.000Z</published>
+    <updated>2022-05-10T06:38:44.078Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;  在linux中我们一般会使用top或ps命令查看进程的内存、CPU等资源使用情况，但是MacOS计算内存方式有点不太一样，什么意思呢？就是说用ps命令查看进程的内存值和在活动监视器中看到的内存值不一样。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Mac" scheme="https://www.xiaosige.com/categories/Mac/"/>
+    
+    
+    <category term="top" scheme="https://www.xiaosige.com/tags/top/"/>
+    
+    <category term="free" scheme="https://www.xiaosige.com/tags/free/"/>
+    
+  </entry>
   
   <entry>
     <title>【Docker】之部署安装zookeeper</title>
@@ -374,45 +414,6 @@ docker pull rabbitmq:3.9.16-management&lt;span aria-hidden=&quot;true&quot; clas
     
     
     <category term="Nexus" scheme="https://www.xiaosige.com/tags/Nexus/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Centos7/8 firewall 和 docker 冲突解决</title>
-    <link href="https://www.xiaosige.com/post/76a6f1b6.html"/>
-    <id>https://www.xiaosige.com/post/76a6f1b6.html</id>
-    <published>2021-12-07T18:30:52.000Z</published>
-    <updated>2021-12-07T19:03:03.072Z</updated>
-    
-    
-    <summary type="html">&lt;h3 id=&quot;介绍&quot;&gt;&lt;a href=&quot;#介绍&quot; class=&quot;headerlink&quot; title=&quot;介绍&quot;&gt;&lt;/a&gt;介绍&lt;/h3&gt;&lt;div class=&quot;note success no-icon&quot;&gt;&lt;p&gt;  centos7/8 自带防火墙是firewalld。firewall的底层是使用iptables进行数据过滤，建立在iptables之上，这可能会与 Docker 产生冲突。当 firewalld 启动或者重启的时候，将会从 iptables 中移除 DOCKER 的规则，从而影响了 Docker 的正常工作。当你使用的是 Systemd 的时候， firewalld 会在 Docker 之前启动，但是如果你在 Docker 启动之后再启动 或者重启 firewalld ，你就需要重启 Docker 进程了。&lt;/p&gt;
-&lt;/div&gt;</summary>
-    
-    
-    
-    <category term="Docker" scheme="https://www.xiaosige.com/categories/Docker/"/>
-    
-    
-    <category term="Docker" scheme="https://www.xiaosige.com/tags/Docker/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Dockerfile构建基础镜像为alpine的jdk1.8镜像</title>
-    <link href="https://www.xiaosige.com/post/a90d146c.html"/>
-    <id>https://www.xiaosige.com/post/a90d146c.html</id>
-    <published>2021-10-31T16:41:08.000Z</published>
-    <updated>2022-04-09T09:45:50.767Z</updated>
-    
-    
-    <summary type="html">&lt;h3 id=&quot;新建dockerfile目录&quot;&gt;&lt;a href=&quot;#新建dockerfile目录&quot; class=&quot;headerlink&quot; title=&quot;新建dockerfile目录&quot;&gt;&lt;/a&gt;新建&lt;code&gt;dockerfile&lt;/code&gt;目录&lt;/h3&gt;&lt;pre class=&quot;line-numbers language-bash&quot; data-language=&quot;bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function&quot;&gt;mkdir&lt;/span&gt; /opt/mydockerfile&lt;span aria-hidden=&quot;true&quot; class=&quot;line-numbers-rows&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;</summary>
-    
-    
-    
-    <category term="Docker" scheme="https://www.xiaosige.com/categories/Docker/"/>
-    
-    
-    <category term="Docker" scheme="https://www.xiaosige.com/tags/Docker/"/>
     
   </entry>
   
