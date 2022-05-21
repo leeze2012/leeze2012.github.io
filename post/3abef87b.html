@@ -17,9 +17,9 @@
 
 
 
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.1/css/all.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"www.xiaosige.com","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.11.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"changyan","storage":true,"lazyload":true,"nav":null,"activeClass":"changyan"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}}</script><script src="/js/config.js"></script>
 
@@ -69,11 +69,11 @@
 <!-- https://www.layuicdn.com/layui/css/layui.css -->
 <script src="https://www.layuicdn.com/layui/layui.js"></script>
 
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
 
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.5.1/dist/gsap.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/splitting@1.0.6/dist/splitting.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
+<script src="https://unpkg.com/splitting@1.0.6/dist/splitting.js"></script>
 <style type="text/css">
     .char{
       font-variation-settings: 'wght' var(--weight, 100);
@@ -698,7 +698,7 @@ docker pull drone/drone-runner-docker<span aria-hidden="true" class="line-number
 </li>
 </ul>
 </div></li>
-<li>生成GiteaOauth<br>  gitea右上角-&gt;设置-&gt;应用-&gt;创建应用  <img data-src="/post/3abef87b/drone001.png" class="" title="创建新的 OAuth2 应用程序">   
+<li>生成GiteaOauth<br>  gitea右上角-&gt;设置-&gt;应用-&gt;创建应用  <img data-src="/post/3abef87b/drone001.png" class title="创建新的 OAuth2 应用程序">   
 <pre class="line-numbers language-properties" data-language="properties"><code class="language-properties"><span class="token key attr-name">客户端id</span> <span class="token punctuation">:</span> <span class="token value attr-value">f4d1e22d-b092-4e86-bedd-dffb362b1c70</span>
 <span class="token key attr-name">客户端秘钥</span> <span class="token punctuation">:</span> <span class="token value attr-value">EBjiksxi7QBaAtY9cIisGY36Ghr81Y4vtk2uqj8g5qEa</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
   生成rpc秘钥: <code>openssl rand -hex 16 </code><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@loaclhost build<span class="token punctuation">]</span><span class="token comment"># openssl rand -hex 16 </span>
@@ -756,28 +756,28 @@ firewall-cmd --reload<span aria-hidden="true" class="line-numbers-rows"><span></
 <h3 id="Drone使用"><a href="#Drone使用" class="headerlink" title="Drone使用"></a><code>Drone</code>使用</h3>  让我们来访问下<code>Drone</code>的控制台页面，第一次登录需要输入账号密码（在Gitea中注册的账号），访问地址：<a target="_blank" rel="noopener" href="http://10.211.55.81:3080/">http://10.211.55.81:3080/</a></li>
 </ol>
 <p>  此时我们在Gitea中的项目会现在在列表中，如果没有的话可以点下<code>SYNC</code>按钮；</p>
-<img data-src="/post/3abef87b/drone002.png" class="" title="同步项目">
+<img data-src="/post/3abef87b/drone002.png" class title="同步项目">
 <p>  接下来我们需要对仓库进行设置，将仓库设置为<code>Trusted</code>（否则Drone创建的容器无法挂载目录到宿主机），最后点击<code>SAVE</code>按钮保存；</p>
-<img data-src="/post/3abef87b/drone003.png" class="" title="仓库设置一">
-<img data-src="/post/3abef87b/drone004.png" class="" title="仓库设置二">
+<img data-src="/post/3abef87b/drone003.png" class title="仓库设置一">
+<img data-src="/post/3abef87b/drone004.png" class title="仓库设置二">
 <p>  保存成功后会在<code>Gitea</code>中自动配置一个<code>Web钩子</code>，当我们推送代码到Gitea中去时，会触发这个钩子，然后执行在Drone中的流水线任务；</p>
-<img data-src="/post/3abef87b/drone005.png" class="" title="Web钩子">
+<img data-src="/post/3abef87b/drone005.png" class title="Web钩子">
 <p>  拉到最下面，我们可以发送一个测试推送，推送成功会显示绿色的√；</p>
-<img data-src="/post/3abef87b/drone006.png" class="" title="Web钩子">
-<img data-src="/post/3abef87b/drone007.png" class="" title="Web钩子">
+<img data-src="/post/3abef87b/drone006.png" class title="Web钩子">
+<img data-src="/post/3abef87b/drone007.png" class title="Web钩子">
 <p>  此时我们在<code>Drone</code>中发现其实流水线执行失败了，那是因为我们在脚本中引用了<code>Secret</code>中的<code>ssh_password</code>；</p>
-<img data-src="/post/3abef87b/drone008.png" class="" title="ssh_password">
+<img data-src="/post/3abef87b/drone008.png" class title="ssh_password">
 <p>  在仓库的设置中添加一个<code>Secret</code>即可，Secret是专门用来存储密码的，此密码只能被使用或删除，无法被查看；</p>
-<img data-src="/post/3abef87b/drone009.png" class="" title="Secret密码">
+<img data-src="/post/3abef87b/drone009.png" class title="Secret密码">
 <p>  在<code>ACTIVITY FEED</code>中使用<code>RESTART</code>可以重新执行该流水线，发现已经成功执行。</p>
-<img data-src="/post/3abef87b/drone010.png" class="" title="RESTART">
-<img data-src="/post/3abef87b/drone011.png" class="" title="SUCCESS">
+<img data-src="/post/3abef87b/drone010.png" class title="RESTART">
+<img data-src="/post/3abef87b/drone011.png" class title="SUCCESS">
 
 <h3 id="编写脚本"><a href="#编写脚本" class="headerlink" title="编写脚本"></a>编写脚本</h3><div class="note success no-icon"><p>  当我们向Git仓库<code>Push</code>代码时，会自动触发<code>Web钩子</code>，然后<code>Drone</code>就会从Git仓库<code>Clone</code>代码，再通过项目目录下的<code>.drone.yml</code>配置，执行相应的流水线，接下来我们来看看这个脚本是如何写的。</p>
 </div>
 <ol>
-<li>项目结构<img data-src="/post/3abef87b/drone013.png" class="" title="SUCCESS"></li>
-<li>首先我们来了解下在<code>.drone.yml</code>中配置的工作流都有哪些操作，看下流程图就知道了；<img data-src="/post/3abef87b/drone012.png" class="" title="流程"></li>
+<li>项目结构<img data-src="/post/3abef87b/drone013.png" class title="SUCCESS"></li>
+<li>首先我们来了解下在<code>.drone.yml</code>中配置的工作流都有哪些操作，看下流程图就知道了；<img data-src="/post/3abef87b/drone012.png" class title="流程"></li>
 <li>再来一个完整的<code>.drone.yml</code>，配上详细的注解，看下就基本懂了！<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">kind</span><span class="token punctuation">:</span> pipeline <span class="token comment"># 定义对象类型，还有secret和signature两种类型</span>
 <span class="token key atrule">type</span><span class="token punctuation">:</span> docker <span class="token comment"># 定义流水线类型，还有kubernetes、exec、ssh等类型</span>
 <span class="token key atrule">name</span><span class="token punctuation">:</span> mybatisplus<span class="token punctuation">-</span>drone <span class="token comment"># 定义流水线名称</span>
@@ -1063,18 +1063,18 @@ echo '----start container----'<span aria-hidden="true" class="line-numbers-rows"
   </footer>
 
   
-  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@next-theme/pjax@0.5.0/pjax.min.js" integrity="sha256-3NkoLDrmHLTYj7csHIZSr0MHAFTXth7Ua/DDt4MRUAg=" crossorigin="anonymous"></script>
-  <script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/lozad@1.16.0/dist/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.5.0/pjax.min.js" integrity="sha256-3NkoLDrmHLTYj7csHIZSr0MHAFTXth7Ua/DDt4MRUAg=" crossorigin="anonymous"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
 <script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
 
   
-<script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
 <script src="/js/third-party/search/local-search.js"></script>
 
-  <script class="next-config" data-name="pdf" type="application/json">{"object_url":{"url":"https://cdn.jsdelivr.net/npm/pdfobject@2.2.7/pdfobject.min.js","integrity":"sha256-ph3Dk89VmuTVXG6x/RDzk53SU9LPdAh1tpv0UvnDZ2I="},"url":"/lib/pdf/web/viewer.html"}</script>
+  <script class="next-config" data-name="pdf" type="application/json">{"object_url":{"url":"https://cdnjs.cloudflare.com/ajax/libs/pdfobject/2.2.7/pdfobject.min.js","integrity":"sha256-ph3Dk89VmuTVXG6x/RDzk53SU9LPdAh1tpv0UvnDZ2I="},"url":"/lib/pdf/web/viewer.html"}</script>
   <script src="/js/third-party/tags/pdf.js"></script>
 
 
@@ -1087,7 +1087,7 @@ echo '----start container----'<span aria-hidden="true" class="line-numbers-rows"
 
 
 
-  <script src="https://cdn.jsdelivr.net/npm/quicklink@2.2.0/dist/quicklink.umd.js" integrity="sha256-4kQf9z5ntdQrzsBC3YSHnEz02Z9C1UeW/E9OgnvlzSY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/2.2.0/quicklink.umd.js" integrity="sha256-4kQf9z5ntdQrzsBC3YSHnEz02Z9C1UeW/E9OgnvlzSY=" crossorigin="anonymous"></script>
   <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":true,"delay":true,"timeout":3000,"priority":true,"ignores":null,"url":"https://www.xiaosige.com/post/3abef87b.html"}</script>
   <script src="/js/third-party/quicklink.js"></script>
 <script class="next-config" data-name="changyan" type="application/json">{"enable":true,"appid":"cyvSPOTJq","appkey":"4436699688bbb9caa6e8826551a7c0f7"}</script>
@@ -1095,8 +1095,8 @@ echo '----start container----'<span aria-hidden="true" class="line-numbers-rows"
 
 
 <!-- 提示信息 -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery-toast-plugin@1.3.2/dist/jquery.toast.min.css"/>
-<script src="https://cdn.jsdelivr.net/npm/jquery-toast-plugin@1.3.2/dist/jquery.toast.min.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/jquery-toast-plugin@1.3.2/dist/jquery.toast.min.css"/>
+<script src="https://unpkg.com/jquery-toast-plugin@1.3.2/dist/jquery.toast.min.js"></script>
 <!-- 樱花特效 -->
 <!-- 下雪 -->
 

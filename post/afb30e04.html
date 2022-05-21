@@ -17,9 +17,9 @@
 
 
 
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.1/css/all.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"www.xiaosige.com","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.11.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"changyan","storage":true,"lazyload":true,"nav":null,"activeClass":"changyan"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}}</script><script src="/js/config.js"></script>
 
@@ -69,11 +69,11 @@
 <!-- https://www.layuicdn.com/layui/css/layui.css -->
 <script src="https://www.layuicdn.com/layui/layui.js"></script>
 
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
 
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.5.1/dist/gsap.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/splitting@1.0.6/dist/splitting.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
+<script src="https://unpkg.com/splitting@1.0.6/dist/splitting.js"></script>
 <style type="text/css">
     .char{
       font-variation-settings: 'wght' var(--weight, 100);
@@ -692,7 +692,7 @@ canvas#canvas {
 <h3 id="开始安装"><a href="#开始安装" class="headerlink" title="开始安装"></a>开始安装</h3><h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><p>   先把上面下载的软件包放到同一目录下，比如<code>/tmp</code>目录下，然后输入下面的命令进行安装</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">tar</span> -zxvf atlassian-agent-v1.2.3.tar.gz<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">./atlassian-jira-software-8.5.7-x64.bin <span class="token comment"># 下面执行的是默认的</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<img data-src="/post/afb30e04/jira-001.png" class="" title="JIRA安装图">
+<img data-src="/post/afb30e04/jira-001.png" class title="JIRA安装图">
 
 <p>  安装路径：    <code>/opt/atlassian/jira</code><br>  数据存放路径：<code>/var/atlassian/application-data/jira</code><br>  HTTP Port:  <code>8080</code><br>  RMI Port:    <code>8005</code></p>
 <h4 id="复制包"><a href="#复制包" class="headerlink" title="复制包"></a>复制包</h4><p>   复制驱动包、破解包：</p>
@@ -727,8 +727,8 @@ canvas#canvas {
 <h4 id="查看日志"><a href="#查看日志" class="headerlink" title="查看日志"></a>查看日志</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">tail</span> -f -n <span class="token number">500</span> /opt/atlassian/jira/logs/catalina.out<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <h4 id="页面配置"><a href="#页面配置" class="headerlink" title="页面配置"></a>页面配置</h4><p>   访问地址：<a target="_blank" rel="noopener" href="http://10.211.55.61:8080/">http://10.211.55.61:8080</a></p>
-<img data-src="/post/afb30e04/jira-002.png" class="" title="中文">
-<img data-src="/post/afb30e04/jira-003.png" class="" title="自定义">
+<img data-src="/post/afb30e04/jira-002.png" class title="中文">
+<img data-src="/post/afb30e04/jira-003.png" class title="自定义">
 
 <p>   创建数据库，如果是选择Mysql，建议使用Mysql5.6或者Mysql5.7，这样不容易出错。另外在创建数据库时建议选择UTF8编码，目前不支持UTF8MB4。<a target="_blank" rel="noopener" href="https://confluence.atlassian.com/adminjiraserver085/connecting-jira-applications-to-mysql-5-7-981154582.html">参考</a></p>
 <pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">CREATE</span> <span class="token keyword">DATABASE</span> jiradb <span class="token keyword">CHARACTER</span> <span class="token keyword">SET</span> utf8mb4 <span class="token keyword">COLLATE</span> utf8mb4_bin<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
@@ -739,9 +739,9 @@ canvas#canvas {
 flush <span class="token keyword">privileges</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>   配置DB数据，并测试，如下图：</p>
-<img data-src="/post/afb30e04/jira-004.png" class="" title="DB配置">
+<img data-src="/post/afb30e04/jira-004.png" class title="DB配置">
 <p>   测试OK，点击<code>下一步</code>:</p>
-<img data-src="/post/afb30e04/jira-005.png" class="" title="DB配置">
+<img data-src="/post/afb30e04/jira-005.png" class title="DB配置">
 <p>   此时，发现服务停止，<code>tail -f -n 500 /opt/atlassian/jira/logs/catalina.out</code>，后台报错：</p>
 <blockquote>
 <p>   WARN: Establishing SSL connection without server’s identity verification is not recommended. According to MySQL 5.5.45+, 5.6.26+ and 5.7.6+ requirements SSL connection must be established by default if explicit option isn’t set. For compliance with existing applications not using SSL the verifyServerCertificate property is set to ‘false’. You need either to explicitly disable SSL by setting <code>useSSL=false</code>, or set useSSL=true and provide truststore for server certificate</p>
@@ -750,12 +750,12 @@ flush <span class="token keyword">privileges</span><span class="token punctuatio
 <p>   解决：<a target="_blank" rel="noopener" href="https://community.atlassian.com/t5/Jira-Core-questions/JIRA-and-MySql-5-7-with-SSL/qaq-p/1251720">参考1</a> ， <a target="_blank" rel="noopener" href="https://community.atlassian.com/t5/Jira-questions/useSSL-false-with-Jira-ServiceDesk/qaq-p/1088212">参考2</a> </p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">vi</span> /var/atlassian/application-data/jira/dbconfig.xml<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>   DB的URL末尾加上<code>&amp;amp;useSSL=false</code>，我们习惯加<code>&amp;</code>，但是这里却是<code>&amp;amp;</code>。</p>
-<img data-src="/post/afb30e04/jira-006.png" class="" title="SSL">
+<img data-src="/post/afb30e04/jira-006.png" class title="SSL">
 
 <p>   重新启动：<code>/opt/atlassian/jira/bin/start-jira.sh</code></p>
-<img data-src="/post/afb30e04/jira-007.png" class="" title="Title+URL">
+<img data-src="/post/afb30e04/jira-007.png" class title="Title+URL">
 
-<img data-src="/post/afb30e04/jira-008.png" class="" title="KEY">
+<img data-src="/post/afb30e04/jira-008.png" class title="KEY">
 
 <p>   根据Server ID 生成license Key：</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">/opt/atlassian/jira/jre/bin/java -jar /home/jira1/atlassian-agent.jar -p jira -m jira@jira.com -n jira -o https://jira.com -s BFZ0-PD41-I9AX-YXDP<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
@@ -764,13 +764,13 @@ flush <span class="token keyword">privileges</span><span class="token punctuatio
 </div>
 <br>
 
-<img data-src="/post/afb30e04/jira-009.png" class="" title="KEY">
+<img data-src="/post/afb30e04/jira-009.png" class title="KEY">
 <p>   复制生成的KEY，点击<code>Next</code>：</p>
-<img data-src="/post/afb30e04/jira-010.png" class="" title="KEY">
+<img data-src="/post/afb30e04/jira-010.png" class title="KEY">
 <p>   创建账户：</p>
-<img data-src="/post/afb30e04/jira-011.png" class="" title="Admin">
+<img data-src="/post/afb30e04/jira-011.png" class title="Admin">
 <p>   Email配置，跳过</p>
-<img data-src="/post/afb30e04/jira-012.png" class="" title="Email">
+<img data-src="/post/afb30e04/jira-012.png" class title="Email">
 
 <p>。。。。。。。。。</p>
 <h4 id="重配实例"><a href="#重配实例" class="headerlink" title="重配实例"></a>重配实例</h4><p>   如果页面配置失败或者想要重新配置实例，可以把原来的实例删除：</p>
@@ -787,7 +787,7 @@ flush <span class="token keyword">privileges</span><span class="token punctuatio
 </div>
 
 <p>把本地内存最好调大点,我任性给了6G，哈哈。。。</p>
-<img data-src="/post/afb30e04/jira-013.png" class="" title="VM">
+<img data-src="/post/afb30e04/jira-013.png" class title="VM">
 
 
 <p><code>vi /opt/atlassian/jira/bin/setenv.sh</code></p>
@@ -1011,18 +1011,18 @@ flush <span class="token keyword">privileges</span><span class="token punctuatio
   </footer>
 
   
-  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@next-theme/pjax@0.5.0/pjax.min.js" integrity="sha256-3NkoLDrmHLTYj7csHIZSr0MHAFTXth7Ua/DDt4MRUAg=" crossorigin="anonymous"></script>
-  <script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/lozad@1.16.0/dist/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.5.0/pjax.min.js" integrity="sha256-3NkoLDrmHLTYj7csHIZSr0MHAFTXth7Ua/DDt4MRUAg=" crossorigin="anonymous"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
 <script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
 
   
-<script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
 <script src="/js/third-party/search/local-search.js"></script>
 
-  <script class="next-config" data-name="pdf" type="application/json">{"object_url":{"url":"https://cdn.jsdelivr.net/npm/pdfobject@2.2.7/pdfobject.min.js","integrity":"sha256-ph3Dk89VmuTVXG6x/RDzk53SU9LPdAh1tpv0UvnDZ2I="},"url":"/lib/pdf/web/viewer.html"}</script>
+  <script class="next-config" data-name="pdf" type="application/json">{"object_url":{"url":"https://cdnjs.cloudflare.com/ajax/libs/pdfobject/2.2.7/pdfobject.min.js","integrity":"sha256-ph3Dk89VmuTVXG6x/RDzk53SU9LPdAh1tpv0UvnDZ2I="},"url":"/lib/pdf/web/viewer.html"}</script>
   <script src="/js/third-party/tags/pdf.js"></script>
 
 
@@ -1035,7 +1035,7 @@ flush <span class="token keyword">privileges</span><span class="token punctuatio
 
 
 
-  <script src="https://cdn.jsdelivr.net/npm/quicklink@2.2.0/dist/quicklink.umd.js" integrity="sha256-4kQf9z5ntdQrzsBC3YSHnEz02Z9C1UeW/E9OgnvlzSY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/2.2.0/quicklink.umd.js" integrity="sha256-4kQf9z5ntdQrzsBC3YSHnEz02Z9C1UeW/E9OgnvlzSY=" crossorigin="anonymous"></script>
   <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":true,"delay":true,"timeout":3000,"priority":true,"ignores":null,"url":"https://www.xiaosige.com/post/afb30e04.html"}</script>
   <script src="/js/third-party/quicklink.js"></script>
 <script class="next-config" data-name="changyan" type="application/json">{"enable":true,"appid":"cyvSPOTJq","appkey":"4436699688bbb9caa6e8826551a7c0f7"}</script>
@@ -1043,8 +1043,8 @@ flush <span class="token keyword">privileges</span><span class="token punctuatio
 
 
 <!-- 提示信息 -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery-toast-plugin@1.3.2/dist/jquery.toast.min.css"/>
-<script src="https://cdn.jsdelivr.net/npm/jquery-toast-plugin@1.3.2/dist/jquery.toast.min.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/jquery-toast-plugin@1.3.2/dist/jquery.toast.min.css"/>
+<script src="https://unpkg.com/jquery-toast-plugin@1.3.2/dist/jquery.toast.min.js"></script>
 <!-- 樱花特效 -->
 <!-- 下雪 -->
 
