@@ -17,7 +17,7 @@
 
 
 
-<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
 
@@ -793,29 +793,29 @@ firewall-cmd --list-ports<span aria-hidden="true" class="line-numbers-rows"><spa
 <li>重启 <code>docker</code> 服务<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">systemctl daemon-reload
 systemctl restart <span class="token function">docker</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
 <li>然后用浏览器访问Linux主机的IP:2375/version，测试端口是否开放成功<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">curl</span> http://ip:2375/verion<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li>portainer中远程连接<img data-src="/post/a00f9d53/portainer001.png" class title="portainer-docker"></li>
+<li>portainer中远程连接<img data-src="/post/a00f9d53/portainer001.png" class="" title="portainer-docker"></li>
 </ol>
 <h4 id="IDEA中远程连接"><a href="#IDEA中远程连接" class="headerlink" title="IDEA中远程连接"></a>IDEA中远程连接</h4><p>  TCP-socket:<br>  <code>tcp://10.211.55.81:2375</code></p>
 <h3 id="PS"><a href="#PS" class="headerlink" title="PS"></a>PS</h3><h4 id="网络问题1"><a href="#网络问题1" class="headerlink" title="网络问题1"></a><code>网络问题1</code></h4><p>  <code>firewall-cmd，网路配置端口后不好用</code>:</p>
 <blockquote>
 <p><code>一</code>，查看网卡</p>
-<img data-src="/post/a00f9d53/firewall001.png" class title="网络设备">
+<img data-src="/post/a00f9d53/firewall001.png" class="" title="网络设备">
 <p><code>二</code>，查看激活作用域</p>
-<img data-src="/post/a00f9d53/firewall002.png" class title="作用域">
+<img data-src="/post/a00f9d53/firewall002.png" class="" title="作用域">
 <p><code>三</code>，把<code>docker0</code>网卡添加到<code>trusted</code>域</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">firewall-cmd --permanent --zone<span class="token operator">=</span>trusted --add-interface<span class="token operator">=</span>docker0<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p><code>四</code>，重启加载配置</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">firewall-cmd --reload<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p><code>五</code>，查看激活作用域</p>
-<img data-src="/post/a00f9d53/firewall003.png" class title="作用域">
+<img data-src="/post/a00f9d53/firewall003.png" class="" title="作用域">
 <p><code>六</code>，查看网卡</p>
-<img data-src="/post/a00f9d53/firewall004.png" class title="网络设备">
+<img data-src="/post/a00f9d53/firewall004.png" class="" title="网络设备">
 <p><code>七</code>，查看端口</p>
-<img data-src="/post/a00f9d53/firewall005.png" class title="查看端口">
+<img data-src="/post/a00f9d53/firewall005.png" class="" title="查看端口">
 <p><code>八</code>，开放端口</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">firewall-cmd  --zone<span class="token operator">=</span>public --add-port<span class="token operator">=</span><span class="token number">3307</span>/tcp --permanent
 firewall-cmd --reload<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<img data-src="/post/a00f9d53/firewall006.png" class title="查看3307端口"> 
+<img data-src="/post/a00f9d53/firewall006.png" class="" title="查看3307端口"> 
 </blockquote>
 <h4 id="网络问题2"><a href="#网络问题2" class="headerlink" title="网络问题2"></a><code>网络问题2</code></h4><p><code>网络问题1,不好使</code>，参考：<a href="/post/76a6f1b6.html" title="Centos7/8 firewall 和 docker 冲突解决">Centos7/8 firewall 和 docker 冲突解决</a></p>
 <link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>

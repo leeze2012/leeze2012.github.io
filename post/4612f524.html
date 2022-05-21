@@ -17,7 +17,7 @@
 
 
 
-<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
 
@@ -669,7 +669,7 @@ canvas#canvas {
 <li><code>Endpoint</code>: 一个服务中的其中一个接口</li>
 </ul>
 </div>
-<h3 id="架构图"><a href="#架构图" class="headerlink" title="架构图"></a>架构图</h3><img data-src="/post/4612f524/skywalking-002.jpg" class title="skywalking架构图">
+<h3 id="架构图"><a href="#架构图" class="headerlink" title="架构图"></a>架构图</h3><img data-src="/post/4612f524/skywalking-002.jpg" class="" title="skywalking架构图">
 <h3 id="快速部署"><a href="#快速部署" class="headerlink" title="快速部署"></a>快速部署</h3><h4 id="下载镜像"><a href="#下载镜像" class="headerlink" title="下载镜像"></a>下载镜像</h4><pre class="line-numbers language-docker" data-language="docker"><code class="language-docker">docker pull elasticsearch:7.17.3
 docker pull apache/skywalking-oap-server:9.0.0
 docker pull apache/skywalking-ui:9.0.0<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
@@ -823,7 +823,7 @@ apache/skywalking-ui:8.6.0<span aria-hidden="true" class="line-numbers-rows"><sp
 
 
 <h3 id="Spring-boot实例部署"><a href="#Spring-boot实例部署" class="headerlink" title="Spring-boot实例部署"></a>Spring-boot实例部署</h3><p>  下载agent：<a target="_blank" rel="noopener" href="https://skywalking.apache.org/downloads/">https://skywalking.apache.org/downloads/</a></p>
-<img data-src="/post/4612f524/skywalking-003.png" class title="Agents">
+<img data-src="/post/4612f524/skywalking-003.png" class="" title="Agents">
 <p>  以agent的方式启动，对代码没有侵入性，直接在启动命令上指定javaagent即可。<br>  启动命令javaagent参数添加：</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java">java <span class="token operator">-</span>javaagent<span class="token operator">:</span><span class="token operator">/</span><span class="token class-name">Users</span><span class="token operator">/</span>xiaosige<span class="token operator">/</span><span class="token class-name">Downloads</span><span class="token operator">/</span>skywalking<span class="token operator">-</span>agent<span class="token operator">/</span>skywalking<span class="token operator">-</span>agent<span class="token punctuation">.</span>jar 
   <span class="token operator">-</span>DSW_AGENT_COLLECTOR_BACKEND_SERVICES<span class="token operator">=</span><span class="token number">10.211</span><span class="token number">.55</span><span class="token number">.81</span><span class="token operator">:</span><span class="token number">11800</span> 

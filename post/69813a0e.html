@@ -17,7 +17,7 @@
 
 
 
-<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
 
@@ -805,7 +805,7 @@ systemctl diasble nginx <span class="token comment"># 禁止开机启动</span><
 
 <br>
 
-<img data-src="/post/69813a0e/nginx-001.png" class title="nginx编译输出">
+<img data-src="/post/69813a0e/nginx-001.png" class="" title="nginx编译输出">
 
 <p>上面的编译是使用了系统默认的openssl，如果想使用更高版本的openssl进行编译的话。可以加上<code>--with-openssl=openssl安装路径</code>来自定义。高版本的openssl安装可以参考 <a target="_blank" rel="noopener" href="https://www.jianshu.com/p/bf5a55a0a814">这篇文章</a>。</p>
 <p><code>--with-openssl</code> 参数虽然可以指定 OpenSSL 路径，但只支持 OpenSSL 的源代码，不支持已编译好的 OpenSSL。每回更新 nginx 都要重新编译 OpenSSL 很麻烦 。以下是解决方案<br>打开nginx源码解压目录下的<code>auto/lib/openssl/conf</code>,找到所有带<code>.openssl</code>的行</p>
@@ -862,7 +862,7 @@ systemctl diasble nginx <span class="token comment"># 禁止开机启动</span><
 
 <br>
 
-<img data-src="/post/69813a0e/nginx-002.png" class title="nginx编译输出">
+<img data-src="/post/69813a0e/nginx-002.png" class="" title="nginx编译输出">
 
 
 <p>部分编译参数说明</p>

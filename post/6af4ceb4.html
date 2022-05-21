@@ -17,7 +17,7 @@
 
 
 
-<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
 
@@ -672,14 +672,14 @@ canvas#canvas {
 <li>搜索Gitlab<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> search gitlab<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 <li>下载<code>Gitlab</code>镜像<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> pull gitlab/gitlab-ce:latest<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 <li>查看<code>Gitlab</code>镜像文件<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> images<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<img data-src="/post/6af4ceb4/gitlab001.png" class title="拉取的GitLab镜像"></li>
+<img data-src="/post/6af4ceb4/gitlab001.png" class="" title="拉取的GitLab镜像"></li>
 <li>创建<code>Gitlab</code>挂载目录,日志,数据,配置的路径<br>  通常会在构建容器的时间,会把配置 (etc) 、 日志 (log) 、数据 (data) 放到容器外面,方便后期数据迁移或者修改配置,在<code>~/docker/gitlab</code>下分别创建<code>etc,logs,data</code>目录:<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">cd</span> ~/docker
 <span class="token function">mkdir</span> -p ./gitlab/etc
 <span class="token function">mkdir</span> -p ./gitlab/logs
 <span class="token function">mkdir</span> -p ./gitlab/data<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li>
 <li>创建docker中的网络<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> network create gitlab_net<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
   查看<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> network <span class="token function">ls</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<img data-src="/post/6af4ceb4/gitlab002.png" class title="network"></li>
+<img data-src="/post/6af4ceb4/gitlab002.png" class="" title="network"></li>
 <li>使用镜像启动<code>Gitlab</code>容器<pre class="line-numbers language-docker" data-language="docker"><code class="language-docker">docker run -d \
 -e TZ=Asia/Shanghai \
 --name mygitlab \

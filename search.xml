@@ -659,7 +659,7 @@ complete -W <span class="token string">"<span class="token variable"><span class
 <li><code>Endpoint</code>: 一个服务中的其中一个接口</li>
 </ul>
 </div>
-<h3 id="架构图"><a href="#架构图" class="headerlink" title="架构图"></a>架构图</h3><img data-src="/post/4612f524/skywalking-002.jpg" class title="skywalking架构图">
+<h3 id="架构图"><a href="#架构图" class="headerlink" title="架构图"></a>架构图</h3><img data-src="/post/4612f524/skywalking-002.jpg" class="" title="skywalking架构图">
 <h3 id="快速部署"><a href="#快速部署" class="headerlink" title="快速部署"></a>快速部署</h3><h4 id="下载镜像"><a href="#下载镜像" class="headerlink" title="下载镜像"></a>下载镜像</h4><pre class="line-numbers language-docker" data-language="docker"><code class="language-docker">docker pull elasticsearch:7.17.3
 docker pull apache/skywalking-oap-server:9.0.0
 docker pull apache/skywalking-ui:9.0.0<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
@@ -813,7 +813,7 @@ apache/skywalking-ui:8.6.0<span aria-hidden="true" class="line-numbers-rows"><sp
 
 
 <h3 id="Spring-boot实例部署"><a href="#Spring-boot实例部署" class="headerlink" title="Spring-boot实例部署"></a>Spring-boot实例部署</h3><p>  下载agent：<a href="https://skywalking.apache.org/downloads/">https://skywalking.apache.org/downloads/</a></p>
-<img data-src="/post/4612f524/skywalking-003.png" class title="Agents">
+<img data-src="/post/4612f524/skywalking-003.png" class="" title="Agents">
 <p>  以agent的方式启动，对代码没有侵入性，直接在启动命令上指定javaagent即可。<br>  启动命令javaagent参数添加：</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java">java <span class="token operator">-</span>javaagent<span class="token operator">:</span><span class="token operator">/</span><span class="token class-name">Users</span><span class="token operator">/</span>xiaosige<span class="token operator">/</span><span class="token class-name">Downloads</span><span class="token operator">/</span>skywalking<span class="token operator">-</span>agent<span class="token operator">/</span>skywalking<span class="token operator">-</span>agent<span class="token punctuation">.</span>jar 
   <span class="token operator">-</span>DSW_AGENT_COLLECTOR_BACKEND_SERVICES<span class="token operator">=</span><span class="token number">10.211</span><span class="token number">.55</span><span class="token number">.81</span><span class="token operator">:</span><span class="token number">11800</span> 
@@ -958,7 +958,7 @@ kibana:7.17.3<span aria-hidden="true" class="line-numbers-rows"><span></span><sp
 <p>2）显示 <code>elasticsearch</code> 节点信息：浏览器输入地址 <code>http://10.211.55.81:9200/_cat/nodes</code></p>
 <pre class="line-numbers language-json" data-language="json"><code class="language-json"><span class="token number">127.0</span>.<span class="token number">0.1</span> <span class="token number">19</span> <span class="token number">97</span> <span class="token number">5</span> <span class="token number">0.09</span> <span class="token number">0.24</span> <span class="token number">0.24</span> cdfhilmrstw * 57eae3752c89<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>3）访问 <code>Kibana</code>：浏览器输入地址 <code>http://10.211.55.81:5601/app/kibana</code></p>
-<img data-src="/post/5aa01560/kibana-001.png" class title="kibana"><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
+<img data-src="/post/5aa01560/kibana-001.png" class="" title="kibana"><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
       <categories>
         <category>Docker</category>
       </categories>
@@ -1010,7 +1010,7 @@ docker build -f dockerfile-alpine-glibc-jdk18 -t xiaosige/alpine-glibc:8_jdk .<s
 <span id="more"></span>
 
 
-<img data-src="/post/454169be/ideapom001.png" class title="IDEA-Maven-Pom.xml变灰,出现删除线">
+<img data-src="/post/454169be/ideapom001.png" class="" title="IDEA-Maven-Pom.xml变灰,出现删除线">
 
 <p>  设置完成后，重启IDEA。</p>
 <link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
@@ -3186,19 +3186,19 @@ docker run -d -p 8081:8081 -p 8082:8082 -p 8083:8083 -p 8084:8084 \
 <li><code>proxy</code>，代理仓库，它们被用来代理远程的公共仓库，如maven中央仓库。</li>
 <li><code>group</code>，仓库组，用来合并多个hosted/proxy仓库，当你的项目希望在多个repository使用资源时就不需要多次引用了，只需要引用一个group即可。</li>
 </ol>
-<img data-src="/post/1ed6a709/nexus001.png" class title="repository">
+<img data-src="/post/1ed6a709/nexus001.png" class="" title="repository">
 
 <h4 id="创建-docker-hosted-类型的仓库"><a href="#创建-docker-hosted-类型的仓库" class="headerlink" title="创建 docker(hosted) 类型的仓库"></a>创建 docker(hosted) 类型的仓库</h4><p>  用于将自己的镜像上传至私库。<br>  在创建镜像仓库的页面中，设置镜像仓库的相关信息，包括名称、HTTP端口、是否允许匿名拉取镜像等信息。这里需要注意的是，<br>此处的HTTP端口(此处的值为8082)很重要，后续拉取和推送进行是使用此端口进行的，而不是nexus本身对外暴露的端口。</p>
-<img data-src="/post/1ed6a709/nexus002.png" class title="hosted">
+<img data-src="/post/1ed6a709/nexus002.png" class="" title="hosted">
 
 <h4 id="创建-docker-proxy-类型的仓库"><a href="#创建-docker-proxy-类型的仓库" class="headerlink" title="创建 docker(proxy) 类型的仓库"></a>创建 docker(proxy) 类型的仓库</h4><p>  用于从外网仓库中拉取镜像至本地仓库中。点击“create Repository”，选择docker(proxy)进行创建</p>
-<img data-src="/post/1ed6a709/nexus0022.jpg" class title="proxy">
+<img data-src="/post/1ed6a709/nexus0022.jpg" class="" title="proxy">
 
 <h4 id="创建-docker-group-类型的仓库"><a href="#创建-docker-group-类型的仓库" class="headerlink" title="创建 docker(group) 类型的仓库"></a>创建 docker(group) 类型的仓库</h4><p>  用于pull镜像至本地使用，可下载外网镜像和从本地push到私库的镜像</p>
-<img data-src="/post/1ed6a709/nexus0023.jpg" class title="group">
+<img data-src="/post/1ed6a709/nexus0023.jpg" class="" title="group">
 
 <h4 id="配置docker-Realm"><a href="#配置docker-Realm" class="headerlink" title="配置docker Realm"></a>配置<code>docker Realm</code></h4><p>  将Docker Bearer Token Realm配置到右边，点击save即可</p>
-<img data-src="/post/1ed6a709/nexus0021.png" class title="Realm">
+<img data-src="/post/1ed6a709/nexus0021.png" class="" title="Realm">
 
 <h4 id="修改docker配置"><a href="#修改docker配置" class="headerlink" title="修改docker配置"></a>修改docker配置</h4><p>    IP地址为私库服务器的IP地址，端口为创建docker group和docker hosted填写的端口,在<code>/etc/docker/daemon.json</code>文件中添加下面的内容：</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@xiaosige ~<span class="token punctuation">]</span><span class="token comment"># cat /etc/docker/daemon.json</span>
@@ -3249,7 +3249,7 @@ The push refers to repository <span class="token punctuation">[</span><span clas
 e07ee1baac5f: Layer already exists 
 <span class="token number">1.0</span>: digest: sha256:f54a58bc1aac5ea1a25d796ae155dc228b3f0e11d046ae276b39c4bf2f13d8c4 size: <span class="token number">525</span>
 <span class="token punctuation">[</span>root@xiaosige .docker<span class="token punctuation">]</span><span class="token comment"># </span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<img data-src="/post/1ed6a709/nexus003.png" class title="上传私库成功"></li>
+<img data-src="/post/1ed6a709/nexus003.png" class="" title="上传私库成功"></li>
 <li>拉取镜像<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@xiaosige .docker<span class="token punctuation">]</span><span class="token comment"># docker pull 10.211.55.81:8082/helloworld:1.0 </span>
 <span class="token number">1.0</span>: Pulling from helloworld
 2db29710123e: Pull complete 
@@ -3258,9 +3258,9 @@ Status: Downloaded newer image <span class="token keyword">for</span> <span clas
 <span class="token number">10.211</span>.55.81:8082/helloworld:1.0<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 </ol>
 <h4 id="权限管理"><a href="#权限管理" class="headerlink" title="权限管理"></a>权限管理</h4><p>  创建用户：<br>  默认是使用<code>admin</code>登录的，权限太高，可以给用户单独创建账号<br>  建立 <code>docker</code> 角色组，权限为 <code>nx-repository-view-docker-*-*</code></p>
-<img data-src="/post/1ed6a709/nexus004.png" class title="新建角色">
+<img data-src="/post/1ed6a709/nexus004.png" class="" title="新建角色">
 <p>  建立新用户，并加入为 <code>docker</code>角色组</p>
-<img data-src="/post/1ed6a709/nexus005.png" class title="新建用户">
+<img data-src="/post/1ed6a709/nexus005.png" class="" title="新建用户">
 
 <p>  登录</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@xiaosige .docker<span class="token punctuation">]</span><span class="token comment"># docker logout 10.211.55.81:8082</span>
@@ -3313,9 +3313,9 @@ firewall-cmd --reload<span aria-hidden="true" class="line-numbers-rows"><span></
 <h5 id="新建maven-aliyun"><a href="#新建maven-aliyun" class="headerlink" title="新建maven-aliyun"></a>新建<code>maven-aliyun</code></h5><p>  依次点击：<code>设置</code> –&gt; <code>Repository</code> –&gt; <code>Repositories</code> –&gt; <code>Create repository</code>，选择<code>maven2 (proxy)</code></p>
 <div class="note info no-icon"><p>仓库名字：maven-aliyun(随便填写)<br>阿里云远程maven仓库地址：<a href="https://maven.aliyun.com/repository/public">https://maven.aliyun.com/repository/public</a><br>其他选项：默认即可<br><code>参考</code>：<a href="https://maven.aliyun.com/mvn/guide">阿里云Maven中央仓库</a></p>
 </div>
-<img data-src="/post/a6836d41/nexus001.png" class title="maven-aliyun">
+<img data-src="/post/a6836d41/nexus001.png" class="" title="maven-aliyun">
 <h5 id="修改maven-public"><a href="#修改maven-public" class="headerlink" title="修改maven-public"></a>修改<code>maven-public</code></h5><p>  修改<code>maven-public</code>中的仓库引用及顺序：</p>
-<img data-src="/post/a6836d41/nexus002.png" class title="maven-public引用顺序">
+<img data-src="/post/a6836d41/nexus002.png" class="" title="maven-public引用顺序">
 
 <br>
 
@@ -3428,7 +3428,7 @@ firewall-cmd --reload<span aria-hidden="true" class="line-numbers-rows"><span></
 </div>
 
 
-<h4 id="上传第三方jar"><a href="#上传第三方jar" class="headerlink" title="上传第三方jar"></a>上传第三方jar</h4><img data-src="/post/a6836d41/nexus003.png" class title="jar-upload">
+<h4 id="上传第三方jar"><a href="#上传第三方jar" class="headerlink" title="上传第三方jar"></a>上传第三方jar</h4><img data-src="/post/a6836d41/nexus003.png" class="" title="jar-upload">
 
 
 <h3 id="PS"><a href="#PS" class="headerlink" title="PS"></a>PS</h3><p>一直报错<code> UnknownHostException: rhc.sonatype.com</code>，参考：<a href="/post/3458217c.html" title="解决Docker容器内无法解析DNS的问题">解决Docker容器内无法解析DNS的问题</a></p>
@@ -3647,7 +3647,7 @@ docker pull drone/drone-runner-docker<span aria-hidden="true" class="line-number
 </li>
 </ul>
 </div></li>
-<li>生成GiteaOauth<br>  gitea右上角-&gt;设置-&gt;应用-&gt;创建应用  <img data-src="/post/3abef87b/drone001.png" class title="创建新的 OAuth2 应用程序">   
+<li>生成GiteaOauth<br>  gitea右上角-&gt;设置-&gt;应用-&gt;创建应用  <img data-src="/post/3abef87b/drone001.png" class="" title="创建新的 OAuth2 应用程序">   
 <pre class="line-numbers language-properties" data-language="properties"><code class="language-properties"><span class="token key attr-name">客户端id</span> <span class="token punctuation">:</span> <span class="token value attr-value">f4d1e22d-b092-4e86-bedd-dffb362b1c70</span>
 <span class="token key attr-name">客户端秘钥</span> <span class="token punctuation">:</span> <span class="token value attr-value">EBjiksxi7QBaAtY9cIisGY36Ghr81Y4vtk2uqj8g5qEa</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
   生成rpc秘钥: <code>openssl rand -hex 16 </code><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@loaclhost build<span class="token punctuation">]</span><span class="token comment"># openssl rand -hex 16 </span>
@@ -3705,28 +3705,28 @@ firewall-cmd --reload<span aria-hidden="true" class="line-numbers-rows"><span></
 <h3 id="Drone使用"><a href="#Drone使用" class="headerlink" title="Drone使用"></a><code>Drone</code>使用</h3>  让我们来访问下<code>Drone</code>的控制台页面，第一次登录需要输入账号密码（在Gitea中注册的账号），访问地址：<a href="http://10.211.55.81:3080/">http://10.211.55.81:3080/</a></li>
 </ol>
 <p>  此时我们在Gitea中的项目会现在在列表中，如果没有的话可以点下<code>SYNC</code>按钮；</p>
-<img data-src="/post/3abef87b/drone002.png" class title="同步项目">
+<img data-src="/post/3abef87b/drone002.png" class="" title="同步项目">
 <p>  接下来我们需要对仓库进行设置，将仓库设置为<code>Trusted</code>（否则Drone创建的容器无法挂载目录到宿主机），最后点击<code>SAVE</code>按钮保存；</p>
-<img data-src="/post/3abef87b/drone003.png" class title="仓库设置一">
-<img data-src="/post/3abef87b/drone004.png" class title="仓库设置二">
+<img data-src="/post/3abef87b/drone003.png" class="" title="仓库设置一">
+<img data-src="/post/3abef87b/drone004.png" class="" title="仓库设置二">
 <p>  保存成功后会在<code>Gitea</code>中自动配置一个<code>Web钩子</code>，当我们推送代码到Gitea中去时，会触发这个钩子，然后执行在Drone中的流水线任务；</p>
-<img data-src="/post/3abef87b/drone005.png" class title="Web钩子">
+<img data-src="/post/3abef87b/drone005.png" class="" title="Web钩子">
 <p>  拉到最下面，我们可以发送一个测试推送，推送成功会显示绿色的√；</p>
-<img data-src="/post/3abef87b/drone006.png" class title="Web钩子">
-<img data-src="/post/3abef87b/drone007.png" class title="Web钩子">
+<img data-src="/post/3abef87b/drone006.png" class="" title="Web钩子">
+<img data-src="/post/3abef87b/drone007.png" class="" title="Web钩子">
 <p>  此时我们在<code>Drone</code>中发现其实流水线执行失败了，那是因为我们在脚本中引用了<code>Secret</code>中的<code>ssh_password</code>；</p>
-<img data-src="/post/3abef87b/drone008.png" class title="ssh_password">
+<img data-src="/post/3abef87b/drone008.png" class="" title="ssh_password">
 <p>  在仓库的设置中添加一个<code>Secret</code>即可，Secret是专门用来存储密码的，此密码只能被使用或删除，无法被查看；</p>
-<img data-src="/post/3abef87b/drone009.png" class title="Secret密码">
+<img data-src="/post/3abef87b/drone009.png" class="" title="Secret密码">
 <p>  在<code>ACTIVITY FEED</code>中使用<code>RESTART</code>可以重新执行该流水线，发现已经成功执行。</p>
-<img data-src="/post/3abef87b/drone010.png" class title="RESTART">
-<img data-src="/post/3abef87b/drone011.png" class title="SUCCESS">
+<img data-src="/post/3abef87b/drone010.png" class="" title="RESTART">
+<img data-src="/post/3abef87b/drone011.png" class="" title="SUCCESS">
 
 <h3 id="编写脚本"><a href="#编写脚本" class="headerlink" title="编写脚本"></a>编写脚本</h3><div class="note success no-icon"><p>  当我们向Git仓库<code>Push</code>代码时，会自动触发<code>Web钩子</code>，然后<code>Drone</code>就会从Git仓库<code>Clone</code>代码，再通过项目目录下的<code>.drone.yml</code>配置，执行相应的流水线，接下来我们来看看这个脚本是如何写的。</p>
 </div>
 <ol>
-<li>项目结构<img data-src="/post/3abef87b/drone013.png" class title="SUCCESS"></li>
-<li>首先我们来了解下在<code>.drone.yml</code>中配置的工作流都有哪些操作，看下流程图就知道了；<img data-src="/post/3abef87b/drone012.png" class title="流程"></li>
+<li>项目结构<img data-src="/post/3abef87b/drone013.png" class="" title="SUCCESS"></li>
+<li>首先我们来了解下在<code>.drone.yml</code>中配置的工作流都有哪些操作，看下流程图就知道了；<img data-src="/post/3abef87b/drone012.png" class="" title="流程"></li>
 <li>再来一个完整的<code>.drone.yml</code>，配上详细的注解，看下就基本懂了！<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">kind</span><span class="token punctuation">:</span> pipeline <span class="token comment"># 定义对象类型，还有secret和signature两种类型</span>
 <span class="token key atrule">type</span><span class="token punctuation">:</span> docker <span class="token comment"># 定义流水线类型，还有kubernetes、exec、ssh等类型</span>
 <span class="token key atrule">name</span><span class="token punctuation">:</span> mybatisplus<span class="token punctuation">-</span>drone <span class="token comment"># 定义流水线名称</span>
@@ -3883,7 +3883,7 @@ firewall-cmd --reload<span aria-hidden="true" class="line-numbers-rows"><span></
 <li>远程连接mysql 并创建<code>gitea</code>数据库<br>  如果您使用 MySQL，请使用 <code>INNODB</code> 引擎以及 <code>utf8mb4</code> 字符集</li>
 </ol>
 <h3 id="修改配置"><a href="#修改配置" class="headerlink" title="修改配置"></a>修改配置</h3><p>  访问<code>http://10.211.55.81:3000/</code>,如下图修改</p>
-<img data-src="/post/853577ec/gitea-001.png" class title="Gitea配置">
+<img data-src="/post/853577ec/gitea-001.png" class="" title="Gitea配置">
 
 <p>  <code>或者</code></p>
 <p>  修改下<code>app.ini</code>的配置</p>
@@ -4471,29 +4471,29 @@ firewall-cmd --list-ports<span aria-hidden="true" class="line-numbers-rows"><spa
 <li>重启 <code>docker</code> 服务<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">systemctl daemon-reload
 systemctl restart <span class="token function">docker</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
 <li>然后用浏览器访问Linux主机的IP:2375/version，测试端口是否开放成功<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">curl</span> http://ip:2375/verion<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li>portainer中远程连接<img data-src="/post/a00f9d53/portainer001.png" class title="portainer-docker"></li>
+<li>portainer中远程连接<img data-src="/post/a00f9d53/portainer001.png" class="" title="portainer-docker"></li>
 </ol>
 <h4 id="IDEA中远程连接"><a href="#IDEA中远程连接" class="headerlink" title="IDEA中远程连接"></a>IDEA中远程连接</h4><p>  TCP-socket:<br>  <code>tcp://10.211.55.81:2375</code></p>
 <h3 id="PS"><a href="#PS" class="headerlink" title="PS"></a>PS</h3><h4 id="网络问题1"><a href="#网络问题1" class="headerlink" title="网络问题1"></a><code>网络问题1</code></h4><p>  <code>firewall-cmd，网路配置端口后不好用</code>:</p>
 <blockquote>
 <p><code>一</code>，查看网卡</p>
-<img data-src="/post/a00f9d53/firewall001.png" class title="网络设备">
+<img data-src="/post/a00f9d53/firewall001.png" class="" title="网络设备">
 <p><code>二</code>，查看激活作用域</p>
-<img data-src="/post/a00f9d53/firewall002.png" class title="作用域">
+<img data-src="/post/a00f9d53/firewall002.png" class="" title="作用域">
 <p><code>三</code>，把<code>docker0</code>网卡添加到<code>trusted</code>域</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">firewall-cmd --permanent --zone<span class="token operator">=</span>trusted --add-interface<span class="token operator">=</span>docker0<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p><code>四</code>，重启加载配置</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">firewall-cmd --reload<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p><code>五</code>，查看激活作用域</p>
-<img data-src="/post/a00f9d53/firewall003.png" class title="作用域">
+<img data-src="/post/a00f9d53/firewall003.png" class="" title="作用域">
 <p><code>六</code>，查看网卡</p>
-<img data-src="/post/a00f9d53/firewall004.png" class title="网络设备">
+<img data-src="/post/a00f9d53/firewall004.png" class="" title="网络设备">
 <p><code>七</code>，查看端口</p>
-<img data-src="/post/a00f9d53/firewall005.png" class title="查看端口">
+<img data-src="/post/a00f9d53/firewall005.png" class="" title="查看端口">
 <p><code>八</code>，开放端口</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">firewall-cmd  --zone<span class="token operator">=</span>public --add-port<span class="token operator">=</span><span class="token number">3307</span>/tcp --permanent
 firewall-cmd --reload<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<img data-src="/post/a00f9d53/firewall006.png" class title="查看3307端口"> 
+<img data-src="/post/a00f9d53/firewall006.png" class="" title="查看3307端口"> 
 </blockquote>
 <h4 id="网络问题2"><a href="#网络问题2" class="headerlink" title="网络问题2"></a><code>网络问题2</code></h4><p><code>网络问题1,不好使</code>，参考：<a href="/post/76a6f1b6.html" title="Centos7/8 firewall 和 docker 冲突解决">Centos7/8 firewall 和 docker 冲突解决</a></p>
 <link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
@@ -4553,7 +4553,7 @@ firewall-cmd --reload
 firewall-cmd --list-ports<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
 <li>重启 <code>docker</code> 服务 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">systemctl daemon-reload
 systemctl restart <span class="token function">docker</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
-<li>portainer中远程连接<img data-src="/post/5086702b/portainer001.png" class title="portainer-docker"></li>
+<li>portainer中远程连接<img data-src="/post/5086702b/portainer001.png" class="" title="portainer-docker"></li>
 </ol>
 <link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
       <categories>
@@ -4636,14 +4636,14 @@ firwall-cmd：是Linux提供的操作firewall的一个工具（服务）命令
 <li>搜索Gitlab<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> search gitlab<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 <li>下载<code>Gitlab</code>镜像<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> pull gitlab/gitlab-ce:latest<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 <li>查看<code>Gitlab</code>镜像文件<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> images<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<img data-src="/post/6af4ceb4/gitlab001.png" class title="拉取的GitLab镜像"></li>
+<img data-src="/post/6af4ceb4/gitlab001.png" class="" title="拉取的GitLab镜像"></li>
 <li>创建<code>Gitlab</code>挂载目录,日志,数据,配置的路径<br>  通常会在构建容器的时间,会把配置 (etc) 、 日志 (log) 、数据 (data) 放到容器外面,方便后期数据迁移或者修改配置,在<code>~/docker/gitlab</code>下分别创建<code>etc,logs,data</code>目录:<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">cd</span> ~/docker
 <span class="token function">mkdir</span> -p ./gitlab/etc
 <span class="token function">mkdir</span> -p ./gitlab/logs
 <span class="token function">mkdir</span> -p ./gitlab/data<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li>
 <li>创建docker中的网络<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> network create gitlab_net<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
   查看<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> network <span class="token function">ls</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<img data-src="/post/6af4ceb4/gitlab002.png" class title="network"></li>
+<img data-src="/post/6af4ceb4/gitlab002.png" class="" title="network"></li>
 <li>使用镜像启动<code>Gitlab</code>容器<pre class="line-numbers language-docker" data-language="docker"><code class="language-docker">docker run -d \
 -e TZ=Asia/Shanghai \
 --name mygitlab \
@@ -5209,7 +5209,7 @@ flush privileges<span class="token punctuation">;</span>
 <span id="more"></span>
 
 <h3 id="网络报错信息"><a href="#网络报错信息" class="headerlink" title="网络报错信息"></a>网络报错信息</h3><p>  网络初始化失败：您的虚拟机将继续正常运作，但将无法连接网络</p>
-<img data-src="/post/7507a33f/neterror.webp" class title="网络异常">
+<img data-src="/post/7507a33f/neterror.webp" class="" title="网络异常">
 
 
 <h3 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h3><h4 id="网络问题"><a href="#网络问题" class="headerlink" title="网络问题"></a>网络问题</h4><p>  最新网上有一个别致的解决方案，可通过终端代码来启动Parallels Desktop 16，解决pd 16 在 big sur下不能联网的问题，解决方案如下：</p>
@@ -5223,7 +5223,7 @@ flush privileges<span class="token punctuation">;</span>
 	<span class="token operator">&lt;</span><span class="token operator">!</span>-- 新增 --<span class="token operator">&gt;</span>
 	<span class="token operator">&lt;</span>UseKextless<span class="token operator">&gt;</span><span class="token operator"><span class="token file-descriptor important">0</span>&lt;</span>/UseKextless<span class="token operator">&gt;</span>
 <span class="token operator">&lt;</span>/ParallelsNetworkConfig<span class="token operator">&gt;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<img data-src="/post/7507a33f/neterror.png" class title="网络异常修改">
+<img data-src="/post/7507a33f/neterror.png" class="" title="网络异常修改">
 
 
 <h4 id="USB-问题"><a href="#USB-问题" class="headerlink" title="USB 问题"></a>USB 问题</h4><ol>
@@ -5231,7 +5231,7 @@ flush privileges<span class="token punctuation">;</span>
 <li>打开 dispatcher.desktop.xml文件。</li>
 <li>找到 <code>&lt;Usb&gt;0&lt;/Usb&gt;</code> ，修改为 <code>&lt;Usb&gt;1&lt;/Usb&gt;</code>。</li>
 </ol>
-<img data-src="/post/7507a33f/usberror.png" class title="Usb异常修改">
+<img data-src="/post/7507a33f/usberror.png" class="" title="Usb异常修改">
 <link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
       <categories>
         <category>Mac</category>
@@ -5303,7 +5303,7 @@ flush privileges<span class="token punctuation">;</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>   如果看到以下提示信息，说明 configure 这步已经成功啦。</p>
-<img data-src="/post/421fae74/configure.png" class title="configure-success">
+<img data-src="/post/421fae74/configure.png" class="" title="configure-success">
 
 
 <p>  <code>可能会出现错误</code></p>
@@ -5379,9 +5379,9 @@ charset utf-8<span class="token punctuation">;</span>
    <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="测试php环境"><a href="#测试php环境" class="headerlink" title="测试php环境"></a>测试php环境</h3><p>浏览器访问 <code>127.0.0.1:8082</code> 返回结果：</p>
-<h4 id="Zend-OPcache"><a href="#Zend-OPcache" class="headerlink" title="Zend OPcache"></a>Zend OPcache</h4><img data-src="/post/421fae74/opcache.png" class title="Zend-OPcache">
+<h4 id="Zend-OPcache"><a href="#Zend-OPcache" class="headerlink" title="Zend OPcache"></a>Zend OPcache</h4><img data-src="/post/421fae74/opcache.png" class="" title="Zend-OPcache">
 
-<h4 id="php-ini-中-JIT-配置信息"><a href="#php-ini-中-JIT-配置信息" class="headerlink" title="php.ini 中 JIT 配置信息"></a>php.ini 中 JIT 配置信息</h4><img data-src="/post/421fae74/jit.png" class title="JIT">
+<h4 id="php-ini-中-JIT-配置信息"><a href="#php-ini-中-JIT-配置信息" class="headerlink" title="php.ini 中 JIT 配置信息"></a>php.ini 中 JIT 配置信息</h4><img data-src="/post/421fae74/jit.png" class="" title="JIT">
 
 <h2 id="增加全局-php-环境变量"><a href="#增加全局-php-环境变量" class="headerlink" title="增加全局 php 环境变量"></a>增加全局 php 环境变量</h2><p><code>vim /etc/profile</code>,添加配置到最后:</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token assign-left variable"><span class="token environment constant">PATH</span></span><span class="token operator">=</span><span class="token environment constant">$PATH</span>:/usr/local/php8/bin
@@ -6113,7 +6113,7 @@ yum makecache<span aria-hidden="true" class="line-numbers-rows"><span></span><sp
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><p>  为了保证不重复，我们给每个部署的节点都配置机器id：</p>
-<img data-src="/post/8515d6d4/snowflake-002.png" class title="snowflake">
+<img data-src="/post/8515d6d4/snowflake-002.png" class="" title="snowflake">
 
 <h3 id="加载属性"><a href="#加载属性" class="headerlink" title="加载属性"></a>加载属性</h3><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">com<span class="token punctuation">.</span>leyou<span class="token punctuation">.</span>order<span class="token punctuation">.</span>properties</span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> <span class="token import"><span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>boot<span class="token punctuation">.</span>context<span class="token punctuation">.</span>properties<span class="token punctuation">.</span></span><span class="token class-name">ConfigurationProperties</span></span><span class="token punctuation">;</span>
@@ -6650,7 +6650,7 @@ another_one_db"</span>
 <h5 id="Idea配置开启parameters"><a href="#Idea配置开启parameters" class="headerlink" title="Idea配置开启parameters"></a>Idea配置开启parameters</h5><ol>
 <li>File-&gt;Settings-&gt;Build,Execution,Deployment-&gt;Compiler-&gt;Java Compiler</li>
 <li>在 Additional command line parameters: 后面填上 -parameters</li>
-<li>填好后，再将项目重新build一下，Build-&gt;Rebuild Project。<img data-src="/post/f34deb23/java-001.png" class title="配置图"></li>
+<li>填好后，再将项目重新build一下，Build-&gt;Rebuild Project。<img data-src="/post/f34deb23/java-001.png" class="" title="配置图"></li>
 </ol>
 <h5 id="Eclipse配置开启parameters"><a href="#Eclipse配置开启parameters" class="headerlink" title="Eclipse配置开启parameters"></a>Eclipse配置开启parameters</h5><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">Preferences-<span class="token operator">&gt;</span>java-<span class="token operator">&gt;</span>Compiler下勾选Store information about method parameters选项。<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>  这样在使用eclipse编译java文件的时候就会将参数名称编译到class文件中。</p>
@@ -6668,7 +6668,7 @@ another_one_db"</span>
     <content><![CDATA[<h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>  <a href="https://yarn.bootcss.com/">Yarn</a> 就是一个类似于 npm 的包管理工具，它是由 facebook 推出并开源。<br>  与 npm 相比，yarn 有着众多的优势，主要的优势在于：速度快、离线模式、版本控制。</p>
 <span id="more"></span>
 
-<p><img data-src="/post/2dcb4b/yarn.png" title style="width: 90%; height: 200;" class="zoom-in-cursor" width="400" vspace="0" hspace="0" height="179" border="0"></p>
+<p><img data-src="/post/2dcb4b/yarn.png" title="" style="width: 90%; height: 200;" class="zoom-in-cursor" width="400" vspace="0" hspace="0" height="179" border="0"></p>
 <h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>  macOS有几种安装yarn的方式，如下：</p>
 <ol>
 <li><p>使用homebrew安装yarn<br>  使用homebrew安装，如果node.js没有安装，那么它会自动安装node.js</p>
@@ -7336,7 +7336,7 @@ systemctl diasble nginx <span class="token comment"># 禁止开机启动</span><
 
 <br>
 
-<img data-src="/post/69813a0e/nginx-001.png" class title="nginx编译输出">
+<img data-src="/post/69813a0e/nginx-001.png" class="" title="nginx编译输出">
 
 <p>上面的编译是使用了系统默认的openssl，如果想使用更高版本的openssl进行编译的话。可以加上<code>--with-openssl=openssl安装路径</code>来自定义。高版本的openssl安装可以参考 <a href="https://www.jianshu.com/p/bf5a55a0a814">这篇文章</a>。</p>
 <p><code>--with-openssl</code> 参数虽然可以指定 OpenSSL 路径，但只支持 OpenSSL 的源代码，不支持已编译好的 OpenSSL。每回更新 nginx 都要重新编译 OpenSSL 很麻烦 。以下是解决方案<br>打开nginx源码解压目录下的<code>auto/lib/openssl/conf</code>,找到所有带<code>.openssl</code>的行</p>
@@ -7393,7 +7393,7 @@ systemctl diasble nginx <span class="token comment"># 禁止开机启动</span><
 
 <br>
 
-<img data-src="/post/69813a0e/nginx-002.png" class title="nginx编译输出">
+<img data-src="/post/69813a0e/nginx-002.png" class="" title="nginx编译输出">
 
 
 <p>部分编译参数说明</p>
@@ -8030,7 +8030,7 @@ $ <span class="token function">ssh</span> -T git@github.com<span aria-hidden="tr
 <h3 id="开始安装"><a href="#开始安装" class="headerlink" title="开始安装"></a>开始安装</h3><h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><p>   先把上面下载的软件包放到同一目录下，比如<code>/tmp</code>目录下，然后输入下面的命令进行安装</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">tar</span> -zxvf atlassian-agent-v1.2.3.tar.gz<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">./atlassian-jira-software-8.5.7-x64.bin <span class="token comment"># 下面执行的是默认的</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<img data-src="/post/afb30e04/jira-001.png" class title="JIRA安装图">
+<img data-src="/post/afb30e04/jira-001.png" class="" title="JIRA安装图">
 
 <p>  安装路径：    <code>/opt/atlassian/jira</code><br>  数据存放路径：<code>/var/atlassian/application-data/jira</code><br>  HTTP Port:  <code>8080</code><br>  RMI Port:    <code>8005</code></p>
 <h4 id="复制包"><a href="#复制包" class="headerlink" title="复制包"></a>复制包</h4><p>   复制驱动包、破解包：</p>
@@ -8065,8 +8065,8 @@ $ <span class="token function">ssh</span> -T git@github.com<span aria-hidden="tr
 <h4 id="查看日志"><a href="#查看日志" class="headerlink" title="查看日志"></a>查看日志</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">tail</span> -f -n <span class="token number">500</span> /opt/atlassian/jira/logs/catalina.out<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <h4 id="页面配置"><a href="#页面配置" class="headerlink" title="页面配置"></a>页面配置</h4><p>   访问地址：<a href="http://10.211.55.61:8080/">http://10.211.55.61:8080</a></p>
-<img data-src="/post/afb30e04/jira-002.png" class title="中文">
-<img data-src="/post/afb30e04/jira-003.png" class title="自定义">
+<img data-src="/post/afb30e04/jira-002.png" class="" title="中文">
+<img data-src="/post/afb30e04/jira-003.png" class="" title="自定义">
 
 <p>   创建数据库，如果是选择Mysql，建议使用Mysql5.6或者Mysql5.7，这样不容易出错。另外在创建数据库时建议选择UTF8编码，目前不支持UTF8MB4。<a href="https://confluence.atlassian.com/adminjiraserver085/connecting-jira-applications-to-mysql-5-7-981154582.html">参考</a></p>
 <pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">CREATE</span> <span class="token keyword">DATABASE</span> jiradb <span class="token keyword">CHARACTER</span> <span class="token keyword">SET</span> utf8mb4 <span class="token keyword">COLLATE</span> utf8mb4_bin<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
@@ -8077,9 +8077,9 @@ $ <span class="token function">ssh</span> -T git@github.com<span aria-hidden="tr
 flush <span class="token keyword">privileges</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>   配置DB数据，并测试，如下图：</p>
-<img data-src="/post/afb30e04/jira-004.png" class title="DB配置">
+<img data-src="/post/afb30e04/jira-004.png" class="" title="DB配置">
 <p>   测试OK，点击<code>下一步</code>:</p>
-<img data-src="/post/afb30e04/jira-005.png" class title="DB配置">
+<img data-src="/post/afb30e04/jira-005.png" class="" title="DB配置">
 <p>   此时，发现服务停止，<code>tail -f -n 500 /opt/atlassian/jira/logs/catalina.out</code>，后台报错：</p>
 <blockquote>
 <p>   WARN: Establishing SSL connection without server’s identity verification is not recommended. According to MySQL 5.5.45+, 5.6.26+ and 5.7.6+ requirements SSL connection must be established by default if explicit option isn’t set. For compliance with existing applications not using SSL the verifyServerCertificate property is set to ‘false’. You need either to explicitly disable SSL by setting <code>useSSL=false</code>, or set useSSL=true and provide truststore for server certificate</p>
@@ -8088,12 +8088,12 @@ flush <span class="token keyword">privileges</span><span class="token punctuatio
 <p>   解决：<a href="https://community.atlassian.com/t5/Jira-Core-questions/JIRA-and-MySql-5-7-with-SSL/qaq-p/1251720">参考1</a> ， <a href="https://community.atlassian.com/t5/Jira-questions/useSSL-false-with-Jira-ServiceDesk/qaq-p/1088212">参考2</a> </p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">vi</span> /var/atlassian/application-data/jira/dbconfig.xml<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>   DB的URL末尾加上<code>&amp;amp;useSSL=false</code>，我们习惯加<code>&amp;</code>，但是这里却是<code>&amp;amp;</code>。</p>
-<img data-src="/post/afb30e04/jira-006.png" class title="SSL">
+<img data-src="/post/afb30e04/jira-006.png" class="" title="SSL">
 
 <p>   重新启动：<code>/opt/atlassian/jira/bin/start-jira.sh</code></p>
-<img data-src="/post/afb30e04/jira-007.png" class title="Title+URL">
+<img data-src="/post/afb30e04/jira-007.png" class="" title="Title+URL">
 
-<img data-src="/post/afb30e04/jira-008.png" class title="KEY">
+<img data-src="/post/afb30e04/jira-008.png" class="" title="KEY">
 
 <p>   根据Server ID 生成license Key：</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">/opt/atlassian/jira/jre/bin/java -jar /home/jira1/atlassian-agent.jar -p jira -m jira@jira.com -n jira -o https://jira.com -s BFZ0-PD41-I9AX-YXDP<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
@@ -8102,13 +8102,13 @@ flush <span class="token keyword">privileges</span><span class="token punctuatio
 </div>
 <br>
 
-<img data-src="/post/afb30e04/jira-009.png" class title="KEY">
+<img data-src="/post/afb30e04/jira-009.png" class="" title="KEY">
 <p>   复制生成的KEY，点击<code>Next</code>：</p>
-<img data-src="/post/afb30e04/jira-010.png" class title="KEY">
+<img data-src="/post/afb30e04/jira-010.png" class="" title="KEY">
 <p>   创建账户：</p>
-<img data-src="/post/afb30e04/jira-011.png" class title="Admin">
+<img data-src="/post/afb30e04/jira-011.png" class="" title="Admin">
 <p>   Email配置，跳过</p>
-<img data-src="/post/afb30e04/jira-012.png" class title="Email">
+<img data-src="/post/afb30e04/jira-012.png" class="" title="Email">
 
 <p>。。。。。。。。。</p>
 <h4 id="重配实例"><a href="#重配实例" class="headerlink" title="重配实例"></a>重配实例</h4><p>   如果页面配置失败或者想要重新配置实例，可以把原来的实例删除：</p>
@@ -8125,7 +8125,7 @@ flush <span class="token keyword">privileges</span><span class="token punctuatio
 </div>
 
 <p>把本地内存最好调大点,我任性给了6G，哈哈。。。</p>
-<img data-src="/post/afb30e04/jira-013.png" class title="VM">
+<img data-src="/post/afb30e04/jira-013.png" class="" title="VM">
 
 
 <p><code>vi /opt/atlassian/jira/bin/setenv.sh</code></p>
@@ -8181,7 +8181,7 @@ flush <span class="token keyword">privileges</span><span class="token punctuatio
   
 <h4 id="关系"><a href="#关系" class="headerlink" title="关系"></a>关系</h4><p>     nvm 管理 nodejs 和 npm 的版本</p>
 <p>     npm 可以管理 nodejs 的第三方插件</p>
-   <img data-src="/post/c0a81ac4/nvmMac001.png" class title="nvm、node、npm关系图">
+   <img data-src="/post/c0a81ac4/nvmMac001.png" class="" title="nvm、node、npm关系图">
 
 
 <h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>  这里主要介绍mac的安装(linux可以参照),windows系统的话可以参考<a href="https://cnodejs.org/topic/5338c5db7cbade005b023c98">windows</a></p>
@@ -8574,7 +8574,7 @@ nvm use <span class="token number">12.13</span>.0 <span class="token comment"># 
 <span class="token key attr-name">spring.thymeleaf.cache</span> <span class="token punctuation">=</span> <span class="token value attr-value">true</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <p>点击<code>File</code> -&gt; <code>Settings</code> -&gt; <code>Build-Execution-Deplyment</code> -&gt; <code>Compiler</code>，选中打勾 <code>Build project</code></p>
-<img data-src="/post/f3f7b1c5/springbootstatic.png" class title="设置开启实时生效"><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
+<img data-src="/post/f3f7b1c5/springbootstatic.png" class="" title="设置开启实时生效"><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
       <categories>
         <category>SpringBoot</category>
       </categories>
@@ -8664,7 +8664,7 @@ AuthorizedKeysFile .ssh/authorized_keys<span aria-hidden="true" class="line-numb
 <span class="token function">git</span> config --global user.email <span class="token string">"leeze0216@163.com"</span>
 
 <span class="token function">git</span> config --global core.autocrlf <span class="token boolean">false</span>  // 禁用自动转换，这个不设置后面上传时会出现警告，如下<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<img data-src="/post/dd42c2af/git-warning.jpg" class title="warning">
+<img data-src="/post/dd42c2af/git-warning.jpg" class="" title="warning">
 
 <h3 id="初始化Git仓库"><a href="#初始化Git仓库" class="headerlink" title="初始化Git仓库"></a>初始化Git仓库</h3><p>  <code>su git  # 这步很重要，不切换用户后面会很麻烦</code><br>  首先我们选定一个目录作为Git仓库：</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">cd</span> /home/git
@@ -8955,7 +8955,7 @@ AuthorizedKeysFile .ssh/authorized_keys<span aria-hidden="true" class="line-numb
 mysql<span class="token operator">&gt;</span><span class="token keyword">select</span> <span class="token keyword">user</span><span class="token punctuation">,</span> host<span class="token punctuation">,</span> plugin <span class="token keyword">from</span> <span class="token keyword">user</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <br>
 
-<img data-src="/post/170d9336/mysqlpassword1.png" class title="USER">
+<img data-src="/post/170d9336/mysqlpassword1.png" class="" title="USER">
 
 <ol start="2">
 <li> 修改加密规则为“mysql_native_password”</li>
@@ -8974,7 +8974,7 @@ mysql<span class="token operator">&gt;</span><span class="token keyword">select<
 <span class="token keyword">ALTER</span> <span class="token keyword">USER</span> <span class="token string">'root'</span><span class="token variable">@'%'</span> IDENTIFIED <span class="token keyword">WITH</span> mysql_native_password <span class="token keyword">BY</span> <span class="token string">'password'</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p>  之后就好了.</p>
 <p>  完成后效果如下：</p>
-<img data-src="/post/170d9336/mysqlpassword2.png" class title="PASS">
+<img data-src="/post/170d9336/mysqlpassword2.png" class="" title="PASS">
 
 <h3 id="更为优雅的解决方案"><a href="#更为优雅的解决方案" class="headerlink" title="更为优雅的解决方案"></a>更为优雅的解决方案</h3><p>   又重新回到了 MySQL 官方在docker的仓库中，仔细的阅读了一遍官方的说明。<br> 其实，我们在启动MySQL 容器的时候，是可以修改一些设置的。主要有2种方式。</p>
 <ol>
@@ -9043,8 +9043,8 @@ flush <span class="token keyword">privileges</span><span class="token punctuatio
 <span id="more"></span>
 <table>
     <tbody><tr>
-        <td><img data-src="/post/ea7d9732/VM-001.png" class title="VMware Workstation"></td>
-        <td><img data-src="/post/ea7d9732/VM-002.png" class title="VMware fusion"></td>
+        <td><img data-src="/post/ea7d9732/VM-001.png" class="" title="VMware Workstation"></td>
+        <td><img data-src="/post/ea7d9732/VM-002.png" class="" title="VMware fusion"></td>
     </tr>
 </tbody></table>
 
@@ -9064,7 +9064,7 @@ flush <span class="token keyword">privileges</span><span class="token punctuatio
     <content><![CDATA[<div class="note success no-icon"><p> 以前就很想给网站加上一个背景音乐播放器！并且这个播放器要简洁大气，Meting完美的阐释了这句话！</p>
 </div>
 
-<img data-src="/post/c1dab809/meting.png" class title="Meting">
+<img data-src="/post/c1dab809/meting.png" class="" title="Meting">
 
 <span id="more"></span>
 
@@ -9752,7 +9752,7 @@ yum -y remove  java-1.6.0-openjdk-1.6.0.0-1.41.1.10.4.el6.x86_64<span aria-hidde
  
 <p>   输入命令查看rpm包安装信息，如果第一条未出现信息，可以使用第二条命令查看，如果都没  有可能是未安装或者是tar包安装的<br>  </p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">rpm</span> -qa <span class="token operator">|</span> <span class="token function">grep</span> jdk<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><br>  我用上述rpm包安装之后，用命令查看，提示如下：<br>  <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@master100 local<span class="token punctuation">]</span><span class="token comment"># rpm -qa | grep jdk</span>
 jdk1.8-1.8.0_181-fcs.x86_64<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><br>  知道安装的rpm包名后就可以卸载了，卸载命令如下：<br>  <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">rpm</span> -e --nodeps jdk1.8-1.8.0_181-fcs.x86_64<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><br>  卸载完成后删除环境变量<br>  <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">vi</span> /etc/profile
-<span class="token builtin class-name">source</span> /etc/profile<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><br> </ol><p></p>
+<span class="token builtin class-name">source</span> /etc/profile<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><br> <p></p></ol><p></p>
 <h5 id="tar包安装"><a href="#tar包安装" class="headerlink" title="tar包安装"></a>tar包安装</h5> <ol>
  
  <li>下载 jdk-8u231-linux-x64.tar.gz</li>
@@ -10168,7 +10168,7 @@ CentOS7		<span class="token comment">#修改为想要的名字即可</span><span
     <url>/post/5f2bf15a.html</url>
     <content><![CDATA[<h4 id="记录一下，以防遗忘。"><a href="#记录一下，以防遗忘。" class="headerlink" title="记录一下，以防遗忘。"></a>记录一下，以防遗忘。</h4><span id="more"></span>
 
-<img data-src="/post/5f2bf15a/shell.jpg" class title="部署脚本示例图">
+<img data-src="/post/5f2bf15a/shell.jpg" class="" title="部署脚本示例图">
 <link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
       <categories>
         <category>Jenkins</category>
@@ -10184,7 +10184,7 @@ CentOS7		<span class="token comment">#修改为想要的名字即可</span><span
 <span id="more"></span>
 
 
-<img data-src="/post/4995ab80/jkp.jpeg" class title="相对路径示例图"><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
+<img data-src="/post/4995ab80/jkp.jpeg" class="" title="相对路径示例图"><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
       <categories>
         <category>Jenkins</category>
       </categories>
@@ -10297,7 +10297,7 @@ CentOS7		<span class="token comment">#修改为想要的名字即可</span><span
 <li>git config –local -l 查看仓库配置【必须要进入到具体的目录下，比如要查看TestGit仓库的配置信息】</li>
 <li>git config –global -l 查看用户配置</li>
 <li>git config –system -l 查看系统配置</li>
-<li>git config -l查看所有的配置信息，依次是系统级别、用户级别、仓库级别<img data-src="/post/423abe9e/gitcom-001.png" class title="示例图"></li>
+<li>git config -l查看所有的配置信息，依次是系统级别、用户级别、仓库级别<img data-src="/post/423abe9e/gitcom-001.png" class="" title="示例图"></li>
 <li>git config 常用配置选项<ul>
 <li>git config -e 编辑配置文件 <ul>
 <li>git config –local -e 编辑仓库级别配置文件</li>
@@ -10315,13 +10315,13 @@ CentOS7		<span class="token comment">#修改为想要的名字即可</span><span
 <li>配置文件如何生效的<br>  对于git来说，配置文件的权重是仓库&gt;全局&gt;系统。Git会使用这一系列的配置文件来存储你定义的偏好，它首先会查找/etc/gitconfig文件（系统级），该文件含有对系统上所有用户及他们所拥有的仓库都生效的配置值。接下来Git会查找每个用户的~/.gitconfig文件（全局级）。最后Git会查找由用户定义的各个库中Git目录下的配置文件.git/config（仓库级），该文件中的值只对当前所属仓库有效</li>
 </ol>
 <h5 id="增加配置项"><a href="#增加配置项" class="headerlink" title="增加配置项"></a>增加配置项</h5><p>  参数 –add<br>  格式: git config [–local|–global|–system] –add section.key value(默认是添加在local配置中)<br>  注意add后面的section,key,value一项都不能少，否则添加失败。比如我们执行：git config –add cat.name tom</p>
-<img data-src="/post/423abe9e/gitcom-002.png" class title="示例图">
+<img data-src="/post/423abe9e/gitcom-002.png" class="" title="示例图">
 
 <h5 id="获取一个配置项"><a href="#获取一个配置项" class="headerlink" title="获取一个配置项"></a>获取一个配置项</h5><p>  有时候，我们并不需要查看所有配置的值，而是查看某个配置项的值，怎么做呢？<br>  命令参数 –get<br>  格式：git config [–local|–global|–system] –get section.key(默认是获取local配置中内容)<br>  我们先往global配置中写入一个cat.name=Tomcat的配置项，再使用git config –get cat.name看看得到的是什么：</p>
-<img data-src="/post/423abe9e/gitcom-003.png" class title="示例图">
+<img data-src="/post/423abe9e/gitcom-003.png" class="" title="示例图">
 <p>  结果就是local中的cat.name=Tom，因此git config –get section.key 等价于git config –local –get section.key<br>  如果获取一个section不存在的key值，不会返回任何值<br>  如果获取一个不存在的section的key值，则会报错</p>
 <h5 id="删除一个配置项"><a href="#删除一个配置项" class="headerlink" title="删除一个配置项"></a>删除一个配置项</h5><p>  命令参数 –unset<br>  格式：git config [–local|–global|–system] –unset section.key<br>  相信有了前两个命令的使用基础，大家举一反三就知道改怎么用了，来，我们试试删除local配置中的cat.name</p>
-<img data-src="/post/423abe9e/gitcom-004.png" class title="示例图">
+<img data-src="/post/423abe9e/gitcom-004.png" class="" title="示例图">
 
 <h5 id="创建文件并写入内容"><a href="#创建文件并写入内容" class="headerlink" title="创建文件并写入内容"></a>创建文件并写入内容</h5><p>如果文件不存在，则创建文件</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">echo</span> <span class="token string">"hello git"</span>
@@ -10738,9 +10738,9 @@ $content-desktop-large = 900px<span aria-hidden="true" class="line-numbers-rows"
     <content><![CDATA[<h2 id="SVN"><a href="#SVN" class="headerlink" title="SVN"></a>SVN</h2><h4 id="方式一：通过Eclipse-Marketplace在线安装"><a href="#方式一：通过Eclipse-Marketplace在线安装" class="headerlink" title="方式一：通过Eclipse Marketplace在线安装"></a><font color="red">方式一：通过Eclipse Marketplace在线安装</font></h4><p>  Help–&gt;Eclipse Marketplace，搜索svn</p>
   <span id="more"></span>
 
-  <img data-src="/post/ddb18259/em_svn_1.png" class title="第一步">
-  <img data-src="/post/ddb18259/em_svn_2.png" class title="第二步">
-<p>  点击Install开始安装<br>  <img data-src="/post/ddb18259/em_svn_3.png" class title="第三步"><br>  一步一步往下点，然后接受协议，安装完成后重启eclipse即可生效。</p>
+  <img data-src="/post/ddb18259/em_svn_1.png" class="" title="第一步">
+  <img data-src="/post/ddb18259/em_svn_2.png" class="" title="第二步">
+<p>  点击Install开始安装<br>  <img data-src="/post/ddb18259/em_svn_3.png" class="" title="第三步"><br>  一步一步往下点，然后接受协议，安装完成后重启eclipse即可生效。</p>
 <h4 id="方式二：通过Install-New-Software在线安装"><a href="#方式二：通过Install-New-Software在线安装" class="headerlink" title="方式二：通过Install New Software在线安装"></a><font color="red">方式二：通过Install New Software在线安装</font></h4><p>  Help -&gt; Install New Software</p>
 <p>  点击add按钮，在弹出窗口中，输入name(自己为变量命的名)和插件的URL，然后点击add</p>
 <p>  SVN插件与Subversion版本的对应关系如下：</p>
@@ -10748,16 +10748,16 @@ $content-desktop-large = 900px<span aria-hidden="true" class="line-numbers-rows"
 <p>  <a href="http://subclipse.tigris.org/update_1.8.x/">http://subclipse.tigris.org/update_1.8.x/</a> （Subversion 1.7.x）</p>
 <p>  <a href="http://subclipse.tigris.org/update_1.10.x/">http://subclipse.tigris.org/update_1.10.x/</a> （Subversion 1.8.x）</p>
 <p>  <a href="https://dl.bintray.com/subclipse/releases/subclipse/4.2.x/">https://dl.bintray.com/subclipse/releases/subclipse/4.2.x/</a> （Subversion 1.9.x）</p>
-  <img data-src="/post/ddb18259/em_svn_4.png" class title="第四步">
+  <img data-src="/post/ddb18259/em_svn_4.png" class="" title="第四步">
 <p>  全部勾选，然后点击Next</p>
-  <img data-src="/post/ddb18259/em_svn_5.png" class title="第五步">
+  <img data-src="/post/ddb18259/em_svn_5.png" class="" title="第五步">
 <p>  一步一步往下点，然后接受协议，安装完成后重启eclipse即可生效。</p>
 <h4 id="方式三：通过下载插件，离线安装"><a href="#方式三：通过下载插件，离线安装" class="headerlink" title="方式三：通过下载插件，离线安装"></a><font color="red">方式三：通过下载插件，离线安装</font></h4><p>   1、下载需要的插件包，<a href="https://github.com/subclipse/subclipse/wiki">https://github.com/subclipse/subclipse/wiki</a></p>
-   <img data-src="/post/ddb18259/em_svn_6.png" class title="第一步">
+   <img data-src="/post/ddb18259/em_svn_6.png" class="" title="第一步">
 <p>   这里有最新版的插件下载地址，也有旧版本的插件下载地址，根据自己的需要选择下载。</p>
-   <img data-src="/post/ddb18259/em_svn_7.png" class title="第二步">
+   <img data-src="/post/ddb18259/em_svn_7.png" class="" title="第二步">
 <p>   下载的包里会有”plugins”和”features”两个文件夹</p>
-   <img data-src="/post/ddb18259/em_svn_8.png" class title="第三步">
+   <img data-src="/post/ddb18259/em_svn_8.png" class="" title="第三步">
 <p>   2、找到eclipse目录下”plugins”和”features”文件夹，将下载好的的svn插件对应名称文件夹下的内容复制到eclipse的同名文件夹中</p>
 <p>   3、重启eclipse即可生效</p>
 <link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
@@ -10970,7 +10970,7 @@ hexo.extend.filter.register('after_post_render', function(data){
 <span class="token punctuation">{</span>% asset_img jkp.jpeg 相对路径示例图 %<span class="token punctuation">}</span>  推荐<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <p><img data-src="/post/9c39465b/child01.jpg" alt="小女孩"></p>
-<img data-src="/post/9c39465b/child01.jpg" class title="小女孩">
+<img data-src="/post/9c39465b/child01.jpg" class="" title="小女孩">
 
 <h4 id="分页显示"><a href="#分页显示" class="headerlink" title="分页显示"></a>分页显示</h4><pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>escape</span><span class="token punctuation">&gt;</span></span><span class="token comment">&lt;!-- more --&gt;</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>escape</span><span class="token punctuation">&gt;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h4 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h4><ol>
@@ -11177,7 +11177,7 @@ _ _ _
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p>显示效果如下：</p>
 <p>我没有删除线<br>我也没有删除线<br><del>我有删除线</del></p>
-<h4 id="下划线"><a href="#下划线" class="headerlink" title="下划线"></a>下划线</h4><p>Markdown中并无下划线的原生语法，可以通过HTML的<u>标签来实现。</u></p><u>
+<h4 id="下划线"><a href="#下划线" class="headerlink" title="下划线"></a>下划线</h4><p>Markdown中并无下划线的原生语法，可以通过HTML的<u>标签来实现。</u></p>
 <pre class="line-numbers language-none"><code class="language-none">&lt;u&gt;我带下划线&lt;/u&gt;
 <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>显示效果如下：</p>
@@ -11296,7 +11296,7 @@ _ _ _
 <p> <em>这里不会显示斜体</em></p>
 <p> <code>code</code></p>
 <p> <code>more code</code></p>
-</u><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
       <categories>
         <category>Markdown</category>
       </categories>
@@ -11694,7 +11694,7 @@ hexo init
 <h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><h3 id="网站图标"><a href="#网站图标" class="headerlink" title="网站图标"></a>网站图标</h3><p>  <a href="https://realfavicongenerator.net/">网站图标生成网站</a></p>
 <p>  只要把<code>png</code>图片放进去（尺寸不能太大）</p>
 <p>  就可以生成一套图标（苹果手机桌面图标，网页图标，win磁贴图标等等）</p>
-<img data-src="/post/dfea82e5/faviconbuild.png" class title="示例图">
+<img data-src="/post/dfea82e5/faviconbuild.png" class="" title="示例图">
 <p>  下载之后放到<code>blog\source\my_images</code>文件夹中</p>
 <pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">favicon</span><span class="token punctuation">:</span>
   <span class="token key atrule">small</span><span class="token punctuation">:</span> /my_images/favicon<span class="token punctuation">-</span>16x16.png
@@ -11951,7 +11951,7 @@ tags:
   <span class="token comment"># If true, the avatar would be rotated with the cursor.</span>
   <span class="token key atrule">rotated</span><span class="token punctuation">:</span> <span class="token boolean important">true</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>  在 <code>url</code> 处指定头像文件即可，头像可以是网络图片，只需要把本地路径替换为网络图片的网址即可。另外，当打开了 <code>rotated</code> 后，鼠标移到头像处会逆时针旋转半圈，鼠标移开又转回来，不过这个效果看起来好像也比较普通，如果你想让鼠标一过去头像就控记不住记几鬼畜疯狂旋转，就像这样：</p>
-<img data-src="/post/dfea82e5/avatar_rotate_hover.gif" class title="hover">
+<img data-src="/post/dfea82e5/avatar_rotate_hover.gif" class="" title="hover">
 <p>  请找到这个文件并愤怒地打开它：<code>source/_data/styles.styl</code>，然后做如下部分修改：</p>
 <pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">if hexo-config('avatar.rotated')</span> <span class="token punctuation">{</span>
   <span class="token selector">.site-author-image</span> <span class="token punctuation">{</span>
@@ -11991,7 +11991,7 @@ tags:
   to{transform: rotate(360deg)}
   }*/</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<img data-src="/post/dfea82e5/avatar_rotate_normal.gif" class title="hover">
+<img data-src="/post/dfea82e5/avatar_rotate_normal.gif" class="" title="hover">
 
 <h3 id="languages-yml"><a href="#languages-yml" class="headerlink" title="languages.yml"></a>languages.yml</h3><p>  我们原来是通过配置主题下的 <code>languages</code> 目录中的 <code>zh-CN.yml</code> 文件来对菜单等进行中文翻译的，现在我们可以通过在 <code>hexo/source/_data/</code> 下新建数据文件 <code>languages.yml</code>，配置如下：</p>
 <pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">zh-CN</span><span class="token punctuation">:</span>
