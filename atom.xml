@@ -6,7 +6,7 @@
   <link href="https://www.xiaosige.com/atom.xml" rel="self"/>
   
   <link href="https://www.xiaosige.com/"/>
-  <updated>2022-05-10T06:57:33.973Z</updated>
+  <updated>2022-07-12T20:09:35.105Z</updated>
   <id>https://www.xiaosige.com/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Docker 启动容器时出现docker0：iptables：No chain/target/match by that name</title>
+    <link href="https://www.xiaosige.com/post/4fd4a771.html"/>
+    <id>https://www.xiaosige.com/post/4fd4a771.html</id>
+    <published>2022-07-12T19:54:47.000Z</published>
+    <updated>2022-07-12T20:09:35.105Z</updated>
+    
+    
+    <summary type="html">&lt;h3 id=&quot;防火墙跟docker冲突问题&quot;&gt;&lt;a href=&quot;#防火墙跟docker冲突问题&quot; class=&quot;headerlink&quot; title=&quot;防火墙跟docker冲突问题&quot;&gt;&lt;/a&gt;防火墙跟&lt;code&gt;docker&lt;/code&gt;冲突问题&lt;/h3&gt;&lt;p&gt;  &lt;code&gt;Centos8&lt;/code&gt; 下 &lt;code&gt;iptables&lt;/code&gt;防火墙下：&lt;br&gt;  Docker 启动容器时出现 docker0: iptables: No chain/target/match by that name&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Docker" scheme="https://www.xiaosige.com/categories/Docker/"/>
+    
+    
+    <category term="Docker" scheme="https://www.xiaosige.com/tags/Docker/"/>
+    
+  </entry>
   
   <entry>
     <title>Mac终端查看CPU资源信息</title>
@@ -395,25 +414,6 @@ docker pull rabbitmq:3.9.16-management&lt;span aria-hidden=&quot;true&quot; clas
     
     
     <category term="Mongo" scheme="https://www.xiaosige.com/tags/Mongo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>解决Docker容器内无法解析DNS的问题</title>
-    <link href="https://www.xiaosige.com/post/3458217c.html"/>
-    <id>https://www.xiaosige.com/post/3458217c.html</id>
-    <published>2021-12-08T15:30:05.000Z</published>
-    <updated>2022-04-12T15:31:12.539Z</updated>
-    
-    
-    <summary type="html">&lt;h3 id=&quot;问题描述&quot;&gt;&lt;a href=&quot;#问题描述&quot; class=&quot;headerlink&quot; title=&quot;问题描述&quot;&gt;&lt;/a&gt;问题描述&lt;/h3&gt;&lt;p&gt;  最近Docker上重装Nexus3，&lt;code&gt;一直报错 UnknownHostException: rhc.sonatype.com &lt;/code&gt; (在另一个场景中报 NoRouteToHostException: No route to host )&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="Docker" scheme="https://www.xiaosige.com/categories/Docker/"/>
-    
-    
-    <category term="Nexus" scheme="https://www.xiaosige.com/tags/Nexus/"/>
     
   </entry>
   
