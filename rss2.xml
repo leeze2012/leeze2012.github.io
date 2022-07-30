@@ -15,8 +15,30 @@
     <atom:link href="https://www.xiaosige.com/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>因上努力，果上随缘！</description>
-    <pubDate>Tue, 12 Jul 2022 20:09:35 GMT</pubDate>
+    <pubDate>Sat, 30 Jul 2022 15:22:45 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>Mac因为没有安全弹出下次连接不上移动硬盘的坑</title>
+      <link>https://www.xiaosige.com/post/344dc787.html</link>
+      <guid>https://www.xiaosige.com/post/344dc787.html</guid>
+      <pubDate>Sat, 30 Jul 2022 14:53:12 GMT</pubDate>
+      
+      <description>&lt;h3 id=&quot;概述&quot;&gt;&lt;a href=&quot;#概述&quot; class=&quot;headerlink&quot; title=&quot;概述&quot;&gt;&lt;/a&gt;概述&lt;/h3&gt;&lt;div class=&quot;note success no-icon&quot;&gt;&lt;p&gt;  经常遇到因为没有安全弹出下次使用的时候识别不到移动硬盘的情况&lt;/p&gt;
+&lt;/div&gt;</description>
+      
+      
+      
+      
+      <category domain="https://www.xiaosige.com/categories/Mac/">Mac</category>
+      
+      
+      <category domain="https://www.xiaosige.com/tags/Disk/">Disk</category>
+      
+      
+      <comments>https://www.xiaosige.com/post/344dc787.html#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>Docker 启动容器时出现docker0：iptables：No chain/target/match by that name</title>
@@ -435,27 +457,6 @@ docker pull rabbitmq:3.9.16-management&lt;span aria-hidden=&quot;true&quot; clas
       
       
       <comments>https://www.xiaosige.com/post/7eb6696d.html#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>【Docker】之安装MongoDB</title>
-      <link>https://www.xiaosige.com/post/a639ff5d.html</link>
-      <guid>https://www.xiaosige.com/post/a639ff5d.html</guid>
-      <pubDate>Fri, 11 Feb 2022 09:05:16 GMT</pubDate>
-      
-      <description>&lt;h3 id=&quot;安装mongodb&quot;&gt;&lt;a href=&quot;#安装mongodb&quot; class=&quot;headerlink&quot; title=&quot;安装mongodb&quot;&gt;&lt;/a&gt;安装mongodb&lt;/h3&gt;&lt;h4 id=&quot;获取MongoDB镜像&quot;&gt;&lt;a href=&quot;#获取MongoDB镜像&quot; class=&quot;headerlink&quot; title=&quot;获取MongoDB镜像&quot;&gt;&lt;/a&gt;获取MongoDB镜像&lt;/h4&gt;&lt;pre class=&quot;line-numbers language-docker&quot; data-language=&quot;docker&quot;&gt;&lt;code class=&quot;language-docker&quot;&gt;docker pull mongo:5.0.6&lt;span aria-hidden=&quot;true&quot; class=&quot;line-numbers-rows&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;</description>
-      
-      
-      
-      
-      <category domain="https://www.xiaosige.com/categories/Docker/">Docker</category>
-      
-      
-      <category domain="https://www.xiaosige.com/tags/Mongo/">Mongo</category>
-      
-      
-      <comments>https://www.xiaosige.com/post/a639ff5d.html#disqus_thread</comments>
       
     </item>
     

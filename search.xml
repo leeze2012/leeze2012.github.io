@@ -64,6 +64,38 @@ lrwxrwxrwx. <span class="token number">1</span> root root <span class="token num
       </tags>
   </entry>
   <entry>
+    <title>Mac因为没有安全弹出下次连接不上移动硬盘的坑</title>
+    <url>/post/344dc787.html</url>
+    <content><![CDATA[<h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><div class="note success no-icon"><p>  经常遇到因为没有安全弹出下次使用的时候识别不到移动硬盘的情况</p>
+</div>
+
+<span id="more"></span>
+
+<h3 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h3><ol>
+<li>在终端中 输入以下命令 查看到磁盘的<code>Volume Name</code><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">diskutil list<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<img data-src="/post/344dc787/fdisk001.png" class="" title="fdisk"></li>
+<li>紧接着更新 <code>/etc/fstab</code>文件<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">vi</span> /etc/fstab
+ 
+进入文本编辑界面，按i，进入编辑模式
+ 
+<span class="token assign-left variable">LABEL</span><span class="token operator">=</span>这里是你移动硬盘的Volume Name <span class="token punctuation">(</span>我的是Gary<span class="token punctuation">)</span>  none ntfs rw,auto,nobrowse
+ 
+然后  
+<span class="token number">1</span>：ESC  
+<span class="token number">2</span>：shift+冒号
+<span class="token number">3</span>：wq
+搞定<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li>在桌面上可以看见移动硬盘<br>这里有时候需要重启电脑 有时候<code>等一会</code>就ok了</li>
+</ol>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
+      <categories>
+        <category>Mac</category>
+      </categories>
+      <tags>
+        <tag>Disk</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Docker 启动容器时出现docker0：iptables：No chain/target/match by that name</title>
     <url>/post/4fd4a771.html</url>
     <content><![CDATA[<h3 id="防火墙跟docker冲突问题"><a href="#防火墙跟docker冲突问题" class="headerlink" title="防火墙跟docker冲突问题"></a>防火墙跟<code>docker</code>冲突问题</h3><p>  <code>Centos8</code> 下 <code>iptables</code>防火墙下：<br>  Docker 启动容器时出现 docker0: iptables: No chain/target/match by that name</p>

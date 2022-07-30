@@ -6,7 +6,7 @@
   <link href="https://www.xiaosige.com/atom.xml" rel="self"/>
   
   <link href="https://www.xiaosige.com/"/>
-  <updated>2022-07-12T20:09:35.105Z</updated>
+  <updated>2022-07-30T15:22:45.542Z</updated>
   <id>https://www.xiaosige.com/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Mac因为没有安全弹出下次连接不上移动硬盘的坑</title>
+    <link href="https://www.xiaosige.com/post/344dc787.html"/>
+    <id>https://www.xiaosige.com/post/344dc787.html</id>
+    <published>2022-07-30T14:53:12.000Z</published>
+    <updated>2022-07-30T15:22:45.542Z</updated>
+    
+    
+    <summary type="html">&lt;h3 id=&quot;概述&quot;&gt;&lt;a href=&quot;#概述&quot; class=&quot;headerlink&quot; title=&quot;概述&quot;&gt;&lt;/a&gt;概述&lt;/h3&gt;&lt;div class=&quot;note success no-icon&quot;&gt;&lt;p&gt;  经常遇到因为没有安全弹出下次使用的时候识别不到移动硬盘的情况&lt;/p&gt;
+&lt;/div&gt;</summary>
+    
+    
+    
+    <category term="Mac" scheme="https://www.xiaosige.com/categories/Mac/"/>
+    
+    
+    <category term="Disk" scheme="https://www.xiaosige.com/tags/Disk/"/>
+    
+  </entry>
   
   <entry>
     <title>Docker 启动容器时出现docker0：iptables：No chain/target/match by that name</title>
@@ -395,25 +415,6 @@ docker pull rabbitmq:3.9.16-management&lt;span aria-hidden=&quot;true&quot; clas
     
     
     <category term="LNMP" scheme="https://www.xiaosige.com/tags/LNMP/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【Docker】之安装MongoDB</title>
-    <link href="https://www.xiaosige.com/post/a639ff5d.html"/>
-    <id>https://www.xiaosige.com/post/a639ff5d.html</id>
-    <published>2022-02-11T09:05:16.000Z</published>
-    <updated>2022-05-09T06:46:42.596Z</updated>
-    
-    
-    <summary type="html">&lt;h3 id=&quot;安装mongodb&quot;&gt;&lt;a href=&quot;#安装mongodb&quot; class=&quot;headerlink&quot; title=&quot;安装mongodb&quot;&gt;&lt;/a&gt;安装mongodb&lt;/h3&gt;&lt;h4 id=&quot;获取MongoDB镜像&quot;&gt;&lt;a href=&quot;#获取MongoDB镜像&quot; class=&quot;headerlink&quot; title=&quot;获取MongoDB镜像&quot;&gt;&lt;/a&gt;获取MongoDB镜像&lt;/h4&gt;&lt;pre class=&quot;line-numbers language-docker&quot; data-language=&quot;docker&quot;&gt;&lt;code class=&quot;language-docker&quot;&gt;docker pull mongo:5.0.6&lt;span aria-hidden=&quot;true&quot; class=&quot;line-numbers-rows&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;</summary>
-    
-    
-    
-    <category term="Docker" scheme="https://www.xiaosige.com/categories/Docker/"/>
-    
-    
-    <category term="Mongo" scheme="https://www.xiaosige.com/tags/Mongo/"/>
     
   </entry>
   
