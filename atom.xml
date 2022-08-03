@@ -6,7 +6,7 @@
   <link href="https://www.xiaosige.com/atom.xml" rel="self"/>
   
   <link href="https://www.xiaosige.com/"/>
-  <updated>2022-07-30T15:22:45.542Z</updated>
+  <updated>2022-08-03T15:05:16.945Z</updated>
   <id>https://www.xiaosige.com/</id>
   
   <author>
@@ -15,6 +15,44 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>git项目过大清理</title>
+    <link href="https://www.xiaosige.com/post/4e0f32b7.html"/>
+    <id>https://www.xiaosige.com/post/4e0f32b7.html</id>
+    <published>2022-08-03T14:41:51.000Z</published>
+    <updated>2022-08-03T15:05:16.945Z</updated>
+    
+    
+    <summary type="html">&lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;  项目中经常有不小心提交的大文件,这个就是清理方法.&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Git" scheme="https://www.xiaosige.com/categories/Git/"/>
+    
+    
+    <category term="Git" scheme="https://www.xiaosige.com/tags/Git/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>git 项目迁移（从局域网自己安装的git工具迁移到Gitee和Github）</title>
+    <link href="https://www.xiaosige.com/post/2e2484ba.html"/>
+    <id>https://www.xiaosige.com/post/2e2484ba.html</id>
+    <published>2022-08-03T14:11:10.000Z</published>
+    <updated>2022-08-03T14:33:29.124Z</updated>
+    
+    
+    <summary type="html">&lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;  如果你想从别的 Git 托管服务那里复制一份源代码到新的 Git 托管服务器上的话，可以通过以下步骤来操作。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Git" scheme="https://www.xiaosige.com/categories/Git/"/>
+    
+    
+    <category term="Git" scheme="https://www.xiaosige.com/tags/Git/"/>
+    
+  </entry>
   
   <entry>
     <title>Mac因为没有安全弹出下次连接不上移动硬盘的坑</title>
@@ -375,46 +413,6 @@ docker pull rabbitmq:3.9.16-management&lt;span aria-hidden=&quot;true&quot; clas
     
     
     <category term="Redis" scheme="https://www.xiaosige.com/tags/Redis/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Docker 启动 WARNING：IPv4 forwarding is disabled. Networking will not work.</title>
-    <link href="https://www.xiaosige.com/post/f745277d.html"/>
-    <id>https://www.xiaosige.com/post/f745277d.html</id>
-    <published>2022-03-30T14:58:23.000Z</published>
-    <updated>2022-03-30T15:07:24.871Z</updated>
-    
-    
-    <summary type="html">&lt;h3 id=&quot;介绍&quot;&gt;&lt;a href=&quot;#介绍&quot; class=&quot;headerlink&quot; title=&quot;介绍&quot;&gt;&lt;/a&gt;介绍&lt;/h3&gt;&lt;p&gt;  Centos 7 docker 启动了一个web服务 但是启动时 报：&lt;/p&gt;
-&lt;pre class=&quot;line-numbers language-none&quot;&gt;&lt;code class=&quot;language-none&quot;&gt;WARNING: IPv4 forwarding is disabled. Networking will not work.&lt;span aria-hidden=&quot;true&quot; class=&quot;line-numbers-rows&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;</summary>
-    
-    
-    
-    <category term="Docker" scheme="https://www.xiaosige.com/categories/Docker/"/>
-    
-    
-    <category term="Docker" scheme="https://www.xiaosige.com/tags/Docker/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Linux编译部署LNMP环境</title>
-    <link href="https://www.xiaosige.com/post/7eb6696d.html"/>
-    <id>https://www.xiaosige.com/post/7eb6696d.html</id>
-    <published>2022-02-12T15:25:33.000Z</published>
-    <updated>2022-04-07T05:09:22.834Z</updated>
-    
-    
-    <summary type="html">&lt;h3 id=&quot;介绍&quot;&gt;&lt;a href=&quot;#介绍&quot; class=&quot;headerlink&quot; title=&quot;介绍&quot;&gt;&lt;/a&gt;介绍&lt;/h3&gt;&lt;p&gt;  Lnmp架构&lt;br&gt;  Lnmp(web应用软件组合)&lt;br&gt;  Linux+Nginx+Mysql/MariaDB+Perl/PHP/Python一组常用来搭建动态网站或者服务器的开源软件，本身都是各自独立的程序，但是因为常被放在一起使用，拥有了越来越高的兼容度，共同组成了一个强大的Web应用程序平台。&lt;/p&gt;
-&lt;p&gt;  LAMP的架构以及通信过程&lt;br&gt;  Lnmp是一个cs架构的平台（client/server架构， 即客户端/服务器架构)，web客户端基于TCP/IP通过http协议发起传送这个请求可能是动态的也可能是静态的，所有的服务器通过发起请求的后缀来判断，如果是静态的就由web服务器自己处理，然后将资源发给客户端。如果请求是动态的这时web服务器会通过FSATCGI协议发给php，通过php模块去MySQL拿数据在通过Nginx交给客户端。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="Linux" scheme="https://www.xiaosige.com/categories/Linux/"/>
-    
-    
-    <category term="LNMP" scheme="https://www.xiaosige.com/tags/LNMP/"/>
     
   </entry>
   

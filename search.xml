@@ -64,6 +64,104 @@ lrwxrwxrwx. <span class="token number">1</span> root root <span class="token num
       </tags>
   </entry>
   <entry>
+    <title>git项目过大清理</title>
+    <url>/post/4e0f32b7.html</url>
+    <content><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>  项目中经常有不小心提交的大文件,这个就是清理方法.</p>
+<span id="more"></span>
+
+<p>  <code>注意:清理完之后,其他人一定要删掉之前拉取的项目,重新从git上拉项目,不要使用之前的项目了,之前的项目中的.git文件会将已将删除的文件重新加进来,甚至变的更大</code></p>
+<h3 id="查看仓库大小"><a href="#查看仓库大小" class="headerlink" title="查看仓库大小"></a>查看仓库大小</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> count-objects -vH  <span class="token comment"># 查看当前仓库大小</span>
+
+<span class="token function">du</span> -sh  <span class="token comment"># 查看这个文件夹的总大小</span>
+
+<span class="token function">ls</span> -lh  <span class="token comment"># 查看这个文件夹中文件的大小</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="解除保护分支"><a href="#解除保护分支" class="headerlink" title="解除保护分支"></a>解除保护分支</h3><p>  默认情况下,git项目是有一个保护分支的</p>
+<img data-src="/post/4e0f32b7/git001.png" class="" title="Git">
+
+<h3 id="操作"><a href="#操作" class="headerlink" title="操作"></a>操作</h3><ol>
+<li>拉取项目:将项目所有分支拉下来<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> clone xxx <span class="token comment"># 默认拉取master分支</span>
+<span class="token builtin class-name">cd</span> xx <span class="token comment">#进入拉取的文件夹</span>
+<span class="token function">git</span> branch -r <span class="token operator">|</span> <span class="token function">grep</span> -v <span class="token string">'\-&gt;'</span> <span class="token operator">|</span> <span class="token keyword">while</span> <span class="token builtin class-name">read</span> remote<span class="token punctuation">;</span> <span class="token keyword">do</span> <span class="token function">git</span> branch --track <span class="token string">"<span class="token variable">${remote<span class="token operator">#</span>origin<span class="token operator">/</span>}</span>"</span> <span class="token string">"<span class="token variable">$remote</span>"</span><span class="token punctuation">;</span> <span class="token keyword">done</span>
+<span class="token function">git</span> fetch --all
+<span class="token function">git</span> pull --all<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li>查找大文件(若是知道具体的文件,不需要查)<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 将最大的10个文件查询下来</span>
+<span class="token function">git</span> rev-list --objects --all <span class="token operator">|</span> <span class="token function">grep</span> <span class="token string">"<span class="token variable"><span class="token variable">$(</span><span class="token function">git</span> verify-pack -v .git/objects/pack/*.idx <span class="token operator">|</span> <span class="token function">sort</span> -k <span class="token number">3</span> -n <span class="token operator">|</span> <span class="token function">tail</span> -10 <span class="token operator">|</span> <span class="token function">awk</span> <span class="token string">'{print$1}'</span><span class="token variable">)</span></span>"</span>
+<span class="token comment"># 比如我查询了</span>
+486fa66baeb237a456266dccfab8bab14cde98ba pro_web_front_202009101858.gz
+d644ed6c55ecc6e058a0a7d0c39c4e49984a37d1 src/assets/img/2.png
+f45b37335083ad5c5598e3cf5a75a9fc07b9a803 static/pdf/build/pdf.worker.js.map
+21e9d2cd0c73b246d86f603c7ff0e5cd8b8312bc static/pdf/web/operationManual.pdf
+7c65cab916684f43d66053e570dbdf453e8ca507 src/assets/img/login.png
+f8aebc2a121c89c99190553ac9b3dcc853315182 src/assets/img/login_2.png
+13868adfda3704f8a8b10f64da068a11a418ccf2 src/assets/img/login_3.png
+<span class="token comment"># 其中需要删的是 pro_web_front_202009101858.gz</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li>处理记录<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment">#文件可以是文件夹,也可以是文件 ,</span>
+<span class="token comment">#例如:文件夹的话可以是  /dist.js/</span>
+<span class="token comment">#例如:文件可以是  static/pdf/build/pdf.worker.js</span>
+<span class="token function">git</span> filter-branch --force --index-filter <span class="token string">'git rm -rf --cached --ignore-unmatch 文件'</span> --prune-empty --tag-name-filter <span class="token function">cat</span> -- --all
+<span class="token comment"># 会在项目根目录生成 .git_....文件夹,里面就是改的记录</span>
+<span class="token comment"># 一次只能处理一个文件/文件夹</span>
+
+<span class="token comment"># 回收空间</span>
+<span class="token function">git</span> for-each-ref --format<span class="token operator">=</span><span class="token string">'delete %(refname)'</span> refs/original <span class="token operator">|</span> <span class="token function">git</span> update-ref --stdin
+<span class="token function">rm</span> -rf .git/refs/original/
+<span class="token function">git</span> reflog expire --expire<span class="token operator">=</span>now --all
+<span class="token function">git</span> gc --prune<span class="token operator">=</span>now
+<span class="token function">git</span> gc --aggressive --prune<span class="token operator">=</span>now
+<span class="token comment"># 此时查看本地,会发现项目明显减小了,若是还有需要的文件,就重复第3步即可</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li>推送到服务器<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> push origin --force --all
+<span class="token function">git</span> remote prune origin
+<span class="token comment"># 此时 ,拉取项目就已经是减小后的大小</span>
+<span class="token comment"># 但是查看服务器,服务器显示的大小还是原来的大小</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li>清理服务器缓存<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 进入git服务器--&gt;这个操作需要root权限,不然连文件夹都进不去</span>
+<span class="token builtin class-name">cd</span> /var/opt/gitlab/git-data/repositories
+<span class="token comment">#根据项目,进入对应的git项目文件夹</span>
+<span class="token comment"># 进入 项目.git文件,就可以看到和本地的.git目录中一样的目目录了</span>
+<span class="token comment">#查询git项目大小</span>
+<span class="token function">git</span> count-objects -vH   <span class="token comment"># 此时还是旧的大小</span>
+<span class="token function">git</span> gc --prune<span class="token operator">=</span>now  <span class="token comment"># 清理无效文件</span>
+<span class="token function">git</span> count-objects -vH  <span class="token comment"># 此时就和本地一样,从库减小了</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ol>
+<div class="note info no-icon"><p>貌似gitlab服务器有缓存,此时服务器的仓库中文件大小已经减小了,但是在浏览器上通过页面查看,还是原来的大小</p>
+</div>
+
+<p>  <code>再次申明:清理完之后,每个人一定要删掉之前拉取的项目,重新从git上拉项目。不要使用之前的项目了！！！之前的项目中的.git文件会将已将删除的文件重新加进来,甚至变的更大</code></p>
+<h3 id="PS"><a href="#PS" class="headerlink" title="PS"></a>PS</h3><p><a href="https://blog.csdn.net/qq_36254947/article/details/108641438">使用bfg快速清理git历史大文件</a></p>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
+      <categories>
+        <category>Git</category>
+      </categories>
+      <tags>
+        <tag>Git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>git 项目迁移（从局域网自己安装的git工具迁移到Gitee和Github）</title>
+    <url>/post/2e2484ba.html</url>
+    <content><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>  如果你想从别的 Git 托管服务那里复制一份源代码到新的 Git 托管服务器上的话，可以通过以下步骤来操作。</p>
+<span id="more"></span>
+
+<h3 id="操作"><a href="#操作" class="headerlink" title="操作"></a>操作</h3><ol>
+<li>从原地址<code>克隆</code>一份<code>裸版本库</code><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">cd</span> ~/gitfromlocaltogitee
+<span class="token function">git</span> clone --bare http://10.211.55.81:3000/leeze/xiaosige.git<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
+<li>然后到<code>新的 Git 服务器</code>上创建一个新项目，比如 <code>gitee码云</code>上创建一个私有仓库xiaosige。</li>
+<li>以镜像推送的方式上传代码到 GitCafe 服务器上。<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">cd</span> ~/gitfromlocaltogitee/xiaosige.git
+<span class="token function">git</span> push --mirror https://gitee.com/leeze/xiaosige.git<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
+<li>删除本地代码 <code>xiaosige.git</code></li>
+<li>到新服务器 gitee 上找到 Clone 地址，直接 Clone 到本地就可以了。<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> clone https://gitee.com/leeze/xiaosige.git<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+</ol>
+<br>
+
+<p>  <code> 这种方式可以保留原版本库中的所有内容包括提交的历史记录、注释等等。</code></p>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
+      <categories>
+        <category>Git</category>
+      </categories>
+      <tags>
+        <tag>Git</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Mac因为没有安全弹出下次连接不上移动硬盘的坑</title>
     <url>/post/344dc787.html</url>
     <content><![CDATA[<h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><div class="note success no-icon"><p>  经常遇到因为没有安全弹出下次使用的时候识别不到移动硬盘的情况</p>
