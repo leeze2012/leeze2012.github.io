@@ -6,7 +6,7 @@
   <link href="https://www.xiaosige.com/atom.xml" rel="self"/>
   
   <link href="https://www.xiaosige.com/"/>
-  <updated>2022-08-03T15:05:16.945Z</updated>
+  <updated>2022-08-21T15:16:33.819Z</updated>
   <id>https://www.xiaosige.com/</id>
   
   <author>
@@ -15,6 +15,164 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>一些linux命令</title>
+    <link href="https://www.xiaosige.com/post/90c0e048.html"/>
+    <id>https://www.xiaosige.com/post/90c0e048.html</id>
+    <published>2022-08-21T14:45:25.000Z</published>
+    <updated>2022-08-21T15:16:33.819Z</updated>
+    
+    
+    <summary type="html">&lt;h3 id=&quot;查询程序占用内存情况&quot;&gt;&lt;a href=&quot;#查询程序占用内存情况&quot; class=&quot;headerlink&quot; title=&quot;查询程序占用内存情况&quot;&gt;&lt;/a&gt;查询程序占用内存情况&lt;/h3&gt;</summary>
+    
+    
+    
+    <category term="Linux" scheme="https://www.xiaosige.com/categories/Linux/"/>
+    
+    
+    <category term="Shell" scheme="https://www.xiaosige.com/tags/Shell/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>将SSH多次登录失败的IP加入黑名单</title>
+    <link href="https://www.xiaosige.com/post/2317c1ec.html"/>
+    <id>https://www.xiaosige.com/post/2317c1ec.html</id>
+    <published>2022-08-21T14:31:45.000Z</published>
+    <updated>2022-08-21T15:17:17.131Z</updated>
+    
+    
+    <summary type="html">&lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;  这次记录的是将SSH多次登录失败的IP加入黑名单的过程。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Linux" scheme="https://www.xiaosige.com/categories/Linux/"/>
+    
+    
+    <category term="ssh" scheme="https://www.xiaosige.com/tags/ssh/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Javascript常用API</title>
+    <link href="https://www.xiaosige.com/post/3ab80769.html"/>
+    <id>https://www.xiaosige.com/post/3ab80769.html</id>
+    <published>2022-08-21T14:18:22.000Z</published>
+    <updated>2022-08-21T15:14:08.172Z</updated>
+    
+    
+    <summary type="html">&lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;   日常&lt;code&gt;数组 (array)&lt;/code&gt;,&lt;code&gt;对象&lt;/code&gt;的使用&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="JavaScript" scheme="https://www.xiaosige.com/categories/JavaScript/"/>
+    
+    
+    <category term="Api" scheme="https://www.xiaosige.com/tags/Api/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Javascript 常用工具</title>
+    <link href="https://www.xiaosige.com/post/942c8adb.html"/>
+    <id>https://www.xiaosige.com/post/942c8adb.html</id>
+    <published>2022-08-21T13:44:52.000Z</published>
+    <updated>2022-08-21T14:12:39.892Z</updated>
+    
+    
+    <summary type="html">&lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;   日常经常使用的JS校验集合&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="JavaScript" scheme="https://www.xiaosige.com/categories/JavaScript/"/>
+    
+    
+    <category term="Tool" scheme="https://www.xiaosige.com/tags/Tool/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>JavaScript console 小技巧</title>
+    <link href="https://www.xiaosige.com/post/aa6079f.html"/>
+    <id>https://www.xiaosige.com/post/aa6079f.html</id>
+    <published>2022-08-21T13:34:08.000Z</published>
+    <updated>2022-08-21T14:12:39.889Z</updated>
+    
+    
+    <summary type="html">&lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;   &lt;code&gt;Js&lt;/code&gt; 的 &lt;code&gt;consolege&lt;/code&gt;格式输出。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="JavaScript" scheme="https://www.xiaosige.com/categories/JavaScript/"/>
+    
+    
+    <category term="Console" scheme="https://www.xiaosige.com/tags/Console/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Liunx CentOS阿里云邮箱配置</title>
+    <link href="https://www.xiaosige.com/post/9d73a089.html"/>
+    <id>https://www.xiaosige.com/post/9d73a089.html</id>
+    <published>2022-08-21T13:14:02.000Z</published>
+    <updated>2022-08-21T13:29:07.174Z</updated>
+    
+    
+    <summary type="html">&lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;  本站由&lt;code&gt;阿里云轻量服务器&lt;/code&gt;搭建 不支持&lt;code&gt;25&lt;/code&gt;端口 所以使用&lt;code&gt;465&lt;/code&gt;发送邮件，如果&lt;code&gt;腾讯云&lt;/code&gt;可用&lt;code&gt;25&lt;/code&gt;端口&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Linux" scheme="https://www.xiaosige.com/categories/Linux/"/>
+    
+    
+    <category term="Mail" scheme="https://www.xiaosige.com/tags/Mail/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Liunx 定时备份博客数据Git</title>
+    <link href="https://www.xiaosige.com/post/f43604d0.html"/>
+    <id>https://www.xiaosige.com/post/f43604d0.html</id>
+    <published>2022-08-21T13:07:12.000Z</published>
+    <updated>2022-08-21T13:30:33.948Z</updated>
+    
+    
+    <summary type="html">&lt;h3 id=&quot;下载Git配置用户名和邮箱&quot;&gt;&lt;a href=&quot;#下载Git配置用户名和邮箱&quot; class=&quot;headerlink&quot; title=&quot;下载Git配置用户名和邮箱&quot;&gt;&lt;/a&gt;下载Git配置用户名和邮箱&lt;/h3&gt;&lt;pre class=&quot;line-numbers language-bash&quot; data-language=&quot;bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;yum &lt;span class=&quot;token function&quot;&gt;install&lt;/span&gt; -y &lt;span class=&quot;token function&quot;&gt;git&lt;/span&gt;
+
+&lt;span class=&quot;token function&quot;&gt;git&lt;/span&gt; config --global user.name &lt;span class=&quot;token string&quot;&gt;&#39;Git用户名&#39;&lt;/span&gt;
+
+&lt;span class=&quot;token function&quot;&gt;git&lt;/span&gt; config --global user.email &lt;span class=&quot;token string&quot;&gt;&quot;Git邮箱&quot;&lt;/span&gt;
+&lt;span aria-hidden=&quot;true&quot; class=&quot;line-numbers-rows&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;code&gt;脚本提交的时候不输密码，所以需要配置ssh key，git仓库提供商的 ssh key配置验证方式不同，需自行查阅文档或者某度&lt;/code&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Linux" scheme="https://www.xiaosige.com/categories/Linux/"/>
+    
+    
+    <category term="Git" scheme="https://www.xiaosige.com/tags/Git/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>moment、dayjs获取常用时间</title>
+    <link href="https://www.xiaosige.com/post/2cdf9a71.html"/>
+    <id>https://www.xiaosige.com/post/2cdf9a71.html</id>
+    <published>2022-08-21T12:55:27.000Z</published>
+    <updated>2022-08-21T13:29:07.176Z</updated>
+    
+    
+    <summary type="html">&lt;h3 id=&quot;moment&quot;&gt;&lt;a href=&quot;#moment&quot; class=&quot;headerlink&quot; title=&quot;moment&quot;&gt;&lt;/a&gt;moment&lt;/h3&gt;&lt;p&gt;   &lt;a href=&quot;http://momentjs.cn/docs/&quot;&gt;moment&lt;/a&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="JavaScript" scheme="https://www.xiaosige.com/categories/JavaScript/"/>
+    
+    
+    <category term="Dayjs" scheme="https://www.xiaosige.com/tags/Dayjs/"/>
+    
+  </entry>
   
   <entry>
     <title>git项目过大清理</title>
@@ -258,161 +416,6 @@ docker pull rabbitmq:3.9.16-management&lt;span aria-hidden=&quot;true&quot; clas
     
     
     <category term="ElasticSearch" scheme="https://www.xiaosige.com/tags/ElasticSearch/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Dockerfile 镜像打包，保存镜像至本地，导入镜像</title>
-    <link href="https://www.xiaosige.com/post/887706e1.html"/>
-    <id>https://www.xiaosige.com/post/887706e1.html</id>
-    <published>2022-04-29T03:17:56.000Z</published>
-    <updated>2022-04-29T03:43:23.675Z</updated>
-    
-    
-    <summary type="html">&lt;h3 id=&quot;打包镜像&quot;&gt;&lt;a href=&quot;#打包镜像&quot; class=&quot;headerlink&quot; title=&quot;打包镜像&quot;&gt;&lt;/a&gt;打包镜像&lt;/h3&gt;&lt;p&gt;  在Dockerfile 目录下cmd窗口执行以下命令：&lt;/p&gt;
-&lt;pre class=&quot;line-numbers language-docker&quot; data-language=&quot;docker&quot;&gt;&lt;code class=&quot;language-docker&quot;&gt;docker build -t 镜像名称 -f Dockerfile .&lt;span aria-hidden=&quot;true&quot; class=&quot;line-numbers-rows&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;</summary>
-    
-    
-    
-    <category term="Docker" scheme="https://www.xiaosige.com/categories/Docker/"/>
-    
-    
-    <category term="Docker" scheme="https://www.xiaosige.com/tags/Docker/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【解决】Idea中Pom.xml变灰并加横线</title>
-    <link href="https://www.xiaosige.com/post/454169be.html"/>
-    <id>https://www.xiaosige.com/post/454169be.html</id>
-    <published>2022-04-26T20:12:56.000Z</published>
-    <updated>2022-04-26T20:22:19.627Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;  问题描述：有时候我们在删除某些项目，重新新建之后有时候会发现&lt;code&gt;pom.xml&lt;/code&gt;文件上有&lt;code&gt;一条横线&lt;/code&gt;，解决方式如下:&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="Idea" scheme="https://www.xiaosige.com/categories/Idea/"/>
-    
-    
-    <category term="Idea" scheme="https://www.xiaosige.com/tags/Idea/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Nginx 配置 HTTPS（多域名）</title>
-    <link href="https://www.xiaosige.com/post/643b08ac.html"/>
-    <id>https://www.xiaosige.com/post/643b08ac.html</id>
-    <published>2022-04-20T22:10:10.000Z</published>
-    <updated>2022-04-20T22:16:54.807Z</updated>
-    
-    
-    <summary type="html">&lt;h3 id=&quot;Nginx-配置&quot;&gt;&lt;a href=&quot;#Nginx-配置&quot; class=&quot;headerlink&quot; title=&quot;Nginx 配置&quot;&gt;&lt;/a&gt;Nginx 配置&lt;/h3&gt;&lt;p&gt;  首先, 需要把 &lt;code&gt;http&lt;/code&gt; 都转发到 &lt;code&gt;https&lt;/code&gt;, 需要使用 &lt;code&gt;rewrite&lt;/code&gt;, 这样, 当访问 &lt;code&gt;http://example.cn&lt;/code&gt; 会自动转发到 &lt;code&gt;https://example.cn&lt;/code&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="Nginx" scheme="https://www.xiaosige.com/categories/Nginx/"/>
-    
-    
-    <category term="Nginx" scheme="https://www.xiaosige.com/tags/Nginx/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Tomcat---setenv.sh</title>
-    <link href="https://www.xiaosige.com/post/38ddfd80.html"/>
-    <id>https://www.xiaosige.com/post/38ddfd80.html</id>
-    <published>2022-04-20T10:28:23.000Z</published>
-    <updated>2022-04-20T10:31:23.239Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;tomcat-setenv-sh&quot;&gt;&lt;a href=&quot;#tomcat-setenv-sh&quot; class=&quot;headerlink&quot; title=&quot;tomcat,setenv.sh&quot;&gt;&lt;/a&gt;tomcat,setenv.sh&lt;/h2&gt;&lt;p&gt;  代码比较简单&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="Linux" scheme="https://www.xiaosige.com/categories/Linux/"/>
-    
-    
-    <category term="Tomcat" scheme="https://www.xiaosige.com/tags/Tomcat/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>java visualVM(jconsole)远程监控服务器java进程</title>
-    <link href="https://www.xiaosige.com/post/dc26ce6d.html"/>
-    <id>https://www.xiaosige.com/post/dc26ce6d.html</id>
-    <published>2022-04-20T06:37:13.000Z</published>
-    <updated>2022-04-20T13:43:45.950Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;JMX方式（jconsole也可通过此方式进行连接）&quot;&gt;&lt;a href=&quot;#JMX方式（jconsole也可通过此方式进行连接）&quot; class=&quot;headerlink&quot; title=&quot;JMX方式（jconsole也可通过此方式进行连接）&quot;&gt;&lt;/a&gt;JMX方式（jconsole也可通过此方式进行连接）&lt;/h2&gt;&lt;p&gt;  jmx方式能监控到CPU信息，但无法使用visualVM的visualVM GC插件&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="Java" scheme="https://www.xiaosige.com/categories/Java/"/>
-    
-    
-    <category term="Jdk" scheme="https://www.xiaosige.com/tags/Jdk/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Mac使用VMWare虚拟，设置网络</title>
-    <link href="https://www.xiaosige.com/post/942dd570.html"/>
-    <id>https://www.xiaosige.com/post/942dd570.html</id>
-    <published>2022-04-11T10:15:59.000Z</published>
-    <updated>2022-04-11T10:25:00.982Z</updated>
-    
-    
-    <summary type="html">&lt;h3 id=&quot;vmnet8重启网卡&quot;&gt;&lt;a href=&quot;#vmnet8重启网卡&quot; class=&quot;headerlink&quot; title=&quot;vmnet8重启网卡&quot;&gt;&lt;/a&gt;vmnet8重启网卡&lt;/h3&gt;&lt;pre class=&quot;line-numbers language-bash&quot; data-language=&quot;bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function&quot;&gt;sudo&lt;/span&gt;  /Applications/VMware&lt;span class=&quot;token punctuation&quot;&gt;\&lt;/span&gt; Fusion.app/Contents/Library/vmnet-cli --start
-&lt;span class=&quot;token function&quot;&gt;sudo&lt;/span&gt;  /Applications/VMware&lt;span class=&quot;token punctuation&quot;&gt;\&lt;/span&gt; Fusion.app/Contents/Library/vmnet-cli --stop
-&lt;span class=&quot;token function&quot;&gt;sudo&lt;/span&gt;  /Applications/VMware&lt;span class=&quot;token punctuation&quot;&gt;\&lt;/span&gt; Fusion.app/Contents/Library/vmnet-cli --status&lt;span aria-hidden=&quot;true&quot; class=&quot;line-numbers-rows&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;</summary>
-    
-    
-    
-    <category term="Mac" scheme="https://www.xiaosige.com/categories/Mac/"/>
-    
-    
-    <category term="VM" scheme="https://www.xiaosige.com/tags/VM/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Linux 解决开机启动时的 systemd-modules-load.service 失败的问题</title>
-    <link href="https://www.xiaosige.com/post/f25aacc.html"/>
-    <id>https://www.xiaosige.com/post/f25aacc.html</id>
-    <published>2022-04-07T04:50:34.000Z</published>
-    <updated>2022-04-07T05:38:53.917Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;  !解决开机启动时的systemd-modules-load.service失败的问题&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="Linux" scheme="https://www.xiaosige.com/categories/Linux/"/>
-    
-    
-    <category term="Linux" scheme="https://www.xiaosige.com/tags/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【Docker】之安装Redis6并且配置redis.conf</title>
-    <link href="https://www.xiaosige.com/post/63ae3ee4.html"/>
-    <id>https://www.xiaosige.com/post/63ae3ee4.html</id>
-    <published>2022-03-30T16:26:15.000Z</published>
-    <updated>2022-05-09T06:46:42.618Z</updated>
-    
-    
-    <summary type="html">&lt;h3 id=&quot;安装方式一&quot;&gt;&lt;a href=&quot;#安装方式一&quot; class=&quot;headerlink&quot; title=&quot;安装方式一&quot;&gt;&lt;/a&gt;安装方式一&lt;/h3&gt;&lt;h4 id=&quot;拉取Docker的Redis镜像&quot;&gt;&lt;a href=&quot;#拉取Docker的Redis镜像&quot; class=&quot;headerlink&quot; title=&quot;拉取Docker的Redis镜像&quot;&gt;&lt;/a&gt;拉取Docker的Redis镜像&lt;/h4&gt;&lt;pre class=&quot;line-numbers language-docker&quot; data-language=&quot;docker&quot;&gt;&lt;code class=&quot;language-docker&quot;&gt;docker pull redis:6.2.6&lt;span aria-hidden=&quot;true&quot; class=&quot;line-numbers-rows&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;</summary>
-    
-    
-    
-    <category term="Docker" scheme="https://www.xiaosige.com/categories/Docker/"/>
-    
-    
-    <category term="Redis" scheme="https://www.xiaosige.com/tags/Redis/"/>
     
   </entry>
   
