@@ -176,7 +176,7 @@ lastb <span class="token operator">|</span> <span class="token function">awk</sp
   <entry>
     <title>Javascript常用API</title>
     <url>/post/3ab80769.html</url>
-    <content><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>   日常<code>数组 (array)</code>,<code>对象</code>的使用</p>
+    <content><![CDATA[<p>   日常<code>数组 (array)</code>,<code>对象</code>的使用。</p>
 <span id="more"></span>
 
 <h3 id="数组-array"><a href="#数组-array" class="headerlink" title="数组 (array)"></a>数组 (array)</h3><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> Arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">7</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">]</span>
@@ -315,7 +315,7 @@ Object<span class="token punctuation">.</span><span class="token function">is</s
   <entry>
     <title>Javascript 常用工具</title>
     <url>/post/942c8adb.html</url>
-    <content><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>   日常经常使用的JS校验集合</p>
+    <content><![CDATA[<p>   日常经常使用的<code>JS校验</code>集合。</p>
 <span id="more"></span>
 
 <h5 id="邮箱"><a href="#邮箱" class="headerlink" title="邮箱"></a>邮箱</h5><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">export</span> <span class="token keyword">const</span> <span class="token function-variable function">isEmail</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">s</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
@@ -1064,7 +1064,7 @@ Object<span class="token punctuation">.</span><span class="token function">is</s
   <entry>
     <title>JavaScript console 小技巧</title>
     <url>/post/aa6079f.html</url>
-    <content><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>   <code>Js</code> 的 <code>consolege</code>格式输出。</p>
+    <content><![CDATA[<p>   <code>Js</code> 的 <code>consolege</code>格式输出。</p>
 <span id="more"></span>
 
 <h3 id="console-log"><a href="#console-log" class="headerlink" title="console.log"></a>console.log</h3><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"小技巧"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
