@@ -64,6 +64,69 @@ lrwxrwxrwx. <span class="token number">1</span> root root <span class="token num
       </tags>
   </entry>
   <entry>
+    <title>实现ssh登录，显示图形化</title>
+    <url>/post/8c6a122c.html</url>
+    <content><![CDATA[<h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><div class="note success no-icon"><p>  平时ssh登录到Linux服务器都是在命令行下进行操作的，简单高效。但是有些时候，需要配置一些Linux系统下的图形化软件的参数，ssh登录到Linux服务器后，就需要显示图形化界面了。</p>
+</div>
+
+<span id="more"></span>
+
+<p>  这里给出Linux，Windows和MacOS三种系统登录上Linux系统后，显示图形化界面的方法。</p>
+<h4 id="window登录后图形界面"><a href="#window登录后图形界面" class="headerlink" title="window登录后图形界面"></a>window登录后图形界面</h4><div class="note warning no-icon"><p>Windows平台SSH登录Linux并使用图形化界面：<br><a href="http://www.cnblogs.com/zhwl/archive/2013/03/04/2942606.html">http://www.cnblogs.com/zhwl/archive/2013/03/04/2942606.html</a><br><a href="http://www.cnblogs.com/yasmi/articles/4835070.html">http://www.cnblogs.com/yasmi/articles/4835070.html</a></p>
+</div>
+<div class="note primary no-icon"><p>【关键步骤】：其核心就是</p>
+<ol>
+<li>CentOS主机上<code>允许SSH的X</code></li>
+<li>indows本地安装开源的X Server软件 <code>Xming</code></li>
+<li>使用ssh登录工具Putty或者Pietty<code>修改配置</code>，登录即可</li>
+</ol>
+</div>
+
+<h4 id="Linux登录后图形界面"><a href="#Linux登录后图形界面" class="headerlink" title="Linux登录后图形界面"></a>Linux登录后图形界面</h4><div class="note warning no-icon"><p>linux系统登录到另一个Linux系统后，显示图形界面：<a href="http://blog.csdn.net/zhoubo200/article/details/5773000">http://blog.csdn.net/zhoubo200/article/details/5773000</a></p>
+</div>
+<div class="note primary no-icon"><p>【关键步骤】：Linux版本的就简单一些,A端登陆到B端</p>
+<ol>
+<li>A端就是运行图形界面，及ssh配置修改，重启</li>
+<li>B端主要是DISPLAY和ssh的配置修改，重启等</li>
+</ol>
+</div>
+
+<h4 id="mac登录后图形界面"><a href="#mac登录后图形界面" class="headerlink" title="mac登录后图形界面"></a>mac登录后图形界面</h4><div class="note warning no-icon"><p>mac平台SSH登录Linux并使用图形化界面：可以参考<a href="http://blog.csdn.net/dobell/article/details/55047811">http://blog.csdn.net/dobell/article/details/55047811</a></p>
+</div>
+<div class="note primary no-icon"><p>【关键步骤】：其核心就是</p>
+<ol>
+<li>CentOS主机上允许SSH的X</li>
+<li>mac本地安装开源的X Server软件 <code>XQuartz</code></li>
+<li>XQuartz中选择终端登录即可</li>
+</ol>
+</div>
+
+
+<h3 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h3><h4 id="Mac版实现ssh登录，显示图形化"><a href="#Mac版实现ssh登录，显示图形化" class="headerlink" title="Mac版实现ssh登录，显示图形化"></a>Mac版实现ssh登录，显示图形化</h4><ol>
+<li><code>Linux</code>端–设置<code>X11</code>转发<br><code>a)</code>首先需要在linux 服务器端打开 X11转发:<br>编辑 <code>/etc/ssh/sshd_config</code> 配置文件，配置转发参数为<code>yes</code> <pre class="line-numbers language-properties" data-language="properties"><code class="language-properties"><span class="token key attr-name">X11Forwarding</span> <span class="token value attr-value">yes  </span>
+<span class="token key attr-name">X11DisplayOffset</span> <span class="token value attr-value">10</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<code>b)</code>重启<code>ssh</code>服务<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">service</span> sshd restart <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li>编辑<code>Mac</code>端下文件<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">sudo</span> <span class="token function">vim</span> /private/etc/ssh/ssh_config
+设置为
+ForwardX11 <span class="token function">yes</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
+<li><code>Mac</code>端安装<code>XQuartz </code><div class="note warning no-icon"><p>网址：<a href="https://www.xquartz.org/">https://www.xquartz.org/</a><br>下载：<a href="https://github.com/XQuartz/XQuartz/releases/download/XQuartz-2.8.2/XQuartz-2.8.2.dmg">https://github.com/XQuartz/XQuartz/releases/download/XQuartz-2.8.2/XQuartz-2.8.2.dmg</a></p>
+</div></li>
+<li><code>Mac</code>端<code>测试</code><br><code>a)</code>打开 <code>XQuartz</code>，然后，打开 <code>mac terminal</code><img data-src="/post/8c6a122c/sshLoginG001.jpg" class="" title="XQuartz">
+<code>b)</code>ssh -X   {用户名}@{远程端ip}； （注意<code>大写</code>的<code>X</code>）<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">ssh</span> -X root@192.168.3.201<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<code>c)</code>登录成功，输入 <code>gvim</code>看下，是否能调出远程界面</li>
+</ol>
+<h3 id="PS"><a href="#PS" class="headerlink" title="PS"></a>PS</h3><blockquote>
+<p><a href="https://www.likecs.com/show-543535.html">https://www.likecs.com/show-543535.html</a></p>
+</blockquote>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>ssh</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>一些linux命令</title>
     <url>/post/90c0e048.html</url>
     <content><![CDATA[<h3 id="查询程序占用内存情况"><a href="#查询程序占用内存情况" class="headerlink" title="查询程序占用内存情况"></a>查询程序占用内存情况</h3><span id="more"></span>
