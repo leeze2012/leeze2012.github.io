@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://www.xiaosige.com/links/index.html</loc>
+    
+    <lastmod>2022-09-19</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://www.xiaosige.com/post/c1dab809.html</loc>
     
     <lastmod>2022-09-19</lastmod>
@@ -12,13 +19,6 @@
     <loc>https://www.xiaosige.com/music/index.html</loc>
     
     <lastmod>2022-09-19</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.xiaosige.com/links/index.html</loc>
-    
-    <lastmod>2022-09-18</lastmod>
     
   </url>
   
@@ -1194,13 +1194,6 @@
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/tags/LNMP/</loc>
-    <lastmod>2022-09-19</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.xiaosige.com/tags/cpu/</loc>
     <lastmod>2022-09-19</lastmod>
     <changefreq>daily</changefreq>
@@ -1208,7 +1201,7 @@
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/tags/Disk/</loc>
+    <loc>https://www.xiaosige.com/tags/LNMP/</loc>
     <lastmod>2022-09-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1222,14 +1215,7 @@
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/tags/top/</loc>
-    <lastmod>2022-09-19</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.xiaosige.com/tags/free/</loc>
+    <loc>https://www.xiaosige.com/tags/Disk/</loc>
     <lastmod>2022-09-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1251,6 +1237,20 @@
   
   <url>
     <loc>https://www.xiaosige.com/tags/Dayjs/</loc>
+    <lastmod>2022-09-19</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.xiaosige.com/tags/top/</loc>
+    <lastmod>2022-09-19</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.xiaosige.com/tags/free/</loc>
     <lastmod>2022-09-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1341,14 +1341,14 @@
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/tags/Yarn/</loc>
+    <loc>https://www.xiaosige.com/tags/VMWare/</loc>
     <lastmod>2022-09-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/tags/VMWare/</loc>
+    <loc>https://www.xiaosige.com/tags/Yarn/</loc>
     <lastmod>2022-09-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
