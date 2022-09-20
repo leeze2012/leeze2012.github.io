@@ -298,6 +298,12 @@
                     style: null,
                 };
                 VtMessage.info(_config);
+                let mp3Url = "/zone/tool/yinxiao/welcome.mp3";
+                let player = new Audio(mp3Url);
+                player.play(); //播放 mp3这个音频对象
+                //暂停
+                //player.pause();
+                //player.load();
             });
         </script>
     </body>
