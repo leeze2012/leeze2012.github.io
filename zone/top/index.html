@@ -300,10 +300,22 @@
                 VtMessage.info(_config);
                 let mp3Url = "/zone/tool/yinxiao/welcome.mp3";
                 let player = new Audio(mp3Url);
-                player.play(); //播放 mp3这个音频对象
+                let countWel = 0;
+
                 //暂停
                 //player.pause();
                 //player.load();
+
+                document.body.addEventListener('mousedown', function(){
+                    //var vdo = $("video")[0]; //jquery
+                    //vdo.muted = false;
+                    if(countWel == 0){
+                        player.play(); //播放 mp3这个音频对象
+                    }
+                    countWel++;
+
+                }, false);
+
             });
         </script>
     </body>
