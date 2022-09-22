@@ -4,7 +4,7 @@
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
 <meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 5.4.0">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 5.4.2">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="https://static.xiaosige.com/img/favicon.png">
@@ -21,7 +21,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"www.xiaosige.com","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.12.3","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"changyan","storage":true,"lazyload":true,"nav":null,"activeClass":"changyan"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"www.xiaosige.com","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.13.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"changyan","storage":true,"lazyload":true,"nav":null,"activeClass":"changyan"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="介绍  Lnmp架构  Lnmp(web应用软件组合)  Linux+Nginx+Mysql&#x2F;MariaDB+Perl&#x2F;PHP&#x2F;Python一组常用来搭建动态网站或者服务器的开源软件，本身都是各自独立的程序，但是因为常被放在一起使用，拥有了越来越高的兼容度，共同组成了一个强大的Web应用程序平台。   LAMP的架构以及通信过程  Lnmp是一个cs架构的平台（client&#x2F;server架构， 即">
 <meta property="og:type" content="article">
@@ -49,6 +49,7 @@
 
   <script src="/js/third-party/analytics/baidu-analytics.js"></script>
   <script async src="https://hm.baidu.com/hm.js?7a645cfcecaf8f711cd7518386adcc74"></script>
+
 
 
 
@@ -680,31 +681,31 @@ canvas#canvas {
 <p>  LAMP的架构以及通信过程<br>  Lnmp是一个cs架构的平台（client/server架构， 即客户端/服务器架构)，web客户端基于TCP/IP通过http协议发起传送这个请求可能是动态的也可能是静态的，所有的服务器通过发起请求的后缀来判断，如果是静态的就由web服务器自己处理，然后将资源发给客户端。如果请求是动态的这时web服务器会通过FSATCGI协议发给php，通过php模块去MySQL拿数据在通过Nginx交给客户端。</p>
 <span id="more"></span>
 
-<h3 id="1-安装nginx"><a href="#1-安装nginx" class="headerlink" title="1. 安装nginx"></a>1. 安装nginx</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">
+<h3 id="1-安装nginx"><a href="#1-安装nginx" class="headerlink" title="1. 安装nginx"></a>1. 安装nginx</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">
 <span class="token comment">#安装依赖</span>
-yum -y <span class="token function">install</span> gcc gcc-c++ <span class="token function">make</span> zlib zlib-devel pcre pcre-devel libjpeg libjpeg-devel libpng libpng-devel freetypefreetype-devel libxml2 libxml2-devel glibc glibc-devel glib2 glib2-devel <span class="token function">bzip2</span> bzip2-devel ncurses ncurses-devel <span class="token function">curl</span> curl-devel e2fsprogs e2fsprogs-devel krb5 krb5-devel openssl openssl-devel openldap openldap-devel nss_ldap openldap-clients openldap-servers libxslt libxslt-devel  oniguruma oniguruma-devel sqlite-devel
+yum <span class="token parameter variable">-y</span> <span class="token function">install</span> gcc gcc-c++ <span class="token function">make</span> zlib zlib-devel pcre pcre-devel libjpeg libjpeg-devel libpng libpng-devel freetypefreetype-devel libxml2 libxml2-devel glibc glibc-devel glib2 glib2-devel <span class="token function">bzip2</span> bzip2-devel ncurses ncurses-devel <span class="token function">curl</span> curl-devel e2fsprogs e2fsprogs-devel krb5 krb5-devel openssl openssl-devel openldap openldap-devel nss_ldap openldap-clients openldap-servers libxslt libxslt-devel  oniguruma oniguruma-devel sqlite-devel
 <span class="token comment">#下载编译包</span>
 <span class="token function">wget</span> http://nginx.org/download/nginx-1.18.0.tar.gz
 <span class="token function">tar</span> xvf nginx-1.18.0.tar.gz
 <span class="token comment">#提前创建文件夹</span>
-<span class="token function">mkdir</span> -p /usr/local/nginx/tmp/nginx/client/
-<span class="token function">mkdir</span> -p  /usr/local/nginx
+<span class="token function">mkdir</span> <span class="token parameter variable">-p</span> /usr/local/nginx/tmp/nginx/client/
+<span class="token function">mkdir</span> <span class="token parameter variable">-p</span>  /usr/local/nginx
 <span class="token comment">#创建用户</span>
-<span class="token function">useradd</span> -s /sbin/nologin nginx -M
+<span class="token function">useradd</span> <span class="token parameter variable">-s</span> /sbin/nologin nginx <span class="token parameter variable">-M</span>
 <span class="token comment">#进入目录编译</span>
 <span class="token builtin class-name">cd</span> nginx-1.18.0/
-./configure --prefix<span class="token operator">=</span>/usr/local/nginx/nginx --sbin-path<span class="token operator">=</span>/usr/local/nginx/sbin/nginx/nginx --conf-path<span class="token operator">=</span>/usr/local/nginx/conf/nginx.conf --error-log-path<span class="token operator">=</span>/usr/local/nginx/log/error.log --http-log-path<span class="token operator">=</span>/usr/local/nginx/log/access.log --pid-path<span class="token operator">=</span>/usr/local/nginx/run/nginx/nginx.pid --lock-path<span class="token operator">=</span>/usr/local/nginx/lock/nginx.lock --user<span class="token operator">=</span>nginx --group<span class="token operator">=</span>nginx --with-http_ssl_module --with-http_stub_status_module --with-http_gzip_static_module --http-client-body-temp-path<span class="token operator">=</span>/usr/local/nginx/tmp/nginx/client/ --http-proxy-temp-path<span class="token operator">=</span>/usr/local/nginx/tmp/nginx/proxy/ --http-fastcgi-temp-path<span class="token operator">=</span>/usr/local/nginx/tmp/nginx/fcgi/ --http-uwsgi-temp-path<span class="token operator">=</span>/usr/local/nginx/tmp/nginx/uwsgi --http-scgi-temp-path<span class="token operator">=</span>/usr/local/nginx/tmp/nginx/scgi --with-pcre
+./configure <span class="token parameter variable">--prefix</span><span class="token operator">=</span>/usr/local/nginx/nginx --sbin-path<span class="token operator">=</span>/usr/local/nginx/sbin/nginx/nginx --conf-path<span class="token operator">=</span>/usr/local/nginx/conf/nginx.conf --error-log-path<span class="token operator">=</span>/usr/local/nginx/log/error.log --http-log-path<span class="token operator">=</span>/usr/local/nginx/log/access.log --pid-path<span class="token operator">=</span>/usr/local/nginx/run/nginx/nginx.pid --lock-path<span class="token operator">=</span>/usr/local/nginx/lock/nginx.lock <span class="token parameter variable">--user</span><span class="token operator">=</span>nginx <span class="token parameter variable">--group</span><span class="token operator">=</span>nginx --with-http_ssl_module --with-http_stub_status_module --with-http_gzip_static_module --http-client-body-temp-path<span class="token operator">=</span>/usr/local/nginx/tmp/nginx/client/ --http-proxy-temp-path<span class="token operator">=</span>/usr/local/nginx/tmp/nginx/proxy/ --http-fastcgi-temp-path<span class="token operator">=</span>/usr/local/nginx/tmp/nginx/fcgi/ --http-uwsgi-temp-path<span class="token operator">=</span>/usr/local/nginx/tmp/nginx/uwsgi --http-scgi-temp-path<span class="token operator">=</span>/usr/local/nginx/tmp/nginx/scgi --with-pcre
 <span class="token function">make</span> <span class="token operator">&amp;&amp;</span> <span class="token function">make</span> <span class="token function">install</span>
 <span class="token comment">#配置环境</span>
 <span class="token builtin class-name">cd</span> /usr/local/nginx/sbin/nginx
 <span class="token builtin class-name">echo</span> <span class="token string">"PATH=<span class="token environment constant">$PWD</span>:\<span class="token environment constant">$PATH</span>"</span> <span class="token operator">&gt;</span> /etc/profile.d/nginx.sh<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>  注意通过我的命令编译的目录结构如下，大家可以对比一下，然后酌情处理目录哈</p>
-<h3 id="2-安装PHP"><a href="#2-安装PHP" class="headerlink" title="2. 安装PHP"></a>2. 安装PHP</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token comment">#下载编译包</span>
+<h3 id="2-安装PHP"><a href="#2-安装PHP" class="headerlink" title="2. 安装PHP"></a>2. 安装PHP</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment">#下载编译包</span>
 <span class="token function">wget</span> http://mirrors.sohu.com/php/php-8.0.0.tar.gz
 <span class="token function">tar</span> xvf php-8.0.0.tar.gz
 <span class="token builtin class-name">cd</span> php-8.0.0/
 <span class="token comment">#编译</span>
-./configure --prefix<span class="token operator">=</span>/usr/local/php8 --with-curl --with-mysql-sock<span class="token operator">=</span>/var/tmp/mysql/mysql.sock --with-jpeg-dir --with-freetype-dir --with-gd --with-gettext --with-iconv-dir --with-kerberos --with-libxml-dir --with-mysqli<span class="token operator">=</span>mysqlnd --with-openssl --with-pcre-regex --with-pdo-mysql<span class="token operator">=</span>mysqlnd --with-pdo-sqlite --with-pear --with-png-dir --with-xmlrpc --with-xsl --with-zlib --with-pdo-mysql --with-fpm-user<span class="token operator">=</span>nginx --with-fpm-group<span class="token operator">=</span>nginx --enable-fpm --enable-bcmath --enable-libxml --enable-inline-optimization --enable-gd-native-ttf --enable-mbregex --enable-mbstring --enable-opcache --enable-pcntl --enable-shmop --enable-soap --enable-sockets --enable-sysvsem --enable-xml --enable-zip --enable-mysqlnd --enable-maintainer-zts
+./configure <span class="token parameter variable">--prefix</span><span class="token operator">=</span>/usr/local/php8 --with-curl --with-mysql-sock<span class="token operator">=</span>/var/tmp/mysql/mysql.sock --with-jpeg-dir --with-freetype-dir --with-gd --with-gettext --with-iconv-dir --with-kerberos --with-libxml-dir --with-mysqli<span class="token operator">=</span>mysqlnd --with-openssl --with-pcre-regex --with-pdo-mysql<span class="token operator">=</span>mysqlnd --with-pdo-sqlite --with-pear --with-png-dir --with-xmlrpc --with-xsl --with-zlib --with-pdo-mysql --with-fpm-user<span class="token operator">=</span>nginx --with-fpm-group<span class="token operator">=</span>nginx --enable-fpm --enable-bcmath --enable-libxml --enable-inline-optimization --enable-gd-native-ttf --enable-mbregex --enable-mbstring --enable-opcache --enable-pcntl --enable-shmop --enable-soap --enable-sockets --enable-sysvsem --enable-xml --enable-zip --enable-mysqlnd --enable-maintainer-zts
  <span class="token function">make</span> <span class="token operator">&amp;&amp;</span> <span class="token function">make</span> <span class="token function">install</span>
 <span class="token comment">#配置</span>
 <span class="token function">cp</span> php.ini-production /usr/local/php8/etc/php.ini
@@ -806,7 +807,7 @@ worker_processes  <span class="token number">1</span></span><span class="token p
     <span class="token comment">#}</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="4-创建探针"><a href="#4-创建探针" class="headerlink" title="4.创建探针"></a>4.创建探针</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token comment">#在html下创建</span>
+<h3 id="4-创建探针"><a href="#4-创建探针" class="headerlink" title="4.创建探针"></a>4.创建探针</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment">#在html下创建</span>
 <span class="token punctuation">[</span>root@study2 /usr/local/nginx/nginx/html <span class="token number">10</span>:33:52<span class="token punctuation">]</span><span class="token comment">#echo '&lt;?php phpinfo();?&gt;' &gt; index.php</span>
 <span class="token punctuation">[</span>root@study2 /usr/local/nginx/nginx/html <span class="token number">10</span>:34:19<span class="token punctuation">]</span><span class="token comment">#cat index.php</span>
 <span class="token operator">&lt;</span>?php phpinfo<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>?<span class="token operator">&gt;</span>
@@ -815,21 +816,21 @@ worker_processes  <span class="token number">1</span></span><span class="token p
 <span class="token punctuation">[</span>root@study2 /usr/local/nginx/nginx/html <span class="token number">10</span>:34:26<span class="token punctuation">]</span><span class="token comment">#php-fpm</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h3 id="5-安装mysql"><a href="#5-安装mysql" class="headerlink" title="5. 安装mysql"></a>5. 安装mysql</h3><p>  这里我才用的rpm包在线安装的方式。当然你也可采用二进制或者离线包安装。</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token comment">#安装并启动</span>
-yum <span class="token function">install</span> -y mariadb-libs mariadb-server mariadb-devel
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment">#安装并启动</span>
+yum <span class="token function">install</span> <span class="token parameter variable">-y</span> mariadb-libs mariadb-server mariadb-devel
 systemctl start mariadb
 <span class="token comment">#默认是没有配置账号密码的我们需要开启一下</span>
 mysql_secure_installation
 <span class="token comment">#输入以上命令后，输入你的命令</span>
 <span class="token comment">#然后现在通过客户端连接</span>
-mysql -uroot -ppasswd
+mysql <span class="token parameter variable">-uroot</span> <span class="token parameter variable">-ppasswd</span>
 <span class="token comment">#进入mysql后开启这个用户这个密码所有IP可以访问</span>
 GRANT ALL PRIVILEGES ON *.* TO <span class="token string">'root'</span>@<span class="token string">'%'</span> IDENTIFIED BY <span class="token string">'passwd'</span> WITH GRANT OPTION<span class="token punctuation">;</span>
 FLUSH   PRIVILEGES<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>  通过以上数据库的一些操作已经可以远程连接了，还有一些高端的命令与设置我没说。我们的目的是让mysql可以与PHP连接哈，后续会详细说mysql的哈。</p>
 <p>  然后我们用工具连接一下看一下：</p>
 <p>  好了已经确定可以连接了，然后我们创建一个PHP文件，还是原来创建探针的那个目录下哈。</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token punctuation">[</span>root@study2 /usr/local/nginx/nginx/html <span class="token number">11</span>:50:09<span class="token punctuation">]</span><span class="token comment">#ls</span>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@study2 /usr/local/nginx/nginx/html <span class="token number">11</span>:50:09<span class="token punctuation">]</span><span class="token comment">#ls</span>
 50x.html  index.html  index.php  mysql.php
 <span class="token punctuation">[</span>root@study2 /usr/local/nginx/nginx/html <span class="token number">11</span>:56:42<span class="token punctuation">]</span><span class="token comment">#cat mysql.php</span>
 <span class="token operator">&lt;</span><span class="token operator">!</span>DOCTYPE html<span class="token operator">&gt;</span>
@@ -1072,7 +1073,7 @@ if<span class="token punctuation">(</span><span class="token variable">$close</s
 
 
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/2.2.0/quicklink.umd.js" integrity="sha256-4kQf9z5ntdQrzsBC3YSHnEz02Z9C1UeW/E9OgnvlzSY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/2.3.0/quicklink.umd.js" integrity="sha256-yvJQOINiH9fWemHn0vCA5lsHWJaHs6/ZmO+1Ft04SvM=" crossorigin="anonymous"></script>
   <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":true,"delay":true,"timeout":3000,"priority":true,"ignores":null,"url":"https://www.xiaosige.com/post/7eb6696d.html"}</script>
   <script src="/js/third-party/quicklink.js"></script>
 <script class="next-config" data-name="changyan" type="application/json">{"enable":true,"appid":"cyvSPOTJq","appkey":"4436699688bbb9caa6e8826551a7c0f7"}</script>

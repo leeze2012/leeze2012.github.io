@@ -4,7 +4,7 @@
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
 <meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 5.4.0">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 5.4.2">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="https://static.xiaosige.com/img/favicon.png">
@@ -21,7 +21,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"www.xiaosige.com","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.12.3","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"changyan","storage":true,"lazyload":true,"nav":null,"activeClass":"changyan"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"www.xiaosige.com","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.13.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"changyan","storage":true,"lazyload":true,"nav":null,"activeClass":"changyan"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="介绍  Yarn 就是一个类似于 npm 的包管理工具，它是由 facebook 推出并开源。  与 npm 相比，yarn 有着众多的优势，主要的优势在于：速度快、离线模式、版本控制。">
 <meta property="og:type" content="article">
@@ -51,6 +51,7 @@
 
   <script src="/js/third-party/analytics/baidu-analytics.js"></script>
   <script async src="https://hm.baidu.com/hm.js?7a645cfcecaf8f711cd7518386adcc74"></script>
+
 
 
 
@@ -684,22 +685,22 @@ canvas#canvas {
 <li><p>使用MacPorts安装yarn<br>  你可以通过 <a target="_blank" rel="noopener" href="https://www.macports.org/">MacPorts</a> 安装 Yarn 。 如果你还未安装 Node.MacPorts 会自动为你安装。</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> port <span class="token function">install</span> <span class="token function">yarn</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 <li><p>使用脚本安装yarn<br>  macOS属于Unix系统的分支，在Unix环境下，使用脚本安装是很方便。</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">curl</span> -o- -L https://yarnpkg.com/install.sh <span class="token operator">|</span> <span class="token function">bash</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">curl</span> -o- <span class="token parameter variable">-L</span> https://yarnpkg.com/install.sh <span class="token operator">|</span> <span class="token function">bash</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>  安装指定版本的yarn</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">curl</span> -o- -L https://yarnpkg.com/install.sh <span class="token operator">|</span> <span class="token function">bash</span> -s -- --version <span class="token number">1.19</span>.1<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">curl</span> -o- <span class="token parameter variable">-L</span> https://yarnpkg.com/install.sh <span class="token operator">|</span> <span class="token function">bash</span> <span class="token parameter variable">-s</span> -- <span class="token parameter variable">--version</span> <span class="token number">1.19</span>.1<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 <li><p>通过tarball手动安装<br>  你可以通过<a target="_blank" rel="noopener" href="https://yarn.bootcss.com/latest.tar.gz">下载tarball</a>并在任何地方提取它来安装yarn。</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">cd</span> /opt
 <span class="token function">wget</span> https://yarnpkg.com/latest.tar.gz
 <span class="token function">tar</span> zvxf latest.tar.gz
 <span class="token comment"># Yarn is now in /opt/yarn-[version]/</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <p>  在提取yarn之前，建议您使用GPG验证tarball：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">wget</span> -qO- https://dl.yarnpkg.com/debian/pubkey.gpg <span class="token operator">|</span> gpg --import
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">wget</span> -qO- https://dl.yarnpkg.com/debian/pubkey.gpg <span class="token operator">|</span> gpg <span class="token parameter variable">--import</span>
 <span class="token function">wget</span> https://yarnpkg.com/latest.tar.gz.asc
-gpg --verify latest.tar.gz.asc
+gpg <span class="token parameter variable">--verify</span> latest.tar.gz.asc
 <span class="token comment"># Look for "Good signature from 'Yarn Packaging'" in the output</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li>
 <li><p>npm来安装(<code>推荐</code>)<br>  虽然安装 <code>yarn</code> 可以不依赖 <code>npm</code>，但这里还是建议你使用 <code>npm</code> 来安装吧，快速而简洁：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> -s
-<span class="token function">npm</span> <span class="token function">install</span> <span class="token function">yarn</span> -g<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token parameter variable">-s</span>
+<span class="token function">npm</span> <span class="token function">install</span> <span class="token function">yarn</span> <span class="token parameter variable">-g</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
 </ol>
 <h3 id="Yarn-换源"><a href="#Yarn-换源" class="headerlink" title="Yarn 换源"></a>Yarn 换源</h3><p>  Yarn 源仓库包下载不稳定</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 查看 yarn 配置</span>
@@ -712,12 +713,12 @@ gpg --verify latest.tar.gz.asc
 <span class="token function">yarn</span> config <span class="token builtin class-name">set</span> registry https://registry.npm.taobao.org
 <span class="token comment"># 设置为官方镜像</span>
 <span class="token function">yarn</span> config <span class="token builtin class-name">set</span> registry https://registry.yarnpkg.com<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">yarn</span> config <span class="token builtin class-name">set</span> registry https://registry.npm.taobao.org --global
-<span class="token function">yarn</span> config <span class="token builtin class-name">set</span> disturl https://npm.taobao.org/dist --global<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">yarn</span> config <span class="token builtin class-name">set</span> registry https://registry.npm.taobao.org <span class="token parameter variable">--global</span>
+<span class="token function">yarn</span> config <span class="token builtin class-name">set</span> disturl https://npm.taobao.org/dist <span class="token parameter variable">--global</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <hr>
 <p>  我们使用<code>yrm</code>来做<code>yarn</code>的镜像管理器；首先需要下载，使用如下命令下载安装</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> i yrm -g<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> i yrm <span class="token parameter variable">-g</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>  之后可以通过以下命令来查看所提供的镜像地址</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">yrm <span class="token function">ls</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>  可以看到</p>
@@ -741,7 +742,7 @@ NPM Registry has been <span class="token builtin class-name">set</span> to: http
 <h3 id="升级"><a href="#升级" class="headerlink" title="升级"></a>升级</h3><p>  有新版时，Yarn 会给你提示。 如需升级 Yarn ，仍然可以通过 Homebrew 来升级。</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">brew upgrade <span class="token function">yarn</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>  通过如下命令测试 Yarn 是否安装成功： </p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">yarn</span> --version<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">yarn</span> <span class="token parameter variable">--version</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <h3 id="建议"><a href="#建议" class="headerlink" title="建议"></a>建议</h3><p>  我们选择 yarn 的主要原因是依赖安装速度快，默认生成的 yarn.lock 会保证所有成员的模块依赖目录能够很好的保持一致。<br>  yarn install 和 yarn upgrade 的执行逻辑，可以让你可以很清晰的管理本地依赖的版本更新时机，又能很好的让所有开发人员的本地依赖保持一致性。<br>  使用 npm install 则有些乱，当你不想写死版本号依赖时，它总会安装依赖包最新可用的版本，但这在有时候并不是你想要的。<br>  在 yarn 之前，我们使用的是 npm+淘宝仓库方案，也会使用 cnpm。在国内，cnpm 的依赖安装速度比 yarn 还要快，但 cnpm 在 windows 下通过创建链接引用的方式管理包依赖，可能会带来一些问题。<br>  现在我们会默认使用淘宝仓库，使用 npm 管理全局依赖，使用 yarn 管理具体项目内的依赖。<br>  在一个新的项目中使用 yarn，我们会这么来做：<br>  1.  写好 package.json，写入初始的第三方依赖<br>  2.  执行 yarn 命令，初始化安装项目依赖，生成 yarn.lock 文件<br>  3.  后续通过执行 yarn add xxx 添加更多需要的依赖（也可直接在 package.json 文件中写入）<br>  4.  当确定需要更新依赖模块到其最新版本时，执行 yarn upgrade 命令<br>  5.  配置项目启动命令执行前，先执行 yarn 命令，以保证当 yarn.lock 被更新时，本地依赖也及时得到更新。例如，在 package.json 的 script 部分中配置 start 命令： “start”: “yarn &amp;&amp; yarn run build:dev”</p>
 <br>
@@ -975,7 +976,7 @@ NPM Registry has been <span class="token builtin class-name">set</span> to: http
 
 
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/2.2.0/quicklink.umd.js" integrity="sha256-4kQf9z5ntdQrzsBC3YSHnEz02Z9C1UeW/E9OgnvlzSY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/2.3.0/quicklink.umd.js" integrity="sha256-yvJQOINiH9fWemHn0vCA5lsHWJaHs6/ZmO+1Ft04SvM=" crossorigin="anonymous"></script>
   <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":true,"delay":true,"timeout":3000,"priority":true,"ignores":null,"url":"https://www.xiaosige.com/post/2dcb4b.html"}</script>
   <script src="/js/third-party/quicklink.js"></script>
 <script class="next-config" data-name="changyan" type="application/json">{"enable":true,"appid":"cyvSPOTJq","appkey":"4436699688bbb9caa6e8826551a7c0f7"}</script>

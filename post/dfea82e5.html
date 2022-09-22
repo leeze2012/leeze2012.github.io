@@ -4,7 +4,7 @@
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
 <meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 5.4.0">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 5.4.2">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="https://static.xiaosige.com/img/favicon.png">
@@ -21,7 +21,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"www.xiaosige.com","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.12.3","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"changyan","storage":true,"lazyload":true,"nav":null,"activeClass":"changyan"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"www.xiaosige.com","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.13.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"changyan","storage":true,"lazyload":true,"nav":null,"activeClass":"changyan"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="介绍    Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。hexo 博客在 Linux 系统中搭建是非常简单的，在 WIN 系统中比较复杂，我们接触的手机📱永远要比电脑的时间要多那么我们可以在安卓手机上使用 termux 来搭建，这样随时随地都可以写做和发表文章。">
 <meta property="og:type" content="article">
@@ -53,6 +53,7 @@
 
   <script src="/js/third-party/analytics/baidu-analytics.js"></script>
   <script async src="https://hm.baidu.com/hm.js?7a645cfcecaf8f711cd7518386adcc74"></script>
+
 
 
 
@@ -694,7 +695,7 @@ canvas#canvas {
 
 <p>   参考：<a href="/post/c0a81ac4.html" title="Mac正确的安装和使用nvm">Mac正确的安装和使用nvm</a></p>
 <li> <mark class="label danger">Hexo</mark> 环境安装：</li>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ <span class="token function">npm</span> <span class="token function">install</span> -g hexo-cli<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ <span class="token function">npm</span> <span class="token function">install</span> <span class="token parameter variable">-g</span> hexo-cli<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 </ol>
 
 <h3 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h3><p>   安装完成之后，新建一个文件夹(例如: <code>blog</code>)，执行以下命令进行初始化：</p>
@@ -740,8 +741,8 @@ hexo s <span class="token comment"># 启动本地服务，进行文章预览调�
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">..</span><span class="token punctuation">..</span><span class="token punctuation">..</span>
 ssh-key <span class="token punctuation">..</span><span class="token punctuation">..</span>
 省略。。。
-$ <span class="token function">git</span> config --global user.name <span class="token string">"your name"</span>
-$ <span class="token function">git</span> config --global user.email <span class="token string">"email@email.com"</span>
+$ <span class="token function">git</span> config <span class="token parameter variable">--global</span> user.name <span class="token string">"your name"</span>
+$ <span class="token function">git</span> config <span class="token parameter variable">--global</span> user.email <span class="token string">"email@email.com"</span>
 省略。。。
 <span class="token punctuation">..</span><span class="token punctuation">..</span><span class="token punctuation">..</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
@@ -750,7 +751,7 @@ $ <span class="token function">git</span> config --global user.email <span class
 <li>安装 <font color="LightCoral" size="3">hexo-deployer-git</font> 插件</li>
 
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ <span class="token builtin class-name">cd</span> blog
-$ <span class="token function">npm</span> <span class="token function">install</span> hexo-deployer-git --save<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+$ <span class="token function">npm</span> <span class="token function">install</span> hexo-deployer-git <span class="token parameter variable">--save</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <div style="height: 10px;"></div>
 
@@ -768,7 +769,7 @@ deploy:
 
 <li>安装完成插件之后，<font color="LightCoral" size="3">blog</font> 目录下使用以下命令部署</li>
 
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo d -g <span class="token comment"># 在部署前先生成</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo d <span class="token parameter variable">-g</span> <span class="token comment"># 在部署前先生成</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 </ol>
 
@@ -779,7 +780,7 @@ deploy:
 $ hexo g         <span class="token comment"># 生成静态文件</span>
 $ hexo d         <span class="token comment"># 部署</span>
 $ hexo s         <span class="token comment"># 启动本地服务，可以通过http://localhost:4000查看</span>
-$ hexo s --debug <span class="token comment"># 使用debug模式启动服务</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+$ hexo s <span class="token parameter variable">--debug</span> <span class="token comment"># 使用debug模式启动服务</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h2 id="备份"><a href="#备份" class="headerlink" title="备份"></a>备份</h2><ol>
 
@@ -797,7 +798,7 @@ $ hexo s --debug <span class="token comment"># 使用debug模式启动服务</sp
 <div style="height: 10px;"></div>
 
 <p>这个时候 blog 的版本库已经创建好了。<br>验证是否成功，如果有一个 <font color="hotpink" size="4"> .git </font> 的隐藏文件就说明创建成功。<br>查看隐藏文件</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">ls</span> -a<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">ls</span> <span class="token parameter variable">-a</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <div style="height: 10px;"></div>
 
@@ -833,13 +834,13 @@ $ hexo s --debug <span class="token comment"># 使用debug模式启动服务</sp
 
 <li> 注释备份内容，明确的注释可以回退版本</li>
 
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> commit -m <span class="token string">"博客备份"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> commit <span class="token parameter variable">-m</span> <span class="token string">"博客备份"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <div style="height: 10px;"></div>
 
 <li> 第一次强制上传文件到 github 仓库</li>
 
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> push -u origin master<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> push <span class="token parameter variable">-u</span> origin master<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <div style="height: 10px;"></div>
 这样博客就备份成功了，之后备份直接前面 <mark class="label danger">6</mark> 、<mark class="label danger">7</mark> 步，第 <font color="green" size="4">8</font> 部直接使用下面命令就可以了
@@ -854,7 +855,7 @@ $ hexo s --debug <span class="token comment"># 使用debug模式启动服务</sp
 
 <p>  要实现这个自动备份功能，需要依赖NodeJs的一个<code>shelljs</code>模块,该模块重新包装了<code>child_process</code>,调用系统命令更加的方便。（其实就是因为博主懒( ╯▽╰)）该模块需要安装后使用。</p>
 <p>在命令中键入以下命令，完成<code>shelljs</code>模块的安装：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> shelljs --save<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> shelljs <span class="token parameter variable">--save</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <div style="height: 10px;"></div>
 编写自动备份脚本
@@ -959,27 +960,27 @@ hexo init
 <li> 安装相应插件：</li>
 
 <p>   本人<code>package.json</code>，<a href="#pkJson">参考</a></p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> hexo-deployer-git --save
-<span class="token function">npm</span> <span class="token function">install</span> hexo-generator-searchdb --save
-<span class="token function">npm</span> <span class="token function">install</span> valine --save
-<span class="token function">npm</span> <span class="token function">install</span> hexo-symbols-count-time --save
-<span class="token function">npm</span> <span class="token function">install</span> hexo-baidu-url-submit --save
-<span class="token function">npm</span> <span class="token function">install</span> hexo-abbrlink --save
-<span class="token function">npm</span> <span class="token function">install</span> hexo-blog-encrypt --save
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> hexo-deployer-git <span class="token parameter variable">--save</span>
+<span class="token function">npm</span> <span class="token function">install</span> hexo-generator-searchdb <span class="token parameter variable">--save</span>
+<span class="token function">npm</span> <span class="token function">install</span> valine <span class="token parameter variable">--save</span>
+<span class="token function">npm</span> <span class="token function">install</span> hexo-symbols-count-time <span class="token parameter variable">--save</span>
+<span class="token function">npm</span> <span class="token function">install</span> hexo-baidu-url-submit <span class="token parameter variable">--save</span>
+<span class="token function">npm</span> <span class="token function">install</span> hexo-abbrlink <span class="token parameter variable">--save</span>
+<span class="token function">npm</span> <span class="token function">install</span> hexo-blog-encrypt <span class="token parameter variable">--save</span>
 
-<span class="token function">npm</span> uninstall hexo-generator-index --save
-<span class="token function">npm</span> <span class="token function">install</span> hexo-generator-index-pin-top --save
+<span class="token function">npm</span> uninstall hexo-generator-index <span class="token parameter variable">--save</span>
+<span class="token function">npm</span> <span class="token function">install</span> hexo-generator-index-pin-top <span class="token parameter variable">--save</span>
 
-<span class="token function">npm</span> <span class="token function">install</span> hexo-asset-image --save  <span class="token punctuation">(</span>推荐这个<span class="token punctuation">)</span> 
+<span class="token function">npm</span> <span class="token function">install</span> hexo-asset-image <span class="token parameter variable">--save</span>  <span class="token punctuation">(</span>推荐这个<span class="token punctuation">)</span> 
 
 <span class="token comment">## 以下参考选择</span>
 
-<span class="token function">npm</span> <span class="token function">install</span> hexo-tag-aplayer --save
-<span class="token function">npm</span> <span class="token function">install</span> hexo-tag-dplayer --save
+<span class="token function">npm</span> <span class="token function">install</span> hexo-tag-aplayer <span class="token parameter variable">--save</span>
+<span class="token function">npm</span> <span class="token function">install</span> hexo-tag-dplayer <span class="token parameter variable">--save</span>
 
-<span class="token function">npm</span> <span class="token function">install</span> hexo-hide-posts --save
+<span class="token function">npm</span> <span class="token function">install</span> hexo-hide-posts <span class="token parameter variable">--save</span>
 <span class="token comment">#二选一</span>
-<span class="token function">npm</span> <span class="token function">install</span> hexo-spoiler --save
+<span class="token function">npm</span> <span class="token function">install</span> hexo-spoiler <span class="token parameter variable">--save</span>
 
 <span class="token comment">## 代码主题不用highlight，改用prismjs时，可以扩展prismjs的主题</span>
 <span class="token comment">## npm i -S hexo-prism-plugin </span>
@@ -987,10 +988,10 @@ hexo init
 <span class="token function">npm</span> <span class="token function">install</span> prism-themes 
 
 <span class="token comment"># 添加 RSS 订阅支持（可选的）atom/rss2</span>
-<span class="token function">npm</span> <span class="token function">install</span> --save hexo-generator-feed
+<span class="token function">npm</span> <span class="token function">install</span> <span class="token parameter variable">--save</span> hexo-generator-feed
 
 <span class="token comment"># 添加 emoji 表情支持（可选的）</span>
-<span class="token function">npm</span> <span class="token function">install</span> hexo-filter-github-emojis --save
+<span class="token function">npm</span> <span class="token function">install</span> hexo-filter-github-emojis <span class="token parameter variable">--save</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <div style="height: 10px;"></div>
@@ -1071,7 +1072,7 @@ hexo init
   <span class="token key atrule">ms_browserconfig</span><span class="token punctuation">:</span> /my_images/browserconfig.xml<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h3 id="一键部署插件"><a href="#一键部署插件" class="headerlink" title="一键部署插件"></a>一键部署插件</h3><p>  插件：<a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo-deployer-git">hexo-deployer-git</a><br>  安装插件：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> hexo-deployer-git --save<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> hexo-deployer-git <span class="token parameter variable">--save</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>  然后修改<code>站点配置文件</code> 中的配置：</p>
 <pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">deploy</span><span class="token punctuation">:</span>
   <span class="token punctuation">-</span> <span class="token key atrule">type</span><span class="token punctuation">:</span> git
@@ -1080,7 +1081,7 @@ hexo init
 
 <h3 id="back2top"><a href="#back2top" class="headerlink" title="back2top"></a>back2top</h3><p>  Hexo 修改 <code>back2top</code> 标签： <a target="_blank" rel="noopener" href="https://github.com/jiangtj-lab/hexo-cake-moon-menu">hexo-cake-moon-menu</a></p>
 <p>  安装插件：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> hexo-cake-moon-menu --save<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> hexo-cake-moon-menu <span class="token parameter variable">--save</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>  然后在站点配置文件<code>_config.yml</code> 中添加以下代码：</p>
 <pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">moon_menu</span><span class="token punctuation">:</span>
@@ -1097,7 +1098,7 @@ hexo init
 
 <h3 id="减少出站链接"><a href="#减少出站链接" class="headerlink" title="减少出站链接"></a>减少出站链接</h3><p>  减少出站链接能够有效防止权重分散，hexo 有很方便的自动为出站链接添加 <code>nofollow</code> 标签的插件。</p>
 <p>  首先安装 <code>hexo-filter-nofollow</code> 插件：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> hexo-filter-nofollow --save<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> hexo-filter-nofollow <span class="token parameter variable">--save</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>  然后我们在站点的配置文件<code>_config.yml</code> 中添加配置，将 <code>nofollow</code> 设置为 <code>true</code>：</p>
 <pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token comment"># 外部链接优化</span>
 <span class="token key atrule">nofollow</span><span class="token punctuation">:</span>
@@ -1109,7 +1110,7 @@ hexo init
 <p>  其中 <code>exclude</code>（例外的链接，比如友链）将不会被加上 <code>nofollow</code> 属性。 </p>
 <h3 id="hexo-本地搜索"><a href="#hexo-本地搜索" class="headerlink" title="hexo 本地搜索"></a>hexo 本地搜索</h3><p>  NexT 主题已经实现这个功能，它用了 Hexo 的拓展包 hexo-generator-searchdb，预先生成了一个文本库 search.xml，然后传到了网站里面。在本地搜索的时候，NexT 直接用 javascript 调用了这个文件，从而实现了静态网站的本地搜索。</p>
 <p>  安装插件:</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> hexo-generator-searchdb --save<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> hexo-generator-searchdb <span class="token parameter variable">--save</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>  然后我们修改站点配置<code>_config.yml</code> 文件，添加如下内容：</p>
 <pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token comment"># 本地搜索</span>
 <span class="token key atrule">search</span><span class="token punctuation">:</span>
@@ -1138,7 +1139,7 @@ local_search:
   preload: <span class="token boolean">false</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h3 id="Rss-订阅"><a href="#Rss-订阅" class="headerlink" title="Rss 订阅"></a>Rss 订阅</h3><p>  安装插件：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> hexo-generator-feed --save<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> hexo-generator-feed <span class="token parameter variable">--save</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>  在站点配置文件<code>_config.yml</code> 中添加以下代码：</p>
 <pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">feed</span><span class="token punctuation">:</span>
   <span class="token key atrule">type</span><span class="token punctuation">:</span> atom
@@ -1154,7 +1155,7 @@ local_search:
   template<span class="token punctuation">:</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h3 id="增加阅读时间和字数统计"><a href="#增加阅读时间和字数统计" class="headerlink" title="增加阅读时间和字数统计"></a>增加阅读时间和字数统计</h3><p>  首先安装 <code>hexo-symbols-count-time</code>:</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> i hexo-symbols-count-time --save<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> i hexo-symbols-count-time <span class="token parameter variable">--save</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>  如果之前安装了<code>hexo-wordcount</code>就要卸载掉npm uninstall hexo-wordcount，因为它只适用于老版本，网页也有教程是这个，<br>  修改站点配置文件<code>_config.yml</code>，没有就添加:</p>
 <pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">symbols_count_time</span><span class="token punctuation">:</span> 
   <span class="token key atrule">symbols</span><span class="token punctuation">:</span> <span class="token boolean important">true</span> <span class="token comment">#文章内是否显示</span>
@@ -1179,7 +1180,7 @@ local_search:
 <p>  最后需要<code>hexo clean</code>然后重新生成，否则可能会出现阅读时间NaN字样，参考官方</p>
 <h3 id="永久链接插件"><a href="#永久链接插件" class="headerlink" title="永久链接插件"></a>永久链接插件</h3><p>  插件：<a target="_blank" rel="noopener" href="https://github.com/rozbo/hexo-abbrlink">hexo-abbrlink</a></p>
 <p>  安装插件：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> hexo-abbrlink --save<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> hexo-abbrlink <span class="token parameter variable">--save</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>  然后我们可以在<code>站点配置</code>文件中修改为：</p>
 <pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token comment"># URL</span>
 <span class="token key atrule">url</span><span class="token punctuation">:</span> https<span class="token punctuation">:</span>//blog.juanertu.com
@@ -1193,7 +1194,7 @@ local_search:
   <span class="token key atrule">alg</span><span class="token punctuation">:</span> crc32 <span class="token comment"># 算法：crc16(default) and crc32</span>
   <span class="token key atrule">rep</span><span class="token punctuation">:</span> hex <span class="token comment"># 进制：dec(default) and hex</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="百度主动推送"><a href="#百度主动推送" class="headerlink" title="百度主动推送"></a>百度主动推送</h3><p>  插件：<a target="_blank" rel="noopener" href="https://github.com/huiwang/hexo-baidu-url-submit">hexo-baidu-url-submit</a><br>  安装插件：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> hexo-baidu-url-submit --save<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> hexo-baidu-url-submit <span class="token parameter variable">--save</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>  在<code>站点配置文件</code>中添加以下代码：</p>
 <pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token comment"># 百度主动推送</span>
 <span class="token key atrule">baidu_url_submit</span><span class="token punctuation">:</span>
@@ -1202,18 +1203,18 @@ local_search:
   <span class="token key atrule">token</span><span class="token punctuation">:</span> <span class="token comment">## 准入秘钥</span>
   <span class="token key atrule">path</span><span class="token punctuation">:</span> baidu_urls.txt <span class="token comment">## 文本文档的地址， 新链接会保存在此文本文档里</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="站点地图"><a href="#站点地图" class="headerlink" title="站点地图"></a>站点地图</h3><ol>
-<li>通用站点地图<br>  地址：<a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo-generator-sitemap">hexo-generator-sitemap</a><br>  安装配置：<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> hexo-generator-sitemap --save<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<li>通用站点地图<br>  地址：<a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo-generator-sitemap">hexo-generator-sitemap</a><br>  安装配置：<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> hexo-generator-sitemap <span class="token parameter variable">--save</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
   然后我们需要在 Hexo <code>站点配置文件</code>中加入 sitemap 插件：<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token comment"># 通用站点地图</span>
 <span class="token key atrule">sitemap</span><span class="token punctuation">:</span>
   <span class="token key atrule">path</span><span class="token punctuation">:</span> sitemap.xml<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
-<li>百度站点地图<br>  地址：<a target="_blank" rel="noopener" href="https://github.com/coneycode/hexo-generator-baidu-sitemap">hexo-generator-baidu-sitemap</a><br>  安装配置：<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> hexo-generator-baidu-sitemap --save<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<li>百度站点地图<br>  地址：<a target="_blank" rel="noopener" href="https://github.com/coneycode/hexo-generator-baidu-sitemap">hexo-generator-baidu-sitemap</a><br>  安装配置：<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> hexo-generator-baidu-sitemap <span class="token parameter variable">--save</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
   具体配置类似通用站点地图，当然也可以看官方提供的教程，下面是一个简单的配置，我们在 Hexo <code>站点配置文件</code>中添加：<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token comment"># 百度站点地图</span>
 <span class="token key atrule">baidusitemap</span><span class="token punctuation">:</span>
   <span class="token key atrule">path</span><span class="token punctuation">:</span> baidusitemap.xml<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
 </ol>
 <h3 id="文章置顶插件"><a href="#文章置顶插件" class="headerlink" title="文章置顶插件"></a>文章置顶插件</h3><p>  地址：<a target="_blank" rel="noopener" href="https://github.com/netcan/hexo-generator-index-pin-top">hexo-generator-index-pin-top</a><br>  安装插件：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> uninstall hexo-generator-index --save <span class="token comment">#卸载原来的插件</span>
-<span class="token function">npm</span> <span class="token function">install</span> hexo-generator-index-pin-top --save<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> uninstall hexo-generator-index <span class="token parameter variable">--save</span> <span class="token comment">#卸载原来的插件</span>
+<span class="token function">npm</span> <span class="token function">install</span> hexo-generator-index-pin-top <span class="token parameter variable">--save</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p>  在需要置顶的文章的 <code>Front-matter</code> 中加上 <code>top: true</code> 或者 <code>top: 任意数字</code>，比如：</p>
 <pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">title</span><span class="token punctuation">:</span> 谢谢你来看我的博客
 <span class="token key atrule">top</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
@@ -1238,7 +1239,7 @@ local_search:
 </span></span><span class="token inserted-sign inserted"><span class="token prefix inserted">+</span><span class="token line">  postMeta: source/_data/post-meta.swig</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <h3 id="静态资源压缩插件"><a href="#静态资源压缩插件" class="headerlink" title="静态资源压缩插件"></a>静态资源压缩插件</h3><p>  地址:<a target="_blank" rel="noopener" href="https://github.com/rozbo/hexo-neat">hexo-neat</a><br>  安装插件：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> hexo-neat --save<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> hexo-neat <span class="token parameter variable">--save</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>  然后我们需要在<code>站点配置</code>文件中添加以下代码：</p>
 <pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token comment"># 博文压缩</span>
 <span class="token key atrule">neat_enable</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
@@ -1263,7 +1264,7 @@ local_search:
     <span class="token punctuation">-</span> <span class="token string">'**/index.js'</span>
     <span class="token punctuation">-</span> <span class="token string">'**/fireworks.js'</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="推荐文章插件"><a href="#推荐文章插件" class="headerlink" title="推荐文章插件"></a>推荐文章插件</h3><p>  地址:<a target="_blank" rel="noopener" href="https://github.com/tea3/hexo-related-popular-posts">hexo-related-popular-posts</a><br>  安装插件：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> hexo-related-popular-posts --save<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> hexo-related-popular-posts <span class="token parameter variable">--save</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>  我们只需要在<code>主题配置</code>文件中修改：</p>
 <pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">related_posts</span><span class="token punctuation">:</span>
   <span class="token key atrule">enable</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
@@ -1616,7 +1617,7 @@ tags:
 
 
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/2.2.0/quicklink.umd.js" integrity="sha256-4kQf9z5ntdQrzsBC3YSHnEz02Z9C1UeW/E9OgnvlzSY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/2.3.0/quicklink.umd.js" integrity="sha256-yvJQOINiH9fWemHn0vCA5lsHWJaHs6/ZmO+1Ft04SvM=" crossorigin="anonymous"></script>
   <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":true,"delay":true,"timeout":3000,"priority":true,"ignores":null,"url":"https://www.xiaosige.com/post/dfea82e5.html"}</script>
   <script src="/js/third-party/quicklink.js"></script>
 <script class="next-config" data-name="changyan" type="application/json">{"enable":true,"appid":"cyvSPOTJq","appkey":"4436699688bbb9caa6e8826551a7c0f7"}</script>

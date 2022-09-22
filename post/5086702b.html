@@ -4,7 +4,7 @@
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
 <meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 5.4.0">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 5.4.2">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="https://static.xiaosige.com/img/favicon.png">
@@ -21,7 +21,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"www.xiaosige.com","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.12.3","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"changyan","storage":true,"lazyload":true,"nav":null,"activeClass":"changyan"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"www.xiaosige.com","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.13.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"changyan","storage":true,"lazyload":true,"nav":null,"activeClass":"changyan"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="介绍  Portainer是Docker的图形化管理工具，提供状态显示面板、应用模板快速部署、容器镜像网络数据卷的基本操作（包括上传下载镜像，创建容器等操作）、事件日志显示、容器控制台操作、Swarm集群和服务等集中管理和操作、登录用户管理和控制等功能。功能十分全面，基本能满足中小型单位对容器管理的全部需求。">
 <meta property="og:type" content="article">
@@ -51,6 +51,7 @@
 
   <script src="/js/third-party/analytics/baidu-analytics.js"></script>
   <script async src="https://hm.baidu.com/hm.js?7a645cfcecaf8f711cd7518386adcc74"></script>
+
 
 
 
@@ -678,7 +679,7 @@ canvas#canvas {
 <li>拉取新的镜像<br>  老 版：   <code>portainer/portainer</code><br>  社区版： <code>portainer/portainer-ce</code><br>  企业版： <code>portainer/portainer-ee</code><pre class="line-numbers language-none"><code class="language-none">docker pull portainer/portainer-ce<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 <li>创建数据卷<pre class="line-numbers language-none"><code class="language-none">docker volume create portainer_data<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
   位置：<code>/var/lib/docker/volumes/portainer_data</code></li>
-<li>创建自己的网络<br>  创建我们固定的ip网段，可以防止服务器卡死宕机强制重启后，导致的容器ip自动重启后产生变化,而导致docker容器内部通过网段通信的问题<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> network create --subnet<span class="token operator">=</span><span class="token number">172.172</span>.0.0/24 --gateway <span class="token number">172.172</span>.0.1 docker-mynet <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li>创建自己的网络<br>  创建我们固定的ip网段，可以防止服务器卡死宕机强制重启后，导致的容器ip自动重启后产生变化,而导致docker容器内部通过网段通信的问题<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> network create <span class="token parameter variable">--subnet</span><span class="token operator">=</span><span class="token number">172.172</span>.0.0/24 <span class="token parameter variable">--gateway</span> <span class="token number">172.172</span>.0.1 docker-mynet <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 <li>启动新的容器<pre class="line-numbers language-none"><code class="language-none">docker run -d \
 -e TZ=Asia/Shanghai \
 --restart unless-stopped \
@@ -687,14 +688,14 @@ canvas#canvas {
 -v /var/run/docker.sock:/var/run/docker.sock \
 -v portainer_data:/data \
 portainer/portainer-ce<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-或者<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> run --name portainer <span class="token punctuation">\</span>
---net docker-mynet --ip <span class="token number">172.172</span>.0.3 <span class="token punctuation">\</span>
--p <span class="token number">9000</span>:9000 <span class="token punctuation">\</span>
---restart<span class="token operator">=</span>always <span class="token punctuation">\</span>
--v /var/run/docker.sock:/var/run/docker.sock <span class="token punctuation">\</span>
--v /soft/docker/portainer/data:/data <span class="token punctuation">\</span>
--v /soft/docker/portainer/public:/public <span class="token punctuation">\</span>
--d portainer/portainer-ce <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+或者<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> run <span class="token parameter variable">--name</span> portainer <span class="token punctuation">\</span>
+<span class="token parameter variable">--net</span> docker-mynet <span class="token parameter variable">--ip</span> <span class="token number">172.172</span>.0.3 <span class="token punctuation">\</span>
+<span class="token parameter variable">-p</span> <span class="token number">9000</span>:9000 <span class="token punctuation">\</span>
+<span class="token parameter variable">--restart</span><span class="token operator">=</span>always <span class="token punctuation">\</span>
+<span class="token parameter variable">-v</span> /var/run/docker.sock:/var/run/docker.sock <span class="token punctuation">\</span>
+<span class="token parameter variable">-v</span> /soft/docker/portainer/data:/data <span class="token punctuation">\</span>
+<span class="token parameter variable">-v</span> /soft/docker/portainer/public:/public <span class="token punctuation">\</span>
+<span class="token parameter variable">-d</span> portainer/portainer-ce <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <blockquote>
 <p>参数<br><code>--net</code> docker-mynet 指定网段<br><code>--ip 172.172.0.3</code> 指定ip 服务器启动后不会发生改变<br><code>--restart=always</code> 随着docker 启动而启动</p>
 </blockquote>
@@ -705,17 +706,17 @@ portainer/portainer-ce<span aria-hidden="true" class="line-numbers-rows"><span><
 <li>查看<br>  在游览器输入如下地址：<code>http://10.211.55.81:9000</code></li>
 </ol>
 <h3 id="连接远程docker"><a href="#连接远程docker" class="headerlink" title="连接远程docker"></a>连接远程docker</h3><ol>
-<li>服务器配置docker<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">
+<li>服务器配置docker<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">
 <span class="token function">vim</span> /usr/lib/systemd/system/docker.service<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-  添加<code>-H tcp://0.0.0.0:2375</code>如下<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token comment"># ExecStart=/usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock</span>
+  添加<code>-H tcp://0.0.0.0:2375</code>如下<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># ExecStart=/usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock</span>
 
 改为：
 <span class="token comment"># leeze</span>
- <span class="token assign-left variable">ExecStart</span><span class="token operator">=</span>/usr/bin/dockerd -H fd:// --containerd<span class="token operator">=</span>/run/containerd/containerd.sock -H tcp://0.0.0.0:2375<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li>防火墙端口(<code>2375</code>)<br>  如果服务器有防火墙，请放开 <code>2375</code> 端口<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">firewall-cmd  --zone<span class="token operator">=</span>public --add-port<span class="token operator">=</span><span class="token number">2375</span>/tcp --permanent
-firewall-cmd --reload
+ <span class="token assign-left variable">ExecStart</span><span class="token operator">=</span>/usr/bin/dockerd <span class="token parameter variable">-H</span> fd:// <span class="token parameter variable">--containerd</span><span class="token operator">=</span>/run/containerd/containerd.sock <span class="token parameter variable">-H</span> tcp://0.0.0.0:2375<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li>防火墙端口(<code>2375</code>)<br>  如果服务器有防火墙，请放开 <code>2375</code> 端口<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">firewall-cmd  <span class="token parameter variable">--zone</span><span class="token operator">=</span>public --add-port<span class="token operator">=</span><span class="token number">2375</span>/tcp <span class="token parameter variable">--permanent</span>
+firewall-cmd <span class="token parameter variable">--reload</span>
 firewall-cmd --list-ports<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
-<li>重启 <code>docker</code> 服务 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">systemctl daemon-reload
+<li>重启 <code>docker</code> 服务 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">systemctl daemon-reload
 systemctl restart <span class="token function">docker</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
 <li>portainer中远程连接<img data-src="/post/5086702b/portainer001.png" class="" title="portainer-docker"></li>
 </ol>
@@ -943,7 +944,7 @@ systemctl restart <span class="token function">docker</span><span aria-hidden="t
 
 
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/2.2.0/quicklink.umd.js" integrity="sha256-4kQf9z5ntdQrzsBC3YSHnEz02Z9C1UeW/E9OgnvlzSY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/2.3.0/quicklink.umd.js" integrity="sha256-yvJQOINiH9fWemHn0vCA5lsHWJaHs6/ZmO+1Ft04SvM=" crossorigin="anonymous"></script>
   <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":true,"delay":true,"timeout":3000,"priority":true,"ignores":null,"url":"https://www.xiaosige.com/post/5086702b.html"}</script>
   <script src="/js/third-party/quicklink.js"></script>
 <script class="next-config" data-name="changyan" type="application/json">{"enable":true,"appid":"cyvSPOTJq","appkey":"4436699688bbb9caa6e8826551a7c0f7"}</script>

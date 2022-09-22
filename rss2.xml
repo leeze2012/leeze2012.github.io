@@ -172,11 +172,11 @@
       <guid>https://www.xiaosige.com/post/f43604d0.html</guid>
       <pubDate>Sun, 21 Aug 2022 13:07:12 GMT</pubDate>
       
-      <description>&lt;h3 id=&quot;下载Git配置用户名和邮箱&quot;&gt;&lt;a href=&quot;#下载Git配置用户名和邮箱&quot; class=&quot;headerlink&quot; title=&quot;下载Git配置用户名和邮箱&quot;&gt;&lt;/a&gt;下载Git配置用户名和邮箱&lt;/h3&gt;&lt;pre class=&quot;line-numbers language-bash&quot; data-language=&quot;bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;yum &lt;span class=&quot;token function&quot;&gt;install&lt;/span&gt; -y &lt;span class=&quot;token function&quot;&gt;git&lt;/span&gt;
+      <description>&lt;h3 id=&quot;下载Git配置用户名和邮箱&quot;&gt;&lt;a href=&quot;#下载Git配置用户名和邮箱&quot; class=&quot;headerlink&quot; title=&quot;下载Git配置用户名和邮箱&quot;&gt;&lt;/a&gt;下载Git配置用户名和邮箱&lt;/h3&gt;&lt;pre class=&quot;line-numbers language-bash&quot; data-language=&quot;bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;yum &lt;span class=&quot;token function&quot;&gt;install&lt;/span&gt; &lt;span class=&quot;token parameter variable&quot;&gt;-y&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;git&lt;/span&gt;
 
-&lt;span class=&quot;token function&quot;&gt;git&lt;/span&gt; config --global user.name &lt;span class=&quot;token string&quot;&gt;&#39;Git用户名&#39;&lt;/span&gt;
+&lt;span class=&quot;token function&quot;&gt;git&lt;/span&gt; config &lt;span class=&quot;token parameter variable&quot;&gt;--global&lt;/span&gt; user.name &lt;span class=&quot;token string&quot;&gt;&#39;Git用户名&#39;&lt;/span&gt;
 
-&lt;span class=&quot;token function&quot;&gt;git&lt;/span&gt; config --global user.email &lt;span class=&quot;token string&quot;&gt;&quot;Git邮箱&quot;&lt;/span&gt;
+&lt;span class=&quot;token function&quot;&gt;git&lt;/span&gt; config &lt;span class=&quot;token parameter variable&quot;&gt;--global&lt;/span&gt; user.email &lt;span class=&quot;token string&quot;&gt;&quot;Git邮箱&quot;&lt;/span&gt;
 &lt;span aria-hidden=&quot;true&quot; class=&quot;line-numbers-rows&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;code&gt;脚本提交的时候不输密码，所以需要配置ssh key，git仓库提供商的 ssh key配置验证方式不同，需自行查阅文档或者某度&lt;/code&gt;&lt;/p&gt;</description>
       
@@ -305,7 +305,7 @@
       <guid>https://www.xiaosige.com/post/55e5c59c.html</guid>
       <pubDate>Tue, 10 May 2022 06:48:00 GMT</pubDate>
       
-      <description>&lt;h5 id=&quot;查看所有信息&quot;&gt;&lt;a href=&quot;#查看所有信息&quot; class=&quot;headerlink&quot; title=&quot;查看所有信息&quot;&gt;&lt;/a&gt;查看所有信息&lt;/h5&gt;&lt;pre class=&quot;line-numbers language-shell&quot; data-language=&quot;shell&quot;&gt;&lt;code class=&quot;language-shell&quot;&gt;sysctl machdep.cpu&lt;span aria-hidden=&quot;true&quot; class=&quot;line-numbers-rows&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;</description>
+      <description>&lt;h5 id=&quot;查看所有信息&quot;&gt;&lt;a href=&quot;#查看所有信息&quot; class=&quot;headerlink&quot; title=&quot;查看所有信息&quot;&gt;&lt;/a&gt;查看所有信息&lt;/h5&gt;&lt;pre class=&quot;line-numbers language-bash&quot; data-language=&quot;bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function&quot;&gt;sysctl&lt;/span&gt; machdep.cpu&lt;span aria-hidden=&quot;true&quot; class=&quot;line-numbers-rows&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;</description>
       
       
       

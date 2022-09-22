@@ -4,7 +4,7 @@
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
 <meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 5.4.0">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 5.4.2">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="https://static.xiaosige.com/img/favicon.png">
@@ -21,7 +21,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"www.xiaosige.com","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.12.3","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"changyan","storage":true,"lazyload":true,"nav":null,"activeClass":"changyan"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"www.xiaosige.com","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.13.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"changyan","storage":true,"lazyload":true,"nav":null,"activeClass":"changyan"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="前言  本站由阿里云轻量服务器搭建 不支持25端口 所以使用465发送邮件，如果腾讯云可用25端口">
 <meta property="og:type" content="article">
@@ -51,6 +51,7 @@
 
   <script src="/js/third-party/analytics/baidu-analytics.js"></script>
   <script async src="https://hm.baidu.com/hm.js?7a645cfcecaf8f711cd7518386adcc74"></script>
+
 
 
 
@@ -671,12 +672,12 @@ canvas#canvas {
 
 <h3 id="打开163-QQ邮箱的-IMAP-SMTP服务，并获取授权密码"><a href="#打开163-QQ邮箱的-IMAP-SMTP服务，并获取授权密码" class="headerlink" title="打开163/QQ邮箱的 IMAP/SMTP服务，并获取授权密码"></a>打开163/QQ邮箱的 IMAP/SMTP服务，并获取授权密码</h3><img data-src="/post/9d73a089/mail001.png" class="" title="授权密码">
 
-<h3 id="阿里云服务器键入如下命令，按自己需求配置163-QQ即可！"><a href="#阿里云服务器键入如下命令，按自己需求配置163-QQ即可！" class="headerlink" title="阿里云服务器键入如下命令，按自己需求配置163/QQ即可！"></a>阿里云服务器键入如下命令，按自己需求配置163/QQ即可！</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">yum -y <span class="token function">install</span> mailx
+<h3 id="阿里云服务器键入如下命令，按自己需求配置163-QQ即可！"><a href="#阿里云服务器键入如下命令，按自己需求配置163-QQ即可！" class="headerlink" title="阿里云服务器键入如下命令，按自己需求配置163/QQ即可！"></a>阿里云服务器键入如下命令，按自己需求配置163/QQ即可！</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">yum <span class="token parameter variable">-y</span> <span class="token function">install</span> mailx
    
 <span class="token function">vim</span> /etc/mail.rc  在最后面添加下面参数，邮箱账号和援权密码根据自己的填写
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
-<h5 id="163邮箱"><a href="#163邮箱" class="headerlink" title="163邮箱"></a>163邮箱</h5><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token comment">#163配置参数</span>
+<h5 id="163邮箱"><a href="#163邮箱" class="headerlink" title="163邮箱"></a>163邮箱</h5><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment">#163配置参数</span>
 <span class="token builtin class-name">set</span> <span class="token assign-left variable">from</span><span class="token operator">=</span>授权密码的邮箱号
 
 <span class="token builtin class-name">set</span> <span class="token assign-left variable">smtp</span><span class="token operator">=</span>smtps://smtp.163.com:465
@@ -694,17 +695,17 @@ canvas#canvas {
 <span class="token comment">#创建163邮箱证书密匙</span>
 <span class="token function">mkdir</span> /root/.certs
 
-<span class="token builtin class-name">echo</span> -n <span class="token operator">|</span> openssl s_client -connect smtp.163.com:465 <span class="token operator">|</span> <span class="token function">sed</span> -ne <span class="token string">'/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p'</span> <span class="token operator">&gt;</span> ~/.certs/163.crt
+<span class="token builtin class-name">echo</span> <span class="token parameter variable">-n</span> <span class="token operator">|</span> openssl s_client <span class="token parameter variable">-connect</span> smtp.163.com:465 <span class="token operator">|</span> <span class="token function">sed</span> <span class="token parameter variable">-ne</span> <span class="token string">'/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p'</span> <span class="token operator">&gt;</span> ~/.certs/163.crt
  
-certutil -A -n <span class="token string">"GeoTrust Global CA"</span> -t <span class="token string">"C,,"</span> -d ~/.certs -i ~/.certs/163.crt
+certutil <span class="token parameter variable">-A</span> <span class="token parameter variable">-n</span> <span class="token string">"GeoTrust Global CA"</span> <span class="token parameter variable">-t</span> <span class="token string">"C,,"</span> <span class="token parameter variable">-d</span> ~/.certs <span class="token parameter variable">-i</span> ~/.certs/163.crt
  
-certutil -A -n <span class="token string">"GeoTrust SSL CA"</span> -t <span class="token string">"C,,"</span> -d ~/.certs -i ~/.certs/163.crt
+certutil <span class="token parameter variable">-A</span> <span class="token parameter variable">-n</span> <span class="token string">"GeoTrust SSL CA"</span> <span class="token parameter variable">-t</span> <span class="token string">"C,,"</span> <span class="token parameter variable">-d</span> ~/.certs <span class="token parameter variable">-i</span> ~/.certs/163.crt
  
-certutil -L -d /root/.certs
+certutil <span class="token parameter variable">-L</span> <span class="token parameter variable">-d</span> /root/.certs
  
-certutil -A -n <span class="token string">"GeoTrust SSL CA - G3"</span> -t <span class="token string">"Pu,Pu,Pu"</span> -d ~/.certs/ -i ~/.certs/163.crt
+certutil <span class="token parameter variable">-A</span> <span class="token parameter variable">-n</span> <span class="token string">"GeoTrust SSL CA - G3"</span> <span class="token parameter variable">-t</span> <span class="token string">"Pu,Pu,Pu"</span> <span class="token parameter variable">-d</span> ~/.certs/ <span class="token parameter variable">-i</span> ~/.certs/163.crt
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h5 id="QQ邮箱"><a href="#QQ邮箱" class="headerlink" title="QQ邮箱"></a>QQ邮箱</h5><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token comment">#QQ邮箱参数</span>
+<h5 id="QQ邮箱"><a href="#QQ邮箱" class="headerlink" title="QQ邮箱"></a>QQ邮箱</h5><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment">#QQ邮箱参数</span>
 <span class="token builtin class-name">set</span> <span class="token assign-left variable">from</span><span class="token operator">=</span>授权密码的邮箱号
 
 <span class="token builtin class-name">set</span> <span class="token assign-left variable">smtp</span><span class="token operator">=</span>smtps://smtp.qq.com:465
@@ -722,18 +723,18 @@ certutil -A -n <span class="token string">"GeoTrust SSL CA - G3"</span> -t <span
 <span class="token comment">#创建QQ邮箱证书密匙</span>
 <span class="token function">mkdir</span> /root/.certs
 
-<span class="token builtin class-name">echo</span> -n <span class="token operator">|</span> openssl s_client -connect smtp.qq.com:465 <span class="token operator">|</span> <span class="token function">sed</span> -ne <span class="token string">'/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p'</span> <span class="token operator">&gt;</span> ~/.certs/qq.crt
+<span class="token builtin class-name">echo</span> <span class="token parameter variable">-n</span> <span class="token operator">|</span> openssl s_client <span class="token parameter variable">-connect</span> smtp.qq.com:465 <span class="token operator">|</span> <span class="token function">sed</span> <span class="token parameter variable">-ne</span> <span class="token string">'/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p'</span> <span class="token operator">&gt;</span> ~/.certs/qq.crt
 
-certutil -A -n <span class="token string">"GeoTrust SSL CA"</span> -t <span class="token string">"C,,"</span> -d ~/.certs -i ~/.certs/qq.crt
+certutil <span class="token parameter variable">-A</span> <span class="token parameter variable">-n</span> <span class="token string">"GeoTrust SSL CA"</span> <span class="token parameter variable">-t</span> <span class="token string">"C,,"</span> <span class="token parameter variable">-d</span> ~/.certs <span class="token parameter variable">-i</span> ~/.certs/qq.crt
 
-certutil -A -n <span class="token string">"GeoTrust Global CA"</span> -t <span class="token string">"C,,"</span> -d ~/.certs -i ~/.certs/qq.crt
+certutil <span class="token parameter variable">-A</span> <span class="token parameter variable">-n</span> <span class="token string">"GeoTrust Global CA"</span> <span class="token parameter variable">-t</span> <span class="token string">"C,,"</span> <span class="token parameter variable">-d</span> ~/.certs <span class="token parameter variable">-i</span> ~/.certs/qq.crt
 
-certutil -L -d ~/.certs
+certutil <span class="token parameter variable">-L</span> <span class="token parameter variable">-d</span> ~/.certs
 
-certutil -A -n <span class="token string">"GeoTrust SSL CA - G3"</span> -t <span class="token string">"Pu,Pu,Pu"</span> -d ~/.certs/ -i ~/.certs/qq.crt
+certutil <span class="token parameter variable">-A</span> <span class="token parameter variable">-n</span> <span class="token string">"GeoTrust SSL CA - G3"</span> <span class="token parameter variable">-t</span> <span class="token string">"Pu,Pu,Pu"</span> <span class="token parameter variable">-d</span> ~/.certs/ <span class="token parameter variable">-i</span> ~/.certs/qq.crt
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token builtin class-name">echo</span> <span class="token string">"测试发送邮件"</span> <span class="token operator">|</span> mail -s <span class="token string">"Title"</span> 接收信息邮件@qq.com<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">echo</span> <span class="token string">"测试发送邮件"</span> <span class="token operator">|</span> mail <span class="token parameter variable">-s</span> <span class="token string">"Title"</span> 接收信息邮件@qq.com<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
     </div>
 
@@ -958,7 +959,7 @@ certutil -A -n <span class="token string">"GeoTrust SSL CA - G3"</span> -t <span
 
 
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/2.2.0/quicklink.umd.js" integrity="sha256-4kQf9z5ntdQrzsBC3YSHnEz02Z9C1UeW/E9OgnvlzSY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/2.3.0/quicklink.umd.js" integrity="sha256-yvJQOINiH9fWemHn0vCA5lsHWJaHs6/ZmO+1Ft04SvM=" crossorigin="anonymous"></script>
   <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":true,"delay":true,"timeout":3000,"priority":true,"ignores":null,"url":"https://www.xiaosige.com/post/9d73a089.html"}</script>
   <script src="/js/third-party/quicklink.js"></script>
 <script class="next-config" data-name="changyan" type="application/json">{"enable":true,"appid":"cyvSPOTJq","appkey":"4436699688bbb9caa6e8826551a7c0f7"}</script>

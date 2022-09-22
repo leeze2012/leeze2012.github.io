@@ -4,7 +4,7 @@
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
 <meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 5.4.0">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 5.4.2">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="https://static.xiaosige.com/img/favicon.png">
@@ -21,7 +21,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"www.xiaosige.com","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.12.3","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"changyan","storage":true,"lazyload":true,"nav":null,"activeClass":"changyan"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"www.xiaosige.com","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.13.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"changyan","storage":true,"lazyload":true,"nav":null,"activeClass":"changyan"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="在Linux下，我们经常要查看软件的安装路径以及查看设置环境变量。">
 <meta property="og:type" content="article">
@@ -49,6 +49,7 @@
 
   <script src="/js/third-party/analytics/baidu-analytics.js"></script>
   <script async src="https://hm.baidu.com/hm.js?7a645cfcecaf8f711cd7518386adcc74"></script>
+
 
 
 
@@ -668,18 +669,18 @@ canvas#canvas {
 
 <h3 id="CentOS查看软件安装路径"><a href="#CentOS查看软件安装路径" class="headerlink" title="CentOS查看软件安装路径"></a>CentOS查看软件安装路径</h3><ol>
 <li>通过rpm查看<br>  查看软件是否安装。首先我们需要查看软件是否已经安装，或者说查看安装的软件包名称。如查找是否安装mysql<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">rpm</span> -qa<span class="token operator">|</span> <span class="token function">grep</span> mysql<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li>接着根据 rpm -ql 列出软件包安装的文件<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">rpm</span> -ql mysql-libs-5.1.71-1.e16.x86_64<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li>综合上述以上的问题，可以直接使用 rpm -qal |grep mysql 查看mysql所有安装包的文件存储位置<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">rpm</span> -qal <span class="token operator">|</span> <span class="token function">grep</span> mysql<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li>接着根据 rpm -ql 列出软件包安装的文件<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">rpm</span> <span class="token parameter variable">-ql</span> mysql-libs-5.1.71-1.e16.x86_64<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li>综合上述以上的问题，可以直接使用 rpm -qal |grep mysql 查看mysql所有安装包的文件存储位置<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">rpm</span> <span class="token parameter variable">-qal</span> <span class="token operator">|</span> <span class="token function">grep</span> mysql<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 <li>yum查找<br>  除了rpm 查询还可以通过yum search 查找对应可以安装的软件包<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">yum search mysql<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li>其他查找方法<br>  除了根据软件包来找文件位置之外，最常用的就是通过find查找某个关键字比如mysql所有包含mysql服务的文件路径<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">find</span> / -name mysql<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li>其他查找方法<br>  除了根据软件包来找文件位置之外，最常用的就是通过find查找某个关键字比如mysql所有包含mysql服务的文件路径<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">find</span> / <span class="token parameter variable">-name</span> mysql<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 <li>Which查找命令<br>  Which命令是通过 PATH环境变量查找可执行文件路径，用于查找指向这个命令所在的文件夹;<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">which</span> mysql<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
   查找软件安装的目录</li>
 <li>Whereis命令和find类似，不过不同的是whereis是通过本地架构好的数据库索引查找会比较快。<br>  如果没有更新到数据库里面的文件或命令则无法查找到信息<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">whereis</span> mysql<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li>软件是否安装；例如：jenkins是否安装<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">rpm</span> -q <span class="token operator">|</span> <span class="token function">grep</span> jenkins<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li>可以直接使用 rpm -qal |grep mysql 查看mysql所有安装包的文件存储位置<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">rpm</span> -qal <span class="token operator">|</span><span class="token function">grep</span> jenkins <span class="token comment">#查看jenkins所有安装包的文件存储位置</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<li>软件是否安装；例如：jenkins是否安装<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">rpm</span> <span class="token parameter variable">-q</span> <span class="token operator">|</span> <span class="token function">grep</span> jenkins<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li>可以直接使用 rpm -qal |grep mysql 查看mysql所有安装包的文件存储位置<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">rpm</span> <span class="token parameter variable">-qal</span> <span class="token operator">|</span><span class="token function">grep</span> jenkins <span class="token comment">#查看jenkins所有安装包的文件存储位置</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
   <code>注意：源码安装的方式通过rpm命令是无法找出来的</code></li>
 <li>确定这个软件已经开启，则可以通过ps -aux |grep mysql,找出对一个的可执行文件所在的目录<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@localhost yum.repos.d<span class="token punctuation">]</span><span class="token comment"># ps -aux |grep mysql</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-  确定Nginx是以那个config文件启动的？<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">ps</span>  -ef <span class="token operator">|</span> <span class="token function">grep</span> nginx<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+  确定Nginx是以那个config文件启动的？<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">ps</span>  <span class="token parameter variable">-ef</span> <span class="token operator">|</span> <span class="token function">grep</span> nginx<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 </ol>
 <h3 id="CentOS-7设置、查看、删除环境变量的方法"><a href="#CentOS-7设置、查看、删除环境变量的方法" class="headerlink" title="CentOS 7设置、查看、删除环境变量的方法"></a>CentOS 7设置、查看、删除环境变量的方法</h3><p>  centos查看环境变量与设置环境变量在使用过程中很常见，本文整理了一些常用的与环境变量相关的命令，感兴趣的朋友可以参考下希望对你有所帮助</p>
 <ol>
@@ -941,7 +942,7 @@ Hello<span class="token operator">!</span><span aria-hidden="true" class="line-n
 
 
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/2.2.0/quicklink.umd.js" integrity="sha256-4kQf9z5ntdQrzsBC3YSHnEz02Z9C1UeW/E9OgnvlzSY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/2.3.0/quicklink.umd.js" integrity="sha256-yvJQOINiH9fWemHn0vCA5lsHWJaHs6/ZmO+1Ft04SvM=" crossorigin="anonymous"></script>
   <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":true,"delay":true,"timeout":3000,"priority":true,"ignores":null,"url":"https://www.xiaosige.com/post/3d2df54e.html"}</script>
   <script src="/js/third-party/quicklink.js"></script>
 <script class="next-config" data-name="changyan" type="application/json">{"enable":true,"appid":"cyvSPOTJq","appkey":"4436699688bbb9caa6e8826551a7c0f7"}</script>

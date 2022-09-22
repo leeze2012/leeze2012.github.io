@@ -4,7 +4,7 @@
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
 <meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 5.4.0">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 5.4.2">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="https://static.xiaosige.com/img/favicon.png">
@@ -21,7 +21,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"www.xiaosige.com","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.12.3","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"changyan","storage":true,"lazyload":true,"nav":null,"activeClass":"changyan"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"www.xiaosige.com","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.13.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"changyan","storage":true,"lazyload":true,"nav":null,"activeClass":"changyan"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="简介  Gitea是一个极易安装，运行非常快速，安装和使用体验良好的自建Git服务。采用Go作为后端语言，这使得只要生成一个可执行程序即可。并且他还支持跨平台，支持Linux、macOS和Windows以及各种架构，除了x86，amd64，还包括ARM和 PowerPC。   Github地址：https:&#x2F;&#x2F;github.com&#x2F;go-gitea&#x2F;gitea">
 <meta property="og:type" content="article">
@@ -51,6 +51,7 @@
 
   <script src="/js/third-party/analytics/baidu-analytics.js"></script>
   <script async src="https://hm.baidu.com/hm.js?7a645cfcecaf8f711cd7518386adcc74"></script>
+
 
 
 
@@ -697,16 +698,16 @@ canvas#canvas {
 
 <h3 id="下载镜像"><a href="#下载镜像" class="headerlink" title="下载镜像"></a>下载镜像</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> pull gitea/gitea<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<h3 id="创建目录"><a href="#创建目录" class="headerlink" title="创建目录"></a>创建目录</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">mkdir</span> -p /home/dockerdata/gitea/data
+<h3 id="创建目录"><a href="#创建目录" class="headerlink" title="创建目录"></a>创建目录</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">mkdir</span> <span class="token parameter variable">-p</span> /home/dockerdata/gitea/data
 
-<span class="token function">chmod</span> -R <span class="token number">777</span> data<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<span class="token function">chmod</span> <span class="token parameter variable">-R</span> <span class="token number">777</span> data<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="运行镜像"><a href="#运行镜像" class="headerlink" title="运行镜像"></a>运行镜像</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> run -p <span class="token number">10022</span>:22 -p <span class="token number">3000</span>:3000 --name<span class="token operator">=</span>gitea <span class="token punctuation">\</span>
--e <span class="token assign-left variable">TZ</span><span class="token operator">=</span>Asia/Shanghai <span class="token punctuation">\</span>
---privileged<span class="token operator">=</span>true <span class="token punctuation">\</span>
---restart<span class="token operator">=</span>always <span class="token punctuation">\</span>
--v /root/.docker/gitea/data:/data <span class="token punctuation">\</span>
--d gitea/gitea:latest
+<h3 id="运行镜像"><a href="#运行镜像" class="headerlink" title="运行镜像"></a>运行镜像</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> run <span class="token parameter variable">-p</span> <span class="token number">10022</span>:22 <span class="token parameter variable">-p</span> <span class="token number">3000</span>:3000 <span class="token parameter variable">--name</span><span class="token operator">=</span>gitea <span class="token punctuation">\</span>
+<span class="token parameter variable">-e</span> <span class="token assign-left variable">TZ</span><span class="token operator">=</span>Asia/Shanghai <span class="token punctuation">\</span>
+<span class="token parameter variable">--privileged</span><span class="token operator">=</span>true <span class="token punctuation">\</span>
+<span class="token parameter variable">--restart</span><span class="token operator">=</span>always <span class="token punctuation">\</span>
+<span class="token parameter variable">-v</span> /root/.docker/gitea/data:/data <span class="token punctuation">\</span>
+<span class="token parameter variable">-d</span> gitea/gitea:latest
 
 <span class="token comment"># --privileged=true 使用该参数，container内的root拥有真正的root权限（可根据需要选择是否要该参数）</span>
 <span class="token comment"># --restart=always  自动重启容器（可根据需要选择是否要该参数）</span>
@@ -714,18 +715,18 @@ canvas#canvas {
 <span class="token comment"># -v 容器卷挂载 （宿主机目录 ：容器目录）</span>
 <span class="token comment"># --net mybridge --ip=172.17.0.7 \ 自定义网络固定IP</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="开放端口"><a href="#开放端口" class="headerlink" title="开放端口"></a>开放端口</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">firewall-cmd  --zone<span class="token operator">=</span>public --add-port<span class="token operator">=</span><span class="token number">10022</span>/tcp --permanent
-firewall-cmd  --zone<span class="token operator">=</span>public --add-port<span class="token operator">=</span><span class="token number">3000</span>/tcp --permanent
-firewall-cmd --reload<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h3 id="开放端口"><a href="#开放端口" class="headerlink" title="开放端口"></a>开放端口</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">firewall-cmd  <span class="token parameter variable">--zone</span><span class="token operator">=</span>public --add-port<span class="token operator">=</span><span class="token number">10022</span>/tcp <span class="token parameter variable">--permanent</span>
+firewall-cmd  <span class="token parameter variable">--zone</span><span class="token operator">=</span>public --add-port<span class="token operator">=</span><span class="token number">3000</span>/tcp <span class="token parameter variable">--permanent</span>
+firewall-cmd <span class="token parameter variable">--reload</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <h3 id="持久化需要用到数据库"><a href="#持久化需要用到数据库" class="headerlink" title="持久化需要用到数据库"></a>持久化需要用到数据库</h3><ol>
-<li>创建mysql容器<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> run --restart<span class="token operator">=</span>always --privileged<span class="token operator">=</span>true -p <span class="token number">3307</span>:3306 --name mysql8 <span class="token punctuation">\</span>
---net docker-mynet --ip <span class="token number">172.172</span>.0.5  <span class="token punctuation">\</span>
--v /Users/lizhang/docker/mysql/conf/my.cnf:/etc/mysql/conf.d/mysqld.cnf <span class="token punctuation">\</span>
--v /Users/lizhang/docker/mysql/data:/var/lib/mysql <span class="token punctuation">\</span>
--v /Users/lizhang/docker/mysql/logs:/var/log/mysql <span class="token punctuation">\</span>
--e <span class="token assign-left variable">MYSQL_ROOT_PASSWORD</span><span class="token operator">=</span><span class="token number">12345678</span> <span class="token punctuation">\</span>
--d mysql:8.0.23<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li>创建mysql容器<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> run <span class="token parameter variable">--restart</span><span class="token operator">=</span>always <span class="token parameter variable">--privileged</span><span class="token operator">=</span>true <span class="token parameter variable">-p</span> <span class="token number">3307</span>:3306 <span class="token parameter variable">--name</span> mysql8 <span class="token punctuation">\</span>
+<span class="token parameter variable">--net</span> docker-mynet <span class="token parameter variable">--ip</span> <span class="token number">172.172</span>.0.5  <span class="token punctuation">\</span>
+<span class="token parameter variable">-v</span> /Users/lizhang/docker/mysql/conf/my.cnf:/etc/mysql/conf.d/mysqld.cnf <span class="token punctuation">\</span>
+<span class="token parameter variable">-v</span> /Users/lizhang/docker/mysql/data:/var/lib/mysql <span class="token punctuation">\</span>
+<span class="token parameter variable">-v</span> /Users/lizhang/docker/mysql/logs:/var/log/mysql <span class="token punctuation">\</span>
+<span class="token parameter variable">-e</span> <span class="token assign-left variable">MYSQL_ROOT_PASSWORD</span><span class="token operator">=</span><span class="token number">12345678</span> <span class="token punctuation">\</span>
+<span class="token parameter variable">-d</span> mysql:8.0.23<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 <li>配置远程访问（root）,使用shell命令<div class="note info no-icon"><p>进入mysql 容器 <code>docker exec -it mysql bash</code><br>登录mysql <code>mysql -u root -p</code><br>使用mysql 数据库 <code>use mysql;</code><br>配置权限并刷新：<br><code>ALTER USER 'root'@'%' I：DENTIFIED WITH mysql_native_password BY 'password';</code><br><code>GRANT ALL PRIVILEGES ON *.* TO 'root'@'%';</code><br><code>FLUSH PRIVILEGES;</code></p>
 </div></li>
 <li>远程连接mysql 并创建<code>gitea</code>数据库<br>  如果您使用 MySQL，请使用 <code>INNODB</code> 引擎以及 <code>utf8mb4</code> 字符集</li>
@@ -763,12 +764,12 @@ firewall-cmd --reload<span aria-hidden="true" class="line-numbers-rows"><span></
 <span class="token key attr-name">SSL_MODE</span> <span class="token punctuation">=</span> <span class="token value attr-value">disable</span>
 <span class="token key attr-name">CHARSET</span>  <span class="token punctuation">=</span> <span class="token value attr-value">utf8</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="PS-gogs"><a href="#PS-gogs" class="headerlink" title="PS gogs"></a>PS gogs</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">docker</span> run -p <span class="token number">10023</span>:22 -p <span class="token number">3001</span>:3000 --name<span class="token operator">=</span>gogs <span class="token punctuation">\</span>
---net docker-mynet --ip <span class="token number">172.172</span>.0.11 <span class="token punctuation">\</span>
---restart<span class="token operator">=</span>always <span class="token punctuation">\</span>
--e <span class="token assign-left variable">TZ</span><span class="token operator">=</span><span class="token string">"Asia/Shanghai"</span> <span class="token punctuation">\</span>
--v /root/.docker/gogs/data:/data <span class="token punctuation">\</span>
--d gogs/gogs<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="PS-gogs"><a href="#PS-gogs" class="headerlink" title="PS gogs"></a>PS gogs</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> run <span class="token parameter variable">-p</span> <span class="token number">10023</span>:22 <span class="token parameter variable">-p</span> <span class="token number">3001</span>:3000 <span class="token parameter variable">--name</span><span class="token operator">=</span>gogs <span class="token punctuation">\</span>
+<span class="token parameter variable">--net</span> docker-mynet <span class="token parameter variable">--ip</span> <span class="token number">172.172</span>.0.11 <span class="token punctuation">\</span>
+<span class="token parameter variable">--restart</span><span class="token operator">=</span>always <span class="token punctuation">\</span>
+<span class="token parameter variable">-e</span> <span class="token assign-left variable">TZ</span><span class="token operator">=</span><span class="token string">"Asia/Shanghai"</span> <span class="token punctuation">\</span>
+<span class="token parameter variable">-v</span> /root/.docker/gogs/data:/data <span class="token punctuation">\</span>
+<span class="token parameter variable">-d</span> gogs/gogs<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><ol>
 <li><code>Webhook报错 webhook.ALLOWED_HOST_LIST setting</code><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">Delivery: Post <span class="token string">"http://192.168.107.128:3080/hook?secret=tPSP4BPvclfFKPPT2XPgPnIs7fNcC0jQ"</span><span class="token builtin class-name">:</span> dial tcp <span class="token number">192.168</span>.107.128:3080: webhook can only call allowed HTTP servers <span class="token punctuation">(</span>check your webhook.ALLOWED_HOST_LIST setting<span class="token punctuation">)</span>, deny <span class="token string">'192.168.107.128(192.168.107.128:3080)'</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
@@ -1000,7 +1001,7 @@ ALLOWED_HOST_LIST <span class="token operator">=</span> <span class="token numbe
 
 
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/2.2.0/quicklink.umd.js" integrity="sha256-4kQf9z5ntdQrzsBC3YSHnEz02Z9C1UeW/E9OgnvlzSY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/2.3.0/quicklink.umd.js" integrity="sha256-yvJQOINiH9fWemHn0vCA5lsHWJaHs6/ZmO+1Ft04SvM=" crossorigin="anonymous"></script>
   <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":true,"delay":true,"timeout":3000,"priority":true,"ignores":null,"url":"https://www.xiaosige.com/post/853577ec.html"}</script>
   <script src="/js/third-party/quicklink.js"></script>
 <script class="next-config" data-name="changyan" type="application/json">{"enable":true,"appid":"cyvSPOTJq","appkey":"4436699688bbb9caa6e8826551a7c0f7"}</script>

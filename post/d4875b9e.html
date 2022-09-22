@@ -4,7 +4,7 @@
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
 <meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 5.4.0">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 5.4.2">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="https://static.xiaosige.com/img/favicon.png">
@@ -21,7 +21,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"www.xiaosige.com","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.12.3","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"changyan","storage":true,"lazyload":true,"nav":null,"activeClass":"changyan"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"www.xiaosige.com","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.13.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"changyan","storage":true,"lazyload":true,"nav":null,"activeClass":"changyan"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="下载镜像# docker从仓库中拉取最新版的mysql镜像，默认获取最新的版本   docker pull mysql # docker pull mysql:8.0.28">
 <meta property="og:type" content="article">
@@ -49,6 +49,7 @@
 
   <script src="/js/third-party/analytics/baidu-analytics.js"></script>
   <script async src="https://hm.baidu.com/hm.js?7a645cfcecaf8f711cd7518386adcc74"></script>
+
 
 
 
@@ -675,8 +676,8 @@ canvas#canvas {
 
 <span id="more"></span>
 
-<h3 id="创建挂载目录"><a href="#创建挂载目录" class="headerlink" title="创建挂载目录"></a>创建挂载目录</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">mkdir</span> -p  ~/dockerdata/mysql8/<span class="token punctuation">{</span>data,logs,mysql-files,conf<span class="token punctuation">}</span>
-<span class="token function">chmod</span> -R <span class="token number">755</span> ~/dockerdata/mysql8/
+<h3 id="创建挂载目录"><a href="#创建挂载目录" class="headerlink" title="创建挂载目录"></a>创建挂载目录</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">mkdir</span> <span class="token parameter variable">-p</span>  ~/dockerdata/mysql8/<span class="token punctuation">{</span>data,logs,mysql-files,conf<span class="token punctuation">}</span>
+<span class="token function">chmod</span> <span class="token parameter variable">-R</span> <span class="token number">755</span> ~/dockerdata/mysql8/
 <span class="token function">chmod</span> <span class="token number">644</span> /dockerdata/mysql8/my.cnf<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <h3 id="新建my-cnf"><a href="#新建my-cnf" class="headerlink" title="新建my.cnf"></a>新建<code>my.cnf</code></h3><pre class="line-numbers language-docker" data-language="docker"><code class="language-docker">vi ~/dockerdata/mysql8/my.cnf
 
@@ -722,17 +723,17 @@ symbolic-links=0
 <span class="token comment"># Custom config should go here</span>
 <span class="token comment"># !includedir /etc/mysql/conf.d/</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="创建-MySQL-容器并启动"><a href="#创建-MySQL-容器并启动" class="headerlink" title="创建 MySQL 容器并启动"></a>创建 MySQL 容器并启动</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> run --restart<span class="token operator">=</span>always --privileged<span class="token operator">=</span>true -p <span class="token number">3307</span>:3306 --name mysql8 <span class="token punctuation">\</span>
---net mynet --ip <span class="token number">172.172</span>.0.5  <span class="token punctuation">\</span>
--e <span class="token assign-left variable">TZ</span><span class="token operator">=</span><span class="token string">"Asia/Shanghai"</span> <span class="token punctuation">\</span>
--v /etc/localtime:/etc/localtime:ro <span class="token punctuation">\</span>
--v /root/dockerdata/mysql8/conf:/etc/mysql/conf.d <span class="token punctuation">\</span>
--v /root/dockerdata/mysql8/data:/var/lib/mysql <span class="token punctuation">\</span>
+<h3 id="创建-MySQL-容器并启动"><a href="#创建-MySQL-容器并启动" class="headerlink" title="创建 MySQL 容器并启动"></a>创建 MySQL 容器并启动</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> run <span class="token parameter variable">--restart</span><span class="token operator">=</span>always <span class="token parameter variable">--privileged</span><span class="token operator">=</span>true <span class="token parameter variable">-p</span> <span class="token number">3307</span>:3306 <span class="token parameter variable">--name</span> mysql8 <span class="token punctuation">\</span>
+<span class="token parameter variable">--net</span> mynet <span class="token parameter variable">--ip</span> <span class="token number">172.172</span>.0.5  <span class="token punctuation">\</span>
+<span class="token parameter variable">-e</span> <span class="token assign-left variable">TZ</span><span class="token operator">=</span><span class="token string">"Asia/Shanghai"</span> <span class="token punctuation">\</span>
+<span class="token parameter variable">-v</span> /etc/localtime:/etc/localtime:ro <span class="token punctuation">\</span>
+<span class="token parameter variable">-v</span> /root/dockerdata/mysql8/conf:/etc/mysql/conf.d <span class="token punctuation">\</span>
+<span class="token parameter variable">-v</span> /root/dockerdata/mysql8/data:/var/lib/mysql <span class="token punctuation">\</span>
 <span class="token comment"># secure_file_priv</span>
 <span class="token comment">#-v /root/dockerdata/mysql8/mysql-files:/var/lib/mysql-files \</span>
--v /root/dockerdata/mysql8/logs:/var/log/mysql <span class="token punctuation">\</span>
--e <span class="token assign-left variable">MYSQL_ROOT_PASSWORD</span><span class="token operator">=</span><span class="token number">12345678</span> <span class="token punctuation">\</span>
--d mysql:8.0.28<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token parameter variable">-v</span> /root/dockerdata/mysql8/logs:/var/log/mysql <span class="token punctuation">\</span>
+<span class="token parameter variable">-e</span> <span class="token assign-left variable">MYSQL_ROOT_PASSWORD</span><span class="token operator">=</span><span class="token number">12345678</span> <span class="token punctuation">\</span>
+<span class="token parameter variable">-d</span> mysql:8.0.28<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><code>-v /root/dockerdata/mysql8/my.cnf:/etc/mysql/my.cnf \</code></p>
 <div class="note info no-icon"><p>参数说明：<br>–restart=always： 当Docker 重启时，容器会自动启动。<br>–privileged=true：容器内的root拥有真正root权限，否则容器内root只是外部普通用户权限<br>-v /root/dockerdata/mysql8/conf/my.cnf:/etc/my.cnf：映射配置文件<br>-v /root/dockerdata/mysql8/data/:/var/lib/mysql：映射数据目录</p>
 </div>
@@ -741,9 +742,9 @@ symbolic-links=0
 <div class="note info no-icon"><p>解决问题:<br>windows下：修改my.ini 在[mysqld]内加入secure_file_priv=/var/lib/mysql<br>linux下：  修改my.cnf 在[mysqld]内加入secure_file_priv=/var/lib/mysql</p>
 </div>
 
-<h3 id="登录容器"><a href="#登录容器" class="headerlink" title="登录容器"></a>登录容器</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> <span class="token builtin class-name">exec</span> -it mysql8 /bin/bash
+<h3 id="登录容器"><a href="#登录容器" class="headerlink" title="登录容器"></a>登录容器</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> <span class="token builtin class-name">exec</span> <span class="token parameter variable">-it</span> mysql8 /bin/bash
 
-mysql -uroot -p12345678
+mysql <span class="token parameter variable">-uroot</span> <span class="token parameter variable">-p12345678</span>
 
 USE mysql<span class="token punctuation">;</span>
 
@@ -983,7 +984,7 @@ flush privileges<span class="token punctuation">;</span>
 
 
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/2.2.0/quicklink.umd.js" integrity="sha256-4kQf9z5ntdQrzsBC3YSHnEz02Z9C1UeW/E9OgnvlzSY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/2.3.0/quicklink.umd.js" integrity="sha256-yvJQOINiH9fWemHn0vCA5lsHWJaHs6/ZmO+1Ft04SvM=" crossorigin="anonymous"></script>
   <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":true,"delay":true,"timeout":3000,"priority":true,"ignores":null,"url":"https://www.xiaosige.com/post/d4875b9e.html"}</script>
   <script src="/js/third-party/quicklink.js"></script>
 <script class="next-config" data-name="changyan" type="application/json">{"enable":true,"appid":"cyvSPOTJq","appkey":"4436699688bbb9caa6e8826551a7c0f7"}</script>

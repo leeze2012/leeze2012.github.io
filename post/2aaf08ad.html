@@ -4,7 +4,7 @@
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
 <meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 5.4.0">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 5.4.2">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="https://static.xiaosige.com/img/favicon.png">
@@ -21,7 +21,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"www.xiaosige.com","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.12.3","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"changyan","storage":true,"lazyload":true,"nav":null,"activeClass":"changyan"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"www.xiaosige.com","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.13.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"changyan","storage":true,"lazyload":true,"nav":null,"activeClass":"changyan"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="一、Linux下JDK安装yum安装通过yum安装的默认路径为：&#x2F;usr&#x2F;lib&#x2F;jvm">
 <meta property="og:type" content="article">
@@ -49,6 +49,7 @@
 
   <script src="/js/third-party/analytics/baidu-analytics.js"></script>
   <script async src="https://hm.baidu.com/hm.js?7a645cfcecaf8f711cd7518386adcc74"></script>
+
 
 
 
@@ -675,19 +676,19 @@ canvas#canvas {
 <ol>
 <li>首先执行以下命令查看可安装的jdk版本</li>
   
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">yum -y list java*
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">yum <span class="token parameter variable">-y</span> list java*
 or
 yum search jdk
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 
 <li>选择自己需要的jdk版本进行安装，比如这里安装1.8，执行以下命令：</li>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">yum <span class="token function">install</span> -y java-1.8.0-openjdk-devel.x86_64
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">yum <span class="token function">install</span> <span class="token parameter variable">-y</span> java-1.8.0-openjdk-devel.x86_64
 <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>等待安装完成即可。</p>
 <li>安装完成之后，查看安装的jdk版本，输入以下指令：</li>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">java -version
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">java</span> <span class="token parameter variable">-version</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 此处便可以看到自己安装的jdk版本信息。
 你如果好奇这个自动安装把jdk安装到哪里去了，其实你可以在usr/lib/jvm下找到它们。
@@ -695,25 +696,25 @@ ok，完成！
 
 <li>卸载</li>
 
-<p> 检测是否已经安装JDK<br> </p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">rpm</span> -qa <span class="token operator">|</span> <span class="token function">grep</span> jdk<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p></p>
+<p> 检测是否已经安装JDK<br> </p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">rpm</span> <span class="token parameter variable">-qa</span> <span class="token operator">|</span> <span class="token function">grep</span> jdk<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p></p>
 <p> 卸载系统自带jdk</p>
 <p> 删除系统自带JDK的命令，两种方法都可以：</p>
- <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">rpm</span> -e –nodeps java-1.6.0-openjdk-1.6.0.0-1.41.1.10.4.e16.x86_64
+ <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">rpm</span> <span class="token parameter variable">-e</span> –nodeps java-1.6.0-openjdk-1.6.0.0-1.41.1.10.4.e16.x86_64
 OR
-yum -y remove  java-1.6.0-openjdk-1.6.0.0-1.41.1.10.4.el6.x86_64<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+yum <span class="token parameter variable">-y</span> remove  java-1.6.0-openjdk-1.6.0.0-1.41.1.10.4.el6.x86_64<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p> 继续用第一步的命令检测，或者用：</p>
- <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">rpm</span> -qa <span class="token operator">|</span> <span class="token function">grep</span> gcj<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+ <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">rpm</span> <span class="token parameter variable">-qa</span> <span class="token operator">|</span> <span class="token function">grep</span> gcj<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p> 然后再用上面删除的方法把libgcj和java-gcj的文件删掉.</p>
 </ol>
 
 <h5 id="rpm安装"><a href="#rpm安装" class="headerlink" title="rpm安装"></a>rpm安装</h5><ol>
 <li>获取文件权限</li>
   
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">chmod</span> -R <span class="token number">777</span>    /storage/sdc-data/software/jdk-8u65-linux-x64.rpm<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">chmod</span> <span class="token parameter variable">-R</span> <span class="token number">777</span>    /storage/sdc-data/software/jdk-8u65-linux-x64.rpm<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <li>安装JDK</li>
 
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">rpm</span> -ivh  /storage/sdc-data/software/jdk-8u65-linux-x64.rpm<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">rpm</span> <span class="token parameter variable">-ivh</span>  /storage/sdc-data/software/jdk-8u65-linux-x64.rpm<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>该命令默认将jdk安装到了/usr/java目录下。</p>
 <li>移动安装目录</li>
@@ -722,8 +723,8 @@ yum -y remove  java-1.6.0-openjdk-1.6.0.0-1.41.1.10.4.el6.x86_64<span aria-hidde
  <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">mv</span> /usr/java/jdk1.8.0_45 /usr/local/jdk1.8<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
  <li>rpm包的卸载</li>
  
-<p>   输入命令查看rpm包安装信息，如果第一条未出现信息，可以使用第二条命令查看，如果都没  有可能是未安装或者是tar包安装的<br>  </p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">rpm</span> -qa <span class="token operator">|</span> <span class="token function">grep</span> jdk<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><br>  我用上述rpm包安装之后，用命令查看，提示如下：<br>  <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@master100 local<span class="token punctuation">]</span><span class="token comment"># rpm -qa | grep jdk</span>
-jdk1.8-1.8.0_181-fcs.x86_64<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><br>  知道安装的rpm包名后就可以卸载了，卸载命令如下：<br>  <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">rpm</span> -e --nodeps jdk1.8-1.8.0_181-fcs.x86_64<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><br>  卸载完成后删除环境变量<br>  <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">vi</span> /etc/profile
+<p>   输入命令查看rpm包安装信息，如果第一条未出现信息，可以使用第二条命令查看，如果都没  有可能是未安装或者是tar包安装的<br>  </p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">rpm</span> <span class="token parameter variable">-qa</span> <span class="token operator">|</span> <span class="token function">grep</span> jdk<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><br>  我用上述rpm包安装之后，用命令查看，提示如下：<br>  <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@master100 local<span class="token punctuation">]</span><span class="token comment"># rpm -qa | grep jdk</span>
+jdk1.8-1.8.0_181-fcs.x86_64<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><br>  知道安装的rpm包名后就可以卸载了，卸载命令如下：<br>  <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">rpm</span> <span class="token parameter variable">-e</span> <span class="token parameter variable">--nodeps</span> jdk1.8-1.8.0_181-fcs.x86_64<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><br>  卸载完成后删除环境变量<br>  <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">vi</span> /etc/profile
 <span class="token builtin class-name">source</span> /etc/profile<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><br> <p></p></ol><p></p>
 <h5 id="tar包安装"><a href="#tar包安装" class="headerlink" title="tar包安装"></a>tar包安装</h5> <ol>
  
@@ -732,7 +733,7 @@ jdk1.8-1.8.0_181-fcs.x86_64<span aria-hidden="true" class="line-numbers-rows"><s
  <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">wget</span> https://download.oracle.com/otn/java/jdk/8u231-b11/5b13a193868b4bf28bcb45c792fce896/jdk-8u231-linux-x64.tar.gz<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
  <li>解压文件，命令如下，输入后会出现一长串的提示：</li>
  
- <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">tar</span> -zxvf /usr/local/jdk-8u231-linux-x64.tar.gz<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+ <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">tar</span> <span class="token parameter variable">-zxvf</span> /usr/local/jdk-8u231-linux-x64.tar.gz<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
  <li>解压后文件夹名为：jdk1.8.0_231</li>
  
 <p> 在这里修改一下文件名，将jdk1.8.0_231改成java，方便我们后面配置环境变量，在这也可以不修改，在配置环境变量时要注意文件名不能写错，修改文件名命令如下：</p>
@@ -742,7 +743,7 @@ jdk1.8-1.8.0_181-fcs.x86_64<span aria-hidden="true" class="line-numbers-rows"><s
  
 <p> 将安装包删除，然后把配置文件内添加的环境变量删除</p>
 <p> 删除安装包的命令如下：</p>
- <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">rm</span> -rf /usr/local/java<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+ <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">rm</span> <span class="token parameter variable">-rf</span> /usr/local/java<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p> 修改配置文件的方法和上述配置环境变量一样</p>
  </ol>
  
@@ -766,10 +767,10 @@ jdk1.8-1.8.0_181-fcs.x86_64<span aria-hidden="true" class="line-numbers-rows"><s
    <li>建立软连接</li>
    
 <p>   <code>tar形式</code></p>
-   <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">ln</span> -s /usr/local/java/jdk1.8.0_231/bin/java /usr/bin/java<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+   <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">ln</span> <span class="token parameter variable">-s</span> /usr/local/java/jdk1.8.0_231/bin/java /usr/bin/java<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
   <li>检测配置是否成功</li>
   
-   <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">java -version<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+   <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">java</span> <span class="token parameter variable">-version</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
   </ol>
   
 <p>  <code>有问题参考：</code><a href="/post/4824a74d.html" title="Linux之使用alternatives 切换Java版本">Linux之使用alternatives 切换Java版本</a></p>
@@ -997,7 +998,7 @@ jdk1.8-1.8.0_181-fcs.x86_64<span aria-hidden="true" class="line-numbers-rows"><s
 
 
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/2.2.0/quicklink.umd.js" integrity="sha256-4kQf9z5ntdQrzsBC3YSHnEz02Z9C1UeW/E9OgnvlzSY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/2.3.0/quicklink.umd.js" integrity="sha256-yvJQOINiH9fWemHn0vCA5lsHWJaHs6/ZmO+1Ft04SvM=" crossorigin="anonymous"></script>
   <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":true,"delay":true,"timeout":3000,"priority":true,"ignores":null,"url":"https://www.xiaosige.com/post/2aaf08ad.html"}</script>
   <script src="/js/third-party/quicklink.js"></script>
 <script class="next-config" data-name="changyan" type="application/json">{"enable":true,"appid":"cyvSPOTJq","appkey":"4436699688bbb9caa6e8826551a7c0f7"}</script>

@@ -4,7 +4,7 @@
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
 <meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 5.4.0">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 5.4.2">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="https://static.xiaosige.com/img/favicon.png">
@@ -21,7 +21,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"www.xiaosige.com","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.12.3","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"changyan","storage":true,"lazyload":true,"nav":null,"activeClass":"changyan"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"www.xiaosige.com","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.13.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"changyan","storage":true,"lazyload":true,"nav":null,"activeClass":"changyan"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="准备工作  搭建Nginx服务器：     参考：Linux安装Nginx--两种方式  搭建Git环境：     参考：Linux安装Git-两种方式详细教程">
 <meta property="og:type" content="article">
@@ -51,6 +51,7 @@
 
   <script src="/js/third-party/analytics/baidu-analytics.js"></script>
   <script async src="https://hm.baidu.com/hm.js?7a645cfcecaf8f711cd7518386adcc74"></script>
+
 
 
 
@@ -725,7 +726,7 @@ passwd git
 </span></span><span class="token inserted-sign inserted"><span class="token prefix inserted">+</span><span class="token line"> git:x:500:500::/home/git:/usr/local/git/bin/git-shell</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <p>  这样用户用git账户ssh连接后只能使用git命令了.<br>  <b><code>各种配置配完再禁</code></b></p>
 <h3 id="创建证书登录"><a href="#创建证书登录" class="headerlink" title="创建证书登录"></a>创建证书登录</h3><p>  首先在用户本地主目录下，看看有没有.ssh目录，如果有，再看看这个目录下有没有<code>id_rsa</code>和<code>id_rsa.pub</code>这两个文件，如果已经有了，可直接跳到下一步。如果没有:</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">ssh-keygen -t rsa -C <span class="token string">"aliyun_test_git_id_rsa"</span> -f aliyun_test_git_id_rsa<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">ssh-keygen <span class="token parameter variable">-t</span> rsa <span class="token parameter variable">-C</span> <span class="token string">"aliyun_test_git_id_rsa"</span> <span class="token parameter variable">-f</span> aliyun_test_git_id_rsa<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>  把本地生成的公钥aliyun_test_git_id_rsa.pub，导入到远程服务器<code>/home/git/.ssh/authorized_keys</code>文件里，一行一个。<br>  远程服务器如果没有该文件创建它：</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">su</span> <span class="token function">git</span>  <span class="token comment"># 这步很重要，不切换用户后面会很麻烦</span>
 
@@ -746,10 +747,10 @@ AuthorizedKeysFile .ssh/authorized_keys<span aria-hidden="true" class="line-numb
 <p>  保存并重启 sshd 服务：</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">/etc/rc.d/init.d/sshd restart<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<h3 id="设置用户信息"><a href="#设置用户信息" class="headerlink" title="设置用户信息"></a>设置用户信息</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> config --global user.name <span class="token string">"leeze"</span>
-<span class="token function">git</span> config --global user.email <span class="token string">"leeze0216@163.com"</span>
+<h3 id="设置用户信息"><a href="#设置用户信息" class="headerlink" title="设置用户信息"></a>设置用户信息</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> config <span class="token parameter variable">--global</span> user.name <span class="token string">"leeze"</span>
+<span class="token function">git</span> config <span class="token parameter variable">--global</span> user.email <span class="token string">"leeze0216@163.com"</span>
 
-<span class="token function">git</span> config --global core.autocrlf <span class="token boolean">false</span>  // 禁用自动转换，这个不设置后面上传时会出现警告，如下<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token function">git</span> config <span class="token parameter variable">--global</span> core.autocrlf <span class="token boolean">false</span>  // 禁用自动转换，这个不设置后面上传时会出现警告，如下<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <img data-src="/post/dd42c2af/git-warning.jpg" class="" title="warning">
 
 <h3 id="初始化Git仓库"><a href="#初始化Git仓库" class="headerlink" title="初始化Git仓库"></a>初始化Git仓库</h3><p>  <code>su git  # 这步很重要，不切换用户后面会很麻烦</code><br>  首先我们选定一个目录作为Git仓库：</p>
@@ -758,7 +759,7 @@ AuthorizedKeysFile .ssh/authorized_keys<span aria-hidden="true" class="line-numb
 <span class="token comment"># chown git:gitgroup gitrepo/</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p>  在服务器初始化一个远程 Git 裸仓库 (git init –bare)<br>  裸仓库与 git init 初使化的仓库不太一样，裸仓库其实相当于通过克隆来的仓库里的.git文件夹，整个裸仓库中只有git索引（index），不包含工作目录。要实现 Push to Deploy，首先我们需要一个裸仓库，进入/home/USER/repos/，创建如下：</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">cd</span> /home/git/gitrepos
-<span class="token function">git</span> init --bare blog-bare.git <span class="token comment"># Git 裸仓库</span>
+<span class="token function">git</span> init <span class="token parameter variable">--bare</span> blog-bare.git <span class="token comment"># Git 裸仓库</span>
 <span class="token comment"># chown -R git:gitgroup blog-bare.git</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <h3 id="测试git仓库"><a href="#测试git仓库" class="headerlink" title="测试git仓库"></a>测试git仓库</h3><p>  另找空白文件夹，执行：</p>
@@ -777,7 +778,7 @@ AuthorizedKeysFile .ssh/authorized_keys<span aria-hidden="true" class="line-numb
 
 <span class="token function">git</span> init
 <span class="token function">git</span> remote <span class="token function">add</span> origin /home/git/gitrepos/blog-bare.git
-<span class="token function">git</span> clean -df
+<span class="token function">git</span> clean <span class="token parameter variable">-df</span>
 <span class="token function">git</span> pull origin master<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>  <b><code> 注意： 一定要unset GIT_DIR清除变量， 不然会引起remote: fatal: Not a git repository: ‘.’错误。</code></b></p>
 <p>  <code>post-update</code>添加执行权限：</p>
@@ -787,7 +788,7 @@ AuthorizedKeysFile .ssh/authorized_keys<span aria-hidden="true" class="line-numb
 
 <p>  将目录切换至 <code>/home/USER/repos/xxx-bare.git/hooks</code>，用 <code>cp post-receive.sample post-receive</code> 复制并重命名文件后 <code>vim post-receive</code> 修改，增加执行脚本:</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token shebang important">#!/bin/sh</span>
-<span class="token function">git</span> --work-tree<span class="token operator">=</span>/usr/share/nginx/blog/ --git-dir<span class="token operator">=</span>/home/git/gitrepos/blog-bare.git checkout -f<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<span class="token function">git</span> --work-tree<span class="token operator">=</span>/usr/share/nginx/blog/ --git-dir<span class="token operator">=</span>/home/git/gitrepos/blog-bare.git checkout <span class="token parameter variable">-f</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p>  <code>post-receive</code>添加执行权限：</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">chmod</span> +x post-receive<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 </ol>
@@ -1023,7 +1024,7 @@ AuthorizedKeysFile .ssh/authorized_keys<span aria-hidden="true" class="line-numb
 
 
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/2.2.0/quicklink.umd.js" integrity="sha256-4kQf9z5ntdQrzsBC3YSHnEz02Z9C1UeW/E9OgnvlzSY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/2.3.0/quicklink.umd.js" integrity="sha256-yvJQOINiH9fWemHn0vCA5lsHWJaHs6/ZmO+1Ft04SvM=" crossorigin="anonymous"></script>
   <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":true,"delay":true,"timeout":3000,"priority":true,"ignores":null,"url":"https://www.xiaosige.com/post/dd42c2af.html"}</script>
   <script src="/js/third-party/quicklink.js"></script>
 <script class="next-config" data-name="changyan" type="application/json">{"enable":true,"appid":"cyvSPOTJq","appkey":"4436699688bbb9caa6e8826551a7c0f7"}</script>

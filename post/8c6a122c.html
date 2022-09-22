@@ -4,7 +4,7 @@
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
 <meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 5.4.0">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 5.4.2">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="https://static.xiaosige.com/img/favicon.png">
@@ -21,7 +21,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"www.xiaosige.com","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.12.3","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"changyan","storage":true,"lazyload":true,"nav":null,"activeClass":"changyan"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"www.xiaosige.com","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.13.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"changyan","storage":true,"lazyload":true,"nav":null,"activeClass":"changyan"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="概述  平时ssh登录到Linux服务器都是在命令行下进行操作的，简单高效。但是有些时候，需要配置一些Linux系统下的图形化软件的参数，ssh登录到Linux服务器后，就需要显示图形化界面了。">
 <meta property="og:type" content="article">
@@ -51,6 +51,7 @@
 
   <script src="/js/third-party/analytics/baidu-analytics.js"></script>
   <script async src="https://hm.baidu.com/hm.js?7a645cfcecaf8f711cd7518386adcc74"></script>
+
 
 
 
@@ -718,13 +719,13 @@ canvas#canvas {
 <li><code>Linux</code>端–设置<code>X11</code>转发<br><code>a)</code>首先需要在linux 服务器端打开 X11转发:<br>编辑 <code>/etc/ssh/sshd_config</code> 配置文件，配置转发参数为<code>yes</code> <pre class="line-numbers language-properties" data-language="properties"><code class="language-properties"><span class="token key attr-name">X11Forwarding</span> <span class="token value attr-value">yes  </span>
 <span class="token key attr-name">X11DisplayOffset</span> <span class="token value attr-value">10</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <code>b)</code>重启<code>ssh</code>服务<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">service</span> sshd restart <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li>编辑<code>Mac</code>端下文件<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">sudo</span> <span class="token function">vim</span> /private/etc/ssh/ssh_config
+<li>编辑<code>Mac</code>端下文件<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">vim</span> /private/etc/ssh/ssh_config
 设置为
 ForwardX11 <span class="token function">yes</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
 <li><code>Mac</code>端安装<code>XQuartz </code><div class="note warning no-icon"><p>网址：<a target="_blank" rel="noopener" href="https://www.xquartz.org/">https://www.xquartz.org/</a><br>下载：<a target="_blank" rel="noopener" href="https://github.com/XQuartz/XQuartz/releases/download/XQuartz-2.8.2/XQuartz-2.8.2.dmg">https://github.com/XQuartz/XQuartz/releases/download/XQuartz-2.8.2/XQuartz-2.8.2.dmg</a></p>
 </div></li>
 <li><code>Mac</code>端<code>测试</code><br><code>a)</code>打开 <code>XQuartz</code>，然后，打开 <code>mac terminal</code><img data-src="/post/8c6a122c/sshLoginG001.jpg" class="" title="XQuartz">
-<code>b)</code>ssh -X   {用户名}@{远程端ip}； （注意<code>大写</code>的<code>X</code>）<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">ssh</span> -X root@192.168.3.201<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<code>b)</code>ssh -X   {用户名}@{远程端ip}； （注意<code>大写</code>的<code>X</code>）<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">ssh</span> <span class="token parameter variable">-X</span> root@192.168.3.201<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <code>c)</code>登录成功，输入 <code>gvim</code>看下，是否能调出远程界面</li>
 </ol>
 <h3 id="PS"><a href="#PS" class="headerlink" title="PS"></a>PS</h3><blockquote>
@@ -951,7 +952,7 @@ ForwardX11 <span class="token function">yes</span><span aria-hidden="true" class
 
 
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/2.2.0/quicklink.umd.js" integrity="sha256-4kQf9z5ntdQrzsBC3YSHnEz02Z9C1UeW/E9OgnvlzSY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/2.3.0/quicklink.umd.js" integrity="sha256-yvJQOINiH9fWemHn0vCA5lsHWJaHs6/ZmO+1Ft04SvM=" crossorigin="anonymous"></script>
   <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":true,"delay":true,"timeout":3000,"priority":true,"ignores":null,"url":"https://www.xiaosige.com/post/8c6a122c.html"}</script>
   <script src="/js/third-party/quicklink.js"></script>
 <script class="next-config" data-name="changyan" type="application/json">{"enable":true,"appid":"cyvSPOTJq","appkey":"4436699688bbb9caa6e8826551a7c0f7"}</script>

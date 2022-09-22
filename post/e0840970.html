@@ -4,7 +4,7 @@
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
 <meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 5.4.0">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 5.4.2">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="https://static.xiaosige.com/img/favicon.png">
@@ -21,7 +21,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"www.xiaosige.com","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.12.3","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"changyan","storage":true,"lazyload":true,"nav":null,"activeClass":"changyan"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"www.xiaosige.com","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.13.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"changyan","storage":true,"lazyload":true,"nav":null,"activeClass":"changyan"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="介绍  centos7以前的版本默认使用iptables服务进行管理防火墙规则。centos7以及其以上版本默认使用firewalld服务管理防火墙。所以在centos8中，就使用其默认的firewalld配置防火墙。  firewalld和iptables的官方说明可以参照https:&#x2F;&#x2F;access.redhat.com&#x2F;documentation&#x2F;zh-cn&#x2F;red_hat_enterpri">
 <meta property="og:type" content="article">
@@ -49,6 +49,7 @@
 
   <script src="/js/third-party/analytics/baidu-analytics.js"></script>
   <script async src="https://hm.baidu.com/hm.js?7a645cfcecaf8f711cd7518386adcc74"></script>
+
 
 
 
@@ -673,7 +674,7 @@ canvas#canvas {
         <h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>  centos7以前的版本默认使用iptables服务进行管理防火墙规则。centos7以及其以上版本默认使用firewalld服务管理防火墙。所以在centos8中，就使用其默认的firewalld配置防火墙。<br>  firewalld和iptables的官方说明可以参照<a target="_blank" rel="noopener" href="https://access.redhat.com/documentation/zh-cn/red_hat_enterprise_linux/7/html/security_guide/sec-using_firewalls#sec-Comparison_of_Firewalld_to_system-config-firewall_and_iptables">https://access.redhat.com/documentation/zh-cn/red_hat_enterprise_linux/7/html/security_guide/sec-using_firewalls#sec-Comparison_of_Firewalld_to_system-config-firewall_and_iptables</a></p>
 <span id="more"></span>
 
-<h3 id="firewalld相关命令"><a href="#firewalld相关命令" class="headerlink" title="firewalld相关命令"></a>firewalld相关命令</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token comment">#进程与状态相关</span>
+<h3 id="firewalld相关命令"><a href="#firewalld相关命令" class="headerlink" title="firewalld相关命令"></a>firewalld相关命令</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment">#进程与状态相关</span>
 systemctl unmask firewalld                   <span class="token comment">#执行命令，即可实现取消服务的锁定</span>
 systemctl mask firewalld                     <span class="token comment">#下次需要锁定该服务时执行      </span>
 systemctl start firewalld.service            <span class="token comment">#启动防火墙</span>
@@ -685,9 +686,9 @@ systemctl <span class="token builtin class-name">enable</span> firewalld        
 systemctl disable firewalld                  <span class="token comment">#禁止防火墙随系统启动</span>
 systemctl is-enabled firewalld.service       <span class="token comment">#查看服务是否开机启动</span>
 systemctl list-unit-files<span class="token operator">|</span><span class="token function">grep</span> enabled       <span class="token comment">#查看已启动的服务列表</span>
-systemctl --failed                           <span class="token comment">#查看启动失败的服务列表</span>
-firewall-cmd --state                         <span class="token comment">#查看防火墙状态</span>
-firewall-cmd --reload                        <span class="token comment">#更新防火墙规则</span>
+systemctl <span class="token parameter variable">--failed</span>                           <span class="token comment">#查看启动失败的服务列表</span>
+firewall-cmd <span class="token parameter variable">--state</span>                         <span class="token comment">#查看防火墙状态</span>
+firewall-cmd <span class="token parameter variable">--reload</span>                        <span class="token comment">#更新防火墙规则</span>
 firewall-cmd --list-ports                    <span class="token comment">#查看所有打开的端口</span>
 firewall-cmd --list-services                 <span class="token comment">#查看所有允许的服务</span>
 firewall-cmd --get-services                  <span class="token comment">#获取所有支持的服务</span>
@@ -699,29 +700,29 @@ firewall-cmd --set-default-zone<span class="token operator">=</span>public      
 firewall-cmd --get-default-zone                  <span class="token comment">#查看默认区域信息</span>
 
 <span class="token comment">#接口相关</span>
-firewall-cmd --zone<span class="token operator">=</span>public --add-interface<span class="token operator">=</span>eth0          <span class="token comment">#将接口eth0加入区域public</span>
-firewall-cmd --zone<span class="token operator">=</span>public --remove-interface<span class="token operator">=</span>eth0       <span class="token comment">#从区域public中删除接口eth0</span>
-firewall-cmd --zone<span class="token operator">=</span>default --change-interface<span class="token operator">=</span>eth0      <span class="token comment">#修改接口eth0所属区域为default</span>
+firewall-cmd <span class="token parameter variable">--zone</span><span class="token operator">=</span>public --add-interface<span class="token operator">=</span>eth0          <span class="token comment">#将接口eth0加入区域public</span>
+firewall-cmd <span class="token parameter variable">--zone</span><span class="token operator">=</span>public --remove-interface<span class="token operator">=</span>eth0       <span class="token comment">#从区域public中删除接口eth0</span>
+firewall-cmd <span class="token parameter variable">--zone</span><span class="token operator">=</span>default --change-interface<span class="token operator">=</span>eth0      <span class="token comment">#修改接口eth0所属区域为default</span>
 firewall-cmd --get-zone-of-interface<span class="token operator">=</span>eth0                <span class="token comment">#查看接口eth0所属区域</span>
 
 <span class="token comment">#端口控制</span>
 firewall-cmd --query-port<span class="token operator">=</span><span class="token number">8080</span>/tcp                         <span class="token comment"># 查询端口是否开放</span>
-firewall-cmd --add-port<span class="token operator">=</span><span class="token number">8080</span>/tcp --permanent               <span class="token comment">#永久添加8080端口例外(全局)</span>
-firewall-cmd --remove-port<span class="token operator">=</span><span class="token number">8800</span>/tcp --permanent            <span class="token comment">#永久删除8080端口例外(全局)</span>
-firewall-cmd --add-port<span class="token operator">=</span><span class="token number">65001</span>-65010/tcp --permanent        <span class="token comment">#永久增加65001-65010例外(全局)</span>
-firewall-cmd  --zone<span class="token operator">=</span>public --add-port<span class="token operator">=</span><span class="token number">8080</span>/tcp --permanent         <span class="token comment">#永久添加8080端口例外(区域public)</span>
-firewall-cmd  --zone<span class="token operator">=</span>public --remove-port<span class="token operator">=</span><span class="token number">8080</span>/tcp --permanent      <span class="token comment">#永久删除8080端口例外(区域public)</span>
-firewall-cmd  --zone<span class="token operator">=</span>public --add-port<span class="token operator">=</span><span class="token number">65001</span>-65010/tcp --permanent  <span class="token comment">#永久增加65001-65010例外(区域public)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">最常用命令
+firewall-cmd --add-port<span class="token operator">=</span><span class="token number">8080</span>/tcp <span class="token parameter variable">--permanent</span>               <span class="token comment">#永久添加8080端口例外(全局)</span>
+firewall-cmd --remove-port<span class="token operator">=</span><span class="token number">8800</span>/tcp <span class="token parameter variable">--permanent</span>            <span class="token comment">#永久删除8080端口例外(全局)</span>
+firewall-cmd --add-port<span class="token operator">=</span><span class="token number">65001</span>-65010/tcp <span class="token parameter variable">--permanent</span>        <span class="token comment">#永久增加65001-65010例外(全局)</span>
+firewall-cmd  <span class="token parameter variable">--zone</span><span class="token operator">=</span>public --add-port<span class="token operator">=</span><span class="token number">8080</span>/tcp <span class="token parameter variable">--permanent</span>         <span class="token comment">#永久添加8080端口例外(区域public)</span>
+firewall-cmd  <span class="token parameter variable">--zone</span><span class="token operator">=</span>public --remove-port<span class="token operator">=</span><span class="token number">8080</span>/tcp <span class="token parameter variable">--permanent</span>      <span class="token comment">#永久删除8080端口例外(区域public)</span>
+firewall-cmd  <span class="token parameter variable">--zone</span><span class="token operator">=</span>public --add-port<span class="token operator">=</span><span class="token number">65001</span>-65010/tcp <span class="token parameter variable">--permanent</span>  <span class="token comment">#永久增加65001-65010例外(区域public)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">最常用命令
 
-firewalld-cmd --zone<span class="token operator">=</span>public --add-ports<span class="token operator">=</span><span class="token number">8080</span>/tcp --permanent
+firewalld-cmd <span class="token parameter variable">--zone</span><span class="token operator">=</span>public --add-ports<span class="token operator">=</span><span class="token number">8080</span>/tcp <span class="token parameter variable">--permanent</span>
 
 命令解析
 
 firwall-cmd：是Linux提供的操作firewall的一个工具（服务）命令
---zone <span class="token comment">#作用域</span>
+<span class="token parameter variable">--zone</span> <span class="token comment">#作用域</span>
 --add-port<span class="token operator">=</span><span class="token number">8080</span>/tcp <span class="token comment">#添加端口，格式为：端口/通讯协议 ；add表示添加，remove则对应移除</span>
---permanent <span class="token comment">#永久生效，没有此参数重启后失效</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
+<span class="token parameter variable">--permanent</span> <span class="token comment">#永久生效，没有此参数重启后失效</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
     </div>
 
     
@@ -945,7 +946,7 @@ firwall-cmd：是Linux提供的操作firewall的一个工具（服务）命令
 
 
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/2.2.0/quicklink.umd.js" integrity="sha256-4kQf9z5ntdQrzsBC3YSHnEz02Z9C1UeW/E9OgnvlzSY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/2.3.0/quicklink.umd.js" integrity="sha256-yvJQOINiH9fWemHn0vCA5lsHWJaHs6/ZmO+1Ft04SvM=" crossorigin="anonymous"></script>
   <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":true,"delay":true,"timeout":3000,"priority":true,"ignores":null,"url":"https://www.xiaosige.com/post/e0840970.html"}</script>
   <script src="/js/third-party/quicklink.js"></script>
 <script class="next-config" data-name="changyan" type="application/json">{"enable":true,"appid":"cyvSPOTJq","appkey":"4436699688bbb9caa6e8826551a7c0f7"}</script>

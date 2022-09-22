@@ -4,7 +4,7 @@
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
 <meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 5.4.0">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 5.4.2">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="https://static.xiaosige.com/img/favicon.png">
@@ -21,7 +21,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"www.xiaosige.com","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.12.3","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"changyan","storage":true,"lazyload":true,"nav":null,"activeClass":"changyan"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"www.xiaosige.com","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.13.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"changyan","storage":true,"lazyload":true,"nav":null,"activeClass":"changyan"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="前言  JIRA 是 Atlassian 公司出品的项目与事务跟踪工具，被广泛应用于缺陷跟踪、客户服务、需求收集、流程审批、任务跟踪、项目跟踪和敏捷管理等工作领域。  Centos下安装参考：Centos下Jira8.x版本安装与破解。  下面介绍是采用docker来进行部署。">
 <meta property="og:type" content="article">
@@ -49,6 +49,7 @@
 
   <script src="/js/third-party/analytics/baidu-analytics.js"></script>
   <script async src="https://hm.baidu.com/hm.js?7a645cfcecaf8f711cd7518386adcc74"></script>
+
 
 
 
@@ -693,9 +694,9 @@ canvas#canvas {
 <span class="token function">docker</span> pull mysql:5.7
 
 <span class="token comment"># 2，创建目录</span>
-<span class="token function">mkdir</span> -p /root/.docker/mysql5.7/conf
-<span class="token function">mkdir</span> -p /root/.docker/mysql5.7/data
-<span class="token function">mkdir</span> -p /root/.docker/mysql5.7/logs
+<span class="token function">mkdir</span> <span class="token parameter variable">-p</span> /root/.docker/mysql5.7/conf
+<span class="token function">mkdir</span> <span class="token parameter variable">-p</span> /root/.docker/mysql5.7/data
+<span class="token function">mkdir</span> <span class="token parameter variable">-p</span> /root/.docker/mysql5.7/logs
 
 <span class="token comment"># 3，设置配置文件</span>
 <span class="token builtin class-name">cd</span> /root/.docker/mysql5.7/conf
@@ -733,17 +734,17 @@ canvas#canvas {
 <span class="token comment">#log-error=/var/log/mysql/mysqld.log</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 4，启动容器</span>
-<span class="token function">docker</span> run -d -p <span class="token number">3306</span>:3306 --name mysql5.7 <span class="token punctuation">\</span>
---restart always <span class="token punctuation">\</span>
---privileged<span class="token operator">=</span>true <span class="token punctuation">\</span>
--e <span class="token assign-left variable">TZ</span><span class="token operator">=</span>Asia/Shanghai <span class="token punctuation">\</span>
--e <span class="token assign-left variable">MYSQL_ROOT_PASSWORD</span><span class="token operator">=</span><span class="token number">123456</span> <span class="token punctuation">\</span>
--e <span class="token assign-left variable">MYSQL_DATABASE</span><span class="token operator">=</span>jira <span class="token punctuation">\</span>
--e <span class="token assign-left variable">MYSQL_USER</span><span class="token operator">=</span>jira <span class="token punctuation">\</span>
--e <span class="token assign-left variable">MYSQL_PASSWORD</span><span class="token operator">=</span><span class="token number">123456</span> <span class="token punctuation">\</span>
--v /root/.docker/mysql5.7/conf/my.cnf:/etc/mysql/conf.d/mysqld.cnf <span class="token punctuation">\</span>
--v /root/.docker/mysql5.7/data:/var/lib/mysql <span class="token punctuation">\</span>
--v /root/.docker/mysql5.7/logs:/var/log/mysql <span class="token punctuation">\</span>
+<span class="token function">docker</span> run <span class="token parameter variable">-d</span> <span class="token parameter variable">-p</span> <span class="token number">3306</span>:3306 <span class="token parameter variable">--name</span> mysql5.7 <span class="token punctuation">\</span>
+<span class="token parameter variable">--restart</span> always <span class="token punctuation">\</span>
+<span class="token parameter variable">--privileged</span><span class="token operator">=</span>true <span class="token punctuation">\</span>
+<span class="token parameter variable">-e</span> <span class="token assign-left variable">TZ</span><span class="token operator">=</span>Asia/Shanghai <span class="token punctuation">\</span>
+<span class="token parameter variable">-e</span> <span class="token assign-left variable">MYSQL_ROOT_PASSWORD</span><span class="token operator">=</span><span class="token number">123456</span> <span class="token punctuation">\</span>
+<span class="token parameter variable">-e</span> <span class="token assign-left variable">MYSQL_DATABASE</span><span class="token operator">=</span>jira <span class="token punctuation">\</span>
+<span class="token parameter variable">-e</span> <span class="token assign-left variable">MYSQL_USER</span><span class="token operator">=</span>jira <span class="token punctuation">\</span>
+<span class="token parameter variable">-e</span> <span class="token assign-left variable">MYSQL_PASSWORD</span><span class="token operator">=</span><span class="token number">123456</span> <span class="token punctuation">\</span>
+<span class="token parameter variable">-v</span> /root/.docker/mysql5.7/conf/my.cnf:/etc/mysql/conf.d/mysqld.cnf <span class="token punctuation">\</span>
+<span class="token parameter variable">-v</span> /root/.docker/mysql5.7/data:/var/lib/mysql <span class="token punctuation">\</span>
+<span class="token parameter variable">-v</span> /root/.docker/mysql5.7/logs:/var/log/mysql <span class="token punctuation">\</span>
 mysql:5.7
 
 <span class="token comment"># 5，授权远程访问</span>
@@ -755,18 +756,18 @@ FLUSH PRIVILEGES<span class="token punctuation">;</span>
 
 
 <span class="token comment"># 6，开放端口</span>
-firewall-cmd --zone<span class="token operator">=</span>public --add-port<span class="token operator">=</span><span class="token number">3306</span>/tcp --permanent
-firewall-cmd --reload<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+firewall-cmd <span class="token parameter variable">--zone</span><span class="token operator">=</span>public --add-port<span class="token operator">=</span><span class="token number">3306</span>/tcp <span class="token parameter variable">--permanent</span>
+firewall-cmd <span class="token parameter variable">--reload</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h4 id="创建jira目录"><a href="#创建jira目录" class="headerlink" title="创建jira目录"></a>创建<code>jira</code>目录</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">mkdir</span> -p /root/.docker/atlassian
-<span class="token function">mkdir</span> -p /root/.docker/atlassian/jira<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h4 id="创建jira目录"><a href="#创建jira目录" class="headerlink" title="创建jira目录"></a>创建<code>jira</code>目录</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">mkdir</span> <span class="token parameter variable">-p</span> /root/.docker/atlassian
+<span class="token function">mkdir</span> <span class="token parameter variable">-p</span> /root/.docker/atlassian/jira<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p>  <code>tips：有时要，chmod -R 777 atlassian</code><br>  <code>tips：atlassian目录如果不创建在root下面，否则会报错</code></p>
 <h4 id="下载破解文件"><a href="#下载破解文件" class="headerlink" title="下载破解文件"></a>下载破解文件</h4><p>  下载破解包：<a target="_blank" rel="noopener" href="https://static.xiaosige.com/download/atlassian-agent-v1.2.3.tar.gz">atlassian-agent-v1.2.3</a> ，放到<code>/root/.docker/atlassian</code>目录下面</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">scp</span> atlassian-agent.jar root@10.211.55.81:/tmp
 <span class="token function">cp</span> atlassian-agent.jar /root/.docker/atlassian<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <h4 id="编写jira对应Dockerfile文件"><a href="#编写jira对应Dockerfile文件" class="headerlink" title="编写jira对应Dockerfile文件"></a>编写<code>jira</code>对应<code>Dockerfile</code>文件</h4><p>  确保：<code>docker pull cptactionhank/atlassian-jira-software:latest</code></p>
-<pre class="line-numbers language-dockerfile" data-language="dockerfile"><code class="language-dockerfile"><span class="token instruction"><span class="token keyword">FROM</span> cptactionhank/atlassian-jira-software:latest</span>
+<pre class="line-numbers language-docker" data-language="docker"><code class="language-docker"><span class="token instruction"><span class="token keyword">FROM</span> cptactionhank/atlassian-jira-software:latest</span>
 
 <span class="token instruction"><span class="token keyword">USER</span> root</span>
 
@@ -779,16 +780,16 @@ firewall-cmd --reload<span aria-hidden="true" class="line-numbers-rows"><span></
 <h4 id="构建镜像"><a href="#构建镜像" class="headerlink" title="构建镜像"></a>构建镜像</h4><p>  在<code>/root/.docker/atlassian</code>目录下执行</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">
 <span class="token builtin class-name">cd</span> /root/.docker/atlassian
-<span class="token function">docker</span> build -t jira/jira:latest <span class="token builtin class-name">.</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<span class="token function">docker</span> build <span class="token parameter variable">-t</span> jira/jira:latest <span class="token builtin class-name">.</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p>  <code>注意：命令最后有一个空格和点</code><br>  执行完毕之后，在末尾显示 <code>Successfully built … </code>代表执行成功。</p>
 <h4 id="启动容器"><a href="#启动容器" class="headerlink" title="启动容器"></a>启动容器</h4><p>  在<code>/root/.docker/atlassian</code>目录下执行:</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> run -d -p <span class="token number">8089</span>:8080 <span class="token punctuation">\</span>
---name jira <span class="token punctuation">\</span>
---restart unless-stopped <span class="token punctuation">\</span>
--e <span class="token assign-left variable">TZ</span><span class="token operator">=</span>Asia/Shanghai <span class="token punctuation">\</span>
--v /root/.docker/atlassian:/var/atlassian/jira <span class="token punctuation">\</span>
--v /root/.docker/atlassian/logs:/opt/atlassian/jira/logs <span class="token punctuation">\</span>
--v /etc/localtime:/etc/localtime <span class="token punctuation">\</span>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> run <span class="token parameter variable">-d</span> <span class="token parameter variable">-p</span> <span class="token number">8089</span>:8080 <span class="token punctuation">\</span>
+<span class="token parameter variable">--name</span> jira <span class="token punctuation">\</span>
+<span class="token parameter variable">--restart</span> unless-stopped <span class="token punctuation">\</span>
+<span class="token parameter variable">-e</span> <span class="token assign-left variable">TZ</span><span class="token operator">=</span>Asia/Shanghai <span class="token punctuation">\</span>
+<span class="token parameter variable">-v</span> /root/.docker/atlassian:/var/atlassian/jira <span class="token punctuation">\</span>
+<span class="token parameter variable">-v</span> /root/.docker/atlassian/logs:/opt/atlassian/jira/logs <span class="token punctuation">\</span>
+<span class="token parameter variable">-v</span> /etc/localtime:/etc/localtime <span class="token punctuation">\</span>
 jira/jira:latest<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h4 id="浏览器界面进行设置"><a href="#浏览器界面进行设置" class="headerlink" title="浏览器界面进行设置"></a>浏览器界面进行设置</h4><p>  输入地址：<code>http://IP地址:8089</code>，一步步配置下去，直到配置<code>数据库</code>，尽量选<code>Msql:5.7</code>.</p>
@@ -807,7 +808,7 @@ jira/jira:latest<span aria-hidden="true" class="line-numbers-rows"><span></span>
 <pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">CREATE</span> <span class="token keyword">DATABASE</span> jira <span class="token keyword">CHARACTER</span> <span class="token keyword">SET</span> utf8mb4 <span class="token keyword">COLLATE</span> utf8mb4_bin<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <h4 id="生成破解许可"><a href="#生成破解许可" class="headerlink" title="生成破解许可"></a>生成破解许可</h4><p>  直到<code>配置许可</code>时，在<code>/root/.docker/atlassian</code>目录下执行:</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java">java <span class="token operator">-</span>jar atlassian<span class="token operator">-</span>agent<span class="token punctuation">.</span>jar <span class="token operator">-</span>d <span class="token operator">-</span>m <span class="token operator">*</span><span class="token operator">*</span><span class="token operator">*</span><span class="token annotation punctuation">@163.com</span> <span class="token operator">-</span>n <span class="token operator">*</span><span class="token operator">*</span><span class="token operator">*</span> <span class="token operator">-</span>p jira <span class="token operator">-</span>o http<span class="token operator">:</span><span class="token operator">/</span><span class="token operator">/</span>IP <span class="token operator">-</span>s BXLB<span class="token operator">-</span>ZOUP<span class="token operator">-</span>KBKK<span class="token operator">-</span>KYOK
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">java <span class="token operator">-</span>jar atlassian<span class="token operator">-</span>agent<span class="token punctuation">.</span>jar <span class="token operator">-</span>d <span class="token operator">-</span>m <span class="token operator">*</span><span class="token operator">*</span><span class="token operator">*</span><span class="token annotation punctuation">@163.com</span> <span class="token operator">-</span>n <span class="token operator">*</span><span class="token operator">*</span><span class="token operator">*</span> <span class="token operator">-</span>p jira <span class="token operator">-</span>o http<span class="token operator">:</span><span class="token operator">/</span><span class="token operator">/</span><span class="token constant">IP</span> <span class="token operator">-</span>s <span class="token constant">BXLB</span><span class="token operator">-</span><span class="token constant">ZOUP</span><span class="token operator">-</span><span class="token constant">KBKK</span><span class="token operator">-</span><span class="token constant">KYOK</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>  根据<code>Server ID</code> 生成<code>license Key</code>, 复制生成的<code>KEY</code>，点击<code>Next</code>。<br><br></p>
 <blockquote>
@@ -1038,7 +1039,7 @@ jira/jira:latest<span aria-hidden="true" class="line-numbers-rows"><span></span>
 
 
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/2.2.0/quicklink.umd.js" integrity="sha256-4kQf9z5ntdQrzsBC3YSHnEz02Z9C1UeW/E9OgnvlzSY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/2.3.0/quicklink.umd.js" integrity="sha256-yvJQOINiH9fWemHn0vCA5lsHWJaHs6/ZmO+1Ft04SvM=" crossorigin="anonymous"></script>
   <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":true,"delay":true,"timeout":3000,"priority":true,"ignores":null,"url":"https://www.xiaosige.com/post/4ed27834.html"}</script>
   <script src="/js/third-party/quicklink.js"></script>
 <script class="next-config" data-name="changyan" type="application/json">{"enable":true,"appid":"cyvSPOTJq","appkey":"4436699688bbb9caa6e8826551a7c0f7"}</script>

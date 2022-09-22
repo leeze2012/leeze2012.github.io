@@ -4,7 +4,7 @@
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
 <meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 5.4.0">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 5.4.2">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="https://static.xiaosige.com/img/favicon.png">
@@ -21,7 +21,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"www.xiaosige.com","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.12.3","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"changyan","storage":true,"lazyload":true,"nav":null,"activeClass":"changyan"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"www.xiaosige.com","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.13.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"changyan","storage":true,"lazyload":true,"nav":null,"activeClass":"changyan"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="在linux中我们一般会使用top或ps命令查看进程的内存、CPU等资源使用情况，但是MacOS计算内存方式有点不太一样，什么意思呢？就是说用ps命令查看进程的内存值和在活动监视器中看到的内存值不一样。">
 <meta property="og:type" content="article">
@@ -50,6 +50,7 @@
 
   <script src="/js/third-party/analytics/baidu-analytics.js"></script>
   <script async src="https://hm.baidu.com/hm.js?7a645cfcecaf8f711cd7518386adcc74"></script>
+
 
 
 
@@ -675,13 +676,13 @@ canvas#canvas {
 <span id="more"></span>
 
 <h5 id="1-活动监视器查看"><a href="#1-活动监视器查看" class="headerlink" title="1,活动监视器查看"></a>1,活动监视器查看</h5><h5 id="2-使用ps命令查看"><a href="#2-使用ps命令查看" class="headerlink" title="2,使用ps命令查看"></a>2,使用<code>ps</code>命令查看</h5><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">ps</span> aux <span class="token operator">|</span> <span class="token function">grep</span> XXXX<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<h5 id="3-使用top命令查看"><a href="#3-使用top命令查看" class="headerlink" title="3,使用top命令查看"></a>3,使用<code>top</code>命令查看</h5><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">top</span> -pid <span class="token number">2211</span> -l <span class="token number">1</span> <span class="token operator">|</span> <span class="token function">tail</span> -n <span class="token number">1</span> <span class="token operator">|</span> <span class="token function">awk</span> <span class="token string">'{print $8}'</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h5 id="3-使用top命令查看"><a href="#3-使用top命令查看" class="headerlink" title="3,使用top命令查看"></a>3,使用<code>top</code>命令查看</h5><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">top</span> <span class="token parameter variable">-pid</span> <span class="token number">2211</span> <span class="token parameter variable">-l</span> <span class="token number">1</span> <span class="token operator">|</span> <span class="token function">tail</span> <span class="token parameter variable">-n</span> <span class="token number">1</span> <span class="token operator">|</span> <span class="token function">awk</span> <span class="token string">'{print $8}'</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <h5 id="4-推荐"><a href="#4-推荐" class="headerlink" title="4,推荐"></a>4,<code>推荐</code></h5><p>  1/3一样，与2不一样。</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token comment"># 用法</span>
-<span class="token function">top</span> -pid <span class="token punctuation">{</span>pid<span class="token punctuation">}</span> -l <span class="token number">1</span> <span class="token operator">|</span> <span class="token function">tail</span> -n <span class="token number">1</span> <span class="token operator">|</span> <span class="token function">awk</span> <span class="token string">'{print $8}'</span>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 用法</span>
+<span class="token function">top</span> <span class="token parameter variable">-pid</span> <span class="token punctuation">{</span>pid<span class="token punctuation">}</span> <span class="token parameter variable">-l</span> <span class="token number">1</span> <span class="token operator">|</span> <span class="token function">tail</span> <span class="token parameter variable">-n</span> <span class="token number">1</span> <span class="token operator">|</span> <span class="token function">awk</span> <span class="token string">'{print $8}'</span>
 <span class="token comment"># 示例</span>
-<span class="token function">top</span> -pid <span class="token number">2211</span> -l <span class="token number">1</span> <span class="token operator">|</span> <span class="token function">tail</span> -n <span class="token number">1</span> <span class="token operator">|</span> <span class="token function">awk</span> <span class="token string">'{print $8}'</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token function">top</span> <span class="token parameter variable">-pid</span> <span class="token number">2211</span> <span class="token parameter variable">-l</span> <span class="token number">1</span> <span class="token operator">|</span> <span class="token function">tail</span> <span class="token parameter variable">-n</span> <span class="token number">1</span> <span class="token operator">|</span> <span class="token function">awk</span> <span class="token string">'{print $8}'</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <div class="note success no-icon"><ul>
 <li><code>【-l 1】</code>表示<code>只执行1次</code>，</li>
 <li><code>【tail -n 1】</code>表示取<code>最后一行</code>结果，</li>
@@ -690,7 +691,7 @@ canvas#canvas {
 </div>
 
 <p>  根据应用名（如：Infoflow）查看进程号</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">ps</span> -ef <span class="token operator">|</span> <span class="token function">grep</span> Infoflow <span class="token operator">|</span> <span class="token function">grep</span> -v <span class="token function">grep</span> <span class="token operator">|</span> <span class="token function">awk</span> <span class="token string">'{print $2}'</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">ps</span> <span class="token parameter variable">-ef</span> <span class="token operator">|</span> <span class="token function">grep</span> Infoflow <span class="token operator">|</span> <span class="token function">grep</span> <span class="token parameter variable">-v</span> <span class="token function">grep</span> <span class="token operator">|</span> <span class="token function">awk</span> <span class="token string">'{print $2}'</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>  上面说了MacOS计算内存方式与Linux有点不太一样，一般linux系统看某个进程的内存使用情况，有两种计算方式：（1）实际使用内存，（2）实际使用内存 + cache使用内存。但是在MacOS计算内存时，有个交换内存SwSS，如下所示。<br>  参考：<a target="_blank" rel="noopener" href="http://wuzhou.github.io/programming/2019/06/01/macos-ios-memory.html">MacOS, iOS 内存的基本概念和分析工具</a></p>
 <p><code>Virtual Memory（虚拟内存）</code><br>  虚拟内存指的是一个程序程序运行时，使用的内存空间。<br>  虚拟内存的大小一般使用 VSS（Virtual Set Size）表示。它的大小一般这样计算：</p>
@@ -923,7 +924,7 @@ canvas#canvas {
 
 
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/2.2.0/quicklink.umd.js" integrity="sha256-4kQf9z5ntdQrzsBC3YSHnEz02Z9C1UeW/E9OgnvlzSY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/2.3.0/quicklink.umd.js" integrity="sha256-yvJQOINiH9fWemHn0vCA5lsHWJaHs6/ZmO+1Ft04SvM=" crossorigin="anonymous"></script>
   <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":true,"delay":true,"timeout":3000,"priority":true,"ignores":null,"url":"https://www.xiaosige.com/post/516b0bfa.html"}</script>
   <script src="/js/third-party/quicklink.js"></script>
 <script class="next-config" data-name="changyan" type="application/json">{"enable":true,"appid":"cyvSPOTJq","appkey":"4436699688bbb9caa6e8826551a7c0f7"}</script>

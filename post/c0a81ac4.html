@@ -4,7 +4,7 @@
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
 <meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 5.4.0">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 5.4.2">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="https://static.xiaosige.com/img/favicon.png">
@@ -21,7 +21,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"www.xiaosige.com","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.12.3","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"changyan","storage":true,"lazyload":true,"nav":null,"activeClass":"changyan"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"www.xiaosige.com","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.13.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"changyan","storage":true,"lazyload":true,"nav":null,"activeClass":"changyan"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="了解nvm  目前主流的node版本管理工具有两种，nvm和n。两者差异挺大的。   总的来说，nvm有点类似于 Python 的 virtualenv 或者 Ruby 的 rvm，每个node版本的模块都会被安装在各自版本的沙箱里面（因此切换版本后模块需重新安装），因此考虑到需要时常对node版本进行切换测试兼容性和一些模块对node版本的限制，我选择了使用nvm作为管理工具，下面就来说说nvm">
 <meta property="og:type" content="article">
@@ -51,6 +51,7 @@
 
   <script src="/js/third-party/analytics/baidu-analytics.js"></script>
   <script async src="https://hm.baidu.com/hm.js?7a645cfcecaf8f711cd7518386adcc74"></script>
+
 
 
 
@@ -698,9 +699,9 @@ canvas#canvas {
 <h4 id="不推荐的安装方法"><a href="#不推荐的安装方法" class="headerlink" title="不推荐的安装方法"></a>不推荐的安装方法</h4><p>  一开始我是使用homebrew来安装的,安装命令如下:</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">brew <span class="token function">install</span> nvm<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>  安装完后，为了让你可以直接在shell使用nvm指令，必须在你的<code> .bash_profile</code> 加入以下这行（习惯把设定放在.bashrc的人可以把以下的.bash_profile改成.bashrc）(注:如果没有这个文件,可以touch创建)</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">source</span> <span class="token variable"><span class="token variable">$(</span>brew --prefix nvm<span class="token variable">)</span></span>/nvm.sh<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">source</span> <span class="token variable"><span class="token variable">$(</span>brew <span class="token parameter variable">--prefix</span> nvm<span class="token variable">)</span></span>/nvm.sh<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>  或者直接输入以下这行来加入</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ <span class="token builtin class-name">echo</span> <span class="token string">"source <span class="token variable"><span class="token variable">$(</span>brew --prefix nvm<span class="token variable">)</span></span>/nvm.sh"</span> <span class="token operator">&gt;&gt;</span> .bash_profile<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ <span class="token builtin class-name">echo</span> <span class="token string">"source <span class="token variable"><span class="token variable">$(</span>brew <span class="token parameter variable">--prefix</span> nvm<span class="token variable">)</span></span>/nvm.sh"</span> <span class="token operator">&gt;&gt;</span> .bash_profile<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>  记得重新source你的 .bash_profile 来让设定生效</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ <span class="token builtin class-name">.</span> ~/.bash_profile<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>  OK，以上就完成了nvm的安裝。</p>
@@ -722,11 +723,11 @@ canvas#canvas {
 <p>  node 命令在 <code>/usr/local/bin/node</code> ，</p>
 <p>  npm 命令在全局 <code>node_modules</code> 目录中，具体路径为 <code>/usr/local/lib/node_modules/npm</code></p>
 <p>  安装 nvm 之后最好先删除下已安装的 node 和全局 node 模块：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">ls</span> -g --depth<span class="token operator">=</span><span class="token number">0</span> <span class="token comment">#查看已经安装在全局的模块，以便删除这些全局模块后再按照不同的 node 版本重新进行全局安装</span>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">ls</span> <span class="token parameter variable">-g</span> <span class="token parameter variable">--depth</span><span class="token operator">=</span><span class="token number">0</span> <span class="token comment">#查看已经安装在全局的模块，以便删除这些全局模块后再按照不同的 node 版本重新进行全局安装</span>
 
-<span class="token function">sudo</span> <span class="token function">rm</span> -rf /usr/local/lib/node_modules <span class="token comment">#删除全局 node_modules 目录</span>
+<span class="token function">sudo</span> <span class="token function">rm</span> <span class="token parameter variable">-rf</span> /usr/local/lib/node_modules <span class="token comment">#删除全局 node_modules 目录</span>
 <span class="token function">sudo</span> <span class="token function">rm</span> /usr/local/bin/node <span class="token comment">#删除 node</span>
-<span class="token builtin class-name">cd</span>  /usr/local/bin <span class="token operator">&amp;&amp;</span> <span class="token function">ls</span> -l <span class="token operator">|</span> <span class="token function">grep</span> <span class="token string">"../lib/node_modules/"</span> <span class="token operator">|</span> <span class="token function">awk</span> <span class="token string">'{print $9}'</span><span class="token operator">|</span> <span class="token function">xargs</span> <span class="token function">rm</span> <span class="token comment">#删除全局 node 模块注册的软链</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token builtin class-name">cd</span>  /usr/local/bin <span class="token operator">&amp;&amp;</span> <span class="token function">ls</span> <span class="token parameter variable">-l</span> <span class="token operator">|</span> <span class="token function">grep</span> <span class="token string">"../lib/node_modules/"</span> <span class="token operator">|</span> <span class="token function">awk</span> <span class="token string">'{print $9}'</span><span class="token operator">|</span> <span class="token function">xargs</span> <span class="token function">rm</span> <span class="token comment">#删除全局 node 模块注册的软链</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h5 id="安装-nvm"><a href="#安装-nvm" class="headerlink" title="安装 nvm"></a><em><strong>安装 nvm</strong></em></h5><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">curl</span> -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh <span class="token operator">|</span> <span class="token function">bash</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
@@ -761,13 +762,13 @@ nvm use <span class="token number">12.13</span>.0 <span class="token comment"># 
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">nvm <span class="token function">which</span> <span class="token number">5.0</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <h5 id="使用-cnpm-加速-npm"><a href="#使用-cnpm-加速-npm" class="headerlink" title="使用 cnpm 加速 npm"></a><em><strong>使用 cnpm 加速 npm</strong></em></h5><p>  同理 nvm , npm 默认是从国外的源获取和下载包信息, 不慢才奇怪. 可以通过简单的 —registry 参数, 使用国内的镜像 <a target="_blank" rel="noopener" href="https://registry.npm.taobao.org/">https://registry.npm.taobao.org</a> :</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ <span class="token function">npm</span> --registry<span class="token operator">=</span>https://registry.npm.taobao.org <span class="token function">install</span> koa<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ <span class="token function">npm</span> <span class="token parameter variable">--registry</span><span class="token operator">=</span>https://registry.npm.taobao.org <span class="token function">install</span> koa<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>  于是屏幕又哗啦哗啦地一大片输出</p>
 <div class="note default no-icon"><p>$ npm –registry=<a target="_blank" rel="noopener" href="https://registry.npm.taobao.org/">https://registry.npm.taobao.org</a> install koa<br>npm http GET <a target="_blank" rel="noopener" href="https://registry.npm.taobao.org/koa">https://registry.npm.taobao.org/koa</a><br>npm http 200 <a target="_blank" rel="noopener" href="https://registry.npm.taobao.org/koa">https://registry.npm.taobao.org/koa</a><br>…<br>npm http 200 <a target="_blank" rel="noopener" href="https://registry.npm.taobao.org/negotiator">https://registry.npm.taobao.org/negotiator</a><br>npm http 200 <a target="_blank" rel="noopener" href="https://registry.npm.taobao.org/keygrip">https://registry.npm.taobao.org/keygrip</a><br>koa<a href="/user/0">@0</a>.5.2 node_modules/koa<br>├── koa-compose<a href="/user/2">@2</a>.2.0<br>├── statuses<a href="/user/1">@1</a>.0.2<br>├── finished<a href="/user/1">@1</a>.1.1<br>├── escape-html<a href="/user/1">@1</a>.0.1<br>├── only<a href="/user/0">@0</a>.0.2<br>├── debug<a href="/user/0">@0</a>.8.0<br>├── fresh<a href="/user/0">@0</a>.2.2<br>├── type-is<a href="/user/1">@1</a>.0.1<br>├── delegates<a href="/user/0">@0</a>.0.3<br>├── mime<a href="/user/1">@1</a>.2.11<br>├── co<a href="/user/3">@3</a>.0.5<br>├── accepts<a href="/user/1">@1</a>.0.1 (negotiator<a href="/user/0">@0</a>.4.2)<br>└── cookies<a href="/user/0">@0</a>.4.0 (keygrip<a href="/user/1">@1</a>.0.0)</p>
 </div>
 
 <p>  但是毕竟镜像跟官方的 npm 源还是会有一个同步时间差异, 目前 cnpm 的默认同步时间间隔是 15 分钟. 如果你是模块发布者, 或者你想马上同步一个模块, 那么推荐你安装 cnpm cli:</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ <span class="token function">npm</span> --registry<span class="token operator">=</span>https://registry.npm.taobao.org <span class="token function">install</span> cnpm -g<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ <span class="token function">npm</span> <span class="token parameter variable">--registry</span><span class="token operator">=</span>https://registry.npm.taobao.org <span class="token function">install</span> cnpm <span class="token parameter variable">-g</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>  通过 cnpm 命令行, 你可以快速同步任意模块:</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ cnpm <span class="token function">sync</span> koa connect mocha<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
@@ -777,11 +778,11 @@ nvm use <span class="token number">12.13</span>.0 <span class="token comment"># 
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ <span class="token function">open</span> https://npm.taobao.org/sync/koa<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>  如果你安装的模块依赖了 C++ 模块, 需要编译, 肯定会通过 node-gyp 来编译, node-gyp 在第一次编译的时候, 需要依赖 node 源代码, 于是又会去 node dist 下载, 于是大家又会吐槽, 怎么 npm 安装这么慢…</p>
 <p>  好吧, 于是又要提到 <code>--disturl</code> 参数, 通过七牛的镜像来下载:</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ <span class="token function">npm</span> --registry<span class="token operator">=</span>https://registry.npm.taobao.org --disturl<span class="token operator">=</span>https://npm.taobao.org/mirrors/node <span class="token function">install</span> microtime<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ <span class="token function">npm</span> <span class="token parameter variable">--registry</span><span class="token operator">=</span>https://registry.npm.taobao.org <span class="token parameter variable">--disturl</span><span class="token operator">=</span>https://npm.taobao.org/mirrors/node <span class="token function">install</span> microtime<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>  再次要提到 cnpm cli, 它已经默认将 –registry 和 –disturl 都配置好了, 谁用谁知道 如果不想使用cnpm cli，可以</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> config <span class="token builtin class-name">set</span> registry https://registry.npm.taobao.org --global
-<span class="token function">npm</span> config <span class="token builtin class-name">set</span> disturl https://npm.taobao.org/dist --global<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> config <span class="token builtin class-name">set</span> registry https://registry.npm.taobao.org <span class="token parameter variable">--global</span>
+<span class="token function">npm</span> config <span class="token builtin class-name">set</span> disturl https://npm.taobao.org/dist <span class="token parameter variable">--global</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <p>  查看npm的配置</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> config <span class="token function">ls</span> <span class="token comment"># npm的配置</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
@@ -798,8 +799,8 @@ nvm use <span class="token number">12.13</span>.0 <span class="token comment"># 
 <li> nvm reinstall-packages <version> ## 在当前版本node环境下，重新全局安装指定版本号的npm包</version></li>
 </ol>
 <h3 id="附-MAC-的-bash-profile"><a href="#附-MAC-的-bash-profile" class="headerlink" title="附: MAC 的 .bash_profile"></a>附: MAC 的 <code>.bash_profile</code></h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">export</span> <span class="token assign-left variable">NVM_DIR</span><span class="token operator">=</span><span class="token string">"<span class="token environment constant">$HOME</span>/.nvm"</span>
-<span class="token punctuation">[</span> -s <span class="token string">"<span class="token variable">$NVM_DIR</span>/nvm.sh"</span> <span class="token punctuation">]</span> <span class="token operator">&amp;&amp;</span> <span class="token punctuation">\</span>. <span class="token string">"<span class="token variable">$NVM_DIR</span>/nvm.sh"</span>  <span class="token comment"># This loads nvm</span>
-<span class="token punctuation">[</span> -s <span class="token string">"<span class="token variable">$NVM_DIR</span>/bash_completion"</span> <span class="token punctuation">]</span> <span class="token operator">&amp;&amp;</span> <span class="token punctuation">\</span>. <span class="token string">"<span class="token variable">$NVM_DIR</span>/bash_completion"</span>  <span class="token comment"># This loads nvm bash_completi    on</span>
+<span class="token punctuation">[</span> <span class="token parameter variable">-s</span> <span class="token string">"<span class="token variable">$NVM_DIR</span>/nvm.sh"</span> <span class="token punctuation">]</span> <span class="token operator">&amp;&amp;</span> <span class="token punctuation">\</span>. <span class="token string">"<span class="token variable">$NVM_DIR</span>/nvm.sh"</span>  <span class="token comment"># This loads nvm</span>
+<span class="token punctuation">[</span> <span class="token parameter variable">-s</span> <span class="token string">"<span class="token variable">$NVM_DIR</span>/bash_completion"</span> <span class="token punctuation">]</span> <span class="token operator">&amp;&amp;</span> <span class="token punctuation">\</span>. <span class="token string">"<span class="token variable">$NVM_DIR</span>/bash_completion"</span>  <span class="token comment"># This loads nvm bash_completi    on</span>
  
 <span class="token comment"># nvm 改为国内node镜像</span>
 <span class="token builtin class-name">export</span> <span class="token assign-left variable">NVM_NODEJS_ORG_MIRROR</span><span class="token operator">=</span>https://npm.taobao.org/mirrors/node<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
@@ -1026,7 +1027,7 @@ nvm use <span class="token number">12.13</span>.0 <span class="token comment"># 
 
 
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/2.2.0/quicklink.umd.js" integrity="sha256-4kQf9z5ntdQrzsBC3YSHnEz02Z9C1UeW/E9OgnvlzSY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/2.3.0/quicklink.umd.js" integrity="sha256-yvJQOINiH9fWemHn0vCA5lsHWJaHs6/ZmO+1Ft04SvM=" crossorigin="anonymous"></script>
   <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":true,"delay":true,"timeout":3000,"priority":true,"ignores":null,"url":"https://www.xiaosige.com/post/c0a81ac4.html"}</script>
   <script src="/js/third-party/quicklink.js"></script>
 <script class="next-config" data-name="changyan" type="application/json">{"enable":true,"appid":"cyvSPOTJq","appkey":"4436699688bbb9caa6e8826551a7c0f7"}</script>

@@ -4,7 +4,7 @@
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
 <meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 5.4.0">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 5.4.2">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="https://static.xiaosige.com/img/favicon.png">
@@ -21,7 +21,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"www.xiaosige.com","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.12.3","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"changyan","storage":true,"lazyload":true,"nav":null,"activeClass":"changyan"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"www.xiaosige.com","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.13.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"changyan","storage":true,"lazyload":true,"nav":null,"activeClass":"changyan"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="进入容器  某些时候需要进入容器进行操作，可以使用 attach 、exec 进入容器。 # 不安全的，ctrl+d 退出时容器也会终止 docker attach [容器Name]  # 以交互式命令行进入，安全的，推荐使用 docker exec -it [容器Name] &#x2F;bin&#x2F;bash">
 <meta property="og:type" content="article">
@@ -49,6 +49,7 @@
 
   <script src="/js/third-party/analytics/baidu-analytics.js"></script>
   <script async src="https://hm.baidu.com/hm.js?7a645cfcecaf8f711cd7518386adcc74"></script>
+
 
 
 
@@ -673,14 +674,14 @@ docker exec -it [容器Name] /bin/bash<span aria-hidden="true" class="line-numbe
 
 <h3 id="命令优化"><a href="#命令优化" class="headerlink" title="命令优化"></a>命令优化</h3><ol>
 <li>使用 <code>docker exec</code> 命令时，好用，但是命令过长，我们可以通过自定义命令来简化使用</li>
-<li>创建文件 <code>/user/bin/ctn</code> 命令文件，内容如下:<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> <span class="token builtin class-name">exec</span> -it <span class="token variable">$1</span> /bin/bash<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<li>创建文件 <code>/user/bin/ctn</code> 命令文件，内容如下:<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> <span class="token builtin class-name">exec</span> <span class="token parameter variable">-it</span> <span class="token variable">$1</span> /bin/bash<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
   检查环境变量有没有配置目录 <code>/usr/bin</code> （一般是有配置在环境变量里面的，不过最好再确认一下）<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token environment constant">$PATH</span>
 bash: /usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games: No such <span class="token function">file</span> or directory<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
   完成上面步骤后，就可以直接通过命令 <code>ctn</code> 来进入容器<div class="note info no-icon"><p>注意：如果是使用非 root 账号创建的命令，而 docker 命令是 root 权限，可能存在权限问题，可以通过设置 <code>chmod 777 /usr/bin/ctn</code> 设置权限，使用 <code>sudo ctn [容器Name] </code> 即可进入容器</p>
 </div>
 <pre class="line-numbers language-docker" data-language="docker"><code class="language-docker">$ ctn [容器Name]<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
   使用上面命令时，容器Name 需要手动输入，容器出错。我们可以借助 <code>complete</code> 命令来补全 容器Name，在 <code>~/.bashrc</code> （作用于当前用户，如果想要所要用户上校，可以修改 <code>/etc/bashrc</code>）文件中添加一行，内容如下。保存后执行 <code>source ~/.bashrc</code> 使之生效，之后我们输入 <code>ctn</code> 后，按 <code>tab</code> 就会提示或自动补全容器名了了<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># ctn auto complete</span>
-complete -W <span class="token string">"<span class="token variable"><span class="token variable">$(</span><span class="token function">docker</span> <span class="token function">ps</span> --format<span class="token string">"{{.Names}}"</span><span class="token variable">)</span></span>"</span> ctn<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+complete <span class="token parameter variable">-W</span> <span class="token string">"<span class="token variable"><span class="token variable">$(</span><span class="token function">docker</span> <span class="token function">ps</span> --format<span class="token string">"{{.Names}}"</span><span class="token variable">)</span></span>"</span> ctn<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <div class="note info no-icon"><p>注意： 由于提示的 容器Name 是 <code>~/.bashrc</code> 生效时的列表，所有如果之后 <code>docker</code> 容器列表有变动，需要重新执行 <code>source ~/.bashrc</code> 使之更新提示列表</p>
 </div></li>
 </ol>
@@ -908,7 +909,7 @@ complete -W <span class="token string">"<span class="token variable"><span class
 
 
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/2.2.0/quicklink.umd.js" integrity="sha256-4kQf9z5ntdQrzsBC3YSHnEz02Z9C1UeW/E9OgnvlzSY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/2.3.0/quicklink.umd.js" integrity="sha256-yvJQOINiH9fWemHn0vCA5lsHWJaHs6/ZmO+1Ft04SvM=" crossorigin="anonymous"></script>
   <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":true,"delay":true,"timeout":3000,"priority":true,"ignores":null,"url":"https://www.xiaosige.com/post/787150d6.html"}</script>
   <script src="/js/third-party/quicklink.js"></script>
 <script class="next-config" data-name="changyan" type="application/json">{"enable":true,"appid":"cyvSPOTJq","appkey":"4436699688bbb9caa6e8826551a7c0f7"}</script>

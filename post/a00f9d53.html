@@ -4,7 +4,7 @@
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
 <meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 5.4.0">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 5.4.2">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="https://static.xiaosige.com/img/favicon.png">
@@ -21,7 +21,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"www.xiaosige.com","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.12.3","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"changyan","storage":true,"lazyload":true,"nav":null,"activeClass":"changyan"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"www.xiaosige.com","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.13.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"changyan","storage":true,"lazyload":true,"nav":null,"activeClass":"changyan"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="准备  服务器版本:CentOS 8.2 64位">
 <meta property="og:type" content="article">
@@ -57,6 +57,7 @@
 
   <script src="/js/third-party/analytics/baidu-analytics.js"></script>
   <script async src="https://hm.baidu.com/hm.js?7a645cfcecaf8f711cd7518386adcc74"></script>
+
 
 
 
@@ -693,11 +694,11 @@ docker-engine-selinux <span class="token punctuation">\</span>
 docker-engine<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><ol>
-<li>安装所需要的依赖包<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">sudo</span> yum <span class="token function">install</span> -y yum-utils device-mapper-persistent-data lvm2<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li>配置国内源<br>  添加yum的repo文件(对于国内用户优先选择阿里云)<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">sudo</span> yum-config-manager --add-repo http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li>安装所需要的依赖包<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> yum <span class="token function">install</span> <span class="token parameter variable">-y</span> yum-utils device-mapper-persistent-data lvm2<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li>配置国内源<br>  添加yum的repo文件(对于国内用户优先选择阿里云)<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> yum-config-manager --add-repo http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 <li>生成缓存，提高搜索安装软件的速度<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> yum makecache fast<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li>解决problem with installed package podman-1.6.4-10.的报错<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">yum erase <span class="token function">podman</span> buildah<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li>安装Docker<br>  安装社区版docker:<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">yum <span class="token function">install</span> -y docker-ce docker-ce-cli  containerd.io --nobest<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<li>解决problem with installed package podman-1.6.4-10.的报错<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">yum erase <span class="token function">podman</span> buildah<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li>安装Docker<br>  安装社区版docker:<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">yum <span class="token function">install</span> <span class="token parameter variable">-y</span> docker-ce docker-ce-cli  containerd.io <span class="token parameter variable">--nobest</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <code>在线安装：curl -fsSL https://get.docker.com | bash -s docker</code><br><code>curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun</code></li>
 <li>修改docker 镜像源地址加速<br>  创建或修改 <code>/etc/docker/daemon.json</code> 文件，修改为如下形式<br>  内容为（可以选择163加速或者去阿里云自己生成一个docker加速地址）：<pre class="line-numbers language-properties" data-language="properties"><code class="language-properties">{
 <span class="token key attr-name">  "registry-mirrors"</span><span class="token punctuation">:</span> <span class="token value attr-value">[</span>
@@ -709,19 +710,19 @@ docker-engine<span aria-hidden="true" class="line-numbers-rows"><span></span><sp
   Docker中国区官方镜像 :         <a target="_blank" rel="noopener" href="https://registry.docker-cn.com/">https://registry.docker-cn.com</a><br>  网易 :                <a target="_blank" rel="noopener" href="http://hub-mirror.c.163.com/">http://hub-mirror.c.163.com</a><br>  ustc :                <a target="_blank" rel="noopener" href="https://docker.mirrors.ustc.edu.cn/">https://docker.mirrors.ustc.edu.cn</a><br>  中国科技大学 :            <a target="_blank" rel="noopener" href="https://docker.mirrors.ustc.edu.cn/">https://docker.mirrors.ustc.edu.cn</a><br>  阿里云容器 生成自己的加速地址 :    登录：<a target="_blank" rel="noopener" href="https://cr.console.aliyun.com/">https://cr.console.aliyun.com/</a></li>
 <li>重新加载docker 服务配置，让加速地址生效并重启(启动)docker<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> systemctl daemon-reload
 <span class="token function">sudo</span> systemctl restart <span class="token function">docker</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
-<li>设置开机自动启动docker(可选)，可以连带自动启动带自动启动的容器 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">systemctl <span class="token builtin class-name">enable</span> <span class="token function">docker</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li>查看Docker版本<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token comment"># 简单信息</span>
-<span class="token function">docker</span> -v
+<li>设置开机自动启动docker(可选)，可以连带自动启动带自动启动的容器 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">systemctl <span class="token builtin class-name">enable</span> <span class="token function">docker</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li>查看Docker版本<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 简单信息</span>
+<span class="token function">docker</span> <span class="token parameter variable">-v</span>
 <span class="token comment"># 查看docker的版本号，包括客户端、服务端、依赖的Go等</span>
 <span class="token function">docker</span> version
 <span class="token comment"># 查看系统(docker)层面信息，包括管理的images, containers数等</span>
 <span class="token function">docker</span> info
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 <li>安装docker-compose<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment">#下载docker-compose,采用国内镜像,速度较快</span>
-<span class="token function">curl</span> -L https://github.com/docker/compose/releases/download/1.3.3/docker-compose-<span class="token variable"><span class="token variable">`</span><span class="token function">uname</span> -s<span class="token variable">`</span></span>-<span class="token variable"><span class="token variable">`</span><span class="token function">uname</span> -m<span class="token variable">`</span></span> <span class="token operator">&gt;</span> /usr/local/bin/docker-compose
+<span class="token function">curl</span> <span class="token parameter variable">-L</span> https://github.com/docker/compose/releases/download/1.3.3/docker-compose-<span class="token variable"><span class="token variable">`</span><span class="token function">uname</span> <span class="token parameter variable">-s</span><span class="token variable">`</span></span>-<span class="token variable"><span class="token variable">`</span><span class="token function">uname</span> <span class="token parameter variable">-m</span><span class="token variable">`</span></span> <span class="token operator">&gt;</span> /usr/local/bin/docker-compose
 <span class="token comment">#授权docker-compose</span>
 <span class="token function">chmod</span> +x /usr/local/bin/docker-compose
-<span class="token function">docker-compose</span> --version <span class="token comment">#查看版本验证安装</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token function">docker-compose</span> <span class="token parameter variable">--version</span> <span class="token comment">#查看版本验证安装</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 国内开启pip 下载加速：http://mirrors.aliyun.com/help/pypi</span>
 <span class="token function">mkdir</span> ~/.pip/
 <span class="token function">cat</span> <span class="token operator">&gt;</span> ~/.pip/pip.conf <span class="token operator">&lt;&lt;</span><span class="token string">'EOF'
@@ -732,18 +733,18 @@ trusted-host=mirrors.aliyun.com
 EOF</span>
 
 <span class="token comment"># 下载pip软件</span>
-yum <span class="token function">install</span> -y python2-pip
+yum <span class="token function">install</span> <span class="token parameter variable">-y</span> python2-pip
 <span class="token comment"># 下载 docker-compose</span>
 pip <span class="token function">install</span> <span class="token function">docker-compose</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">yum -y <span class="token function">install</span> libcurl libcurl-devel
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">yum <span class="token parameter variable">-y</span> <span class="token function">install</span> libcurl libcurl-devel
 
 <span class="token comment"># 安装 pip</span>
 <span class="token comment"># 安装 EPEL 软件包</span>
-yum -y <span class="token function">install</span> epel-release
+yum <span class="token parameter variable">-y</span> <span class="token function">install</span> epel-release
 <span class="token comment"># 安装pip </span>
-yum -y <span class="token function">install</span> python-pip
+yum <span class="token parameter variable">-y</span> <span class="token function">install</span> python-pip
 <span class="token comment">#升级</span>
-pip <span class="token function">install</span> --upgrade pip
+pip <span class="token function">install</span> <span class="token parameter variable">--upgrade</span> pip
 
 <span class="token comment"># yum install python-devel</span>
 
@@ -752,8 +753,8 @@ pip <span class="token function">install</span> <span class="token function">doc
 <span class="token comment"># pip3 install docker-compose</span>
 <span class="token comment"># pip install docker-compose==1.21.2</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token assign-left variable">DOCKER_CONFIG</span><span class="token operator">=</span><span class="token variable">${DOCKER_CONFIG<span class="token operator">:-</span>$HOME<span class="token operator">/</span>.docker}</span>
-<span class="token function">mkdir</span> -p <span class="token variable">$DOCKER_CONFIG</span>/cli-plugins
-<span class="token function">curl</span> -SL https://github.com/docker/compose/releases/download/v2.2.3/docker-compose-linux-x86_64 -o <span class="token variable">$DOCKER_CONFIG</span>/cli-plugins/docker-compose
+<span class="token function">mkdir</span> <span class="token parameter variable">-p</span> <span class="token variable">$DOCKER_CONFIG</span>/cli-plugins
+<span class="token function">curl</span> <span class="token parameter variable">-SL</span> https://github.com/docker/compose/releases/download/v2.2.3/docker-compose-linux-x86_64 <span class="token parameter variable">-o</span> <span class="token variable">$DOCKER_CONFIG</span>/cli-plugins/docker-compose
 
 <span class="token function">chmod</span> +x <span class="token variable">$DOCKER_CONFIG</span>/cli-plugins/docker-compose
 
@@ -761,7 +762,7 @@ pip <span class="token function">install</span> <span class="token function">doc
 <div class="note info no-icon"><p><a target="_blank" rel="noopener" href="https://docs.docker.com/compose/cli-command/">Compose V2</a><br><a target="_blank" rel="noopener" href="http://www.manongjc.com/detail/18-fdycjiwlqqsvecp.html">docker-compose 安装以及遇到的错误解决</a><br><a target="_blank" rel="noopener" href="https://www.cnblogs.com/eddie1127/p/12003358.html">安装docker-compose报错解决办法</a><br><a target="_blank" rel="noopener" href="https://www.cnblogs.com/felixqiang/p/11946644.html">pip-ERROR</a></p>
 </div></li>
 </ol>
-<h3 id="Docker服务相关"><a href="#Docker服务相关" class="headerlink" title="Docker服务相关"></a>Docker服务相关</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">
+<h3 id="Docker服务相关"><a href="#Docker服务相关" class="headerlink" title="Docker服务相关"></a>Docker服务相关</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">
 
 systemctl start <span class="token function">docker</span>    <span class="token comment"># 启动</span>
 systemctl <span class="token builtin class-name">enable</span> <span class="token function">docker</span>   <span class="token comment"># 开机自启</span>
@@ -772,16 +773,16 @@ systemctl status <span class="token function">docker</span>   <span class="token
 
 
 
-<h3 id="Docker命令"><a href="#Docker命令" class="headerlink" title="Docker命令"></a>Docker命令</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">docker</span> images               <span class="token comment"># 查看镜像</span>
+<h3 id="Docker命令"><a href="#Docker命令" class="headerlink" title="Docker命令"></a>Docker命令</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> images               <span class="token comment"># 查看镜像</span>
 <span class="token function">docker</span> pull 镜像名称:版本号   <span class="token comment"># 拉取镜像</span>
 <span class="token function">docker</span> rmi 镜像名称:版本号    <span class="token comment"># 删除镜像</span>
 
 <span class="token function">docker</span> <span class="token function">ps</span>                  <span class="token comment"># 查看正在运行的容器</span>
-<span class="token function">docker</span> <span class="token function">ps</span> -a               <span class="token comment"># 查看所有容器</span>
-<span class="token function">docker</span> <span class="token function">ps</span> -s               <span class="token comment"># 查看正在运行的容器</span>
-<span class="token function">docker</span> <span class="token function">ps</span> -l               <span class="token comment"># 查看上一次容器</span>
+<span class="token function">docker</span> <span class="token function">ps</span> <span class="token parameter variable">-a</span>               <span class="token comment"># 查看所有容器</span>
+<span class="token function">docker</span> <span class="token function">ps</span> <span class="token parameter variable">-s</span>               <span class="token comment"># 查看正在运行的容器</span>
+<span class="token function">docker</span> <span class="token function">ps</span> <span class="token parameter variable">-l</span>               <span class="token comment"># 查看上一次容器</span>
 <span class="token function">docker</span> <span class="token function">rm</span> 容器名称          <span class="token comment"># 删除容器</span>
-<span class="token function">docker</span> <span class="token function">rm</span> -v 容器名称       <span class="token comment"># 删除容器及数据卷</span>
+<span class="token function">docker</span> <span class="token function">rm</span> <span class="token parameter variable">-v</span> 容器名称       <span class="token comment"># 删除容器及数据卷</span>
 <span class="token function">docker</span> volume <span class="token function">ls</span>           <span class="token comment"># 查询数据卷</span>
 <span class="token function">docker</span> volume <span class="token function">rm</span>  数据卷名  <span class="token comment"># 删除数据卷</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
@@ -789,18 +790,18 @@ systemctl status <span class="token function">docker</span>   <span class="token
 
 
 <h3 id="docker远程连接"><a href="#docker远程连接" class="headerlink" title="docker远程连接"></a>docker远程连接</h3><h4 id="portainer中远程连接"><a href="#portainer中远程连接" class="headerlink" title="portainer中远程连接"></a>portainer中远程连接</h4><ol>
-<li>服务器配置docker<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">
+<li>服务器配置docker<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">
 <span class="token function">vim</span> /usr/lib/systemd/system/docker.service<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-  添加<code>-H tcp://0.0.0.0:2375</code>如下<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token comment"># ExecStart=/usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock</span>
+  添加<code>-H tcp://0.0.0.0:2375</code>如下<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># ExecStart=/usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock</span>
 改为：
 <span class="token comment"># leeze</span>
- <span class="token assign-left variable">ExecStart</span><span class="token operator">=</span>/usr/bin/dockerd -H fd:// --containerd<span class="token operator">=</span>/run/containerd/containerd.sock -H tcp://0.0.0.0:2375<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li>防火墙端口(<code>2375</code>)<br>  如果服务器有防火墙，请放开 <code>2375</code> 端口<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">firewall-cmd  --zone<span class="token operator">=</span>public --add-port<span class="token operator">=</span><span class="token number">2375</span>/tcp --permanent
-firewall-cmd --reload
+ <span class="token assign-left variable">ExecStart</span><span class="token operator">=</span>/usr/bin/dockerd <span class="token parameter variable">-H</span> fd:// <span class="token parameter variable">--containerd</span><span class="token operator">=</span>/run/containerd/containerd.sock <span class="token parameter variable">-H</span> tcp://0.0.0.0:2375<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li>防火墙端口(<code>2375</code>)<br>  如果服务器有防火墙，请放开 <code>2375</code> 端口<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">firewall-cmd  <span class="token parameter variable">--zone</span><span class="token operator">=</span>public --add-port<span class="token operator">=</span><span class="token number">2375</span>/tcp <span class="token parameter variable">--permanent</span>
+firewall-cmd <span class="token parameter variable">--reload</span>
 firewall-cmd --list-ports<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
-<li>重启 <code>docker</code> 服务<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">systemctl daemon-reload
+<li>重启 <code>docker</code> 服务<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">systemctl daemon-reload
 systemctl restart <span class="token function">docker</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
-<li>然后用浏览器访问Linux主机的IP:2375/version，测试端口是否开放成功<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">curl</span> http://ip:2375/verion<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li>然后用浏览器访问Linux主机的IP:2375/version，测试端口是否开放成功<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">curl</span> http://ip:2375/verion<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 <li>portainer中远程连接<img data-src="/post/a00f9d53/portainer001.png" class="" title="portainer-docker"></li>
 </ol>
 <h4 id="IDEA中远程连接"><a href="#IDEA中远程连接" class="headerlink" title="IDEA中远程连接"></a>IDEA中远程连接</h4><p>  TCP-socket:<br>  <code>tcp://10.211.55.81:2375</code></p>
@@ -811,9 +812,9 @@ systemctl restart <span class="token function">docker</span><span aria-hidden="t
 <p><code>二</code>，查看激活作用域</p>
 <img data-src="/post/a00f9d53/firewall002.png" class="" title="作用域">
 <p><code>三</code>，把<code>docker0</code>网卡添加到<code>trusted</code>域</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">firewall-cmd --permanent --zone<span class="token operator">=</span>trusted --add-interface<span class="token operator">=</span>docker0<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">firewall-cmd <span class="token parameter variable">--permanent</span> <span class="token parameter variable">--zone</span><span class="token operator">=</span>trusted --add-interface<span class="token operator">=</span>docker0<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p><code>四</code>，重启加载配置</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">firewall-cmd --reload<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">firewall-cmd <span class="token parameter variable">--reload</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p><code>五</code>，查看激活作用域</p>
 <img data-src="/post/a00f9d53/firewall003.png" class="" title="作用域">
 <p><code>六</code>，查看网卡</p>
@@ -821,8 +822,8 @@ systemctl restart <span class="token function">docker</span><span aria-hidden="t
 <p><code>七</code>，查看端口</p>
 <img data-src="/post/a00f9d53/firewall005.png" class="" title="查看端口">
 <p><code>八</code>，开放端口</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">firewall-cmd  --zone<span class="token operator">=</span>public --add-port<span class="token operator">=</span><span class="token number">3307</span>/tcp --permanent
-firewall-cmd --reload<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">firewall-cmd  <span class="token parameter variable">--zone</span><span class="token operator">=</span>public --add-port<span class="token operator">=</span><span class="token number">3307</span>/tcp <span class="token parameter variable">--permanent</span>
+firewall-cmd <span class="token parameter variable">--reload</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <img data-src="/post/a00f9d53/firewall006.png" class="" title="查看3307端口"> 
 </blockquote>
 <h4 id="网络问题2"><a href="#网络问题2" class="headerlink" title="网络问题2"></a><code>网络问题2</code></h4><p><code>网络问题1,不好使</code>，参考：<a href="/post/76a6f1b6.html" title="Centos7/8 firewall 和 docker 冲突解决">Centos7/8 firewall 和 docker 冲突解决</a></p>
@@ -1050,7 +1051,7 @@ firewall-cmd --reload<span aria-hidden="true" class="line-numbers-rows"><span></
 
 
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/2.2.0/quicklink.umd.js" integrity="sha256-4kQf9z5ntdQrzsBC3YSHnEz02Z9C1UeW/E9OgnvlzSY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/2.3.0/quicklink.umd.js" integrity="sha256-yvJQOINiH9fWemHn0vCA5lsHWJaHs6/ZmO+1Ft04SvM=" crossorigin="anonymous"></script>
   <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":true,"delay":true,"timeout":3000,"priority":true,"ignores":null,"url":"https://www.xiaosige.com/post/a00f9d53.html"}</script>
   <script src="/js/third-party/quicklink.js"></script>
 <script class="next-config" data-name="changyan" type="application/json">{"enable":true,"appid":"cyvSPOTJq","appkey":"4436699688bbb9caa6e8826551a7c0f7"}</script>

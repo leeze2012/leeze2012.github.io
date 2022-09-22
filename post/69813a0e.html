@@ -4,7 +4,7 @@
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
 <meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 5.4.0">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 5.4.2">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="https://static.xiaosige.com/img/favicon.png">
@@ -21,7 +21,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"www.xiaosige.com","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.12.3","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"changyan","storage":true,"lazyload":true,"nav":null,"activeClass":"changyan"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"www.xiaosige.com","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.13.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"changyan","storage":true,"lazyload":true,"nav":null,"activeClass":"changyan"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="介绍  Nginx是一个高性能的Web和反向代理服务器,它具有有很多非常优越的特性:  作为Web服务器: 相比Apache，Nginx 使用更少的资源，支持更多 的并发连接，体现更高的效率，这点使Nginx尤其受到虚拟主机提供商的欢迎。能够支持高达50,000个并发连接数的响应，感谢Nginx为我们选择了epoll and kqueue作为开发模型.">
 <meta property="og:type" content="article">
@@ -52,6 +52,7 @@
 
   <script src="/js/third-party/analytics/baidu-analytics.js"></script>
   <script async src="https://hm.baidu.com/hm.js?7a645cfcecaf8f711cd7518386adcc74"></script>
+
 
 
 
@@ -695,20 +696,20 @@ gpgcheck=0
 enabled=1<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 </ol>
 <h4 id="安装nginx"><a href="#安装nginx" class="headerlink" title="安装nginx"></a>安装nginx</h4><ol>
-<li>直接安装会安装当前的最新版本<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">yum <span class="token function">install</span> -y nginx<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li>该源仓库下有多个版本的nginx可供安装，可以用如下命令查看<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">yum --showduplicates list nginx<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li>选择其中一个版本安装<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">yum <span class="token function">install</span> -y nginx-版本号
+<li>直接安装会安装当前的最新版本<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">yum <span class="token function">install</span> <span class="token parameter variable">-y</span> nginx<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li>该源仓库下有多个版本的nginx可供安装，可以用如下命令查看<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">yum <span class="token parameter variable">--showduplicates</span> list nginx<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li>选择其中一个版本安装<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">yum <span class="token function">install</span> <span class="token parameter variable">-y</span> nginx-版本号
 <span class="token comment"># 如下</span>
-yum <span class="token function">install</span> -y <span class="token number">1.18</span>.0-1.el6.ngx<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
+yum <span class="token function">install</span> <span class="token parameter variable">-y</span> <span class="token number">1.18</span>.0-1.el6.ngx<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
 </ol>
 <h4 id="禁止更新"><a href="#禁止更新" class="headerlink" title="禁止更新"></a>禁止更新</h4><p>  我们在安装之后，为了能够正常运行，我们一般会禁止Nginx进行更新。因为在yum更新了Nginx之后，Nginx会自动重启。这对于我们来说是没有必要的，所以我们可以屏蔽更新。我们可以这样，将下列指定放到你的<code>/etc/yum.conf</code>文件中：</p>
 <pre class="line-numbers language-properties" data-language="properties"><code class="language-properties"><span class="token key attr-name">exclude</span><span class="token punctuation">=</span><span class="token value attr-value">nginx</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h4 id="更新Nginx"><a href="#更新Nginx" class="headerlink" title="更新Nginx"></a>更新Nginx</h4><p>  一般在生产环境，我们都是禁用更新的。所以说，这里只是作为一个参考<br>  我们需要执行的命令就是：</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">yum update nginx<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>  <code> 注意： 在使用 yum 更新之后，Nginx会自动重启。</code></p>
-<h4 id="命令管理"><a href="#命令管理" class="headerlink" title="命令管理"></a>命令管理</h4><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">systemctl start nginx   <span class="token comment"># 启动</span>
+<h4 id="命令管理"><a href="#命令管理" class="headerlink" title="命令管理"></a>命令管理</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">systemctl start nginx   <span class="token comment"># 启动</span>
 systemctl restart nginx <span class="token comment"># 重启</span>
-nginx -t                <span class="token comment"># 测试配置文件语法是否正确</span>
+nginx <span class="token parameter variable">-t</span>                <span class="token comment"># 测试配置文件语法是否正确</span>
 systemctl reload nginx  <span class="token comment"># 重载配置文件</span>
 systemctl stop nginx    <span class="token comment"># 停止</span>
 systemctl <span class="token builtin class-name">enable</span> nginx  <span class="token comment"># 启动开机启动</span>
@@ -716,20 +717,20 @@ systemctl diasble nginx <span class="token comment"># 禁止开机启动</span><
 
 <h3 id="源代码安装"><a href="#源代码安装" class="headerlink" title="源代码安装"></a>源代码安装</h3><p>  如果已安装，则remove掉<code>yum remove nginx</code></p>
 <h4 id="源码下载"><a href="#源码下载" class="headerlink" title="源码下载"></a>源码下载</h4><p>  安装wget并下载nginx源码包， 去 <a target="_blank" rel="noopener" href="http://nginx.org/download/">http://nginx.org/download/</a> 可以找到历史版本的包</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">yum <span class="token function">install</span> -y <span class="token function">wget</span> <span class="token operator">&amp;&amp;</span> <span class="token function">wget</span> http://nginx.org/download/nginx-1.19.2.tar.gz
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">yum <span class="token function">install</span> <span class="token parameter variable">-y</span> <span class="token function">wget</span> <span class="token operator">&amp;&amp;</span> <span class="token function">wget</span> http://nginx.org/download/nginx-1.19.2.tar.gz
 
-<span class="token function">tar</span> -zxvf nginx-1.19.2.tar.gz<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<h4 id="新增用户"><a href="#新增用户" class="headerlink" title="新增用户"></a>新增用户</h4><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">groupadd</span> www
-<span class="token function">useradd</span> -g www www<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<span class="token function">tar</span> <span class="token parameter variable">-zxvf</span> nginx-1.19.2.tar.gz<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h4 id="新增用户"><a href="#新增用户" class="headerlink" title="新增用户"></a>新增用户</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">groupadd</span> www
+<span class="token function">useradd</span> <span class="token parameter variable">-g</span> www www<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <blockquote>
 <p> useradd -g www -s /sbin/nologin -M www</p>
 </blockquote>
 <h4 id="安装依赖环境"><a href="#安装依赖环境" class="headerlink" title="安装依赖环境"></a>安装依赖环境</h4><ol>
-<li>安装gcc<br>安装 nginx 需要先将官网下载的源码进行编译，编译依赖 gcc 环境。安装指令如下：<br>安装gcc<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">yum -y <span class="token function">install</span> gcc automake autoconf libtool <span class="token function">make</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-安装g++<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">yum <span class="token function">install</span> gcc gcc-c++<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li>安装PCRE pcre-devel<br>Nginx的Rewrite模块和HTTP核心模块会使用到PCRE正则表达式语法。这里需要安装两个安装包pcre和pcre-devel。第一个安装包提供编译版本的库，而第二个提供开发阶段的头文件和编译项目的源代码。安装指令如下：<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">yum <span class="token function">install</span> -y pcre pcre-devel<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li>安装zlib<br>zlib库提供了开发人员的压缩算法，在Nginx的各种模块中需要使用gzip压缩。安装指令如下:<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">yum <span class="token function">install</span> -y zlib zlib-devel<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li>安装Open SSL<br>nginx不仅支持 http协议，还支持 https（即在 ssl 协议上传输 http），如果使用了 https，需要安装 OpenSSL 库。安装指令如下：<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">yum <span class="token function">install</span> -y openssl openssl-devel<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<li>安装gcc<br>安装 nginx 需要先将官网下载的源码进行编译，编译依赖 gcc 环境。安装指令如下：<br>安装gcc<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">yum <span class="token parameter variable">-y</span> <span class="token function">install</span> gcc automake autoconf libtool <span class="token function">make</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+安装g++<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">yum <span class="token function">install</span> gcc gcc-c++<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li>安装PCRE pcre-devel<br>Nginx的Rewrite模块和HTTP核心模块会使用到PCRE正则表达式语法。这里需要安装两个安装包pcre和pcre-devel。第一个安装包提供编译版本的库，而第二个提供开发阶段的头文件和编译项目的源代码。安装指令如下：<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">yum <span class="token function">install</span> <span class="token parameter variable">-y</span> pcre pcre-devel<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li>安装zlib<br>zlib库提供了开发人员的压缩算法，在Nginx的各种模块中需要使用gzip压缩。安装指令如下:<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">yum <span class="token function">install</span> <span class="token parameter variable">-y</span> zlib zlib-devel<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li>安装Open SSL<br>nginx不仅支持 http协议，还支持 https（即在 ssl 协议上传输 http），如果使用了 https，需要安装 OpenSSL 库。安装指令如下：<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">yum <span class="token function">install</span> <span class="token parameter variable">-y</span> openssl openssl-devel<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 环境结束.</li>
 </ol>
 <h4 id="进行配置"><a href="#进行配置" class="headerlink" title="进行配置"></a>进行配置</h4><p>没有特别配置，直接<code>./configure</code>就好了。安装完成后可以通过<code>nginx -V</code>查看选择的模块。</p>
@@ -771,7 +772,7 @@ systemctl diasble nginx <span class="token comment"># 禁止开机启动</span><
 
 <br>
 
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># ./configure --prefix=/usr/local/nginx \</span>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># ./configure --prefix=/usr/local/nginx \</span>
 --sbin-path<span class="token operator">=</span>/usr/sbin/nginx <span class="token punctuation">\</span>
 --modules-path<span class="token operator">=</span>/usr/lib64/nginx/modules <span class="token punctuation">\</span>
 --conf-path<span class="token operator">=</span>/usr/local/nginx/nginx.conf <span class="token punctuation">\</span>
@@ -784,8 +785,8 @@ systemctl diasble nginx <span class="token comment"># 禁止开机启动</span><
 --http-fastcgi-temp-path<span class="token operator">=</span>/usr/local/nginx/fastcgi_temp <span class="token punctuation">\</span>
 --http-uwsgi-temp-path<span class="token operator">=</span>/usr/local/nginx/uwsgi_temp <span class="token punctuation">\</span>
 --http-scgi-temp-path<span class="token operator">=</span>/usr/local/nginx/scgi_temp <span class="token punctuation">\</span>
---user<span class="token operator">=</span>www <span class="token punctuation">\</span>
---group<span class="token operator">=</span>www <span class="token punctuation">\</span>
+<span class="token parameter variable">--user</span><span class="token operator">=</span>www <span class="token punctuation">\</span>
+<span class="token parameter variable">--group</span><span class="token operator">=</span>www <span class="token punctuation">\</span>
 --with-compat <span class="token punctuation">\</span>
 --with-file-aio <span class="token punctuation">\</span>
 --with-threads <span class="token punctuation">\</span>
@@ -817,17 +818,17 @@ systemctl diasble nginx <span class="token comment"># 禁止开机启动</span><
 
 <p>上面的编译是使用了系统默认的openssl，如果想使用更高版本的openssl进行编译的话。可以加上<code>--with-openssl=openssl安装路径</code>来自定义。高版本的openssl安装可以参考 <a target="_blank" rel="noopener" href="https://www.jianshu.com/p/bf5a55a0a814">这篇文章</a>。</p>
 <p><code>--with-openssl</code> 参数虽然可以指定 OpenSSL 路径，但只支持 OpenSSL 的源代码，不支持已编译好的 OpenSSL。每回更新 nginx 都要重新编译 OpenSSL 很麻烦 。以下是解决方案<br>打开nginx源码解压目录下的<code>auto/lib/openssl/conf</code>,找到所有带<code>.openssl</code>的行</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token assign-left variable">CORE_INCS</span><span class="token operator">=</span><span class="token string">"<span class="token variable">$CORE_INCS</span> <span class="token variable">$OPENSSL</span>/.openssl/include"</span>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token assign-left variable">CORE_INCS</span><span class="token operator">=</span><span class="token string">"<span class="token variable">$CORE_INCS</span> <span class="token variable">$OPENSSL</span>/.openssl/include"</span>
 <span class="token assign-left variable">CORE_DEPS</span><span class="token operator">=</span><span class="token string">"<span class="token variable">$CORE_DEPS</span> <span class="token variable">$OPENSSL</span>/.openssl/include/openssl/ssl.h"</span>
 <span class="token assign-left variable">CORE_LIBS</span><span class="token operator">=</span><span class="token string">"<span class="token variable">$CORE_LIBS</span> <span class="token variable">$OPENSSL</span>/.openssl/lib/libssl.a"</span>
 <span class="token assign-left variable">CORE_LIBS</span><span class="token operator">=</span><span class="token string">"<span class="token variable">$CORE_LIBS</span> <span class="token variable">$OPENSSL</span>/.openssl/lib/libcrypto.a"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <p>改成下面的样子，去掉<code>.openssl/</code></p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token assign-left variable">CORE_INCS</span><span class="token operator">=</span><span class="token string">"<span class="token variable">$CORE_INCS</span> <span class="token variable">$OPENSSL</span>/include"</span>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token assign-left variable">CORE_INCS</span><span class="token operator">=</span><span class="token string">"<span class="token variable">$CORE_INCS</span> <span class="token variable">$OPENSSL</span>/include"</span>
 <span class="token assign-left variable">CORE_DEPS</span><span class="token operator">=</span><span class="token string">"<span class="token variable">$CORE_DEPS</span> <span class="token variable">$OPENSSL</span>/include/openssl/ssl.h"</span>
 <span class="token assign-left variable">CORE_LIBS</span><span class="token operator">=</span><span class="token string">"<span class="token variable">$CORE_LIBS</span> <span class="token variable">$OPENSSL</span>/lib/libssl.a"</span>
 <span class="token assign-left variable">CORE_LIBS</span><span class="token operator">=</span><span class="token string">"<span class="token variable">$CORE_LIBS</span> <span class="token variable">$OPENSSL</span>/lib/libcrypto.a"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <p>进行编译</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># ./configure --prefix=/usr/local/nginx \</span>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># ./configure --prefix=/usr/local/nginx \</span>
 --sbin-path<span class="token operator">=</span>/usr/sbin/nginx <span class="token punctuation">\</span>
 --modules-path<span class="token operator">=</span>/usr/lib64/nginx/modules <span class="token punctuation">\</span>
 --conf-path<span class="token operator">=</span>/usr/local/nginx/nginx.conf <span class="token punctuation">\</span>
@@ -840,8 +841,8 @@ systemctl diasble nginx <span class="token comment"># 禁止开机启动</span><
 --http-fastcgi-temp-path<span class="token operator">=</span>/usr/local/nginx/fastcgi_temp <span class="token punctuation">\</span>
 --http-uwsgi-temp-path<span class="token operator">=</span>/usr/local/nginx/uwsgi_temp <span class="token punctuation">\</span>
 --http-scgi-temp-path<span class="token operator">=</span>/usr/local/nginx/scgi_temp <span class="token punctuation">\</span>
---user<span class="token operator">=</span>www <span class="token punctuation">\</span>
---group<span class="token operator">=</span>www <span class="token punctuation">\</span>
+<span class="token parameter variable">--user</span><span class="token operator">=</span>www <span class="token punctuation">\</span>
+<span class="token parameter variable">--group</span><span class="token operator">=</span>www <span class="token punctuation">\</span>
 --with-compat <span class="token punctuation">\</span>
 --with-file-aio <span class="token punctuation">\</span>
 --with-threads <span class="token punctuation">\</span>
@@ -1533,7 +1534,7 @@ systemctl diasble nginx <span class="token comment"># 禁止开机启动</span><
 
 
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/2.2.0/quicklink.umd.js" integrity="sha256-4kQf9z5ntdQrzsBC3YSHnEz02Z9C1UeW/E9OgnvlzSY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/2.3.0/quicklink.umd.js" integrity="sha256-yvJQOINiH9fWemHn0vCA5lsHWJaHs6/ZmO+1Ft04SvM=" crossorigin="anonymous"></script>
   <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":true,"delay":true,"timeout":3000,"priority":true,"ignores":null,"url":"https://www.xiaosige.com/post/69813a0e.html"}</script>
   <script src="/js/third-party/quicklink.js"></script>
 <script class="next-config" data-name="changyan" type="application/json">{"enable":true,"appid":"cyvSPOTJq","appkey":"4436699688bbb9caa6e8826551a7c0f7"}</script>

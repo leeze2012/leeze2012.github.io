@@ -4,7 +4,7 @@
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
 <meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 5.4.0">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 5.4.2">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="https://static.xiaosige.com/img/favicon.png">
@@ -21,7 +21,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"www.xiaosige.com","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.12.3","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"changyan","storage":true,"lazyload":true,"nav":null,"activeClass":"changyan"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"www.xiaosige.com","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.13.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"changyan","storage":true,"lazyload":true,"nav":null,"activeClass":"changyan"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="问题描述  最近Docker上重装Nexus3，一直报错 UnknownHostException: rhc.sonatype.com  (在另一个场景中报 NoRouteToHostException: No route to host )">
 <meta property="og:type" content="article">
@@ -49,6 +49,7 @@
 
   <script src="/js/third-party/analytics/baidu-analytics.js"></script>
   <script async src="https://hm.baidu.com/hm.js?7a645cfcecaf8f711cd7518386adcc74"></script>
+
 
 
 
@@ -687,27 +688,27 @@ canvas#canvas {
 <li>注：以下指令均在宿主Linux系统中运行，而非容器中</li>
 </ul>
 <ol>
-<li>方法1. 关闭防火墙(不推荐)<br>  关闭防火墙后需重启docker，否则会报错<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">systemctl stop firewalld
+<li>方法1. 关闭防火墙(不推荐)<br>  关闭防火墙后需重启docker，否则会报错<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">systemctl stop firewalld
 systemctl restart <span class="token function">docker</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
-<li>方法2. 宿主机防火墙开启伪装IP功能<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">// https://www.cnblogs.com/architectforest/p/12389218.html
-firewall-cmd --zone<span class="token operator">=</span>public --add-masquerade --permanent
-firewall-cmd --reload
+<li>方法2. 宿主机防火墙开启伪装IP功能<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">// https://www.cnblogs.com/architectforest/p/12389218.html
+firewall-cmd <span class="token parameter variable">--zone</span><span class="token operator">=</span>public --add-masquerade <span class="token parameter variable">--permanent</span>
+firewall-cmd <span class="token parameter variable">--reload</span>
 systemctl restart firewalld
 systemctl restart <span class="token function">docker</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-  还看到另一个方法，未测试有效性，先放在这里<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">// https://blog.csdn.net/mostone/article/details/105815866
+  还看到另一个方法，未测试有效性，先放在这里<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">// https://blog.csdn.net/mostone/article/details/105815866
 // 将网络接口 docker0 加入 trusted zone
-firewall-cmd --permanent --zone<span class="token operator">=</span>trusted --add-interface<span class="token operator">=</span>docker0
+firewall-cmd <span class="token parameter variable">--permanent</span> <span class="token parameter variable">--zone</span><span class="token operator">=</span>trusted --add-interface<span class="token operator">=</span>docker0
 
-firewall-cmd --permanent --zone<span class="token operator">=</span>trusted --change-interface<span class="token operator">=</span>br-d2aa50162455<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li>方法3. 通过host模式启动容器<br>  这是最简单的方法，容器启动即可直接访问外网，但是无法指定容器对外暴漏的端口，将使用默认端口。<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">docker</span> run -it --net<span class="token operator">=</span>host centos<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+firewall-cmd <span class="token parameter variable">--permanent</span> <span class="token parameter variable">--zone</span><span class="token operator">=</span>trusted --change-interface<span class="token operator">=</span>br-d2aa50162455<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li>方法3. 通过host模式启动容器<br>  这是最简单的方法，容器启动即可直接访问外网，但是无法指定容器对外暴漏的端口，将使用默认端口。<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> run <span class="token parameter variable">-it</span> <span class="token parameter variable">--net</span><span class="token operator">=</span>host centos<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 </ol>
 <br>
 
 <h3 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h3><ol>
-<li>今天部署docker又发现一个网络的问题，程序中给出的错误是<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">java.net.NoRouteToHostException: Host is unreachable <span class="token punctuation">(</span>Host unreachable<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-  在docker容器内ping宿主ip，可以ping通。 wget读取宿主8080端口（有效的）失败，提示<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">wget: can't connect to remote <span class="token function">host</span> <span class="token builtin class-name">:</span> Host is unreachable<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-  又尝试wget读取baidu.com成功。所有十有八九问题又出在宿主防火墙上了。 解决方法：<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">firewall-cmd --add-rich-rule<span class="token operator">=</span><span class="token string">'rule family=ipv4 source address=172.20.0.0/16 accept'</span> --permanent
-firewall-cmd --reload
+<li>今天部署docker又发现一个网络的问题，程序中给出的错误是<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">java.net.NoRouteToHostException: Host is unreachable <span class="token punctuation">(</span>Host unreachable<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+  在docker容器内ping宿主ip，可以ping通。 wget读取宿主8080端口（有效的）失败，提示<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">wget: can't connect to remote <span class="token function">host</span> <span class="token builtin class-name">:</span> Host is unreachable<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+  又尝试wget读取baidu.com成功。所有十有八九问题又出在宿主防火墙上了。 解决方法：<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">firewall-cmd --add-rich-rule<span class="token operator">=</span><span class="token string">'rule family=ipv4 source address=172.20.0.0/16 accept'</span> <span class="token parameter variable">--permanent</span>
+firewall-cmd <span class="token parameter variable">--reload</span>
 systemctl restart firewalld
 // 验证规则是否添加成功
 firewall-cmd --list-all<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
@@ -938,7 +939,7 @@ firewall-cmd --list-all<span aria-hidden="true" class="line-numbers-rows"><span>
 
 
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/2.2.0/quicklink.umd.js" integrity="sha256-4kQf9z5ntdQrzsBC3YSHnEz02Z9C1UeW/E9OgnvlzSY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/2.3.0/quicklink.umd.js" integrity="sha256-yvJQOINiH9fWemHn0vCA5lsHWJaHs6/ZmO+1Ft04SvM=" crossorigin="anonymous"></script>
   <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":true,"delay":true,"timeout":3000,"priority":true,"ignores":null,"url":"https://www.xiaosige.com/post/3458217c.html"}</script>
   <script src="/js/third-party/quicklink.js"></script>
 <script class="next-config" data-name="changyan" type="application/json">{"enable":true,"appid":"cyvSPOTJq","appkey":"4436699688bbb9caa6e8826551a7c0f7"}</script>
