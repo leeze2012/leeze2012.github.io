@@ -8,19 +8,19 @@
   {
     "name": "刘向洋",
     "url": "https://liuxiangyang.space",
-    "img": "https://cdn.jsdelivr.net/gh/LiuXiangYang-Git/cloudimg/img-2/123.jpg",
+    "img": "/images/loading.gif",
     "dec": "生活不是为了赶路，而是为了感受路，我们都在奔赴各自不同的人生。"
   },
   {
     "name": "Sanarous",
     "url": "https://bestzuo.cn",
-    "img": "https://image.bestzuo.cn/images/efdc8f3a96e979c21a20b8885fc5dab2.jpeg!getwebp",
+    "img": "/images/loading.gif",
     "dec": "清修静修，无扰便无忧"
   },
   {
     "name": "大专栏",
     "url": "https://www.dazhuanlan.com",
-    "img": "https://www.dazhuanlan.com/favicon.ico",
+    "img": "/images/loading.gif",
     "dec": "aaa"
   },
   {
@@ -32,7 +32,7 @@
   {
     "name": "Java技术驿站",
     "url": "http://cmsblogs.com/?page_id=1954",
-    "img": "http://106.52.92.66/wp-content/uploads/2019/09/logo-cmsblogs.png",
+    "img": "/images/loading.gif",
     "dec": "Java技术驿站-一个专注于 Java 技术分享的精品博客"
   },
   {
@@ -44,7 +44,7 @@
   {
     "name": "宋子宪博客",
     "url": "https://songzixian.com",
-    "img": "https://songzixian.com/usr/uploads/2021/08/1709320157.jpg",
+    "img": "/images/loading.gif",
     "dec": "冬日虽冷，终有阳光。"
   },
   {
@@ -104,7 +104,7 @@
   {
     "name": "雾非雾的情思",
     "url": "https://www.mspring.org",
-    "img": "https://file.mspring.org/images/blog/avatar.jpg",
+    "img": "/images/loading.gif",
     "dec": "爱折腾的Java老码农！"
   },
   {
