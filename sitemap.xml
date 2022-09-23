@@ -1271,14 +1271,14 @@
 
   
   <url>
-    <loc>https://www.xiaosige.com/tags/Decimal/</loc>
+    <loc>https://www.xiaosige.com/tags/VM/</loc>
     <lastmod>2022-09-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/tags/VM/</loc>
+    <loc>https://www.xiaosige.com/tags/Decimal/</loc>
     <lastmod>2022-09-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1341,14 +1341,14 @@
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/tags/Drone/</loc>
+    <loc>https://www.xiaosige.com/tags/ElasticSearch/</loc>
     <lastmod>2022-09-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/tags/ElasticSearch/</loc>
+    <loc>https://www.xiaosige.com/tags/Drone/</loc>
     <lastmod>2022-09-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1404,13 +1404,6 @@
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/tags/zookeeper/</loc>
-    <lastmod>2022-09-23</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://www.xiaosige.com/tags/Eclipse/</loc>
     <lastmod>2022-09-23</lastmod>
     <changefreq>weekly</changefreq>
@@ -1432,7 +1425,7 @@
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/tags/hexo/</loc>
+    <loc>https://www.xiaosige.com/tags/zookeeper/</loc>
     <lastmod>2022-09-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1440,6 +1433,13 @@
   
   <url>
     <loc>https://www.xiaosige.com/tags/Test/</loc>
+    <lastmod>2022-09-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.xiaosige.com/tags/hexo/</loc>
     <lastmod>2022-09-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1586,13 +1586,6 @@
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/tags/ShowDoc/</loc>
-    <lastmod>2022-09-23</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://www.xiaosige.com/tags/snowflake/</loc>
     <lastmod>2022-09-23</lastmod>
     <changefreq>weekly</changefreq>
@@ -1601,6 +1594,13 @@
   
   <url>
     <loc>https://www.xiaosige.com/tags/SpringBoot/</loc>
+    <lastmod>2022-09-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.xiaosige.com/tags/ShowDoc/</loc>
     <lastmod>2022-09-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1651,14 +1651,14 @@
 
   
   <url>
-    <loc>https://www.xiaosige.com/categories/JavaScript/</loc>
+    <loc>https://www.xiaosige.com/categories/Mac/</loc>
     <lastmod>2022-09-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/categories/Mac/</loc>
+    <loc>https://www.xiaosige.com/categories/JavaScript/</loc>
     <lastmod>2022-09-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1728,14 +1728,14 @@
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/categories/hexo%E5%BB%BA%E7%AB%99/</loc>
+    <loc>https://www.xiaosige.com/categories/%E6%B5%8B%E8%AF%95/</loc>
     <lastmod>2022-09-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/categories/%E6%B5%8B%E8%AF%95/</loc>
+    <loc>https://www.xiaosige.com/categories/hexo%E5%BB%BA%E7%AB%99/</loc>
     <lastmod>2022-09-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1791,14 +1791,14 @@
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/categories/Linux/API%E6%96%87%E6%A1%A3%E7%B3%BB%E7%BB%9F/</loc>
+    <loc>https://www.xiaosige.com/categories/SpringBoot/</loc>
     <lastmod>2022-09-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/categories/SpringBoot/</loc>
+    <loc>https://www.xiaosige.com/categories/Linux/API%E6%96%87%E6%A1%A3%E7%B3%BB%E7%BB%9F/</loc>
     <lastmod>2022-09-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
