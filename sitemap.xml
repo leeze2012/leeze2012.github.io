@@ -1271,14 +1271,14 @@
 
   
   <url>
-    <loc>https://www.xiaosige.com/tags/VM/</loc>
+    <loc>https://www.xiaosige.com/tags/Decimal/</loc>
     <lastmod>2022-09-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/tags/Decimal/</loc>
+    <loc>https://www.xiaosige.com/tags/VM/</loc>
     <lastmod>2022-09-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1369,14 +1369,14 @@
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/tags/Jira/</loc>
+    <loc>https://www.xiaosige.com/tags/Mongo/</loc>
     <lastmod>2022-09-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/tags/Mongo/</loc>
+    <loc>https://www.xiaosige.com/tags/Jira/</loc>
     <lastmod>2022-09-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1432,14 +1432,14 @@
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/tags/Test/</loc>
+    <loc>https://www.xiaosige.com/tags/hexo/</loc>
     <lastmod>2022-09-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/tags/hexo/</loc>
+    <loc>https://www.xiaosige.com/tags/Test/</loc>
     <lastmod>2022-09-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1628,14 +1628,14 @@
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/tags/%E7%AE%97%E6%B3%95/</loc>
+    <loc>https://www.xiaosige.com/tags/VMWare/</loc>
     <lastmod>2022-09-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/tags/VMWare/</loc>
+    <loc>https://www.xiaosige.com/tags/%E7%AE%97%E6%B3%95/</loc>
     <lastmod>2022-09-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1651,14 +1651,14 @@
 
   
   <url>
-    <loc>https://www.xiaosige.com/categories/Mac/</loc>
+    <loc>https://www.xiaosige.com/categories/JavaScript/</loc>
     <lastmod>2022-09-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/categories/JavaScript/</loc>
+    <loc>https://www.xiaosige.com/categories/Mac/</loc>
     <lastmod>2022-09-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1728,14 +1728,14 @@
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/categories/%E6%B5%8B%E8%AF%95/</loc>
+    <loc>https://www.xiaosige.com/categories/hexo%E5%BB%BA%E7%AB%99/</loc>
     <lastmod>2022-09-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/categories/hexo%E5%BB%BA%E7%AB%99/</loc>
+    <loc>https://www.xiaosige.com/categories/%E6%B5%8B%E8%AF%95/</loc>
     <lastmod>2022-09-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
