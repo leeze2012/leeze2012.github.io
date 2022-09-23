@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.js"></script>
+    <script src="https://www.layuicdn.com/layui/layui.js"></script>
+    <script src="https://cdn.bootcss.com/iframe-resizer/4.1.1/iframeResizer.contentWindow.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/5.13.1/css/all.css" />
+    <style>
+        .links-content {
+            margin-top:1rem;
+        }
+
+        .link-navigation::after {
+            content:" ";
+            display:block;
+            clear:both
+        }
+
+        .card {
+            position:relative;
+            width:25%;
+            padding:0;
+            border-radius:10px;
+            transition-duration:.3s;
+            margin-bottom:1rem;
+            margin-left:16px;
+            display:block;
+            float:left;
+            box-shadow: 4px 4px 18px 0 rgba(0, 0, 0, .12);
+            background: transparent;
+            overflow:hidden;
+            cursor:pointer
+        }
+
+        .card:hover:before, .card:focus:before, .card:active:before {
+            -webkit-transform: scale(1);
+            transform: scale(1);
+        }
+
+        .card:before {
+            content: "";
+            position: absolute;
+            z-index: -1;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: linear-gradient(to right, #fdcbf1 0%, #fdcbf1 1%, #e6dee9 100%);
+            -webkit-transform: scale(0);
+            transform: scale(0);
+            -webkit-transition-property: transform;
+            transition-property: transform;
+            -webkit-transition-duration: 0.15s;
+            -webkit-transition-timing-function: ease-out;
+            transition-timing-function: ease-out;
+        }
+
+        .card:hover,.card:hover > .card-header a,.card:hover > .card-content a{
+            transform:scale(1);
+        }
+
+        @media(max-width:567px) {
+            .card{
+                margin-left:16px;
+                width:calc((100% - 16px)/2)
+            }
+            .card:nth-child(2n+1) {
+                margin-left:0
+            }
+            .card:not(:nth-child(2n+1)) {
+                margin-left:16px
+            }
+        }
+
+        @media(min-width:567px) {
+            .card {
+                margin-left:16px;
+                width:calc((100% - 32px)/3)
+            }
+            .card:nth-child(3n+1) {
+                margin-left:0
+            }
+            .card:not(:nth-child(3n+1)) {
+                margin-left:16px
+            }
+        }
+
+        @media(min-width:768px) {
+            .card {
+                margin-left:16px;
+                width:calc((100% - 58px)/4)
+            }
+            .card:nth-child(4n+1) {
+                margin-left:0
+            }
+            .card:not(:nth-child(4n+1)) {
+                margin-left:16px
+            }
+        }
+
+        .posts-expand .post-body img {
+            margin:0;
+            padding:0;
+            border:0
+        }
+
+        .card .card-header {
+            display:block;
+            text-align:center;
+            padding:.25rem .25rem;
+            font-weight:500;
+            color:#222222;
+            white-space:nowrap;
+        }
+
+        .card .card-header a {
+            font-style:normal;
+            color:#222222;
+            font-weight:700;
+            text-decoration:none;
+            border:0;
+            overflow:hidden
+        }
+
+        .card .card-header a:hover {
+            color:#222222;
+            text-decoration:none;
+            border:0
+        }
+
+        .card .card-content {
+            display:block;
+            text-align:center;
+            padding: 0 .25rem .25rem .25rem;
+            font-weight:500;
+            font-size: smaller;
+            color:#222222;
+            white-space:nowrap;
+        }
+        .card .card-content div {
+            overflow:hidden
+        }
+        .card .card-content a {
+            font-style:normal;
+            color:#222222;
+            font-weight:500;
+            text-decoration:none;
+            border:0;
+            overflow:hidden
+        }
+
+        .card img {
+            float: left;
+            margin-top: 5px;
+            width: 65px;
+            height: 65px;
+            padding: 2px;
+            border-radius: 100%;
+        }
+    </style>
+
+</head>
+<body>
+
+    <div class="links-content"><div class="link-navigation tools"></div></div>
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+            let index = layer.load(2, {shade: [0.6, '#393D49']});
+            let friends;
+            friends = {
+                init: function (url) {
+                    $.ajaxSettings.async = false;
+                    $.getJSON(url, function (result) {
+                        $.each(result, function (i, field) {
+                            $(".tools").append('<div class="card" onclick="window.open(\'' + field.url + '\')" >' +
+                                '<img className="lazyload" data-src="/images/loading.gif" src=\"' + field.img + '\" data-loaded="true">' +
+                                '<div class="card-header">' + '<div style="color: #33aaff;font-weight: bold;">' + field.name + '</div>' + '</div>' + '<div class="card-content">' + '<div style="border-top: 1px dashed #ddd;">' + field.dec + '</div>' + '</div>' + '</div>');
+
+                        });
+                        layer.close(index);
+                        let iframeWindow = parent.document.getElementById("friendiframe");
+                        $(iframeWindow).attr("height",($(".tools").height()+10)+"px");
+                    });
+                    $.ajaxSettings.async = true;
+                }
+            };
+            friends.init("/zone/db/friends.json");
+        });
+    </script>
+
+</body>
+</html>

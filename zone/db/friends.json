@@ -134,13 +134,13 @@
   {
     "name": "Dalaoyang",
     "url": "https://www.dalaoyang.cn",
-    "img": "https://upload.jianshu.io/users/upload_avatars/9953332/a6bf880f-e32d-44fb-bdc5-b023e51a6e96.jpeg?imageMogr2/auto-orient/strip|imageView2/1/w/240/h/240",
+    "img": "/images/loading.gif",
     "dec": "一个怀揣着梦想的程序猿"
   },
   {
     "name": "DP2PX",
     "url": "https://dp2px.com",
-    "img": "https://dp2px.com/css/images/logo.svg",
+    "img": "/images/loading.gif",
     "dec": "所有的一切皆是因为好玩"
   },
   {
@@ -206,7 +206,7 @@
   {
     "name": "过客～励む",
     "url": "https://yafine-blog.cn/",
-    "img": "https://gitee.com/yafine66/blogimage/raw/master/img/avatar.jpg",
+    "img": "/images/loading.gif",
     "dec": "专注于 Web, 分享生活，分享知识"
   },
   {
@@ -218,7 +218,7 @@
   {
     "name": "Java技术江湖",
     "url": "https://how2playlife.com/",
-    "img": "https://how2playlife.com/images/hxx.jpeg",
+    "img": "/images/loading.gif",
     "dec": "程序员黄小斜"
   },
   {
