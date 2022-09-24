@@ -1271,6 +1271,13 @@
 
   
   <url>
+    <loc>https://www.xiaosige.com/tags/VM/</loc>
+    <lastmod>2022-09-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://www.xiaosige.com/tags/Decimal/</loc>
     <lastmod>2022-09-24</lastmod>
     <changefreq>weekly</changefreq>
@@ -1279,13 +1286,6 @@
   
   <url>
     <loc>https://www.xiaosige.com/tags/BootStrap/</loc>
-    <lastmod>2022-09-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.xiaosige.com/tags/VM/</loc>
     <lastmod>2022-09-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1313,14 +1313,14 @@
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/tags/Tool/</loc>
+    <loc>https://www.xiaosige.com/tags/Console/</loc>
     <lastmod>2022-09-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/tags/Console/</loc>
+    <loc>https://www.xiaosige.com/tags/Tool/</loc>
     <lastmod>2022-09-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1335,6 +1335,13 @@
   
   <url>
     <loc>https://www.xiaosige.com/tags/Redis/</loc>
+    <lastmod>2022-09-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.xiaosige.com/tags/Drone/</loc>
     <lastmod>2022-09-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1369,14 +1376,14 @@
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/tags/MySQL/</loc>
+    <loc>https://www.xiaosige.com/tags/Mongo/</loc>
     <lastmod>2022-09-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/tags/Mongo/</loc>
+    <loc>https://www.xiaosige.com/tags/MySQL/</loc>
     <lastmod>2022-09-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1404,14 +1411,14 @@
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/tags/Markdown/</loc>
+    <loc>https://www.xiaosige.com/tags/Eclipse/</loc>
     <lastmod>2022-09-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/tags/Eclipse/</loc>
+    <loc>https://www.xiaosige.com/tags/Markdown/</loc>
     <lastmod>2022-09-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1433,13 +1440,6 @@
   
   <url>
     <loc>https://www.xiaosige.com/tags/hexo/</loc>
-    <lastmod>2022-09-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.xiaosige.com/tags/Drone/</loc>
     <lastmod>2022-09-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1651,6 +1651,13 @@
 
   
   <url>
+    <loc>https://www.xiaosige.com/categories/Mac/</loc>
+    <lastmod>2022-09-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://www.xiaosige.com/categories/JavaScript/</loc>
     <lastmod>2022-09-24</lastmod>
     <changefreq>weekly</changefreq>
@@ -1659,13 +1666,6 @@
   
   <url>
     <loc>https://www.xiaosige.com/categories/BootStrap/</loc>
-    <lastmod>2022-09-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.xiaosige.com/categories/Mac/</loc>
     <lastmod>2022-09-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1700,14 +1700,14 @@
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/categories/Markdown/</loc>
+    <loc>https://www.xiaosige.com/categories/Eclipse/</loc>
     <lastmod>2022-09-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/categories/Eclipse/</loc>
+    <loc>https://www.xiaosige.com/categories/Markdown/</loc>
     <lastmod>2022-09-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
