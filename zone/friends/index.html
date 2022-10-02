@@ -173,9 +173,317 @@
             let friends;
             friends = {
                 init: function (url) {
-                    $.ajaxSettings.async = false;
-                    $.getJSON(url, function (result) {
-                        $.each(result, function (i, field) {
+                    //$.ajaxSettings.async = false;
+                    //$.getJSON(url, function (result) {
+                    let result ='[' +
+                        '  {' +
+                        '    "name": "不死鸟",' +
+                        '    "url": "https://iui.su/",' +
+                        '    "img": "https://npm.elemecdn.com/niaosu@3.3.5/logo.png",' +
+                        '    "dec": "不死鸟 - 分享为王"' +
+                        '  },' +
+                        '  {' +
+                        '    "name": "刘向洋",' +
+                        '    "url": "https://liuxiangyang.space",' +
+                        '    "img": "/images/loading.gif",' +
+                        '    "dec": "生活不是为了赶路，而是为了感受路，我们都在奔赴各自不同的人生。"' +
+                        '  },' +
+                        '  {' +
+                        '    "name": "Sanarous",' +
+                        '    "url": "https://bestzuo.cn",' +
+                        '    "img": "/images/loading.gif",' +
+                        '    "dec": "清修静修，无扰便无忧"' +
+                        '  },' +
+                        '  {' +
+                        '    "name": "大专栏",' +
+                        '    "url": "https://www.dazhuanlan.com",' +
+                        '    "img": "/images/loading.gif",' +
+                        '    "dec": "aaa"' +
+                        '  },' +
+                        '  {' +
+                        '    "name": "Doublemine",' +
+                        '    "url": "https://notes.doublemine.me",' +
+                        '    "img": "https://notes.doublemine.me/images/avatar.jpg",' +
+                        '    "dec": "Keep fucking the world"' +
+                        '  },' +
+                        '  {' +
+                        '    "name": "Java技术驿站",' +
+                        '    "url": "http://cmsblogs.com/?page_id=1954",' +
+                        '    "img": "/images/loading.gif",' +
+                        '    "dec": "Java技术驿站-一个专注于 Java 技术分享的精品博客"' +
+                        '  },' +
+                        '  {' +
+                        '    "name": "程序猿DD",' +
+                        '    "url": "http://blog.didispace.com",' +
+                        '    "img": "http://blog.didispace.com/css/images/avatar.jpg",' +
+                        '    "dec": "aaa"' +
+                        '  },' +
+                        '  {' +
+                        '    "name": "宋子宪博客",' +
+                        '    "url": "https://songzixian.com",' +
+                        '    "img": "/images/loading.gif",' +
+                        '    "dec": "冬日虽冷，终有阳光。"' +
+                        '  },' +
+                        '  {' +
+                        '    "name": "徐靖峰",' +
+                        '    "url": "https://www.cnkirito.moe/",' +
+                        '    "img": "https://www.cnkirito.moe/img/avatar.png",' +
+                        '    "dec": "阿里巴巴中间件研发"' +
+                        '  },' +
+                        '  {' +
+                        '    "name": "芋道源码",' +
+                        '    "url": "http://www.iocoder.cn",' +
+                        '    "img": "http://www.iocoder.cn/images/favicon.ico",' +
+                        '    "dec": "愿半生编码，如一生老友！"' +
+                        '  },' +
+                        '  {' +
+                        '    "name": "博採眾長 / 李瑞豪",' +
+                        '    "url": "http://lruihao.cn",' +
+                        '    "img": "http://lruihao.cn/images/avatar.png",' +
+                        '    "dec": "从 ACM 到 Web，分享程序、技巧、干货，记录心情、学习、成长！"' +
+                        '  },' +
+                        '  {' +
+                        '    "name": "LixT",' +
+                        '    "url": "https://www.lixint.me",' +
+                        '    "img": "/images/loading.gif",' +
+                        '    "dec": "Lixt`s blog 不务正业的日子"' +
+                        '  },' +
+                        '  {' +
+                        '    "name": "YouForever",' +
+                        '    "url": "https://www.zhyong.cn",' +
+                        '    "img": "https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/avatars/avatar.png",' +
+                        '    "dec": "记录，点滴"' +
+                        '  },' +
+                        '  {' +
+                        '    "name": "shadow",' +
+                        '    "url": "https://shadow000902.space",' +
+                        '    "img": "https://shadow000902.space/images/avatar.jpg",' +
+                        '    "dec": "心之所愿，无所不至!"' +
+                        '  },' +
+                        '  {' +
+                        '    "name": "asdfv1929",' +
+                        '    "url": "https://asdfv1929.github.io",' +
+                        '    "img": "https://asdfv1929.github.io/images/headpic.jpg",' +
+                        '    "dec": "梦想没了行动，只会变成一场空想"' +
+                        '  },' +
+                        '  {' +
+                        '    "name": "小天地",' +
+                        '    "url": "https://xiaotiandi.github.io/publicBlog",' +
+                        '    "img": "https://xiaotiandi.github.io/publicBlog/images/avatar.jpg",' +
+                        '    "dec": "心安处便是吾乡"' +
+                        '  },' +
+                        '  {' +
+                        '    "name": "闪烁之狐",' +
+                        '    "url": "https://blinkfox.github.io/",' +
+                        '    "img": "https://blinkfox.github.io/medias/avatar.jpg",' +
+                        '    "dec": "从来没有真正的绝境，只有心灵的迷途。"' +
+                        '  },' +
+                        '  {' +
+                        '    "name": "雾非雾的情思",' +
+                        '    "url": "https://www.mspring.org",' +
+                        '    "img": "/images/loading.gif",' +
+                        '    "dec": "爱折腾的Java老码农！"' +
+                        '  },' +
+                        '  {' +
+                        '    "name": "枫糖",' +
+                        '    "url": "https://maplesugar.top/",' +
+                        '    "img": "https://maplesugar.top/favicon.ico",' +
+                        '    "dec": "窗明几净"' +
+                        '  },' +
+                        '  {' +
+                        '    "name": "reuixiy",' +
+                        '    "url": "https://io-oi.me",' +
+                        '    "img": "https://avatars2.githubusercontent.com/u/28993043?s=460&v=4",' +
+                        '    "dec": "Viva La Vida"' +
+                        '  },' +
+                        '  {' +
+                        '    "name": "赵俊的博客",' +
+                        '    "url": "http://www.zhaojun.im",' +
+                        '    "img": "https://cdn.jun6.net/2022/05/02/8c2fcce3b193b.jpg",' +
+                        '    "dec": "在记录中成长"' +
+                        '  },' +
+                        '  {' +
+                        '    "name": "Michael翔",' +
+                        '    "url": "https://michael728.github.io",' +
+                        '    "img": "https://michael728.github.io/images/logo.jpg",' +
+                        '    "dec": "DevOps CICD Blog 持续学习"' +
+                        '  },' +
+                        '  {' +
+                        '    "name": "Dalaoyang",' +
+                        '    "url": "https://www.dalaoyang.cn",' +
+                        '    "img": "/images/loading.gif",' +
+                        '    "dec": "一个怀揣着梦想的程序猿"' +
+                        '  },' +
+                        '  {' +
+                        '    "name": "DP2PX",' +
+                        '    "url": "https://dp2px.com",' +
+                        '    "img": "/images/loading.gif",' +
+                        '    "dec": "所有的一切皆是因为好玩"' +
+                        '  },' +
+                        '  {' +
+                        '    "name": "Kany.Wang",' +
+                        '    "url": "https://kany.me",' +
+                        '    "img": "https://kany.me/assets/images/avatar.jpg",' +
+                        '    "dec": "思想和境界一直在倒退的小虫"' +
+                        '  },' +
+                        '  {' +
+                        '    "name": "SAnBlog",' +
+                        '    "url": "https://sanii.cn",' +
+                        '    "img": "https://sanii.cn/upload/2017/12/3878ej0ut0g8npvktekq1m3in9.png",' +
+                        '    "dec": "Smile, And Remain Smile"' +
+                        '  },' +
+                        '  {' +
+                        '    "name": "dalaoyang",' +
+                        '    "url": "https://www.dalaoyang.cn",' +
+                        '    "img": "https://www.dalaoyang.cn/favicon.ico",' +
+                        '    "dec": "aaa"' +
+                        '  },' +
+                        '  {' +
+                        '    "name": "三水非冰",' +
+                        '    "url": "https://www.sanshuifeibing.com",' +
+                        '    "img": "https://www.sanshuifeibing.com/usr/images/favicon2.png",' +
+                        '    "dec": "一个有点强迫症的少年"' +
+                        '  },' +
+                        '  {' +
+                        '    "name": "胡超博客",' +
+                        '    "url": "http://imhuchao.com",' +
+                        '    "img": "http://imhuchao.com/wp-includes/images/w-logo-blue-white-bg.png",' +
+                        '    "dec": "努力成为架构师"' +
+                        '  },' +
+                        '  {' +
+                        '    "name": "HCLonely Blog",' +
+                        '    "url": "https://blog.hclonely.com/",' +
+                        '    "img": "https://cdn.jsdelivr.net/gh/HCLonely/blog.hclonely.com@1.0.3/img/avatar.jpg",' +
+                        '    "dec": "懒人一个"' +
+                        '  },' +
+                        '  {' +
+                        '    "name": "IT范儿",' +
+                        '    "url": "https://www.itfanr.cc/",' +
+                        '    "img": "https://www.itfanr.cc/images/avatar.jpg",' +
+                        '    "dec": "Stay Hungry. Stay Foolish."' +
+                        '  },' +
+                        '  {' +
+                        '    "name": "青木のJava小屋",' +
+                        '    "url": "https://qingmu.io/",' +
+                        '    "img": "https://qingmu.io/favicon.ico",' +
+                        '    "dec": "愿你一生努力，一生被爱"' +
+                        '  },' +
+                        '  {' +
+                        '    "name": "ITPUB技术论坛",' +
+                        '    "url": "http://www.itpub.net/",' +
+                        '    "img": "http://www.itpub.net/itpubcms/static/images/logo.png",' +
+                        '    "dec": "ITPUB技术论坛"' +
+                        '  },' +
+                        '  {' +
+                        '    "name": "TMaize Blog",' +
+                        '    "url": "https://blog.tmaize.net/",' +
+                        '    "img": "https://blog.tmaize.net/static/img/logo.jpg",' +
+                        '    "dec": "TMaize Blog"' +
+                        '  },' +
+                        '  {' +
+                        '    "name": "过客～励む",' +
+                        '    "url": "https://yafine-blog.cn/",' +
+                        '    "img": "/images/loading.gif",' +
+                        '    "dec": "专注于 Web, 分享生活，分享知识"' +
+                        '  },' +
+                        '  {' +
+                        '    "name": "过客",' +
+                        '    "url": "https://zengwu.com.cn/",' +
+                        '    "img": "https://zengwu.com.cn/images/avatar.png",' +
+                        '    "dec": "编程有风险，入坑需谨慎"' +
+                        '  },' +
+                        '  {' +
+                        '    "name": "Java技术江湖",' +
+                        '    "url": "https://how2playlife.com/",' +
+                        '    "img": "/images/loading.gif",' +
+                        '    "dec": "程序员黄小斜"' +
+                        '  },' +
+                        '  {' +
+                        '    "name": "麦田",' +
+                        '    "url": "http://blog.itmyhome.com/",' +
+                        '    "img": "http://blog.itmyhome.com/images/index.jpg",' +
+                        '    "dec": "越努力，越幸运"' +
+                        '  },' +
+                        '  {' +
+                        '    "name": "ConstOwn",' +
+                        '    "url": "https://blog.juanertu.com/",' +
+                        '    "img": "https://blog.juanertu.com/images/avatar.png",' +
+                        '    "dec": "能和你一起成长，我荣幸之至。"' +
+                        '  },' +
+                        '  {' +
+                        '    "name": "贤柳阁",' +
+                        '    "url": "https://xian6ge.cn/",' +
+                        '    "img": "https://s2.ax1x.com/2020/01/30/11SFXR.jpg",' +
+                        '    "dec": "千古风韵，声声不息"' +
+                        '  },' +
+                        '  {' +
+                        '    "name": "試毅-思伟",' +
+                        '    "url": "https://zhousiwei.gitee.io/",' +
+                        '    "img": "https://zhousiwei.gitee.io/img/head.jpg",' +
+                        '    "dec": "試毅-思伟"' +
+                        '  },' +
+                        '  {' +
+                        '    "name": "abcops运维博客",' +
+                        '    "url": "https://abcops.cn",' +
+                        '    "img": "https://abcops.cn/wp-content/uploads/thumb/2019/11/fill_w100_h100_g0_mark_13d5ce46faf236.png",' +
+                        '    "dec": "abcops运维博客"' +
+                        '  },' +
+                        '  {' +
+                        '    "name": "异次元",' +
+                        '    "url": "https://www.iplaysoft.com",' +
+                        '    "img": "/images/loading.gif",' +
+                        '    "dec": "异次元"' +
+                        '  },' +
+                        '  {' +
+                        '    "name": "夜河资源网",' +
+                        '    "url": "http://www.yehes.com",' +
+                        '    "img": "http://www.yehes.com/wp-content/uploads/2021/03/1615428772-5d518828ff221e1.png",' +
+                        '    "dec": "夜河资源网"' +
+                        '  },' +
+                        '  {' +
+                        '    "name": "积微成著",' +
+                        '    "url": "https://www.jiweichengzhu.com",' +
+                        '    "img": "https://cdn.jiweichengzhu.com/files/avatar/20220407/59da039de17e4e1183930d4d9c8bd3b0.jpg",' +
+                        '    "dec": "不忘初心"' +
+                        '  },' +
+                        '  {' +
+                        '    "name": "蒲公英云",' +
+                        '    "url": "https://dandelioncloud.cn",' +
+                        '    "img": "https://dandelioncloud.cn/images/logo.png",' +
+                        '    "dec": "蒲公英云"' +
+                        '  },' +
+                        '  {' +
+                        '    "name": "咕咕鸽",' +
+                        '    "url": "https://blog.laoda.de",' +
+                        '    "img": "https://img.laoda.de/i/2022/03/28/35ekj_7.webp",' +
+                        '    "dec": "折腾起来！"' +
+                        '  },' +
+                        '  {' +
+                        '    "name": "茶水栈",' +
+                        '    "url": "https://32e.co/",' +
+                        '    "img": "https://32e.co/favicon.ico",' +
+                        '    "dec": "非爱青山绿水，惟图隐迹埋石"' +
+                        '  },' +
+                        '  {' +
+                        '    "name": "叶落阁",' +
+                        '    "url": "http://yelog.org/",' +
+                        '    "img": "http://yelog.org/img/avatar.jpg",' +
+                        '    "dec": "叶落阁"' +
+                        '  },' +
+                        '  {' +
+                        '    "name": "运维易",' +
+                        '    "url": "https://www.linuxe.cn/",' +
+                        '    "img": "https://www.linuxe.cn/zb_users/theme/zblog5_news/image/logo.png",' +
+                        '    "dec": "运维易"' +
+                        '  },' +
+                        '  {' +
+                        '    "name": "hash070",' +
+                        '    "url": "https://www.hash070.top/",' +
+                        '    "img": "https://img.yun.hash070.top:66/i/6315f5bf89b15.jpg",' +
+                        '    "dec": "hash07\'s blog"' +
+                        '  }' +
+                        ']' ;
+                        $.each(eval(result), function (i, field) {
                             $(".tools").append('<div class="card" onclick="window.open(\'' + field.url + '\')" >' +
                                 '<img className="lazyload" data-src="/images/loading.gif" src=\"' + field.img + '\" data-loaded="true">' +
                                 '<div class="card-header">' + '<div style="color: #33aaff;font-weight: bold;">' + field.name + '</div>' + '</div>' + '<div class="card-content">' + '<div style="border-top: 1px dashed #ddd;padding-top:10px;padding-left: 6px;">' + field.dec + '</div>' + '</div>' + '</div>');
@@ -184,7 +492,7 @@
                         layer.close(index);
                         let iframeWindow = parent.document.getElementById("friendiframe");
                         $(iframeWindow).attr("height",($(".tools").height()+10)+"px");
-                    });
+                    //});
                     $.ajaxSettings.async = true;
                 }
             };
