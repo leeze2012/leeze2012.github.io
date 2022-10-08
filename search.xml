@@ -64,6 +64,101 @@ lrwxrwxrwx. <span class="token number">1</span> root root <span class="token num
       </tags>
   </entry>
   <entry>
+    <title>AnolisOS 8 安装 EPEL源</title>
+    <url>/post/fbedfa68.html</url>
+    <content><![CDATA[<p>  本文以 AnolisOS 8.4 为例。在首次开机运行系统后一般都需要进行以下 3 个步骤：</p>
+<span id="more"></span>
+
+<h3 id="取消-sudo-密码"><a href="#取消-sudo-密码" class="headerlink" title="取消 sudo 密码"></a>取消 <code>sudo</code> 密码</h3><p>  执行以下命令后退出系统再登回系统以确认 <code>sudo</code> 密码已被取消。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">su</span> -
+<span class="token function">chmod</span> +w /etc/sudoers
+<span class="token function">vi</span> /etc/sudoers
+<span class="token comment"># 找到 anuser ALL=(ALL) ALL</span>
+<span class="token comment"># 改成 anuser ALL=(ALL) NOPASSWD: ALL</span>
+<span class="token comment"># 按 Esc，输入 :wq 保存并退出</span>
+<span class="token comment"># 输入如下命令收回 “写” 权限：</span>
+<span class="token function">chmod</span> <span class="token parameter variable">-w</span> /etc/sudoers
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="设置-SSH-以密码方式远程登录"><a href="#设置-SSH-以密码方式远程登录" class="headerlink" title="设置 SSH 以密码方式远程登录"></a>设置 <code>SSH</code> 以密码方式远程登录</h3><p>  执行下列命令。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">su</span> -
+<span class="token function">vi</span> /etc/ssh/sshd_config
+<span class="token comment"># 找到 PasswordAuthentication no</span>
+<span class="token comment"># 改成 PasswordAuthentication yes</span>
+<span class="token comment"># 按 Esc，输入 :wq 保存并退出</span>
+<span class="token comment"># 输入如下命令重启 sshd 服务使其生效：</span>
+systemctl restart sshd.service
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="配置静态-IP。"><a href="#配置静态-IP。" class="headerlink" title="配置静态 IP。"></a>配置静态 <code>IP</code>。</h3><p>  执行下列命令。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">su</span> -
+<span class="token function">vi</span> /etc/sysconfig/network-scripts/ifcfg-eth0
+<span class="token comment"># 按 i 键进入编辑模式，输入如下内容（IP 自定）：</span>
+<span class="token assign-left variable">DEVICE</span><span class="token operator">=</span>eth0
+<span class="token assign-left variable">BOOTPROTO</span><span class="token operator">=</span>none
+<span class="token assign-left variable">ONBOOT</span><span class="token operator">=</span>yes
+<span class="token assign-left variable">IPADDR</span><span class="token operator">=</span><span class="token number">192.168</span>.100.86
+<span class="token assign-left variable">PREFIX</span><span class="token operator">=</span><span class="token number">24</span>
+<span class="token assign-left variable">GATEWAY</span><span class="token operator">=</span><span class="token number">192.168</span>.100.1
+<span class="token assign-left variable">DNS1</span><span class="token operator">=</span><span class="token number">192.168</span>.100.1
+<span class="token comment"># 按 Esc，输入 :wq 保存并退出</span>
+<span class="token comment"># 输入如下命令以使设置的静态 IP 生效：</span>
+nmcli c reload
+nmcli d c eth0
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="下面开始安装-EPEL8"><a href="#下面开始安装-EPEL8" class="headerlink" title="下面开始安装 EPEL8"></a>下面开始安装 <code>EPEL8</code></h3><h4 id="安装-EPEL8-配置包"><a href="#安装-EPEL8-配置包" class="headerlink" title="安装 EPEL8 配置包"></a>安装 <code>EPEL8</code> 配置包</h4><p>  从 <code>Fedora Koji</code> <a href="https://buildsys.fedoraproject.org/koji/buildinfo?buildID=2070443">https://buildsys.fedoraproject.org/koji/buildinfo?buildID=2070443</a> 上找到 epel-release 的最新版 (当前为 epel-release-8-18.el8<br>) 下载地址。执行如下命令。</p>
+<img data-src="/post/fbedfa68/aos001.webp" class="" title="epel">
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">rpm</span> <span class="token parameter variable">-Uvh</span> <span class="token parameter variable">--force</span> <span class="token parameter variable">--nodeps</span> https://kojipkgs.fedoraproject.org/packages/epel-release/8/17.el8/noarch/epel-release-8-17.el8.noarch.rpm
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h4 id="查看epel源是否生效"><a href="#查看epel源是否生效" class="headerlink" title="查看epel源是否生效"></a>查看<code>epel源</code>是否生效</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">dnf repolist all     <span class="token comment">#列出所有的存储库</span>
+Repository epel is listed <span class="token function">more</span> than once <span class="token keyword">in</span> the configuration
+仓库 <span class="token function">id</span>                        仓库名称                                   状态
+AppStream           AnolisOS-8 - AppStream   启用
+BaseOS              AnolisOS-8 - BaseOS      启用
+DDE                 AnolisOS-8 - DDE         禁用
+Plus                AnolisOS-8 - Plus        禁用
+PowerTools          AnolisOS-8 - PowerTools  启用
+epel                epel                     禁用
+epel-debuginfo      Extra Packages <span class="token keyword">for</span> Enterprise Linux <span class="token number">8</span> - x86_64 - Debug          禁用
+epel-source         Extra Packages <span class="token keyword">for</span> Enterprise Linux <span class="token number">8</span> - x86_64 - Source         禁用
+epel-testing        Extra Packages <span class="token keyword">for</span> Enterprise Linux <span class="token number">8</span> - Testing - x86_64        禁用
+epel-testing-debuginfo  Extra Packages <span class="token keyword">for</span> Enterprise Linux <span class="token number">8</span> - Testing - x86_64 - Debug    禁用
+epel-testing-source     Extra Packages <span class="token keyword">for</span> Enterprise Linux <span class="token number">8</span> - Testing - x86_64 - Source   禁用
+nginx-mainline           nginx mainline repo                                                禁用
+nginx-stable             nginx stable repo                                                  启用
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>  启用epel源</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">dnf config-manager --set-enable epel   <span class="token comment">#启用epel源</span>
+dnf repolist epel      <span class="token comment">#查看epel源的状态</span>
+Repository epel is listed <span class="token function">more</span> than once <span class="token keyword">in</span> the configuration
+仓库 <span class="token function">id</span>                            仓库名称                          状态
+epel                               epel                            启用
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>  清理缓存，并重新拉取元数据缓存</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># dnf clean all  </span>
+Repository epel is listed <span class="token function">more</span> than once <span class="token keyword">in</span> the configuration
+<span class="token number">45</span> 文件已删除
+<span class="token punctuation">[</span>root@anolis ~<span class="token punctuation">]</span><span class="token comment"># dnf makecache</span>
+Repository epel is listed <span class="token function">more</span> than once <span class="token keyword">in</span> the configuration
+AnolisOS-8 - AppStream                          <span class="token number">622</span> kB/s <span class="token operator">|</span> <span class="token number">9.3</span> MB     00:15    
+AnolisOS-8 - BaseOS                             <span class="token number">8.3</span> MB/s <span class="token operator">|</span> <span class="token number">6.6</span> MB     00:00    
+epel                                            <span class="token number">198</span> kB/s <span class="token operator">|</span>  <span class="token number">13</span> MB     01:06    
+AnolisOS-8 - PowerTools                         <span class="token number">6.5</span> MB/s <span class="token operator">|</span> <span class="token number">2.1</span> MB     00:00    
+nginx stable repo                               <span class="token number">43</span> kB/s <span class="token operator">|</span>  <span class="token number">43</span> kB     00:00    
+元数据缓存已建立。
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="PS"><a href="#PS" class="headerlink" title="PS"></a>PS</h3><p>  参考：<a href="https://blog.csdn.net/allway2/article/details/122011774">如何在 CentOS 8 或 Stream 上安裝 EPEL 8 存储库</a></p>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
+      <categories>
+        <category>AnolisOS</category>
+      </categories>
+      <tags>
+        <tag>EPEL源</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>实现ssh登录，显示图形化</title>
     <url>/post/8c6a122c.html</url>
     <content><![CDATA[<h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><div class="note success no-icon"><p>  平时ssh登录到Linux服务器都是在命令行下进行操作的，简单高效。但是有些时候，需要配置一些Linux系统下的图形化软件的参数，ssh登录到Linux服务器后，就需要显示图形化界面了。</p>
@@ -4732,6 +4827,274 @@ Login Succeeded
       </categories>
       <tags>
         <tag>Nexus</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Docker + Jenkins + gogs 自动化部署</title>
+    <url>/post/7f65a2db.html</url>
+    <content><![CDATA[<h3 id="安装-Docker"><a href="#安装-Docker" class="headerlink" title="安装 Docker"></a>安装 Docker</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 下载自动安装脚本</span>
+<span class="token function">curl</span> <span class="token parameter variable">-fsSL</span> get.docker.com <span class="token parameter variable">-o</span> get-docker.sh
+
+<span class="token comment"># 执行脚本，并指定为阿里的镜像</span>
+<span class="token function">sh</span> get-docker.sh <span class="token parameter variable">--mirror</span> Aliyun
+
+<span class="token comment"># 启动docker</span>
+systemctl start <span class="token function">docker</span>
+
+<span class="token comment"># 设置仓库镜像地址，可以加速下载镜像</span>
+<span class="token function">vi</span> /etc/docker/daemon.json
+<span class="token comment"># 写入内容</span>
+<span class="token punctuation">{</span>
+    <span class="token string">"log-driver"</span><span class="token builtin class-name">:</span> <span class="token string">"json-file"</span>,
+    <span class="token string">"log-opts"</span><span class="token builtin class-name">:</span> <span class="token punctuation">{</span><span class="token string">"max-size"</span><span class="token builtin class-name">:</span> <span class="token string">"500m"</span><span class="token punctuation">}</span>,
+    <span class="token string">"registry-mirrors"</span><span class="token builtin class-name">:</span> <span class="token punctuation">[</span>
+        <span class="token string">"https://3laho3y3.mirror.aliyuncs.com"</span>
+    <span class="token punctuation">]</span>,
+    <span class="token string">"data-root"</span><span class="token builtin class-name">:</span> <span class="token string">"/data/app/docker"</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment"># 重启docker</span>
+systemctl daemon-reload
+systemctl restart <span class="token function">docker</span>
+
+<span class="token comment"># 设置开机启动</span>
+systemctl <span class="token builtin class-name">enable</span> <span class="token function">docker</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<span id="more"></span>
+
+<p>  Centos8 系统安装的时候可能会报错：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">Error: 
+ Problem: package docker-ce-3:19.03.13-3.el7.x86_64 requires containerd.io <span class="token operator">&gt;=</span> <span class="token number">1.2</span>.2-3, but none of the providers can be installed
+  - cannot <span class="token function">install</span> the best candidate <span class="token keyword">for</span> the job
+  - package containerd.io-1.2.10-3.2.el7.x86_64 is filtered out by modular filtering
+  - package containerd.io-1.2.13-3.1.el7.x86_64 is filtered out by modular filtering
+  - package containerd.io-1.2.13-3.2.el7.x86_64 is filtered out by modular filtering
+  - package containerd.io-1.2.2-3.3.el7.x86_64 is filtered out by modular filtering
+  - package containerd.io-1.2.2-3.el7.x86_64 is filtered out by modular filtering
+  - package containerd.io-1.2.4-3.1.el7.x86_64 is filtered out by modular filtering
+  - package containerd.io-1.2.5-3.1.el7.x86_64 is filtered out by modular filtering
+  - package containerd.io-1.2.6-3.3.el7.x86_64 is filtered out by modular filtering
+  - package containerd.io-1.3.7-3.1.el7.x86_64 is filtered out by modular filtering
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>  Centos8默认使用podman代替docker，所以需要containerd.io，那我们就安装一下就好了。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">yum <span class="token function">install</span> <span class="token parameter variable">-y</span> https://download.docker.com/linux/centos/8/x86_64/stable/Packages/containerd.io-1.4.12-3.1.el8.x86_64.rpm
+
+<span class="token comment">#### 上面可能也会报错，可以先移除几个包再安装</span>
+dnf remove <span class="token function">podman</span>
+dnf remove buildah
+或
+yum erase <span class="token function">podman</span> buildah<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>  阿里云alibaba cloud linux操作系统可能会报 <code>Unsupported distribution 'alinux' </code>错误，解决办法只能手动执行命令：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 安装工具包</span>
+yum <span class="token function">install</span> <span class="token parameter variable">-y</span> <span class="token parameter variable">-q</span> yum-utils
+<span class="token comment"># 添加源</span>
+yum-config-manager --add-repo https://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
+<span class="token comment"># 查看是否有可用安装包</span>
+yum list docker-ce <span class="token parameter variable">--showduplicates</span> <span class="token operator">|</span> <span class="token function">sort</span> <span class="token parameter variable">-r</span>
+<span class="token comment"># 构建缓存</span>
+yum makecache
+<span class="token comment"># 安装</span>
+yum <span class="token function">install</span> <span class="token parameter variable">-y</span>  docker-ce
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="安装-docker-composer"><a href="#安装-docker-composer" class="headerlink" title="安装 docker-composer"></a>安装 docker-composer</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token assign-left variable">DOCKER_CONFIG</span><span class="token operator">=</span><span class="token variable">${DOCKER_CONFIG<span class="token operator">:-</span>$HOME<span class="token operator">/</span>.docker}</span>
+<span class="token function">mkdir</span> <span class="token parameter variable">-p</span> <span class="token variable">$DOCKER_CONFIG</span>/cli-plugins
+<span class="token function">curl</span> <span class="token parameter variable">-SL</span> https://github.com/docker/compose/releases/download/v2.2.3/docker-compose-linux-x86_64 <span class="token parameter variable">-o</span> <span class="token variable">$DOCKER_CONFIG</span>/cli-plugins/docker-compose
+<span class="token function">curl</span> <span class="token parameter variable">-SL</span> https://github.com/docker/compose/releases/download/v2.11.2/docker-compose-linux-x86_64 <span class="token parameter variable">-o</span> <span class="token variable">$DOCKER_CONFIG</span>/cli-plugins/docker-compose
+
+<span class="token function">chmod</span> +x <span class="token variable">$DOCKER_CONFIG</span>/cli-plugins/docker-compose
+
+<span class="token function">docker</span> compose version<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>  参考：<a href="https://docs.docker.com/compose/install/linux/">Install Compose on Linux</a></p>
+<h3 id="安装-htop、nginx、unzip、git"><a href="#安装-htop、nginx、unzip、git" class="headerlink" title="安装 htop、nginx、unzip、git"></a>安装 htop、nginx、unzip、git</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">yum <span class="token function">install</span> <span class="token parameter variable">-y</span> <span class="token function">htop</span> nginx <span class="token function">unzip</span> <span class="token function">git</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="安装portainer，用于在线客户化管理docker"><a href="#安装portainer，用于在线客户化管理docker" class="headerlink" title="安装portainer，用于在线客户化管理docker"></a>安装<code>portainer</code>，用于在线客户化管理docker</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 创建数据卷</span>
+<span class="token function">docker</span> volume create portainer_data
+
+<span class="token comment"># 启动portainer容器</span>
+<span class="token function">docker</span> run <span class="token parameter variable">-d</span> <span class="token parameter variable">-p</span> <span class="token number">8000</span>:8000 <span class="token parameter variable">-p</span> <span class="token number">9999</span>:9000 <span class="token parameter variable">-v</span> /var/run/docker.sock:/var/run/docker.sock <span class="token parameter variable">-v</span> portainer_data:/data <span class="token parameter variable">--name</span><span class="token operator">=</span>portainer <span class="token parameter variable">--restart</span><span class="token operator">=</span>always portainer/portainer-ce
+
+<span class="token comment"># 新建 /etc/nginx/conf.d/portainer.conf，写入</span>
+server <span class="token punctuation">{</span>
+  listen  <span class="token number">80</span><span class="token punctuation">;</span>
+  server_name testportainer.xxx.com<span class="token punctuation">;</span>
+  
+  <span class="token comment"># 读取http头部的超时时间，单位秒，连接建立后，服务端接收http头部，规定时间内没收到，则超时，返回给客服端408（request time out）</span>
+  client_header_timeout <span class="token number">600</span><span class="token punctuation">;</span>
+  <span class="token comment"># 读取http body的超时时间，单位秒，连接建立后，服务端接收body，规定时间内没收到，则超时</span>
+  client_body_timeout   <span class="token number">600</span><span class="token punctuation">;</span>
+  <span class="token comment"># 发送响应超时时间，单位秒，服务端向客户端发送数据包，规定时间内客户端没收到，则超时</span>
+  send_timeout          <span class="token number">600</span><span class="token punctuation">;</span>
+  <span class="token comment"># 保持闲置连接的超时时间，单位秒，超过后服务器和浏览器都会关闭连接</span>
+  keepalive_timeout     <span class="token number">600</span><span class="token punctuation">;</span>
+  <span class="token comment"># nginx服务器与被代理服务连接超时时间，代理超时</span>
+  proxy_connect_timeout <span class="token number">600</span><span class="token punctuation">;</span>
+  <span class="token comment"># nginx服务器发送数据给被代理服务器超时时间，单位秒，规定时间内nginx服务器没发送数据，则超时</span>
+  proxy_send_timeout    <span class="token number">600</span><span class="token punctuation">;</span>
+  <span class="token comment"># nginx服务器接收被代理服务器数据超时时间，单位秒，规定时间内nginx服务器没收到数据，则超时</span>
+  proxy_read_timeout    <span class="token number">600</span><span class="token punctuation">;</span>
+
+  location / <span class="token punctuation">{</span>
+    proxy_pass   http://127.0.0.1:9999<span class="token punctuation">;</span>
+    proxy_set_header    X-Real-IP        <span class="token variable">$remote_addr</span><span class="token punctuation">;</span>
+    proxy_set_header    X-Forwarded-For  <span class="token variable">$proxy_add_x_forwarded_for</span><span class="token punctuation">;</span>
+    proxy_set_header    HTTP_X_FORWARDED_FOR <span class="token variable">$remote_addr</span><span class="token punctuation">;</span>
+    proxy_set_header    X-Forwarded-Proto <span class="token variable">$scheme</span><span class="token punctuation">;</span>
+    proxy_redirect      default<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  location /api/websocket/ <span class="token punctuation">{</span>
+    proxy_pass http://127.0.0.1:9999/api/websocket/<span class="token punctuation">;</span>
+    proxy_set_header Upgrade <span class="token variable">$http_upgrade</span><span class="token punctuation">;</span>
+    proxy_set_header Connection <span class="token string">"upgrade"</span><span class="token punctuation">;</span>
+    proxy_http_version <span class="token number">1.1</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="使用docker运行redis"><a href="#使用docker运行redis" class="headerlink" title="使用docker运行redis"></a>使用docker运行<code>redis</code></h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 新建 /root/docker/redis/docker-compose.yml</span>
+version: <span class="token string">"3"</span>
+services: 
+  redis:
+    image: redis:5
+    container_name: my_redis
+    command: redis-server <span class="token parameter variable">--requirepass</span> yourpassword
+    restart: always
+    ports:
+      - <span class="token string">"6379:6379"</span>
+    volumes:
+      - ./data:/data:cached
+    logging: 
+      driver: <span class="token string">"json-file"</span>
+      options: 
+        max-size: <span class="token string">"500m"</span>
+  
+<span class="token comment"># 运行</span>
+<span class="token function">docker-compose</span> up <span class="token parameter variable">-d</span> <span class="token parameter variable">--build</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="使用docker运行mysql"><a href="#使用docker运行mysql" class="headerlink" title="使用docker运行mysql"></a>使用docker运行<code>mysql</code></h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 新建 /root/docker/mysql/docker-compose.yml</span>
+version: <span class="token string">"3"</span>
+services: 
+  mysql:
+    image: mysql:8
+    container_name: mysql
+    command: mysqld --default-authentication-plugin<span class="token operator">=</span>mysql_native_password
+    restart: always
+    ports:
+      - <span class="token string">"3306:3306"</span>
+    environment:
+      - <span class="token assign-left variable">MYSQL_ROOT_PASSWORD</span><span class="token operator">=</span>mysql888
+    volumes:
+      - ./data:/var/lib/mysql:cached
+      - ./conf:/etc/mysql/conf.d:cached
+    security_opt:
+      - seccomp:unconfined
+    logging: 
+      driver: <span class="token string">"json-file"</span>
+      options: 
+        max-size: <span class="token string">"500m"</span>
+      
+<span class="token comment"># 运行</span>
+<span class="token function">docker-compose</span> up <span class="token parameter variable">-d</span> <span class="token parameter variable">--build</span>
+
+<span class="token comment"># 设置允许远程访问</span>
+use mysql<span class="token punctuation">;</span>
+update user <span class="token builtin class-name">set</span> <span class="token assign-left variable">host</span><span class="token operator">=</span><span class="token string">'%'</span> where user <span class="token operator">=</span><span class="token string">'root'</span><span class="token punctuation">;</span>
+FLUSH PRIVILEGES<span class="token punctuation">;</span>
+GRANT ALL PRIVILEGES ON *.* TO <span class="token string">'root'</span>@<span class="token string">'%'</span> WITH GRANT OPTION<span class="token punctuation">;</span>
+
+<span class="token comment"># 设置最大连接数</span>
+<span class="token builtin class-name">set</span> GLOBAL <span class="token assign-left variable">max_connections</span><span class="token operator">=</span><span class="token number">2048</span><span class="token punctuation">;</span>
+<span class="token comment"># 查看最大连接数</span>
+show variables like <span class="token string">'%max_connections%'</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="生成ssh密钥，免密拉取代码"><a href="#生成ssh密钥，免密拉取代码" class="headerlink" title="生成ssh密钥，免密拉取代码"></a>生成<code>ssh密钥</code>，免密拉取代码</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 生成密钥</span>
+ssh-keygen <span class="token parameter variable">-t</span> rsa 
+ssh-keygen <span class="token parameter variable">-m</span> PEM <span class="token parameter variable">-t</span> rsa  <span class="token comment"># 低版本</span>
+
+<span class="token comment"># 将id_rsa.pub内容添加到代码服务器</span>
+<span class="token builtin class-name">cd</span> ~/.ssh/
+<span class="token function">cat</span> id_rsa.pub
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="使用docker安装Jenkins"><a href="#使用docker安装Jenkins" class="headerlink" title="使用docker安装Jenkins"></a>使用docker安装<code>Jenkins</code></h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 新建 /root/docker/jenkins/docker-compose.yml</span>
+version: <span class="token string">"3"</span>
+services: 
+  jenkins:
+    image: jenkinsci/blueocean
+    container_name: jenkins
+    restart: always
+    ports:
+      - <span class="token string">"49999:8080"</span>
+      - <span class="token string">"50000:50000"</span>
+    environment:
+      JAVA_OPTS: <span class="token string">"-Duser.timezone=Asia/Shanghai"</span>
+    volumes:
+      - ./data:/var/jenkins_home:cached
+    logging: 
+      driver: <span class="token string">"json-file"</span>
+      options: 
+        max-size: <span class="token string">"500m"</span>
+
+<span class="token comment"># 运行</span>
+<span class="token function">docker-compose</span> up <span class="token parameter variable">-d</span> <span class="token parameter variable">--build</span>
+
+<span class="token comment"># 解决权限错误问题</span>
+<span class="token function">chown</span> <span class="token parameter variable">-R</span> <span class="token number">1000</span>:1000 data
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>  权限问题解决之后，Jenkins会自动运行，并打印出一串随机密码:</p>
+<img data-src="/post/7f65a2db/djg001.webp" class="" title="密码">
+
+<p>  打开浏览器进入<code>127.0.0.1:49999</code>， 输入日志中的密码完成账号初始化</p>
+<img data-src="/post/7f65a2db/djg002.webp" class="" title="初始化密码">
+
+<p>  选择要安装的插件</p>
+<img data-src="/post/7f65a2db/djg003.webp" class="" title="插件">
+
+<p>  安装插件</p>
+<img data-src="/post/7f65a2db/djg004.webp" class="" title="进入插件管理">
+
+<p>  安装<code>publish over ssh</code>插件</p>
+<img data-src="/post/7f65a2db/djg006.webp" class="" title="安装publish over ssh插件">
+
+<p>  配置<code>publish over ssh</code>插件</p>
+<img data-src="/post/7f65a2db/djg007.webp" class="" title="配置publish over ssh插件">
+
+<p>  拉到最下面，新增服务器</p>
+<img data-src="/post/7f65a2db/djg008.webp" class="" title="新增服务器">
+
+<p>  配置 <code>gogs webhook</code></p>
+<ol>
+<li>过滤分支，只处理dev分支，</li>
+<li>设置参数构建，区分测试和正式，这个参数后面的publish over ssh 插件要用</li>
+</ol>
+<img data-src="/post/7f65a2db/djg010.webp" class="" title="gogs">
+
+<p>  设置构建后操作</p>
+<img data-src="/post/7f65a2db/djg011.webp" class="" title="构建后">
+
+<p>  点击<code>高级</code>按钮，设置把<code>branch</code>参数传入</p>
+<img data-src="/post/7f65a2db/djg012.webp" class="" title="branch参数">
+
+<p>  同样在<code>ssh server</code>选项中也点击高级，并设置label为test，表示如果构建的时候选择test，则会进入当前这个server，这样就可以针对不同的构建参数选择不同的主机进行相关操作。需要注意Exec command 的命令是到远程服务器上执行的，而不是Jenkins所在的机器。</p>
+<img data-src="/post/7f65a2db/djg013.webp" class="" title="label">
+
+<p>  配置完毕，开始构建测试吧</p>
+<img data-src="/post/7f65a2db/djg014.webp" class="" title="构建测试">
+
+<p>  可以看到默认是构建<code>test</code>，这个参数就是我们刚刚配置的。</p>
+<p>  设置钩子，提交代码之后触发自动更新</p>
+<img data-src="/post/7f65a2db/djg015.webp" class="" title="设置钩子">
+<img data-src="/post/7f65a2db/djg016.webp" class="" title="设置钩子">
+
+
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
+      <categories>
+        <category>Docker</category>
+      </categories>
+      <tags>
+        <tag>Gogs</tag>
       </tags>
   </entry>
   <entry>

@@ -6,7 +6,7 @@
   <link href="https://www.xiaosige.com/atom.xml" rel="self"/>
   
   <link href="https://www.xiaosige.com/"/>
-  <updated>2022-08-24T16:01:33.485Z</updated>
+  <updated>2022-10-08T15:53:24.294Z</updated>
   <id>https://www.xiaosige.com/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>AnolisOS 8 安装 EPEL源</title>
+    <link href="https://www.xiaosige.com/post/fbedfa68.html"/>
+    <id>https://www.xiaosige.com/post/fbedfa68.html</id>
+    <published>2022-10-08T15:37:34.000Z</published>
+    <updated>2022-10-08T15:53:24.294Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;  本文以 AnolisOS 8.4 为例。在首次开机运行系统后一般都需要进行以下 3 个步骤：&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="AnolisOS" scheme="https://www.xiaosige.com/categories/AnolisOS/"/>
+    
+    
+    <category term="EPEL源" scheme="https://www.xiaosige.com/tags/EPEL%E6%BA%90/"/>
+    
+  </entry>
   
   <entry>
     <title>实现ssh登录，显示图形化</title>
@@ -394,29 +413,6 @@ docker exec -it [容器Name] /bin/bash&lt;span aria-hidden=&quot;true&quot; clas
     
     
     <category term="APM" scheme="https://www.xiaosige.com/tags/APM/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【Docker】之安装 RabbitMQ</title>
-    <link href="https://www.xiaosige.com/post/c0af152c.html"/>
-    <id>https://www.xiaosige.com/post/c0af152c.html</id>
-    <published>2022-05-08T14:42:50.000Z</published>
-    <updated>2022-05-08T15:56:38.482Z</updated>
-    
-    
-    <summary type="html">&lt;h3 id=&quot;拉取镜像&quot;&gt;&lt;a href=&quot;#拉取镜像&quot; class=&quot;headerlink&quot; title=&quot;拉取镜像&quot;&gt;&lt;/a&gt;拉取镜像&lt;/h3&gt;&lt;pre class=&quot;line-numbers language-docker&quot; data-language=&quot;docker&quot;&gt;&lt;code class=&quot;language-docker&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# (镜像未配有控制台)&lt;/span&gt;
-docker pull rabbitmq:3.9.16
-&lt;span class=&quot;token comment&quot;&gt;# (镜像配有控制台)&lt;/span&gt;
-docker pull rabbitmq:3.9.16-management&lt;span aria-hidden=&quot;true&quot; class=&quot;line-numbers-rows&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;  &lt;code&gt;注意此处需要安装management的版本才有界面，其他tag的版本是没有管理界面的&lt;/code&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="Docker" scheme="https://www.xiaosige.com/categories/Docker/"/>
-    
-    
-    <category term="MQ" scheme="https://www.xiaosige.com/tags/MQ/"/>
     
   </entry>
   

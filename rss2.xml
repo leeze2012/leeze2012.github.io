@@ -15,8 +15,29 @@
     <atom:link href="https://www.xiaosige.com/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>因上努力，果上随缘！</description>
-    <pubDate>Wed, 24 Aug 2022 16:01:33 GMT</pubDate>
+    <pubDate>Sat, 08 Oct 2022 15:53:24 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>AnolisOS 8 安装 EPEL源</title>
+      <link>https://www.xiaosige.com/post/fbedfa68.html</link>
+      <guid>https://www.xiaosige.com/post/fbedfa68.html</guid>
+      <pubDate>Sat, 08 Oct 2022 15:37:34 GMT</pubDate>
+      
+      <description>&lt;p&gt;  本文以 AnolisOS 8.4 为例。在首次开机运行系统后一般都需要进行以下 3 个步骤：&lt;/p&gt;</description>
+      
+      
+      
+      
+      <category domain="https://www.xiaosige.com/categories/AnolisOS/">AnolisOS</category>
+      
+      
+      <category domain="https://www.xiaosige.com/tags/EPEL%E6%BA%90/">EPEL源</category>
+      
+      
+      <comments>https://www.xiaosige.com/post/fbedfa68.html#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>实现ssh登录，显示图形化</title>
@@ -434,31 +455,6 @@ docker exec -it [容器Name] /bin/bash&lt;span aria-hidden=&quot;true&quot; clas
       
       
       <comments>https://www.xiaosige.com/post/4612f524.html#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>【Docker】之安装 RabbitMQ</title>
-      <link>https://www.xiaosige.com/post/c0af152c.html</link>
-      <guid>https://www.xiaosige.com/post/c0af152c.html</guid>
-      <pubDate>Sun, 08 May 2022 14:42:50 GMT</pubDate>
-      
-      <description>&lt;h3 id=&quot;拉取镜像&quot;&gt;&lt;a href=&quot;#拉取镜像&quot; class=&quot;headerlink&quot; title=&quot;拉取镜像&quot;&gt;&lt;/a&gt;拉取镜像&lt;/h3&gt;&lt;pre class=&quot;line-numbers language-docker&quot; data-language=&quot;docker&quot;&gt;&lt;code class=&quot;language-docker&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# (镜像未配有控制台)&lt;/span&gt;
-docker pull rabbitmq:3.9.16
-&lt;span class=&quot;token comment&quot;&gt;# (镜像配有控制台)&lt;/span&gt;
-docker pull rabbitmq:3.9.16-management&lt;span aria-hidden=&quot;true&quot; class=&quot;line-numbers-rows&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;  &lt;code&gt;注意此处需要安装management的版本才有界面，其他tag的版本是没有管理界面的&lt;/code&gt;&lt;/p&gt;</description>
-      
-      
-      
-      
-      <category domain="https://www.xiaosige.com/categories/Docker/">Docker</category>
-      
-      
-      <category domain="https://www.xiaosige.com/tags/MQ/">MQ</category>
-      
-      
-      <comments>https://www.xiaosige.com/post/c0af152c.html#disqus_thread</comments>
       
     </item>
     
