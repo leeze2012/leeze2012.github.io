@@ -1352,13 +1352,6 @@
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/tags/Redis/</loc>
-    <lastmod>2022-10-09</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://www.xiaosige.com/tags/Nexus/</loc>
     <lastmod>2022-10-09</lastmod>
     <changefreq>weekly</changefreq>
@@ -1366,7 +1359,7 @@
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/tags/ElasticSearch/</loc>
+    <loc>https://www.xiaosige.com/tags/Redis/</loc>
     <lastmod>2022-10-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1374,6 +1367,13 @@
   
   <url>
     <loc>https://www.xiaosige.com/tags/Drone/</loc>
+    <lastmod>2022-10-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.xiaosige.com/tags/ElasticSearch/</loc>
     <lastmod>2022-10-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1478,13 +1478,6 @@
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/tags/Jdk/</loc>
-    <lastmod>2022-10-09</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://www.xiaosige.com/tags/Idea/</loc>
     <lastmod>2022-10-09</lastmod>
     <changefreq>weekly</changefreq>
@@ -1493,6 +1486,13 @@
   
   <url>
     <loc>https://www.xiaosige.com/tags/jar/</loc>
+    <lastmod>2022-10-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.xiaosige.com/tags/Jdk/</loc>
     <lastmod>2022-10-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1541,13 +1541,6 @@
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/tags/Python/</loc>
-    <lastmod>2022-10-09</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://www.xiaosige.com/tags/top/</loc>
     <lastmod>2022-10-09</lastmod>
     <changefreq>weekly</changefreq>
@@ -1556,6 +1549,13 @@
   
   <url>
     <loc>https://www.xiaosige.com/tags/free/</loc>
+    <lastmod>2022-10-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.xiaosige.com/tags/Python/</loc>
     <lastmod>2022-10-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1625,13 +1625,6 @@
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/tags/SpringBoot/</loc>
-    <lastmod>2022-10-09</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://www.xiaosige.com/tags/snowflake/</loc>
     <lastmod>2022-10-09</lastmod>
     <changefreq>weekly</changefreq>
@@ -1639,7 +1632,7 @@
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/tags/ssh/</loc>
+    <loc>https://www.xiaosige.com/tags/SpringBoot/</loc>
     <lastmod>2022-10-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1647,6 +1640,13 @@
   
   <url>
     <loc>https://www.xiaosige.com/tags/SpringMVC/</loc>
+    <lastmod>2022-10-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.xiaosige.com/tags/ssh/</loc>
     <lastmod>2022-10-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1725,14 +1725,14 @@
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/categories/BootStrap/table/</loc>
+    <loc>https://www.xiaosige.com/categories/Docker/</loc>
     <lastmod>2022-10-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/categories/Docker/</loc>
+    <loc>https://www.xiaosige.com/categories/BootStrap/table/</loc>
     <lastmod>2022-10-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1781,14 +1781,14 @@
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/categories/Java/</loc>
+    <loc>https://www.xiaosige.com/categories/Idea/</loc>
     <lastmod>2022-10-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/categories/Idea/</loc>
+    <loc>https://www.xiaosige.com/categories/Java/</loc>
     <lastmod>2022-10-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
