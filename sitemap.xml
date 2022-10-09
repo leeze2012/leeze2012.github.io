@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://www.xiaosige.com/post/344dc787.html</loc>
+    
+    <lastmod>2022-10-09</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://www.xiaosige.com/post/7f65a2db.html</loc>
     
     <lastmod>2022-10-09</lastmod>
@@ -167,15 +176,6 @@
     <loc>https://www.xiaosige.com/post/d7d45238.html</loc>
     
     <lastmod>2022-08-03</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.xiaosige.com/post/344dc787.html</loc>
-    
-    <lastmod>2022-07-30</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -1660,14 +1660,14 @@
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/tags/%E7%AE%97%E6%B3%95/</loc>
+    <loc>https://www.xiaosige.com/tags/VMWare/</loc>
     <lastmod>2022-10-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/tags/VMWare/</loc>
+    <loc>https://www.xiaosige.com/tags/%E7%AE%97%E6%B3%95/</loc>
     <lastmod>2022-10-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>

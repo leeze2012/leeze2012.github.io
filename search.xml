@@ -1560,7 +1560,7 @@ f8aebc2a121c89c99190553ac9b3dcc853315182 src/assets/img/login_2.png
 
 <span id="more"></span>
 
-<h3 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h3><ol>
+<h3 id="解决-一"><a href="#解决-一" class="headerlink" title="解决 一"></a>解决 一</h3><ol>
 <li>在终端中 输入以下命令 查看到磁盘的<code>Volume Name</code><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">diskutil list<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <img data-src="/post/344dc787/fdisk001.png" class="" title="fdisk"></li>
 <li>紧接着更新 <code>/etc/fstab</code>文件<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">vi</span> /etc/fstab
@@ -1576,6 +1576,49 @@ f8aebc2a121c89c99190553ac9b3dcc853315182 src/assets/img/login_2.png
 搞定<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 <li>在桌面上可以看见移动硬盘<br>这里有时候需要重启电脑 有时候<code>等一会</code>就ok了</li>
 </ol>
+<h3 id="解决-二"><a href="#解决-二" class="headerlink" title="解决 二"></a>解决 二</h3><p>  主要是利用磁盘操作工具 <code>diskutil</code> 和磁盘修复检查工具 <code>fsck_hfs</code>。</p>
+<ol>
+<li>查看当前挂载的所有磁盘<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">diskutil list<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ diskutil list
+/dev/disk0 <span class="token punctuation">(</span>internal, physical<span class="token punctuation">)</span>:
+   <span class="token comment">#:                       TYPE NAME                    SIZE       IDENTIFIER</span>
+   <span class="token number">0</span>:      GUID_partition_scheme                        *251.0 GB   disk0
+   <span class="token number">1</span>:                        EFI EFI                     <span class="token number">314.6</span> MB   disk0s1
+   <span class="token number">2</span>:                 Apple_APFS Container disk1         <span class="token number">250.7</span> GB   disk0s2
+
+/dev/disk1 <span class="token punctuation">(</span>synthesized<span class="token punctuation">)</span>:
+   <span class="token comment">#:                       TYPE NAME                    SIZE       IDENTIFIER</span>
+   <span class="token number">0</span>:      APFS Container Scheme -                      +250.7 GB   disk1
+                                 Physical Store disk0s2
+   <span class="token number">1</span>:                APFS Volume Macintosh HD - 数据     <span class="token number">190.3</span> GB   disk1s1
+   <span class="token number">2</span>:                APFS Volume Preboot                 <span class="token number">867.9</span> MB   disk1s2
+   <span class="token number">3</span>:                APFS Volume Recovery                <span class="token number">1.1</span> GB     disk1s3
+   <span class="token number">4</span>:                APFS Volume VM                      <span class="token number">2.1</span> GB     disk1s4
+   <span class="token number">5</span>:                APFS Volume Macintosh HD            <span class="token number">15.4</span> GB    disk1s5
+   <span class="token number">6</span>:              APFS Snapshot com.apple.os.update-<span class="token punctuation">..</span>. <span class="token number">15.4</span> GB    disk1s5s1
+
+/dev/disk2 <span class="token punctuation">(</span>external, physical<span class="token punctuation">)</span>:
+   <span class="token comment">#:                       TYPE NAME                    SIZE       IDENTIFIER</span>
+   <span class="token number">0</span>:      GUID_partition_scheme                        *5.0 TB     disk2
+   <span class="token number">1</span>:       Microsoft Basic Data WD_BLACK                <span class="token number">5.0</span> TB     disk2s1<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+  可以根据名字 <code>WD_BLACK</code> 看出，<code>/dev/disk2</code> 是我的移动硬盘，<code>/dev/disk2s1</code> 是我的移动硬盘数据分区。 <del>至于/dev/disk2s1，应该是移动硬盘系统区，不用管。</del> 于是执行下面命令挂载移动硬盘数据卷（需要注意的是：<code>diskutil mountDisk</code> 是挂载整个盘的，但是在数据卷损坏的情况下，挂载整个盘没啥用）：<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">diskutil <span class="token function">mount</span> /dev/disk2s1<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+  发现超时：<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">Volume on disk2 timed out waiting to <span class="token function">mount</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+  搜索后发现是在挂载上一个存在问题的盘后，<code>Mac</code> 就会在后台自动运行 <code>fsck_hfs</code>，导致 <code>diskutil 挂载超时</code>。执行 <code>ps aux | grep fsck</code> 可以发现：<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">root             <span class="token number">70983</span>   <span class="token number">1.0</span>  <span class="token number">0.1</span>  <span class="token number">4306296</span>   <span class="token number">5508</span>   ??  Us   <span class="token number">10</span>:53下午   
+<span class="token number">0</span>:02.74 /System/Library/Filesystems/exfat.fs/Contents/Resources/fsck_exfat <span class="token parameter variable">-y</span> <span class="token parameter variable">-x</span> /dev/rdisk2s1<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+  当然你可以将该进程杀掉（<code>sudo pkill -f fsck</code>），然后再挂载（<code>diskutil mount /dev/disk2s1</code>），此时会挂载成功，但是会存在数据不一致现象。所以仍是得执行上述磁盘修复命令（如果是 apfs 文件系统，需要用 fsck_apfs）：<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">fsck_exfat <span class="token parameter variable">-y</span> <span class="token parameter variable">-x</span> /dev/disk2s1 <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+  然后等待其结束（具体多久那就不一定了，我的都是在几分钟的数量级），然后再：<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">diskutil <span class="token function">mount</span> /dev/disk2s1<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+  具体这两个命令其他用法可以通过 <code>man diskutil</code> 和 <code>man fsck_hfs</code> 来查看。</li>
+</ol>
+<h3 id="解决-三"><a href="#解决-三" class="headerlink" title="解决 三"></a>解决 三</h3><ol>
+<li>Mac 集成在了一款内置的 “<code>磁盘工具</code>” 之中。通过 command+空格 “聚焦搜索” 磁盘工具可以调出。<img data-src="/post/344dc787/fdisk002.png" class="" title="磁盘工具">
+  选择无法识别的移动硬盘 <code>WD_BLACK</code> 然后点<code>急救</code>，就是会执行 <code>fsck_exfat -y -x /dev/disk2s1</code> 并在执行成功后<code>自动挂载</code>。如果急救出现问题，说明后台可能已经在运行 fsck_exfat 命令了，这时候你<code>只需要等待</code>就行了。</li>
+</ol>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><div class="note no-icon primary"><ol>
+<li>电源断电会引起移动硬盘不正常退出，切记切记。</li>
+<li>如果重新插上不显示，不要慌。等会就好了，因为Mac后台默默的帮你检查一致性。</li>
+<li>如果有点慌就按上面我说的探索一番吧。</li>
+</ol>
+</div>
 <link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
       <categories>
         <category>Mac</category>
