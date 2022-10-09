@@ -4952,14 +4952,35 @@ server <span class="token punctuation">{</span>
 
 <span class="token punctuation">}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="新建docker的network桥接网络"><a href="#新建docker的network桥接网络" class="headerlink" title="新建docker的network桥接网络"></a>新建docker的<code>network桥接</code>网络</h3><pre class="line-numbers language-docker" data-language="docker"><code class="language-docker">docker network create docker1 
+-o com.docker.network.bridge.name=docker1 
+-o com.docker.network.bridge.host_binding_ipv4=0.0.0.0 
+--driver=bridge --subnet=172.20.0.0/16 --gateway=172.20.0.1
+
+docker network create --subnet=172.172.0.0/24 --gateway 172.172.0.1 nginx-proxy<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="查看新建网桥"><a href="#查看新建网桥" class="headerlink" title="查看新建网桥"></a>查看新建网桥</h4><pre class="line-numbers language-docker" data-language="docker"><code class="language-docker">docker network ls<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<img data-src="/post/7f65a2db/djg017.png" class="" title="network">
+<pre class="line-numbers language-docker" data-language="docker"><code class="language-docker">docker network inspect docker1<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<img data-src="/post/7f65a2db/djg018.png" class="" title="docker1">
+
+
+
+
 <h3 id="使用docker运行redis"><a href="#使用docker运行redis" class="headerlink" title="使用docker运行redis"></a>使用docker运行<code>redis</code></h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 新建 /root/docker/redis/docker-compose.yml</span>
 version: <span class="token string">"3"</span>
+networks:
+  docker1:               <span class="token comment">### 自建的network</span>
+    external: <span class="token boolean">true</span>
 services: 
   redis:
     image: redis:5
     container_name: my_redis
+    hostname: leeze-redis
     command: redis-server <span class="token parameter variable">--requirepass</span> yourpassword
     restart: always
+    networks:
+      docker1:
+        ipv4_address: <span class="token number">172.20</span>.0.3               <span class="token comment">###容器固定ip </span>
     ports:
       - <span class="token string">"6379:6379"</span>
     volumes:
@@ -4971,23 +4992,39 @@ services:
   
 <span class="token comment"># 运行</span>
 <span class="token function">docker-compose</span> up <span class="token parameter variable">-d</span> <span class="token parameter variable">--build</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h3 id="使用docker运行mysql"><a href="#使用docker运行mysql" class="headerlink" title="使用docker运行mysql"></a>使用docker运行<code>mysql</code></h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 新建 /root/docker/mysql/docker-compose.yml</span>
 version: <span class="token string">"3"</span>
+networks:
+  docker1:               <span class="token comment">### 自建的network</span>
+    external: <span class="token boolean">true</span>
 services: 
   mysql:
     image: mysql:8
     container_name: mysql
+    hostname: leeze-mysql
     command: mysqld --default-authentication-plugin<span class="token operator">=</span>mysql_native_password
     restart: always
+    networks:
+      docker1:
+        ipv4_address: <span class="token number">172.20</span>.0.4               <span class="token comment">###容器固定ip </span>
     ports:
       - <span class="token string">"3306:3306"</span>
     environment:
-      - <span class="token assign-left variable">MYSQL_ROOT_PASSWORD</span><span class="token operator">=</span>mysql888
+      - <span class="token assign-left variable">MYSQL_PORT</span><span class="token operator">=</span><span class="token number">3306</span> 
+      - <span class="token assign-left variable">MYSQL_DATABASE</span><span class="token operator">=</span>leeze 
+      - <span class="token assign-left variable">MYSQL_USER</span><span class="token operator">=</span>admin 
+      - <span class="token assign-left variable">MYSQL_PASSWORD</span><span class="token operator">=</span>sysadmin 
+      - <span class="token assign-left variable">MYSQL_ROOT_PASSWORD</span><span class="token operator">=</span>sysadmin 
     volumes:
       - ./data:/var/lib/mysql:cached
       - ./conf:/etc/mysql/conf.d:cached
+      
+      - ./data:/var/lib/mysql 
+      - ./conf/mysql/my.cnf:/etc/my.cnf 
+      - ./conf/mysql/conf.d:/etc/mysql/conf.d 
+      - ./conf/mysql/mysql.conf.d:/etc/mysql/mysql.conf.d
     security_opt:
       - seccomp:unconfined
     logging: 
@@ -5008,7 +5045,7 @@ GRANT ALL PRIVILEGES ON *.* TO <span class="token string">'root'</span>@<span cl
 <span class="token builtin class-name">set</span> GLOBAL <span class="token assign-left variable">max_connections</span><span class="token operator">=</span><span class="token number">2048</span><span class="token punctuation">;</span>
 <span class="token comment"># 查看最大连接数</span>
 show variables like <span class="token string">'%max_connections%'</span><span class="token punctuation">;</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="生成ssh密钥，免密拉取代码"><a href="#生成ssh密钥，免密拉取代码" class="headerlink" title="生成ssh密钥，免密拉取代码"></a>生成<code>ssh密钥</code>，免密拉取代码</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 生成密钥</span>
 ssh-keygen <span class="token parameter variable">-t</span> rsa 
 ssh-keygen <span class="token parameter variable">-m</span> PEM <span class="token parameter variable">-t</span> rsa  <span class="token comment"># 低版本</span>
@@ -5019,11 +5056,18 @@ ssh-keygen <span class="token parameter variable">-m</span> PEM <span class="tok
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="使用docker安装Jenkins"><a href="#使用docker安装Jenkins" class="headerlink" title="使用docker安装Jenkins"></a>使用docker安装<code>Jenkins</code></h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 新建 /root/docker/jenkins/docker-compose.yml</span>
 version: <span class="token string">"3"</span>
+networks:
+  docker1:               <span class="token comment">### 自建的network</span>
+    external: <span class="token boolean">true</span>
 services: 
   jenkins:
     image: jenkinsci/blueocean
     container_name: jenkins
+    hostname: leeze-jenkins
     restart: always
+    networks:
+      docker1:
+        ipv4_address: <span class="token number">172.20</span>.0.5               <span class="token comment">###容器固定ip </span>
     ports:
       - <span class="token string">"49999:8080"</span>
       - <span class="token string">"50000:50000"</span>
@@ -5041,7 +5085,7 @@ services:
 
 <span class="token comment"># 解决权限错误问题</span>
 <span class="token function">chown</span> <span class="token parameter variable">-R</span> <span class="token number">1000</span>:1000 data
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>  权限问题解决之后，Jenkins会自动运行，并打印出一串随机密码:</p>
 <img data-src="/post/7f65a2db/djg001.webp" class="" title="密码">
