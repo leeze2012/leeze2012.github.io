@@ -1338,13 +1338,6 @@
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/tags/Tool/</loc>
-    <lastmod>2022-10-09</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://www.xiaosige.com/tags/Console/</loc>
     <lastmod>2022-10-09</lastmod>
     <changefreq>weekly</changefreq>
@@ -1352,7 +1345,7 @@
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/tags/Nexus/</loc>
+    <loc>https://www.xiaosige.com/tags/Tool/</loc>
     <lastmod>2022-10-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1366,7 +1359,7 @@
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/tags/Drone/</loc>
+    <loc>https://www.xiaosige.com/tags/Nexus/</loc>
     <lastmod>2022-10-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1374,6 +1367,13 @@
   
   <url>
     <loc>https://www.xiaosige.com/tags/ElasticSearch/</loc>
+    <lastmod>2022-10-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.xiaosige.com/tags/Drone/</loc>
     <lastmod>2022-10-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1625,13 +1625,6 @@
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/tags/snowflake/</loc>
-    <lastmod>2022-10-09</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://www.xiaosige.com/tags/SpringBoot/</loc>
     <lastmod>2022-10-09</lastmod>
     <changefreq>weekly</changefreq>
@@ -1639,7 +1632,7 @@
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/tags/SpringMVC/</loc>
+    <loc>https://www.xiaosige.com/tags/snowflake/</loc>
     <lastmod>2022-10-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1647,6 +1640,13 @@
   
   <url>
     <loc>https://www.xiaosige.com/tags/ssh/</loc>
+    <lastmod>2022-10-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.xiaosige.com/tags/SpringMVC/</loc>
     <lastmod>2022-10-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>

@@ -1578,8 +1578,7 @@ f8aebc2a121c89c99190553ac9b3dcc853315182 src/assets/img/login_2.png
 </ol>
 <h3 id="解决-二"><a href="#解决-二" class="headerlink" title="解决 二"></a>解决 二</h3><p>  主要是利用磁盘操作工具 <code>diskutil</code> 和磁盘修复检查工具 <code>fsck_hfs</code>。</p>
 <ol>
-<li>查看当前挂载的所有磁盘<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">diskutil list<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ diskutil list
+<li>查看当前挂载的所有磁盘<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ diskutil list
 /dev/disk0 <span class="token punctuation">(</span>internal, physical<span class="token punctuation">)</span>:
    <span class="token comment">#:                       TYPE NAME                    SIZE       IDENTIFIER</span>
    <span class="token number">0</span>:      GUID_partition_scheme                        *251.0 GB   disk0
