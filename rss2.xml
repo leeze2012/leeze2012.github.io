@@ -15,8 +15,57 @@
     <atom:link href="https://www.xiaosige.com/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>因上努力，果上随缘！</description>
-    <pubDate>Sat, 08 Oct 2022 15:53:24 GMT</pubDate>
+    <pubDate>Tue, 11 Oct 2022 03:11:48 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>Fail2ban，解决网站被扫描、CC攻击、ssh暴力破解、防爬虫等问题</title>
+      <link>https://www.xiaosige.com/post/a8e858c0.html</link>
+      <guid>https://www.xiaosige.com/post/a8e858c0.html</guid>
+      <pubDate>Tue, 11 Oct 2022 01:04:02 GMT</pubDate>
+      
+      <description>&lt;img data-src=&quot;/post/a8e858c0/fail2ban002.png&quot; style=&quot;box-shadow:none!important;&quot;&gt;</description>
+      
+      
+      
+      
+      <category domain="https://www.xiaosige.com/categories/Linux/">Linux</category>
+      
+      
+      <category domain="https://www.xiaosige.com/tags/Fail2ban/">Fail2ban</category>
+      
+      
+      <comments>https://www.xiaosige.com/post/a8e858c0.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>Docker 下 Traefik 安装部署</title>
+      <link>https://www.xiaosige.com/post/36ac4c26.html</link>
+      <guid>https://www.xiaosige.com/post/36ac4c26.html</guid>
+      <pubDate>Mon, 10 Oct 2022 21:37:02 GMT</pubDate>
+      
+      <description>&lt;h3 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h3&gt;&lt;div class=&quot;note info no-icon&quot;&gt;&lt;p&gt;  Traefik 是一款开源的边缘路由器，可以作为整个平台的入口（网关），根据逻辑规则，处理并路由整个传入的请求。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;自动服务发现&lt;/li&gt;
+&lt;li&gt;原生兼容所有主要集群技术，例如 Kubernetes、Docker、Docker Swarm、AWS、Mesos、Marathon，并且可以同时处理多个。&lt;/li&gt;
+&lt;li&gt;无需维护和同步单独的配置文件，自动实时更新，无需重新启动，不会中断连接&lt;/li&gt;
+&lt;li&gt;集成了漂亮的 dashboard 界面&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;</description>
+      
+      
+      
+      
+      <category domain="https://www.xiaosige.com/categories/Docker/">Docker</category>
+      
+      
+      <category domain="https://www.xiaosige.com/tags/Traefik/">Traefik</category>
+      
+      
+      <comments>https://www.xiaosige.com/post/36ac4c26.html#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>AnolisOS 8 安装 EPEL源</title>
@@ -408,53 +457,6 @@ docker exec -it [容器Name] /bin/bash&lt;span aria-hidden=&quot;true&quot; clas
       
       
       <comments>https://www.xiaosige.com/post/787150d6.html#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>Java实现4种微信抢红包算法</title>
-      <link>https://www.xiaosige.com/post/95ad3e48.html</link>
-      <guid>https://www.xiaosige.com/post/95ad3e48.html</guid>
-      <pubDate>Mon, 09 May 2022 13:04:19 GMT</pubDate>
-      
-      <description>&lt;h3 id=&quot;概述&quot;&gt;&lt;a href=&quot;#概述&quot; class=&quot;headerlink&quot; title=&quot;概述&quot;&gt;&lt;/a&gt;概述&lt;/h3&gt;&lt;div class=&quot;note success no-icon&quot;&gt;&lt;ol&gt;
-&lt;li&gt;保证每个红包最少分得&lt;code&gt;0.01&lt;/code&gt;元&lt;/li&gt;
-&lt;li&gt;保证每个红包金额概率尽量均衡&lt;/li&gt;
-&lt;li&gt;所有红包累计金额登于红包总金额&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/div&gt;</description>
-      
-      
-      
-      
-      <category domain="https://www.xiaosige.com/categories/Java/">Java</category>
-      
-      
-      <category domain="https://www.xiaosige.com/tags/%E7%AE%97%E6%B3%95/">算法</category>
-      
-      
-      <comments>https://www.xiaosige.com/post/95ad3e48.html#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>【Docker】之部署skywalking实现全链路监控功能</title>
-      <link>https://www.xiaosige.com/post/4612f524.html</link>
-      <guid>https://www.xiaosige.com/post/4612f524.html</guid>
-      <pubDate>Mon, 09 May 2022 05:07:58 GMT</pubDate>
-      
-      <description>&lt;img data-src=&quot;/post/4612f524/skywalking-001.png&quot; style=&quot;box-shadow:none!important;&quot;&gt;</description>
-      
-      
-      
-      
-      <category domain="https://www.xiaosige.com/categories/Docker/">Docker</category>
-      
-      
-      <category domain="https://www.xiaosige.com/tags/APM/">APM</category>
-      
-      
-      <comments>https://www.xiaosige.com/post/4612f524.html#disqus_thread</comments>
       
     </item>
     
