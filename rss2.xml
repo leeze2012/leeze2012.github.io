@@ -15,8 +15,29 @@
     <atom:link href="https://www.xiaosige.com/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>因上努力，果上随缘！</description>
-    <pubDate>Tue, 11 Oct 2022 03:11:48 GMT</pubDate>
+    <pubDate>Tue, 11 Oct 2022 20:19:19 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>Harbor企业级私服Docker镜像仓库搭建</title>
+      <link>https://www.xiaosige.com/post/bd7f5796.html</link>
+      <guid>https://www.xiaosige.com/post/bd7f5796.html</guid>
+      <pubDate>Tue, 11 Oct 2022 17:09:59 GMT</pubDate>
+      
+      <description>&lt;img data-src=&quot;/post/bd7f5796/harbor-horizontal-color.png&quot; style=&quot;height:260px;width:100%;box-shadow:none!important;&quot;&gt;</description>
+      
+      
+      
+      
+      <category domain="https://www.xiaosige.com/categories/Docker/">Docker</category>
+      
+      
+      <category domain="https://www.xiaosige.com/tags/Harbor/">Harbor</category>
+      
+      
+      <comments>https://www.xiaosige.com/post/bd7f5796.html#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>Fail2ban，解决网站被扫描、CC攻击、ssh暴力破解、防爬虫等问题</title>
@@ -40,19 +61,12 @@
     </item>
     
     <item>
-      <title>Docker 下 Traefik 安装部署</title>
+      <title>【Docker】之 Traefik 安装部署</title>
       <link>https://www.xiaosige.com/post/36ac4c26.html</link>
       <guid>https://www.xiaosige.com/post/36ac4c26.html</guid>
       <pubDate>Mon, 10 Oct 2022 21:37:02 GMT</pubDate>
       
-      <description>&lt;h3 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h3&gt;&lt;div class=&quot;note info no-icon&quot;&gt;&lt;p&gt;  Traefik 是一款开源的边缘路由器，可以作为整个平台的入口（网关），根据逻辑规则，处理并路由整个传入的请求。&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;自动服务发现&lt;/li&gt;
-&lt;li&gt;原生兼容所有主要集群技术，例如 Kubernetes、Docker、Docker Swarm、AWS、Mesos、Marathon，并且可以同时处理多个。&lt;/li&gt;
-&lt;li&gt;无需维护和同步单独的配置文件，自动实时更新，无需重新启动，不会中断连接&lt;/li&gt;
-&lt;li&gt;集成了漂亮的 dashboard 界面&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/div&gt;</description>
+      <description>&lt;img data-src=&quot;/post/36ac4c26/traefik003.png&quot; style=&quot;height:200px;box-shadow:none!important;&quot;&gt;</description>
       
       
       
@@ -431,32 +445,6 @@
       
       
       <comments>https://www.xiaosige.com/post/aa05fc91.html#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>【Docker】之 docker exec 命令简化</title>
-      <link>https://www.xiaosige.com/post/787150d6.html</link>
-      <guid>https://www.xiaosige.com/post/787150d6.html</guid>
-      <pubDate>Mon, 09 May 2022 16:05:53 GMT</pubDate>
-      
-      <description>&lt;h3 id=&quot;进入容器&quot;&gt;&lt;a href=&quot;#进入容器&quot; class=&quot;headerlink&quot; title=&quot;进入容器&quot;&gt;&lt;/a&gt;进入容器&lt;/h3&gt;&lt;p&gt;  某些时候需要进入容器进行操作，可以使用 &lt;code&gt;attach&lt;/code&gt; 、&lt;code&gt;exec&lt;/code&gt; 进入容器。&lt;/p&gt;
-&lt;pre class=&quot;line-numbers language-docker&quot; data-language=&quot;docker&quot;&gt;&lt;code class=&quot;language-docker&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# 不安全的，ctrl+d 退出时容器也会终止&lt;/span&gt;
-docker attach [容器Name]
-
-&lt;span class=&quot;token comment&quot;&gt;# 以交互式命令行进入，安全的，推荐使用&lt;/span&gt;
-docker exec -it [容器Name] /bin/bash&lt;span aria-hidden=&quot;true&quot; class=&quot;line-numbers-rows&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;</description>
-      
-      
-      
-      
-      <category domain="https://www.xiaosige.com/categories/Docker/">Docker</category>
-      
-      
-      <category domain="https://www.xiaosige.com/tags/Docker/">Docker</category>
-      
-      
-      <comments>https://www.xiaosige.com/post/787150d6.html#disqus_thread</comments>
       
     </item>
     

@@ -6,7 +6,7 @@
   <link href="https://www.xiaosige.com/atom.xml" rel="self"/>
   
   <link href="https://www.xiaosige.com/"/>
-  <updated>2022-10-11T03:11:48.408Z</updated>
+  <updated>2022-10-11T20:19:19.328Z</updated>
   <id>https://www.xiaosige.com/</id>
   
   <author>
@@ -17,11 +17,30 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Harbor企业级私服Docker镜像仓库搭建</title>
+    <link href="https://www.xiaosige.com/post/bd7f5796.html"/>
+    <id>https://www.xiaosige.com/post/bd7f5796.html</id>
+    <published>2022-10-11T17:09:59.000Z</published>
+    <updated>2022-10-11T20:19:19.328Z</updated>
+    
+    
+    <summary type="html">&lt;img data-src=&quot;/post/bd7f5796/harbor-horizontal-color.png&quot; style=&quot;height:260px;width:100%;box-shadow:none!important;&quot;&gt;</summary>
+    
+    
+    
+    <category term="Docker" scheme="https://www.xiaosige.com/categories/Docker/"/>
+    
+    
+    <category term="Harbor" scheme="https://www.xiaosige.com/tags/Harbor/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Fail2ban，解决网站被扫描、CC攻击、ssh暴力破解、防爬虫等问题</title>
     <link href="https://www.xiaosige.com/post/a8e858c0.html"/>
     <id>https://www.xiaosige.com/post/a8e858c0.html</id>
     <published>2022-10-11T01:04:02.000Z</published>
-    <updated>2022-10-11T03:11:48.408Z</updated>
+    <updated>2022-10-11T10:45:45.004Z</updated>
     
     
     <summary type="html">&lt;img data-src=&quot;/post/a8e858c0/fail2ban002.png&quot; style=&quot;box-shadow:none!important;&quot;&gt;</summary>
@@ -36,21 +55,14 @@
   </entry>
   
   <entry>
-    <title>Docker 下 Traefik 安装部署</title>
+    <title>【Docker】之 Traefik 安装部署</title>
     <link href="https://www.xiaosige.com/post/36ac4c26.html"/>
     <id>https://www.xiaosige.com/post/36ac4c26.html</id>
     <published>2022-10-10T21:37:02.000Z</published>
-    <updated>2022-10-10T23:21:56.130Z</updated>
+    <updated>2022-10-11T15:57:03.766Z</updated>
     
     
-    <summary type="html">&lt;h3 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h3&gt;&lt;div class=&quot;note info no-icon&quot;&gt;&lt;p&gt;  Traefik 是一款开源的边缘路由器，可以作为整个平台的入口（网关），根据逻辑规则，处理并路由整个传入的请求。&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;自动服务发现&lt;/li&gt;
-&lt;li&gt;原生兼容所有主要集群技术，例如 Kubernetes、Docker、Docker Swarm、AWS、Mesos、Marathon，并且可以同时处理多个。&lt;/li&gt;
-&lt;li&gt;无需维护和同步单独的配置文件，自动实时更新，无需重新启动，不会中断连接&lt;/li&gt;
-&lt;li&gt;集成了漂亮的 dashboard 界面&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/div&gt;</summary>
+    <summary type="html">&lt;img data-src=&quot;/post/36ac4c26/traefik003.png&quot; style=&quot;height:200px;box-shadow:none!important;&quot;&gt;</summary>
     
     
     
@@ -124,7 +136,7 @@
     <link href="https://www.xiaosige.com/post/2317c1ec.html"/>
     <id>https://www.xiaosige.com/post/2317c1ec.html</id>
     <published>2022-08-21T14:31:45.000Z</published>
-    <updated>2022-08-21T15:17:17.131Z</updated>
+    <updated>2022-10-11T10:41:07.567Z</updated>
     
     
     <summary type="html">&lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;  这次记录的是将SSH多次登录失败的IP加入黑名单的过程。&lt;/p&gt;</summary>
@@ -391,30 +403,6 @@
     
     
     <category term="zookeeper" scheme="https://www.xiaosige.com/tags/zookeeper/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【Docker】之 docker exec 命令简化</title>
-    <link href="https://www.xiaosige.com/post/787150d6.html"/>
-    <id>https://www.xiaosige.com/post/787150d6.html</id>
-    <published>2022-05-09T16:05:53.000Z</published>
-    <updated>2022-05-09T17:39:01.666Z</updated>
-    
-    
-    <summary type="html">&lt;h3 id=&quot;进入容器&quot;&gt;&lt;a href=&quot;#进入容器&quot; class=&quot;headerlink&quot; title=&quot;进入容器&quot;&gt;&lt;/a&gt;进入容器&lt;/h3&gt;&lt;p&gt;  某些时候需要进入容器进行操作，可以使用 &lt;code&gt;attach&lt;/code&gt; 、&lt;code&gt;exec&lt;/code&gt; 进入容器。&lt;/p&gt;
-&lt;pre class=&quot;line-numbers language-docker&quot; data-language=&quot;docker&quot;&gt;&lt;code class=&quot;language-docker&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# 不安全的，ctrl+d 退出时容器也会终止&lt;/span&gt;
-docker attach [容器Name]
-
-&lt;span class=&quot;token comment&quot;&gt;# 以交互式命令行进入，安全的，推荐使用&lt;/span&gt;
-docker exec -it [容器Name] /bin/bash&lt;span aria-hidden=&quot;true&quot; class=&quot;line-numbers-rows&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;</summary>
-    
-    
-    
-    <category term="Docker" scheme="https://www.xiaosige.com/categories/Docker/"/>
-    
-    
-    <category term="Docker" scheme="https://www.xiaosige.com/tags/Docker/"/>
     
   </entry>
   

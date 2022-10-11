@@ -23,31 +23,30 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"www.xiaosige.com","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.13.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"changyan","storage":true,"lazyload":true,"nav":null,"activeClass":"changyan"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="简介  Traefik 是一款开源的边缘路由器，可以作为整个平台的入口（网关），根据逻辑规则，处理并路由整个传入的请求。  自动服务发现 原生兼容所有主要集群技术，例如 Kubernetes、Docker、Docker Swarm、AWS、Mesos、Marathon，并且可以同时处理多个。 无需维护和同步单独的配置文件，自动实时更新，无需重新启动，不会中断连接 集成了漂亮的 dashboard">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Docker 下 Traefik 安装部署">
+    <meta property="og:type" content="article">
+<meta property="og:title" content="【Docker】之 Traefik 安装部署">
 <meta property="og:url" content="https://www.xiaosige.com/post/36ac4c26.html">
 <meta property="og:site_name" content="小四儿">
-<meta property="og:description" content="简介  Traefik 是一款开源的边缘路由器，可以作为整个平台的入口（网关），根据逻辑规则，处理并路由整个传入的请求。  自动服务发现 原生兼容所有主要集群技术，例如 Kubernetes、Docker、Docker Swarm、AWS、Mesos、Marathon，并且可以同时处理多个。 无需维护和同步单独的配置文件，自动实时更新，无需重新启动，不会中断连接 集成了漂亮的 dashboard">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://www.xiaosige.com/post/36ac4c26/traefik003.png">
 <meta property="og:image" content="https://www.xiaosige.com/post/36ac4c26/traekit001.png">
 <meta property="og:image" content="https://www.xiaosige.com/post/36ac4c26/traekit002.png">
 <meta property="article:published_time" content="2022-10-10T21:37:02.000Z">
-<meta property="article:modified_time" content="2022-10-10T23:21:56.130Z">
+<meta property="article:modified_time" content="2022-10-11T15:57:03.766Z">
 <meta property="article:author" content="leeze">
 <meta property="article:tag" content="Traefik">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://www.xiaosige.com/post/36ac4c26/traekit001.png">
+<meta name="twitter:image" content="https://www.xiaosige.com/post/36ac4c26/traefik003.png">
 
 
 <link rel="canonical" href="https://www.xiaosige.com/post/36ac4c26.html">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://www.xiaosige.com/post/36ac4c26.html","path":"post/36ac4c26.html","title":"Docker 下 Traefik 安装部署"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://www.xiaosige.com/post/36ac4c26.html","path":"post/36ac4c26.html","title":"【Docker】之 Traefik 安装部署"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>Docker 下 Traefik 安装部署 | 小四儿</title>
+<title>【Docker】之 Traefik 安装部署 | 小四儿</title>
   
 
   <script src="/js/third-party/analytics/baidu-analytics.js"></script>
@@ -124,7 +123,7 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">58</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">24</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">134</span></a></li><li class="menu-item menu-item-welfare"><a href="/welfare" rel="section"><i class="fa fa-star fa-fw"></i>收藏</a></li><li class="menu-item menu-item-music"><a href="/music" rel="section"><i class="fa fa-music fa-fw"></i>音乐</a></li><li class="menu-item menu-item-photos"><a href="/photos" rel="section"><i class="fa fa-camera-retro fa-fw"></i>相册</a></li><li class="menu-item menu-item-links"><a href="/links" rel="section"><i class="fa fa-link fa-fw"></i>友链</a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">60</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">24</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">138</span></a></li><li class="menu-item menu-item-welfare"><a href="/welfare" rel="section"><i class="fa fa-star fa-fw"></i>收藏</a></li><li class="menu-item menu-item-music"><a href="/music" rel="section"><i class="fa fa-music fa-fw"></i>音乐</a></li><li class="menu-item menu-item-photos"><a href="/photos" rel="section"><i class="fa fa-camera-retro fa-fw"></i>相册</a></li><li class="menu-item menu-item-links"><a href="/links" rel="section"><i class="fa fa-link fa-fw"></i>友链</a></li>
       <li class="menu-item menu-item-search">
         <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
         </a>
@@ -196,7 +195,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">134</span>
+          <span class="site-state-item-count">138</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -207,7 +206,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">58</span>
+        <span class="site-state-item-count">60</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -589,12 +588,12 @@ canvas#canvas {
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="Docker 下 Traefik 安装部署 | 小四儿">
+      <meta itemprop="name" content="【Docker】之 Traefik 安装部署 | 小四儿">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Docker 下 Traefik 安装部署
+          【Docker】之 Traefik 安装部署
         </h1>
 
         <div class="post-meta-container">
@@ -606,7 +605,7 @@ canvas#canvas {
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2022-10-11 05:37:02 / 修改时间：07:21:56" itemprop="dateCreated datePublished" datetime="2022-10-11T05:37:02+08:00">2022-10-11</time>
+      <time title="创建时间：2022-10-11 05:37:02 / 修改时间：23:57:03" itemprop="dateCreated datePublished" datetime="2022-10-11T05:37:02+08:00">2022-10-11</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -634,7 +633,7 @@ canvas#canvas {
       </span>
       <span class="post-meta-item-text">Changyan：</span>
     
-    <a title="Docker 下 Traefik 安装部署" href="/post/36ac4c26.html#SOHUCS" itemprop="discussionUrl">
+    <a title="【Docker】之 Traefik 安装部署" href="/post/36ac4c26.html#SOHUCS" itemprop="discussionUrl">
       <span id="sourceId::5c8a7112171952446e24d882575d4f8c" class="cy_cmt_count" itemprop="commentCount"></span>
     </a>
   </span>
@@ -649,7 +648,7 @@ canvas#canvas {
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>7k</span>
+      <span>6.9k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -667,7 +666,10 @@ canvas#canvas {
     
     
     <div class="post-body" itemprop="articleBody">
-        <h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><div class="note info no-icon"><p>  Traefik 是一款开源的边缘路由器，可以作为整个平台的入口（网关），根据逻辑规则，处理并路由整个传入的请求。</p>
+        <img data-src="/post/36ac4c26/traefik003.png" style="height:200px;box-shadow:none!important;">
+<span id="more"></span>
+
+<h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><div class="note info no-icon"><p>  Traefik 是一款开源的边缘路由器，可以作为整个平台的入口（网关），根据逻辑规则，处理并路由整个传入的请求。</p>
 <ol>
 <li>自动服务发现</li>
 <li>原生兼容所有主要集群技术，例如 Kubernetes、Docker、Docker Swarm、AWS、Mesos、Marathon，并且可以同时处理多个。</li>
@@ -676,7 +678,6 @@ canvas#canvas {
 </ol>
 </div>
 
-<span id="more"></span>
 
 <h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><h4 id="Traefik-中的配置分为2部分"><a href="#Traefik-中的配置分为2部分" class="headerlink" title="Traefik 中的配置分为2部分"></a>Traefik 中的配置分为2部分</h4><div class="note primary no-icon"><ul>
 <li><code>全动态路由配置（动态配置）</code>，从Provider获取<em>，</em>定义如何由系统来处理请求。此配置可以更改并无缝热重载，不会出现任何请求中断或连接丢失。</li>
@@ -948,7 +949,7 @@ TRAEFIK_PROVIDERS_DOCKER：
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h3 id="PS"><a href="#PS" class="headerlink" title="PS"></a>PS</h3><blockquote>
-<p>参考：<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_42413011/article/details/115430371">docker篇-(docker-compose安装web网关traefik)</a></p>
+<p>参考：<br><a target="_blank" rel="noopener" href="https://doc.traefik.io/traefik/">Traefik的官方文档</a><br><a target="_blank" rel="noopener" href="https://shanyue.tech/op/">Docker 个人服务器运维</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_35278597/article/details/124360125">Traefik学习</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_42413011/article/details/115430371">docker篇-(docker-compose安装web网关traefik)</a></p>
 </blockquote>
 <link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
     </div>
@@ -1008,7 +1009,7 @@ TRAEFIK_PROVIDERS_DOCKER：
   </li>
   <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="https://www.xiaosige.com/post/36ac4c26.html" title="Docker 下 Traefik 安装部署">https://www.xiaosige.com/post/36ac4c26.html</a>
+      <a href="https://www.xiaosige.com/post/36ac4c26.html" title="【Docker】之 Traefik 安装部署">https://www.xiaosige.com/post/36ac4c26.html</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -1064,13 +1065,13 @@ TRAEFIK_PROVIDERS_DOCKER：
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">354k</span>
+    <span title="站点总字数">359k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">5:21</span>
+    <span title="站点阅读时长">5:27</span>
   </span>
 </div>
 <div class="busuanzi-count">
