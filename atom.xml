@@ -6,7 +6,7 @@
   <link href="https://www.xiaosige.com/atom.xml" rel="self"/>
   
   <link href="https://www.xiaosige.com/"/>
-  <updated>2022-10-11T20:19:19.328Z</updated>
+  <updated>2022-10-13T21:47:22.561Z</updated>
   <id>https://www.xiaosige.com/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>【Docker】之安装 ElasticSearch集群</title>
+    <link href="https://www.xiaosige.com/post/65899326.html"/>
+    <id>https://www.xiaosige.com/post/65899326.html</id>
+    <published>2022-10-13T11:06:38.000Z</published>
+    <updated>2022-10-13T21:47:22.561Z</updated>
+    
+    
+    <summary type="html">&lt;img data-src=&quot;/post/65899326/elk001.png&quot; style=&quot;box-shadow:none!important;&quot;&gt;</summary>
+    
+    
+    
+    <category term="Docker" scheme="https://www.xiaosige.com/categories/Docker/"/>
+    
+    
+    <category term="ElasticSearch" scheme="https://www.xiaosige.com/tags/ElasticSearch/"/>
+    
+  </entry>
   
   <entry>
     <title>Harbor企业级私服Docker镜像仓库搭建</title>
@@ -384,25 +403,6 @@
     <category term="top" scheme="https://www.xiaosige.com/tags/top/"/>
     
     <category term="free" scheme="https://www.xiaosige.com/tags/free/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【Docker】之部署安装zookeeper</title>
-    <link href="https://www.xiaosige.com/post/aa05fc91.html"/>
-    <id>https://www.xiaosige.com/post/aa05fc91.html</id>
-    <published>2022-05-09T17:38:29.000Z</published>
-    <updated>2022-05-09T18:40:22.264Z</updated>
-    
-    
-    <summary type="html">&lt;h3 id=&quot;介绍&quot;&gt;&lt;a href=&quot;#介绍&quot; class=&quot;headerlink&quot; title=&quot;介绍&quot;&gt;&lt;/a&gt;介绍&lt;/h3&gt;&lt;p&gt;  ZooKeeper是一个分布式的，开放源码的分布式应用程序协调服务，是Google的Chubby一个开源的实现，是Hadoop和Hbase的重要组件。它是一个为分布式应用提供一致性服务的软件，提供的功能包括：配置维护、域名服务、分布式同步、组服务等。&lt;br&gt;  ZooKeeper的目标就是封装好复杂易出错的关键服务，将简单易用的接口和性能高效、功能稳定的系统提供给用户。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="Docker" scheme="https://www.xiaosige.com/categories/Docker/"/>
-    
-    
-    <category term="zookeeper" scheme="https://www.xiaosige.com/tags/zookeeper/"/>
     
   </entry>
   
