@@ -15,8 +15,73 @@
     <atom:link href="https://www.xiaosige.com/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>因上努力，果上随缘！</description>
-    <pubDate>Thu, 13 Oct 2022 21:47:22 GMT</pubDate>
+    <pubDate>Sat, 15 Oct 2022 11:33:20 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>Centos8系统调优参数配置</title>
+      <link>https://www.xiaosige.com/post/6a427f76.html</link>
+      <guid>https://www.xiaosige.com/post/6a427f76.html</guid>
+      <pubDate>Sat, 15 Oct 2022 10:45:14 GMT</pubDate>
+      
+      <description>&lt;h3 id=&quot;临时设置&quot;&gt;&lt;a href=&quot;#临时设置&quot; class=&quot;headerlink&quot; title=&quot;临时设置&quot;&gt;&lt;/a&gt;临时设置&lt;/h3&gt;&lt;h4 id=&quot;最大虚拟内存&quot;&gt;&lt;a href=&quot;#最大虚拟内存&quot; class=&quot;headerlink&quot; title=&quot;最大虚拟内存&quot;&gt;&lt;/a&gt;最大虚拟内存&lt;/h4&gt;&lt;pre class=&quot;line-numbers language-bash&quot; data-language=&quot;bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;root@Sonnarqube-dev ~&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token comment&quot;&gt;# sysctl -w vm.max_map_count=262144&lt;/span&gt;
+执行结果
+vm.max_map_count &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;262144&lt;/span&gt;&lt;span aria-hidden=&quot;true&quot; class=&quot;line-numbers-rows&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;</description>
+      
+      
+      
+      
+      <category domain="https://www.xiaosige.com/categories/Linux/">Linux</category>
+      
+      
+      <category domain="https://www.xiaosige.com/tags/Linux/">Linux</category>
+      
+      
+      <comments>https://www.xiaosige.com/post/6a427f76.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>Centos8 安装 OPENJDK</title>
+      <link>https://www.xiaosige.com/post/f6a4d884.html</link>
+      <guid>https://www.xiaosige.com/post/f6a4d884.html</guid>
+      <pubDate>Sat, 15 Oct 2022 10:02:33 GMT</pubDate>
+      
+      <description>&lt;img data-src=&quot;/post/f6a4d884/openjdk.png&quot; style=&quot;box-shadow:none!important;&quot;&gt;</description>
+      
+      
+      
+      
+      <category domain="https://www.xiaosige.com/categories/Linux/">Linux</category>
+      
+      
+      <category domain="https://www.xiaosige.com/tags/Jdk/">Jdk</category>
+      
+      
+      <comments>https://www.xiaosige.com/post/f6a4d884.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>Centos8 安装VNC配置远程连接</title>
+      <link>https://www.xiaosige.com/post/90c0ce10.html</link>
+      <guid>https://www.xiaosige.com/post/90c0ce10.html</guid>
+      <pubDate>Sat, 15 Oct 2022 08:56:42 GMT</pubDate>
+      
+      <description>&lt;img data-src=&quot;/post/90c0ce10/vnc001.png&quot; style=&quot;height:260px;box-shadow:none!important;&quot;&gt;</description>
+      
+      
+      
+      
+      <category domain="https://www.xiaosige.com/categories/Centos/">Centos</category>
+      
+      
+      <category domain="https://www.xiaosige.com/tags/VNC/">VNC</category>
+      
+      
+      <comments>https://www.xiaosige.com/post/90c0ce10.html#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>【Docker】之安装 ElasticSearch集群</title>
@@ -380,71 +445,6 @@
       
       
       <comments>https://www.xiaosige.com/post/344dc787.html#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>Docker 启动容器时出现docker0：iptables：No chain/target/match by that name</title>
-      <link>https://www.xiaosige.com/post/4fd4a771.html</link>
-      <guid>https://www.xiaosige.com/post/4fd4a771.html</guid>
-      <pubDate>Tue, 12 Jul 2022 19:54:47 GMT</pubDate>
-      
-      <description>&lt;h3 id=&quot;防火墙跟docker冲突问题&quot;&gt;&lt;a href=&quot;#防火墙跟docker冲突问题&quot; class=&quot;headerlink&quot; title=&quot;防火墙跟docker冲突问题&quot;&gt;&lt;/a&gt;防火墙跟&lt;code&gt;docker&lt;/code&gt;冲突问题&lt;/h3&gt;&lt;p&gt;  &lt;code&gt;Centos8&lt;/code&gt; 下 &lt;code&gt;iptables&lt;/code&gt;防火墙下：&lt;br&gt;  Docker 启动容器时出现 docker0: iptables: No chain/target/match by that name&lt;/p&gt;</description>
-      
-      
-      
-      
-      <category domain="https://www.xiaosige.com/categories/Docker/">Docker</category>
-      
-      
-      <category domain="https://www.xiaosige.com/tags/Docker/">Docker</category>
-      
-      
-      <comments>https://www.xiaosige.com/post/4fd4a771.html#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>Mac终端查看CPU资源信息</title>
-      <link>https://www.xiaosige.com/post/55e5c59c.html</link>
-      <guid>https://www.xiaosige.com/post/55e5c59c.html</guid>
-      <pubDate>Tue, 10 May 2022 06:48:00 GMT</pubDate>
-      
-      <description>&lt;h5 id=&quot;查看所有信息&quot;&gt;&lt;a href=&quot;#查看所有信息&quot; class=&quot;headerlink&quot; title=&quot;查看所有信息&quot;&gt;&lt;/a&gt;查看所有信息&lt;/h5&gt;&lt;pre class=&quot;line-numbers language-bash&quot; data-language=&quot;bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function&quot;&gt;sysctl&lt;/span&gt; machdep.cpu&lt;span aria-hidden=&quot;true&quot; class=&quot;line-numbers-rows&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;</description>
-      
-      
-      
-      
-      <category domain="https://www.xiaosige.com/categories/Mac/">Mac</category>
-      
-      
-      <category domain="https://www.xiaosige.com/tags/cpu/">cpu</category>
-      
-      
-      <comments>https://www.xiaosige.com/post/55e5c59c.html#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>MacOS使用top命令查看进程使用内存</title>
-      <link>https://www.xiaosige.com/post/516b0bfa.html</link>
-      <guid>https://www.xiaosige.com/post/516b0bfa.html</guid>
-      <pubDate>Tue, 10 May 2022 06:02:05 GMT</pubDate>
-      
-      <description>&lt;p&gt;  在linux中我们一般会使用top或ps命令查看进程的内存、CPU等资源使用情况，但是MacOS计算内存方式有点不太一样，什么意思呢？就是说用ps命令查看进程的内存值和在活动监视器中看到的内存值不一样。&lt;/p&gt;</description>
-      
-      
-      
-      
-      <category domain="https://www.xiaosige.com/categories/Mac/">Mac</category>
-      
-      
-      <category domain="https://www.xiaosige.com/tags/top/">top</category>
-      
-      <category domain="https://www.xiaosige.com/tags/free/">free</category>
-      
-      
-      <comments>https://www.xiaosige.com/post/516b0bfa.html#disqus_thread</comments>
       
     </item>
     

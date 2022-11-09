@@ -6,7 +6,7 @@
   <link href="https://www.xiaosige.com/atom.xml" rel="self"/>
   
   <link href="https://www.xiaosige.com/"/>
-  <updated>2022-10-13T21:47:22.561Z</updated>
+  <updated>2022-10-15T11:33:20.633Z</updated>
   <id>https://www.xiaosige.com/</id>
   
   <author>
@@ -15,6 +15,65 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Centos8系统调优参数配置</title>
+    <link href="https://www.xiaosige.com/post/6a427f76.html"/>
+    <id>https://www.xiaosige.com/post/6a427f76.html</id>
+    <published>2022-10-15T10:45:14.000Z</published>
+    <updated>2022-10-15T11:33:20.633Z</updated>
+    
+    
+    <summary type="html">&lt;h3 id=&quot;临时设置&quot;&gt;&lt;a href=&quot;#临时设置&quot; class=&quot;headerlink&quot; title=&quot;临时设置&quot;&gt;&lt;/a&gt;临时设置&lt;/h3&gt;&lt;h4 id=&quot;最大虚拟内存&quot;&gt;&lt;a href=&quot;#最大虚拟内存&quot; class=&quot;headerlink&quot; title=&quot;最大虚拟内存&quot;&gt;&lt;/a&gt;最大虚拟内存&lt;/h4&gt;&lt;pre class=&quot;line-numbers language-bash&quot; data-language=&quot;bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;root@Sonnarqube-dev ~&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token comment&quot;&gt;# sysctl -w vm.max_map_count=262144&lt;/span&gt;
+执行结果
+vm.max_map_count &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;262144&lt;/span&gt;&lt;span aria-hidden=&quot;true&quot; class=&quot;line-numbers-rows&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;</summary>
+    
+    
+    
+    <category term="Linux" scheme="https://www.xiaosige.com/categories/Linux/"/>
+    
+    
+    <category term="Linux" scheme="https://www.xiaosige.com/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Centos8 安装 OPENJDK</title>
+    <link href="https://www.xiaosige.com/post/f6a4d884.html"/>
+    <id>https://www.xiaosige.com/post/f6a4d884.html</id>
+    <published>2022-10-15T10:02:33.000Z</published>
+    <updated>2022-10-15T10:24:53.145Z</updated>
+    
+    
+    <summary type="html">&lt;img data-src=&quot;/post/f6a4d884/openjdk.png&quot; style=&quot;box-shadow:none!important;&quot;&gt;</summary>
+    
+    
+    
+    <category term="Linux" scheme="https://www.xiaosige.com/categories/Linux/"/>
+    
+    
+    <category term="Jdk" scheme="https://www.xiaosige.com/tags/Jdk/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Centos8 安装VNC配置远程连接</title>
+    <link href="https://www.xiaosige.com/post/90c0ce10.html"/>
+    <id>https://www.xiaosige.com/post/90c0ce10.html</id>
+    <published>2022-10-15T08:56:42.000Z</published>
+    <updated>2022-10-15T10:04:26.342Z</updated>
+    
+    
+    <summary type="html">&lt;img data-src=&quot;/post/90c0ce10/vnc001.png&quot; style=&quot;height:260px;box-shadow:none!important;&quot;&gt;</summary>
+    
+    
+    
+    <category term="Centos" scheme="https://www.xiaosige.com/categories/Centos/"/>
+    
+    
+    <category term="VNC" scheme="https://www.xiaosige.com/tags/VNC/"/>
+    
+  </entry>
   
   <entry>
     <title>【Docker】之安装 ElasticSearch集群</title>
@@ -344,65 +403,6 @@
     
     
     <category term="Disk" scheme="https://www.xiaosige.com/tags/Disk/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Docker 启动容器时出现docker0：iptables：No chain/target/match by that name</title>
-    <link href="https://www.xiaosige.com/post/4fd4a771.html"/>
-    <id>https://www.xiaosige.com/post/4fd4a771.html</id>
-    <published>2022-07-12T19:54:47.000Z</published>
-    <updated>2022-07-12T20:09:35.105Z</updated>
-    
-    
-    <summary type="html">&lt;h3 id=&quot;防火墙跟docker冲突问题&quot;&gt;&lt;a href=&quot;#防火墙跟docker冲突问题&quot; class=&quot;headerlink&quot; title=&quot;防火墙跟docker冲突问题&quot;&gt;&lt;/a&gt;防火墙跟&lt;code&gt;docker&lt;/code&gt;冲突问题&lt;/h3&gt;&lt;p&gt;  &lt;code&gt;Centos8&lt;/code&gt; 下 &lt;code&gt;iptables&lt;/code&gt;防火墙下：&lt;br&gt;  Docker 启动容器时出现 docker0: iptables: No chain/target/match by that name&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="Docker" scheme="https://www.xiaosige.com/categories/Docker/"/>
-    
-    
-    <category term="Docker" scheme="https://www.xiaosige.com/tags/Docker/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Mac终端查看CPU资源信息</title>
-    <link href="https://www.xiaosige.com/post/55e5c59c.html"/>
-    <id>https://www.xiaosige.com/post/55e5c59c.html</id>
-    <published>2022-05-10T06:48:00.000Z</published>
-    <updated>2022-05-10T06:57:33.973Z</updated>
-    
-    
-    <summary type="html">&lt;h5 id=&quot;查看所有信息&quot;&gt;&lt;a href=&quot;#查看所有信息&quot; class=&quot;headerlink&quot; title=&quot;查看所有信息&quot;&gt;&lt;/a&gt;查看所有信息&lt;/h5&gt;&lt;pre class=&quot;line-numbers language-bash&quot; data-language=&quot;bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function&quot;&gt;sysctl&lt;/span&gt; machdep.cpu&lt;span aria-hidden=&quot;true&quot; class=&quot;line-numbers-rows&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;</summary>
-    
-    
-    
-    <category term="Mac" scheme="https://www.xiaosige.com/categories/Mac/"/>
-    
-    
-    <category term="cpu" scheme="https://www.xiaosige.com/tags/cpu/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>MacOS使用top命令查看进程使用内存</title>
-    <link href="https://www.xiaosige.com/post/516b0bfa.html"/>
-    <id>https://www.xiaosige.com/post/516b0bfa.html</id>
-    <published>2022-05-10T06:02:05.000Z</published>
-    <updated>2022-05-10T06:38:44.078Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;  在linux中我们一般会使用top或ps命令查看进程的内存、CPU等资源使用情况，但是MacOS计算内存方式有点不太一样，什么意思呢？就是说用ps命令查看进程的内存值和在活动监视器中看到的内存值不一样。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="Mac" scheme="https://www.xiaosige.com/categories/Mac/"/>
-    
-    
-    <category term="top" scheme="https://www.xiaosige.com/tags/top/"/>
-    
-    <category term="free" scheme="https://www.xiaosige.com/tags/free/"/>
     
   </entry>
   

@@ -64,6 +64,285 @@ lrwxrwxrwx. <span class="token number">1</span> root root <span class="token num
       </tags>
   </entry>
   <entry>
+    <title>Centos8系统调优参数配置</title>
+    <url>/post/6a427f76.html</url>
+    <content><![CDATA[<h3 id="临时设置"><a href="#临时设置" class="headerlink" title="临时设置"></a>临时设置</h3><h4 id="最大虚拟内存"><a href="#最大虚拟内存" class="headerlink" title="最大虚拟内存"></a>最大虚拟内存</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@Sonnarqube-dev ~<span class="token punctuation">]</span><span class="token comment"># sysctl -w vm.max_map_count=262144</span>
+执行结果
+vm.max_map_count <span class="token operator">=</span> <span class="token number">262144</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<span id="more"></span>
+
+<h4 id="打开文件数"><a href="#打开文件数" class="headerlink" title="打开文件数"></a>打开文件数</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@Sonnarqube-dev ~<span class="token punctuation">]</span><span class="token comment"># sysctl -w fs.file-max=65536</span>
+fs.file-max <span class="token operator">=</span> <span class="token number">65536</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h4 id="打开文件数-1"><a href="#打开文件数-1" class="headerlink" title="打开文件数"></a>打开文件数</h4><pre class="line-numbers language-none"><code class="language-none">[root@Sonnarqube-dev ~]# ulimit -n 65536<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h4 id="最大进程数"><a href="#最大进程数" class="headerlink" title="最大进程数"></a>最大进程数</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@Sonnarqube-dev ~<span class="token punctuation">]</span><span class="token comment"># ulimit -u 4096</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="永久设置系统参数"><a href="#永久设置系统参数" class="headerlink" title="永久设置系统参数"></a>永久设置系统参数</h3><h4 id="必须修改etc-sysctl-conf文件"><a href="#必须修改etc-sysctl-conf文件" class="headerlink" title="必须修改etc/sysctl.conf文件"></a>必须修改<code>etc/sysctl.conf</code>文件</h4><p>  文件末尾添加下述两行</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">vi</span> /etc/sysctl.conf
+<span class="token assign-left variable">vm.max_map_count</span><span class="token operator">=</span><span class="token number">262144</span>
+fs.file-max<span class="token operator">=</span><span class="token number">65536</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h4 id="修改-etc-profile文件"><a href="#修改-etc-profile文件" class="headerlink" title="修改/etc/profile文件"></a>修改<code>/etc/profile</code>文件</h4><p>  在<code>/etc/profile</code>文件末尾添加<code>ulimit -n 65536</code></p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">vi</span> /etc/profile
+<span class="token builtin class-name">ulimit</span> <span class="token parameter variable">-n</span> <span class="token number">65536</span>
+
+<span class="token builtin class-name">source</span> /etc/profile<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Centos8 安装 OPENJDK</title>
+    <url>/post/f6a4d884.html</url>
+    <content><![CDATA[<img data-src="/post/f6a4d884/openjdk.png" style="box-shadow:none!important;">
+
+<span id="more"></span>
+
+
+<h3 id="查找可安装的OPENJDK"><a href="#查找可安装的OPENJDK" class="headerlink" title="查找可安装的OPENJDK"></a>查找可安装的OPENJDK</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">yum search <span class="token function">java</span> <span class="token operator">|</span> <span class="token function">grep</span> <span class="token parameter variable">-i</span> <span class="token parameter variable">--color</span> openjdk<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@anolis .vnc<span class="token punctuation">]</span><span class="token comment"># yum search java | grep -i --color openjdk</span>
+上次元数据过期检查：0:04:39 前，执行于 <span class="token number">2022</span>年10月15日 星期六 <span class="token number">18</span>时04分05秒。
+openjdk-asmtools-javadoc.noarch <span class="token builtin class-name">:</span> Javadoc <span class="token keyword">for</span> openjdk-asmtools
+java-1.8.0-openjdk.x86_64 <span class="token builtin class-name">:</span> OpenJDK <span class="token number">8</span> Runtime Environment
+java-1.8.0-openjdk-accessibility.x86_64 <span class="token builtin class-name">:</span> OpenJDK <span class="token number">8</span> accessibility connector
+java-1.8.0-openjdk-accessibility-fastdebug.x86_64 <span class="token builtin class-name">:</span> OpenJDK <span class="token number">8</span> accessibility connector <span class="token keyword">for</span> packages with debugging on and optimisation
+java-1.8.0-openjdk-accessibility-slowdebug.x86_64 <span class="token builtin class-name">:</span> OpenJDK <span class="token number">8</span> accessibility connector <span class="token keyword">for</span> packages with debugging on and no optimisation
+java-1.8.0-openjdk-demo.x86_64 <span class="token builtin class-name">:</span> OpenJDK <span class="token number">8</span> Demos
+java-1.8.0-openjdk-demo-fastdebug.x86_64 <span class="token builtin class-name">:</span> OpenJDK <span class="token number">8</span> Demos optimised with full debugging on
+java-1.8.0-openjdk-demo-slowdebug.x86_64 <span class="token builtin class-name">:</span> OpenJDK <span class="token number">8</span> Demos unoptimised with full debugging on
+java-1.8.0-openjdk-devel.x86_64 <span class="token builtin class-name">:</span> OpenJDK <span class="token number">8</span> Development Environment
+java-1.8.0-openjdk-devel-fastdebug.x86_64 <span class="token builtin class-name">:</span> OpenJDK <span class="token number">8</span> Development Environment optimised with full debugging on
+java-1.8.0-openjdk-devel-slowdebug.x86_64 <span class="token builtin class-name">:</span> OpenJDK <span class="token number">8</span> Development Environment unoptimised with full debugging on
+java-1.8.0-openjdk-fastdebug.x86_64 <span class="token builtin class-name">:</span> OpenJDK <span class="token number">8</span> Runtime Environment optimised with full debugging on
+java-1.8.0-openjdk-headless.x86_64 <span class="token builtin class-name">:</span> OpenJDK <span class="token number">8</span> Headless Runtime Environment
+java-1.8.0-openjdk-headless-fastdebug.x86_64 <span class="token builtin class-name">:</span> OpenJDK <span class="token number">8</span> Runtime Environment optimised with full debugging on
+java-1.8.0-openjdk-headless-slowdebug.x86_64 <span class="token builtin class-name">:</span> OpenJDK <span class="token number">8</span> Runtime Environment unoptimised with full debugging on
+java-1.8.0-openjdk-javadoc.noarch <span class="token builtin class-name">:</span> OpenJDK <span class="token number">8</span> API documentation
+java-1.8.0-openjdk-javadoc-zip.noarch <span class="token builtin class-name">:</span> OpenJDK <span class="token number">8</span> API documentation compressed <span class="token keyword">in</span> a single archive
+java-1.8.0-openjdk-slowdebug.x86_64 <span class="token builtin class-name">:</span> OpenJDK <span class="token number">8</span> Runtime Environment unoptimised with full debugging on
+java-1.8.0-openjdk-src.x86_64 <span class="token builtin class-name">:</span> OpenJDK <span class="token number">8</span> Source Bundle
+java-1.8.0-openjdk-src-fastdebug.x86_64 <span class="token builtin class-name">:</span> OpenJDK <span class="token number">8</span> Source Bundle <span class="token keyword">for</span> packages with debugging on and optimisation
+java-1.8.0-openjdk-src-slowdebug.x86_64 <span class="token builtin class-name">:</span> OpenJDK <span class="token number">8</span> Source Bundle <span class="token keyword">for</span> packages with debugging on and no optimisation
+java-11-openjdk.x86_64 <span class="token builtin class-name">:</span> OpenJDK <span class="token number">11</span> Runtime Environment
+java-11-openjdk-demo.x86_64 <span class="token builtin class-name">:</span> OpenJDK <span class="token number">11</span> Demos
+java-11-openjdk-demo-fastdebug.x86_64 <span class="token builtin class-name">:</span> OpenJDK <span class="token number">11</span> Demos optimised with full debugging on
+java-11-openjdk-demo-slowdebug.x86_64 <span class="token builtin class-name">:</span> OpenJDK <span class="token number">11</span> Demos unoptimised with full debugging on
+java-11-openjdk-devel.x86_64 <span class="token builtin class-name">:</span> OpenJDK <span class="token number">11</span> Development Environment
+java-11-openjdk-devel-fastdebug.x86_64 <span class="token builtin class-name">:</span> OpenJDK <span class="token number">11</span> Development Environment optimised with full debugging on
+java-11-openjdk-devel-slowdebug.x86_64 <span class="token builtin class-name">:</span> OpenJDK <span class="token number">11</span> Development Environment unoptimised with full debugging on
+java-11-openjdk-fastdebug.x86_64 <span class="token builtin class-name">:</span> OpenJDK <span class="token number">11</span> Runtime Environment optimised with full debugging on
+java-11-openjdk-headless.x86_64 <span class="token builtin class-name">:</span> OpenJDK <span class="token number">11</span> Headless Runtime Environment
+java-11-openjdk-headless-fastdebug.x86_64 <span class="token builtin class-name">:</span> OpenJDK <span class="token number">11</span> Runtime Environment optimised with full debugging on
+java-11-openjdk-headless-slowdebug.x86_64 <span class="token builtin class-name">:</span> OpenJDK <span class="token number">11</span> Runtime Environment unoptimised with full debugging on
+java-11-openjdk-javadoc.x86_64 <span class="token builtin class-name">:</span> OpenJDK <span class="token number">11</span> API documentation
+java-11-openjdk-javadoc-zip.x86_64 <span class="token builtin class-name">:</span> OpenJDK <span class="token number">11</span> API documentation compressed <span class="token keyword">in</span> a single archive
+java-11-openjdk-jmods.x86_64 <span class="token builtin class-name">:</span> JMods <span class="token keyword">for</span> OpenJDK <span class="token number">11</span>
+java-11-openjdk-jmods-fastdebug.x86_64 <span class="token builtin class-name">:</span> JMods <span class="token keyword">for</span> OpenJDK <span class="token number">11</span> optimised with full debugging on
+java-11-openjdk-jmods-slowdebug.x86_64 <span class="token builtin class-name">:</span> JMods <span class="token keyword">for</span> OpenJDK <span class="token number">11</span> unoptimised with full debugging on
+java-11-openjdk-slowdebug.x86_64 <span class="token builtin class-name">:</span> OpenJDK <span class="token number">11</span> Runtime Environment unoptimised with full debugging on
+java-11-openjdk-src.x86_64 <span class="token builtin class-name">:</span> OpenJDK <span class="token number">11</span> Source Bundle
+java-11-openjdk-src-fastdebug.x86_64 <span class="token builtin class-name">:</span> OpenJDK <span class="token number">11</span> Source Bundle <span class="token keyword">for</span> packages with debugging on and optimisation
+java-11-openjdk-src-slowdebug.x86_64 <span class="token builtin class-name">:</span> OpenJDK <span class="token number">11</span> Source Bundle <span class="token keyword">for</span> packages with debugging on and no optimisation
+java-11-openjdk-static-libs.x86_64 <span class="token builtin class-name">:</span> OpenJDK <span class="token number">11</span> libraries <span class="token keyword">for</span> static linking
+java-11-openjdk-static-libs-fastdebug.x86_64 <span class="token builtin class-name">:</span> OpenJDK <span class="token number">11</span> libraries <span class="token keyword">for</span> static linking optimised with full debugging on
+java-11-openjdk-static-libs-slowdebug.x86_64 <span class="token builtin class-name">:</span> OpenJDK <span class="token number">11</span> libraries <span class="token keyword">for</span> static linking unoptimised with full debugging on
+java-17-openjdk.x86_64 <span class="token builtin class-name">:</span> OpenJDK <span class="token number">17</span> Runtime Environment
+java-17-openjdk-demo.x86_64 <span class="token builtin class-name">:</span> OpenJDK <span class="token number">17</span> Demos
+java-17-openjdk-demo-fastdebug.x86_64 <span class="token builtin class-name">:</span> OpenJDK <span class="token number">17</span> Demos optimised with full debugging on
+java-17-openjdk-demo-slowdebug.x86_64 <span class="token builtin class-name">:</span> OpenJDK <span class="token number">17</span> Demos unoptimised with full debugging on
+java-17-openjdk-devel.x86_64 <span class="token builtin class-name">:</span> OpenJDK <span class="token number">17</span> Development Environment
+java-17-openjdk-devel-fastdebug.x86_64 <span class="token builtin class-name">:</span> OpenJDK <span class="token number">17</span> Development Environment optimised with full debugging on
+java-17-openjdk-devel-slowdebug.x86_64 <span class="token builtin class-name">:</span> OpenJDK <span class="token number">17</span> Development Environment unoptimised with full debugging on
+java-17-openjdk-fastdebug.x86_64 <span class="token builtin class-name">:</span> OpenJDK <span class="token number">17</span> Runtime Environment optimised with full debugging on
+java-17-openjdk-headless.x86_64 <span class="token builtin class-name">:</span> OpenJDK <span class="token number">17</span> Headless Runtime Environment
+java-17-openjdk-headless-fastdebug.x86_64 <span class="token builtin class-name">:</span> OpenJDK <span class="token number">17</span> Runtime Environment optimised with full debugging on
+java-17-openjdk-headless-slowdebug.x86_64 <span class="token builtin class-name">:</span> OpenJDK <span class="token number">17</span> Runtime Environment unoptimised with full debugging on
+java-17-openjdk-javadoc.x86_64 <span class="token builtin class-name">:</span> OpenJDK <span class="token number">17</span> API documentation
+java-17-openjdk-javadoc-zip.x86_64 <span class="token builtin class-name">:</span> OpenJDK <span class="token number">17</span> API documentation compressed <span class="token keyword">in</span> a single archive
+java-17-openjdk-jmods.x86_64 <span class="token builtin class-name">:</span> JMods <span class="token keyword">for</span> OpenJDK <span class="token number">17</span>
+java-17-openjdk-jmods-fastdebug.x86_64 <span class="token builtin class-name">:</span> JMods <span class="token keyword">for</span> OpenJDK <span class="token number">17</span> optimised with full debugging on
+java-17-openjdk-jmods-slowdebug.x86_64 <span class="token builtin class-name">:</span> JMods <span class="token keyword">for</span> OpenJDK <span class="token number">17</span> unoptimised with full debugging on
+java-17-openjdk-slowdebug.x86_64 <span class="token builtin class-name">:</span> OpenJDK <span class="token number">17</span> Runtime Environment unoptimised with full debugging on
+java-17-openjdk-src.x86_64 <span class="token builtin class-name">:</span> OpenJDK <span class="token number">17</span> Source Bundle
+java-17-openjdk-src-fastdebug.x86_64 <span class="token builtin class-name">:</span> OpenJDK <span class="token number">17</span> Source Bundle <span class="token keyword">for</span> packages with debugging on and optimisation
+java-17-openjdk-src-slowdebug.x86_64 <span class="token builtin class-name">:</span> OpenJDK <span class="token number">17</span> Source Bundle <span class="token keyword">for</span> packages with debugging on and no optimisation
+java-17-openjdk-static-libs.x86_64 <span class="token builtin class-name">:</span> OpenJDK <span class="token number">17</span> libraries <span class="token keyword">for</span> static linking
+java-17-openjdk-static-libs-fastdebug.x86_64 <span class="token builtin class-name">:</span> OpenJDK <span class="token number">17</span> libraries <span class="token keyword">for</span> static linking optimised with full debugging on
+java-17-openjdk-static-libs-slowdebug.x86_64 <span class="token builtin class-name">:</span> OpenJDK <span class="token number">17</span> libraries <span class="token keyword">for</span> static linking unoptimised with full debugging on
+java-latest-openjdk.x86_64 <span class="token builtin class-name">:</span> OpenJDK <span class="token number">19</span> Runtime Environment
+java-latest-openjdk-demo.x86_64 <span class="token builtin class-name">:</span> OpenJDK <span class="token number">19</span> Demos
+java-latest-openjdk-demo-fastdebug.x86_64 <span class="token builtin class-name">:</span> OpenJDK <span class="token number">19</span> Demos optimised with full debugging on
+java-latest-openjdk-demo-slowdebug.x86_64 <span class="token builtin class-name">:</span> OpenJDK <span class="token number">19</span> Demos unoptimised with full debugging on
+java-latest-openjdk-devel.x86_64 <span class="token builtin class-name">:</span> OpenJDK <span class="token number">19</span> Development Environment
+java-latest-openjdk-devel-fastdebug.x86_64 <span class="token builtin class-name">:</span> OpenJDK <span class="token number">19</span> Development Environment optimised with full debugging on
+java-latest-openjdk-devel-slowdebug.x86_64 <span class="token builtin class-name">:</span> OpenJDK <span class="token number">19</span> Development Environment unoptimised with full debugging on
+java-latest-openjdk-fastdebug.x86_64 <span class="token builtin class-name">:</span> OpenJDK <span class="token number">19</span> Runtime Environment optimised with full debugging on
+java-latest-openjdk-headless.x86_64 <span class="token builtin class-name">:</span> OpenJDK <span class="token number">19</span> Headless Runtime Environment
+java-latest-openjdk-headless-fastdebug.x86_64 <span class="token builtin class-name">:</span> OpenJDK <span class="token number">19</span> Runtime Environment optimised with full debugging on
+java-latest-openjdk-headless-slowdebug.x86_64 <span class="token builtin class-name">:</span> OpenJDK <span class="token number">19</span> Runtime Environment unoptimised with full debugging on
+java-latest-openjdk-javadoc.x86_64 <span class="token builtin class-name">:</span> OpenJDK <span class="token number">19</span> API documentation
+java-latest-openjdk-javadoc-zip.x86_64 <span class="token builtin class-name">:</span> OpenJDK <span class="token number">19</span> API documentation compressed <span class="token keyword">in</span> a single archive
+java-latest-openjdk-jmods.x86_64 <span class="token builtin class-name">:</span> JMods <span class="token keyword">for</span> OpenJDK <span class="token number">19</span>
+java-latest-openjdk-jmods-fastdebug.x86_64 <span class="token builtin class-name">:</span> JMods <span class="token keyword">for</span> OpenJDK <span class="token number">19</span> optimised with full debugging on
+java-latest-openjdk-jmods-slowdebug.x86_64 <span class="token builtin class-name">:</span> JMods <span class="token keyword">for</span> OpenJDK <span class="token number">19</span> unoptimised with full debugging on
+java-latest-openjdk-slowdebug.x86_64 <span class="token builtin class-name">:</span> OpenJDK <span class="token number">19</span> Runtime Environment unoptimised with full debugging on
+java-latest-openjdk-src.x86_64 <span class="token builtin class-name">:</span> OpenJDK <span class="token number">19</span> Source Bundle
+java-latest-openjdk-src-fastdebug.x86_64 <span class="token builtin class-name">:</span> OpenJDK <span class="token number">19</span> Source Bundle <span class="token keyword">for</span> packages with debugging on and optimisation
+java-latest-openjdk-src-slowdebug.x86_64 <span class="token builtin class-name">:</span> OpenJDK <span class="token number">19</span> Source Bundle <span class="token keyword">for</span> packages with debugging on and no optimisation
+java-latest-openjdk-static-libs.x86_64 <span class="token builtin class-name">:</span> OpenJDK <span class="token number">19</span> libraries <span class="token keyword">for</span> static linking
+java-latest-openjdk-static-libs-fastdebug.x86_64 <span class="token builtin class-name">:</span> OpenJDK <span class="token number">19</span> libraries <span class="token keyword">for</span> static linking optimised with full debugging on
+java-latest-openjdk-static-libs-slowdebug.x86_64 <span class="token builtin class-name">:</span> OpenJDK <span class="token number">19</span> libraries <span class="token keyword">for</span> static linking unoptimised with full debugging on
+icedtea-web.x86_64 <span class="token builtin class-name">:</span> Additional Java components <span class="token keyword">for</span> OpenJDK - Java browser plug-in and Web Start implementation
+openjdk-asmtools.noarch <span class="token builtin class-name">:</span> To develop tools create proper <span class="token operator">&amp;</span> improper Java <span class="token string">'.class'</span> files<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="安装自己想要安装的版本"><a href="#安装自己想要安装的版本" class="headerlink" title="安装自己想要安装的版本"></a>安装自己想要安装的版本</h3><p>  我这里选择安装<code>java-11-openjdk.x86_64</code></p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">yum <span class="token function">install</span> java-11-openjdk.x86_64 <span class="token parameter variable">-y</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="查看安装openjdk版本"><a href="#查看安装openjdk版本" class="headerlink" title="查看安装openjdk版本"></a>查看安装openjdk版本</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">java</span> <span class="token parameter variable">-version</span>
+alternatives <span class="token parameter variable">--config</span> <span class="token function">java</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@anolis ~<span class="token punctuation">]</span><span class="token comment"># alternatives --config java</span>
+
+共有 <span class="token number">2</span> 个提供“java”的程序。
+
+  选项    命令
+-----------------------------------------------
+*+ <span class="token number">1</span>           /usr/java/jdk1.8.0_341-amd64/bin/java
+   <span class="token number">2</span>           java-11-openjdk.x86_64 <span class="token punctuation">(</span>/usr/lib/jvm/java-11-openjdk-11.0.16.1.1-1.an8_6.x86_64/bin/java<span class="token punctuation">)</span>
+
+按 Enter 保留当前选项<span class="token punctuation">[</span>+<span class="token punctuation">]</span>，或者键入选项编号： <span class="token number">2</span>
+<span class="token punctuation">[</span>root@anolis ~<span class="token punctuation">]</span><span class="token comment"># java -version</span>
+openjdk version <span class="token string">"11.0.16.1"</span> <span class="token number">2022</span>-08-12 LTS
+OpenJDK Runtime Environment <span class="token punctuation">(</span>Red_Hat-11.0.16.1.1-1.an8_6<span class="token punctuation">)</span> <span class="token punctuation">(</span>build <span class="token number">11.0</span>.16.1+1-LTS<span class="token punctuation">)</span>
+OpenJDK <span class="token number">64</span>-Bit Server VM <span class="token punctuation">(</span>Red_Hat-11.0.16.1.1-1.an8_6<span class="token punctuation">)</span> <span class="token punctuation">(</span>build <span class="token number">11.0</span>.16.1+1-LTS, mixed mode, sharing<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="设置环境变量"><a href="#设置环境变量" class="headerlink" title="设置环境变量"></a>设置环境变量</h3><h4 id="查找安装java的目录"><a href="#查找安装java的目录" class="headerlink" title="查找安装java的目录"></a>查找安装java的目录</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@anolis ~<span class="token punctuation">]</span><span class="token comment"># which java</span>
+/usr/bin/java<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>  <code>-l:详细信息; -r:递归子文件夹</code></p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@anolis ~<span class="token punctuation">]</span><span class="token comment"># ls -lr /usr/bin/java</span>
+lrwxrwxrwx <span class="token number">1</span> root root <span class="token number">22</span> <span class="token number">10</span>月  <span class="token number">8</span> <span class="token number">18</span>:50 /usr/bin/java -<span class="token operator">&gt;</span> /etc/alternatives/java<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>  执行如下命令查看java安装路径</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@anolis ~<span class="token punctuation">]</span><span class="token comment"># ls -lr /etc/alternatives/java</span>
+lrwxrwxrwx <span class="token number">1</span> root root <span class="token number">64</span> <span class="token number">10</span>月 <span class="token number">15</span> <span class="token number">18</span>:15 /etc/alternatives/java -<span class="token operator">&gt;</span> /usr/lib/jvm/java-11-openjdk-11.0.16.1.1-1.an8_6.x86_64/bin/java<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>  java的安装路径为：<br><code>/usr/lib/jvm/java-11-openjdk-11.0.16.1.1-1.an8_6.x86_64/bin/java</code></p>
+<h4 id="编辑profile文件配置java环境变量"><a href="#编辑profile文件配置java环境变量" class="headerlink" title="编辑profile文件配置java环境变量"></a>编辑<code>profile</code>文件配置<code>java</code>环境变量</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">vim</span> /etc/profile<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-properties" data-language="properties"><code class="language-properties"><span class="token key attr-name">export</span> <span class="token value attr-value">JAVA_HOME=/usr/lib/jvm/java-11-openjdk-11.0.11.0.9-1.el7_9.x86_64</span>
+<span class="token key attr-name">export</span> <span class="token value attr-value">JRE_HOME=$JAVA_HOME/jre</span>
+<span class="token key attr-name">export</span> <span class="token value attr-value">CLASSPATH=$JAVA_HOME/lib:$JRE_HOME/lib:$CLASSPATH</span>
+<span class="token key attr-name">export</span> <span class="token value attr-value">PATH=$JAVA_HOME/bin:$JRE_HOME/bin:$PATH</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">source</span> /etc/profile<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Jdk</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Centos8 安装VNC配置远程连接</title>
+    <url>/post/90c0ce10.html</url>
+    <content><![CDATA[<img data-src="/post/90c0ce10/vnc001.png" style="height:260px;box-shadow:none!important;">
+
+<span id="more"></span>
+
+
+<h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>  VNC：VNC（Virtual Network Computing），为一种使用RFB协议的屏幕画面分享及远程操作软件。此软件借由网络，可发送键盘与鼠标的动作及即时的屏幕画面。VNC与操作系统无关，因此可跨平台使用，例如可用Windows连线到某Linux的计算机，反之亦同。甚至在没有安装客户端程序的计算机中，只要有支持JAVA的浏览器，也可使用。VNC包含客户端和服务器两个操作软件。<br>  VNC Server：VNC服务器，接收VNC Viewer的连接请求，传输画面到客户端。<br>  VNC Viewer：VNC客户端，将键盘和鼠标的动作转递给服务器，</p>
+<h3 id="系统信息"><a href="#系统信息" class="headerlink" title="系统信息"></a>系统信息</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@anolis ~<span class="token punctuation">]</span><span class="token comment"># cat /etc/redhat-release</span>
+Anolis OS release <span class="token number">8.6</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h3 id="安装桌面环境"><a href="#安装桌面环境" class="headerlink" title="安装桌面环境"></a>安装桌面环境</h3><p>  通常，服务器没有安装任何的桌面环境。如果你拥有的一台机器没有 GUI，第一步就是安装它。否则，跳过这个步骤。<br>  运行下面的命令来在你的远程机器上安装 Gnome，CentOS 8 下的默认桌面环境。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> dnf groupinstall <span class="token string">"Server with GUI"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>  下载和安装 Gnome 软件包，以及依赖软件包需要花费一些时间。</p>
+<h3 id="安装VNC服务器"><a href="#安装VNC服务器" class="headerlink" title="安装VNC服务器"></a>安装<code>VNC</code>服务器</h3><p>  <a href="http://tigervnc.org/?spm=a2c6h.12873639.article-detail.7.3906620cM3tkVF">TigerVNC</a> 是一个维护很活跃的开源高性能 VNC 服务器。它在默认的 CentOS 源仓库中可用，输入下面的命令，安装它：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">dnf <span class="token function">install</span> <span class="token parameter variable">-y</span> tigervnc-server tigervnc-server-module<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="复制配置文件"><a href="#复制配置文件" class="headerlink" title="复制配置文件"></a>复制配置文件</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">cp</span> /lib/systemd/system/vncserver@.service /etc/systemd/system/vncserver@:1.service<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="编辑-vim-etc-tigervnc-vncserver-users-添加用户"><a href="#编辑-vim-etc-tigervnc-vncserver-users-添加用户" class="headerlink" title="编辑 vim /etc/tigervnc/vncserver.users 添加用户"></a>编辑 <code>vim /etc/tigervnc/vncserver.users</code> 添加用户</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@centos8 ~<span class="token punctuation">]</span><span class="token comment"># vim /etc/tigervnc/vncserver.users</span>
+<span class="token comment"># TigerVNC User assignment</span>
+<span class="token comment">#</span>
+<span class="token comment"># This file assigns users to specific VNC display numbers.</span>
+<span class="token comment"># The syntax is &lt;display&gt;=&lt;username&gt;. E.g.:</span>
+<span class="token comment">#</span>
+<span class="token comment"># :2=andrew</span>
+<span class="token comment"># :3=lisa</span>
+:1<span class="token operator">=</span>root<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="如果是给非root创建的话需要切换到该用户下产生vncpasswd"><a href="#如果是给非root创建的话需要切换到该用户下产生vncpasswd" class="headerlink" title="如果是给非root创建的话需要切换到该用户下产生vncpasswd"></a>如果是给<code>非root</code>创建的话需要<code>切换到该用户</code>下产生<code>vncpasswd</code></h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@centos8 ~<span class="token punctuation">]</span><span class="token comment"># su user</span>
+<span class="token punctuation">[</span>user@centos8 ~<span class="token punctuation">]</span>$ vncpasswd
+Password:
+Verify:
+Would you like to enter a view-only password <span class="token punctuation">(</span>y/n<span class="token punctuation">)</span>? n
+A view-only password is not used
+<span class="token punctuation">[</span>user@centos8 ~<span class="token punctuation">]</span>$ <span class="token builtin class-name">exit</span>
+<span class="token builtin class-name">exit</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="开启服务"><a href="#开启服务" class="headerlink" title="开启服务"></a>开启服务</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@centos8 ~<span class="token punctuation">]</span><span class="token comment"># systemctl daemon-reload</span>
+<span class="token punctuation">[</span>root@centos8 ~<span class="token punctuation">]</span><span class="token comment"># systemctl start vncserver@:1.service</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<h3 id="测试是否VNCServer是否开起来"><a href="#测试是否VNCServer是否开起来" class="headerlink" title="测试是否VNCServer是否开起来"></a>测试是否VNCServer是否开起来</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@centos8 ~<span class="token punctuation">]</span><span class="token comment"># nc -zv localhost 5901</span>
+Ncat: Version <span class="token number">7.70</span> <span class="token punctuation">(</span> https://nmap.org/ncat <span class="token punctuation">)</span>
+Ncat: Connected to ::1:5901.
+Ncat: <span class="token number">0</span> bytes sent, <span class="token number">0</span> bytes received <span class="token keyword">in</span> <span class="token number">0.01</span> seconds.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="关闭防火墙或开启端口权限"><a href="#关闭防火墙或开启端口权限" class="headerlink" title="关闭防火墙或开启端口权限"></a>关闭防火墙或开启端口权限</h3><h4 id="关闭防火墙-不推荐"><a href="#关闭防火墙-不推荐" class="headerlink" title="关闭防火墙(不推荐)"></a>关闭防火墙(不推荐)</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@centos8 ~<span class="token punctuation">]</span><span class="token comment"># systemctl status firewalld</span>
+● firewalld.service - firewalld - dynamic firewall daemon
+   Loaded: loaded <span class="token punctuation">(</span>/usr/lib/systemd/system/firewalld.service<span class="token punctuation">;</span> enabled<span class="token punctuation">;</span> vendor preset: enabled<span class="token punctuation">)</span>
+   Active: active <span class="token punctuation">(</span>running<span class="token punctuation">)</span> since Sun <span class="token number">2020</span>-06-21 <span class="token number">22</span>:40:18 CST<span class="token punctuation">;</span> 14min ago
+     Docs: man:firewalld<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+ Main PID: <span class="token number">890</span> <span class="token punctuation">(</span>firewalld<span class="token punctuation">)</span>
+    Tasks: <span class="token number">2</span> <span class="token punctuation">(</span>limit: <span class="token number">11460</span><span class="token punctuation">)</span>
+   Memory: <span class="token number">29</span>.7M
+   CGroup: /system.slice/firewalld.service
+           └─890 /usr/libexec/platform-python <span class="token parameter variable">-s</span> /usr/sbin/firewalld <span class="token parameter variable">--nofork</span> <span class="token parameter variable">--nopid</span>
+
+Jun <span class="token number">21</span> <span class="token number">22</span>:40:16 centos8 systemd<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>: Starting firewalld - dynamic firewall daemon<span class="token punctuation">..</span>.
+Jun <span class="token number">21</span> <span class="token number">22</span>:40:18 centos8 systemd<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>: Started firewalld - dynamic firewall daemon.
+<span class="token punctuation">[</span>root@centos8 ~<span class="token punctuation">]</span><span class="token comment"># systemctl stop firewalld</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="开启端口权限"><a href="#开启端口权限" class="headerlink" title="开启端口权限"></a>开启端口权限</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@centos8 ~<span class="token punctuation">]</span><span class="token comment"># firewall-cmd --zone=public --add-port=5901/tcp --permanent</span>
+success
+<span class="token punctuation">[</span>root@centos8 ~<span class="token punctuation">]</span><span class="token comment"># firewall-cmd --reload</span>
+success<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+
+<h3 id="安装Chrome"><a href="#安装Chrome" class="headerlink" title="安装Chrome"></a>安装Chrome</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">首先在CentOS/RHEL系统上安装wget才能用于下载，运行以下命令：
+
+        <span class="token function">sudo</span> dnf <span class="token parameter variable">-y</span> <span class="token function">install</span> <span class="token function">wget</span>
+
+    现在使用wget命令下载最新版本的Google Chrome：
+
+        <span class="token function">wget</span> https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm
+
+    导航到包含下载包的目录并执行以下命令：
+
+        $ <span class="token function">sudo</span> dnf localinstall google-chrome-stable_current_x86_64.rpm <span class="token parameter variable">-y</span>
+
+    执行结果如下图：
+
+    打开Chrome浏览器的快捷方式文件
+
+        $ <span class="token function">vi</span> /usr/share/applications/google-chrome.desktop
+    修改 <span class="token assign-left variable">Exec</span><span class="token operator">=</span>/usr/bin/google-chrome-stable %U 在其后面加上 --no-sandbox<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+<h3 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h3><div class="note info no-icon"><p><a href="https://www.likecs.com/show-205147658.html?sc=1946">阿里云ECS CentOS 8 配置VNC远程连接</a><br><a href="https://developer.aliyun.com/article/753673">如何在 CentOS 8 上安装和配置 VNC</a><br><a href="https://www.cnblogs.com/royfans/p/15237952.html"> centos8 安装VNC配置远程连接</a></p>
+</div><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
+      <categories>
+        <category>Centos</category>
+      </categories>
+      <tags>
+        <tag>VNC</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>【Docker】之安装 ElasticSearch集群</title>
     <url>/post/65899326.html</url>
     <content><![CDATA[<img data-src="/post/65899326/elk001.png" style="box-shadow:none!important;">
@@ -10361,6 +10640,176 @@ NPM Registry has been <span class="token builtin class-name">set</span> to: http
       </categories>
       <tags>
         <tag>Yarn</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Centos系统下查找命令</title>
+    <url>/post/3553be4f.html</url>
+    <content><![CDATA[<h3 id="which"><a href="#which" class="headerlink" title="which"></a>which</h3><p>  which命令查找出相关命令是否已经在搜索路径中，例子如下：<br>  //显示出ping安装在哪个目录</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@xamppr10 bin<span class="token punctuation">]</span><span class="token comment"># which ping</span>
+返回结果为：
+/usr/bin/ping<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<span id="more"></span>
+
+<h3 id="locate"><a href="#locate" class="headerlink" title="locate"></a>locate</h3><p>  locate命令用于查找文件，它比find命令的搜索速度快，它需要一个数据库。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@xamppr10 ~<span class="token punctuation">]</span><span class="token comment"># updatedb</span>
+<span class="token punctuation">[</span>root@xamppr10 ~<span class="token punctuation">]</span><span class="token comment"># locate php.ini</span>
+/opt/zbox/etc/php/php.ini
+/opt/zbox_old/etc/php/php.ini<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="rpm（centos）"><a href="#rpm（centos）" class="headerlink" title="rpm（centos）"></a>rpm（centos）</h3><p>  如果用户知道自己要查找到软件包的名字，可以直接使用下面的命令。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">//查找检查系统是否安装了
+<span class="token punctuation">[</span>root@xamppr10 ~<span class="token punctuation">]</span><span class="token comment"># rpm -q python</span>
+python-2.7.5-90.el7.x86_64
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>  或者：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token variable">$rpm</span> -qa<span class="token operator">|</span> <span class="token function">grep</span> python //这是两个命令的结合
+<span class="token punctuation">[</span>root@xamppr10 ~<span class="token punctuation">]</span><span class="token comment"># rpm -qa| grep python</span>
+langtable-python-0.0.31-4.el7.noarch
+python-IPy-0.75-6.el7.noarch
+python2-futures-3.1.1-5.el7.noarch
+python-jwcrypto-0.4.2-1.el7.noarch
+python-iniparse-0.4-9.el7.noarch
+python-backports-1.0-8.el7.x86_64
+libstoragemgmt-python-clibs-1.8.1-2.el7_9.x86_64
+python-firewall-0.6.3-13.el7_9.noarch
+python-kitchen-1.1.1-5.el7.noarch
+python-2.7.5-90.el7.x86_64
+abrt-python-2.1.11-60.el7.centos.x86_64
+python-ipaddress-1.0.16-2.el7.noarch
+python-gobject-3.22.0-1.el7_4.1.x86_64
+python-enum34-1.0.4-1.el7.noarch
+python-urwid-1.1.1-3.el7.x86_64
+python-netaddr-0.7.5-9.el7.noarch
+python-requests-2.6.0-10.el7.noarch
+python-javapackages-3.4.1-11.el7.noarch
+python2-ipaclient-4.6.8-5.el7.centos.6.noarch
+python-deltarpm-3.6-3.el7.x86_64
+dbus-python-1.1.1-9.el7.x86_64
+libselinux-python-2.5-15.el7.x86_64
+python-augeas-0.5.0-2.el7.noarch
+python-pwquality-1.2.3-5.el7.x86_64
+python-netifaces-0.10.4-3.el7.x86_64
+python-dateutil-1.5-7.el7.noarch
+libuser-python-0.60-9.el7.x86_64
+python-urllib3-1.10.2-7.el7.noarch
+python-schedutils-0.4-6.el7.x86_64
+python2-ipalib-4.6.8-5.el7.centos.6.noarch
+python-pyblock-0.53-6.el7.x86_64
+python-ethtool-0.8-8.el7.x86_64
+python-setuptools-0.9.8-7.el7.noarch
+python-pyudev-0.15-9.el7.noarch
+python-sssdconfig-1.16.5-10.el7_9.8.noarch
+python-yubico-1.2.3-1.el7.noarch
+python-ntplib-0.3.2-1.el7.noarch
+python-ply-3.4-11.el7.noarch
+python-rtslib-2.1.74-1.el7_9.noarch
+python2-subprocess32-3.2.6-14.el7.x86_64
+python-slip-0.4.0-4.el7.noarch
+libreport-python-2.1.11-53.el7.centos.x86_64
+python-configobj-4.7.2-7.el7.noarch
+python-gobject-base-3.22.0-1.el7_4.1.x86_64
+policycoreutils-python-2.5-34.el7.x86_64
+python-perf-3.10.0-1160.31.1.el7.x86_64
+python-gssapi-1.2.0-3.el7.x86_64
+liblouis-python-2.5.2-12.el7_4.noarch
+python-libipa_hbac-1.16.5-10.el7_9.8.x86_64
+python-configshell-1.1.26-1.el7.noarch
+python-inotify-0.9.4-4.el7.noarch
+python-kmod-0.9-4.el7.x86_64
+python-lxml-3.2.1-4.el7.x86_64
+python2-blockdev-2.18-5.el7.x86_64
+python-linux-procfs-0.4.11-4.el7.noarch
+cryptsetup-python-2.0.3-6.el7.x86_64
+python-slip-dbus-0.4.0-4.el7.noarch
+python-smbc-1.0.13-8.el7.x86_64
+python-dns-1.12.0-4.20150617git465785f.el7.noarch
+audit-libs-python-2.8.5-4.el7.x86_64
+python-cffi-1.6.0-5.el7.x86_64
+python2-cryptography-1.7.2-2.el7.x86_64
+python-blivet-0.61.15.76-1.el7_9.noarch
+python-chardet-2.2.1-3.el7.noarch
+python-pycurl-7.19.0-19.el7.x86_64
+rpm-python-4.11.3-45.el7.x86_64
+python-backports-ssl_match_hostname-3.5.0.1-1.el7.noarch
+python-brlapi-0.6.0-16.el7.x86_64
+libsemanage-python-2.5-14.el7.x86_64
+systemd-python-219-78.el7_9.3.x86_64
+python-meh-gui-0.25.3-1.el7.noarch
+python2-pyasn1-modules-0.1.9-7.el7.noarch
+speech-dispatcher-python-0.7.1-15.el7.x86_64
+python-pycparser-2.14-1.el7.noarch
+python-idna-2.4-1.el7.noarch
+libstoragemgmt-python-1.8.1-2.el7_9.noarch
+python-urlgrabber-3.10-10.el7.noarch
+abrt-addon-python-2.1.11-60.el7.centos.x86_64
+python2-pyasn1-0.1.9-7.el7.noarch
+python-ldap-2.4.15-2.el7.x86_64
+python-qrcode-core-5.0.1-1.el7.noarch
+python-decorator-3.4.0-3.el7.noarch
+python-cups-1.9.63-6.el7.x86_64
+newt-python-0.52.15-4.el7.x86_64
+python-meh-0.25.3-1.el7.noarch
+python-sss-murmur-1.16.5-10.el7_9.8.x86_64
+python-nss-0.16.0-3.el7.x86_64
+python-di-0.3-2.el7.noarch
+python-libs-2.7.5-90.el7.x86_64
+python2-pyatspi-2.26.0-3.el7.noarch
+libpeas-loader-python-1.22.0-1.el7.x86_64
+libxml2-python-2.9.1-6.el7.5.x86_64
+python-coverage-3.6-0.5.b3.el7.x86_64
+python-six-1.9.0-2.el7.noarch
+rpm的其他用法：
+<span class="token function">rpm</span> <span class="token parameter variable">-qa</span> <span class="token punctuation">(</span>列出所有安装了的包<span class="token punctuation">)</span>
+<span class="token function">rpm</span> <span class="token parameter variable">-e</span> package <span class="token punctuation">(</span>删除某个包<span class="token punctuation">)</span>
+<span class="token function">rpm</span> <span class="token parameter variable">-qi</span> package <span class="token punctuation">(</span>查询某个包<span class="token punctuation">)</span>
+<span class="token function">rpm</span> <span class="token parameter variable">-qf</span> <span class="token builtin class-name">command</span> <span class="token punctuation">(</span>根据程序查询包的名字<span class="token punctuation">)</span>
+<span class="token function">rpm</span> <span class="token parameter variable">-ql</span> package <span class="token punctuation">(</span>查询某个包所有的安装文件<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="yum（centos）"><a href="#yum（centos）" class="headerlink" title="yum（centos）"></a>yum（centos）</h3><div class="note info no-icon"><p>yum的参数很多，以下是用于查找软件包的命令。<br>$yum list //列出所指定的软件包,后可以加上你想查找的软件包的名字<br>$yum list installed //列出所有已安装的软件包<br>$yum info installed //列出所有已安裝的软件包信息</p>
+</div>
+
+<h3 id="whereis"><a href="#whereis" class="headerlink" title="whereis"></a>whereis</h3><p>  whereis是查找文件或者命令的所在目录</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">//查找pwd命令所在的目录
+<span class="token punctuation">[</span>root@xamppr10 ~<span class="token punctuation">]</span><span class="token comment"># whereis pwd </span>
+pwd: /usr/bin/pwd /usr/share/man/man1/pwd.1.gz /usr/share/man/man1p/pwd.1p.gz<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="find"><a href="#find" class="headerlink" title="find"></a>find</h3><p>  这个命令可用来查找系统是否安装了指定的软件包，更重要的是也可以查找自己对软件包名称记忆不是很清晰的软件包。find的查找范围很广，功能强大，再搭配用正则表达，效果很好，不过建议尽量缩小搜索范围，减少系统压力，毕竟，当系统文件多了，搜索耗费时间和资源的。<br>  //从根目录开始查找包含”python“这个字符的文件和文件夹<br>  <code>find / -name "python"</code></p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@xamppr10 ~<span class="token punctuation">]</span><span class="token comment"># find / -name "python"</span>
+/etc/python
+/usr/bin/python
+/usr/lib64/libreoffice/share/Scripts/python
+/usr/share/gcc-4.8.2/python
+/usr/share/gdb/python<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>  find的详细使用有如下例子：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">//在当前目录下查找，查找深度为一，查找以.jpg结尾文件，并将其转化
+<span class="token function">find</span> <span class="token builtin class-name">.</span> <span class="token parameter variable">-maxdepth</span> <span class="token number">1</span> <span class="token parameter variable">-name</span> *.jpg <span class="token parameter variable">-print</span> <span class="token parameter variable">-exec</span> convert
+//搜索以 <span class="token string">'.rpm'</span> 结尾的文件并定义其权限
+<span class="token function">find</span> / <span class="token parameter variable">-name</span> *.rpm <span class="token parameter variable">-exec</span> <span class="token function">chmod</span> <span class="token number">755</span> <span class="token string">'{}'</span> <span class="token punctuation">\</span>
+//从 <span class="token string">'/'</span> 开始进入根文件系统搜索文件和目录
+<span class="token function">find</span> / <span class="token parameter variable">-name</span> file1
+//罗列一个系统中所有使用了SUID控制的文件
+<span class="token function">find</span> / <span class="token parameter variable">-perm</span> -u+s
+//搜索属于用户 <span class="token string">'user1'</span> 的文件和目录
+<span class="token function">find</span> / <span class="token parameter variable">-user</span> user1
+//搜索以 <span class="token string">'.rpm'</span> 结尾的文件，忽略光驱、捷盘等可移动设备
+<span class="token function">find</span> / <span class="token parameter variable">-xdev</span> <span class="token parameter variable">-name</span> <span class="token punctuation">\</span>*.rpm
+//从一个目录查找并复制所有以 <span class="token string">'.txt'</span> 结尾的文件到另一个目录
+<span class="token function">find</span> /home/user1 <span class="token parameter variable">-name</span> <span class="token string">'*.txt'</span> <span class="token operator">|</span> <span class="token function">xargs</span> <span class="token function">cp</span> <span class="token parameter variable">-av</span> --target-directory<span class="token operator">=</span>/home/backup/ <span class="token parameter variable">--parents</span>
+//在目录 <span class="token string">'/ home/user1'</span> 中搜索带有<span class="token string">'.bin'</span> 结尾的文件
+<span class="token function">find</span> /home/user1 <span class="token parameter variable">-name</span> <span class="token punctuation">\</span>*.bin
+//搜索在过去100天内未被使用过的执行文件
+<span class="token function">find</span> /usr/bin <span class="token parameter variable">-type</span> f <span class="token parameter variable">-atime</span> +100
+//搜索在10天内被创建或者修改过的文件
+<span class="token function">find</span> /usr/bin <span class="token parameter variable">-type</span> f <span class="token parameter variable">-mtime</span> <span class="token parameter variable">-10</span>
+//查找所有以 <span class="token string">'.log'</span> 结尾的文件并做成一个bzip包
+<span class="token function">find</span> /var/log <span class="token parameter variable">-name</span> <span class="token string">'*.log'</span> <span class="token operator">|</span> <span class="token function">tar</span> cv --files-from<span class="token operator">=</span>- <span class="token operator">|</span> <span class="token function">bzip2</span> <span class="token operator">&gt;</span> log.tar.bz2<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
       </tags>
   </entry>
   <entry>
