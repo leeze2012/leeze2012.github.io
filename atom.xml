@@ -6,7 +6,7 @@
   <link href="https://www.xiaosige.com/atom.xml" rel="self"/>
   
   <link href="https://www.xiaosige.com/"/>
-  <updated>2022-10-15T11:33:20.633Z</updated>
+  <updated>2022-11-09T01:36:56.354Z</updated>
   <id>https://www.xiaosige.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Nginx 性能优化</title>
+    <link href="https://www.xiaosige.com/post/31a3358a.html"/>
+    <id>https://www.xiaosige.com/post/31a3358a.html</id>
+    <published>2022-10-15T17:12:16.000Z</published>
+    <updated>2022-11-09T01:36:56.354Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; href=&quot;/css/spoiler.css&quot; type=&quot;text/css&quot;&gt;&lt;script src=&quot;/js/spoiler.js&quot; type=&quot;text/javascript&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="Nginx" scheme="https://www.xiaosige.com/categories/Nginx/"/>
+    
+    
+    <category term="Nginx" scheme="https://www.xiaosige.com/tags/Nginx/"/>
+    
+  </entry>
   
   <entry>
     <title>Centos8系统调优参数配置</title>
@@ -383,26 +408,6 @@ vm.max_map_count &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt
     
     
     <category term="Git" scheme="https://www.xiaosige.com/tags/Git/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Mac因为没有安全弹出下次连接不上移动硬盘的坑</title>
-    <link href="https://www.xiaosige.com/post/344dc787.html"/>
-    <id>https://www.xiaosige.com/post/344dc787.html</id>
-    <published>2022-07-30T14:53:12.000Z</published>
-    <updated>2022-10-09T23:40:20.449Z</updated>
-    
-    
-    <summary type="html">&lt;h3 id=&quot;概述&quot;&gt;&lt;a href=&quot;#概述&quot; class=&quot;headerlink&quot; title=&quot;概述&quot;&gt;&lt;/a&gt;概述&lt;/h3&gt;&lt;div class=&quot;note success no-icon&quot;&gt;&lt;p&gt;  经常遇到因为没有安全弹出下次使用的时候识别不到移动硬盘的情况&lt;/p&gt;
-&lt;/div&gt;</summary>
-    
-    
-    
-    <category term="Mac" scheme="https://www.xiaosige.com/categories/Mac/"/>
-    
-    
-    <category term="Disk" scheme="https://www.xiaosige.com/tags/Disk/"/>
     
   </entry>
   
