@@ -7686,6 +7686,14 @@ docker run -p 7080:9091 --name ${app_name}  --net docker-mynet --ip 172.172.0.88
 echo '----start container----'<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 <li>运行成功<br>  浏览器：<a href="http://10.211.55.81:7080/user/list">http://10.211.55.81:7080/user/list</a>    ，成功取到数据</li>
 </ol>
+<h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><ol>
+<li><code>gitea &amp; drone webhook推送不成功</code><br> 修改 Gitea 服务器的 Webhook 白名单<br> 出于安全考虑，您通过 Gitea Webhook 触发外部服务器的响应前需要设定 <code>webhook.ALLOWED_HOST_LIST</code> 白名单来控制 Webhook 的目的地址。具体信息参考文档 <a href="https://docs.gitea.io/en-us/config-cheat-sheet/#webhook-webhook">Webhook</a>。<br> 修改配置时，打开 <code>conf/app.ini</code>，添加 <code>ALLOWED_HOST_LIST = *</code> 到 [<code>webhook</code>] 栏目中，并重启 Gitea 服务器。例如： <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>webhook<span class="token punctuation">]</span>
+ALLOWED_HOST_LIST <span class="token operator">=</span> *<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+ <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 添加 gitea/conf/app.ini</span>
+
+<span class="token punctuation">[</span>webhook<span class="token punctuation">]</span>
+ALLOWED_HOST_LIST <span class="token operator">=</span> <span class="token number">192.168</span>.0.0/16<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ol>
 <h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><blockquote>
 <p>官方文档：<a href="https://docs.drone.io/">https://docs.drone.io/</a><br>结合Maven使用：<a href="https://docs.drone.io/pipeline/kubernetes/examples/language/maven/">https://docs.drone.io/pipeline/kubernetes/examples/language/maven/</a><br>结合SSH使用：<a href="http://plugins.drone.io/appleboy/drone-ssh/">http://plugins.drone.io/appleboy/drone-ssh/</a><br>将容器目录挂载到宿主机：<a href="https://docs.drone.io/pipeline/docker/syntax/volumes/host/">https://docs.drone.io/pipeline/docker/syntax/volumes/host/</a></p>
 </blockquote>
