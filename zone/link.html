@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="utf-8">
+    <link rel="shortcut icon" rel="external nofollow" href="https://static.xiaosige.com/img/favicon.png">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- 格式按钮炫炫酷效果 -->
+    <link rel="stylesheet" type="text/css" href="/css/hover.css" />
+    <! -- A querystring parser that supports nesting and arrays, with a depth limit -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.11.1/qs.min.js" ></script>
+    <style>
+
+        .gitee-external-link-wrapper .logo-img {
+            margin-bottom: 1.6rem;
+        }
+        .gitee-external-link-wrapper {
+            display: flex;
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+            flex-direction: column;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            position: absolute;
+            top: 22.1698%;
+            left: 50%;
+            -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+            font-size: 16px;
+        }
+        .gitee-external-link-wrapper .content-box {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+            flex-direction: column;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            padding: 2.4rem;
+            border-radius: 0.4rem;
+            border: 0.1rem solid #dce3e8;
+            background: white;
+        }
+        .gitee-external-link-wrapper .content-box .content-title {
+            font-size: 22px;
+            font-weight: 500;
+            color: #40485b;
+            line-height: 2.8rem;
+            margin-bottom: 1.2rem;
+        }
+        .gitee-external-link-wrapper .content-box .content-text {
+            margin-bottom: 4px;
+        }
+        .gitee-external-link-wrapper .content-box .content-link {
+            line-height: 2.1rem;
+        }
+        .gitee-external-link-wrapper .content-box .external-link-btn {
+            font-weight: 500;
+            margin-right: 0;
+            -ms-flex-item-align: end;
+            align-self: flex-end;
+            font-size: 1.4rem;
+            color: #ffffff;
+        }
+        .ui.orange.button {
+            color: #fff;
+            background: #fe7300;
+            -webkit-box-shadow: 0px 0em 0px 0px rgba(39,41,43,0.15) inset;
+            box-shadow: 0px 0em 0px 0px rgba(39,41,43,0.15) inset;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="gitee-external-link-wrapper">
+        <img class="logo-img" src="https://static.xiaosige.com/img/favicon.png" alt="Logo black">
+        <div class="content-box">
+            <div class="content-title">即将跳转到外部网站</div>
+            <div class="content-text">您将要访问的链接不属于 Xiaosige.com ，请关注您的账号安全。</div>
+            <div class="content-link">
+                <div class="external-link-href"></div>
+            </div>
+            <div style="text-align: right;margin-bottom: 6px;margin-top: 6px;">
+                <a class="hvr-bounce-to-top">
+                    <i class="fab fa-dev fa-fw"></i>继续前进</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        //$(document).ready(function(){
+        $(function(){
+
+            function getQueryVariable(variable)
+            {
+                var query = window.location.search.substring(1);
+                var vars = query.split("&");
+                for (var i=0;i<vars.length;i++) {
+                    var pair = vars[i].split("=");
+                    if(pair[0] == variable){return pair[1];}
+                }
+                return(false);
+            }
+
+            let newURL = getQueryVariable("target");
+
+            $(".external-link-href").text(newURL);
+            $(".hvr-bounce-to-top").attr('href',newURL);
+
+
+        });
+    </script>
+</body>
+</html>
