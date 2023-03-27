@@ -106,7 +106,7 @@
                 return(false);
             }
 
-            let newURL = getQueryVariable("target");
+            let newURL = decodeURIComponent(getQueryVariable("target"));
 
             $(".external-link-href").text(newURL);
             $(".hvr-bounce-to-top").attr('href',newURL);

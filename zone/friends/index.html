@@ -549,7 +549,7 @@
                         '  }' +
                         ']' ;
                         $.each(eval(result), function (i, field) {
-                            $(".tools").append('<a class="card" target="_blank" style="text-decoration: none;"  href=\"/zone/link?target='+field.url+'\" >' +
+                            $(".tools").append('<a class="card" target="_blank" style="text-decoration: none;"  href=\"/zone/link?target='+encodeURIComponent(field.url)+'\" >' +
                                 '<img className="lazyload" data-src="/images/loading.gif" src=\"' + field.img + '\" data-loaded="true">' +
                                 '<div class="card-header">' +
                                     '<div style="color: #33aaff;font-weight: bold;">' + field.name + '</div>' +
