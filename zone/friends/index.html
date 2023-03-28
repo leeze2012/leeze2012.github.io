@@ -238,16 +238,16 @@
             let friends;
             friends = {
                 init: function (url) {
-                    //$.ajaxSettings.async = false;
-                    //$.getJSON(url, function (result) {
-                    let result ='[' +
+                    $.ajaxSettings.async = false;
+                    $.getJSON(url, function (result) {
+                    let result2 ='[' +
                         '  {' +
                         '    "name": "不死鸟",' +
                         '    "url": "https://iui.su/",' +
                         '    "img": "https://npm.elemecdn.com/niaosu@3.3.5/logo.png",' +
                         '    "dec": "不死鸟 - 分享为王"' +
                         '  },' +
-                        /** '  {' +
+                        '  {' +
                         '    "name": "刘向洋",' +
                         '    "url": "https://liuxiangyang.space",' +
                         '    "img": "/images/loading.gif",' +
@@ -546,7 +546,7 @@
                         '    "url": "https://www.hash070.top/",' +
                         '    "img": "https://img.yun.hash070.top:66/i/6315f5bf89b15.jpg",' +
                         '    "dec": "hash07\'s blog"' +
-                        '  }' + **/
+                        '  }' +
                         ']' ;
                         $.each(eval(result), function (i, field) {
                             $(".tools").append('<a class="card" target="_blank" style="text-decoration: none;"  href=\"/zone/link?target='+encodeURIComponent(field.url)+'\" >' +
@@ -563,13 +563,13 @@
                         layer.close(index);
                         let iframeWindow = parent.document.getElementById("friendiframe");
                         $(iframeWindow).attr("height",($(".tools").height()+10)+"px");
-                    //});
+                    });
                     $.ajaxSettings.async = true;
                 }
             };
 
-            //friends.init("/zone/db/friends.json");
-            friends.init("");
+            friends.init("/zone/db/friends.json");
+            //friends.init("");
         });
     </script>
 
