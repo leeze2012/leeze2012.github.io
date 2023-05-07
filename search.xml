@@ -64,6 +64,277 @@ lrwxrwxrwx. <span class="token number">1</span> root root <span class="token num
       </tags>
   </entry>
   <entry>
+    <title>docker-compose搭建 mysql8 主从</title>
+    <url>/post/6358151c.html</url>
+    <content><![CDATA[<h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><div class="note success no-icon"><p>我这里模拟了一台服务器，开启了<code>两</code>个mysql8的<code>容器</code>，一个作为<code>主</code>，一个作为<code>从</code>。</p>
+</div>
+
+<span id="more"></span>
+
+<h3 id="Master"><a href="#Master" class="headerlink" title="Master"></a>Master</h3><ol>
+<li><code>/root/.docker/voldata/mysql8/master</code><img data-src="/post/6358151c/SCR-001.png" class="" title="Master目录结构"></li>
+<li>编写主容器<code>docker-compose.yml</code>脚本<pre class="line-numbers language-docker" data-language="docker"><code class="language-docker">version: '3.9'
+services:
+  mysql8-master-ins:
+    image: mysql:8.0.33
+    container_name: mysql8-master
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "100m"
+    deploy:
+      resources:
+        limits:
+          cpus: "1"
+          memory: 2g
+      restart_policy:
+        condition: on-failure
+    privileged: true
+    environment:
+      MYSQL_ROOT_HOST: '%'
+      MYSQL_ROOT_PASSWORD: Cn123456   #记得冒号与密码之间有个空格哈，这是yml的书写格式
+      TZ: "Asia/Shanghai"
+      MYSQL_USER: master
+      MYSQL_PASSWORD: Cn123456
+    command:
+      --bind-address=172.18.0.100
+      --default-authentication-plugin=mysql_native_password
+      --max_connections=1000
+      --character-set-server=utf8mb4
+      --collation-server=utf8mb4_general_ci
+      --default-time-zone='+8:00'
+      --explicit_defaults_for_timestamp=true
+      --max_allowed_packet=128M
+      --lower_case_table_names=1
+      --expire-logs-days=7
+    ports:
+      - 3308:3306
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /root/.docker/voldata/mysql8/master/data:/var/lib/mysql
+      - /root/.docker/voldata/mysql8/master/my.cnf:/etc/mysql/my.cnf
+      - /root/.docker/voldata/mysql8/master/conf:/etc/mysql/conf.d
+      - /root/.docker/voldata/mysql8/master/mysql-files:/var/lib/mysql-files
+      - /root/.docker/voldata/mysql8/master/logs:/var/log/mysql
+    networks:
+      traefik:
+        ipv4_address: 172.18.0.100
+networks:
+  traefik:
+    external: true<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li>编写主容器的<code>my.cnf</code><pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token punctuation">[</span>client<span class="token punctuation">]</span>
+default<span class="token punctuation">-</span>character<span class="token punctuation">-</span>set = utf8mb4
+
+<span class="token punctuation">[</span>mysql<span class="token punctuation">]</span>
+default<span class="token punctuation">-</span>character<span class="token punctuation">-</span>set=utf8mb4
+
+<span class="token punctuation">[</span>mysqld<span class="token punctuation">]</span>
+user=mysql
+pid<span class="token punctuation">-</span>file= /var/run/mysqld/mysqld.pid
+socket= /var/run/mysqld/mysqld.sock
+datadir= /var/lib/mysql
+secure<span class="token punctuation">-</span>file<span class="token punctuation">-</span>priv= NULL
+
+<span class="token comment"># socket = /usr/mysql/mysqld.sock</span>
+<span class="token comment"># pid-file = /usr/mysql/mysqld.pid</span>
+<span class="token comment"># datadir  = /usr/mysql/data</span>
+
+<span class="token comment"># gtid:</span>
+server_id = 1                   <span class="token comment">#服务器id</span>
+gtid_mode = on                  <span class="token comment">#开启gtid模式</span>
+enforce_gtid_consistency = on   <span class="token comment">#强制gtid一致性，开启后对于特定create table不被支持</span>
+
+
+<span class="token comment"># 创建新表时将使用的默认存储引擎</span>
+default<span class="token punctuation">-</span>storage<span class="token punctuation">-</span>engine=INNODB
+lower_case_table_names=1
+max_allowed_packet=16M
+
+<span class="token comment">#忘记密码时使用</span>
+<span class="token comment">#skip-grant-tables</span>
+<span class="token comment">#设置协议认证方式</span>
+default_authentication_plugin=mysql_native_password
+secure_file_priv=/var/lib/mysql
+expire_logs_days=7
+sql_mode=STRICT_TRANS_TABLES<span class="token punctuation">,</span>NO_ZERO_IN_DATE<span class="token punctuation">,</span>NO_ZERO_DATE<span class="token punctuation">,</span>ERROR_FOR_DIVISION_BY_ZERO<span class="token punctuation">,</span>NO_ENGINE_SUBSTITUTION
+max_connections=1000
+
+
+ 
+<span class="token comment">#binlog</span>
+log_bin = mysql<span class="token punctuation">-</span>binlog
+log_slave_updates = on
+binlog_format = row             <span class="token comment">#强烈建议，其他格式可能造成数据不一致</span>
+
+<span class="token comment">#relay log</span>
+skip_slave_start = 1
+
+general_log = 1
+general_log_file = /var/log/mysql/access.log
+log<span class="token punctuation">-</span>error = /var/log/mysql/error.log
+
+character_set_server = utf8mb4
+collation_server = utf8mb4_general_ci
+
+<span class="token comment"># Disabling symbolic-links is recommended to prevent assorted security risks</span>
+symbolic<span class="token punctuation">-</span>links=0
+
+<span class="token comment"># Custom config should go here</span>
+<span class="token comment"># !includedir /etc/mysql/conf.d/</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li>启动容器<pre class="line-numbers language-docker" data-language="docker"><code class="language-docker">cd master
+docker-compose up -d<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
+</ol>
+<h3 id="Slave"><a href="#Slave" class="headerlink" title="Slave"></a>Slave</h3><ol>
+<li><code>/root/.docker/voldata/mysql8/slave</code><img data-src="/post/6358151c/SCR-002.png" class="" title="Slave目录结构"></li>
+<li>编写从容器<code>docker-compose.yml</code>脚本<pre class="line-numbers language-docker" data-language="docker"><code class="language-docker">version: '3.9'
+services:
+  mysql8-slave-ins:
+    image: mysql:8.0.33
+    container_name: mysql8-slave
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "100m"
+    deploy:
+      resources:
+        limits:
+          cpus: "1"
+          memory: 2g
+      restart_policy:
+        condition: on-failure
+    privileged: true
+    environment:
+      MYSQL_ROOT_HOST: '%'
+      MYSQL_ROOT_PASSWORD: Cn123456   #记得冒号与密码之间有个空格哈，这是yml的书写格式
+      TZ: "Asia/Shanghai"
+      MYSQL_USER: slave
+      MYSQL_PASSWORD: Cn123456
+    command:
+      --bind-address=172.18.0.101
+      --default-authentication-plugin=mysql_native_password
+      --max_connections=1000
+      --character-set-server=utf8mb4
+      --collation-server=utf8mb4_general_ci
+      --default-time-zone='+8:00'
+      --explicit_defaults_for_timestamp=true
+      --max_allowed_packet=128M
+      --lower_case_table_names=1
+      --expire-logs-days=7
+    ports:
+      - 3309:3306
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /root/.docker/voldata/mysql8/slave/data:/var/lib/mysql
+      - /root/.docker/voldata/mysql8/slave/my.cnf:/etc/mysql/my.cnf
+      - /root/.docker/voldata/mysql8/slave/conf:/etc/mysql/conf.d
+      - /root/.docker/voldata/mysql8/slave/mysql-files:/var/lib/mysql-files
+      - /root/.docker/voldata/mysql8/slave/logs:/var/log/mysql
+    networks:
+      traefik:
+        ipv4_address: 172.18.0.101
+networks:
+  traefik:
+    external: true<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li>编写从容器的<code>my.cnf</code><pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token punctuation">[</span>client<span class="token punctuation">]</span>
+default<span class="token punctuation">-</span>character<span class="token punctuation">-</span>set = utf8mb4
+
+<span class="token punctuation">[</span>mysql<span class="token punctuation">]</span>
+default<span class="token punctuation">-</span>character<span class="token punctuation">-</span>set=utf8mb4
+
+<span class="token punctuation">[</span>mysqld<span class="token punctuation">]</span>
+user=mysql
+pid<span class="token punctuation">-</span>file= /var/run/mysqld/mysqld.pid
+socket= /var/run/mysqld/mysqld.sock
+datadir= /var/lib/mysql
+secure<span class="token punctuation">-</span>file<span class="token punctuation">-</span>priv= NULL
+
+<span class="token comment"># socket = /usr/mysql/mysqld.sock</span>
+<span class="token comment"># pid-file = /usr/mysql/mysqld.pid</span>
+<span class="token comment"># datadir  = /usr/mysql/data</span>
+
+<span class="token comment"># gtid:</span>
+server_id = 2                   <span class="token comment">#服务器id</span>
+gtid_mode = on                  <span class="token comment">#开启gtid模式</span>
+enforce_gtid_consistency = on   <span class="token comment">#强制gtid一致性，开启后对于特定create table不被支持</span>
+
+
+<span class="token comment"># 创建新表时将使用的默认存储引擎</span>
+default<span class="token punctuation">-</span>storage<span class="token punctuation">-</span>engine=INNODB
+lower_case_table_names=1
+max_allowed_packet=16M
+
+<span class="token comment">#忘记密码时使用</span>
+<span class="token comment">#skip-grant-tables</span>
+<span class="token comment">#设置协议认证方式</span>
+default_authentication_plugin=mysql_native_password
+secure_file_priv=/var/lib/mysql
+expire_logs_days=7
+sql_mode=STRICT_TRANS_TABLES<span class="token punctuation">,</span>NO_ZERO_IN_DATE<span class="token punctuation">,</span>NO_ZERO_DATE<span class="token punctuation">,</span>ERROR_FOR_DIVISION_BY_ZERO<span class="token punctuation">,</span>NO_ENGINE_SUBSTITUTION
+max_connections=1000
+
+
+ 
+<span class="token comment">#binlog</span>
+log_bin = mysql<span class="token punctuation">-</span>binlog
+log_slave_updates = on
+binlog_format = row             <span class="token comment">#强烈建议，其他格式可能造成数据不一致</span>
+
+<span class="token comment">#relay log</span>
+skip_slave_start = 1
+
+read_only = on                   <span class="token comment">#设置只读</span>
+
+general_log = 1
+general_log_file = /var/log/mysql/access.log
+log<span class="token punctuation">-</span>error = /var/log/mysql/error.log
+
+character_set_server = utf8mb4
+collation_server = utf8mb4_general_ci
+
+<span class="token comment"># Disabling symbolic-links is recommended to prevent assorted security risks</span>
+symbolic<span class="token punctuation">-</span>links=0
+
+<span class="token comment"># Custom config should go here</span>
+<span class="token comment"># !includedir /etc/mysql/conf.d/</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li>启动容器<pre class="line-numbers language-docker" data-language="docker"><code class="language-docker">cd slave
+docker-compose up -d<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
+</ol>
+<h3 id="新建的用户赋权限"><a href="#新建的用户赋权限" class="headerlink" title="新建的用户赋权限"></a>新建的用户赋权限</h3><div class="note success no-icon"><p>给mysql的<code>master</code>账户和<code>slave</code>账户权限，其他权限各自按需添加</p>
+</div>
+<h4 id="先进入主容器"><a href="#先进入主容器" class="headerlink" title="先进入主容器"></a>先进入主容器</h4><pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">docker exec -it mysql8-master bash;
+mysql -uroot -pCn123456;
+GRANT ALL ON *.* TO master; 
+flush privileges;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="从容器添加权限"><a href="#从容器添加权限" class="headerlink" title="从容器添加权限"></a>从容器添加权限</h4><pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">docker exec -it mysql8-slave bash;
+mysql -uroot -pCn123456;
+GRANT REPLICATION CLIENT ON *.* TO slave;
+GRANT REPLICATION SLAVE ON *.* TO slave;
+GRANT SUPER ON *.* TO slave;
+GRANT RELOAD ON *.* TO slave;
+GRANT SELECT ON *.* TO slave;
+flush privileges;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h3 id="开启备份"><a href="#开启备份" class="headerlink" title="开启备份"></a>开启备份</h3><div class="note success no-icon"><p>进入<code>从</code>节点的mysql，使用<code>slave</code>账户连接主节点，开启备份:</p>
+</div>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">docker exec -it mysql8-slave bash;
+mysql -uslave -pCn123456;
+CHANGE MASTER TO master_host='172.18.0.100', master_port=3306, master_user='master', master_password='Cn123456', master_auto_position=1;
+START SLAVE;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h3 id="查看状态"><a href="#查看状态" class="headerlink" title="查看状态"></a>查看状态</h3><pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">SHOW SLAVE STATUS\G<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<img data-src="/post/6358151c/SCR-003.png" class="" title="主从同步"><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
+      <categories>
+        <category>Docker</category>
+      </categories>
+      <tags>
+        <tag>MySQL</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Nginx 性能优化</title>
     <url>/post/31a3358a.html</url>
     <content><![CDATA[<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>

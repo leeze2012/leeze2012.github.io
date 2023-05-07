@@ -15,8 +15,30 @@
     <atom:link href="https://www.xiaosige.com/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>因上努力，果上随缘！</description>
-    <pubDate>Wed, 09 Nov 2022 01:36:56 GMT</pubDate>
+    <pubDate>Sun, 07 May 2023 08:25:55 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>docker-compose搭建 mysql8 主从</title>
+      <link>https://www.xiaosige.com/post/6358151c.html</link>
+      <guid>https://www.xiaosige.com/post/6358151c.html</guid>
+      <pubDate>Sun, 07 May 2023 07:47:51 GMT</pubDate>
+      
+      <description>&lt;h3 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h3&gt;&lt;div class=&quot;note success no-icon&quot;&gt;&lt;p&gt;我这里模拟了一台服务器，开启了&lt;code&gt;两&lt;/code&gt;个mysql8的&lt;code&gt;容器&lt;/code&gt;，一个作为&lt;code&gt;主&lt;/code&gt;，一个作为&lt;code&gt;从&lt;/code&gt;。&lt;/p&gt;
+&lt;/div&gt;</description>
+      
+      
+      
+      
+      <category domain="https://www.xiaosige.com/categories/Docker/">Docker</category>
+      
+      
+      <category domain="https://www.xiaosige.com/tags/MySQL/">MySQL</category>
+      
+      
+      <comments>https://www.xiaosige.com/post/6358151c.html#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>Nginx 性能优化</title>
@@ -429,27 +451,6 @@ vm.max_map_count &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt
       
       
       <comments>https://www.xiaosige.com/post/4e0f32b7.html#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>git 项目迁移（从局域网自己安装的git工具迁移到Gitee和Github）</title>
-      <link>https://www.xiaosige.com/post/2e2484ba.html</link>
-      <guid>https://www.xiaosige.com/post/2e2484ba.html</guid>
-      <pubDate>Wed, 03 Aug 2022 14:11:10 GMT</pubDate>
-      
-      <description>&lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;  如果你想从别的 Git 托管服务那里复制一份源代码到新的 Git 托管服务器上的话，可以通过以下步骤来操作。&lt;/p&gt;</description>
-      
-      
-      
-      
-      <category domain="https://www.xiaosige.com/categories/Git/">Git</category>
-      
-      
-      <category domain="https://www.xiaosige.com/tags/Git/">Git</category>
-      
-      
-      <comments>https://www.xiaosige.com/post/2e2484ba.html#disqus_thread</comments>
       
     </item>
     

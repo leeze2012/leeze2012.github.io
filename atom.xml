@@ -6,7 +6,7 @@
   <link href="https://www.xiaosige.com/atom.xml" rel="self"/>
   
   <link href="https://www.xiaosige.com/"/>
-  <updated>2022-11-09T01:36:56.354Z</updated>
+  <updated>2023-05-07T08:25:55.742Z</updated>
   <id>https://www.xiaosige.com/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>docker-compose搭建 mysql8 主从</title>
+    <link href="https://www.xiaosige.com/post/6358151c.html"/>
+    <id>https://www.xiaosige.com/post/6358151c.html</id>
+    <published>2023-05-07T07:47:51.000Z</published>
+    <updated>2023-05-07T08:25:55.742Z</updated>
+    
+    
+    <summary type="html">&lt;h3 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h3&gt;&lt;div class=&quot;note success no-icon&quot;&gt;&lt;p&gt;我这里模拟了一台服务器，开启了&lt;code&gt;两&lt;/code&gt;个mysql8的&lt;code&gt;容器&lt;/code&gt;，一个作为&lt;code&gt;主&lt;/code&gt;，一个作为&lt;code&gt;从&lt;/code&gt;。&lt;/p&gt;
+&lt;/div&gt;</summary>
+    
+    
+    
+    <category term="Docker" scheme="https://www.xiaosige.com/categories/Docker/"/>
+    
+    
+    <category term="MySQL" scheme="https://www.xiaosige.com/tags/MySQL/"/>
+    
+  </entry>
   
   <entry>
     <title>Nginx 性能优化</title>
@@ -382,25 +402,6 @@ vm.max_map_count &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt
     
     
     <summary type="html">&lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;  项目中经常有不小心提交的大文件,这个就是清理方法.&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="Git" scheme="https://www.xiaosige.com/categories/Git/"/>
-    
-    
-    <category term="Git" scheme="https://www.xiaosige.com/tags/Git/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>git 项目迁移（从局域网自己安装的git工具迁移到Gitee和Github）</title>
-    <link href="https://www.xiaosige.com/post/2e2484ba.html"/>
-    <id>https://www.xiaosige.com/post/2e2484ba.html</id>
-    <published>2022-08-03T14:11:10.000Z</published>
-    <updated>2022-08-03T14:33:29.124Z</updated>
-    
-    
-    <summary type="html">&lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;  如果你想从别的 Git 托管服务那里复制一份源代码到新的 Git 托管服务器上的话，可以通过以下步骤来操作。&lt;/p&gt;</summary>
     
     
     
