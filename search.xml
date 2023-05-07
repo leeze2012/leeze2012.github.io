@@ -99,7 +99,8 @@ services:
     command:
       --bind-address=172.18.0.100
       --default-authentication-plugin=mysql_native_password
-      --max_connections=1000
+      --max_connections=400
+      --innodb_lock_wait_timeout=500
       --character-set-server=utf8mb4
       --collation-server=utf8mb4_general_ci
       --default-time-zone='+8:00'
@@ -121,7 +122,7 @@ services:
         ipv4_address: 172.18.0.100
 networks:
   traefik:
-    external: true<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+    external: true<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 <li>编写主容器的<code>my.cnf</code><pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token punctuation">[</span>client<span class="token punctuation">]</span>
 default<span class="token punctuation">-</span>character<span class="token punctuation">-</span>set = utf8mb4
 
@@ -133,11 +134,6 @@ user=mysql
 pid<span class="token punctuation">-</span>file= /var/run/mysqld/mysqld.pid
 socket= /var/run/mysqld/mysqld.sock
 datadir= /var/lib/mysql
-secure<span class="token punctuation">-</span>file<span class="token punctuation">-</span>priv= NULL
-
-<span class="token comment"># socket = /usr/mysql/mysqld.sock</span>
-<span class="token comment"># pid-file = /usr/mysql/mysqld.pid</span>
-<span class="token comment"># datadir  = /usr/mysql/data</span>
 
 <span class="token comment"># gtid:</span>
 server_id = 1                   <span class="token comment">#服务器id</span>
@@ -146,41 +142,83 @@ enforce_gtid_consistency = on   <span class="token comment">#强制gtid一致性
 
 
 <span class="token comment"># 创建新表时将使用的默认存储引擎</span>
-default<span class="token punctuation">-</span>storage<span class="token punctuation">-</span>engine=INNODB
-lower_case_table_names=1
-max_allowed_packet=16M
+default<span class="token punctuation">-</span>storage<span class="token punctuation">-</span>engine = INNODB
+<span class="token comment">#是否对sql语句大小写敏感，1表示不敏感  </span>
+lower_case_table_names = 1
+<span class="token comment">#最大连接数</span>
+max_connections = 400
+<span class="token comment">#最大错误连接数</span>
+max_connect_errors = 1000
+<span class="token comment">#TIMESTAMP如果没有显示声明NOT NULL，允许NULL值</span>
+explicit_defaults_for_timestamp = true
+<span class="token comment">#SQL数据包发送的大小，如果有BLOB对象建议修改成1G  </span>
+max_allowed_packet=128M
+<span class="token comment"># 设置时区</span>
+default<span class="token punctuation">-</span>time_zone='+8<span class="token punctuation">:</span>00'  
+<span class="token comment">#MySQL连接闲置超过一定时间后(单位：秒)将会被强行关闭  MySQL默认的wait_timeout 值为8个小时, interactive_timeout参数需要同时配置才能生效</span>
+interactive_timeout = 1800
+wait_timeout = 1800
+<span class="token comment">#内部内存临时表的最大值 ，设置成128M。 比如大数据量的group by ,order by时可能用到临时表， 超过了这个值将写入磁盘，系统IO压力增大</span>
+tmp_table_size = 134217728
+max_heap_table_size = 134217728
+<span class="token comment">#数据库默认字符集,主流字符集支持一些特殊表情符号（特殊表情符占用4个字节）</span>
+character_set_server = utf8mb4
+<span class="token comment">#数据库字符集对应一些排序等规则，注意要和character-set-server对应</span>
+collation_server = utf8mb4_general_ci
+<span class="token comment">#设置client连接mysql时的字符集,防止乱码</span>
+init_connect='SET NAMES utf8mb4'
+<span class="token comment"># Disabling symbolic-links is recommended to prevent assorted security risks</span>
+symbolic<span class="token punctuation">-</span>links=0
+
+<span class="token comment">#只能用IP地址检查客户端的登录，不用主机名</span>
+skip_name_resolve = 1
+<span class="token comment">#事务隔离级别，默认为可重复读，mysql默认可重复读级别（此级别下可能参数很多间隙锁，影响性能） </span>
+<span class="token comment">#transaction_isolation = READ-COMMITTED    </span>
 
 <span class="token comment">#忘记密码时使用</span>
 <span class="token comment">#skip-grant-tables</span>
 <span class="token comment">#设置协议认证方式</span>
 default_authentication_plugin=mysql_native_password
 secure_file_priv=/var/lib/mysql
-expire_logs_days=7
 sql_mode=STRICT_TRANS_TABLES<span class="token punctuation">,</span>NO_ZERO_IN_DATE<span class="token punctuation">,</span>NO_ZERO_DATE<span class="token punctuation">,</span>ERROR_FOR_DIVISION_BY_ZERO<span class="token punctuation">,</span>NO_ENGINE_SUBSTITUTION
 max_connections=1000
+<span class="token comment"># innodb的dml操作的行级锁的等待时间</span>
+innodb_lock_wait_timeout = 500
 
 
- 
-<span class="token comment">#binlog</span>
-log_bin = mysql<span class="token punctuation">-</span>binlog
+  <span class="token comment">#binlog</span>
+<span class="token comment">#log_bin = mysql-binlog</span>
+log<span class="token punctuation">-</span>bin = /var/lib/mysql/mysql<span class="token punctuation">-</span>bin
 log_slave_updates = on
 binlog_format = row             <span class="token comment">#强烈建议，其他格式可能造成数据不一致</span>
+<span class="token comment">#mysql binlog日志文件保存的过期时间，过期后自动删除</span>
+expire_logs_days = 7
 
 <span class="token comment">#relay log</span>
 skip_slave_start = 1
 
 general_log = 1
 general_log_file = /var/log/mysql/access.log
+<span class="token comment">#数据库错误日志文件</span>
+<span class="token comment">#log-error = /var/lib/mysql/error.log  </span>
 log<span class="token punctuation">-</span>error = /var/log/mysql/error.log
+<span class="token comment">#慢查询sql日志设置</span>
+slow_query_log = 1
+slow_query_log_file = slow.log
+<span class="token comment">#检查未使用到索引的sql</span>
+log_queries_not_using_indexes = 1
+<span class="token comment">#针对log_queries_not_using_indexes开启后，记录慢sql的频次、每分钟记录的条数</span>
+log_throttle_queries_not_using_indexes = 5
+<span class="token comment">#作为从库时生效,从库复制中如何有慢sql也将被记录</span>
+log_slow_slave_statements = 1
+<span class="token comment">#慢查询执行的秒数，必须达到此值可被记录</span>
+long_query_time = 8
+<span class="token comment">#检索的行数必须达到此值才可被记为慢查询</span>
+min_examined_row_limit = 100
 
-character_set_server = utf8mb4
-collation_server = utf8mb4_general_ci
-
-<span class="token comment"># Disabling symbolic-links is recommended to prevent assorted security risks</span>
-symbolic<span class="token punctuation">-</span>links=0
 
 <span class="token comment"># Custom config should go here</span>
-<span class="token comment"># !includedir /etc/mysql/conf.d/</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<span class="token comment"># !includedir /etc/mysql/conf.d/</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 <li>启动容器<pre class="line-numbers language-docker" data-language="docker"><code class="language-docker">cd master
 docker-compose up -d<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
 </ol>
@@ -212,7 +250,8 @@ services:
     command:
       --bind-address=172.18.0.101
       --default-authentication-plugin=mysql_native_password
-      --max_connections=1000
+      --max_connections=400
+      --innodb_lock_wait_timeout=500
       --character-set-server=utf8mb4
       --collation-server=utf8mb4_general_ci
       --default-time-zone='+8:00'
@@ -234,7 +273,7 @@ services:
         ipv4_address: 172.18.0.101
 networks:
   traefik:
-    external: true<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+    external: true<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 <li>编写从容器的<code>my.cnf</code><pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token punctuation">[</span>client<span class="token punctuation">]</span>
 default<span class="token punctuation">-</span>character<span class="token punctuation">-</span>set = utf8mb4
 
@@ -246,11 +285,6 @@ user=mysql
 pid<span class="token punctuation">-</span>file= /var/run/mysqld/mysqld.pid
 socket= /var/run/mysqld/mysqld.sock
 datadir= /var/lib/mysql
-secure<span class="token punctuation">-</span>file<span class="token punctuation">-</span>priv= NULL
-
-<span class="token comment"># socket = /usr/mysql/mysqld.sock</span>
-<span class="token comment"># pid-file = /usr/mysql/mysqld.pid</span>
-<span class="token comment"># datadir  = /usr/mysql/data</span>
 
 <span class="token comment"># gtid:</span>
 server_id = 2                   <span class="token comment">#服务器id</span>
@@ -259,43 +293,86 @@ enforce_gtid_consistency = on   <span class="token comment">#强制gtid一致性
 
 
 <span class="token comment"># 创建新表时将使用的默认存储引擎</span>
-default<span class="token punctuation">-</span>storage<span class="token punctuation">-</span>engine=INNODB
-lower_case_table_names=1
-max_allowed_packet=16M
+default<span class="token punctuation">-</span>storage<span class="token punctuation">-</span>engine = INNODB
+<span class="token comment">#是否对sql语句大小写敏感，1表示不敏感  </span>
+lower_case_table_names = 1
+<span class="token comment">#最大连接数</span>
+max_connections = 400
+<span class="token comment">#最大错误连接数</span>
+max_connect_errors = 1000
+<span class="token comment">#TIMESTAMP如果没有显示声明NOT NULL，允许NULL值</span>
+explicit_defaults_for_timestamp = true
+<span class="token comment">#SQL数据包发送的大小，如果有BLOB对象建议修改成1G  </span>
+max_allowed_packet=128M
+<span class="token comment"># 设置时区</span>
+default<span class="token punctuation">-</span>time_zone='+8<span class="token punctuation">:</span>00'
+<span class="token comment">#MySQL连接闲置超过一定时间后(单位：秒)将会被强行关闭  MySQL默认的wait_timeout 值为8个小时, interactive_timeout参数需要同时配置才能生效</span>
+interactive_timeout = 1800
+wait_timeout = 1800
+<span class="token comment">#内部内存临时表的最大值 ，设置成128M。 比如大数据量的group by ,order by时可能用到临时表， 超过了这个值将写入磁盘，系统IO压力增大</span>
+tmp_table_size = 134217728
+max_heap_table_size = 134217728
+<span class="token comment">#数据库默认字符集,主流字符集支持一些特殊表情符号（特殊表情符占用4个字节）</span>
+character_set_server = utf8mb4
+<span class="token comment">#数据库字符集对应一些排序等规则，注意要和character-set-server对应</span>
+collation_server = utf8mb4_general_ci
+<span class="token comment">#设置client连接mysql时的字符集,防止乱码</span>
+init_connect='SET NAMES utf8mb4'
+<span class="token comment"># Disabling symbolic-links is recommended to prevent assorted security risks</span>
+<span class="token comment"># 禁用符号链接以防止各种安全风险  </span>
+symbolic<span class="token punctuation">-</span>links=0
+
+<span class="token comment">#只能用IP地址检查客户端的登录，不用主机名</span>
+skip_name_resolve = 1
+<span class="token comment">#事务隔离级别，默认为可重复读，mysql默认可重复读级别（此级别下可能参数很多间隙锁，影响性能） </span>
+<span class="token comment">#transaction_isolation = READ-COMMITTED    </span>
 
 <span class="token comment">#忘记密码时使用</span>
 <span class="token comment">#skip-grant-tables</span>
 <span class="token comment">#设置协议认证方式</span>
 default_authentication_plugin=mysql_native_password
 secure_file_priv=/var/lib/mysql
-expire_logs_days=7
 sql_mode=STRICT_TRANS_TABLES<span class="token punctuation">,</span>NO_ZERO_IN_DATE<span class="token punctuation">,</span>NO_ZERO_DATE<span class="token punctuation">,</span>ERROR_FOR_DIVISION_BY_ZERO<span class="token punctuation">,</span>NO_ENGINE_SUBSTITUTION
 max_connections=1000
-
+<span class="token comment"># innodb的dml操作的行级锁的等待时间</span>
+innodb_lock_wait_timeout = 500
 
  
 <span class="token comment">#binlog</span>
-log_bin = mysql<span class="token punctuation">-</span>binlog
+<span class="token comment">#log_bin = mysql-binlog</span>
+log<span class="token punctuation">-</span>bin = /var/lib/mysql/mysql<span class="token punctuation">-</span>bin  
 log_slave_updates = on
 binlog_format = row             <span class="token comment">#强烈建议，其他格式可能造成数据不一致</span>
+<span class="token comment">#mysql binlog日志文件保存的过期时间，过期后自动删除</span>
+expire_logs_days = 7
 
-<span class="token comment">#relay log</span>
+  <span class="token comment">#relay log</span>
 skip_slave_start = 1
 
 read_only = on                   <span class="token comment">#设置只读</span>
 
 general_log = 1
 general_log_file = /var/log/mysql/access.log
+<span class="token comment">#数据库错误日志文件</span>
+<span class="token comment">#log-error = /var/lib/mysql/error.log  </span>
 log<span class="token punctuation">-</span>error = /var/log/mysql/error.log
+<span class="token comment">#慢查询sql日志设置</span>
+slow_query_log = 1
+slow_query_log_file = slow.log
+<span class="token comment">#检查未使用到索引的sql</span>
+log_queries_not_using_indexes = 1
+<span class="token comment">#针对log_queries_not_using_indexes开启后，记录慢sql的频次、每分钟记录的条数</span>
+log_throttle_queries_not_using_indexes = 5
+<span class="token comment">#作为从库时生效,从库复制中如何有慢sql也将被记录</span>
+log_slow_slave_statements = 1
+<span class="token comment">#慢查询执行的秒数，必须达到此值可被记录</span>
+long_query_time = 8
+<span class="token comment">#检索的行数必须达到此值才可被记为慢查询</span>
+min_examined_row_limit = 100
 
-character_set_server = utf8mb4
-collation_server = utf8mb4_general_ci
-
-<span class="token comment"># Disabling symbolic-links is recommended to prevent assorted security risks</span>
-symbolic<span class="token punctuation">-</span>links=0
 
 <span class="token comment"># Custom config should go here</span>
-<span class="token comment"># !includedir /etc/mysql/conf.d/</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<span class="token comment"># !includedir /etc/mysql/conf.d/</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 <li>启动容器<pre class="line-numbers language-docker" data-language="docker"><code class="language-docker">cd slave
 docker-compose up -d<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
 </ol>
