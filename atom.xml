@@ -6,7 +6,7 @@
   <link href="https://www.xiaosige.com/atom.xml" rel="self"/>
   
   <link href="https://www.xiaosige.com/"/>
-  <updated>2023-05-07T10:05:24.261Z</updated>
+  <updated>2023-05-07T12:28:17.685Z</updated>
   <id>https://www.xiaosige.com/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://www.xiaosige.com/post/6358151c.html"/>
     <id>https://www.xiaosige.com/post/6358151c.html</id>
     <published>2023-05-07T07:47:51.000Z</published>
-    <updated>2023-05-07T10:05:24.261Z</updated>
+    <updated>2023-05-07T12:28:17.685Z</updated>
     
     
     <summary type="html">&lt;h3 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h3&gt;&lt;div class=&quot;note success no-icon&quot;&gt;&lt;p&gt;我这里模拟了一台服务器，开启了&lt;code&gt;两&lt;/code&gt;个mysql8的&lt;code&gt;容器&lt;/code&gt;，一个作为&lt;code&gt;主&lt;/code&gt;，一个作为&lt;code&gt;从&lt;/code&gt;。&lt;/p&gt;
