@@ -38,7 +38,7 @@
 <meta property="og:image" content="https://www.xiaosige.com/post/bd7f5796/harbor008.png">
 <meta property="og:image" content="https://www.xiaosige.com/post/bd7f5796/harbor009.png">
 <meta property="article:published_time" content="2022-10-11T17:09:59.000Z">
-<meta property="article:modified_time" content="2022-10-11T20:19:19.328Z">
+<meta property="article:modified_time" content="2023-09-26T09:57:30.359Z">
 <meta property="article:author" content="leeze">
 <meta property="article:tag" content="Harbor">
 <meta name="twitter:card" content="summary">
@@ -182,7 +182,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Harbor-%E7%AE%80%E4%BB%8B"><span class="nav-number">1.</span> <span class="nav-text">Harbor 简介</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFHarbor"><span class="nav-number">1.1.</span> <span class="nav-text">什么是Harbor</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Harbor%E7%9A%84%E7%89%B9%E6%80%A7"><span class="nav-number">1.2.</span> <span class="nav-text">Harbor的特性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Harbor%E7%9A%84%E6%9E%84%E6%88%90"><span class="nav-number">1.3.</span> <span class="nav-text">Harbor的构成</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Harbor-%E9%83%A8%E7%BD%B2"><span class="nav-number">2.</span> <span class="nav-text">Harbor 部署</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%89%E8%A3%85docker"><span class="nav-number">2.1.</span> <span class="nav-text">安装docker</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%89%E8%A3%85docker-compose"><span class="nav-number">2.2.</span> <span class="nav-text">安装docker-compose</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%83%A8%E7%BD%B2-Harbor-%E6%9C%8D%E5%8A%A1"><span class="nav-number">2.3.</span> <span class="nav-text">部署 Harbor 服务</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%B8%8B%E8%BD%BD%E6%88%96%E4%B8%8A%E4%BC%A0-Harbor-%E5%AE%89%E8%A3%85%E7%A8%8B%E5%BA%8F"><span class="nav-number">2.3.1.</span> <span class="nav-text">下载或上传 Harbor 安装程序</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9harbor%E5%AE%89%E8%A3%85%E7%9A%84%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="nav-number">2.3.2.</span> <span class="nav-text">修改harbor安装的配置文件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-Harbor"><span class="nav-number">2.3.3.</span> <span class="nav-text">安装 Harbor</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B-Harbor-%E5%90%AF%E5%8A%A8%E9%95%9C%E5%83%8F"><span class="nav-number">2.3.4.</span> <span class="nav-text">查看 Harbor 启动镜像</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%95%9C%E5%83%8F%E6%8E%A7%E5%88%B6"><span class="nav-number">2.3.5.</span> <span class="nav-text">镜像控制</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%99%BB%E5%BD%95-Harbor-WEB-UI-%E7%95%8C%E9%9D%A2"><span class="nav-number">2.4.</span> <span class="nav-text">登录 Harbor WEB UI 界面</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Harbor-%E9%95%9C%E5%83%8F%E4%BB%93%E5%BA%93%E4%BD%BF%E7%94%A8"><span class="nav-number">3.</span> <span class="nav-text">Harbor 镜像仓库使用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%B0%E5%BB%BA%E9%A1%B9%E7%9B%AE"><span class="nav-number">3.1.</span> <span class="nav-text">新建项目</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%85%8D%E7%BD%AEDocker%E7%A7%81%E6%9C%89%E9%95%9C%E5%83%8F%E4%BB%93%E5%BA%93"><span class="nav-number">3.2.</span> <span class="nav-text">配置Docker私有镜像仓库</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%99%BB%E5%BD%95-Harbor-%E7%A7%81%E6%9C%89%E9%95%9C%E5%83%8F%E4%BB%93%E5%BA%93"><span class="nav-number">3.3.</span> <span class="nav-text">登录 Harbor 私有镜像仓库</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%8B%E8%BD%BD%E9%95%9C%E5%83%8F%E8%BF%9B%E8%A1%8C%E6%8E%A8%E9%80%81%E6%B5%8B%E8%AF%95"><span class="nav-number">3.4.</span> <span class="nav-text">下载镜像进行推送测试</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Harbor-%E7%AE%80%E4%BB%8B"><span class="nav-number">1.</span> <span class="nav-text">Harbor 简介</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFHarbor"><span class="nav-number">1.1.</span> <span class="nav-text">什么是Harbor</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Harbor%E7%9A%84%E7%89%B9%E6%80%A7"><span class="nav-number">1.2.</span> <span class="nav-text">Harbor的特性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Harbor%E7%9A%84%E6%9E%84%E6%88%90"><span class="nav-number">1.3.</span> <span class="nav-text">Harbor的构成</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Harbor-%E9%83%A8%E7%BD%B2"><span class="nav-number">2.</span> <span class="nav-text">Harbor 部署</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%89%E8%A3%85docker"><span class="nav-number">2.1.</span> <span class="nav-text">安装docker</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%89%E8%A3%85docker-compose"><span class="nav-number">2.2.</span> <span class="nav-text">安装docker-compose</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%83%A8%E7%BD%B2-Harbor-%E6%9C%8D%E5%8A%A1"><span class="nav-number">2.3.</span> <span class="nav-text">部署 Harbor 服务</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%B8%8B%E8%BD%BD%E6%88%96%E4%B8%8A%E4%BC%A0-Harbor-%E5%AE%89%E8%A3%85%E7%A8%8B%E5%BA%8F"><span class="nav-number">2.3.1.</span> <span class="nav-text">下载或上传 Harbor 安装程序</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9harbor%E5%AE%89%E8%A3%85%E7%9A%84%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="nav-number">2.3.2.</span> <span class="nav-text">修改harbor安装的配置文件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-Harbor"><span class="nav-number">2.3.3.</span> <span class="nav-text">安装 Harbor</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#bash%E8%84%9A%E6%9C%AC%E4%B8%80%E9%94%AE%E5%AE%89%E8%A3%85%EF%BC%88%E5%8F%AF%E9%80%89%EF%BC%89"><span class="nav-number">2.3.4.</span> <span class="nav-text">bash脚本一键安装（可选）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B-Harbor-%E5%90%AF%E5%8A%A8%E9%95%9C%E5%83%8F"><span class="nav-number">2.3.5.</span> <span class="nav-text">查看 Harbor 启动镜像</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%95%9C%E5%83%8F%E6%8E%A7%E5%88%B6"><span class="nav-number">2.3.6.</span> <span class="nav-text">镜像控制</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%99%BB%E5%BD%95-Harbor-WEB-UI-%E7%95%8C%E9%9D%A2"><span class="nav-number">2.4.</span> <span class="nav-text">登录 Harbor WEB UI 界面</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Harbor-%E9%95%9C%E5%83%8F%E4%BB%93%E5%BA%93%E4%BD%BF%E7%94%A8"><span class="nav-number">3.</span> <span class="nav-text">Harbor 镜像仓库使用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%B0%E5%BB%BA%E9%A1%B9%E7%9B%AE"><span class="nav-number">3.1.</span> <span class="nav-text">新建项目</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%85%8D%E7%BD%AEDocker%E7%A7%81%E6%9C%89%E9%95%9C%E5%83%8F%E4%BB%93%E5%BA%93"><span class="nav-number">3.2.</span> <span class="nav-text">配置Docker私有镜像仓库</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%99%BB%E5%BD%95-Harbor-%E7%A7%81%E6%9C%89%E9%95%9C%E5%83%8F%E4%BB%93%E5%BA%93"><span class="nav-number">3.3.</span> <span class="nav-text">登录 Harbor 私有镜像仓库</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%8B%E8%BD%BD%E9%95%9C%E5%83%8F%E8%BF%9B%E8%A1%8C%E6%8E%A8%E9%80%81%E6%B5%8B%E8%AF%95"><span class="nav-number">3.4.</span> <span class="nav-text">下载镜像进行推送测试</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PS"><span class="nav-number">4.</span> <span class="nav-text">PS</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -599,9 +599,15 @@ canvas#canvas {
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2022-10-12 01:09:59 / 修改时间：04:19:19" itemprop="dateCreated datePublished" datetime="2022-10-12T01:09:59+08:00">2022-10-12</time>
+      <time title="创建时间：2022-10-12 01:09:59" itemprop="dateCreated datePublished" datetime="2022-10-12T01:09:59+08:00">2022-10-12</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-09-26 17:57:30" itemprop="dateModified" datetime="2023-09-26T17:57:30+08:00">2023-09-26</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -644,14 +650,14 @@ canvas#canvas {
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>4.1k</span>
+      <span>5.6k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>4 分钟</span>
+      <span>5 分钟</span>
     </span>
 </div>
 
@@ -744,13 +750,61 @@ port <span class="token operator">=</span> <span class="token number">82</span>
 --59行--指定管理员的初始密码，默认的用户名/密码是admin/Harbor12345
 harbor_admin_password <span class="token operator">=</span> Harbor12345
 
+<span class="token comment"># mkdir /var/harbor   chmod -R 750 /var/harbor</span>
+data_volume: /var/harbor
+
 :wq<span class="token operator">!</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h5 id="安装-Harbor"><a href="#安装-Harbor" class="headerlink" title="安装 Harbor"></a>安装 Harbor</h5><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">./install.sh 
 <span class="token comment">#以 pull (获取)镜像并启动容器</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p>  安装之后生成<code>docker-compose.yml</code></p>
 <img data-src="/post/bd7f5796/harbor003.png" class="" title="Harbor">
+
+<h5 id="bash脚本一键安装（可选）"><a href="#bash脚本一键安装（可选）" class="headerlink" title="bash脚本一键安装（可选）"></a>bash脚本一键安装（可选）</h5><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token shebang important">#!/bin/bash</span>
+
+<span class="token comment"># 常量设置</span>
+<span class="token assign-left variable">harbor_version</span><span class="token operator">=</span><span class="token string">"2.9.0"</span> <span class="token comment"># harbor版本</span>
+<span class="token assign-left variable">install_path</span><span class="token operator">=</span><span class="token string">"/usr/local"</span> <span class="token comment"># 安装、操作目录</span>
+<span class="token assign-left variable">server_ip</span><span class="token operator">=</span><span class="token string">"192.168.0.88"</span> <span class="token comment"># 服务ip</span>
+<span class="token assign-left variable">server_port</span><span class="token operator">=</span><span class="token string">"8888"</span> <span class="token comment"># 服务端口</span>
+<span class="token assign-left variable">data_path</span><span class="token operator">=</span><span class="token string">"/var/harbor"</span> <span class="token comment"># 数据保存目录</span>
+<span class="token assign-left variable">data_path2</span><span class="token operator">=</span><span class="token string">"\/var\/harbor"</span> <span class="token comment"># 数据保存目录</span>
+
+
+<span class="token comment"># 下载harbor源码包，如果下载过慢，注释下面几行代码</span>
+<span class="token builtin class-name">echo</span> <span class="token string">"......正在下载源码包......"</span>
+<span class="token function">wget</span> <span class="token parameter variable">-P</span> <span class="token variable">${install_path}</span> <span class="token function">wget</span> https://github.com/goharbor/harbor/releases/download/v<span class="token variable">${harbor_version}</span>/harbor-offline-installer-v<span class="token variable">${harbor_version}</span>.tgz
+<span class="token builtin class-name">echo</span> <span class="token string">"......源码包下载完成......"</span>
+
+<span class="token comment"># 解压缩</span>
+<span class="token builtin class-name">echo</span> <span class="token string">"......正在解压缩源码包......"</span>
+<span class="token builtin class-name">cd</span> <span class="token variable">${install_path}</span>
+<span class="token function">tar</span> <span class="token parameter variable">-zxf</span> <span class="token variable">${install_path}</span>/harbor-offline-installer-v<span class="token variable">${harbor_version}</span>.tgz
+<span class="token builtin class-name">echo</span> <span class="token string">"......源码包解压缩完成......"</span>
+
+<span class="token comment"># 创建数据目录</span>
+<span class="token function">mkdir</span> <span class="token variable">${data_path}</span>
+<span class="token function">chmod</span> <span class="token parameter variable">-R</span> <span class="token number">750</span> <span class="token variable">${data_path}</span>
+
+<span class="token comment"># 配置文件</span>
+<span class="token builtin class-name">echo</span> <span class="token string">"......正在修改配置文件......"</span>
+<span class="token comment">## 复制配置文件</span>
+<span class="token function">cp</span> <span class="token variable">${install_path}</span>/harbor/harbor.yml.tmpl <span class="token variable">${install_path}</span>/harbor/harbor.yml
+<span class="token comment">## 调整配置文件</span>
+<span class="token function">sed</span> <span class="token parameter variable">-i</span> <span class="token string">'s/data_volume: \/data/data_volume: '</span><span class="token string">"<span class="token variable">$data_path2</span>"</span>'/g<span class="token string">' ${install_path}/harbor/harbor.yml
+sed -i '</span>s/hostname: reg.mydomain.com/hostname: <span class="token string">'"$server_ip"'</span>/g<span class="token string">' ${install_path}/harbor/harbor.yml
+sed -i '</span>s/https:/<span class="token comment"># https:/g' ${install_path}/harbor/harbor.yml</span>
+<span class="token function">sed</span> <span class="token parameter variable">-i</span> <span class="token string">'s/certificate:/# certificate:/g'</span> <span class="token variable">${install_path}</span>/harbor/harbor.yml
+<span class="token function">sed</span> <span class="token parameter variable">-i</span> <span class="token string">'s/private_key:/# private_key:/g'</span> <span class="token variable">${install_path}</span>/harbor/harbor.yml
+<span class="token function">sed</span> <span class="token parameter variable">-i</span> <span class="token string">'s/port: 443/# port: 443/g'</span> <span class="token variable">${install_path}</span>/harbor/harbor.yml
+<span class="token builtin class-name">echo</span> <span class="token string">"......修改配置文件完成......"</span>
+<span class="token comment">## 启动</span>
+/usr/local/harbor/install.sh
+
+<span class="token builtin class-name">echo</span> <span class="token string">"......!!!脚本运行完成!!!......"</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 
 <h5 id="查看-Harbor-启动镜像"><a href="#查看-Harbor-启动镜像" class="headerlink" title="查看 Harbor 启动镜像"></a>查看 Harbor 启动镜像</h5><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">cd</span> /usr/local/harbor
 
@@ -777,6 +831,7 @@ harbor_admin_password <span class="token operator">=</span> Harbor12345
 <span class="token punctuation">[</span>root@localhost docker<span class="token punctuation">]</span><span class="token comment"># systemctl restart docker</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
+
 <h4 id="登录-Harbor-私有镜像仓库"><a href="#登录-Harbor-私有镜像仓库" class="headerlink" title="登录 Harbor 私有镜像仓库"></a>登录 <code>Harbor</code> 私有镜像仓库</h4><p>  登陆docker仓库 ,<code>docker login&lt;harbor所在服务器ip&gt;:&lt;端口&gt;</code></p>
 <pre class="line-numbers language-docker" data-language="docker"><code class="language-docker">docker login http://192.168.3.202:82
 docker login -u admin -p Harbor12345 http://192.168.3.202:82 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
@@ -795,6 +850,9 @@ docker logout 192.168.3.202<span aria-hidden="true" class="line-numbers-rows"><s
 <img data-src="/post/bd7f5796/harbor009.png" class="" title="Harbor">
 
 
+<br>
+
+<h3 id="PS"><a href="#PS" class="headerlink" title="PS"></a>PS</h3><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/ziqibit/article/details/129737894">harbor部署（docker hub）+bash一键安装</a></p>
 <link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
     </div>
 
@@ -906,13 +964,13 @@ docker logout 192.168.3.202<span aria-hidden="true" class="line-numbers-rows"><s
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">417k</span>
+    <span title="站点总字数">418k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">6:19</span>
+    <span title="站点阅读时长">6:20</span>
   </span>
 </div>
 <div class="busuanzi-count">
