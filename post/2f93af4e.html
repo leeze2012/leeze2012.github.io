@@ -27,19 +27,19 @@
 <meta property="og:url" content="https://www.xiaosige.com/post/2f93af4e.html">
 <meta property="og:site_name" content="小四儿">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://www.xiaosige.com/post/2f93af4e/dockernw001.png">
-<meta property="og:image" content="https://www.xiaosige.com/post/2f93af4e/dockernw002.png">
-<meta property="og:image" content="https://www.xiaosige.com/post/2f93af4e/dockernw003.png">
-<meta property="og:image" content="https://www.xiaosige.com/post/2f93af4e/dockernw004.png">
-<meta property="og:image" content="https://www.xiaosige.com/post/2f93af4e/dockernw005.png">
-<meta property="og:image" content="https://www.xiaosige.com/post/2f93af4e/dockernw006.png">
-<meta property="og:image" content="https://www.xiaosige.com/post/2f93af4e/dockernw007.png">
+<meta property="og:image" content="https://www.xiaosige.com/post/2f93af4e/2f93af4e/dockernw001.png">
+<meta property="og:image" content="https://www.xiaosige.com/post/2f93af4e/2f93af4e/dockernw002.png">
+<meta property="og:image" content="https://www.xiaosige.com/post/2f93af4e/2f93af4e/dockernw003.png">
+<meta property="og:image" content="https://www.xiaosige.com/post/2f93af4e/2f93af4e/dockernw004.png">
+<meta property="og:image" content="https://www.xiaosige.com/post/2f93af4e/2f93af4e/dockernw005.png">
+<meta property="og:image" content="https://www.xiaosige.com/post/2f93af4e/2f93af4e/dockernw006.png">
+<meta property="og:image" content="https://www.xiaosige.com/post/2f93af4e/2f93af4e/dockernw007.png">
 <meta property="article:published_time" content="2021-10-11T13:20:11.000Z">
 <meta property="article:modified_time" content="2022-10-11T16:32:20.223Z">
 <meta property="article:author" content="leeze">
 <meta property="article:tag" content="Docker">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://www.xiaosige.com/post/2f93af4e/dockernw001.png">
+<meta name="twitter:image" content="https://www.xiaosige.com/post/2f93af4e/2f93af4e/dockernw001.png">
 
 
 <link rel="canonical" href="https://www.xiaosige.com/post/2f93af4e.html">
@@ -664,7 +664,7 @@ canvas#canvas {
     
     
     
-    <div class="post-body" itemprop="articleBody"><img data-src="/post/2f93af4e/dockernw001.png" style="height:260px;width:100%;box-shadow:none!important;">
+    <div class="post-body" itemprop="articleBody"><img data-src="/post/2f93af4e/2f93af4e/dockernw001.png" style="height:260px;width:100%;box-shadow:none!important;">
 
 <span id="more"></span>
 
@@ -710,7 +710,7 @@ fe9fd94c0987   none          null      <span class="token builtin class-name">lo
 </tr>
 </tbody>
 </table>
-<img data-src="/post/2f93af4e/dockernw002.png" class="" title="Network">
+<img data-src="/post/2f93af4e/2f93af4e/dockernw002.png" class="" title="Network">
 
 
 
@@ -720,7 +720,7 @@ fe9fd94c0987   none          null      <span class="token builtin class-name">lo
 <p>  bridge模式是docker的默认网络模式，不写<code>–network</code>参数，就是bridge模式。使用<code>docker run -p</code>时，docker实际是在iptables做了DNAT规则，实现端口转发功能。可以使用<code>iptables -t nat -vnL</code>查看。</p>
 </div>
 
-<p>  bridge模式如下图所示：<br><img data-src="/post/2f93af4e/dockernw003.png" style="height:360px;box-shadow:none!important;"></p>
+<p>  bridge模式如下图所示：<br><img data-src="/post/2f93af4e/2f93af4e/dockernw003.png" style="height:360px;box-shadow:none!important;"></p>
 <p>  假设上图的<code>docker2</code>中运行了一个<code>nginx</code>，大家来想几个问题：</p>
 <div class="note info no-icon"><ul>
 <li>同主机间两个容器间是否可以直接通信？比如在docker1上能不能直接访问到docker2的nginx站点？</li>
@@ -730,11 +730,11 @@ fe9fd94c0987   none          null      <span class="token builtin class-name">lo
 </div>
 <p>  Docker网桥是宿主机虚拟出来的，并不是真实存在的网络设备，外部网络是无法寻址到的，这也意味着外部网络无法通过直接Container-IP访问到容器。如果容器希望外部访问能够访问到，可以通过映射容器端口到宿主主机（端口映射），即<code>docker run</code>创建容器时候通过 <code>-p</code> 或 <code>-P</code> 参数来启用，访问容器的时候就通过<code>[宿主机IP]</code>:<code>[容器端口]</code>访问容器。</p>
 <h5 id="container模式"><a href="#container模式" class="headerlink" title="container模式"></a>container模式</h5><p>  这个模式指定新创建的容器和已经存在的一个<code>容器共享</code>一个 <code>Network Namespace</code>，而不是和宿主机共享。新创建的容器不会创建自己的网卡，配置自己的 IP，而是和一个指定的容器共享 IP、端口范围等。同样，两个容器除了网络方面，其他的如文件系统、进程列表等还是隔离的。两个容器的进程可以通过 <code>lo</code> 网卡设备通信。<br>  container模式如下图所示：</p>
-<img data-src="/post/2f93af4e/dockernw004.png" class="" title="container">
+<img data-src="/post/2f93af4e/2f93af4e/dockernw004.png" class="" title="container">
 
 
 
-<h5 id="host模式"><a href="#host模式" class="headerlink" title="host模式"></a>host模式</h5><p>  如果启动容器的时候使用host模式，那么这个容器将<code>不会</code>获得一个独立的<code>Network Namespace</code>，而是和<code>宿主机共用</code>一个<code>Network Namespace</code>。容器将不会虚拟出自己的网卡，配置自己的IP等，而是使用宿主机的IP和端口。但是，容器的其他方面，如文件系统、进程列表等还是和宿主机隔离的。<br>  使用host模式的容器可以直接使用宿主机的IP地址与外界通信，容器内部的服务端口也可以使用宿主机的端口，不需要进行NAT，host最大的优势就是网络性能比较好，但是<code>docker host</code>上<code>已经</code>使用的<code>端口</code>就<code>不能</code>再用了，网络的隔离性不好。<br>  Host模式如下图所示：<br><img data-src="/post/2f93af4e/dockernw005.png" style="height:360px;box-shadow:none!important;"></p>
+<h5 id="host模式"><a href="#host模式" class="headerlink" title="host模式"></a>host模式</h5><p>  如果启动容器的时候使用host模式，那么这个容器将<code>不会</code>获得一个独立的<code>Network Namespace</code>，而是和<code>宿主机共用</code>一个<code>Network Namespace</code>。容器将不会虚拟出自己的网卡，配置自己的IP等，而是使用宿主机的IP和端口。但是，容器的其他方面，如文件系统、进程列表等还是和宿主机隔离的。<br>  使用host模式的容器可以直接使用宿主机的IP地址与外界通信，容器内部的服务端口也可以使用宿主机的端口，不需要进行NAT，host最大的优势就是网络性能比较好，但是<code>docker host</code>上<code>已经</code>使用的<code>端口</code>就<code>不能</code>再用了，网络的隔离性不好。<br>  Host模式如下图所示：<br><img data-src="/post/2f93af4e/2f93af4e/dockernw005.png" style="height:360px;box-shadow:none!important;"></p>
 <h5 id="none模式"><a href="#none模式" class="headerlink" title="none模式"></a>none模式</h5><p>  使用none模式，Docker容器<code>拥有</code>自己的<code>Network Namespace</code>，但是，并<code>不</code>为Docker容器进行任何<code>网络配置</code>。也就是说，这个Docker容器<code>没有</code>网卡、IP、路由等信息。需要我们自己为Docker容器添加网卡、配置IP等。<br>  这种网络模式下容器只有lo回环网络，没有其他网卡。none模式可以在容器创建时通过–network none来指定。这种类型的网络没有办法联网，封闭的网络能很好的保证容器的安全性。</p>
 <p>  应用场景：</p>
 <div class="note info no-icon"><ul>
@@ -743,7 +743,7 @@ fe9fd94c0987   none          null      <span class="token builtin class-name">lo
 </ul>
 </div>
 
-<p>  none模式如下图所示：<br><img data-src="/post/2f93af4e/dockernw006.png" style="height:360px;box-shadow:none!important;"></p>
+<p>  none模式如下图所示：<br><img data-src="/post/2f93af4e/2f93af4e/dockernw006.png" style="height:360px;box-shadow:none!important;"></p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 查看bridge网络的详细配置</span>
 root@localhost:~<span class="token comment"># docker network inspect bridge</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
@@ -805,7 +805,7 @@ rtt min/avg/max/mdev <span class="token operator">=</span> <span class="token nu
 
 <h5 id="转移设备"><a href="#转移设备" class="headerlink" title="转移设备"></a>转移设备</h5><p>  我们可以在不同的 Network Namespace 之间转移设备（如<code>veth</code>）。由于一个设备只能属于一个 Network Namespace ，所以转移后在这个 Network Namespace 内就看不到这个设备了。<br>  其中，<code>veth</code>设备属于可转移设备，而很多其它设备（如lo、vxlan、ppp、bridge等）是不可以转移的。</p>
 <h5 id="veth-pair"><a href="#veth-pair" class="headerlink" title="veth pair"></a>veth pair</h5><p>  veth pair 全称是 Virtual Ethernet Pair，是一个成对的端口，所有从这对端口一 端进入的数据包都将从另一端出来，反之也是一样。<br>  引入veth pair是为了在不同的 Network Namespace 直接进行通信，利用它可以直接将两个 Network Namespace 连接起来。</p>
-<img data-src="/post/2f93af4e/dockernw007.png" style="height:360px;box-shadow:none!important;">
+<img data-src="/post/2f93af4e/2f93af4e/dockernw007.png" style="height:360px;box-shadow:none!important;">
 
 <h5 id="创建veth-pair"><a href="#创建veth-pair" class="headerlink" title="创建veth pair"></a>创建veth pair</h5><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">root@localhost:~<span class="token comment"># ip link add type veth</span>
 root@localhost:~<span class="token comment"># ip a</span>

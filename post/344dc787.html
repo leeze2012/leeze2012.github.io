@@ -29,14 +29,14 @@
 <meta property="og:site_name" content="小四儿">
 <meta property="og:description" content="概述  经常遇到因为没有安全弹出下次使用的时候识别不到移动硬盘的情况">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://www.xiaosige.com/post/344dc787/fdisk001.png">
-<meta property="og:image" content="https://www.xiaosige.com/post/344dc787/fdisk002.png">
+<meta property="og:image" content="https://www.xiaosige.com/post/344dc787/344dc787/fdisk001.png">
+<meta property="og:image" content="https://www.xiaosige.com/post/344dc787/344dc787/fdisk002.png">
 <meta property="article:published_time" content="2022-07-30T14:53:12.000Z">
 <meta property="article:modified_time" content="2022-10-09T23:40:20.449Z">
 <meta property="article:author" content="leeze">
 <meta property="article:tag" content="Disk">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://www.xiaosige.com/post/344dc787/fdisk001.png">
+<meta name="twitter:image" content="https://www.xiaosige.com/post/344dc787/344dc787/fdisk001.png">
 
 
 <link rel="canonical" href="https://www.xiaosige.com/post/344dc787.html">
@@ -675,7 +675,7 @@ canvas#canvas {
 
 <h3 id="解决-一"><a href="#解决-一" class="headerlink" title="解决 一"></a>解决 一</h3><ol>
 <li>在终端中 输入以下命令 查看到磁盘的<code>Volume Name</code><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">diskutil list<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<img data-src="/post/344dc787/fdisk001.png" class="" title="fdisk"></li>
+<img data-src="/post/344dc787/344dc787/fdisk001.png" class="" title="fdisk"></li>
 <li>紧接着更新 <code>/etc/fstab</code>文件<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">vi</span> /etc/fstab
  
 进入文本编辑界面，按i，进入编辑模式
@@ -721,7 +721,7 @@ canvas#canvas {
   具体这两个命令其他用法可以通过 <code>man diskutil</code> 和 <code>man fsck_hfs</code> 来查看。</li>
 </ol>
 <h3 id="解决-三"><a href="#解决-三" class="headerlink" title="解决 三"></a>解决 三</h3><ol>
-<li>Mac 集成在了一款内置的 “<code>磁盘工具</code>” 之中。通过 command+空格 “聚焦搜索” 磁盘工具可以调出。<img data-src="/post/344dc787/fdisk002.png" class="" title="磁盘工具">
+<li>Mac 集成在了一款内置的 “<code>磁盘工具</code>” 之中。通过 command+空格 “聚焦搜索” 磁盘工具可以调出。<img data-src="/post/344dc787/344dc787/fdisk002.png" class="" title="磁盘工具">
   选择无法识别的移动硬盘 <code>WD_BLACK</code> 然后点<code>急救</code>，就是会执行 <code>fsck_exfat -y -x /dev/disk2s1</code> 并在执行成功后<code>自动挂载</code>。如果急救出现问题，说明后台可能已经在运行 fsck_exfat 命令了，这时候你<code>只需要等待</code>就行了。</li>
 </ol>
 <h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><div class="note no-icon primary"><ol>

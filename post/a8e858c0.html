@@ -27,15 +27,15 @@
 <meta property="og:url" content="https://www.xiaosige.com/post/a8e858c0.html">
 <meta property="og:site_name" content="小四儿">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://www.xiaosige.com/post/a8e858c0/fail2ban002.png">
-<meta property="og:image" content="https://www.xiaosige.com/post/a8e858c0/fail2ban003.png">
-<meta property="og:image" content="https://www.xiaosige.com/post/a8e858c0/fail2ban004.png">
+<meta property="og:image" content="https://www.xiaosige.com/post/a8e858c0/a8e858c0/fail2ban002.png">
+<meta property="og:image" content="https://www.xiaosige.com/post/a8e858c0/a8e858c0/fail2ban003.png">
+<meta property="og:image" content="https://www.xiaosige.com/post/a8e858c0/a8e858c0/fail2ban004.png">
 <meta property="article:published_time" content="2022-10-11T01:04:02.000Z">
 <meta property="article:modified_time" content="2022-10-11T10:45:45.004Z">
 <meta property="article:author" content="leeze">
 <meta property="article:tag" content="Fail2ban">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://www.xiaosige.com/post/a8e858c0/fail2ban002.png">
+<meta name="twitter:image" content="https://www.xiaosige.com/post/a8e858c0/a8e858c0/fail2ban002.png">
 
 
 <link rel="canonical" href="https://www.xiaosige.com/post/a8e858c0.html">
@@ -654,7 +654,7 @@ canvas#canvas {
     
     
     
-    <div class="post-body" itemprop="articleBody"><img data-src="/post/a8e858c0/fail2ban002.png" style="box-shadow:none!important;">
+    <div class="post-body" itemprop="articleBody"><img data-src="/post/a8e858c0/a8e858c0/fail2ban002.png" style="box-shadow:none!important;">
 
 <span id="more"></span>
 
@@ -713,7 +713,7 @@ iptables <span class="token parameter variable">-L</span> <span class="token ope
 <span class="token comment"># 定位到285行左右，添加一行：</span>
 enabled <span class="token operator">=</span> <span class="token boolean">true</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<img data-src="/post/a8e858c0/fail2ban003.png" class="" title="jail.local">
+<img data-src="/post/a8e858c0/a8e858c0/fail2ban003.png" class="" title="jail.local">
 <p>  修改<code>fail2ban.local</code>,定位到<code>最后一行</code>，添加如下内容(CentOS使用如下配置):</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>sshd<span class="token punctuation">]</span>
 <span class="token builtin class-name">enable</span> <span class="token operator">=</span> ture
@@ -725,7 +725,7 @@ logpath <span class="token operator">=</span> /var/log/secure
 <span class="token comment"># logpath = /var/log/auth.log</span>
 maxretry <span class="token operator">=</span> <span class="token number">5</span>   <span class="token comment"># 最大尝试次数</span>
 bantime <span class="token operator">=</span> <span class="token number">1800</span> <span class="token comment">#封禁时间，单位s。-1为永久封禁</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<img data-src="/post/a8e858c0/fail2ban004.png" class="" title="fail2ban.local">
+<img data-src="/post/a8e858c0/a8e858c0/fail2ban004.png" class="" title="fail2ban.local">
 <p>  保存配置，重启生效。</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> systemctl restart fail2ban  <span class="token comment">#重启</span>
 <span class="token function">sudo</span> fail2ban-client status <span class="token comment">#查看状态</span>

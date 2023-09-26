@@ -29,13 +29,13 @@
 <meta property="og:site_name" content="小四儿">
 <meta property="og:description" content="订单id的特殊性  订单数据非常庞大，将来一定会做分库分表。那么这种情况下， 要保证id的唯一，就不能靠数据库自增，而是自己来实现算法，生成唯一id。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://www.xiaosige.com/post/8515d6d4/snowflake-002.png">
+<meta property="og:image" content="https://www.xiaosige.com/post/8515d6d4/8515d6d4/snowflake-002.png">
 <meta property="article:published_time" content="2020-10-20T16:53:39.000Z">
 <meta property="article:modified_time" content="2020-11-04T18:20:24.572Z">
 <meta property="article:author" content="leeze">
 <meta property="article:tag" content="snowflake">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://www.xiaosige.com/post/8515d6d4/snowflake-002.png">
+<meta name="twitter:image" content="https://www.xiaosige.com/post/8515d6d4/8515d6d4/snowflake-002.png">
 
 
 <link rel="canonical" href="https://www.xiaosige.com/post/8515d6d4.html">
@@ -851,7 +851,7 @@ canvas#canvas {
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><p>  为了保证不重复，我们给每个部署的节点都配置机器id：</p>
-<img data-src="/post/8515d6d4/snowflake-002.png" class="" title="snowflake">
+<img data-src="/post/8515d6d4/8515d6d4/snowflake-002.png" class="" title="snowflake">
 
 <h3 id="加载属性"><a href="#加载属性" class="headerlink" title="加载属性"></a>加载属性</h3><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">com<span class="token punctuation">.</span>leyou<span class="token punctuation">.</span>order<span class="token punctuation">.</span>properties</span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> <span class="token import"><span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>boot<span class="token punctuation">.</span>context<span class="token punctuation">.</span>properties<span class="token punctuation">.</span></span><span class="token class-name">ConfigurationProperties</span></span><span class="token punctuation">;</span>

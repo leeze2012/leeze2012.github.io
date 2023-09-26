@@ -27,15 +27,15 @@
 <meta property="og:url" content="https://www.xiaosige.com/post/4612f524.html">
 <meta property="og:site_name" content="小四儿">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://www.xiaosige.com/post/4612f524/skywalking-001.png">
-<meta property="og:image" content="https://www.xiaosige.com/post/4612f524/skywalking-002.jpg">
-<meta property="og:image" content="https://www.xiaosige.com/post/4612f524/skywalking-003.png">
+<meta property="og:image" content="https://www.xiaosige.com/post/4612f524/4612f524/skywalking-001.png">
+<meta property="og:image" content="https://www.xiaosige.com/post/4612f524/4612f524/skywalking-002.jpg">
+<meta property="og:image" content="https://www.xiaosige.com/post/4612f524/4612f524/skywalking-003.png">
 <meta property="article:published_time" content="2022-05-09T05:07:58.000Z">
 <meta property="article:modified_time" content="2022-05-09T15:45:40.370Z">
 <meta property="article:author" content="leeze">
 <meta property="article:tag" content="APM">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://www.xiaosige.com/post/4612f524/skywalking-001.png">
+<meta name="twitter:image" content="https://www.xiaosige.com/post/4612f524/4612f524/skywalking-001.png">
 
 
 <link rel="canonical" href="https://www.xiaosige.com/post/4612f524.html">
@@ -654,7 +654,7 @@ canvas#canvas {
     
     
     
-    <div class="post-body" itemprop="articleBody"><img data-src="/post/4612f524/skywalking-001.png" style="box-shadow:none!important;">
+    <div class="post-body" itemprop="articleBody"><img data-src="/post/4612f524/4612f524/skywalking-001.png" style="box-shadow:none!important;">
 
 <span id="more"></span>
 
@@ -666,7 +666,7 @@ canvas#canvas {
 <li><code>Endpoint</code>: 一个服务中的其中一个接口</li>
 </ul>
 </div>
-<h3 id="架构图"><a href="#架构图" class="headerlink" title="架构图"></a>架构图</h3><img data-src="/post/4612f524/skywalking-002.jpg" class="" title="skywalking架构图">
+<h3 id="架构图"><a href="#架构图" class="headerlink" title="架构图"></a>架构图</h3><img data-src="/post/4612f524/4612f524/skywalking-002.jpg" class="" title="skywalking架构图">
 <h3 id="快速部署"><a href="#快速部署" class="headerlink" title="快速部署"></a>快速部署</h3><h4 id="下载镜像"><a href="#下载镜像" class="headerlink" title="下载镜像"></a>下载镜像</h4><pre class="line-numbers language-docker" data-language="docker"><code class="language-docker">docker pull elasticsearch:7.17.3
 docker pull apache/skywalking-oap-server:9.0.0
 docker pull apache/skywalking-ui:9.0.0<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
@@ -820,7 +820,7 @@ apache/skywalking-ui:8.6.0<span aria-hidden="true" class="line-numbers-rows"><sp
 
 
 <h3 id="Spring-boot实例部署"><a href="#Spring-boot实例部署" class="headerlink" title="Spring-boot实例部署"></a>Spring-boot实例部署</h3><p>  下载agent：<a target="_blank" rel="noopener" href="https://skywalking.apache.org/downloads/">https://skywalking.apache.org/downloads/</a></p>
-<img data-src="/post/4612f524/skywalking-003.png" class="" title="Agents">
+<img data-src="/post/4612f524/4612f524/skywalking-003.png" class="" title="Agents">
 <p>  以agent的方式启动，对代码没有侵入性，直接在启动命令上指定javaagent即可。<br>  启动命令javaagent参数添加：</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java">java <span class="token operator">-</span>javaagent<span class="token operator">:</span><span class="token operator">/</span><span class="token class-name">Users</span><span class="token operator">/</span>xiaosige<span class="token operator">/</span><span class="token class-name">Downloads</span><span class="token operator">/</span>skywalking<span class="token operator">-</span>agent<span class="token operator">/</span>skywalking<span class="token operator">-</span>agent<span class="token punctuation">.</span>jar 
   <span class="token operator">-</span><span class="token constant">DSW_AGENT_COLLECTOR_BACKEND_SERVICES</span><span class="token operator">=</span><span class="token number">10.211</span><span class="token number">.55</span><span class="token number">.81</span><span class="token operator">:</span><span class="token number">11800</span> 

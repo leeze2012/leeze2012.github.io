@@ -27,15 +27,15 @@
 <meta property="og:url" content="https://www.xiaosige.com/post/36ac4c26.html">
 <meta property="og:site_name" content="小四儿">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://www.xiaosige.com/post/36ac4c26/traefik003.png">
-<meta property="og:image" content="https://www.xiaosige.com/post/36ac4c26/traekit001.png">
-<meta property="og:image" content="https://www.xiaosige.com/post/36ac4c26/traekit002.png">
+<meta property="og:image" content="https://www.xiaosige.com/post/36ac4c26/36ac4c26/traefik003.png">
+<meta property="og:image" content="https://www.xiaosige.com/post/36ac4c26/36ac4c26/traekit001.png">
+<meta property="og:image" content="https://www.xiaosige.com/post/36ac4c26/36ac4c26/traekit002.png">
 <meta property="article:published_time" content="2022-10-10T21:37:02.000Z">
 <meta property="article:modified_time" content="2022-10-11T15:57:03.766Z">
 <meta property="article:author" content="leeze">
 <meta property="article:tag" content="Traefik">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://www.xiaosige.com/post/36ac4c26/traefik003.png">
+<meta name="twitter:image" content="https://www.xiaosige.com/post/36ac4c26/36ac4c26/traefik003.png">
 
 
 <link rel="canonical" href="https://www.xiaosige.com/post/36ac4c26.html">
@@ -654,7 +654,7 @@ canvas#canvas {
     
     
     
-    <div class="post-body" itemprop="articleBody"><img data-src="/post/36ac4c26/traefik003.png" style="height:200px;box-shadow:none!important;">
+    <div class="post-body" itemprop="articleBody"><img data-src="/post/36ac4c26/36ac4c26/traefik003.png" style="height:200px;box-shadow:none!important;">
 <span id="more"></span>
 
 <h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><div class="note info no-icon"><p>  Traefik 是一款开源的边缘路由器，可以作为整个平台的入口（网关），根据逻辑规则，处理并路由整个传入的请求。</p>
@@ -745,8 +745,8 @@ TRAEFIK_PROVIDERS_DOCKER：
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h3 id="Docker部署Traefik"><a href="#Docker部署Traefik" class="headerlink" title="Docker部署Traefik"></a>Docker部署Traefik</h3><h4 id="创建目录"><a href="#创建目录" class="headerlink" title="创建目录"></a>创建目录</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">mkdir</span> <span class="token parameter variable">-p</span> /root/docker/traefik/<span class="token punctuation">{</span>config,ssl<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<img data-src="/post/36ac4c26/traekit001.png" class="" title="traefik目录">
-<img data-src="/post/36ac4c26/traekit002.png" class="" title="config目录">
+<img data-src="/post/36ac4c26/36ac4c26/traekit001.png" class="" title="traefik目录">
+<img data-src="/post/36ac4c26/36ac4c26/traekit002.png" class="" title="config目录">
 <h4 id="创建外部网卡"><a href="#创建外部网卡" class="headerlink" title="创建外部网卡"></a>创建外部网卡</h4><pre class="line-numbers language-docker" data-language="docker"><code class="language-docker">docker network create traefik \
 -o com.docker.network.bridge.name=traefik \
 -o com.docker.network.bridge.host_binding_ipv4=0.0.0.0 \

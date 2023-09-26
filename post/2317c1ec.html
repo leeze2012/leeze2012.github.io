@@ -29,13 +29,13 @@
 <meta property="og:site_name" content="小四儿">
 <meta property="og:description" content="前言  这次记录的是将SSH多次登录失败的IP加入黑名单的过程。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://www.xiaosige.com/post/2317c1ec/sshDeny001.png">
+<meta property="og:image" content="https://www.xiaosige.com/post/2317c1ec/2317c1ec/sshDeny001.png">
 <meta property="article:published_time" content="2022-08-21T14:31:45.000Z">
 <meta property="article:modified_time" content="2022-10-11T10:41:07.567Z">
 <meta property="article:author" content="leeze">
 <meta property="article:tag" content="ssh">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://www.xiaosige.com/post/2317c1ec/sshDeny001.png">
+<meta name="twitter:image" content="https://www.xiaosige.com/post/2317c1ec/2317c1ec/sshDeny001.png">
 
 
 <link rel="canonical" href="https://www.xiaosige.com/post/2317c1ec.html">
@@ -667,7 +667,7 @@ canvas#canvas {
 <span class="token function">awk</span> <span class="token string">'/Failed/{fa[$(NF-3)]++}END{for(pol in fa)print pol,fa[pol]}'</span> /var/log/secure<span class="token operator">|</span><span class="token function">column</span> <span class="token parameter variable">-t</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <p>  虽然将ssh的端口更改了，但还是免不了被人发现，并且尝试暴力破解。</p>
-<img data-src="/post/2317c1ec/sshDeny001.png" class="" title="IP">
+<img data-src="/post/2317c1ec/2317c1ec/sshDeny001.png" class="" title="IP">
 <p>  查看记录才发现一直有被爆破的记录，最离谱的一个IP爆破了2W次……</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 列出登入失败的用户记录</span>
 lastb<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
