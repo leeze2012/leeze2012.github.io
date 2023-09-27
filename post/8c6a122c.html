@@ -29,13 +29,13 @@
 <meta property="og:site_name" content="小四儿">
 <meta property="og:description" content="概述  平时ssh登录到Linux服务器都是在命令行下进行操作的，简单高效。但是有些时候，需要配置一些Linux系统下的图形化软件的参数，ssh登录到Linux服务器后，就需要显示图形化界面了。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://www.xiaosige.com/post/8c6a122c/8c6a122c/sshLoginG001.jpg">
+<meta property="og:image" content="https://www.xiaosige.com/post/8c6a122c/sshLoginG001.jpg">
 <meta property="article:published_time" content="2022-08-24T14:47:01.000Z">
 <meta property="article:modified_time" content="2022-08-24T16:01:33.485Z">
 <meta property="article:author" content="leeze">
 <meta property="article:tag" content="ssh">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://www.xiaosige.com/post/8c6a122c/8c6a122c/sshLoginG001.jpg">
+<meta name="twitter:image" content="https://www.xiaosige.com/post/8c6a122c/sshLoginG001.jpg">
 
 
 <link rel="canonical" href="https://www.xiaosige.com/post/8c6a122c.html">
@@ -124,7 +124,7 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">61</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">24</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">145</span></a></li><li class="menu-item menu-item-welfare"><a href="/welfare" rel="section"><i class="fa fa-star fa-fw"></i>收藏</a></li><li class="menu-item menu-item-music"><a href="/music" rel="section"><i class="fa fa-music fa-fw"></i>音乐</a></li><li class="menu-item menu-item-photos"><a href="/photos" rel="section"><i class="fa fa-camera-retro fa-fw"></i>相册</a></li><li class="menu-item menu-item-links"><a href="/links" rel="section"><i class="fa fa-link fa-fw"></i>友链</a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">61</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">25</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">146</span></a></li><li class="menu-item menu-item-welfare"><a href="/welfare" rel="section"><i class="fa fa-star fa-fw"></i>收藏</a></li><li class="menu-item menu-item-music"><a href="/music" rel="section"><i class="fa fa-music fa-fw"></i>音乐</a></li><li class="menu-item menu-item-photos"><a href="/photos" rel="section"><i class="fa fa-camera-retro fa-fw"></i>相册</a></li><li class="menu-item menu-item-links"><a href="/links" rel="section"><i class="fa fa-link fa-fw"></i>友链</a></li>
       <li class="menu-item menu-item-search">
         <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
         </a>
@@ -190,13 +190,13 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">145</span>
+          <span class="site-state-item-count">146</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">24</span>
+        <span class="site-state-item-count">25</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -712,7 +712,7 @@ canvas#canvas {
 ForwardX11 <span class="token function">yes</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
 <li><code>Mac</code>端安装<code>XQuartz </code><div class="note warning no-icon"><p>网址：<a target="_blank" rel="noopener" href="https://www.xquartz.org/">https://www.xquartz.org/</a><br>下载：<a target="_blank" rel="noopener" href="https://github.com/XQuartz/XQuartz/releases/download/XQuartz-2.8.2/XQuartz-2.8.2.dmg">https://github.com/XQuartz/XQuartz/releases/download/XQuartz-2.8.2/XQuartz-2.8.2.dmg</a></p>
 </div></li>
-<li><code>Mac</code>端<code>测试</code><br><code>a)</code>打开 <code>XQuartz</code>，然后，打开 <code>mac terminal</code><img data-src="/post/8c6a122c/8c6a122c/sshLoginG001.jpg" class="" title="XQuartz">
+<li><code>Mac</code>端<code>测试</code><br><code>a)</code>打开 <code>XQuartz</code>，然后，打开 <code>mac terminal</code><img data-src="/post/8c6a122c/sshLoginG001.jpg" class="" title="XQuartz">
 <code>b)</code>ssh -X   {用户名}@{远程端ip}； （注意<code>大写</code>的<code>X</code>）<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">ssh</span> <span class="token parameter variable">-X</span> root@192.168.3.201<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <code>c)</code>登录成功，输入 <code>gvim</code>看下，是否能调出远程界面</li>
 </ol>
@@ -830,13 +830,13 @@ ForwardX11 <span class="token function">yes</span><span aria-hidden="true" class
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">418k</span>
+    <span title="站点总字数">421k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">6:20</span>
+    <span title="站点阅读时长">6:23</span>
   </span>
 </div>
 <div class="busuanzi-count">

@@ -15,8 +15,31 @@
     <atom:link href="https://www.xiaosige.com/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>因上努力，果上随缘！</description>
-    <pubDate>Sun, 07 May 2023 12:28:17 GMT</pubDate>
+    <pubDate>Wed, 27 Sep 2023 10:05:41 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>Mac/Linux切换多java版本 jenv</title>
+      <link>https://www.xiaosige.com/post/2cab5b52.html</link>
+      <guid>https://www.xiaosige.com/post/2cab5b52.html</guid>
+      <pubDate>Wed, 27 Sep 2023 07:19:22 GMT</pubDate>
+      
+      <description>&lt;img data-src=&quot;/post/2cab5b52/jenv.png&quot; style=&quot;height:260px;box-shadow:none!important;&quot;&gt;</description>
+      
+      
+      
+      
+      <category domain="https://www.xiaosige.com/categories/Linux/">Linux</category>
+      
+      <category domain="https://www.xiaosige.com/categories/Linux/Mac/">Mac</category>
+      
+      
+      <category domain="https://www.xiaosige.com/tags/Jdk/">Jdk</category>
+      
+      
+      <comments>https://www.xiaosige.com/post/2cab5b52.html#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>docker-compose搭建 mysql8 主从</title>
@@ -96,7 +119,7 @@ vm.max_map_count &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt
       <guid>https://www.xiaosige.com/post/f6a4d884.html</guid>
       <pubDate>Sat, 15 Oct 2022 10:02:33 GMT</pubDate>
       
-      <description>&lt;img src=&quot;/post/f6a4d884/f6a4d884/openjdk.png&quot; style=&quot;box-shadow:none!important;&quot;&gt;</description>
+      <description>&lt;img data-src=&quot;/post/f6a4d884/openjdk.png&quot; style=&quot;box-shadow:none!important;&quot;&gt;</description>
       
       
       
@@ -117,7 +140,7 @@ vm.max_map_count &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt
       <guid>https://www.xiaosige.com/post/90c0ce10.html</guid>
       <pubDate>Sat, 15 Oct 2022 08:56:42 GMT</pubDate>
       
-      <description>&lt;img src=&quot;/post/90c0ce10/90c0ce10/vnc001.png&quot; style=&quot;height:260px;box-shadow:none!important;&quot;&gt;</description>
+      <description>&lt;img data-src=&quot;/post/90c0ce10/vnc001.png&quot; style=&quot;height:260px;box-shadow:none!important;&quot;&gt;</description>
       
       
       
@@ -138,7 +161,7 @@ vm.max_map_count &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt
       <guid>https://www.xiaosige.com/post/65899326.html</guid>
       <pubDate>Thu, 13 Oct 2022 11:06:38 GMT</pubDate>
       
-      <description>&lt;img src=&quot;/post/65899326/65899326/elk001.png&quot; style=&quot;box-shadow:none!important;&quot;&gt;</description>
+      <description>&lt;img data-src=&quot;/post/65899326/elk001.png&quot; style=&quot;box-shadow:none!important;&quot;&gt;</description>
       
       
       
@@ -159,7 +182,7 @@ vm.max_map_count &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt
       <guid>https://www.xiaosige.com/post/bd7f5796.html</guid>
       <pubDate>Tue, 11 Oct 2022 17:09:59 GMT</pubDate>
       
-      <description>&lt;img src=&quot;/post/bd7f5796/bd7f5796/harbor-horizontal-color.png&quot; style=&quot;height:260px;width:100%;box-shadow:none!important;&quot;&gt;</description>
+      <description>&lt;img data-src=&quot;/post/bd7f5796/harbor-horizontal-color.png&quot; style=&quot;height:260px;width:100%;box-shadow:none!important;&quot;&gt;</description>
       
       
       
@@ -180,7 +203,7 @@ vm.max_map_count &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt
       <guid>https://www.xiaosige.com/post/a8e858c0.html</guid>
       <pubDate>Tue, 11 Oct 2022 01:04:02 GMT</pubDate>
       
-      <description>&lt;img src=&quot;/post/a8e858c0/a8e858c0/fail2ban002.png&quot; style=&quot;box-shadow:none!important;&quot;&gt;</description>
+      <description>&lt;img data-src=&quot;/post/a8e858c0/fail2ban002.png&quot; style=&quot;box-shadow:none!important;&quot;&gt;</description>
       
       
       
@@ -201,7 +224,7 @@ vm.max_map_count &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt
       <guid>https://www.xiaosige.com/post/36ac4c26.html</guid>
       <pubDate>Mon, 10 Oct 2022 21:37:02 GMT</pubDate>
       
-      <description>&lt;img src=&quot;/post/36ac4c26/36ac4c26/traefik003.png&quot; style=&quot;height:200px;box-shadow:none!important;&quot;&gt;</description>
+      <description>&lt;img data-src=&quot;/post/36ac4c26/traefik003.png&quot; style=&quot;height:200px;box-shadow:none!important;&quot;&gt;</description>
       
       
       
@@ -430,27 +453,6 @@ vm.max_map_count &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt
       
       
       <comments>https://www.xiaosige.com/post/2cdf9a71.html#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>git项目过大清理</title>
-      <link>https://www.xiaosige.com/post/4e0f32b7.html</link>
-      <guid>https://www.xiaosige.com/post/4e0f32b7.html</guid>
-      <pubDate>Wed, 03 Aug 2022 14:41:51 GMT</pubDate>
-      
-      <description>&lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;  项目中经常有不小心提交的大文件,这个就是清理方法.&lt;/p&gt;</description>
-      
-      
-      
-      
-      <category domain="https://www.xiaosige.com/categories/Git/">Git</category>
-      
-      
-      <category domain="https://www.xiaosige.com/tags/Git/">Git</category>
-      
-      
-      <comments>https://www.xiaosige.com/post/4e0f32b7.html#disqus_thread</comments>
       
     </item>
     

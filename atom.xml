@@ -6,7 +6,7 @@
   <link href="https://www.xiaosige.com/atom.xml" rel="self"/>
   
   <link href="https://www.xiaosige.com/"/>
-  <updated>2023-05-07T12:28:17.685Z</updated>
+  <updated>2023-09-27T10:05:41.548Z</updated>
   <id>https://www.xiaosige.com/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Mac/Linux切换多java版本 jenv</title>
+    <link href="https://www.xiaosige.com/post/2cab5b52.html"/>
+    <id>https://www.xiaosige.com/post/2cab5b52.html</id>
+    <published>2023-09-27T07:19:22.000Z</published>
+    <updated>2023-09-27T10:05:41.548Z</updated>
+    
+    
+    <summary type="html">&lt;img data-src=&quot;/post/2cab5b52/jenv.png&quot; style=&quot;height:260px;box-shadow:none!important;&quot;&gt;</summary>
+    
+    
+    
+    <category term="Linux" scheme="https://www.xiaosige.com/categories/Linux/"/>
+    
+    <category term="Mac" scheme="https://www.xiaosige.com/categories/Linux/Mac/"/>
+    
+    
+    <category term="Jdk" scheme="https://www.xiaosige.com/tags/Jdk/"/>
+    
+  </entry>
   
   <entry>
     <title>docker-compose搭建 mysql8 主从</title>
@@ -90,7 +111,7 @@ vm.max_map_count &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt
     <updated>2022-10-15T10:24:53.145Z</updated>
     
     
-    <summary type="html">&lt;img src=&quot;/post/f6a4d884/f6a4d884/openjdk.png&quot; style=&quot;box-shadow:none!important;&quot;&gt;</summary>
+    <summary type="html">&lt;img data-src=&quot;/post/f6a4d884/openjdk.png&quot; style=&quot;box-shadow:none!important;&quot;&gt;</summary>
     
     
     
@@ -109,7 +130,7 @@ vm.max_map_count &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt
     <updated>2022-10-15T10:04:26.342Z</updated>
     
     
-    <summary type="html">&lt;img src=&quot;/post/90c0ce10/90c0ce10/vnc001.png&quot; style=&quot;height:260px;box-shadow:none!important;&quot;&gt;</summary>
+    <summary type="html">&lt;img data-src=&quot;/post/90c0ce10/vnc001.png&quot; style=&quot;height:260px;box-shadow:none!important;&quot;&gt;</summary>
     
     
     
@@ -128,7 +149,7 @@ vm.max_map_count &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt
     <updated>2022-10-13T21:47:22.561Z</updated>
     
     
-    <summary type="html">&lt;img src=&quot;/post/65899326/65899326/elk001.png&quot; style=&quot;box-shadow:none!important;&quot;&gt;</summary>
+    <summary type="html">&lt;img data-src=&quot;/post/65899326/elk001.png&quot; style=&quot;box-shadow:none!important;&quot;&gt;</summary>
     
     
     
@@ -147,7 +168,7 @@ vm.max_map_count &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt
     <updated>2023-09-26T09:57:30.359Z</updated>
     
     
-    <summary type="html">&lt;img src=&quot;/post/bd7f5796/bd7f5796/harbor-horizontal-color.png&quot; style=&quot;height:260px;width:100%;box-shadow:none!important;&quot;&gt;</summary>
+    <summary type="html">&lt;img data-src=&quot;/post/bd7f5796/harbor-horizontal-color.png&quot; style=&quot;height:260px;width:100%;box-shadow:none!important;&quot;&gt;</summary>
     
     
     
@@ -166,7 +187,7 @@ vm.max_map_count &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt
     <updated>2022-10-11T10:45:45.004Z</updated>
     
     
-    <summary type="html">&lt;img src=&quot;/post/a8e858c0/a8e858c0/fail2ban002.png&quot; style=&quot;box-shadow:none!important;&quot;&gt;</summary>
+    <summary type="html">&lt;img data-src=&quot;/post/a8e858c0/fail2ban002.png&quot; style=&quot;box-shadow:none!important;&quot;&gt;</summary>
     
     
     
@@ -185,7 +206,7 @@ vm.max_map_count &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt
     <updated>2022-10-11T15:57:03.766Z</updated>
     
     
-    <summary type="html">&lt;img src=&quot;/post/36ac4c26/36ac4c26/traefik003.png&quot; style=&quot;height:200px;box-shadow:none!important;&quot;&gt;</summary>
+    <summary type="html">&lt;img data-src=&quot;/post/36ac4c26/traefik003.png&quot; style=&quot;height:200px;box-shadow:none!important;&quot;&gt;</summary>
     
     
     
@@ -390,25 +411,6 @@ vm.max_map_count &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt
     
     
     <category term="Dayjs" scheme="https://www.xiaosige.com/tags/Dayjs/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>git项目过大清理</title>
-    <link href="https://www.xiaosige.com/post/4e0f32b7.html"/>
-    <id>https://www.xiaosige.com/post/4e0f32b7.html</id>
-    <published>2022-08-03T14:41:51.000Z</published>
-    <updated>2022-08-03T15:05:16.945Z</updated>
-    
-    
-    <summary type="html">&lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;  项目中经常有不小心提交的大文件,这个就是清理方法.&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="Git" scheme="https://www.xiaosige.com/categories/Git/"/>
-    
-    
-    <category term="Git" scheme="https://www.xiaosige.com/tags/Git/"/>
     
   </entry>
   

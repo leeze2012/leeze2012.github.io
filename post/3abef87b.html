@@ -29,25 +29,25 @@
 <meta property="og:site_name" content="小四儿">
 <meta property="og:description" content="前言  在开发或生产环境中，我们经常会搞一套自动化部署方案（俗称一键部署）。比较流行的一种就是Gitlab+Jenkins实现方案，不过这种方案占用内存比较大，没有个8G内存，很难流畅运行，而且部署起来也不快。最近发现一款神器Drone，轻量级CI&#x2F;DI工具，结合Gogs使用内存占用不到1G，几行脚本就能实现自动化部署，推荐给大家！">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://www.xiaosige.com/post/3abef87b/3abef87b/drone001.png">
-<meta property="og:image" content="https://www.xiaosige.com/post/3abef87b/3abef87b/drone002.png">
-<meta property="og:image" content="https://www.xiaosige.com/post/3abef87b/3abef87b/drone003.png">
-<meta property="og:image" content="https://www.xiaosige.com/post/3abef87b/3abef87b/drone004.png">
-<meta property="og:image" content="https://www.xiaosige.com/post/3abef87b/3abef87b/drone005.png">
-<meta property="og:image" content="https://www.xiaosige.com/post/3abef87b/3abef87b/drone006.png">
-<meta property="og:image" content="https://www.xiaosige.com/post/3abef87b/3abef87b/drone007.png">
-<meta property="og:image" content="https://www.xiaosige.com/post/3abef87b/3abef87b/drone008.png">
-<meta property="og:image" content="https://www.xiaosige.com/post/3abef87b/3abef87b/drone009.png">
-<meta property="og:image" content="https://www.xiaosige.com/post/3abef87b/3abef87b/drone010.png">
-<meta property="og:image" content="https://www.xiaosige.com/post/3abef87b/3abef87b/drone011.png">
-<meta property="og:image" content="https://www.xiaosige.com/post/3abef87b/3abef87b/drone013.png">
-<meta property="og:image" content="https://www.xiaosige.com/post/3abef87b/3abef87b/drone012.png">
+<meta property="og:image" content="https://www.xiaosige.com/post/3abef87b/drone001.png">
+<meta property="og:image" content="https://www.xiaosige.com/post/3abef87b/drone002.png">
+<meta property="og:image" content="https://www.xiaosige.com/post/3abef87b/drone003.png">
+<meta property="og:image" content="https://www.xiaosige.com/post/3abef87b/drone004.png">
+<meta property="og:image" content="https://www.xiaosige.com/post/3abef87b/drone005.png">
+<meta property="og:image" content="https://www.xiaosige.com/post/3abef87b/drone006.png">
+<meta property="og:image" content="https://www.xiaosige.com/post/3abef87b/drone007.png">
+<meta property="og:image" content="https://www.xiaosige.com/post/3abef87b/drone008.png">
+<meta property="og:image" content="https://www.xiaosige.com/post/3abef87b/drone009.png">
+<meta property="og:image" content="https://www.xiaosige.com/post/3abef87b/drone010.png">
+<meta property="og:image" content="https://www.xiaosige.com/post/3abef87b/drone011.png">
+<meta property="og:image" content="https://www.xiaosige.com/post/3abef87b/drone013.png">
+<meta property="og:image" content="https://www.xiaosige.com/post/3abef87b/drone012.png">
 <meta property="article:published_time" content="2021-06-12T22:19:21.000Z">
 <meta property="article:modified_time" content="2023-01-26T10:24:35.843Z">
 <meta property="article:author" content="leeze">
 <meta property="article:tag" content="Drone">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://www.xiaosige.com/post/3abef87b/3abef87b/drone001.png">
+<meta name="twitter:image" content="https://www.xiaosige.com/post/3abef87b/drone001.png">
 
 
 <link rel="canonical" href="https://www.xiaosige.com/post/3abef87b.html">
@@ -136,7 +136,7 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">61</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">24</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">145</span></a></li><li class="menu-item menu-item-welfare"><a href="/welfare" rel="section"><i class="fa fa-star fa-fw"></i>收藏</a></li><li class="menu-item menu-item-music"><a href="/music" rel="section"><i class="fa fa-music fa-fw"></i>音乐</a></li><li class="menu-item menu-item-photos"><a href="/photos" rel="section"><i class="fa fa-camera-retro fa-fw"></i>相册</a></li><li class="menu-item menu-item-links"><a href="/links" rel="section"><i class="fa fa-link fa-fw"></i>友链</a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">61</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">25</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">146</span></a></li><li class="menu-item menu-item-welfare"><a href="/welfare" rel="section"><i class="fa fa-star fa-fw"></i>收藏</a></li><li class="menu-item menu-item-music"><a href="/music" rel="section"><i class="fa fa-music fa-fw"></i>音乐</a></li><li class="menu-item menu-item-photos"><a href="/photos" rel="section"><i class="fa fa-camera-retro fa-fw"></i>相册</a></li><li class="menu-item menu-item-links"><a href="/links" rel="section"><i class="fa fa-link fa-fw"></i>友链</a></li>
       <li class="menu-item menu-item-search">
         <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
         </a>
@@ -202,13 +202,13 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">145</span>
+          <span class="site-state-item-count">146</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">24</span>
+        <span class="site-state-item-count">25</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -695,7 +695,7 @@ docker pull drone/drone-runner-docker<span aria-hidden="true" class="line-number
 </li>
 </ul>
 </div></li>
-<li>生成GiteaOauth<br>  gitea右上角-&gt;设置-&gt;应用-&gt;创建应用  <img data-src="/post/3abef87b/3abef87b/drone001.png" class="" title="创建新的 OAuth2 应用程序">   
+<li>生成GiteaOauth<br>  gitea右上角-&gt;设置-&gt;应用-&gt;创建应用  <img data-src="/post/3abef87b/drone001.png" class="" title="创建新的 OAuth2 应用程序">   
 <pre class="line-numbers language-properties" data-language="properties"><code class="language-properties"><span class="token key attr-name">客户端id</span> <span class="token punctuation">:</span> <span class="token value attr-value">f4d1e22d-b092-4e86-bedd-dffb362b1c70</span>
 <span class="token key attr-name">客户端秘钥</span> <span class="token punctuation">:</span> <span class="token value attr-value">EBjiksxi7QBaAtY9cIisGY36Ghr81Y4vtk2uqj8g5qEa</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
   生成rpc秘钥: <code>openssl rand -hex 16 </code><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@loaclhost build<span class="token punctuation">]</span><span class="token comment"># openssl rand -hex 16 </span>
@@ -753,28 +753,28 @@ firewall-cmd <span class="token parameter variable">--reload</span><span aria-hi
 <h3 id="Drone使用"><a href="#Drone使用" class="headerlink" title="Drone使用"></a><code>Drone</code>使用</h3>  让我们来访问下<code>Drone</code>的控制台页面，第一次登录需要输入账号密码（在Gitea中注册的账号），访问地址：<a target="_blank" rel="noopener" href="http://10.211.55.81:3080/">http://10.211.55.81:3080/</a></li>
 </ol>
 <p>  此时我们在Gitea中的项目会现在在列表中，如果没有的话可以点下<code>SYNC</code>按钮；</p>
-<img data-src="/post/3abef87b/3abef87b/drone002.png" class="" title="同步项目">
+<img data-src="/post/3abef87b/drone002.png" class="" title="同步项目">
 <p>  接下来我们需要对仓库进行设置，将仓库设置为<code>Trusted</code>（否则Drone创建的容器无法挂载目录到宿主机），最后点击<code>SAVE</code>按钮保存；</p>
-<img data-src="/post/3abef87b/3abef87b/drone003.png" class="" title="仓库设置一">
-<img data-src="/post/3abef87b/3abef87b/drone004.png" class="" title="仓库设置二">
+<img data-src="/post/3abef87b/drone003.png" class="" title="仓库设置一">
+<img data-src="/post/3abef87b/drone004.png" class="" title="仓库设置二">
 <p>  保存成功后会在<code>Gitea</code>中自动配置一个<code>Web钩子</code>，当我们推送代码到Gitea中去时，会触发这个钩子，然后执行在Drone中的流水线任务；</p>
-<img data-src="/post/3abef87b/3abef87b/drone005.png" class="" title="Web钩子">
+<img data-src="/post/3abef87b/drone005.png" class="" title="Web钩子">
 <p>  拉到最下面，我们可以发送一个测试推送，推送成功会显示绿色的√；</p>
-<img data-src="/post/3abef87b/3abef87b/drone006.png" class="" title="Web钩子">
-<img data-src="/post/3abef87b/3abef87b/drone007.png" class="" title="Web钩子">
+<img data-src="/post/3abef87b/drone006.png" class="" title="Web钩子">
+<img data-src="/post/3abef87b/drone007.png" class="" title="Web钩子">
 <p>  此时我们在<code>Drone</code>中发现其实流水线执行失败了，那是因为我们在脚本中引用了<code>Secret</code>中的<code>ssh_password</code>；</p>
-<img data-src="/post/3abef87b/3abef87b/drone008.png" class="" title="ssh_password">
+<img data-src="/post/3abef87b/drone008.png" class="" title="ssh_password">
 <p>  在仓库的设置中添加一个<code>Secret</code>即可，Secret是专门用来存储密码的，此密码只能被使用或删除，无法被查看；</p>
-<img data-src="/post/3abef87b/3abef87b/drone009.png" class="" title="Secret密码">
+<img data-src="/post/3abef87b/drone009.png" class="" title="Secret密码">
 <p>  在<code>ACTIVITY FEED</code>中使用<code>RESTART</code>可以重新执行该流水线，发现已经成功执行。</p>
-<img data-src="/post/3abef87b/3abef87b/drone010.png" class="" title="RESTART">
-<img data-src="/post/3abef87b/3abef87b/drone011.png" class="" title="SUCCESS">
+<img data-src="/post/3abef87b/drone010.png" class="" title="RESTART">
+<img data-src="/post/3abef87b/drone011.png" class="" title="SUCCESS">
 
 <h3 id="编写脚本"><a href="#编写脚本" class="headerlink" title="编写脚本"></a>编写脚本</h3><div class="note success no-icon"><p>  当我们向Git仓库<code>Push</code>代码时，会自动触发<code>Web钩子</code>，然后<code>Drone</code>就会从Git仓库<code>Clone</code>代码，再通过项目目录下的<code>.drone.yml</code>配置，执行相应的流水线，接下来我们来看看这个脚本是如何写的。</p>
 </div>
 <ol>
-<li>项目结构<img data-src="/post/3abef87b/3abef87b/drone013.png" class="" title="SUCCESS"></li>
-<li>首先我们来了解下在<code>.drone.yml</code>中配置的工作流都有哪些操作，看下流程图就知道了；<img data-src="/post/3abef87b/3abef87b/drone012.png" class="" title="流程"></li>
+<li>项目结构<img data-src="/post/3abef87b/drone013.png" class="" title="SUCCESS"></li>
+<li>首先我们来了解下在<code>.drone.yml</code>中配置的工作流都有哪些操作，看下流程图就知道了；<img data-src="/post/3abef87b/drone012.png" class="" title="流程"></li>
 <li>再来一个完整的<code>.drone.yml</code>，配上详细的注解，看下就基本懂了！<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">kind</span><span class="token punctuation">:</span> pipeline <span class="token comment"># 定义对象类型，还有secret和signature两种类型</span>
 <span class="token key atrule">type</span><span class="token punctuation">:</span> docker <span class="token comment"># 定义流水线类型，还有kubernetes、exec、ssh等类型</span>
 <span class="token key atrule">name</span><span class="token punctuation">:</span> mybatisplus<span class="token punctuation">-</span>drone <span class="token comment"># 定义流水线名称</span>
@@ -979,13 +979,13 @@ ALLOWED_HOST_LIST <span class="token operator">=</span> <span class="token numbe
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">418k</span>
+    <span title="站点总字数">421k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">6:20</span>
+    <span title="站点阅读时长">6:23</span>
   </span>
 </div>
 <div class="busuanzi-count">
