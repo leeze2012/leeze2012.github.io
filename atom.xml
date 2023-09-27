@@ -6,7 +6,7 @@
   <link href="https://www.xiaosige.com/atom.xml" rel="self"/>
   
   <link href="https://www.xiaosige.com/"/>
-  <updated>2023-09-27T10:05:41.548Z</updated>
+  <updated>2023-09-27T10:15:19.231Z</updated>
   <id>https://www.xiaosige.com/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Mac/Linux切换多java版本 jenv</title>
+    <title>Mac/Linux之使用Jenv切换多java版本</title>
     <link href="https://www.xiaosige.com/post/2cab5b52.html"/>
     <id>https://www.xiaosige.com/post/2cab5b52.html</id>
     <published>2023-09-27T07:19:22.000Z</published>
-    <updated>2023-09-27T10:05:41.548Z</updated>
+    <updated>2023-09-27T10:15:19.231Z</updated>
     
     
     <summary type="html">&lt;img data-src=&quot;/post/2cab5b52/jenv.png&quot; style=&quot;height:260px;box-shadow:none!important;&quot;&gt;</summary>

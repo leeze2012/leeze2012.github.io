@@ -15,11 +15,11 @@
     <atom:link href="https://www.xiaosige.com/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>因上努力，果上随缘！</description>
-    <pubDate>Wed, 27 Sep 2023 10:05:41 GMT</pubDate>
+    <pubDate>Wed, 27 Sep 2023 10:15:19 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     <item>
-      <title>Mac/Linux切换多java版本 jenv</title>
+      <title>Mac/Linux之使用Jenv切换多java版本</title>
       <link>https://www.xiaosige.com/post/2cab5b52.html</link>
       <guid>https://www.xiaosige.com/post/2cab5b52.html</guid>
       <pubDate>Wed, 27 Sep 2023 07:19:22 GMT</pubDate>
