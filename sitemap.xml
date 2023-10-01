@@ -1440,14 +1440,14 @@
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/tags/VM/</loc>
+    <loc>https://www.xiaosige.com/tags/EPEL%E6%BA%90/</loc>
     <lastmod>2023-10-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/tags/EPEL%E6%BA%90/</loc>
+    <loc>https://www.xiaosige.com/tags/VM/</loc>
     <lastmod>2023-10-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1461,13 +1461,6 @@
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/tags/Linux/</loc>
-    <lastmod>2023-10-01</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://www.xiaosige.com/tags/BootStrap/</loc>
     <lastmod>2023-10-01</lastmod>
     <changefreq>weekly</changefreq>
@@ -1475,7 +1468,21 @@
   </url>
   
   <url>
+    <loc>https://www.xiaosige.com/tags/Linux/</loc>
+    <lastmod>2023-10-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://www.xiaosige.com/tags/VNC/</loc>
+    <lastmod>2023-10-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.xiaosige.com/tags/Docker/</loc>
     <lastmod>2023-10-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1497,13 +1504,6 @@
   
   <url>
     <loc>https://www.xiaosige.com/tags/Console/</loc>
-    <lastmod>2023-10-01</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.xiaosige.com/tags/Docker/</loc>
     <lastmod>2023-10-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1566,14 +1566,14 @@
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/tags/Gogs/</loc>
+    <loc>https://www.xiaosige.com/tags/Jira/</loc>
     <lastmod>2023-10-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/tags/Mongo/</loc>
+    <loc>https://www.xiaosige.com/tags/Gogs/</loc>
     <lastmod>2023-10-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1587,7 +1587,7 @@
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/tags/Jira/</loc>
+    <loc>https://www.xiaosige.com/tags/Mongo/</loc>
     <lastmod>2023-10-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1699,13 +1699,6 @@
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/tags/LNMP/</loc>
-    <lastmod>2023-10-01</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://www.xiaosige.com/tags/cpu/</loc>
     <lastmod>2023-10-01</lastmod>
     <changefreq>weekly</changefreq>
@@ -1713,7 +1706,7 @@
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/tags/Disk/</loc>
+    <loc>https://www.xiaosige.com/tags/LNMP/</loc>
     <lastmod>2023-10-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1721,6 +1714,13 @@
   
   <url>
     <loc>https://www.xiaosige.com/tags/Python/</loc>
+    <lastmod>2023-10-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.xiaosige.com/tags/Disk/</loc>
     <lastmod>2023-10-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1776,6 +1776,13 @@
   </url>
   
   <url>
+    <loc>https://www.xiaosige.com/tags/Nvm/</loc>
+    <lastmod>2023-10-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://www.xiaosige.com/tags/PHP/</loc>
     <lastmod>2023-10-01</lastmod>
     <changefreq>weekly</changefreq>
@@ -1790,7 +1797,7 @@
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/tags/Nvm/</loc>
+    <loc>https://www.xiaosige.com/tags/snowflake/</loc>
     <lastmod>2023-10-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1798,13 +1805,6 @@
   
   <url>
     <loc>https://www.xiaosige.com/tags/SpringBoot/</loc>
-    <lastmod>2023-10-01</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.xiaosige.com/tags/snowflake/</loc>
     <lastmod>2023-10-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1832,13 +1832,6 @@
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/tags/Traefik/</loc>
-    <lastmod>2023-10-01</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://www.xiaosige.com/tags/VMWare/</loc>
     <lastmod>2023-10-01</lastmod>
     <changefreq>weekly</changefreq>
@@ -1846,7 +1839,7 @@
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/tags/%E7%AE%97%E6%B3%95/</loc>
+    <loc>https://www.xiaosige.com/tags/Traefik/</loc>
     <lastmod>2023-10-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1854,6 +1847,13 @@
   
   <url>
     <loc>https://www.xiaosige.com/tags/Yarn/</loc>
+    <lastmod>2023-10-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.xiaosige.com/tags/%E7%AE%97%E6%B3%95/</loc>
     <lastmod>2023-10-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1869,14 +1869,14 @@
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/categories/Mac/</loc>
+    <loc>https://www.xiaosige.com/categories/AnolisOS/</loc>
     <lastmod>2023-10-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/categories/AnolisOS/</loc>
+    <loc>https://www.xiaosige.com/categories/Mac/</loc>
     <lastmod>2023-10-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
