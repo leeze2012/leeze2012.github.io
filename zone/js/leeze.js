@@ -46,3 +46,8 @@ myUtil = {
 window.onload = function() {
     myUtil.init()
 };
+
+/* 跳转外站URL */
+function openTzWzURL(url){
+    window.open('/zone/link?target='+encodeURIComponent(url));
+}
