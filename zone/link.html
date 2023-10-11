@@ -9,6 +9,21 @@
     <! -- A querystring parser that supports nesting and arrays, with a depth limit -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.11.1/qs.min.js" ></script>
     <style>
+        .avatarimg {
+            width: 40px;
+            height: 40px;
+            /*margin-top: 100px;*/
+            -webkit-border-radius: 50%;
+            -moz-border-radius: 50%;
+            border-radius: 50%;
+            border: 5px solid rgba(255,255,255,0.8);
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .avatarimg:hover {
+            border: 5px solid rgba(90,96,200,0.8);
+        }
 
         .gitee-external-link-wrapper .logo-img {
             margin-bottom: 1.6rem;
@@ -43,6 +58,7 @@
             border-radius: 0.4rem;
             border: 0.1rem solid #dce3e8;
             background: white;
+            box-shadow: -5px -5px 10px rgba(0,0,0,.3);
         }
         .gitee-external-link-wrapper .content-box .content-title {
             font-size: 22px;
@@ -115,7 +131,7 @@
 <body style="background-color: #F6F6F7;">
 
     <div class="gitee-external-link-wrapper">
-        <img class="logo-img" src="https://static.xiaosige.com/img/favicon.png" alt="Logo black">
+        <img class="logo-img avatarimg" src="https://static.xiaosige.com/img/favicon.png" alt="Logo black">
         <div class="content-box">
             <div class="content-title">即将跳转到外部网站</div>
             <div class="content-text">您将要访问的链接不属于 Xiaosige.com ，请关注您的账号安全。</div>
