@@ -16,7 +16,7 @@
             -webkit-border-radius: 50%;
             -moz-border-radius: 50%;
             border-radius: 50%;
-            border: 3px solid rgba(255,255,255,0.8);
+           /* border: 3px solid rgba(255,255,255,0.8);*/
             transition: 0.3s;
             cursor: pointer;
         }
@@ -139,7 +139,7 @@
                 <div class="external-link-href" style="color:#0F6BFF !important;background-color: #f3f3f3;margin: 0.5rem auto;padding: 0.18rem;"></div>
             </div>
             <div style="text-align: right;margin-bottom: 6px;margin-top: 6px;">
-                <a class="hvr-bounce-to-top" style="text-decoration: none;color: #fc6423;padding: 4px;border-style: double;border-color: #ff7600;">
+                <a class="hvr-bounce-to-right" style="text-decoration: none;color: #fc6423;padding: 4px;border-style: double;border-color: #ff7600;">
                     <i class="fab fa-dev fa-fw"></i>继续前进</a>
             </div>
         </div>
@@ -168,7 +168,7 @@
             let newURL = decodeURIComponent(getQueryVariable("target"));
 
             $(".external-link-href").text(newURL);
-            $(".hvr-bounce-to-top").attr('href',newURL);
+            $(".hvr-bounce-to-right").attr('href',newURL);
 
 
         });
