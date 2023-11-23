@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://www.xiaosige.com/post/d4875b9e.html</loc>
+    
+    <lastmod>2023-11-23</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://www.xiaosige.com/post/bd7f5796.html</loc>
     
     <lastmod>2023-11-23</lastmod>
@@ -471,15 +480,6 @@
   
   <url>
     <loc>https://www.xiaosige.com/post/63ae3ee4.html</loc>
-    
-    <lastmod>2022-05-09</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.xiaosige.com/post/d4875b9e.html</loc>
     
     <lastmod>2022-05-09</lastmod>
     
@@ -1496,6 +1496,13 @@
   </url>
   
   <url>
+    <loc>https://www.xiaosige.com/tags/Tool/</loc>
+    <lastmod>2023-11-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://www.xiaosige.com/tags/Console/</loc>
     <lastmod>2023-11-23</lastmod>
     <changefreq>weekly</changefreq>
@@ -1504,13 +1511,6 @@
   
   <url>
     <loc>https://www.xiaosige.com/tags/Compose/</loc>
-    <lastmod>2023-11-23</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.xiaosige.com/tags/Tool/</loc>
     <lastmod>2023-11-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1573,14 +1573,14 @@
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/tags/Mongo/</loc>
+    <loc>https://www.xiaosige.com/tags/Jira/</loc>
     <lastmod>2023-11-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/tags/Jira/</loc>
+    <loc>https://www.xiaosige.com/tags/Mongo/</loc>
     <lastmod>2023-11-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1622,6 +1622,13 @@
   </url>
   
   <url>
+    <loc>https://www.xiaosige.com/tags/Markdown/</loc>
+    <lastmod>2023-11-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://www.xiaosige.com/tags/Eclipse/</loc>
     <lastmod>2023-11-23</lastmod>
     <changefreq>weekly</changefreq>
@@ -1630,13 +1637,6 @@
   
   <url>
     <loc>https://www.xiaosige.com/tags/Fail2ban/</loc>
-    <lastmod>2023-11-23</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.xiaosige.com/tags/Markdown/</loc>
     <lastmod>2023-11-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1925,14 +1925,14 @@
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/categories/Eclipse/</loc>
+    <loc>https://www.xiaosige.com/categories/Markdown/</loc>
     <lastmod>2023-11-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://www.xiaosige.com/categories/Markdown/</loc>
+    <loc>https://www.xiaosige.com/categories/Eclipse/</loc>
     <lastmod>2023-11-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
