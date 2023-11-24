@@ -15,8 +15,33 @@
     <atom:link href="https://www.xiaosige.com/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>因上努力，果上随缘！</description>
-    <pubDate>Sun, 01 Oct 2023 05:25:01 GMT</pubDate>
+    <pubDate>Fri, 24 Nov 2023 07:12:16 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>【Docker】之Harbor私有镜像仓库</title>
+      <link>https://www.xiaosige.com/post/e3fb4d65.html</link>
+      <guid>https://www.xiaosige.com/post/e3fb4d65.html</guid>
+      <pubDate>Fri, 24 Nov 2023 00:35:50 GMT</pubDate>
+      
+      <description>&lt;h2 id=&quot;安装harbor之前先安装docker&quot;&gt;&lt;a href=&quot;#安装harbor之前先安装docker&quot; class=&quot;headerlink&quot; title=&quot;安装harbor之前先安装docker&quot;&gt;&lt;/a&gt;安装harbor之前先安装docker&lt;/h2&gt;&lt;h3 id=&quot;准备&quot;&gt;&lt;a href=&quot;#准备&quot; class=&quot;headerlink&quot; title=&quot;准备&quot;&gt;&lt;/a&gt;准备&lt;/h3&gt;&lt;h4 id=&quot;禁用iptables和firewalld服务&quot;&gt;&lt;a href=&quot;#禁用iptables和firewalld服务&quot; class=&quot;headerlink&quot; title=&quot;禁用iptables和firewalld服务&quot;&gt;&lt;/a&gt;禁用iptables和firewalld服务&lt;/h4&gt;&lt;pre class=&quot;line-numbers language-bash&quot; data-language=&quot;bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;root@master ~&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token comment&quot;&gt;# systemctl stop firewalld&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;root@master ~&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token comment&quot;&gt;# systemctl disable firewalld&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;root@master ~&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token comment&quot;&gt;# systemctl stop iptables&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;root@master ~&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token comment&quot;&gt;# systemctl disable iptables&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;root@master ~&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token comment&quot;&gt;#  iptables -F  #清空防火墙规则&lt;/span&gt;&lt;span aria-hidden=&quot;true&quot; class=&quot;line-numbers-rows&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;</description>
+      
+      
+      
+      
+      <category domain="https://www.xiaosige.com/categories/Docker/">Docker</category>
+      
+      
+      <category domain="https://www.xiaosige.com/tags/Harbor/">Harbor</category>
+      
+      
+      <comments>https://www.xiaosige.com/post/e3fb4d65.html#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>Mac/Linux之使用Jenv切换java版本</title>
@@ -432,27 +457,6 @@ vm.max_map_count &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt
       
       
       <comments>https://www.xiaosige.com/post/f43604d0.html#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>moment、dayjs获取常用时间</title>
-      <link>https://www.xiaosige.com/post/2cdf9a71.html</link>
-      <guid>https://www.xiaosige.com/post/2cdf9a71.html</guid>
-      <pubDate>Sun, 21 Aug 2022 12:55:27 GMT</pubDate>
-      
-      <description>&lt;h3 id=&quot;moment&quot;&gt;&lt;a href=&quot;#moment&quot; class=&quot;headerlink&quot; title=&quot;moment&quot;&gt;&lt;/a&gt;moment&lt;/h3&gt;&lt;p&gt;   &lt;a href=&quot;http://momentjs.cn/docs/&quot;&gt;moment&lt;/a&gt;&lt;/p&gt;</description>
-      
-      
-      
-      
-      <category domain="https://www.xiaosige.com/categories/JavaScript/">JavaScript</category>
-      
-      
-      <category domain="https://www.xiaosige.com/tags/Dayjs/">Dayjs</category>
-      
-      
-      <comments>https://www.xiaosige.com/post/2cdf9a71.html#disqus_thread</comments>
       
     </item>
     

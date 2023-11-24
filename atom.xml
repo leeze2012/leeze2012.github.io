@@ -6,7 +6,7 @@
   <link href="https://www.xiaosige.com/atom.xml" rel="self"/>
   
   <link href="https://www.xiaosige.com/"/>
-  <updated>2023-10-01T05:25:01.712Z</updated>
+  <updated>2023-11-24T07:12:16.468Z</updated>
   <id>https://www.xiaosige.com/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>【Docker】之Harbor私有镜像仓库</title>
+    <link href="https://www.xiaosige.com/post/e3fb4d65.html"/>
+    <id>https://www.xiaosige.com/post/e3fb4d65.html</id>
+    <published>2023-11-24T00:35:50.000Z</published>
+    <updated>2023-11-24T07:12:16.468Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;安装harbor之前先安装docker&quot;&gt;&lt;a href=&quot;#安装harbor之前先安装docker&quot; class=&quot;headerlink&quot; title=&quot;安装harbor之前先安装docker&quot;&gt;&lt;/a&gt;安装harbor之前先安装docker&lt;/h2&gt;&lt;h3 id=&quot;准备&quot;&gt;&lt;a href=&quot;#准备&quot; class=&quot;headerlink&quot; title=&quot;准备&quot;&gt;&lt;/a&gt;准备&lt;/h3&gt;&lt;h4 id=&quot;禁用iptables和firewalld服务&quot;&gt;&lt;a href=&quot;#禁用iptables和firewalld服务&quot; class=&quot;headerlink&quot; title=&quot;禁用iptables和firewalld服务&quot;&gt;&lt;/a&gt;禁用iptables和firewalld服务&lt;/h4&gt;&lt;pre class=&quot;line-numbers language-bash&quot; data-language=&quot;bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;root@master ~&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token comment&quot;&gt;# systemctl stop firewalld&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;root@master ~&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token comment&quot;&gt;# systemctl disable firewalld&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;root@master ~&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token comment&quot;&gt;# systemctl stop iptables&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;root@master ~&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token comment&quot;&gt;# systemctl disable iptables&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;root@master ~&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token comment&quot;&gt;#  iptables -F  #清空防火墙规则&lt;/span&gt;&lt;span aria-hidden=&quot;true&quot; class=&quot;line-numbers-rows&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;</summary>
+    
+    
+    
+    <category term="Docker" scheme="https://www.xiaosige.com/categories/Docker/"/>
+    
+    
+    <category term="Harbor" scheme="https://www.xiaosige.com/tags/Harbor/"/>
+    
+  </entry>
   
   <entry>
     <title>Mac/Linux之使用Jenv切换java版本</title>
@@ -392,25 +415,6 @@ vm.max_map_count &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt
     
     
     <category term="Git" scheme="https://www.xiaosige.com/tags/Git/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>moment、dayjs获取常用时间</title>
-    <link href="https://www.xiaosige.com/post/2cdf9a71.html"/>
-    <id>https://www.xiaosige.com/post/2cdf9a71.html</id>
-    <published>2022-08-21T12:55:27.000Z</published>
-    <updated>2022-08-21T13:29:07.176Z</updated>
-    
-    
-    <summary type="html">&lt;h3 id=&quot;moment&quot;&gt;&lt;a href=&quot;#moment&quot; class=&quot;headerlink&quot; title=&quot;moment&quot;&gt;&lt;/a&gt;moment&lt;/h3&gt;&lt;p&gt;   &lt;a href=&quot;http://momentjs.cn/docs/&quot;&gt;moment&lt;/a&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="JavaScript" scheme="https://www.xiaosige.com/categories/JavaScript/"/>
-    
-    
-    <category term="Dayjs" scheme="https://www.xiaosige.com/tags/Dayjs/"/>
     
   </entry>
   
