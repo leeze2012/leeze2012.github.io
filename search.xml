@@ -6974,7 +6974,8 @@ ll <span class="token string">"<span class="token variable">$@</span>"</span> <s
     <content><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>  Nexus3是Sonatype提供的仓库管理平台，Nuexus Repository OSS3能够支持Maven、npm、Docker、YUM、Helm等格式数据的存储和发布；并且能够与Jekins、SonaQube和Eclipse等工具进行集成。Nexus3支持作为宿主和代理存储库的Docker存储库，可以直接将这些存储库暴露给客户端工具；也可以以存储库组的方式暴露给客户端工具，存储库组是合并了多个存储库的内容的存储库，能够通过一个URL将多个存储库暴露给客户端工具，从而便于用户的使用。通过nexus3自建能够有效减少访问获取镜像的时间和对带宽使用，并能够通过自有的镜像仓库共享企业自己的镜像。在本文中，采用Docker方式安装部署Nexus3。</p>
 <span id="more"></span>
 
-<h3 id="安装部署"><a href="#安装部署" class="headerlink" title="安装部署"></a>安装部署</h3><h4 id="安装nexus"><a href="#安装nexus" class="headerlink" title="安装nexus"></a>安装nexus</h4><pre class="line-numbers language-docker" data-language="docker"><code class="language-docker">
+<h3 id="安装部署"><a href="#安装部署" class="headerlink" title="安装部署"></a>安装部署</h3><h4 id="安装nexus"><a href="#安装nexus" class="headerlink" title="安装nexus"></a>安装nexus</h4><p>  <a href="https://help.sonatype.com/repomanager3/product-information/download">https://help.sonatype.com/repomanager3/product-information/download</a></p>
+<pre class="line-numbers language-docker" data-language="docker"><code class="language-docker">
 docker run -d -p 8081:8081 -p 8082:8082 -p 8083:8083 -p 8084:8084 \
 --net mynet --ip 172.172.0.11 \
 --name nexus3 \
@@ -8010,7 +8011,8 @@ services:
 <span id="more"></span>
 
 <h3 id="安装Docker"><a href="#安装Docker" class="headerlink" title="安装Docker"></a>安装Docker</h3><p>  <code>Centos</code>下安装<code>Docker</code>参考：<a href="/post/a00f9d53.html" title="Centos8安装Docker">Centos8安装Docker</a>。</p>
-<h3 id="安装Nexus3"><a href="#安装Nexus3" class="headerlink" title="安装Nexus3"></a>安装Nexus3</h3><h4 id="下载镜像"><a href="#下载镜像" class="headerlink" title="下载镜像"></a>下载镜像</h4><pre class="line-numbers language-docker" data-language="docker"><code class="language-docker">docker pull sonatype/nexus3:3.31.0<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="安装Nexus3"><a href="#安装Nexus3" class="headerlink" title="安装Nexus3"></a>安装Nexus3</h3><h4 id="下载镜像"><a href="#下载镜像" class="headerlink" title="下载镜像"></a>下载镜像</h4><p>  <a href="https://help.sonatype.com/repomanager3/product-information/download">https://help.sonatype.com/repomanager3/product-information/download</a></p>
+<pre class="line-numbers language-docker" data-language="docker"><code class="language-docker">docker pull sonatype/nexus3:3.31.0<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h4 id="创建数据目录"><a href="#创建数据目录" class="headerlink" title="创建数据目录"></a>创建数据目录</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">mkdir</span> <span class="token parameter variable">-p</span> /home/data/nexus3/nexus-data
 
 <span class="token function">chmod</span> <span class="token number">777</span> /home/data/nexus3/nexus-data<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
