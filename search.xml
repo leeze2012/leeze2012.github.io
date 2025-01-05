@@ -194,6 +194,68 @@ this environment variable is needed to run this program.<span aria-hidden="true"
       </tags>
   </entry>
   <entry>
+    <title>Linux brctl 安装</title>
+    <url>/post/8eeb1ff4.html</url>
+    <content><![CDATA[<p>&nbsp;&nbsp;<code>CentOS8</code>中<code>不能</code>直接通过<code>yum</code>安装<code>bridge-utils</code>的问题。通过手动下载并安装<code>rpm</code>包，或者使用<code>nmcli</code>、<code>bridge</code>或<code>CentOS Cockpit UI</code>来管理网桥。</p>
+<span id="more"></span>
+
+<h5 id="查看brctl软件包"><a href="#查看brctl软件包" class="headerlink" title="查看brctl软件包"></a>查看<code>brctl</code>软件包</h5><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">btctl show
+
+yum info brctl
+
+yum info bridge-utils
+
+<span class="token function">rpm</span> <span class="token parameter variable">-qf</span> <span class="token variable"><span class="token variable">`</span><span class="token function">which</span> brctl<span class="token variable">`</span></span>
+
+yum list installed <span class="token operator">|</span> <span class="token function">grep</span> brctl<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h5 id="安装epel源"><a href="#安装epel源" class="headerlink" title="安装epel源"></a>安装<code>epel</code>源</h5><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">yum <span class="token parameter variable">-y</span> <span class="token function">install</span> epel-release<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h5 id="查看btctl指令所属软件包"><a href="#查看btctl指令所属软件包" class="headerlink" title="查看btctl指令所属软件包"></a>查看<code>btctl</code>指令所属软件包</h5><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">yum info bridge-utils<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@Anolis ~<span class="token punctuation">]</span><span class="token comment"># yum info bridge-utils</span>
+Last metadata expiration check: <span class="token number">0</span>:32:50 ago on Thu 05 Sep <span class="token number">2024</span> 07:52:37 AM CST.
+Installed Packages
+Name         <span class="token builtin class-name">:</span> <span class="token variable"><span class="token variable">`</span>bridge-utils<span class="token variable">`</span></span>
+Version      <span class="token builtin class-name">:</span> <span class="token number">1.7</span>.1
+Release      <span class="token builtin class-name">:</span> <span class="token number">2</span>.el8
+Architecture <span class="token builtin class-name">:</span> x86_64
+Size         <span class="token builtin class-name">:</span> <span class="token number">61</span> k
+Source       <span class="token builtin class-name">:</span> bridge-utils-1.7.1-2.el8.src.rpm
+Repository   <span class="token builtin class-name">:</span> @System
+From repo    <span class="token builtin class-name">:</span> epel
+Summary      <span class="token builtin class-name">:</span> Utilities <span class="token keyword">for</span> configuring the linux ethernet bridge
+URL          <span class="token builtin class-name">:</span> https://wiki.linuxfoundation.org/networking/bridge
+License      <span class="token builtin class-name">:</span> GPLv2+
+Description  <span class="token builtin class-name">:</span> This package contains utilities <span class="token keyword">for</span> configuring the linux ethernet
+             <span class="token builtin class-name">:</span> bridge. The linux ethernet bridge can be used <span class="token keyword">for</span> connecting multiple
+             <span class="token builtin class-name">:</span> ethernet devices together. The connecting is fully transparent: hosts
+             <span class="token builtin class-name">:</span> connected to one ethernet device see hosts connected to the other
+             <span class="token builtin class-name">:</span> ethernet devices directly.
+             <span class="token builtin class-name">:</span>
+             <span class="token builtin class-name">:</span> Install bridge-utils <span class="token keyword">if</span> you want to use the linux ethernet bridge.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h5 id="查看虚拟网络"><a href="#查看虚拟网络" class="headerlink" title="查看虚拟网络"></a>查看<code>虚拟网络</code></h5><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">brctl show<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@Anolis ~<span class="token punctuation">]</span><span class="token comment"># brctl show</span>
+bridge name	bridge <span class="token function">id</span>		STP enabled	interfaces
+br-dde1c74c202b		<span class="token number">8000</span>.8ef19be9a543	no		veth362e375
+docker0		<span class="token number">8000</span>.02426e589e0b	no
+virbr0		<span class="token number">8000</span>.525400ef59f9	<span class="token function">yes</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h5 id="查看brctl指令所属软件包"><a href="#查看brctl指令所属软件包" class="headerlink" title="查看brctl指令所属软件包"></a>查看<code>brctl</code>指令所属软件包</h5><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">which</span> brctl
+<span class="token function">rpm</span> <span class="token parameter variable">-qf</span> <span class="token variable"><span class="token variable">`</span><span class="token function">which</span> brctl<span class="token variable">`</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@Anolis ~<span class="token punctuation">]</span><span class="token comment"># which brctl</span>
+/usr/sbin/brctl
+<span class="token punctuation">[</span>root@Anolis ~<span class="token punctuation">]</span><span class="token comment"># rpm -qf `which brctl`</span>
+bridge-utils-1.7.1-2.el8.x86_64<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>【Docker】之Harbor私有镜像仓库</title>
     <url>/post/e3fb4d65.html</url>
     <content><![CDATA[<h2 id="安装harbor之前先安装docker"><a href="#安装harbor之前先安装docker" class="headerlink" title="安装harbor之前先安装docker"></a>安装harbor之前先安装docker</h2><h3 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h3><h4 id="禁用iptables和firewalld服务"><a href="#禁用iptables和firewalld服务" class="headerlink" title="禁用iptables和firewalld服务"></a>禁用iptables和firewalld服务</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@master ~<span class="token punctuation">]</span><span class="token comment"># systemctl stop firewalld</span>
@@ -2207,7 +2269,7 @@ TRAEFIK_PROVIDERS_DOCKER：
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h3 id="PS"><a href="#PS" class="headerlink" title="PS"></a>PS</h3><blockquote>
-<p>参考：<br><a href="https://doc.traefik.io/traefik/">Traefik的官方文档</a><br><a href="https://shanyue.tech/op/">Docker 个人服务器运维</a><br><a href="https://blog.csdn.net/qq_35278597/article/details/124360125">Traefik学习</a><br><a href="https://blog.csdn.net/qq_42413011/article/details/115430371">docker篇-(docker-compose安装web网关traefik)</a></p>
+<p>参考：<br><a href="https://github.com/traefik/traefik/releases">https://github.com/traefik/traefik/releases</a><br><a href="https://doc.traefik.io/traefik/">Traefik的官方文档</a><br><a href="https://shanyue.tech/op/">Docker 个人服务器运维</a><br><a href="https://blog.csdn.net/qq_35278597/article/details/124360125">Traefik学习</a><br><a href="https://blog.csdn.net/qq_42413011/article/details/115430371">docker篇-(docker-compose安装web网关traefik)</a></p>
 </blockquote>
 <link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
       <categories>

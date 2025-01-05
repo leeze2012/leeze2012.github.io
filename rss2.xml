@@ -15,8 +15,29 @@
     <atom:link href="https://www.xiaosige.com/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>因上努力，果上随缘！</description>
-    <pubDate>Fri, 24 Nov 2023 07:12:16 GMT</pubDate>
+    <pubDate>Thu, 05 Sep 2024 06:38:42 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>Linux brctl 安装</title>
+      <link>https://www.xiaosige.com/post/8eeb1ff4.html</link>
+      <guid>https://www.xiaosige.com/post/8eeb1ff4.html</guid>
+      <pubDate>Thu, 05 Sep 2024 04:11:40 GMT</pubDate>
+      
+      <description>&lt;p&gt;&amp;nbsp;&amp;nbsp;&lt;code&gt;CentOS8&lt;/code&gt;中&lt;code&gt;不能&lt;/code&gt;直接通过&lt;code&gt;yum&lt;/code&gt;安装&lt;code&gt;bridge-utils&lt;/code&gt;的问题。通过手动下载并安装&lt;code&gt;rpm&lt;/code&gt;包，或者使用&lt;code&gt;nmcli&lt;/code&gt;、&lt;code&gt;bridge&lt;/code&gt;或&lt;code&gt;CentOS Cockpit UI&lt;/code&gt;来管理网桥。&lt;/p&gt;</description>
+      
+      
+      
+      
+      <category domain="https://www.xiaosige.com/categories/Linux/">Linux</category>
+      
+      
+      <category domain="https://www.xiaosige.com/tags/Linux/">Linux</category>
+      
+      
+      <comments>https://www.xiaosige.com/post/8eeb1ff4.html#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>【Docker】之Harbor私有镜像仓库</title>
@@ -430,33 +451,6 @@ vm.max_map_count &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt
       
       
       <comments>https://www.xiaosige.com/post/9d73a089.html#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>Liunx 定时备份博客数据Git</title>
-      <link>https://www.xiaosige.com/post/f43604d0.html</link>
-      <guid>https://www.xiaosige.com/post/f43604d0.html</guid>
-      <pubDate>Sun, 21 Aug 2022 13:07:12 GMT</pubDate>
-      
-      <description>&lt;h3 id=&quot;下载Git配置用户名和邮箱&quot;&gt;&lt;a href=&quot;#下载Git配置用户名和邮箱&quot; class=&quot;headerlink&quot; title=&quot;下载Git配置用户名和邮箱&quot;&gt;&lt;/a&gt;下载Git配置用户名和邮箱&lt;/h3&gt;&lt;pre class=&quot;line-numbers language-bash&quot; data-language=&quot;bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;yum &lt;span class=&quot;token function&quot;&gt;install&lt;/span&gt; &lt;span class=&quot;token parameter variable&quot;&gt;-y&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;git&lt;/span&gt;
-
-&lt;span class=&quot;token function&quot;&gt;git&lt;/span&gt; config &lt;span class=&quot;token parameter variable&quot;&gt;--global&lt;/span&gt; user.name &lt;span class=&quot;token string&quot;&gt;&#39;Git用户名&#39;&lt;/span&gt;
-
-&lt;span class=&quot;token function&quot;&gt;git&lt;/span&gt; config &lt;span class=&quot;token parameter variable&quot;&gt;--global&lt;/span&gt; user.email &lt;span class=&quot;token string&quot;&gt;&quot;Git邮箱&quot;&lt;/span&gt;
-&lt;span aria-hidden=&quot;true&quot; class=&quot;line-numbers-rows&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;code&gt;脚本提交的时候不输密码，所以需要配置ssh key，git仓库提供商的 ssh key配置验证方式不同，需自行查阅文档或者某度&lt;/code&gt;&lt;/p&gt;</description>
-      
-      
-      
-      
-      <category domain="https://www.xiaosige.com/categories/Linux/">Linux</category>
-      
-      
-      <category domain="https://www.xiaosige.com/tags/Git/">Git</category>
-      
-      
-      <comments>https://www.xiaosige.com/post/f43604d0.html#disqus_thread</comments>
       
     </item>
     

@@ -6,7 +6,7 @@
   <link href="https://www.xiaosige.com/atom.xml" rel="self"/>
   
   <link href="https://www.xiaosige.com/"/>
-  <updated>2023-11-24T07:12:16.468Z</updated>
+  <updated>2024-09-05T06:38:42.804Z</updated>
   <id>https://www.xiaosige.com/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Linux brctl 安装</title>
+    <link href="https://www.xiaosige.com/post/8eeb1ff4.html"/>
+    <id>https://www.xiaosige.com/post/8eeb1ff4.html</id>
+    <published>2024-09-05T04:11:40.000Z</published>
+    <updated>2024-09-05T06:38:42.804Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;&amp;nbsp;&amp;nbsp;&lt;code&gt;CentOS8&lt;/code&gt;中&lt;code&gt;不能&lt;/code&gt;直接通过&lt;code&gt;yum&lt;/code&gt;安装&lt;code&gt;bridge-utils&lt;/code&gt;的问题。通过手动下载并安装&lt;code&gt;rpm&lt;/code&gt;包，或者使用&lt;code&gt;nmcli&lt;/code&gt;、&lt;code&gt;bridge&lt;/code&gt;或&lt;code&gt;CentOS Cockpit UI&lt;/code&gt;来管理网桥。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Linux" scheme="https://www.xiaosige.com/categories/Linux/"/>
+    
+    
+    <category term="Linux" scheme="https://www.xiaosige.com/tags/Linux/"/>
+    
+  </entry>
   
   <entry>
     <title>【Docker】之Harbor私有镜像仓库</title>
@@ -226,7 +245,7 @@ vm.max_map_count &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt
     <link href="https://www.xiaosige.com/post/36ac4c26.html"/>
     <id>https://www.xiaosige.com/post/36ac4c26.html</id>
     <published>2022-10-10T21:37:02.000Z</published>
-    <updated>2022-10-11T15:57:03.766Z</updated>
+    <updated>2025-01-05T04:08:51.746Z</updated>
     
     
     <summary type="html">&lt;img data-src=&quot;/post/36ac4c26/traefik003.png&quot; style=&quot;height:200px;box-shadow:none!important;&quot;&gt;</summary>
@@ -390,31 +409,6 @@ vm.max_map_count &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt
     
     
     <category term="Mail" scheme="https://www.xiaosige.com/tags/Mail/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Liunx 定时备份博客数据Git</title>
-    <link href="https://www.xiaosige.com/post/f43604d0.html"/>
-    <id>https://www.xiaosige.com/post/f43604d0.html</id>
-    <published>2022-08-21T13:07:12.000Z</published>
-    <updated>2022-08-21T13:30:33.948Z</updated>
-    
-    
-    <summary type="html">&lt;h3 id=&quot;下载Git配置用户名和邮箱&quot;&gt;&lt;a href=&quot;#下载Git配置用户名和邮箱&quot; class=&quot;headerlink&quot; title=&quot;下载Git配置用户名和邮箱&quot;&gt;&lt;/a&gt;下载Git配置用户名和邮箱&lt;/h3&gt;&lt;pre class=&quot;line-numbers language-bash&quot; data-language=&quot;bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;yum &lt;span class=&quot;token function&quot;&gt;install&lt;/span&gt; &lt;span class=&quot;token parameter variable&quot;&gt;-y&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;git&lt;/span&gt;
-
-&lt;span class=&quot;token function&quot;&gt;git&lt;/span&gt; config &lt;span class=&quot;token parameter variable&quot;&gt;--global&lt;/span&gt; user.name &lt;span class=&quot;token string&quot;&gt;&#39;Git用户名&#39;&lt;/span&gt;
-
-&lt;span class=&quot;token function&quot;&gt;git&lt;/span&gt; config &lt;span class=&quot;token parameter variable&quot;&gt;--global&lt;/span&gt; user.email &lt;span class=&quot;token string&quot;&gt;&quot;Git邮箱&quot;&lt;/span&gt;
-&lt;span aria-hidden=&quot;true&quot; class=&quot;line-numbers-rows&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;code&gt;脚本提交的时候不输密码，所以需要配置ssh key，git仓库提供商的 ssh key配置验证方式不同，需自行查阅文档或者某度&lt;/code&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="Linux" scheme="https://www.xiaosige.com/categories/Linux/"/>
-    
-    
-    <category term="Git" scheme="https://www.xiaosige.com/tags/Git/"/>
     
   </entry>
   
