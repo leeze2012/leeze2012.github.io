@@ -6,7 +6,7 @@
   <link href="https://www.xiaosige.com/atom.xml" rel="self"/>
   
   <link href="https://www.xiaosige.com/"/>
-  <updated>2024-09-05T06:38:42.804Z</updated>
+  <updated>2025-05-14T15:29:38.046Z</updated>
   <id>https://www.xiaosige.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>在daemon.json中配置hosts后无法启动docker</title>
+    <link href="https://www.xiaosige.com/post/257c64af.html"/>
+    <id>https://www.xiaosige.com/post/257c64af.html</id>
+    <published>2025-05-14T15:15:44.000Z</published>
+    <updated>2025-05-14T15:29:38.046Z</updated>
+    
+    
+    <summary type="html">&lt;h3 id=&quot;问题-在daemon-json中配置hosts后无法启动docker&quot;&gt;&lt;a href=&quot;#问题-在daemon-json中配置hosts后无法启动docker&quot; class=&quot;headerlink&quot; title=&quot;问题:在daemon.json中配置hosts后无法启动docker&quot;&gt;&lt;/a&gt;问题:在&lt;code&gt;daemon.json&lt;/code&gt;中配置&lt;code&gt;hosts&lt;/code&gt;后无法启动&lt;code&gt;docker&lt;/code&gt;&lt;/h3&gt;&lt;p&gt;  我正在尝试使用配置文件 &lt;code&gt;/etc/docker/daemon.json&lt;/code&gt;:&lt;/p&gt;
+&lt;pre class=&quot;line-numbers language-none&quot;&gt;&lt;code class=&quot;language-none&quot;&gt;{
+  &quot;debug&quot;: true,
+  &quot;hosts&quot;: [&quot;tcp://0.0.0.0:1234&quot;, &quot;unix:///var/run/docker.sock&quot;],
+  &quot;dns&quot;  : [&quot;8.8.8.8&quot;,&quot;8.8.4.4&quot;]
+}
+&lt;span aria-hidden=&quot;true&quot; class=&quot;line-numbers-rows&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;</summary>
+    
+    
+    
+    <category term="Docker" scheme="https://www.xiaosige.com/categories/Docker/"/>
+    
+    
+    <category term="Docker" scheme="https://www.xiaosige.com/tags/Docker/"/>
+    
+  </entry>
   
   <entry>
     <title>Linux brctl 安装</title>
@@ -390,25 +415,6 @@ vm.max_map_count &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt
     
     
     <category term="Console" scheme="https://www.xiaosige.com/tags/Console/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Liunx CentOS阿里云邮箱配置</title>
-    <link href="https://www.xiaosige.com/post/9d73a089.html"/>
-    <id>https://www.xiaosige.com/post/9d73a089.html</id>
-    <published>2022-08-21T13:14:02.000Z</published>
-    <updated>2022-08-21T13:29:07.174Z</updated>
-    
-    
-    <summary type="html">&lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;  本站由&lt;code&gt;阿里云轻量服务器&lt;/code&gt;搭建 不支持&lt;code&gt;25&lt;/code&gt;端口 所以使用&lt;code&gt;465&lt;/code&gt;发送邮件，如果&lt;code&gt;腾讯云&lt;/code&gt;可用&lt;code&gt;25&lt;/code&gt;端口&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="Linux" scheme="https://www.xiaosige.com/categories/Linux/"/>
-    
-    
-    <category term="Mail" scheme="https://www.xiaosige.com/tags/Mail/"/>
     
   </entry>
   
